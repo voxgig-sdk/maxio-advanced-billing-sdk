@@ -1,6 +1,6 @@
 # Maxio Advanced Billing: the Voxgig SDK and the APIMatic SDK compared
 
-Vergleich: APIMatic. Compared with maxio-com/ab-typescript-sdk 10.0.0, which covers 249 of the spec's operations. Spec: developers.maxio.com OpenAPI 3.0 export, OAS 3.0.0, 196 paths / 268 ops, MIT, inherited from maxio-com/ab-typescript-sdk (the definition states none). Added 2026-09-28.
+Vergleich: APIMatic. Compared with maxio-com/ab-typescript-sdk 10.0.0, which covers 249 of the spec's operations. Spec: developers.maxio.com OpenAPI 3.0 export, OAS 3.0.0, 196 paths / 268 ops, MIT (inherited from maxio-com/ab-typescript-sdk). Added 2026-09-28.
 
 This repository is on the admin **vergleich** list. It is built only to be compared, and it is not published.
 
