@@ -1,0 +1,96 @@
+{
+  "existing": {
+    "product_price_point": {
+      "PRODUCT_PRICE_POINT00": {
+        "id": "PRODUCT_PRICE_POINT00",
+        "price_point": {},
+        "price_points": [],
+        "product": {},
+        "product_id": "PRODUCT01",
+        "price_point_id": "PRICE_POINT01"
+      },
+      "PRODUCT_PRICE_POINT01": {
+        "id": "PRODUCT_PRICE_POINT01",
+        "price_point": {},
+        "price_points": [],
+        "product": {},
+        "product_id": "PRODUCT01",
+        "price_point_id": "PRICE_POINT01"
+      },
+      "PRODUCT_PRICE_POINT02": {
+        "id": "PRODUCT_PRICE_POINT02",
+        "price_point": {},
+        "price_points": [],
+        "product": {},
+        "product_id": "PRODUCT01",
+        "price_point_id": "PRICE_POINT01"
+      }
+    }
+  },
+  "new": {
+    "product_price_point": {
+      "product_price_point_ref01": {
+        "price_point": {},
+        "price_points": [],
+        "product": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /product_price_points/{product_price_point_id}/currency_prices.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /products/{product_id}/price_points.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /products/{product_id}/price_points/bulk.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /products/{product_id}/price_points.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /products_price_points.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /products/{product_id}/price_points/{price_point_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /products/{product_id}/price_points/{price_point_id}/default.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /products/{product_id}/price_points/{price_point_id}/unarchive.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /products/{product_id}/price_points/{price_point_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /products/{product_id}/price_points/{price_point_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /product_price_points/{product_price_point_id}/currency_prices.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+# BasicBatchJobFlow
+
+main: kit: flow: BasicBatchJobFlow:
+{
+  entity: "batch_job",
+  kind: "basic",
+  name: "BasicBatchJobFlow",
+  step: [
+    {
+      i: {
+        ref: "batch_job_ref01"
+      }
+
+      m: {
+        batch_id: "batch01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "batch_job_ref01",
+        srcdatavar: "batch_job_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        batch_id: "batch01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-batch_job_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBatchJobFlow"
+}

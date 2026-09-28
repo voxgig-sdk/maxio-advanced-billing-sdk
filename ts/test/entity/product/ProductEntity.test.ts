@@ -1,0 +1,190 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { MaxioAdvancedBillingSDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('ProductEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when MAXIO_ADVANCED_BILLING_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MAXIO_ADVANCED_BILLING_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = MaxioAdvancedBillingSDK.test()
+    const ent = testsdk.Product()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.MAXIO_ADVANCED_BILLING_TEST_LIVE
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'product.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"product":{"a":true,"h":"Product","n":"product","op":{"create":{"req":false,"type":"`$OBJECT`"}},"r":true,"t":"`$OBJECT`","union":{"branches":2,"count":4,"depth":7},"key$":"product","index$":0}},"name":"product","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /product_families/{product_family_id}/products.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"product_family_id","or":"product_family_id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"POST","o":"/product_families/{product_family_id}/products.json","q":{"exist":["product_family_id"]},"r":{},"s":[{"lit":"product_families"},{"var":"product_family_id"},{"lit":"products.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"create"},"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /products.json","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"date_field","or":"date_field","r":false,"t":"`$ANY`","index$":0},{"a":true,"k":"query","n":"end_date","or":"end_date","r":false,"t":"`$STRING`","index$":1},{"a":true,"k":"query","n":"end_datetime","or":"end_datetime","r":false,"t":"`$STRING`","index$":2},{"a":true,"k":"query","n":"filter","or":"filter","r":false,"t":"`$ANY`","index$":3},{"a":true,"k":"query","n":"include","or":"include","r":false,"t":"`$ANY`","index$":4},{"a":true,"ex":true,"k":"query","n":"include_archived","or":"include_archived","r":false,"t":"`$BOOLEAN`","index$":5},{"a":true,"ex":false,"k":"query","n":"include_feature","or":"include_feature","r":false,"t":"`$BOOLEAN`","index$":6},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":7},{"a":true,"ex":50,"k":"query","n":"per_page","or":"per_page","r":false,"t":"`$INTEGER`","index$":8},{"a":true,"k":"query","n":"start_date","or":"start_date","r":false,"t":"`$STRING`","index$":9},{"a":true,"k":"query","n":"start_datetime","or":"start_datetime","r":false,"t":"`$STRING`","index$":10}]},"k":"http","m":"GET","o":"/products.json","q":{"exist":["date_field","end_date","end_datetime","filter","include","include_archived","include_feature","page","per_page","start_date","start_datetime"]},"r":{},"s":[{"lit":"products.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"GET /product_families/{product_family_id}/products.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"product_family_id","or":"product_family_id","r":true,"t":"`$STRING`","index$":0}],"query":[{"a":true,"k":"query","n":"date_field","or":"date_field","r":false,"t":"`$ANY`","index$":0},{"a":true,"k":"query","n":"end_date","or":"end_date","r":false,"t":"`$STRING`","index$":1},{"a":true,"k":"query","n":"end_datetime","or":"end_datetime","r":false,"t":"`$STRING`","index$":2},{"a":true,"k":"query","n":"filter","or":"filter","r":false,"t":"`$ANY`","index$":3},{"a":true,"k":"query","n":"include","or":"include","r":false,"t":"`$ANY`","index$":4},{"a":true,"k":"query","n":"include_archived","or":"include_archived","r":false,"t":"`$BOOLEAN`","index$":5},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":6},{"a":true,"ex":50,"k":"query","n":"per_page","or":"per_page","r":false,"t":"`$INTEGER`","index$":7},{"a":true,"k":"query","n":"start_date","or":"start_date","r":false,"t":"`$STRING`","index$":8},{"a":true,"k":"query","n":"start_datetime","or":"start_datetime","r":false,"t":"`$STRING`","index$":9}]},"k":"http","m":"GET","o":"/product_families/{product_family_id}/products.json","q":{"exist":["date_field","end_date","end_datetime","filter","include","include_archived","page","per_page","product_family_id","start_date","start_datetime"]},"r":{},"s":[{"lit":"product_families"},{"var":"product_family_id"},{"lit":"products.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /products/{product_id}.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"product_id","or":"product_id","r":true,"t":"`$INTEGER`","index$":0}],"query":[{"a":true,"ex":false,"k":"query","n":"include_feature","or":"include_feature","r":false,"t":"`$BOOLEAN`","index$":0}]},"k":"http","m":"GET","o":"/products/{product_id}.json","q":{"$action":"product_id","exist":["include_feature","product_id"]},"r":{},"s":[{"lit":"products"},{"lit":"{product_id}.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"GET /products/handle/{api_handle}.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"api_handle","or":"api_handle","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/products/handle/{api_handle}.json","q":{"exist":["api_handle"]},"r":{},"s":[{"lit":"products"},{"lit":"handle"},{"lit":"{api_handle}.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"load"},"remove":{"input":"data","name":"remove","points":[{"a":true,"co":{"id":"DELETE /products/{product_id}.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"product_id","or":"product_id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"DELETE","o":"/products/{product_id}.json","q":{"$action":"product_id","exist":["product_id"]},"r":{},"s":[{"lit":"products"},{"lit":"{product_id}.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"remove"},"update":{"input":"data","name":"update","points":[{"a":true,"co":{"id":"PUT /products/{product_id}.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"product_id","or":"product_id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"PUT","o":"/products/{product_id}.json","q":{"$action":"product_id","exist":["product_id"]},"r":{},"s":[{"lit":"products"},{"lit":"{product_id}.json"}],"t":{"req":{"product":"`reqdata`"},"res":"`body`"},"index$":0}],"key$":"update"}},"relations":{"ancestors":[["$.main.kit.entity.product_family"]]},"key$":"product","name__orig":"product","Name":"Product","name_":"product","name-":"product","NAME":"PRODUCT","index$":31}, {"active":true,"entity":"product","key$":"BasicProductFlow","kind":"basic","name":"BasicProductFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"product_ref01"},"m":{"api_handle":"api_handle01","product_family_id":"product_family01","product_id":"product01"},"o":"create","s":[],"v":[],"index$":0},{"a":true,"d":{},"i":{},"m":{"product_family_id":"product_family01"},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"product_ref01"}}],"index$":1},{"a":true,"d":{"product_id":"product01"},"i":{"ref":"product_ref01","srcdatavar":"product_ref01_data","suffix":"_up0"},"m":{},"o":"update","s":[{"apply":"TextFieldMark","def":{"mark":"Mark01-product_ref01"}}],"v":[],"index$":2},{"a":true,"d":{},"i":{"ref":"product_ref01","srcdatavar":"product_ref01_data","suffix":"_dt0"},"m":{"api_handle":"api_handle01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-product_ref01"}}],"index$":3},{"a":true,"d":{},"i":{"ref":"product_ref01","suffix":"_rm0"},"m":{"product_id":"product01"},"o":"remove","s":[],"v":[],"index$":4},{"a":true,"d":{},"i":{"suffix":"_rt0"},"m":{"product_family_id":"product_family01"},"o":"list","s":[],"v":[{"apply":"ItemNotExists","def":{"ref":"product_ref01"}}],"index$":5}]}, 'Product', {"POST /product_families/{product_family_id}/products.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"CreateorUpdateProductRequest","required":["product"],"type":"object","properties":{"product":{"title":"CreateorUpdateProduct","required":["name","description","price_in_cents","interval","interval_unit"],"type":"object","properties":{"name":{},"handle":{},"description":{},"accounting_code":{},"require_credit_card":{},"price_in_cents":{},"interval":{},"interval_unit":{},"trial_price_in_cents":{},"trial_interval":{},"trial_interval_unit":{},"trial_type":{},"expiration_interval":{},"expiration_interval_unit":{},"auto_create_signup_page":{},"tax_code":{},"unspsc_code":{}},"x-ref":"#/components/schemas/CreateorUpdateProduct"}},"x-ref":"#/components/schemas/CreateorUpdateProductRequest"},{"example":{"product":{"name":"Gold Plan","handle":"gold","description":"This is our gold plan.","accounting_code":"123","require_credit_card":true,"price_in_cents":1000,"interval":1,"interval_unit":"month","auto_create_signup_page":true,"tax_code":"D0000000"}}}],"index$":1},"examples":{"Example":{"value":{"product":{"name":"Gold Plan","handle":"gold","description":"This is our gold plan.","accounting_code":"123","require_credit_card":true,"price_in_cents":1000,"interval":1,"interval_unit":"month","auto_create_signup_page":true,"tax_code":"D0000000"}}}}}},"required":false},"parameters":[{"name":"product_family_id","in":"path","description":"Either the product family's id or its handle prefixed with `handle:`","required":true,"schema":{"type":"string"},"index$":0}]},"GET /products.json":{"protocol":"http","parameters":[{"name":"date_field","in":"query","description":"The type of filter you would like to apply to your search.\nUse in query: `date_field=created_at`.","style":"form","explode":true,"schema":{"allOf":[{"title":"BasicDateField","enum":["updated_at","created_at"],"type":"string","description":"Allows to filter by `created_at` or `updated_at`.","example":"updated_at","x-ref":"#/components/schemas/BasicDateField"},{"description":"The type of filter you would like to apply to your search.\nUse in query: `date_field=created_at`.","example":"updated_at"}]},"index$":0},{"name":"filter","in":"query","description":"Filter to use for List Products operations","style":"form","explode":true,"schema":{"allOf":[{"title":"ListProductsFilter","type":"object","properties":{"ids":{"minItems":1,"type":"array","items":{"type":"integer","format":"int32"},"description":"Allows fetching products with matching id based on provided values. Use in query `filter[ids]=1,2,3`.","example":[1,2,3]},"prepaid_product_price_point":{"allOf":[{"title":"PrepaidProductPricePointFilter","required":[],"type":"object","properties":{},"x-ref":"#/components/schemas/PrepaidProductPricePointFilter"},{"description":"Allows fetching products only if a prepaid product price point is present or not. To use this filter you also have to include the following param in the request `include=prepaid_product_price_point`. Use in query `filter[prepaid_product_price_point][product_price_point_id]=not_null`."}]},"use_site_exchange_rate":{"type":"boolean","description":"Allows fetching products with matching use_site_exchange_rate based on provided value (refers to default price point). Use in query `filter[use_site_exchange_rate]=true`."}},"x-ref":"#/components/schemas/ListProductsFilter"},{"description":"Filter to use for List Products operations"}]},"index$":1},{"name":"end_date","in":"query","description":"The end date (format YYYY-MM-DD) with which to filter the date_field. Returns products with a timestamp up to and including 11:59:59PM in your site’s time zone on the date specified.","style":"form","explode":true,"schema":{"type":"string","format":"date"},"index$":2},{"name":"end_datetime","in":"query","description":"The end date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the date_field. Returns products with a timestamp at or before exact time provided in query. You can specify timezone in query - otherwise your site''s time zone will be used. If provided, this parameter will be used instead of end_date.","style":"form","explode":true,"schema":{"type":"string","format":"date-time"},"index$":3},{"name":"start_date","in":"query","description":"The start date (format YYYY-MM-DD) with which to filter the date_field. Returns products with a timestamp at or after midnight (12:00:00 AM) in your site’s time zone on the date specified.","style":"form","explode":true,"schema":{"type":"string","format":"date"},"index$":4},{"name":"start_datetime","in":"query","description":"The start date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the date_field. Returns products with a timestamp at or after exact time provided in query. You can specify timezone in query - otherwise your site''s time zone will be used. If provided, this parameter will be used instead of start_date.","style":"form","explode":true,"schema":{"type":"string","format":"date-time"},"index$":5},{"name":"page","in":"query","description":"Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned.\nUse in query `page=1`.","style":"form","explode":true,"schema":{"minimum":1,"type":"integer","format":"int32","default":1,"example":1},"index$":6},{"name":"per_page","in":"query","description":"This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any per_page value over 200 will be changed to 200.\nUse in query `per_page=200`.","style":"form","explode":true,"schema":{"maximum":200,"type":"integer","format":"int32","default":20,"example":50},"index$":7},{"name":"include_archived","in":"query","description":"Include archived products. Use in query: `include_archived=true`.","style":"form","explode":true,"schema":{"type":"boolean","example":true},"index$":8},{"name":"include","in":"query","description":"Allows including additional data in the response. Use in query `include=prepaid_product_price_point`.","style":"form","explode":true,"schema":{"allOf":[{"title":"ListProductsInclude","enum":["prepaid_product_price_point"],"type":"string","example":"prepaid_product_price_point","x-ref":"#/components/schemas/ListProductsInclude"},{"description":"Allows including additional data in the response. Use in query `include=prepaid_product_price_point`.","example":"prepaid_product_price_point"}]},"index$":9},{"name":"include_features","in":"query","description":"When `true`, embeds the active feature catalog items for each result in a `features` array. Default value is `false`.","style":"form","explode":true,"schema":{"type":"boolean","default":false},"index$":10}]},"GET /product_families/{product_family_id}/products.json":{"protocol":"http","parameters":[{"name":"product_family_id","in":"path","description":"Either the product family's id or its handle prefixed with `handle:`","required":true,"schema":{"type":"string"},"index$":0},{"name":"page","in":"query","description":"Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned.\nUse in query `page=1`.","style":"form","explode":true,"schema":{"minimum":1,"type":"integer","format":"int32","default":1,"example":1},"index$":1},{"name":"per_page","in":"query","description":"This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any per_page value over 200 will be changed to 200.\nUse in query `per_page=200`.","style":"form","explode":true,"schema":{"maximum":200,"type":"integer","format":"int32","default":20,"example":50},"index$":2},{"name":"date_field","in":"query","description":"The type of filter you would like to apply to your search.\nUse in query: `date_field=created_at`.","style":"form","explode":true,"schema":{"allOf":[{"title":"BasicDateField","enum":["updated_at","created_at"],"type":"string","description":"Allows to filter by `created_at` or `updated_at`.","example":"updated_at","x-ref":"#/components/schemas/BasicDateField"},{"description":"The type of filter you would like to apply to your search.\nUse in query: `date_field=created_at`.","example":"updated_at"}]},"index$":3},{"name":"filter","in":"query","description":"Filter to use for List Products operations","style":"form","explode":true,"schema":{"allOf":[{"title":"ListProductsFilter","type":"object","properties":{"ids":{"minItems":1,"type":"array","items":{"type":"integer","format":"int32"},"description":"Allows fetching products with matching id based on provided values. Use in query `filter[ids]=1,2,3`.","example":[1,2,3]},"prepaid_product_price_point":{"allOf":[{"title":"PrepaidProductPricePointFilter","required":[],"type":"object","properties":{},"x-ref":"#/components/schemas/PrepaidProductPricePointFilter"},{"description":"Allows fetching products only if a prepaid product price point is present or not. To use this filter you also have to include the following param in the request `include=prepaid_product_price_point`. Use in query `filter[prepaid_product_price_point][product_price_point_id]=not_null`."}]},"use_site_exchange_rate":{"type":"boolean","description":"Allows fetching products with matching use_site_exchange_rate based on provided value (refers to default price point). Use in query `filter[use_site_exchange_rate]=true`."}},"x-ref":"#/components/schemas/ListProductsFilter"},{"description":"Filter to use for List Products operations"}]},"index$":4},{"name":"start_date","in":"query","description":"The start date (format YYYY-MM-DD) with which to filter the date_field. Returns products with a timestamp at or after midnight (12:00:00 AM) in your site’s time zone on the date specified.","style":"form","explode":true,"schema":{"type":"string","format":"date"},"index$":5},{"name":"end_date","in":"query","description":"The end date (format YYYY-MM-DD) with which to filter the date_field. Returns products with a timestamp up to and including 11:59:59PM in your site’s time zone on the date specified.","style":"form","explode":true,"schema":{"type":"string","format":"date"},"index$":6},{"name":"start_datetime","in":"query","description":"The start date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the date_field. Returns products with a timestamp at or after exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of start_date.","style":"form","explode":true,"schema":{"type":"string","format":"date-time"},"index$":7},{"name":"end_datetime","in":"query","description":"The end date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the date_field. Returns products with a timestamp at or before exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of end_date.","style":"form","explode":true,"schema":{"type":"string","format":"date-time"},"index$":8},{"name":"include_archived","in":"query","description":"Include archived products.","style":"form","explode":true,"schema":{"type":"boolean"},"index$":9},{"name":"include","in":"query","description":"Allows including additional data in the response. Use in query `include=prepaid_product_price_point`.","style":"form","explode":true,"schema":{"allOf":[{"title":"ListProductsInclude","enum":["prepaid_product_price_point"],"type":"string","example":"prepaid_product_price_point","x-ref":"#/components/schemas/ListProductsInclude"},{"description":"Allows including additional data in the response. Use in query `include=prepaid_product_price_point`.","example":"prepaid_product_price_point"}]},"index$":10}]},"GET /products/{product_id}.json":{"protocol":"http","parameters":[{"name":"product_id","in":"path","description":"The Advanced Billing id of the product","required":true,"schema":{"type":"integer","format":"int32"},"index$":0},{"name":"include_features","in":"query","description":"When `true`, embeds the active feature catalog items for each result in a `features` array. Default value is `false`.","style":"form","explode":true,"schema":{"type":"boolean","default":false},"index$":1}]},"GET /products/handle/{api_handle}.json":{"protocol":"http","parameters":[{"name":"api_handle","in":"path","description":"The handle of the product","required":true,"schema":{"type":"string"},"index$":0}]},"DELETE /products/{product_id}.json":{"protocol":"http","parameters":[{"name":"product_id","in":"path","description":"The Advanced Billing id of the product","required":true,"schema":{"type":"integer","format":"int32"},"index$":0}]},"PUT /products/{product_id}.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"title":"CreateorUpdateProductRequest","required":["product"],"type":"object","properties":{"product":{"title":"CreateorUpdateProduct","required":["name","description","price_in_cents","interval","interval_unit"],"type":"object","properties":{"name":{"type":"string","description":"The product name"},"handle":{"type":"string","description":"The product API handle"},"description":{"type":"string","description":"The product description"},"accounting_code":{"type":"string","description":"E.g. Internal ID or SKU Number"},"require_credit_card":{"type":"boolean","description":"Deprecated value that can be ignored unless you have legacy hosted pages. For Public Signup Page users, read this attribute from under the signup page."},"price_in_cents":{"type":"integer","description":"The product price, in integer cents","format":"int64"},"interval":{"type":"integer","description":"The numerical interval. e.g., an interval of ‘30’ coupled with an interval_unit of day would mean this product would renew every 30 days.","format":"int32"},"interval_unit":{"allOf":[{},{}]},"trial_price_in_cents":{"type":"integer","description":"The product trial price, in integer cents","format":"int64"},"trial_interval":{"type":"integer","description":"The numerical trial interval. e.g., an interval of ‘30’ coupled with a trial_interval_unit of day would mean this product trial would last 30 days.","format":"int32"},"trial_interval_unit":{"allOf":[{},{}]},"trial_type":{"allOf":[{},{}]},"expiration_interval":{"type":"integer","description":"The numerical expiration interval. e.g., an expiration_interval of ‘30’ coupled with an expiration_interval_unit of day would mean this product would expire after 30 days.","format":"int32"},"expiration_interval_unit":{"allOf":[{},{}]},"auto_create_signup_page":{"type":"boolean"},"tax_code":{"type":"string","description":"A string representing the tax code related to the product type. This is especially important when using AvaTax to tax based on locale. This attribute has a max length of 25 characters."},"unspsc_code":{"type":"string","description":"(Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. When set, this value is sent as the commodity code on invoice line items for this product instead of the default derived from item_category.","nullable":true}},"x-ref":"#/components/schemas/CreateorUpdateProduct"}},"x-ref":"#/components/schemas/CreateorUpdateProductRequest"}}},"required":false},"parameters":[{"name":"product_id","in":"path","description":"The Advanced Billing id of the product","required":true,"schema":{"type":"integer","format":"int32"},"index$":0}]}})
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const product_ref01_ent = client.Product()
+    let product_ref01_data = setup.data.new.product['product_ref01']
+    product_ref01_data['api_handle'] = setup.idmap['api_handle01']
+    product_ref01_data['product_family_id'] = setup.idmap['product_family01']
+    product_ref01_data['product_id'] = setup.idmap['product01']
+
+    product_ref01_data = (await product_ref01_ent.create(product_ref01_data)).data()
+    assert(null != product_ref01_data)
+
+
+    // LIST
+    const product_ref01_match: any = {}
+    product_ref01_match['product_family_id'] = setup.idmap['product_family01']
+
+    const product_ref01_list = (await product_ref01_ent.list(product_ref01_match)).map((e: any) => e.data())
+
+
+    // UPDATE
+    const product_ref01_data_up0: any = {}
+    product_ref01_data_up0 ['product_id'] = setup.idmap['product_id']
+
+    const product_ref01_resdata_up0 = (await product_ref01_ent.update(product_ref01_data_up0)).data()
+    assert(null != product_ref01_resdata_up0)
+
+
+
+
+    // LIST
+    const product_ref01_match_rt0: any = {}
+    product_ref01_match_rt0['product_family_id'] = setup.idmap['product_family01']
+
+    const product_ref01_list_rt0 = (await product_ref01_ent.list(product_ref01_match_rt0)).map((e: any) => e.data())
+
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/product/ProductTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = MaxioAdvancedBillingSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['product01','product02','product03','product_family01','product_family02','product_family03','api_handle01'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'MAXIO_ADVANCED_BILLING_TEST_PRODUCT_ENTID': idmap,
+    'MAXIO_ADVANCED_BILLING_TEST_LIVE': 'FALSE',
+    'MAXIO_ADVANCED_BILLING_TEST_EXPLAIN': 'FALSE',
+    'MAXIO_ADVANCED_BILLING_APIKEY': '',
+    'MAXIO_ADVANCED_BILLING_SECRET': '',
+    'MAXIO_ADVANCED_BILLING_SERVER_SITE': "subdomain",
+  })
+
+  idmap = env['MAXIO_ADVANCED_BILLING_TEST_PRODUCT_ENTID']
+
+  const live = 'TRUE' === env.MAXIO_ADVANCED_BILLING_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['MAXIO_ADVANCED_BILLING_TEST_PRODUCT_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new MaxioAdvancedBillingSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.MAXIO_ADVANCED_BILLING_APIKEY,
+        secret: env.MAXIO_ADVANCED_BILLING_SECRET,
+        server: {
+          site: env.MAXIO_ADVANCED_BILLING_SERVER_SITE,
+        },
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.MAXIO_ADVANCED_BILLING_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

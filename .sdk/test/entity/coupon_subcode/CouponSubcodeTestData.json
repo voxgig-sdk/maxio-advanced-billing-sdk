@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "coupon_subcode": {
+      "COUPON_SUBCODE00": {
+        "created_codes": [],
+        "duplicate_codes": [],
+        "id": "COUPON_SUBCODE00",
+        "invalid_codes": []
+      },
+      "COUPON_SUBCODE01": {
+        "created_codes": [],
+        "duplicate_codes": [],
+        "id": "COUPON_SUBCODE01",
+        "invalid_codes": []
+      },
+      "COUPON_SUBCODE02": {
+        "created_codes": [],
+        "duplicate_codes": [],
+        "id": "COUPON_SUBCODE02",
+        "invalid_codes": []
+      }
+    }
+  },
+  "new": {
+    "coupon_subcode": {
+      "coupon_subcode_ref01": {
+        "created_codes": [],
+        "duplicate_codes": [],
+        "invalid_codes": []
+      }
+    }
+  },
+  "requests": {
+    "PUT /coupons/{coupon_id}/codes.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

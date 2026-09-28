@@ -1,0 +1,131 @@
+{
+  "existing": {
+    "custom_field": {
+      "CUSTOM_FIELD00": {
+        "current_page": 160,
+        "data_count": 161,
+        "deleted_at": "sa2",
+        "enum": "sa3",
+        "id": "CUSTOM_FIELD00",
+        "input_type": "sa5",
+        "metadata": {},
+        "metafield_id": "METAFIELD01",
+        "metafields": "sa8",
+        "name": "sa9",
+        "per_page": 170,
+        "resource_id": "RESOURCE01",
+        "scope": {},
+        "total_count": 173,
+        "total_pages": 174,
+        "value": "saf",
+        "resource_type": "RESOURCE_TYPE01"
+      },
+      "CUSTOM_FIELD01": {
+        "current_page": 320,
+        "data_count": 321,
+        "deleted_at": "s142",
+        "enum": "s143",
+        "id": "CUSTOM_FIELD01",
+        "input_type": "s145",
+        "metadata": {},
+        "metafield_id": "METAFIELD01",
+        "metafields": "s148",
+        "name": "s149",
+        "per_page": 330,
+        "resource_id": "RESOURCE01",
+        "scope": {},
+        "total_count": 333,
+        "total_pages": 334,
+        "value": "s14f",
+        "resource_type": "RESOURCE_TYPE01"
+      },
+      "CUSTOM_FIELD02": {
+        "current_page": 480,
+        "data_count": 481,
+        "deleted_at": "s1e2",
+        "enum": "s1e3",
+        "id": "CUSTOM_FIELD02",
+        "input_type": "s1e5",
+        "metadata": {},
+        "metafield_id": "METAFIELD01",
+        "metafields": "s1e8",
+        "name": "s1e9",
+        "per_page": 490,
+        "resource_id": "RESOURCE01",
+        "scope": {},
+        "total_count": 493,
+        "total_pages": 494,
+        "value": "s1ef",
+        "resource_type": "RESOURCE_TYPE01"
+      }
+    }
+  },
+  "new": {
+    "custom_field": {
+      "custom_field_ref01": {
+        "current_page": 640,
+        "data_count": 641,
+        "deleted_at": "s282",
+        "enum": "s283",
+        "input_type": "s285",
+        "metadata": {},
+        "metafield_id": "METAFIELD01",
+        "metafields": "s288",
+        "name": "s289",
+        "per_page": 650,
+        "resource_id": "RESOURCE01",
+        "scope": {},
+        "total_count": 653,
+        "total_pages": 654,
+        "value": "s28f"
+      }
+    }
+  },
+  "requests": {
+    "POST /{resource_type}/{resource_id}/metadata.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /{resource_type}/metafields.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /{resource_type}/metadata.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /{resource_type}/metafields.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /{resource_type}/{resource_id}/metadata.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /{resource_type}/{resource_id}/metadata.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /{resource_type}/metafields.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /{resource_type}/{resource_id}/metadata.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /{resource_type}/metafields.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

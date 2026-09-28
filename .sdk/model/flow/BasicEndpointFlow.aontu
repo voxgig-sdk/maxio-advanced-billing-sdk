@@ -1,0 +1,45 @@
+# BasicEndpointFlow
+
+main: kit: flow: BasicEndpointFlow:
+{
+  entity: "endpoint",
+  kind: "basic",
+  name: "BasicEndpointFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "endpoint_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        endpoint_id: "endpoint01"
+      }
+
+      i: {
+        ref: "endpoint_ref01",
+        srcdatavar: "endpoint_ref01_data",
+        suffix: "_up0",
+        textfield: "status"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-endpoint_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEndpointFlow"
+}

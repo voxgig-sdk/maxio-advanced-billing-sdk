@@ -1,0 +1,111 @@
+{
+  "existing": {
+    "feature_catalog_item": {
+      "FEATURE_CATALOG_ITEM00": {
+        "archived_at": "s8c",
+        "created_at": "s8d",
+        "feature": {},
+        "feature_key": "s8f",
+        "feature_kind": "s90",
+        "feature_name": "s91",
+        "feature_template_id": "FEATURE_TEMPLATE01",
+        "id": "FEATURE_CATALOG_ITEM00",
+        "periodicity_interval": 148,
+        "periodicity_unit": "s95",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "s97",
+        "updated_at": "s98",
+        "value": "s99",
+        "component_id": "COMPONENT01",
+        "product_id": "PRODUCT01"
+      },
+      "FEATURE_CATALOG_ITEM01": {
+        "archived_at": "s118",
+        "created_at": "s119",
+        "feature": {},
+        "feature_key": "s11b",
+        "feature_kind": "s11c",
+        "feature_name": "s11d",
+        "feature_template_id": "FEATURE_TEMPLATE01",
+        "id": "FEATURE_CATALOG_ITEM01",
+        "periodicity_interval": 288,
+        "periodicity_unit": "s121",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "s123",
+        "updated_at": "s124",
+        "value": "s125",
+        "component_id": "COMPONENT01",
+        "product_id": "PRODUCT01"
+      },
+      "FEATURE_CATALOG_ITEM02": {
+        "archived_at": "s1a4",
+        "created_at": "s1a5",
+        "feature": {},
+        "feature_key": "s1a7",
+        "feature_kind": "s1a8",
+        "feature_name": "s1a9",
+        "feature_template_id": "FEATURE_TEMPLATE01",
+        "id": "FEATURE_CATALOG_ITEM02",
+        "periodicity_interval": 428,
+        "periodicity_unit": "s1ad",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "s1af",
+        "updated_at": "s1b0",
+        "value": "s1b1",
+        "component_id": "COMPONENT01",
+        "product_id": "PRODUCT01"
+      }
+    }
+  },
+  "new": {
+    "feature_catalog_item": {
+      "feature_catalog_item_ref01": {
+        "archived_at": "s230",
+        "created_at": "s231",
+        "feature": {},
+        "feature_key": "s233",
+        "feature_kind": "s234",
+        "feature_name": "s235",
+        "feature_template_id": "FEATURE_TEMPLATE01",
+        "periodicity_interval": 568,
+        "periodicity_unit": "s239",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "s23b",
+        "updated_at": "s23c",
+        "value": "s23d"
+      }
+    }
+  },
+  "requests": {
+    "POST /components/{component_id}/features/{id}/restore.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /products/{product_id}/features/{id}/restore.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /components/{component_id}/features/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /products/{product_id}/features/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /components/{component_id}/features/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /products/{product_id}/features/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

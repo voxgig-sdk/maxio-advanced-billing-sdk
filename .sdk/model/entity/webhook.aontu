@@ -1,0 +1,193 @@
+# Entity: webhook
+
+main: kit: entity: webhook: {
+
+  alias: field: {}
+
+  fields: {
+    endpoint: {
+      h: "Endpoint"
+      n: "endpoint"
+      r: false
+      t: "`$OBJECT`"
+    }
+    webhook: {
+      h: "Webhook"
+      n: "webhook"
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "webhook"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /endpoints.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/endpoints.json"
+          s: [
+            {
+              lit: "endpoints.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /webhooks/replay.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/webhooks/replay.json"
+          q: {
+            "$action": "replay"
+          }
+          s: [
+            {
+              lit: "webhooks"
+            }
+            {
+              lit: "replay.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /webhooks.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "since_date"
+                or: "since_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "subscription"
+                or: "subscription"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "until_date"
+                or: "until_date"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks.json"
+          q: {
+            exist: [
+              "order"
+              "page"
+              "per_page"
+              "since_date"
+              "status"
+              "subscription"
+              "until_date"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /webhooks/settings.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "PUT"
+          o: "/webhooks/settings.json"
+          q: {
+            "$action": "setting"
+          }
+          s: [
+            {
+              lit: "webhooks"
+            }
+            {
+              lit: "settings.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

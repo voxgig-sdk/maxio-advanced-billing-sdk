@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "event": {
+      "EVENT00": {
+        "event": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "EVENT00"
+      },
+      "EVENT01": {
+        "event": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "EVENT01"
+      },
+      "EVENT02": {
+        "event": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "EVENT02"
+      }
+    }
+  },
+  "new": {
+    "event": {
+      "event_ref01": {
+        "event": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /events.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions/{subscription_id}/events.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /events/count.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

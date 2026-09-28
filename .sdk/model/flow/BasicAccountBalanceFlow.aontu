@@ -1,0 +1,32 @@
+# BasicAccountBalanceFlow
+
+main: kit: flow: BasicAccountBalanceFlow:
+{
+  entity: "account_balance",
+  kind: "basic",
+  name: "BasicAccountBalanceFlow",
+  step: [
+    {
+      i: {
+        ref: "account_balance_ref01",
+        srcdatavar: "account_balance_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "account_balance01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-account_balance_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAccountBalanceFlow"
+}

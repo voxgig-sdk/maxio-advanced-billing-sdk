@@ -1,0 +1,38 @@
+# BasicProformaInvoiceFlow
+
+main: kit: flow: BasicProformaInvoiceFlow:
+{
+  entity: "proforma_invoice",
+  kind: "basic",
+  name: "BasicProformaInvoiceFlow",
+  step: [
+    {
+      i: {
+        ref: "proforma_invoice_ref01"
+      }
+
+      m: {
+        proforma_invoice_uid: "proforma_invoice_uid01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        proforma_invoice_uid: "proforma_invoice_uid01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "proforma_invoice_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicProformaInvoiceFlow"
+}

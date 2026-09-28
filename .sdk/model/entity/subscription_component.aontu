@@ -1,0 +1,1264 @@
+# Entity: subscription_component
+
+main: kit: entity: subscription_component: {
+
+  alias: field: {}
+
+  fields: {
+    allocated_quantity: {
+      h: "Allocated Quantity"
+      n: "allocated_quantity"
+      r: false
+      sh: "For Quantity-based components: The current allocation for the component on the given subscription."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    allocation: {
+      h: "Allocation"
+      n: "allocation"
+      r: false
+      t: "`$OBJECT`"
+    }
+    allocation_preview: {
+      h: "Allocation Preview"
+      n: "allocation_preview"
+      r: false
+      t: "`$OBJECT`"
+    }
+    allow_fractional_quantities: {
+      h: "Allow Fractional Quantities"
+      n: "allow_fractional_quantities"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    archived_at: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archived_at"
+      r: false
+      t: "`$STRING`"
+    }
+    component: {
+      h: "Component"
+      n: "component"
+      r: false
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 7
+        depth: 4
+      }
+    }
+    component_handle: {
+      h: "Component Handle"
+      n: "component_handle"
+      r: false
+      t: "`$STRING`"
+    }
+    component_id: {
+      fo: "int32"
+      h: "Component Id"
+      n: "component_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    currency: {
+      h: "Currency"
+      n: "currency"
+      r: false
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    display_on_hosted_page: {
+      h: "Display On Hosted Page"
+      n: "display_on_hosted_page"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    downgrade_credit: {
+      h: "Downgrade Credit"
+      n: "downgrade_credit"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    enabled: {
+      h: "Enabled"
+      n: "enabled"
+      r: false
+      sh: "(for on/off components) indicates if the component is enabled for the subscription."
+      t: "`$BOOLEAN`"
+    }
+    historic_usages: {
+      h: "Historic Usages"
+      n: "historic_usages"
+      r: false
+      t: "`$ARRAY`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    interval: {
+      fo: "int32"
+      h: "Interval"
+      n: "interval"
+      r: false
+      sh: "The numerical interval."
+      t: "`$INTEGER`"
+    }
+    interval_unit: {
+      h: "Interval Unit"
+      n: "interval_unit"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    kind: {
+      h: "Kind"
+      n: "kind"
+      r: false
+      t: "`$ANY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      t: "`$STRING`"
+    }
+    price_point_handle: {
+      h: "Price Point Handle"
+      n: "price_point_handle"
+      r: false
+      t: "`$STRING`"
+    }
+    price_point_id: {
+      fo: "int32"
+      h: "Price Point Id"
+      n: "price_point_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    price_point_name: {
+      h: "Price Point Name"
+      n: "price_point_name"
+      r: false
+      t: "`$STRING`"
+    }
+    price_point_type: {
+      h: "Price Point Type"
+      n: "price_point_type"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    pricing_scheme: {
+      h: "Pricing Scheme"
+      n: "pricing_scheme"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    product_family_handle: {
+      h: "Product Family Handle"
+      n: "product_family_handle"
+      r: false
+      t: "`$STRING`"
+    }
+    product_family_id: {
+      fo: "int32"
+      h: "Product Family Id"
+      n: "product_family_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    recurring: {
+      h: "Recurring"
+      n: "recurring"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    subscription: {
+      h: "Subscription"
+      n: "subscription"
+      r: false
+      t: "`$OBJECT`"
+    }
+    subscription_id: {
+      fo: "int32"
+      h: "Subscription Id"
+      n: "subscription_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    unit_balance: {
+      h: "Unit Balance"
+      n: "unit_balance"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    unit_name: {
+      h: "Unit Name"
+      n: "unit_name"
+      r: false
+      t: "`$STRING`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      t: "`$STRING`"
+    }
+    upgrade_charge: {
+      h: "Upgrade Charge"
+      n: "upgrade_charge"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    usage: {
+      h: "Usage"
+      n: "usage"
+      r: false
+      t: "`$OBJECT`"
+    }
+    use_site_exchange_rate: {
+      h: "Use Site Exchange Rate"
+      n: "use_site_exchange_rate"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "subscription_component"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /events/{api_handle}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "api_handle"
+                or: "api_handle"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "store_uid"
+                or: "store_uid"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/events/{api_handle}.json"
+          q: {
+            exist: [
+              "api_handle"
+              "store_uid"
+            ]
+          }
+          s: [
+            {
+              lit: "events"
+            }
+            {
+              lit: "{api_handle}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /events/{api_handle}/bulk.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "api_handle"
+                or: "api_handle"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "store_uid"
+                or: "store_uid"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/events/{api_handle}/bulk.json"
+          q: {
+            exist: [
+              "api_handle"
+              "store_uid"
+            ]
+          }
+          s: [
+            {
+              lit: "events"
+            }
+            {
+              var: "api_handle"
+            }
+            {
+              lit: "bulk.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/activate.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/event_based_billing/subscriptions/{subscription_id}/components/{component_id}/activate.json"
+          q: {
+            exist: [
+              "component_id"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "event_based_billing"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "activate.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/deactivate.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/event_based_billing/subscriptions/{subscription_id}/components/{component_id}/deactivate.json"
+          q: {
+            exist: [
+              "component_id"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "event_based_billing"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "deactivate.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/components/{component_id}/allocations.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/components/{component_id}/allocations.json"
+          q: {
+            exist: [
+              "component_id"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "allocations.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "subscription_id_or_reference"
+                or: "subscription_id_or_reference"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json"
+          q: {
+            exist: [
+              "component_id"
+              "subscription_id_or_reference"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id_or_reference"
+            }
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "usages.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/price_points.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/price_points.json"
+          q: {
+            "$action": "price_points.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "price_points.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/allocations/preview.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/allocations/preview.json"
+          q: {
+            exist: [
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "allocations"
+            }
+            {
+              lit: "preview.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/price_points/reset.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/price_points/reset.json"
+          q: {
+            exist: [
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "price_points"
+            }
+            {
+              lit: "reset.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /subscriptions_components.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "date_field"
+                or: "date_field"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_datetime"
+                or: "end_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: [
+                  1
+                  2
+                  3
+                ]
+                k: "query"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_datetime"
+                or: "start_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: [
+                  1
+                  2
+                  3
+                ]
+                k: "query"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions_components.json"
+          q: {
+            exist: [
+              "date_field"
+              "direction"
+              "end_date"
+              "end_datetime"
+              "filter"
+              "include"
+              "page"
+              "per_page"
+              "price_point_id"
+              "product_family_id"
+              "sort"
+              "start_date"
+              "start_datetime"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions_components.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.subscriptions_components`"
+          }
+        }
+        {
+          co: {
+            id: "GET /subscriptions/{subscription_id}/components.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "date_field"
+                or: "date_field"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_datetime"
+                or: "end_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: true
+                k: "query"
+                n: "in_use"
+                or: "in_use"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: [
+                  "subscription"
+                  "historic_usages"
+                ]
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: [
+                  1
+                  2
+                  3
+                ]
+                k: "query"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_datetime"
+                or: "start_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions/{subscription_id}/components.json"
+          q: {
+            exist: [
+              "date_field"
+              "direction"
+              "end_date"
+              "end_datetime"
+              "filter"
+              "id"
+              "in_use"
+              "include"
+              "price_point_id"
+              "product_family_id"
+              "sort"
+              "start_date"
+              "start_datetime"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "components.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /subscriptions/{subscription_id}/components/{component_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions/{subscription_id}/components/{component_id}.json"
+          q: {
+            exist: [
+              "component_id"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "components"
+            }
+            {
+              lit: "{component_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "content_type"
+                or: "content_type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "allocation_id"
+                or: "allocation_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json"
+          q: {
+            exist: [
+              "allocation_id"
+              "component_id"
+              "content_type"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "allocations"
+            }
+            {
+              lit: "{allocation_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "allocation_id"
+                or: "allocation_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json"
+          q: {
+            exist: [
+              "allocation_id"
+              "component_id"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "allocations"
+            }
+            {
+              lit: "{allocation_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.event")]
+    [path("$.main.kit.entity.subscription")]
+    [path("$.main.kit.entity.subscription") path("$.main.kit.entity.component")]
+  ]
+
+}

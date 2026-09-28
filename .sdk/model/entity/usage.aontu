@@ -1,0 +1,141 @@
+# Entity: usage
+
+main: kit: entity: usage: {
+
+  alias: field: {}
+
+  fields: {
+    usage: {
+      h: "Usage"
+      n: "usage"
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+  }
+
+  name: "usage"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "subscription_id_or_reference"
+                or: "subscription_id_or_reference"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "max_id"
+                or: "max_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "since_date"
+                or: "since_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "since_id"
+                or: "since_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "until_date"
+                or: "until_date"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json"
+          q: {
+            exist: [
+              "component_id"
+              "max_id"
+              "page"
+              "per_page"
+              "since_date"
+              "since_id"
+              "subscription_id_or_reference"
+              "until_date"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id_or_reference"
+            }
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "usages.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.subscription") path("$.main.kit.entity.component")]
+  ]
+
+}

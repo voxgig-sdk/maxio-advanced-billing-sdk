@@ -1,0 +1,388 @@
+# Entity: offer
+
+main: kit: entity: offer: {
+
+  alias: field: {}
+
+  fields: {
+    archived_at: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archived_at"
+      r: false
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    handle: {
+      h: "Handle"
+      n: "handle"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      t: "`$STRING`"
+    }
+    offer: {
+      h: "Offer"
+      n: "offer"
+      r: false
+      t: "`$OBJECT`"
+    }
+    offer_discounts: {
+      h: "Offer Discounts"
+      n: "offer_discounts"
+      r: false
+      t: "`$ARRAY`"
+    }
+    offer_items: {
+      h: "Offer Items"
+      n: "offer_items"
+      r: false
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 5
+      }
+    }
+    offer_signup_pages: {
+      h: "Offer Signup Pages"
+      n: "offer_signup_pages"
+      r: false
+      t: "`$ARRAY`"
+    }
+    offers: {
+      h: "Offers"
+      n: "offers"
+      r: false
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 8
+      }
+    }
+    product_family_id: {
+      fo: "int32"
+      h: "Product Family Id"
+      n: "product_family_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    product_family_name: {
+      h: "Product Family Name"
+      n: "product_family_name"
+      r: false
+      t: "`$STRING`"
+    }
+    product_id: {
+      fo: "int32"
+      h: "Product Id"
+      n: "product_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    product_name: {
+      h: "Product Name"
+      n: "product_name"
+      r: false
+      t: "`$STRING`"
+    }
+    product_price_in_cents: {
+      fo: "int64"
+      h: "Product Price In Cents"
+      n: "product_price_in_cents"
+      r: false
+      t: "`$INTEGER`"
+    }
+    product_price_point_id: {
+      fo: "int32"
+      h: "Product Price Point Id"
+      n: "product_price_point_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    product_price_point_name: {
+      h: "Product Price Point Name"
+      n: "product_price_point_name"
+      r: false
+      t: "`$STRING`"
+    }
+    product_revisable_number: {
+      fo: "int32"
+      h: "Product Revisable Number"
+      n: "product_revisable_number"
+      r: false
+      t: "`$INTEGER`"
+    }
+    site_id: {
+      fo: "int32"
+      h: "Site Id"
+      n: "site_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "offer"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /offers.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/offers.json"
+          s: [
+            {
+              lit: "offers.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /offers.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: true
+                k: "query"
+                n: "include_archived"
+                or: "include_archived"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/offers.json"
+          q: {
+            exist: [
+              "include_archived"
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "offers.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /offers/{offer_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "offer_id"
+                or: "offer_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/offers/{offer_id}.json"
+          q: {
+            "$action": "offer_id"
+            exist: [
+              "offer_id"
+            ]
+          }
+          s: [
+            {
+              lit: "offers"
+            }
+            {
+              lit: "{offer_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.offer`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /offers/{offer_id}/archive.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "offer_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/offers/{offer_id}/archive.json"
+          q: {
+            "$action": "archive"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              offer_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "offers"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "archive.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /offers/{offer_id}/unarchive.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "offer_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/offers/{offer_id}/unarchive.json"
+          q: {
+            "$action": "unarchive"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              offer_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "offers"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "unarchive.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,57 @@
+# BasicBillingPortalFlow
+
+main: kit: flow: BasicBillingPortalFlow:
+{
+  entity: "billing_portal",
+  kind: "basic",
+  name: "BasicBillingPortalFlow",
+  step: [
+    {
+      i: {
+        ref: "billing_portal_ref01"
+      }
+
+      m: {
+        customer_id: "customer01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "billing_portal_ref01",
+        srcdatavar: "billing_portal_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "billing_portal01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-billing_portal_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "billing_portal_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "billing_portal01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicBillingPortalFlow"
+}

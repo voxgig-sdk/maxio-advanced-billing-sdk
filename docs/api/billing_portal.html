@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>BillingPortal | Maxio Advanced Billing</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Maxio Advanced Billing<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/maxio-advanced-billing-sdk">voxgig-sdk/maxio-advanced-billing-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Maxio Advanced Billing</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account_balance.html">AccountBalance</a>
+<a href="../api/allocation.html">Allocation</a>
+<a href="../api/batch_job.html">BatchJob</a>
+<a aria-current="page" href="../api/billing_portal.html">BillingPortal</a><div class="nav-sections"><a class="nav-section" href="#post-portalcustomerscustomer_idinvitationsinvitejson">POST /portal/customers/{customer_id}/invitations/invite.json</a>
+<a class="nav-section" href="#get-portalcustomerscustomer_idmanagement_linkjson">GET /portal/customers/{customer_id}/management_link.json</a>
+<a class="nav-section" href="#delete-portalcustomerscustomer_idinvitationsrevokejson">DELETE /portal/customers/{customer_id}/invitations/revoke.json</a></div>
+<a href="../api/component.html">Component</a>
+<a href="../api/component_feature.html">ComponentFeature</a>
+<a href="../api/component_price_point.html">ComponentPricePoint</a>
+<a href="../api/component_price_point_currency_overage.html">ComponentPricePointCurrencyOverage</a>
+<a href="../api/coupon.html">Coupon</a>
+<a href="../api/coupon_currency.html">CouponCurrency</a>
+<a href="../api/coupon_subcode.html">CouponSubcode</a>
+<a href="../api/coupon_usage.html">CouponUsage</a>
+<a href="../api/custom_field.html">CustomField</a>
+<a href="../api/customer.html">Customer</a>
+<a href="../api/delayed_cancel.html">DelayedCancel</a>
+<a href="../api/endpoint.html">Endpoint</a>
+<a href="../api/entitlement.html">Entitlement</a>
+<a href="../api/event.html">Event</a>
+<a href="../api/events_based_billing_segment.html">EventsBasedBillingSegment</a>
+<a href="../api/feature.html">Feature</a>
+<a href="../api/feature_catalog_item.html">FeatureCatalogItem</a>
+<a href="../api/feature_template.html">FeatureTemplate</a>
+<a href="../api/insight.html">Insight</a>
+<a href="../api/invoice.html">Invoice</a>
+<a href="../api/list_proforma_invoice.html">ListProformaInvoice</a>
+<a href="../api/list_sale_rep_item.html">ListSaleRepItem</a>
+<a href="../api/list_segment.html">ListSegment</a>
+<a href="../api/offer.html">Offer</a>
+<a href="../api/one_time_token.html">OneTimeToken</a>
+<a href="../api/payment_profile.html">PaymentProfile</a>
+<a href="../api/prepayment.html">Prepayment</a>
+<a href="../api/product.html">Product</a>
+<a href="../api/product_family.html">ProductFamily</a>
+<a href="../api/product_feature.html">ProductFeature</a>
+<a href="../api/product_price_point.html">ProductPricePoint</a>
+<a href="../api/proforma_invoice.html">ProformaInvoice</a>
+<a href="../api/reason_code.html">ReasonCode</a>
+<a href="../api/referral_code.html">ReferralCode</a>
+<a href="../api/sale_rep_setting.html">SaleRepSetting</a>
+<a href="../api/sales_commission.html">SalesCommission</a>
+<a href="../api/segment.html">Segment</a>
+<a href="../api/signup_proforma_preview.html">SignupProformaPreview</a>
+<a href="../api/site.html">Site</a>
+<a href="../api/subscription.html">Subscription</a>
+<a href="../api/subscription_component.html">SubscriptionComponent</a>
+<a href="../api/subscription_group.html">SubscriptionGroup</a>
+<a href="../api/subscription_group_invoice_account.html">SubscriptionGroupInvoiceAccount</a>
+<a href="../api/subscription_group_signup.html">SubscriptionGroupSignup</a>
+<a href="../api/subscription_group_status.html">SubscriptionGroupStatus</a>
+<a href="../api/subscription_invoice_account.html">SubscriptionInvoiceAccount</a>
+<a href="../api/subscription_mrr.html">SubscriptionMrr</a>
+<a href="../api/subscription_note.html">SubscriptionNote</a>
+<a href="../api/subscription_product.html">SubscriptionProduct</a>
+<a href="../api/subscription_renewal.html">SubscriptionRenewal</a>
+<a href="../api/subscription_status.html">SubscriptionStatus</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="billingportal">BillingPortal</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-portalcustomerscustomer_idinvitationsinvitejson"><code>/portal/customers/{customer_id}/invitations/invite.json</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-portalcustomerscustomer_idmanagement_linkjson"><code>/portal/customers/{customer_id}/management_link.json</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-portalcustomerscustomer_idinvitationsrevokejson"><code>/portal/customers/{customer_id}/invitations/revoke.json</code></a></td>
+<td><code>remove</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">billing_portal, err := client.BillingPortal(nil).Load(map[string]any{&quot;customer_id&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(billing_portal)
+created, err := client.BillingPortal(nil).Create(map[string]any{&quot;customer_id&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+removed, err := client.BillingPortal(nil).Remove(map[string]any{&quot;customer_id&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local billing_portal, err = client:BillingPortal():load({ customer_id = 1 })
+local created, err = client:BillingPortal():create({ customer_id = 1 })
+local removed, err = client:BillingPortal():remove({ customer_id = 1 })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$billing_portal = $client-&gt;BillingPortal()-&gt;load([&quot;customer_id&quot; =&gt; 1]);
+$created = $client-&gt;BillingPortal()-&gt;create([&quot;customer_id&quot; =&gt; 1]);
+$client-&gt;BillingPortal()-&gt;remove([&quot;customer_id&quot; =&gt; 1]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">billing_portal = client.BillingPortal().load({&quot;customer_id&quot;: 1})
+created = client.BillingPortal().create({ &quot;customer_id&quot;: 1 })
+client.BillingPortal().remove({&quot;customer_id&quot;: 1})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">billing_portal = client.BillingPortal.load({ &quot;customer_id&quot; =&gt; 1 })
+created = client.BillingPortal.create({ &quot;customer_id&quot; =&gt; 1 })
+client.BillingPortal.remove({ &quot;customer_id&quot; =&gt; 1 })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const billing_portal = await client.BillingPortal().load({ customer_id: 1 })
+const created = await client.BillingPortal().create({ customer_id: 1 })
+await client.BillingPortal().remove({ customer_id: 1 })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Created At</td>
+</tr>
+<tr>
+<td><code>expires_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Expires At</td>
+</tr>
+<tr>
+<td><code>fetch_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Fetch Count</td>
+</tr>
+<tr>
+<td><code>last_accepted_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Last Accepted At</td>
+</tr>
+<tr>
+<td><code>last_invite_accepted_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Last Invite Accepted At</td>
+</tr>
+<tr>
+<td><code>last_invite_sent_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Last Invite Sent At</td>
+</tr>
+<tr>
+<td><code>last_sent_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Last Sent At</td>
+</tr>
+<tr>
+<td><code>new_link_available_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>New Link Available At</td>
+</tr>
+<tr>
+<td><code>send_invite_link_text</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Send Invite Link Text</td>
+</tr>
+<tr>
+<td><code>uninvited_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Uninvited Count</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Url</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-portalcustomerscustomer_idinvitationsinvitejson" class="operation" data-method="post"><code>POST</code> /portal/customers/{customer_id}/invitations/invite.json</h3>
+<p>Operation ID: <code>resendBillingPortalInvitation</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>customer_id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Chargify id of the customer |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h5 id="404-not-found" class="status" data-status="4xx">404: Not Found</h5>
+<h5 id="422-unprocessable-entity-webdav" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h2 id="load">load</h2>
+<h3 id="get-portalcustomerscustomer_idmanagement_linkjson" class="operation" data-method="get"><code>GET</code> /portal/customers/{customer_id}/management_link.json</h3>
+<p>Operation ID: <code>readBillingPortalLink</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>customer_id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Chargify id of the customer |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-ok-1" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h5 id="422-unprocessable-entity-webdav-1" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h5 id="429-too-many-requests" class="status" data-status="4xx">429: Too Many Requests</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h2 id="remove">remove</h2>
+<h3 id="delete-portalcustomerscustomer_idinvitationsrevokejson" class="operation" data-method="delete"><code>DELETE</code> /portal/customers/{customer_id}/invitations/revoke.json</h3>
+<p>Operation ID: <code>revokeBillingPortalAccess</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>customer_id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Chargify id of the customer |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-ok-2" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

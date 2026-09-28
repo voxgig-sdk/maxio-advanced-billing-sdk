@@ -1,0 +1,466 @@
+# Entity: feature_catalog_item
+
+main: kit: entity: feature_catalog_item: {
+
+  alias: field: {}
+
+  fields: {
+    archived_at: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archived_at"
+      r: false
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    feature: {
+      h: "Feature"
+      n: "feature"
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
+    }
+    feature_key: {
+      h: "Feature Key"
+      n: "feature_key"
+      r: false
+      sh: "The `key` of the parent feature template."
+      t: "`$STRING`"
+    }
+    feature_kind: {
+      h: "Feature Kind"
+      n: "feature_kind"
+      r: false
+      t: "`$ANY`"
+    }
+    feature_name: {
+      h: "Feature Name"
+      n: "feature_name"
+      r: false
+      sh: "The `name` of the parent feature template."
+      t: "`$STRING`"
+    }
+    feature_template_id: {
+      fo: "int32"
+      h: "Feature Template Id"
+      n: "feature_template_id"
+      r: false
+      sh: "The id of the feature template this item was created from."
+      t: "`$INTEGER`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    periodicity_interval: {
+      fo: "int32"
+      h: "Periodicity Interval"
+      n: "periodicity_interval"
+      r: false
+      sh: "Set when `feature_kind` is `usage_limit`; `null` otherwise."
+      t: "`$INTEGER`"
+    }
+    periodicity_unit: {
+      h: "Periodicity Unit"
+      n: "periodicity_unit"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    price_point_id: {
+      fo: "int32"
+      h: "Price Point Id"
+      n: "price_point_id"
+      r: false
+      sh: "Set together with `price_point_type` for price-point-specific overrides."
+      t: "`$INTEGER`"
+    }
+    price_point_type: {
+      h: "Price Point Type"
+      n: "price_point_type"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      t: "`$STRING`"
+    }
+    value: {
+      h: "Value"
+      n: "value"
+      r: false
+      sh: "The value granted by this feature catalog item."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "feature_catalog_item"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /components/{component_id}/features/{id}/restore.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/components/{component_id}/features/{id}/restore.json"
+          q: {
+            "$action": "restore.json"
+            exist: [
+              "component_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "features"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "restore.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.feature`"
+          }
+        }
+        {
+          co: {
+            id: "POST /products/{product_id}/features/{id}/restore.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "product_id"
+                or: "product_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/products/{product_id}/features/{id}/restore.json"
+          q: {
+            "$action": "restore.json"
+            exist: [
+              "id"
+              "product_id"
+            ]
+          }
+          s: [
+            {
+              lit: "products"
+            }
+            {
+              var: "product_id"
+            }
+            {
+              lit: "features"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "restore.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.feature`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /components/{component_id}/features/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/components/{component_id}/features/{id}.json"
+          q: {
+            exist: [
+              "component_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "features"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.feature`"
+          }
+        }
+        {
+          co: {
+            id: "GET /products/{product_id}/features/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "product_id"
+                or: "product_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/products/{product_id}/features/{id}.json"
+          q: {
+            exist: [
+              "id"
+              "product_id"
+            ]
+          }
+          s: [
+            {
+              lit: "products"
+            }
+            {
+              var: "product_id"
+            }
+            {
+              lit: "features"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.feature`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /components/{component_id}/features/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/components/{component_id}/features/{id}.json"
+          q: {
+            exist: [
+              "component_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "features"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.feature`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /products/{product_id}/features/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "product_id"
+                or: "product_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/products/{product_id}/features/{id}.json"
+          q: {
+            exist: [
+              "id"
+              "product_id"
+            ]
+          }
+          s: [
+            {
+              lit: "products"
+            }
+            {
+              var: "product_id"
+            }
+            {
+              lit: "features"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.feature`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.component")]
+    [path("$.main.kit.entity.product")]
+  ]
+
+}

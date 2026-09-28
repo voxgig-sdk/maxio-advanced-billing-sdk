@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "one_time_token": {
+      "ONE_TIME_TOKEN00": {
+        "chargify_token": "CHARGIFY_TOKEN01",
+        "id": "ONE_TIME_TOKEN00"
+      },
+      "ONE_TIME_TOKEN01": {
+        "chargify_token": "CHARGIFY_TOKEN01",
+        "id": "ONE_TIME_TOKEN01"
+      },
+      "ONE_TIME_TOKEN02": {
+        "chargify_token": "CHARGIFY_TOKEN01",
+        "id": "ONE_TIME_TOKEN02"
+      }
+    }
+  },
+  "new": {
+    "one_time_token": {
+      "one_time_token_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /one_time_tokens/{chargify_token}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

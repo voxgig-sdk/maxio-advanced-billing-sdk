@@ -1,0 +1,130 @@
+# Entity: subscription_product
+
+main: kit: entity: subscription_product: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    migration: {
+      h: "Migration"
+      n: "migration"
+      r: true
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "subscription_product"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/migrations.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/migrations.json"
+          q: {
+            "$action": "migrations.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "migrations.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/migrations/preview.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/migrations/preview.json"
+          q: {
+            exist: [
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              lit: "preview.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.subscription")]
+  ]
+
+}

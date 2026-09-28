@@ -1,0 +1,1283 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Product | Maxio Advanced Billing</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Maxio Advanced Billing<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/maxio-advanced-billing-sdk">voxgig-sdk/maxio-advanced-billing-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Maxio Advanced Billing</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account_balance.html">AccountBalance</a>
+<a href="../api/allocation.html">Allocation</a>
+<a href="../api/batch_job.html">BatchJob</a>
+<a href="../api/billing_portal.html">BillingPortal</a>
+<a href="../api/component.html">Component</a>
+<a href="../api/component_feature.html">ComponentFeature</a>
+<a href="../api/component_price_point.html">ComponentPricePoint</a>
+<a href="../api/component_price_point_currency_overage.html">ComponentPricePointCurrencyOverage</a>
+<a href="../api/coupon.html">Coupon</a>
+<a href="../api/coupon_currency.html">CouponCurrency</a>
+<a href="../api/coupon_subcode.html">CouponSubcode</a>
+<a href="../api/coupon_usage.html">CouponUsage</a>
+<a href="../api/custom_field.html">CustomField</a>
+<a href="../api/customer.html">Customer</a>
+<a href="../api/delayed_cancel.html">DelayedCancel</a>
+<a href="../api/endpoint.html">Endpoint</a>
+<a href="../api/entitlement.html">Entitlement</a>
+<a href="../api/event.html">Event</a>
+<a href="../api/events_based_billing_segment.html">EventsBasedBillingSegment</a>
+<a href="../api/feature.html">Feature</a>
+<a href="../api/feature_catalog_item.html">FeatureCatalogItem</a>
+<a href="../api/feature_template.html">FeatureTemplate</a>
+<a href="../api/insight.html">Insight</a>
+<a href="../api/invoice.html">Invoice</a>
+<a href="../api/list_proforma_invoice.html">ListProformaInvoice</a>
+<a href="../api/list_sale_rep_item.html">ListSaleRepItem</a>
+<a href="../api/list_segment.html">ListSegment</a>
+<a href="../api/offer.html">Offer</a>
+<a href="../api/one_time_token.html">OneTimeToken</a>
+<a href="../api/payment_profile.html">PaymentProfile</a>
+<a href="../api/prepayment.html">Prepayment</a>
+<a aria-current="page" href="../api/product.html">Product</a><div class="nav-sections"><a class="nav-section" href="#post-product_familiesproduct_family_idproductsjson">POST /product_families/{product_family_id}/products.json</a>
+<a class="nav-section" href="#get-productsjson">GET /products.json</a>
+<a class="nav-section" href="#get-product_familiesproduct_family_idproductsjson">GET /product_families/{product_family_id}/products.json</a>
+<a class="nav-section" href="#get-productsproduct_idjson">GET /products/{product_id}.json</a>
+<a class="nav-section" href="#get-productshandleapi_handlejson">GET /products/handle/{api_handle}.json</a>
+<a class="nav-section" href="#delete-productsproduct_idjson">DELETE /products/{product_id}.json</a>
+<a class="nav-section" href="#put-productsproduct_idjson">PUT /products/{product_id}.json</a></div>
+<a href="../api/product_family.html">ProductFamily</a>
+<a href="../api/product_feature.html">ProductFeature</a>
+<a href="../api/product_price_point.html">ProductPricePoint</a>
+<a href="../api/proforma_invoice.html">ProformaInvoice</a>
+<a href="../api/reason_code.html">ReasonCode</a>
+<a href="../api/referral_code.html">ReferralCode</a>
+<a href="../api/sale_rep_setting.html">SaleRepSetting</a>
+<a href="../api/sales_commission.html">SalesCommission</a>
+<a href="../api/segment.html">Segment</a>
+<a href="../api/signup_proforma_preview.html">SignupProformaPreview</a>
+<a href="../api/site.html">Site</a>
+<a href="../api/subscription.html">Subscription</a>
+<a href="../api/subscription_component.html">SubscriptionComponent</a>
+<a href="../api/subscription_group.html">SubscriptionGroup</a>
+<a href="../api/subscription_group_invoice_account.html">SubscriptionGroupInvoiceAccount</a>
+<a href="../api/subscription_group_signup.html">SubscriptionGroupSignup</a>
+<a href="../api/subscription_group_status.html">SubscriptionGroupStatus</a>
+<a href="../api/subscription_invoice_account.html">SubscriptionInvoiceAccount</a>
+<a href="../api/subscription_mrr.html">SubscriptionMrr</a>
+<a href="../api/subscription_note.html">SubscriptionNote</a>
+<a href="../api/subscription_product.html">SubscriptionProduct</a>
+<a href="../api/subscription_renewal.html">SubscriptionRenewal</a>
+<a href="../api/subscription_status.html">SubscriptionStatus</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="product">Product</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-product_familiesproduct_family_idproductsjson"><code>/product_families/{product_family_id}/products.json</code></a></td>
+<td><code>create</code></td>
+<td>Created</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-productsjson"><code>/products.json</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-product_familiesproduct_family_idproductsjson"><code>/product_families/{product_family_id}/products.json</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-productsproduct_idjson"><code>/products/{product_id}.json</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-productshandleapi_handlejson"><code>/products/handle/{api_handle}.json</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-productsproduct_idjson"><code>/products/{product_id}.json</code></a></td>
+<td><code>remove</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-productsproduct_idjson"><code>/products/{product_id}.json</code></a></td>
+<td><code>update</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">products, err := client.Product(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(products)
+product, err := client.Product(nil).Load(map[string]any{&quot;api_handle&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(product)
+created, err := client.Product(nil).Create(map[string]any{&quot;product_family_id&quot;: &quot;example&quot;, &quot;product&quot;: map[string]any{}}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.Product(nil).Update(map[string]any{&quot;product_id&quot;: 1, &quot;product&quot;: map[string]any{}}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.Product(nil).Remove(map[string]any{&quot;product_id&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local products, err = client:Product():list()
+local product, err = client:Product():load({ api_handle = &quot;example&quot; })
+local created, err = client:Product():create({ product_family_id = &quot;example&quot;, product = {} })
+local updated, err = client:Product():update({ product_id = 1, product = {} })
+local removed, err = client:Product():remove({ product_id = 1 })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$products = $client-&gt;Product()-&gt;list();
+$product = $client-&gt;Product()-&gt;load([&quot;api_handle&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;Product()-&gt;create([&quot;product_family_id&quot; =&gt; &quot;example&quot;, &quot;product&quot; =&gt; []]);
+$updated = $client-&gt;Product()-&gt;update([&quot;product_id&quot; =&gt; 1, &quot;product&quot; =&gt; []]);
+$client-&gt;Product()-&gt;remove([&quot;product_id&quot; =&gt; 1]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">products = client.Product().list()
+product = client.Product().load({&quot;api_handle&quot;: &quot;example&quot;})
+created = client.Product().create({ &quot;product_family_id&quot;: &quot;example&quot;, &quot;product&quot;: {} })
+updated = client.Product().update({&quot;product_id&quot;: 1, &quot;product&quot;: {}})
+client.Product().remove({&quot;product_id&quot;: 1})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">products = client.Product.list()
+product = client.Product.load({ &quot;api_handle&quot; =&gt; &quot;example&quot; })
+created = client.Product.create({ &quot;product_family_id&quot; =&gt; &quot;example&quot;, &quot;product&quot; =&gt; {} })
+updated = client.Product.update({ &quot;product_id&quot; =&gt; 1, &quot;product&quot; =&gt; {} })
+client.Product.remove({ &quot;product_id&quot; =&gt; 1 })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const products = await client.Product().list()
+const product = await client.Product().load({ api_handle: &quot;example&quot; })
+const created = await client.Product().create({ product_family_id: &quot;example&quot;, product: {} })
+const updated = await client.Product().update({ product_id: 1, product: {} })
+await client.Product().remove({ product_id: 1 })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>product</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Product</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-product_familiesproduct_family_idproductsjson" class="operation" data-method="post"><code>POST</code> /product_families/{product_family_id}/products.json</h3>
+<p>Operation ID: <code>createProduct</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>product_family_id</code> | <code>path</code> | <code>string</code> | Yes | Either the product family's id or its handle prefixed with <code>handle:</code> |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and any</code>.</p>
+<h4 id="responses">Responses</h4>
+<h5 id="201-created" class="status" data-status="2xx">201: Created</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h5 id="422-unprocessable-entity-webdav" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h2 id="list">list</h2>
+<h3 id="get-productsjson" class="operation" data-method="get"><code>GET</code> /products.json</h3>
+<p>Operation ID: <code>listProducts</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>date_field</code> | <code>query</code> | <code>enum: updated_at, created_at and any</code> | No | The type of filter you would like to apply to your search. Use in query: <code>date_field`=`created_at</code>. |
+| <code>filter</code> | <code>query</code> | <code>object and any</code> | No | Filter to use for List Products operations |
+| <code>end_date</code> | <code>query</code> | <code>string (date)</code> | No | The end date (format YYYY-MM-DD) with which to filter the <code>date_field</code>. Returns products with a timestamp up to and including 11:59:59PM in your site’s time zone on the date specified. |
+| <code>end_datetime</code> | <code>query</code> | <code>string (date-time)</code> | No | The end date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the <code>date_field</code>. Returns products with a timestamp at or before exact time provided in query. You can specify timezone in query - otherwise your site''s time zone will be used. If provided, this parameter will be used instead of <code>end_date</code>. |
+| <code>start_date</code> | <code>query</code> | <code>string (date)</code> | No | The start date (format YYYY-MM-DD) with which to filter the <code>date_field</code>. Returns products with a timestamp at or after midnight (12:00:00 AM) in your site’s time zone on the date specified. |
+| <code>start_datetime</code> | <code>query</code> | <code>string (date-time)</code> | No | The start date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the <code>date_field</code>. Returns products with a timestamp at or after exact time provided in query. You can specify timezone in query - otherwise your site''s time zone will be used. If provided, this parameter will be used instead of <code>start_date</code>. |
+| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned. Use in query <code>page=1</code>. |
+| <code>per_page</code> | <code>query</code> | <code>integer (int32)</code> | No | This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any <code>per_page</code> value over 200 will be changed to 200. Use in query <code>per_page`=200`. | | `include_archived` | `query` | `boolean` | No | Include archived products. Use in query: </code>include_archived<code>=true</code>. |
+| <code>include</code> | <code>query</code> | <code>enum: prepaid_product_price_point and any</code> | No | Allows including additional data in the response. Use in query <code>include=</code>prepaid_product_price_point``. |
+| <code>include_features</code> | <code>query</code> | <code>boolean</code> | No | When <code>true</code>, embeds the active feature catalog items for each result in a <code>features</code> array. Default value is <code>false</code>. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].product</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Product</td>
+</tr>
+<tr>
+<td><code>[].product.accounting_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>for example, Internal ID or SKU Number</td>
+</tr>
+<tr>
+<td><code>[].product.archived_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp indicating when this product was archived</td>
+</tr>
+<tr>
+<td><code>[].product.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp indicating when this product was created</td>
+</tr>
+<tr>
+<td><code>[].product.default_product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product description</td>
+</tr>
+<tr>
+<td><code>[].product.expiration_interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>A numerical interval for the length a subscription to this product will run before it expires. See the description of interval for a description of how this value is coupled with an interval unit to calculate the full interval.</td>
+</tr>
+<tr>
+<td><code>[].product.expiration_interval_unit</code></td>
+<td><code>any or enum: day, month, never and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The active feature catalog items attached to this product. Present only when the request includes ``include_features<code>=true</code>.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].archived_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].feature_key</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The <code>key</code> of the parent feature template.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].feature_kind</code></td>
+<td><code>enum: access_right, usage_limit, service_right and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].feature_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The <code>name</code> of the parent feature template.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].feature_template_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The id of the feature template this item was created from.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].periodicity_interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Set when <code>feature_kind</code> is <code>usage_limit</code>; <code>null</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].periodicity_unit</code></td>
+<td><code>any or enum: hour, day, week, month, year and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Set together with <code>price_point_type</code> for price-point-specific overrides.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].price_point_type</code></td>
+<td><code>any or enum: ProductPricePoint, PricePoint and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].updated_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The value granted by this feature catalog item. Interpreted according to <code>feature_kind</code>: <code>&amp;quot;true&amp;quot;</code>/<code>&amp;quot;false&amp;quot;</code> for <code>access_right</code>, a numeric string for <code>usage_limit</code>, or any string for <code>service_right</code> (shaped by the feature template's <code>value_type</code>).</td>
+</tr>
+<tr>
+<td><code>[].product.handle</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product API handle</td>
+</tr>
+<tr>
+<td><code>[].product.id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.initial_charge_after_trial</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.initial_charge_in_cents</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The up front charge you have specified.</td>
+</tr>
+<tr>
+<td><code>[].product.interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The numerical interval. for example, an interval of ‘30’ coupled with an <code>interval_unit</code> of day would mean this product would renew every 30 days.</td>
+</tr>
+<tr>
+<td><code>[].product.interval_unit</code></td>
+<td><code>enum: day, month and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.item_category</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other</td>
+</tr>
+<tr>
+<td><code>[].product.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product name</td>
+</tr>
+<tr>
+<td><code>[].product.price_in_cents</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The product price, in integer cents</td>
+</tr>
+<tr>
+<td><code>[].product.product_family</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>ProductFamily</td>
+</tr>
+<tr>
+<td><code>[].product.product_family.accounting_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.archived_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp indicating when this product family was archived. <code>null</code> if the product family is not archived.</td>
+</tr>
+<tr>
+<td><code>[].product.product_family.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.handle</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.surcharging</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether surcharging applies to this product family. Only included on sites where surcharging is enabled.</td>
+</tr>
+<tr>
+<td><code>[].product.product_family.updated_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_price_point_handle</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_price_point_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.public_signup_pages</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.public_signup_pages[].id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The id of the signup page (<code>public_signup_pages</code> only)</td>
+</tr>
+<tr>
+<td><code>[].product.public_signup_pages[].return_params</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The params to be appended to the <code>return_url</code> (<code>public_signup_pages</code> only)</td>
+</tr>
+<tr>
+<td><code>[].product.public_signup_pages[].return_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The url to which a customer will be returned after a successful signup (<code>public_signup_pages</code> only).</td>
+</tr>
+<tr>
+<td><code>[].product.public_signup_pages[].url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The url where the signup page can be viewed (<code>public_signup_pages</code> only).</td>
+</tr>
+<tr>
+<td><code>[].product.request_billing_address</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product.</td>
+</tr>
+<tr>
+<td><code>[].product.request_credit_card</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Deprecated value that can be ignored unless you have legacy hosted pages. For Public Signup Page users, read this attribute from under the signup page.</td>
+</tr>
+<tr>
+<td><code>[].product.require_billing_address</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>A boolean indicating whether a billing address is required to add a payment profile, especially at signup.</td>
+</tr>
+<tr>
+<td><code>[].product.require_credit_card</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product.</td>
+</tr>
+<tr>
+<td><code>[].product.require_shipping_address</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>A boolean indicating whether a shipping address is required for the customer, especially at signup.</td>
+</tr>
+<tr>
+<td><code>[].product.return_params</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.tax_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string representing the tax code related to the product type. This is especially important when using AvaTax to tax based on locale. This attribute has a max length of 25 characters.</td>
+</tr>
+<tr>
+<td><code>[].product.taxable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.trial_interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>A numerical interval for the length of the trial period of a subscription to this product. See the description of interval for a description of how this value is coupled with an interval unit to calculate the full interval.</td>
+</tr>
+<tr>
+<td><code>[].product.trial_interval_unit</code></td>
+<td><code>any or enum: day, month and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.trial_price_in_cents</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The price of the trial period for a subscription to this product, in integer cents.</td>
+</tr>
+<tr>
+<td><code>[].product.unspsc_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>(Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. When set, this value is sent as the commodity code on invoice line items for this product instead of the default derived from <code>item_category</code>.</td>
+</tr>
+<tr>
+<td><code>[].product.update_return_params</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The parameters will append to the url after a successful account update. See <a href="https://help.chargify.com/products/product-editing.html#return-parameters-after-account-update">help documentation</a>.</td>
+</tr>
+<tr>
+<td><code>[].product.update_return_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The url to which a customer will be returned after a successful account update</td>
+</tr>
+<tr>
+<td><code>[].product.updated_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp indicating when this product was last updated</td>
+</tr>
+<tr>
+<td><code>[].product.use_site_exchange_rate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.version_number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The version of the product</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-product_familiesproduct_family_idproductsjson" class="operation" data-method="get"><code>GET</code> /product_families/{product_family_id}/products.json</h3>
+<p>Operation ID: <code>listProductsForProductFamily</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>product_family_id</code> | <code>path</code> | <code>string</code> | Yes | Either the product family's id or its handle prefixed with <code>handle:</code> |
+| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned. Use in query <code>page=1</code>. |
+| <code>per_page</code> | <code>query</code> | <code>integer (int32)</code> | No | This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any <code>per_page</code> value over 200 will be changed to 200. Use in query <code>per_page`=200`. | | `date_field` | `query` | `enum: updated_at, created_at and any` | No | The type of filter you would like to apply to your search. Use in query: </code>date_field<code>=</code>created_at<code>. | | `filter` | `query` | `object and any` | No | Filter to use for List Products operations | | `start_date` | `query` | `string (date)` | No | The start date (format YYYY-MM-DD) with which to filter the `date_field`. Returns products with a timestamp at or after midnight (12:00:00 AM) in your site’s time zone on the date specified. | | `end_date` | `query` | `string (date)` | No | The end date (format YYYY-MM-DD) with which to filter the `date_field`. Returns products with a timestamp up to and including 11:59:59PM in your site’s time zone on the date specified. | | `start_datetime` | `query` | `string (date-time)` | No | The start date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the `date_field`. Returns products with a timestamp at or after exact time provided in query. You can specify timezone in query - otherwise your site&amp;#39;s time zone will be used. If provided, this parameter will be used instead of `start_date`. | | `end_datetime` | `query` | `string (date-time)` | No | The end date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the `date_field`. Returns products with a timestamp at or before exact time provided in query. You can specify timezone in query - otherwise your site&amp;#39;s time zone will be used. If provided, this parameter will be used instead of `end_date`. | | `include_archived` | `query` | `boolean` | No | Include archived products. | | `include` | `query` | `enum: prepaid_product_price_point and any` | No | Allows including additional data in the response. Use in query `include=`prepaid_product_price_point</code>. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-ok-1" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].product</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Product</td>
+</tr>
+<tr>
+<td><code>[].product.accounting_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>for example, Internal ID or SKU Number</td>
+</tr>
+<tr>
+<td><code>[].product.archived_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp indicating when this product was archived</td>
+</tr>
+<tr>
+<td><code>[].product.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp indicating when this product was created</td>
+</tr>
+<tr>
+<td><code>[].product.default_product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product description</td>
+</tr>
+<tr>
+<td><code>[].product.expiration_interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>A numerical interval for the length a subscription to this product will run before it expires. See the description of interval for a description of how this value is coupled with an interval unit to calculate the full interval.</td>
+</tr>
+<tr>
+<td><code>[].product.expiration_interval_unit</code></td>
+<td><code>any or enum: day, month, never and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The active feature catalog items attached to this product. Present only when the request includes ``include_features<code>=true</code>.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].archived_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].feature_key</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The <code>key</code> of the parent feature template.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].feature_kind</code></td>
+<td><code>enum: access_right, usage_limit, service_right and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].feature_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The <code>name</code> of the parent feature template.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].feature_template_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The id of the feature template this item was created from.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].periodicity_interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Set when <code>feature_kind</code> is <code>usage_limit</code>; <code>null</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].periodicity_unit</code></td>
+<td><code>any or enum: hour, day, week, month, year and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>Set together with <code>price_point_type</code> for price-point-specific overrides.</td>
+</tr>
+<tr>
+<td><code>[].product.features[].price_point_type</code></td>
+<td><code>any or enum: ProductPricePoint, PricePoint and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].updated_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.features[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The value granted by this feature catalog item. Interpreted according to <code>feature_kind</code>: <code>&amp;quot;true&amp;quot;</code>/<code>&amp;quot;false&amp;quot;</code> for <code>access_right</code>, a numeric string for <code>usage_limit</code>, or any string for <code>service_right</code> (shaped by the feature template's <code>value_type</code>).</td>
+</tr>
+<tr>
+<td><code>[].product.handle</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product API handle</td>
+</tr>
+<tr>
+<td><code>[].product.id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.initial_charge_after_trial</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.initial_charge_in_cents</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The up front charge you have specified.</td>
+</tr>
+<tr>
+<td><code>[].product.interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The numerical interval. for example, an interval of ‘30’ coupled with an <code>interval_unit</code> of day would mean this product would renew every 30 days.</td>
+</tr>
+<tr>
+<td><code>[].product.interval_unit</code></td>
+<td><code>enum: day, month and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.item_category</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other</td>
+</tr>
+<tr>
+<td><code>[].product.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product name</td>
+</tr>
+<tr>
+<td><code>[].product.price_in_cents</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The product price, in integer cents</td>
+</tr>
+<tr>
+<td><code>[].product.product_family</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>ProductFamily</td>
+</tr>
+<tr>
+<td><code>[].product.product_family.accounting_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.archived_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp indicating when this product family was archived. <code>null</code> if the product family is not archived.</td>
+</tr>
+<tr>
+<td><code>[].product.product_family.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.handle</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_family.surcharging</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether surcharging applies to this product family. Only included on sites where surcharging is enabled.</td>
+</tr>
+<tr>
+<td><code>[].product.product_family.updated_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_price_point_handle</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.product_price_point_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.public_signup_pages</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.public_signup_pages[].id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The id of the signup page (<code>public_signup_pages</code> only)</td>
+</tr>
+<tr>
+<td><code>[].product.public_signup_pages[].return_params</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The params to be appended to the <code>return_url</code> (<code>public_signup_pages</code> only)</td>
+</tr>
+<tr>
+<td><code>[].product.public_signup_pages[].return_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The url to which a customer will be returned after a successful signup (<code>public_signup_pages</code> only).</td>
+</tr>
+<tr>
+<td><code>[].product.public_signup_pages[].url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The url where the signup page can be viewed (<code>public_signup_pages</code> only).</td>
+</tr>
+<tr>
+<td><code>[].product.request_billing_address</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product.</td>
+</tr>
+<tr>
+<td><code>[].product.request_credit_card</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Deprecated value that can be ignored unless you have legacy hosted pages. For Public Signup Page users, read this attribute from under the signup page.</td>
+</tr>
+<tr>
+<td><code>[].product.require_billing_address</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>A boolean indicating whether a billing address is required to add a payment profile, especially at signup.</td>
+</tr>
+<tr>
+<td><code>[].product.require_credit_card</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product.</td>
+</tr>
+<tr>
+<td><code>[].product.require_shipping_address</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>A boolean indicating whether a shipping address is required for the customer, especially at signup.</td>
+</tr>
+<tr>
+<td><code>[].product.return_params</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.tax_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string representing the tax code related to the product type. This is especially important when using AvaTax to tax based on locale. This attribute has a max length of 25 characters.</td>
+</tr>
+<tr>
+<td><code>[].product.taxable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.trial_interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>A numerical interval for the length of the trial period of a subscription to this product. See the description of interval for a description of how this value is coupled with an interval unit to calculate the full interval.</td>
+</tr>
+<tr>
+<td><code>[].product.trial_interval_unit</code></td>
+<td><code>any or enum: day, month and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.trial_price_in_cents</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The price of the trial period for a subscription to this product, in integer cents.</td>
+</tr>
+<tr>
+<td><code>[].product.unspsc_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>(Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. When set, this value is sent as the commodity code on invoice line items for this product instead of the default derived from <code>item_category</code>.</td>
+</tr>
+<tr>
+<td><code>[].product.update_return_params</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The parameters will append to the url after a successful account update. See <a href="https://help.chargify.com/products/product-editing.html#return-parameters-after-account-update">help documentation</a>.</td>
+</tr>
+<tr>
+<td><code>[].product.update_return_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The url to which a customer will be returned after a successful account update</td>
+</tr>
+<tr>
+<td><code>[].product.updated_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Timestamp indicating when this product was last updated</td>
+</tr>
+<tr>
+<td><code>[].product.use_site_exchange_rate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product.version_number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The version of the product</td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-not-found" class="status" data-status="4xx">404: Not Found</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>string</code>.</p>
+<h2 id="load">load</h2>
+<h3 id="get-productsproduct_idjson" class="operation" data-method="get"><code>GET</code> /products/{product_id}.json</h3>
+<p>Operation ID: <code>readProduct</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>product_id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Advanced Billing id of the product |
+| <code>include_features</code> | <code>query</code> | <code>boolean</code> | No | When <code>true</code>, embeds the active feature catalog items for each result in a <code>features</code> array. Default value is <code>false</code>. |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-ok-2" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h3 id="get-productshandleapi_handlejson" class="operation" data-method="get"><code>GET</code> /products/handle/{api_handle}.json</h3>
+<p>Operation ID: <code>readProductByHandle</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>api_handle</code> | <code>path</code> | <code>string</code> | Yes | The handle of the product |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-ok-3" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h2 id="remove">remove</h2>
+<h3 id="delete-productsproduct_idjson" class="operation" data-method="delete"><code>DELETE</code> /products/{product_id}.json</h3>
+<p>Operation ID: <code>archiveProduct</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>product_id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Advanced Billing id of the product |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-ok-4" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h5 id="422-unprocessable-entity-webdav-1" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h2 id="update">update</h2>
+<h3 id="put-productsproduct_idjson" class="operation" data-method="put"><code>PUT</code> /products/{product_id}.json</h3>
+<p>Operation ID: <code>updateProduct</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>product_id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Advanced Billing id of the product |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>product</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>CreateorUpdateProduct</td>
+</tr>
+<tr>
+<td><code>product.accounting_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>for example Internal ID or SKU Number</td>
+</tr>
+<tr>
+<td><code>product.auto_create_signup_page</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product.description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The product description</td>
+</tr>
+<tr>
+<td><code>product.expiration_interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The numerical expiration interval. for example, an <code>expiration_interval</code> of ‘30’ coupled with an <code>expiration_interval_unit</code> of day would mean this product would expire after 30 days.</td>
+</tr>
+<tr>
+<td><code>product.expiration_interval_unit</code></td>
+<td><code>any or enum: day, month, never and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product.handle</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The product API handle</td>
+</tr>
+<tr>
+<td><code>product.interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The numerical interval. for example, an interval of ‘30’ coupled with an <code>interval_unit</code> of day would mean this product would renew every 30 days.</td>
+</tr>
+<tr>
+<td><code>product.interval_unit</code></td>
+<td><code>enum: day, month and any</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The product name</td>
+</tr>
+<tr>
+<td><code>product.price_in_cents</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>The product price, in integer cents</td>
+</tr>
+<tr>
+<td><code>product.require_credit_card</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Deprecated value that can be ignored unless you have legacy hosted pages. For Public Signup Page users, read this attribute from under the signup page.</td>
+</tr>
+<tr>
+<td><code>product.tax_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string representing the tax code related to the product type. This is especially important when using AvaTax to tax based on locale. This attribute has a max length of 25 characters.</td>
+</tr>
+<tr>
+<td><code>product.trial_interval</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The numerical trial interval. for example, an interval of ‘30’ coupled with a <code>trial_interval_unit</code> of day would mean this product trial would last 30 days.</td>
+</tr>
+<tr>
+<td><code>product.trial_interval_unit</code></td>
+<td><code>any or enum: day, month and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product.trial_price_in_cents</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The product trial price, in integer cents</td>
+</tr>
+<tr>
+<td><code>product.trial_type</code></td>
+<td><code>any or enum: no_obligation, payment_expected and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product.unspsc_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>(Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. When set, this value is sent as the commodity code on invoice line items for this product instead of the default derived from <code>item_category</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-ok-5" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h5 id="422-unprocessable-entity-webdav-2" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

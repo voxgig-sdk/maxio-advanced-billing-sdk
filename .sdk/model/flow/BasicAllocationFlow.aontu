@@ -1,0 +1,40 @@
+# BasicAllocationFlow
+
+main: kit: flow: BasicAllocationFlow:
+{
+  entity: "allocation",
+  kind: "basic",
+  name: "BasicAllocationFlow",
+  step: [
+    {
+      i: {
+        ref: "allocation_ref01"
+      }
+
+      m: {
+        component_id: "component01",
+        subscription_id: "subscription01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        component_id: "component01",
+        subscription_id: "subscription01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "allocation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAllocationFlow"
+}

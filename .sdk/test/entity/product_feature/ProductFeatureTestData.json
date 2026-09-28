@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "product_feature": {
+      "PRODUCT_FEATURE00": {
+        "id": "PRODUCT_FEATURE00",
+        "product_id": "PRODUCT01"
+      },
+      "PRODUCT_FEATURE01": {
+        "id": "PRODUCT_FEATURE01",
+        "product_id": "PRODUCT01"
+      },
+      "PRODUCT_FEATURE02": {
+        "id": "PRODUCT_FEATURE02",
+        "product_id": "PRODUCT01"
+      }
+    }
+  },
+  "new": {
+    "product_feature": {
+      "product_feature_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /products/{product_id}/features/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,95 @@
+# Entity: prepayment
+
+main: kit: entity: prepayment: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "prepayment"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "prepayment_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.json"
+          q: {
+            "$action": "refund"
+            exist: [
+              "id"
+              "subscription_id"
+            ]
+          }
+          r: {
+            param: {
+              prepayment_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "prepayments"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "refunds.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.prepayment`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.subscription")]
+  ]
+
+}

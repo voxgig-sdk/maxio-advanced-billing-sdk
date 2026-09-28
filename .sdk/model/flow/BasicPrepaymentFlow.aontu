@@ -1,0 +1,23 @@
+# BasicPrepaymentFlow
+
+main: kit: flow: BasicPrepaymentFlow:
+{
+  entity: "prepayment",
+  kind: "basic",
+  name: "BasicPrepaymentFlow",
+  step: [
+    {
+      i: {
+        ref: "prepayment_ref01"
+      }
+
+      m: {
+        prepayment_id: "prepayment01",
+        subscription_id: "subscription01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicPrepaymentFlow"
+}

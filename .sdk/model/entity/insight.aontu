@@ -1,0 +1,178 @@
+# Entity: insight
+
+main: kit: entity: insight: {
+
+  alias: field: {}
+
+  fields: {
+    mrr: {
+      h: "Mrr"
+      n: "mrr"
+      r: true
+      t: "`$OBJECT`"
+    }
+    seller_name: {
+      h: "Seller Name"
+      n: "seller_name"
+      r: false
+      t: "`$STRING`"
+    }
+    site_currency: {
+      h: "Site Currency"
+      n: "site_currency"
+      r: false
+      t: "`$STRING`"
+    }
+    site_id: {
+      fo: "int32"
+      h: "Site Id"
+      n: "site_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    site_name: {
+      h: "Site Name"
+      n: "site_name"
+      r: false
+      t: "`$STRING`"
+    }
+    stats: {
+      h: "Stats"
+      n: "stats"
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "insight"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /mrr_movements.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/mrr_movements.json"
+          q: {
+            exist: [
+              "direction"
+              "page"
+              "per_page"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "mrr_movements.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /mrr.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "at_time"
+                or: "at_time"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/mrr.json"
+          q: {
+            exist: [
+              "at_time"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "mrr.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /stats.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/stats.json"
+          s: [
+            {
+              lit: "stats.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

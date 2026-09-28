@@ -1,0 +1,9 @@
+# BasicEventsBasedBillingSegmentFlow
+
+main: kit: flow: BasicEventsBasedBillingSegmentFlow:
+{
+  entity: "events_based_billing_segment",
+  kind: "basic",
+  name: "BasicEventsBasedBillingSegmentFlow",
+  "key$": "BasicEventsBasedBillingSegmentFlow"
+}

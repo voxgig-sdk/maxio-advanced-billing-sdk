@@ -1,0 +1,97 @@
+# Entity: component_feature
+
+main: kit: entity: component_feature: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "component_feature"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /components/{component_id}/features/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "destroy_entitlement"
+                or: "destroy_entitlement"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/components/{component_id}/features/{id}.json"
+          q: {
+            exist: [
+              "component_id"
+              "destroy_entitlement"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "features"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.component")]
+  ]
+
+}

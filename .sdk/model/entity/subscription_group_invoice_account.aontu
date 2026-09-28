@@ -1,0 +1,249 @@
+# Entity: subscription_group_invoice_account
+
+main: kit: entity: subscription_group_invoice_account: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "subscription_group_invoice_account"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /subscription_groups/{uid}/prepayments.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscription_groups/{uid}/prepayments.json"
+          q: {
+            "$action": "prepayments.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "prepayments.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscription_groups/{uid}/service_credit_deductions.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscription_groups/{uid}/service_credit_deductions.json"
+          q: {
+            "$action": "service_credit_deductions.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "service_credit_deductions.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscription_groups/{uid}/service_credits.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscription_groups/{uid}/service_credits.json"
+          q: {
+            "$action": "service_credits.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "service_credits.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /subscription_groups/{uid}/prepayments.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscription_groups/{uid}/prepayments.json"
+          q: {
+            "$action": "prepayments.json"
+            exist: [
+              "filter"
+              "id"
+              "page"
+              "per_page"
+            ]
+          }
+          r: {
+            param: {
+              uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "prepayments.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

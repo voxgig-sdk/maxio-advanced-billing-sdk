@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "allocation": {
+      "ALLOCATION00": {
+        "allocation": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "component_id": "COMPONENT01",
+        "id": "ALLOCATION00"
+      },
+      "ALLOCATION01": {
+        "allocation": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "component_id": "COMPONENT01",
+        "id": "ALLOCATION01"
+      },
+      "ALLOCATION02": {
+        "allocation": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "component_id": "COMPONENT01",
+        "id": "ALLOCATION02"
+      }
+    }
+  },
+  "new": {
+    "allocation": {
+      "allocation_ref01": {
+        "allocation": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /subscriptions/{subscription_id}/allocations.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions/{subscription_id}/components/{component_id}/allocations.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,254 @@
+# Entity: segment
+
+main: kit: entity: segment: {
+
+  alias: field: {}
+
+  fields: {
+    component_id: {
+      fo: "int32"
+      h: "Component Id"
+      n: "component_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    event_based_billing_metric_id: {
+      fo: "int32"
+      h: "Event Based Billing Metric Id"
+      n: "event_based_billing_metric_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    price_point_id: {
+      fo: "int32"
+      h: "Price Point Id"
+      n: "price_point_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    prices: {
+      h: "Prices"
+      n: "prices"
+      r: false
+      t: "`$ARRAY`"
+    }
+    pricing_scheme: {
+      h: "Pricing Scheme"
+      n: "pricing_scheme"
+      r: false
+      t: "`$ANY`"
+    }
+    segment_property_1_value: {
+      h: "Segment Property 1 Value"
+      n: "segment_property_1_value"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 4
+        count: 1
+        depth: 0
+      }
+    }
+    segment_property_2_value: {
+      h: "Segment Property 2 Value"
+      n: "segment_property_2_value"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 4
+        count: 1
+        depth: 0
+      }
+    }
+    segment_property_3_value: {
+      h: "Segment Property 3 Value"
+      n: "segment_property_3_value"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 4
+        count: 1
+        depth: 0
+      }
+    }
+    segment_property_4_value: {
+      h: "Segment Property 4 Value"
+      n: "segment_property_4_value"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 4
+        count: 1
+        depth: 0
+      }
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "segment"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /components/{component_id}/price_points/{price_point_id}/segments.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/components/{component_id}/price_points/{price_point_id}/segments.json"
+          q: {
+            exist: [
+              "component_id"
+              "price_point_id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "price_points"
+            }
+            {
+              var: "price_point_id"
+            }
+            {
+              lit: "segments.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.segment`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /components/{component_id}/price_points/{price_point_id}/segments/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$NUMBER`"
+              }
+              {
+                k: "param"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/components/{component_id}/price_points/{price_point_id}/segments/{id}.json"
+          q: {
+            "$action": "id"
+            exist: [
+              "component_id"
+              "id"
+              "price_point_id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "price_points"
+            }
+            {
+              var: "price_point_id"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: {
+              segment: "`reqdata`"
+            }
+            res: "`body.segment`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.component")]
+  ]
+
+}

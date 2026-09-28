@@ -1,0 +1,96 @@
+# Entity: entitlement
+
+main: kit: entity: entitlement: {
+
+  alias: field: {}
+
+  fields: {
+    customer_id: {
+      fo: "int32"
+      h: "Customer Id"
+      n: "customer_id"
+      r: true
+      t: "`$INTEGER`"
+    }
+    entitlements: {
+      h: "Entitlements"
+      n: "entitlements"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 2
+        depth: 5
+      }
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "The subscription's current state, e.g."
+      t: "`$STRING`"
+    }
+    subscription_id: {
+      fo: "int32"
+      h: "Subscription Id"
+      n: "subscription_id"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "entitlement"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /subscriptions/{subscription_id}/entitlements.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions/{subscription_id}/entitlements.json"
+          q: {
+            exist: [
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "entitlements.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.subscription")]
+  ]
+
+}

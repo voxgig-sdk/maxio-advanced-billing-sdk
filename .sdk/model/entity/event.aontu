@@ -1,0 +1,340 @@
+# Entity: event
+
+main: kit: entity: event: {
+
+  alias: field: {}
+
+  fields: {
+    event: {
+      h: "Event"
+      n: "event"
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 21
+        count: 29
+        depth: 23
+      }
+    }
+  }
+
+  name: "event"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /events.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "date_field"
+                or: "date_field"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_datetime"
+                or: "end_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: [
+                  "custom_field_value_change"
+                  "payment_success"
+                ]
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "max_id"
+                or: "max_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "since_id"
+                or: "since_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_datetime"
+                or: "start_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/events.json"
+          q: {
+            exist: [
+              "date_field"
+              "direction"
+              "end_date"
+              "end_datetime"
+              "filter"
+              "max_id"
+              "page"
+              "per_page"
+              "since_id"
+              "start_date"
+              "start_datetime"
+            ]
+          }
+          s: [
+            {
+              lit: "events.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /subscriptions/{subscription_id}/events.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: [
+                  "custom_field_value_change"
+                  "payment_success"
+                ]
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "max_id"
+                or: "max_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "since_id"
+                or: "since_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions/{subscription_id}/events.json"
+          q: {
+            exist: [
+              "direction"
+              "filter"
+              "max_id"
+              "page"
+              "per_page"
+              "since_id"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "events.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /events/count.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: [
+                  "custom_field_value_change"
+                  "payment_success"
+                ]
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "max_id"
+                or: "max_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "since_id"
+                or: "since_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/events/count.json"
+          q: {
+            "$action": "count"
+            exist: [
+              "direction"
+              "filter"
+              "max_id"
+              "page"
+              "per_page"
+              "since_id"
+            ]
+          }
+          s: [
+            {
+              lit: "events"
+            }
+            {
+              lit: "count.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.subscription")]
+  ]
+
+}

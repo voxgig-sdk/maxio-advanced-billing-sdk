@@ -1,0 +1,22 @@
+# BasicSubscriptionMrrFlow
+
+main: kit: flow: BasicSubscriptionMrrFlow:
+{
+  entity: "subscription_mrr",
+  kind: "basic",
+  name: "BasicSubscriptionMrrFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "subscription_mrr_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSubscriptionMrrFlow"
+}

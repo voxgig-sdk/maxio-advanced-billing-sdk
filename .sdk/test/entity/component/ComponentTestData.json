@@ -1,0 +1,93 @@
+{
+  "existing": {
+    "component": {
+      "COMPONENT00": {
+        "component": {},
+        "product_family_id": "PRODUCT_FAMILY01",
+        "component_id": "COMPONENT01",
+        "id": "COMPONENT00"
+      },
+      "COMPONENT01": {
+        "component": {},
+        "product_family_id": "PRODUCT_FAMILY01",
+        "component_id": "COMPONENT01",
+        "id": "COMPONENT01"
+      },
+      "COMPONENT02": {
+        "component": {},
+        "product_family_id": "PRODUCT_FAMILY01",
+        "component_id": "COMPONENT01",
+        "id": "COMPONENT02"
+      }
+    }
+  },
+  "new": {
+    "component": {
+      "component_ref01": {
+        "component": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /product_families/{product_family_id}/event_based_components.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /product_families/{product_family_id}/metered_components.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /product_families/{product_family_id}/on_off_components.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /product_families/{product_family_id}/prepaid_usage_components.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /product_families/{product_family_id}/quantity_based_components.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /product_families/{product_family_id}/components.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /components.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /product_families/{product_family_id}/components/{component_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /components/lookup.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /product_families/{product_family_id}/components/{component_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /product_families/{product_family_id}/components/{component_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /components/{component_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "subscription_product": {
+      "SUBSCRIPTION_PRODUCT00": {
+        "id": "SUBSCRIPTION_PRODUCT00",
+        "migration": {},
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "SUBSCRIPTION_PRODUCT01": {
+        "id": "SUBSCRIPTION_PRODUCT01",
+        "migration": {},
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "SUBSCRIPTION_PRODUCT02": {
+        "id": "SUBSCRIPTION_PRODUCT02",
+        "migration": {},
+        "subscription_id": "SUBSCRIPTION01"
+      }
+    }
+  },
+  "new": {
+    "subscription_product": {
+      "subscription_product_ref01": {
+        "migration": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /subscriptions/{subscription_id}/migrations.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/migrations/preview.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

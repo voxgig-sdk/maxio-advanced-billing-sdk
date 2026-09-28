@@ -1,0 +1,105 @@
+# BasicComponentFlow
+
+main: kit: flow: BasicComponentFlow:
+{
+  entity: "component",
+  kind: "basic",
+  name: "BasicComponentFlow",
+  step: [
+    {
+      i: {
+        ref: "component_ref01"
+      }
+
+      m: {
+        component_id: "component01",
+        product_family_id: "product_family01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "component_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        component_id: "component01"
+      }
+
+      i: {
+        ref: "component_ref01",
+        srcdatavar: "component_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-component_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "component_ref01",
+        srcdatavar: "component_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-component_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "component_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        component_id: "component01",
+        id: "component01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "component_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicComponentFlow"
+}

@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "subscription_note": {
+      "SUBSCRIPTION_NOTE00": {
+        "body": "s46",
+        "created_at": "s47",
+        "id": "SUBSCRIPTION_NOTE00",
+        "note": {},
+        "sticky": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "updated_at": "s4c",
+        "note_id": "NOTE01"
+      },
+      "SUBSCRIPTION_NOTE01": {
+        "body": "s8c",
+        "created_at": "s8d",
+        "id": "SUBSCRIPTION_NOTE01",
+        "note": {},
+        "sticky": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "updated_at": "s92",
+        "note_id": "NOTE01"
+      },
+      "SUBSCRIPTION_NOTE02": {
+        "body": "sd2",
+        "created_at": "sd3",
+        "id": "SUBSCRIPTION_NOTE02",
+        "note": {},
+        "sticky": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "updated_at": "sd8",
+        "note_id": "NOTE01"
+      }
+    }
+  },
+  "new": {
+    "subscription_note": {
+      "subscription_note_ref01": {
+        "body": "s118",
+        "created_at": "s119",
+        "note": {},
+        "sticky": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "updated_at": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "POST /subscriptions/{subscription_id}/notes.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions/{subscription_id}/notes.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions/{subscription_id}/notes/{note_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /subscriptions/{subscription_id}/notes/{note_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/notes/{note_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

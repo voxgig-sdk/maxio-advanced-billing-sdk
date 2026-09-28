@@ -1,0 +1,154 @@
+# Entity: site
+
+main: kit: entity: site: {
+
+  alias: field: {}
+
+  fields: {
+    chargify_js_keys: {
+      h: "Chargify Js Keys"
+      n: "chargify_js_keys"
+      r: false
+      t: "`$ARRAY`"
+    }
+    meta: {
+      h: "Meta"
+      n: "meta"
+      r: false
+      t: "`$OBJECT`"
+    }
+    site: {
+      h: "Site"
+      n: "site"
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 2
+        depth: 6
+      }
+    }
+  }
+
+  name: "site"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /sites/clear_data.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cleanup_scope"
+                or: "cleanup_scope"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/sites/clear_data.json"
+          q: {
+            "$action": "clear_data"
+            exist: [
+              "cleanup_scope"
+            ]
+          }
+          s: [
+            {
+              lit: "sites"
+            }
+            {
+              lit: "clear_data.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /chargify_js_keys.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/chargify_js_keys.json"
+          q: {
+            exist: [
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "chargify_js_keys.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /site.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/site.json"
+          s: [
+            {
+              lit: "site.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

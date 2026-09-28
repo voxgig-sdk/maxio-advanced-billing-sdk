@@ -1,0 +1,831 @@
+# Entity: component_price_point
+
+main: kit: entity: component_price_point: {
+
+  alias: field: {}
+
+  fields: {
+    archived_at: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archived_at"
+      r: false
+      t: "`$STRING`"
+    }
+    component: {
+      h: "Component"
+      n: "component"
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 7
+        depth: 7
+      }
+    }
+    component_id: {
+      fo: "int32"
+      h: "Component Id"
+      n: "component_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    currency_prices: {
+      h: "Currency Prices"
+      n: "currency_prices"
+      r: false
+      sh: "An array of currency pricing data is available when multiple currencies are defined for the site."
+      t: "`$ARRAY`"
+    }
+    default: {
+      de: true
+      h: "Default"
+      n: "default"
+      r: false
+      sh: "Note: Refer to type attribute instead."
+      t: "`$BOOLEAN`"
+    }
+    expiration_interval: {
+      fo: "int32"
+      h: "Expiration Interval"
+      n: "expiration_interval"
+      r: false
+      sh: "Applicable only to prepaid usage components where rollover_prepaid_remainder is true."
+      t: "`$INTEGER`"
+    }
+    expiration_interval_unit: {
+      h: "Expiration Interval Unit"
+      n: "expiration_interval_unit"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    handle: {
+      h: "Handle"
+      n: "handle"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    interval: {
+      fo: "int32"
+      h: "Interval"
+      n: "interval"
+      r: false
+      sh: "The numerical interval."
+      t: "`$INTEGER`"
+    }
+    interval_unit: {
+      h: "Interval Unit"
+      n: "interval_unit"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      t: "`$STRING`"
+    }
+    overage_prices: {
+      h: "Overage Prices"
+      n: "overage_prices"
+      r: false
+      sh: "Applicable only to prepaid usage components."
+      t: "`$ARRAY`"
+    }
+    overage_pricing_scheme: {
+      h: "Overage Pricing Scheme"
+      n: "overage_pricing_scheme"
+      r: false
+      t: "`$ANY`"
+    }
+    price_point: {
+      h: "Price Point"
+      n: "price_point"
+      op: {
+        update: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      r: false
+      t: "`$OBJECT`"
+    }
+    price_points: {
+      h: "Price Points"
+      n: "price_points"
+      op: {
+        list: {
+          req: true
+          type: "`$ARRAY`"
+        }
+      }
+      r: false
+      t: "`$ARRAY`"
+    }
+    prices: {
+      h: "Prices"
+      n: "prices"
+      r: false
+      t: "`$ARRAY`"
+    }
+    pricing_scheme: {
+      h: "Pricing Scheme"
+      n: "pricing_scheme"
+      r: false
+      t: "`$ANY`"
+    }
+    renew_prepaid_allocation: {
+      h: "Renew Prepaid Allocation"
+      n: "renew_prepaid_allocation"
+      r: false
+      sh: "Applicable only to prepaid usage components."
+      t: "`$BOOLEAN`"
+    }
+    rollover_prepaid_remainder: {
+      h: "Rollover Prepaid Remainder"
+      n: "rollover_prepaid_remainder"
+      r: false
+      sh: "Applicable only to prepaid usage components."
+      t: "`$BOOLEAN`"
+    }
+    subscription_id: {
+      fo: "int32"
+      h: "Subscription Id"
+      n: "subscription_id"
+      r: false
+      sh: "(only used for Custom Pricing - ie."
+      t: "`$INTEGER`"
+    }
+    tax_included: {
+      h: "Tax Included"
+      n: "tax_included"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      t: "`$ANY`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      t: "`$STRING`"
+    }
+    use_site_exchange_rate: {
+      h: "Use Site Exchange Rate"
+      n: "use_site_exchange_rate"
+      r: false
+      sh: "Whether to use the site level exchange rate or define your own prices for each currency if you have multiple currencies defined on the site."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "component_price_point"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /components/{component_id}/price_points/{price_point_id}/clone.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/components/{component_id}/price_points/{price_point_id}/clone.json"
+          q: {
+            exist: [
+              "component_id"
+              "price_point_id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "price_points"
+            }
+            {
+              var: "price_point_id"
+            }
+            {
+              lit: "clone.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /components/{component_id}/price_points/bulk.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/components/{component_id}/price_points/bulk.json"
+          q: {
+            exist: [
+              "component_id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "price_points"
+            }
+            {
+              lit: "bulk.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /components/{component_id}/price_points.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/components/{component_id}/price_points.json"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              component_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "price_points.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.price_point`"
+          }
+        }
+        {
+          co: {
+            id: "POST /price_points/{price_point_id}/currency_prices.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/price_points/{price_point_id}/currency_prices.json"
+          q: {
+            exist: [
+              "price_point_id"
+            ]
+          }
+          s: [
+            {
+              lit: "price_points"
+            }
+            {
+              var: "price_point_id"
+            }
+            {
+              lit: "currency_prices.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /components/{component_id}/price_points.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "currency_price"
+                or: "currency_price"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: [
+                  "catalog"
+                  "default"
+                ]
+                k: "query"
+                n: "filter_type"
+                or: "filter_type"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/components/{component_id}/price_points.json"
+          q: {
+            exist: [
+              "currency_price"
+              "filter_type"
+              "id"
+              "page"
+              "per_page"
+            ]
+          }
+          r: {
+            param: {
+              component_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "price_points.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /components_price_points.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/components_price_points.json"
+          q: {
+            exist: [
+              "direction"
+              "filter"
+              "include"
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "components_price_points.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /components/{component_id}/price_points/{price_point_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/components/{component_id}/price_points/{price_point_id}.json"
+          q: {
+            exist: [
+              "component_id"
+              "price_point_id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "price_points"
+            }
+            {
+              lit: "{price_point_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /components/{component_id}/price_points/{price_point_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/components/{component_id}/price_points/{price_point_id}.json"
+          q: {
+            exist: [
+              "component_id"
+              "price_point_id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "price_points"
+            }
+            {
+              lit: "{price_point_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.price_point`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /components/{component_id}/price_points/{price_point_id}/default.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/components/{component_id}/price_points/{price_point_id}/default.json"
+          q: {
+            exist: [
+              "component_id"
+              "price_point_id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "price_points"
+            }
+            {
+              var: "price_point_id"
+            }
+            {
+              lit: "default.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /components/{component_id}/price_points/{price_point_id}/unarchive.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/components/{component_id}/price_points/{price_point_id}/unarchive.json"
+          q: {
+            exist: [
+              "component_id"
+              "price_point_id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "price_points"
+            }
+            {
+              var: "price_point_id"
+            }
+            {
+              lit: "unarchive.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /price_points/{price_point_id}/currency_prices.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/price_points/{price_point_id}/currency_prices.json"
+          q: {
+            exist: [
+              "price_point_id"
+            ]
+          }
+          s: [
+            {
+              lit: "price_points"
+            }
+            {
+              var: "price_point_id"
+            }
+            {
+              lit: "currency_prices.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.component")]
+    [path("$.main.kit.entity.component")]
+  ]
+
+}

@@ -1,0 +1,84 @@
+# BasicComponentPricePointFlow
+
+main: kit: flow: BasicComponentPricePointFlow:
+{
+  entity: "component_price_point",
+  kind: "basic",
+  name: "BasicComponentPricePointFlow",
+  step: [
+    {
+      i: {
+        ref: "component_price_point_ref01"
+      }
+
+      m: {
+        component_id: "component01",
+        price_point_id: "price_point01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "component_price_point_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "component_price_point_ref01",
+        srcdatavar: "component_price_point_ref01_data",
+        suffix: "_up0",
+        textfield: "archived_at"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-component_price_point_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "component_price_point_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "component_price_point01",
+        price_point_id: "price_point01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "component_price_point_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicComponentPricePointFlow"
+}

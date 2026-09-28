@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "usage": {
+      "USAGE00": {
+        "usage": {},
+        "component_id": "COMPONENT01",
+        "subscription_id_or_reference": "SUBSCRIPTION_ID_OR_REFERENCE01"
+      },
+      "USAGE01": {
+        "usage": {},
+        "component_id": "COMPONENT01",
+        "subscription_id_or_reference": "SUBSCRIPTION_ID_OR_REFERENCE01"
+      },
+      "USAGE02": {
+        "usage": {},
+        "component_id": "COMPONENT01",
+        "subscription_id_or_reference": "SUBSCRIPTION_ID_OR_REFERENCE01"
+      }
+    }
+  },
+  "new": {
+    "usage": {
+      "usage_ref01": {
+        "usage": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,326 @@
+# Entity: feature_template
+
+main: kit: entity: feature_template: {
+
+  alias: field: {}
+
+  fields: {
+    archived_at: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archived_at"
+      r: false
+      sh: "The date and time the feature template was archived, or `null` if it is active."
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    default_periodicity_interval: {
+      fo: "int32"
+      h: "Default Periodicity Interval"
+      n: "default_periodicity_interval"
+      r: false
+      sh: "For `usage_limit` features, the default periodicity interval used to pre-populate new feature catalog items."
+      t: "`$INTEGER`"
+    }
+    default_periodicity_unit: {
+      h: "Default Periodicity Unit"
+      n: "default_periodicity_unit"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    default_value: {
+      h: "Default Value"
+      n: "default_value"
+      r: false
+      sh: "A default value used to pre-populate new feature catalog items created from this template."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    feature: {
+      h: "Feature"
+      n: "feature"
+      r: true
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 6
+      }
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "The Advanced Billing id of the feature template."
+      t: "`$INTEGER`"
+    }
+    key: {
+      h: "Key"
+      n: "key"
+      r: false
+      sh: "A unique, lowercase, underscore-separated identifier for the feature."
+      t: "`$STRING`"
+    }
+    kind: {
+      h: "Kind"
+      n: "kind"
+      r: false
+      t: "`$ANY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The display name of the feature."
+      t: "`$STRING`"
+    }
+    plans_count: {
+      fo: "int32"
+      h: "Plans Count"
+      n: "plans_count"
+      r: false
+      sh: "The number of **products** this feature template is currently attached to via an active feature catalog item."
+      t: "`$INTEGER`"
+    }
+    products_count: {
+      fo: "int32"
+      h: "Products Count"
+      n: "products_count"
+      r: false
+      sh: "The number of **components** this feature template is currently attached to via an active feature catalog item."
+      t: "`$INTEGER`"
+    }
+    unit: {
+      h: "Unit"
+      n: "unit"
+      r: false
+      sh: "The unit the feature is measured in (for example, `requests` or `GB`)."
+      t: "`$STRING`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      t: "`$STRING`"
+    }
+    value_type: {
+      h: "Value Type"
+      n: "value_type"
+      r: false
+      t: "`$ANY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "feature_template"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /features/{id}/restore.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/features/{id}/restore.json"
+          q: {
+            "$action": "restore.json"
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "features"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "restore.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.feature`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /features/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/features/{id}.json"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "features"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.feature`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /features/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "remove_from_catalog"
+                or: "remove_from_catalog"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/features/{id}.json"
+          q: {
+            exist: [
+              "id"
+              "remove_from_catalog"
+            ]
+          }
+          s: [
+            {
+              lit: "features"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /features/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/features/{id}.json"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "features"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.feature`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

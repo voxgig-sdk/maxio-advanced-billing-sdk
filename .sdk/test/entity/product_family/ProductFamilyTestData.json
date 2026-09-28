@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "product_family": {
+      "PRODUCT_FAMILY00": {
+        "id": "PRODUCT_FAMILY00",
+        "product_family": {}
+      },
+      "PRODUCT_FAMILY01": {
+        "id": "PRODUCT_FAMILY01",
+        "product_family": {}
+      },
+      "PRODUCT_FAMILY02": {
+        "id": "PRODUCT_FAMILY02",
+        "product_family": {}
+      }
+    }
+  },
+  "new": {
+    "product_family": {
+      "product_family_ref01": {
+        "product_family": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /product_families.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /product_families.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /product_families/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

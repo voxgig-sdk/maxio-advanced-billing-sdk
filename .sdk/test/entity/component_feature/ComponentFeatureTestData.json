@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "component_feature": {
+      "COMPONENT_FEATURE00": {
+        "id": "COMPONENT_FEATURE00",
+        "component_id": "COMPONENT01"
+      },
+      "COMPONENT_FEATURE01": {
+        "id": "COMPONENT_FEATURE01",
+        "component_id": "COMPONENT01"
+      },
+      "COMPONENT_FEATURE02": {
+        "id": "COMPONENT_FEATURE02",
+        "component_id": "COMPONENT01"
+      }
+    }
+  },
+  "new": {
+    "component_feature": {
+      "component_feature_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /components/{component_id}/features/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,95 @@
+# Entity: coupon_subcode
+
+main: kit: entity: coupon_subcode: {
+
+  alias: field: {}
+
+  fields: {
+    created_codes: {
+      h: "Created Codes"
+      n: "created_codes"
+      r: false
+      t: "`$ARRAY`"
+    }
+    duplicate_codes: {
+      h: "Duplicate Codes"
+      n: "duplicate_codes"
+      r: false
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    invalid_codes: {
+      h: "Invalid Codes"
+      n: "invalid_codes"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "coupon_subcode"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /coupons/{coupon_id}/codes.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "coupon_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/coupons/{coupon_id}/codes.json"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              coupon_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "coupons"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "codes.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

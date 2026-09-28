@@ -1,0 +1,39 @@
+# BasicFeatureFlow
+
+main: kit: flow: BasicFeatureFlow:
+{
+  entity: "feature",
+  kind: "basic",
+  name: "BasicFeatureFlow",
+  step: [
+    {
+      i: {
+        ref: "feature_ref01"
+      }
+
+      m: {
+        component_id: "component01",
+        product_id: "product01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        product_id: "product01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "feature_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFeatureFlow"
+}

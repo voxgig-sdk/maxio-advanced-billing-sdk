@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "delayed_cancel": {
+      "DELAYED_CANCEL00": {
+        "message": "s14",
+        "subscription": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "DELAYED_CANCEL00"
+      },
+      "DELAYED_CANCEL01": {
+        "message": "s28",
+        "subscription": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "DELAYED_CANCEL01"
+      },
+      "DELAYED_CANCEL02": {
+        "message": "s3c",
+        "subscription": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "DELAYED_CANCEL02"
+      }
+    }
+  },
+  "new": {
+    "delayed_cancel": {
+      "delayed_cancel_ref01": {
+        "message": "s50",
+        "subscription": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /subscriptions/{subscription_id}/delayed_cancel.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

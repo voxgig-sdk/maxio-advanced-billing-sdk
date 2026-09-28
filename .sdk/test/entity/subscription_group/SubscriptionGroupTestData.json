@@ -1,0 +1,78 @@
+{
+  "existing": {
+    "subscription_group": {
+      "SUBSCRIPTION_GROUP00": {
+        "id": "SUBSCRIPTION_GROUP00",
+        "meta": {},
+        "subscription_group": {},
+        "subscription_groups": [],
+        "uid": "UID01"
+      },
+      "SUBSCRIPTION_GROUP01": {
+        "id": "SUBSCRIPTION_GROUP01",
+        "meta": {},
+        "subscription_group": {},
+        "subscription_groups": [],
+        "uid": "UID01"
+      },
+      "SUBSCRIPTION_GROUP02": {
+        "id": "SUBSCRIPTION_GROUP02",
+        "meta": {},
+        "subscription_group": {},
+        "subscription_groups": [],
+        "uid": "UID01"
+      }
+    }
+  },
+  "new": {
+    "subscription_group": {
+      "subscription_group_ref01": {
+        "meta": {},
+        "subscription_group": {},
+        "subscription_groups": []
+      }
+    }
+  },
+  "requests": {
+    "POST /subscriptions/{subscription_id}/group.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscription_groups.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscription_groups.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscription_groups/{uid}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscription_groups/lookup.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /subscriptions/{subscription_id}/group.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /subscription_groups/{uid}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscription_groups/{uid}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

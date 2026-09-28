@@ -1,0 +1,22 @@
+# BasicSubscriptionProductFlow
+
+main: kit: flow: BasicSubscriptionProductFlow:
+{
+  entity: "subscription_product",
+  kind: "basic",
+  name: "BasicSubscriptionProductFlow",
+  step: [
+    {
+      i: {
+        ref: "subscription_product_ref01"
+      }
+
+      m: {
+        subscription_id: "subscription01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicSubscriptionProductFlow"
+}

@@ -1,0 +1,33 @@
+# BasicComponentPricePointCurrencyOverageFlow
+
+main: kit: flow: BasicComponentPricePointCurrencyOverageFlow:
+{
+  entity: "component_price_point_currency_overage",
+  kind: "basic",
+  name: "BasicComponentPricePointCurrencyOverageFlow",
+  step: [
+    {
+      i: {
+        ref: "component_price_point_currency_overage_ref01",
+        srcdatavar: "component_price_point_currency_overage_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "component_price_point_currency_overage01",
+        price_point_id: "price_point01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-component_price_point_currency_overage_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicComponentPricePointCurrencyOverageFlow"
+}

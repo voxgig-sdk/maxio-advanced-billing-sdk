@@ -1,0 +1,63 @@
+# BasicFeatureCatalogItemFlow
+
+main: kit: flow: BasicFeatureCatalogItemFlow:
+{
+  entity: "feature_catalog_item",
+  kind: "basic",
+  name: "BasicFeatureCatalogItemFlow",
+  step: [
+    {
+      i: {
+        ref: "feature_catalog_item_ref01"
+      }
+
+      m: {
+        product_id: "product01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "feature_catalog_item_ref01",
+        srcdatavar: "feature_catalog_item_ref01_data",
+        suffix: "_up0",
+        textfield: "archived_at"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-feature_catalog_item_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "feature_catalog_item_ref01",
+        srcdatavar: "feature_catalog_item_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "feature_catalog_item01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-feature_catalog_item_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFeatureCatalogItemFlow"
+}

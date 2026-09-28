@@ -1,0 +1,27 @@
+# BasicSalesCommissionFlow
+
+main: kit: flow: BasicSalesCommissionFlow:
+{
+  entity: "sales_commission",
+  kind: "basic",
+  name: "BasicSalesCommissionFlow",
+  step: [
+    {
+      m: {
+        sales_rep_id: "sales_rep01",
+        seller_id: "seller01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "sales_commission_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSalesCommissionFlow"
+}

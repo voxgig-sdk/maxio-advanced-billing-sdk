@@ -1,0 +1,92 @@
+{
+  "existing": {
+    "subscription_renewal": {
+      "SUBSCRIPTION_RENEWAL00": {
+        "id": "SUBSCRIPTION_RENEWAL00",
+        "scheduled_renewal_configuration": {},
+        "scheduled_renewal_configuration_item": {},
+        "scheduled_renewal_id": "SCHEDULED_RENEWAL01",
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "SUBSCRIPTION_RENEWAL01": {
+        "id": "SUBSCRIPTION_RENEWAL01",
+        "scheduled_renewal_configuration": {},
+        "scheduled_renewal_configuration_item": {},
+        "scheduled_renewal_id": "SCHEDULED_RENEWAL01",
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "SUBSCRIPTION_RENEWAL02": {
+        "id": "SUBSCRIPTION_RENEWAL02",
+        "scheduled_renewal_configuration": {},
+        "scheduled_renewal_configuration_item": {},
+        "scheduled_renewal_id": "SCHEDULED_RENEWAL01",
+        "subscription_id": "SUBSCRIPTION01"
+      }
+    }
+  },
+  "new": {
+    "subscription_renewal": {
+      "subscription_renewal_ref01": {
+        "scheduled_renewal_configuration": {},
+        "scheduled_renewal_configuration_item": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/scheduled_renewals.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions/{subscription_id}/scheduled_renewals.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions/{subscription_id}/scheduled_renewals/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/cancel.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/immediate_lock_in.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/schedule_lock_in.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/unpublish.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

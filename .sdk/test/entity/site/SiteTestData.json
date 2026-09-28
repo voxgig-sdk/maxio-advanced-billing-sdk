@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "site": {
+      "SITE00": {
+        "chargify_js_keys": [],
+        "meta": {},
+        "site": {},
+        "id": "SITE00"
+      },
+      "SITE01": {
+        "chargify_js_keys": [],
+        "meta": {},
+        "site": {},
+        "id": "SITE01"
+      },
+      "SITE02": {
+        "chargify_js_keys": [],
+        "meta": {},
+        "site": {},
+        "id": "SITE02"
+      }
+    }
+  },
+  "new": {
+    "site": {
+      "site_ref01": {
+        "chargify_js_keys": [],
+        "meta": {},
+        "site": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /sites/clear_data.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /chargify_js_keys.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /site.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

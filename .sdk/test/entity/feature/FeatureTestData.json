@@ -1,0 +1,123 @@
+{
+  "existing": {
+    "feature": {
+      "FEATURE00": {
+        "archived_at": "saa",
+        "archived_count": 171,
+        "created_at": "sac",
+        "feature": {},
+        "feature_key": "sae",
+        "feature_kind": "saf",
+        "feature_name": "sb0",
+        "feature_template_id": "FEATURE_TEMPLATE01",
+        "id": "FEATURE00",
+        "items": [],
+        "periodicity_interval": 180,
+        "periodicity_unit": "sb5",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "sb7",
+        "total_count": 184,
+        "updated_at": "sb9",
+        "value": "sba",
+        "component_id": "COMPONENT01",
+        "product_id": "PRODUCT01"
+      },
+      "FEATURE01": {
+        "archived_at": "s154",
+        "archived_count": 341,
+        "created_at": "s156",
+        "feature": {},
+        "feature_key": "s158",
+        "feature_kind": "s159",
+        "feature_name": "s15a",
+        "feature_template_id": "FEATURE_TEMPLATE01",
+        "id": "FEATURE01",
+        "items": [],
+        "periodicity_interval": 350,
+        "periodicity_unit": "s15f",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "s161",
+        "total_count": 354,
+        "updated_at": "s163",
+        "value": "s164",
+        "component_id": "COMPONENT01",
+        "product_id": "PRODUCT01"
+      },
+      "FEATURE02": {
+        "archived_at": "s1fe",
+        "archived_count": 511,
+        "created_at": "s200",
+        "feature": {},
+        "feature_key": "s202",
+        "feature_kind": "s203",
+        "feature_name": "s204",
+        "feature_template_id": "FEATURE_TEMPLATE01",
+        "id": "FEATURE02",
+        "items": [],
+        "periodicity_interval": 520,
+        "periodicity_unit": "s209",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "s20b",
+        "total_count": 524,
+        "updated_at": "s20d",
+        "value": "s20e",
+        "component_id": "COMPONENT01",
+        "product_id": "PRODUCT01"
+      }
+    }
+  },
+  "new": {
+    "feature": {
+      "feature_ref01": {
+        "archived_at": "s2a8",
+        "archived_count": 681,
+        "created_at": "s2aa",
+        "feature": {},
+        "feature_key": "s2ac",
+        "feature_kind": "s2ad",
+        "feature_name": "s2ae",
+        "feature_template_id": "FEATURE_TEMPLATE01",
+        "items": [],
+        "periodicity_interval": 690,
+        "periodicity_unit": "s2b3",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "s2b5",
+        "total_count": 694,
+        "updated_at": "s2b7",
+        "value": "s2b8"
+      }
+    }
+  },
+  "requests": {
+    "POST /components/{component_id}/features.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /products/{product_id}/features.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /features.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /features.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /components/{component_id}/features.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /products/{product_id}/features.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

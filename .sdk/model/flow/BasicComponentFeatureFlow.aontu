@@ -1,0 +1,9 @@
+# BasicComponentFeatureFlow
+
+main: kit: flow: BasicComponentFeatureFlow:
+{
+  entity: "component_feature",
+  kind: "basic",
+  name: "BasicComponentFeatureFlow",
+  "key$": "BasicComponentFeatureFlow"
+}

@@ -1,0 +1,103 @@
+{
+  "existing": {
+    "feature_template": {
+      "FEATURE_TEMPLATE00": {
+        "archived_at": "sa0",
+        "created_at": "sa1",
+        "default_periodicity_interval": 162,
+        "default_periodicity_unit": "sa3",
+        "default_value": "sa4",
+        "description": "sa5",
+        "feature": "sa6",
+        "id": "FEATURE_TEMPLATE00",
+        "key": "sa8",
+        "kind": "sa9",
+        "name": "saa",
+        "plans_count": 171,
+        "products_count": 172,
+        "unit": "sad",
+        "updated_at": "sae",
+        "value_type": "saf"
+      },
+      "FEATURE_TEMPLATE01": {
+        "archived_at": "s140",
+        "created_at": "s141",
+        "default_periodicity_interval": 322,
+        "default_periodicity_unit": "s143",
+        "default_value": "s144",
+        "description": "s145",
+        "feature": "s146",
+        "id": "FEATURE_TEMPLATE01",
+        "key": "s148",
+        "kind": "s149",
+        "name": "s14a",
+        "plans_count": 331,
+        "products_count": 332,
+        "unit": "s14d",
+        "updated_at": "s14e",
+        "value_type": "s14f"
+      },
+      "FEATURE_TEMPLATE02": {
+        "archived_at": "s1e0",
+        "created_at": "s1e1",
+        "default_periodicity_interval": 482,
+        "default_periodicity_unit": "s1e3",
+        "default_value": "s1e4",
+        "description": "s1e5",
+        "feature": "s1e6",
+        "id": "FEATURE_TEMPLATE02",
+        "key": "s1e8",
+        "kind": "s1e9",
+        "name": "s1ea",
+        "plans_count": 491,
+        "products_count": 492,
+        "unit": "s1ed",
+        "updated_at": "s1ee",
+        "value_type": "s1ef"
+      }
+    }
+  },
+  "new": {
+    "feature_template": {
+      "feature_template_ref01": {
+        "archived_at": "s280",
+        "created_at": "s281",
+        "default_periodicity_interval": 642,
+        "default_periodicity_unit": "s283",
+        "default_value": "s284",
+        "description": "s285",
+        "feature": "s286",
+        "key": "s288",
+        "kind": "s289",
+        "name": "s28a",
+        "plans_count": 651,
+        "products_count": 652,
+        "unit": "s28d",
+        "updated_at": "s28e",
+        "value_type": "s28f"
+      }
+    }
+  },
+  "requests": {
+    "POST /features/{id}/restore.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /features/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /features/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /features/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

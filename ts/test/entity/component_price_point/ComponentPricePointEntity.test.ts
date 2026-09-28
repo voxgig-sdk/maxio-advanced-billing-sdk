@@ -1,0 +1,199 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { MaxioAdvancedBillingSDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('ComponentPricePointEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when MAXIO_ADVANCED_BILLING_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MAXIO_ADVANCED_BILLING_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = MaxioAdvancedBillingSDK.test()
+    const ent = testsdk.ComponentPricePoint()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.MAXIO_ADVANCED_BILLING_TEST_LIVE
+    for (const op of ['create', 'list', 'update', 'remove']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'component_price_point.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"archived_at":{"a":true,"fo":"date-time","h":"Archived At","n":"archived_at","r":false,"t":"`$STRING`","key$":"archived_at","index$":0},"component":{"a":true,"h":"Component","n":"component","r":true,"t":"`$OBJECT`","union":{"branches":2,"count":7,"depth":7},"key$":"component","index$":1},"component_id":{"a":true,"fo":"int32","h":"Component Id","n":"component_id","r":false,"t":"`$INTEGER`","key$":"component_id","index$":2},"created_at":{"a":true,"fo":"date-time","h":"Created At","n":"created_at","r":false,"t":"`$STRING`","key$":"created_at","index$":3},"currency_prices":{"a":true,"h":"Currency Prices","n":"currency_prices","r":false,"sh":"An array of currency pricing data is available when multiple currencies are defined for the site.","t":"`$ARRAY`","key$":"currency_prices","index$":4},"default":{"a":true,"de":true,"h":"Default","n":"default","r":false,"sh":"Note: Refer to type attribute instead.","t":"`$BOOLEAN`","key$":"default","index$":5},"expiration_interval":{"a":true,"fo":"int32","h":"Expiration Interval","n":"expiration_interval","r":false,"sh":"Applicable only to prepaid usage components where rollover_prepaid_remainder is true.","t":"`$INTEGER`","key$":"expiration_interval","index$":6},"expiration_interval_unit":{"a":true,"h":"Expiration Interval Unit","n":"expiration_interval_unit","r":false,"t":"`$ANY`","union":{"branches":2,"count":1,"depth":2},"key$":"expiration_interval_unit","index$":7},"handle":{"a":true,"h":"Handle","n":"handle","r":false,"t":"`$STRING`","key$":"handle","index$":8},"id":{"a":true,"fo":"int32","h":"Id","n":"id","r":false,"t":"`$INTEGER`","key$":"id","index$":9},"interval":{"a":true,"fo":"int32","h":"Interval","n":"interval","r":false,"sh":"The numerical interval.","t":"`$INTEGER`","key$":"interval","index$":10},"interval_unit":{"a":true,"h":"Interval Unit","n":"interval_unit","r":false,"t":"`$ANY`","union":{"branches":2,"count":1,"depth":2},"key$":"interval_unit","index$":11},"name":{"a":true,"h":"Name","n":"name","r":false,"t":"`$STRING`","key$":"name","index$":12},"overage_prices":{"a":true,"h":"Overage Prices","n":"overage_prices","r":false,"sh":"Applicable only to prepaid usage components.","t":"`$ARRAY`","key$":"overage_prices","index$":13},"overage_pricing_scheme":{"a":true,"h":"Overage Pricing Scheme","n":"overage_pricing_scheme","r":false,"t":"`$ANY`","key$":"overage_pricing_scheme","index$":14},"price_point":{"a":true,"h":"Price Point","n":"price_point","op":{"update":{"req":true,"type":"`$OBJECT`"}},"r":false,"t":"`$OBJECT`","key$":"price_point","index$":15},"price_points":{"a":true,"h":"Price Points","n":"price_points","op":{"list":{"req":true,"type":"`$ARRAY`"}},"r":false,"t":"`$ARRAY`","key$":"price_points","index$":16},"prices":{"a":true,"h":"Prices","n":"prices","r":false,"t":"`$ARRAY`","key$":"prices","index$":17},"pricing_scheme":{"a":true,"h":"Pricing Scheme","n":"pricing_scheme","r":false,"t":"`$ANY`","key$":"pricing_scheme","index$":18},"renew_prepaid_allocation":{"a":true,"h":"Renew Prepaid Allocation","n":"renew_prepaid_allocation","r":false,"sh":"Applicable only to prepaid usage components.","t":"`$BOOLEAN`","key$":"renew_prepaid_allocation","index$":19},"rollover_prepaid_remainder":{"a":true,"h":"Rollover Prepaid Remainder","n":"rollover_prepaid_remainder","r":false,"sh":"Applicable only to prepaid usage components.","t":"`$BOOLEAN`","key$":"rollover_prepaid_remainder","index$":20},"subscription_id":{"a":true,"fo":"int32","h":"Subscription Id","n":"subscription_id","r":false,"sh":"(only used for Custom Pricing - ie.","t":"`$INTEGER`","key$":"subscription_id","index$":21},"tax_included":{"a":true,"h":"Tax Included","n":"tax_included","r":false,"t":"`$BOOLEAN`","key$":"tax_included","index$":22},"type":{"a":true,"h":"Type","n":"type","r":false,"t":"`$ANY`","key$":"type","index$":23},"updated_at":{"a":true,"fo":"date-time","h":"Updated At","n":"updated_at","r":false,"t":"`$STRING`","key$":"updated_at","index$":24},"use_site_exchange_rate":{"a":true,"h":"Use Site Exchange Rate","n":"use_site_exchange_rate","r":false,"sh":"Whether to use the site level exchange rate or define your own prices for each currency if you have multiple currencies defined on the site.","t":"`$BOOLEAN`","key$":"use_site_exchange_rate","index$":25}},"id":{"field":"id","name":"id"},"name":"component_price_point","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /components/{component_id}/price_points/{price_point_id}/clone.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"component_id","or":"component_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"POST","o":"/components/{component_id}/price_points/{price_point_id}/clone.json","q":{"exist":["component_id","price_point_id"]},"r":{},"s":[{"lit":"components"},{"var":"component_id"},{"lit":"price_points"},{"var":"price_point_id"},{"lit":"clone.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"POST /components/{component_id}/price_points/bulk.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"component_id","or":"component_id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"POST","o":"/components/{component_id}/price_points/bulk.json","q":{"exist":["component_id"]},"r":{},"s":[{"lit":"components"},{"var":"component_id"},{"lit":"price_points"},{"lit":"bulk.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1},{"a":true,"co":{"id":"POST /components/{component_id}/price_points.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"component_id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"POST","o":"/components/{component_id}/price_points.json","q":{"exist":["id"]},"r":{"param":{"component_id":"id"}},"s":[{"lit":"components"},{"var":"id"},{"lit":"price_points.json"}],"t":{"req":"`reqdata`","res":"`body.price_point`"},"index$":0},{"a":true,"co":{"id":"POST /price_points/{price_point_id}/currency_prices.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"POST","o":"/price_points/{price_point_id}/currency_prices.json","q":{"exist":["price_point_id"]},"r":{},"s":[{"lit":"price_points"},{"var":"price_point_id"},{"lit":"currency_prices.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":3}],"key$":"create"},"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /components/{component_id}/price_points.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"component_id","r":true,"t":"`$INTEGER`","index$":0}],"query":[{"a":true,"k":"query","n":"currency_price","or":"currency_price","r":false,"t":"`$BOOLEAN`","index$":0},{"a":true,"ex":["catalog","default"],"k":"query","n":"filter_type","or":"filter_type","r":false,"t":"`$ARRAY`","index$":1},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":2},{"a":true,"ex":50,"k":"query","n":"per_page","or":"per_page","r":false,"t":"`$INTEGER`","index$":3}]},"k":"http","m":"GET","o":"/components/{component_id}/price_points.json","q":{"exist":["currency_price","filter_type","id","page","per_page"]},"r":{"param":{"component_id":"id"}},"s":[{"lit":"components"},{"var":"id"},{"lit":"price_points.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"GET /components_price_points.json","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"direction","or":"direction","r":false,"t":"`$ANY`","index$":0},{"a":true,"k":"query","n":"filter","or":"filter","r":false,"t":"`$ANY`","index$":1},{"a":true,"k":"query","n":"include","or":"include","r":false,"t":"`$ANY`","index$":2},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":3},{"a":true,"ex":50,"k":"query","n":"per_page","or":"per_page","r":false,"t":"`$INTEGER`","index$":4}]},"k":"http","m":"GET","o":"/components_price_points.json","q":{"exist":["direction","filter","include","page","per_page"]},"r":{},"s":[{"lit":"components_price_points.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"},"remove":{"input":"data","name":"remove","points":[{"a":true,"co":{"id":"DELETE /components/{component_id}/price_points/{price_point_id}.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"component_id","or":"component_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"DELETE","o":"/components/{component_id}/price_points/{price_point_id}.json","q":{"exist":["component_id","price_point_id"]},"r":{},"s":[{"lit":"components"},{"var":"component_id"},{"lit":"price_points"},{"lit":"{price_point_id}.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"remove"},"update":{"input":"data","name":"update","points":[{"a":true,"co":{"id":"PUT /components/{component_id}/price_points/{price_point_id}.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"component_id","or":"component_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"PUT","o":"/components/{component_id}/price_points/{price_point_id}.json","q":{"exist":["component_id","price_point_id"]},"r":{},"s":[{"lit":"components"},{"var":"component_id"},{"lit":"price_points"},{"lit":"{price_point_id}.json"}],"t":{"req":"`reqdata`","res":"`body.price_point`"},"index$":0},{"a":true,"co":{"id":"PUT /components/{component_id}/price_points/{price_point_id}/default.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"component_id","or":"component_id","r":true,"t":"`$INTEGER`","index$":0},{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$INTEGER`","index$":1}]},"k":"http","m":"PUT","o":"/components/{component_id}/price_points/{price_point_id}/default.json","q":{"exist":["component_id","price_point_id"]},"r":{},"s":[{"lit":"components"},{"var":"component_id"},{"lit":"price_points"},{"var":"price_point_id"},{"lit":"default.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1},{"a":true,"co":{"id":"PUT /components/{component_id}/price_points/{price_point_id}/unarchive.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"component_id","or":"component_id","r":true,"t":"`$INTEGER`","index$":0},{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$INTEGER`","index$":1}]},"k":"http","m":"PUT","o":"/components/{component_id}/price_points/{price_point_id}/unarchive.json","q":{"exist":["component_id","price_point_id"]},"r":{},"s":[{"lit":"components"},{"var":"component_id"},{"lit":"price_points"},{"var":"price_point_id"},{"lit":"unarchive.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":2},{"a":true,"co":{"id":"PUT /price_points/{price_point_id}/currency_prices.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"PUT","o":"/price_points/{price_point_id}/currency_prices.json","q":{"exist":["price_point_id"]},"r":{},"s":[{"lit":"price_points"},{"var":"price_point_id"},{"lit":"currency_prices.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":3}],"key$":"update"}},"relations":{"ancestors":[["$.main.kit.entity.component"],["$.main.kit.entity.component"]]},"key$":"component_price_point","name__orig":"component_price_point","Name":"ComponentPricePoint","name_":"component_price_point","name-":"component-price-point","NAME":"COMPONENT_PRICE_POINT","index$":6}, {"active":true,"entity":"component_price_point","key$":"BasicComponentPricePointFlow","kind":"basic","name":"BasicComponentPricePointFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"component_price_point_ref01"},"m":{"component_id":"component01","price_point_id":"price_point01"},"o":"create","s":[],"v":[],"index$":0},{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"component_price_point_ref01"}}],"index$":1},{"a":true,"d":{},"i":{"ref":"component_price_point_ref01","srcdatavar":"component_price_point_ref01_data","suffix":"_up0","textfield":"archived_at"},"m":{},"o":"update","s":[{"apply":"TextFieldMark","def":{"mark":"Mark01-component_price_point_ref01"}}],"v":[],"index$":2},{"a":true,"d":{},"i":{"ref":"component_price_point_ref01","suffix":"_rm0"},"m":{"id":"component_price_point01","price_point_id":"price_point01"},"o":"remove","s":[],"v":[],"index$":3},{"a":true,"d":{},"i":{"suffix":"_rt0"},"m":{},"o":"list","s":[],"v":[{"apply":"ItemNotExists","def":{"ref":"component_price_point_ref01"}}],"index$":4}]}, 'ComponentPricePoint', {"POST /components/{component_id}/price_points/{price_point_id}/clone.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"CloneComponentPricePointRequest","required":["price_point"],"type":"object","properties":{"price_point":{"title":"CloneComponentPricePoint","required":["name"],"type":"object","properties":{"name":{},"handle":{}},"x-ref":"#/components/schemas/CloneComponentPricePoint"}},"x-ref":"#/components/schemas/CloneComponentPricePointRequest"},{"example":{"price_point":{"name":"Pro Usage Tiered Clone"}}}],"index$":1},"examples":{"Example":{"value":{"price_point":{"name":"Pro Usage Tiered Clone"}}}}}},"required":false},"parameters":[{"name":"component_id","in":"path","description":"The id or handle of the component. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-product-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":0},{"name":"price_point_id","in":"path","description":"The id or handle of the price point. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-price_point-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":1}]},"POST /components/{component_id}/price_points/bulk.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"CreateComponentPricePointsRequest","required":["price_points"],"type":"object","properties":{"price_points":{"type":"array","items":{"anyOf":[]},"description":""}},"x-ref":"#/components/schemas/CreateComponentPricePointsRequest"},{"example":{"price_points":[{"name":"Wholesale","handle":"wholesale","pricing_scheme":"per_unit","prices":[]},{"name":"MSRP","handle":"msrp","pricing_scheme":"per_unit","prices":[]},{"name":"Special Pricing","handle":"special","pricing_scheme":"per_unit","prices":[]}]}}],"index$":1},"examples":{"Example":{"value":{"price_points":[{"name":"Wholesale","handle":"wholesale","pricing_scheme":"per_unit","prices":[{}]},{"name":"MSRP","handle":"msrp","pricing_scheme":"per_unit","prices":[{}]},{"name":"Special Pricing","handle":"special","pricing_scheme":"per_unit","prices":[{}]}]}}}}},"required":false},"parameters":[{"name":"component_id","in":"path","description":"The Advanced Billing id of the component for which you want to fetch price points.","required":true,"schema":{"type":"string"},"index$":0}]},"POST /components/{component_id}/price_points.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"CreateComponentPricePointRequest","required":["price_point"],"type":"object","properties":{"price_point":{"anyOf":[{},{}]}},"x-ref":"#/components/schemas/CreateComponentPricePointRequest"},{"example":{"price_point":{"name":"Wholesale","handle":"wholesale-handle","pricing_scheme":"stairstep","use_site_exchange_rate":false,"prices":[{},{}]}}}],"index$":1},"examples":{"Stairstep Price Point":{"value":{"price_point":{"name":"Wholesale","handle":"wholesale-handle","pricing_scheme":"stairstep","use_site_exchange_rate":false,"prices":[{"starting_quantity":"1","ending_quantity":"100","unit_price":"5.00"},{"starting_quantity":"101","ending_quantity":"200","unit_price":"4.00"}]}}},"Prepaid Usage Component":{"value":{"price_point":{"name":"MSRP","handle":"msrp","pricing_scheme":"stairstep","renew_prepaid_allocation":false,"rollover_prepaid_remainder":true,"expiration_interval":2,"expiration_interval_unit":"month","prices":[{"starting_quantity":1,"ending_quantity":100,"unit_price":5},{"starting_quantity":101,"ending_quantity":null,"unit_price":4}],"overage_pricing":{"pricing_scheme":"stairstep","prices":[{}]}}}},"On Off Component":{"value":{"price_point":{"name":"Special Pricing","handle":"special","pricing_scheme":"per_unit","prices":[{"starting_quantity":1,"unit_price":5}]}}},"Volume Price Point:":{"value":{"price_point":{"name":"Volume Pricing","handle":"bulk","pricing_scheme":"volume","prices":[{"starting_quantity":"1","ending_quantity":"100","unit_price":"5.00"},{"starting_quantity":"101","ending_quantity":"200","unit_price":"4.00"}]}}},"Tiered Price Point:":{"value":{"price_point":{"name":"Tiered Pricing","handle":"quantity","pricing_scheme":"tiered","prices":[{"starting_quantity":"1","ending_quantity":"100","unit_price":"5.00"},{"starting_quantity":"101","ending_quantity":"200","unit_price":"4.00"},{"starting_quantity":"201","ending_quantity":"300","unit_price":"3.00"}]}}}}}},"required":false},"parameters":[{"name":"component_id","in":"path","description":"The Advanced Billing id of the component","required":true,"schema":{"type":"integer","format":"int32"},"index$":0}]},"POST /price_points/{price_point_id}/currency_prices.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"CreateCurrencyPricesRequest","required":["currency_prices"],"type":"object","properties":{"currency_prices":{"type":"array","items":{"title":"CreateCurrencyPrice","type":"object","properties":{},"x-ref":"#/components/schemas/CreateCurrencyPrice"},"description":""}},"x-ref":"#/components/schemas/CreateCurrencyPricesRequest"},{"example":{"currency_prices":[{"currency":"EUR","price":50,"price_id":20},{"currency":"EUR","price":40,"price_id":21}]}}],"index$":1},"examples":{"Example":{"value":{"currency_prices":[{"currency":"EUR","price":50,"price_id":20},{"currency":"EUR","price":40,"price_id":21}]}}}}},"required":false},"parameters":[{"name":"price_point_id","in":"path","description":"The Advanced Billing id of the price point","required":true,"schema":{"type":"integer","format":"int32"},"index$":0}]},"GET /components/{component_id}/price_points.json":{"protocol":"http","parameters":[{"name":"component_id","in":"path","description":"The Advanced Billing id of the component","required":true,"schema":{"type":"integer","format":"int32"},"index$":0},{"name":"currency_prices","in":"query","description":"Include an array of currency price data.","style":"form","explode":true,"schema":{"type":"boolean"},"index$":1},{"name":"page","in":"query","description":"Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned.\nUse in query `page=1`.","style":"form","explode":true,"schema":{"minimum":1,"type":"integer","format":"int32","default":1,"example":1},"index$":2},{"name":"per_page","in":"query","description":"This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any per_page value over 200 will be changed to 200.\nUse in query `per_page=200`.","style":"form","explode":true,"schema":{"maximum":200,"type":"integer","format":"int32","default":20,"example":50},"index$":3},{"name":"filter[type]","in":"query","description":"Use in query: `filter[type]=catalog,default`.","style":"form","explode":true,"schema":{"type":"array","items":{"title":"PricePointType","enum":["catalog","default","custom"],"type":"string","description":"Price point type. We expose the following types:\n1. **default**: a price point that is marked as a default price for a certain product.\n2. **custom**: a custom price point.\n3. **catalog**: a price point that is **not** marked as a default price for a certain product and is **not** a custom one.","x-ref":"#/components/schemas/PricePointType"},"example":["catalog","default"]},"index$":4}]},"GET /components_price_points.json":{"protocol":"http","parameters":[{"name":"include","in":"query","description":"Allows including additional data in the response. Use in query: `include=currency_prices`.","style":"form","explode":true,"schema":{"allOf":[{"title":"ListComponentsPricePointsInclude","enum":["currency_prices"],"type":"string","example":"currency_prices","x-ref":"#/components/schemas/ListComponentsPricePointsInclude"},{"description":"Allows including additional data in the response. Use in query: `include=currency_prices`.","example":"currency_prices"}]},"index$":0},{"name":"page","in":"query","description":"Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned.\nUse in query `page=1`.","style":"form","explode":true,"schema":{"minimum":1,"type":"integer","format":"int32","default":1,"example":1},"index$":1},{"name":"per_page","in":"query","description":"This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any per_page value over 200 will be changed to 200.\nUse in query `per_page=200`.","style":"form","explode":true,"schema":{"maximum":200,"type":"integer","format":"int32","default":20,"example":50},"index$":2},{"name":"direction","in":"query","description":"Controls the order in which results are returned.\nUse in query `direction=asc`.","style":"form","explode":true,"schema":{"allOf":[{"title":"Sortingdirection","enum":["asc","desc"],"type":"string","description":"Used for sorting results.","x-ref":"#/components/schemas/Sortingdirection"},{"description":"Controls the order in which results are returned.\nUse in query `direction=asc`."}]},"index$":3},{"name":"filter","in":"query","description":"Filter to use for List PricePoints operations","style":"form","explode":true,"schema":{"allOf":[{"title":"ListPricePointsFilter","type":"object","properties":{"date_field":{"allOf":[{"title":"BasicDateField","enum":[],"type":"string","description":"Allows to filter by `created_at` or `updated_at`.","example":"updated_at","x-ref":"#/components/schemas/BasicDateField"},{"description":"The type of filter you would like to apply to your search. Use in query: `filter[date_field]=created_at`."}]},"start_date":{"type":"string","description":"The start date (format YYYY-MM-DD) with which to filter the date_field. Returns price points with a timestamp at or after midnight (12:00:00 AM) in your site’s time zone on the date specified.","format":"date","example":"2011-12-17"},"end_date":{"type":"string","description":"The end date (format YYYY-MM-DD) with which to filter the date_field. Returns price points with a timestamp up to and including 11:59:59PM in your site’s time zone on the date specified.","format":"date","example":"2011-12-15"},"start_datetime":{"type":"string","description":"The start date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the date_field. Returns price points with a timestamp at or after exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of start_date.","format":"date-time","example":"2011-12-19T10:15:30+01:00"},"end_datetime":{"type":"string","description":"The end date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the date_field. Returns price points with a timestamp at or before exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of end_date.","format":"date-time","example":"2019-06-07T17:20:06Z"},"type":{"type":"array","items":{"title":"PricePointType","enum":["catalog","default","custom"],"type":"string","description":"Price point type. We expose the following types:\n1. **default**: a price point that is marked as a default price for a certain product.\n2. **custom**: a custom price point.\n3. **catalog**: a price point that is **not** marked as a default price for a certain product and is **not** a custom one.","x-ref":"#/components/schemas/PricePointType"},"description":"Allows fetching price points with matching type. Use in query: `filter[type]=custom,catalog`.","example":["catalog","default","custom"]},"ids":{"type":"array","items":{"type":"integer","format":"int32"},"description":"Allows fetching price points with matching id based on provided values. Use in query: `filter[ids]=1,2,3`.","example":[1,2,3]},"archived_at":{"allOf":[{"title":"IncludeNullOrNotNull","enum":[],"type":"string","description":"Allows to filter by `not_null` or `null`.","example":"not_null","x-ref":"#/components/schemas/IncludeNullOrNotNull"},{"description":"Allows fetching price points only if archived_at is present or not. Use in query: `filter[archived_at]=not_null`."}]}},"x-ref":"#/components/schemas/ListPricePointsFilter"},{"description":"Filter to use for List PricePoints operations"}]},"index$":4}]},"DELETE /components/{component_id}/price_points/{price_point_id}.json":{"protocol":"http","parameters":[{"name":"component_id","in":"path","description":"The id or handle of the component. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-product-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":0},{"name":"price_point_id","in":"path","description":"The id or handle of the price point. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-price_point-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":1}]},"PUT /components/{component_id}/price_points/{price_point_id}.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"UpdateComponentPricePointRequest","type":"object","properties":{"price_point":{"title":"UpdateComponentPricePoint","type":"object","properties":{"name":{},"handle":{},"pricing_scheme":{},"use_site_exchange_rate":{},"tax_included":{},"interval":{},"interval_unit":{},"prices":{}},"x-ref":"#/components/schemas/UpdateComponentPricePoint"}},"x-ref":"#/components/schemas/UpdateComponentPricePointRequest"},{"example":{"price_point":{"name":"Default","prices":[{},{},{}]}}}],"index$":1},"examples":{"Example":{"value":{"price_point":{"name":"Default","prices":[{"id":1,"ending_quantity":100,"unit_price":5},{"id":2,"_destroy":true},{"starting_quantity":101,"unit_price":4}]}}}}}},"required":false},"parameters":[{"name":"component_id","in":"path","description":"The id or handle of the component. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-product-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":0},{"name":"price_point_id","in":"path","description":"The id or handle of the price point. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-price_point-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":1}]},"PUT /components/{component_id}/price_points/{price_point_id}/default.json":{"protocol":"http","parameters":[{"name":"component_id","in":"path","description":"The Advanced Billing id of the component to which the price point belongs","required":true,"schema":{"type":"integer","format":"int32"},"index$":0},{"name":"price_point_id","in":"path","description":"The Advanced Billing id of the price point","required":true,"schema":{"type":"integer","format":"int32"},"index$":1}]},"PUT /components/{component_id}/price_points/{price_point_id}/unarchive.json":{"protocol":"http","parameters":[{"name":"component_id","in":"path","description":"The Advanced Billing id of the component to which the price point belongs","required":true,"schema":{"type":"integer","format":"int32"},"index$":0},{"name":"price_point_id","in":"path","description":"The Advanced Billing id of the price point","required":true,"schema":{"type":"integer","format":"int32"},"index$":1}]},"PUT /price_points/{price_point_id}/currency_prices.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"UpdateCurrencyPricesRequest","required":["currency_prices"],"type":"object","properties":{"currency_prices":{"type":"array","items":{"title":"UpdateCurrencyPrice","required":[],"type":"object","properties":{},"x-ref":"#/components/schemas/UpdateCurrencyPrice"},"description":""}},"x-ref":"#/components/schemas/UpdateCurrencyPricesRequest"},{"example":{"currency_prices":[{"id":100,"price":51},{"id":101,"price":41}]}}],"index$":1},"examples":{"Example":{"value":{"currency_prices":[{"id":100,"price":51},{"id":101,"price":41}]}}}}},"required":false},"parameters":[{"name":"price_point_id","in":"path","description":"The Advanced Billing id of the price point","required":true,"schema":{"type":"integer","format":"int32"},"index$":0}]}})
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const component_price_point_ref01_ent = client.ComponentPricePoint()
+    let component_price_point_ref01_data = setup.data.new.component_price_point['component_price_point_ref01']
+    component_price_point_ref01_data['component_id'] = setup.idmap['component01']
+    component_price_point_ref01_data['price_point_id'] = setup.idmap['price_point01']
+
+    component_price_point_ref01_data = (await component_price_point_ref01_ent.create(component_price_point_ref01_data)).data()
+    assert(null != component_price_point_ref01_data.id)
+
+
+    // LIST
+    const component_price_point_ref01_match: any = {}
+
+    const component_price_point_ref01_list = (await component_price_point_ref01_ent.list(component_price_point_ref01_match)).map((e: any) => e.data())
+
+    assert(!isempty(select(component_price_point_ref01_list, { id: component_price_point_ref01_data.id })))
+
+
+    // UPDATE
+    const component_price_point_ref01_data_up0: any = {}
+    component_price_point_ref01_data_up0.id = component_price_point_ref01_data.id
+
+    const component_price_point_ref01_markdef_up0 = { name: 'archived_at', value: 'Mark01-component_price_point_ref01_' + setup.now }
+    ;(component_price_point_ref01_data_up0 as any)[component_price_point_ref01_markdef_up0.name] = component_price_point_ref01_markdef_up0.value
+
+    const component_price_point_ref01_resdata_up0 = (await component_price_point_ref01_ent.update(component_price_point_ref01_data_up0)).data()
+    assert(component_price_point_ref01_resdata_up0.id === component_price_point_ref01_data_up0.id)
+
+    assert((component_price_point_ref01_resdata_up0 as any)[component_price_point_ref01_markdef_up0.name] === component_price_point_ref01_markdef_up0.value)
+
+
+    // REMOVE
+    const component_price_point_ref01_match_rm0: any = { id: component_price_point_ref01_data.id }
+    await component_price_point_ref01_ent.remove(component_price_point_ref01_match_rm0)
+  
+
+    // LIST
+    const component_price_point_ref01_match_rt0: any = {}
+
+    const component_price_point_ref01_list_rt0 = (await component_price_point_ref01_ent.list(component_price_point_ref01_match_rt0)).map((e: any) => e.data())
+
+    assert(isempty(select(component_price_point_ref01_list_rt0, { id: component_price_point_ref01_data.id })))
+
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/component_price_point/ComponentPricePointTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = MaxioAdvancedBillingSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['component_price_point01','component_price_point02','component_price_point03','component01','component02','component03','price_point01'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'MAXIO_ADVANCED_BILLING_TEST_COMPONENT_PRICE_POINT_ENTID': idmap,
+    'MAXIO_ADVANCED_BILLING_TEST_LIVE': 'FALSE',
+    'MAXIO_ADVANCED_BILLING_TEST_EXPLAIN': 'FALSE',
+    'MAXIO_ADVANCED_BILLING_APIKEY': '',
+    'MAXIO_ADVANCED_BILLING_SECRET': '',
+    'MAXIO_ADVANCED_BILLING_SERVER_SITE': "subdomain",
+  })
+
+  idmap = env['MAXIO_ADVANCED_BILLING_TEST_COMPONENT_PRICE_POINT_ENTID']
+
+  const live = 'TRUE' === env.MAXIO_ADVANCED_BILLING_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['MAXIO_ADVANCED_BILLING_TEST_COMPONENT_PRICE_POINT_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new MaxioAdvancedBillingSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.MAXIO_ADVANCED_BILLING_APIKEY,
+        secret: env.MAXIO_ADVANCED_BILLING_SECRET,
+        server: {
+          site: env.MAXIO_ADVANCED_BILLING_SERVER_SITE,
+        },
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.MAXIO_ADVANCED_BILLING_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

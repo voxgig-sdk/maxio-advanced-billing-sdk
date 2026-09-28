@@ -1,0 +1,880 @@
+# Entity: coupon
+
+main: kit: entity: coupon: {
+
+  alias: field: {}
+
+  fields: {
+    allow_negative_balance: {
+      h: "Allow Negative Balance"
+      n: "allow_negative_balance"
+      r: false
+      sh: "If set to true, discount is not limited (credits will carry forward to next billing)."
+      t: "`$BOOLEAN`"
+    }
+    amount: {
+      h: "Amount"
+      n: "amount"
+      r: false
+      t: "`$NUMBER`"
+    }
+    amount_in_cents: {
+      fo: "int64"
+      h: "Amount In Cents"
+      n: "amount_in_cents"
+      r: false
+      t: "`$INTEGER`"
+    }
+    apply_on_cancel_at_end_of_period: {
+      h: "Apply On Cancel At End Of Period"
+      n: "apply_on_cancel_at_end_of_period"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    apply_on_subscription_expiration: {
+      h: "Apply On Subscription Expiration"
+      n: "apply_on_subscription_expiration"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    archived_at: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archived_at"
+      r: false
+      t: "`$STRING`"
+    }
+    code: {
+      h: "Code"
+      n: "code"
+      r: false
+      t: "`$STRING`"
+    }
+    compounding_strategy: {
+      h: "Compounding Strategy"
+      n: "compounding_strategy"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    conversion_limit: {
+      h: "Conversion Limit"
+      n: "conversion_limit"
+      r: false
+      t: "`$STRING`"
+    }
+    coupon: {
+      h: "Coupon"
+      n: "coupon"
+      r: false
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
+    }
+    coupon_restrictions: {
+      h: "Coupon Restrictions"
+      n: "coupon_restrictions"
+      r: false
+      t: "`$ARRAY`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    currency_prices: {
+      h: "Currency Prices"
+      n: "currency_prices"
+      r: false
+      sh: "Returned in read, find, and list endpoints if the query parameter is provided."
+      t: "`$ARRAY`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    discount_type: {
+      h: "Discount Type"
+      n: "discount_type"
+      r: false
+      t: "`$STRING`"
+    }
+    duration_interval: {
+      fo: "int32"
+      h: "Duration Interval"
+      n: "duration_interval"
+      r: false
+      t: "`$INTEGER`"
+    }
+    duration_interval_span: {
+      h: "Duration Interval Span"
+      n: "duration_interval_span"
+      r: false
+      t: "`$STRING`"
+    }
+    duration_interval_unit: {
+      h: "Duration Interval Unit"
+      n: "duration_interval_unit"
+      r: false
+      t: "`$STRING`"
+    }
+    duration_period_count: {
+      fo: "int32"
+      h: "Duration Period Count"
+      n: "duration_period_count"
+      r: false
+      t: "`$INTEGER`"
+    }
+    end_date: {
+      fo: "date-time"
+      h: "End Date"
+      n: "end_date"
+      r: false
+      sh: "After the given time, this coupon code will be invalid for new signups."
+      t: "`$STRING`"
+    }
+    exclude_mid_period_allocations: {
+      h: "Exclude Mid Period Allocations"
+      n: "exclude_mid_period_allocations"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      t: "`$STRING`"
+    }
+    percentage: {
+      h: "Percentage"
+      n: "percentage"
+      r: false
+      t: "`$STRING`"
+    }
+    product_family_id: {
+      fo: "int32"
+      h: "Product Family Id"
+      n: "product_family_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    product_family_name: {
+      h: "Product Family Name"
+      n: "product_family_name"
+      r: false
+      t: "`$STRING`"
+    }
+    recurring: {
+      h: "Recurring"
+      n: "recurring"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    recurring_scheme: {
+      h: "Recurring Scheme"
+      n: "recurring_scheme"
+      r: false
+      t: "`$STRING`"
+    }
+    stackable: {
+      h: "Stackable"
+      n: "stackable"
+      r: false
+      sh: "A stackable coupon can be combined with other coupons on a Subscription."
+      t: "`$BOOLEAN`"
+    }
+    start_date: {
+      fo: "date-time"
+      h: "Start Date"
+      n: "start_date"
+      r: false
+      t: "`$STRING`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      t: "`$STRING`"
+    }
+    use_site_exchange_rate: {
+      h: "Use Site Exchange Rate"
+      n: "use_site_exchange_rate"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "coupon"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /coupons/{coupon_id}/codes.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "coupon_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/coupons/{coupon_id}/codes.json"
+          q: {
+            "$action": "code"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              coupon_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "coupons"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "codes.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /product_families/{product_family_id}/coupons.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/product_families/{product_family_id}/coupons.json"
+          q: {
+            exist: [
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "coupons.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.coupon`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /product_families/{product_family_id}/coupons.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: true
+                k: "query"
+                n: "currency_price"
+                or: "currency_price"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/product_families/{product_family_id}/coupons.json"
+          q: {
+            exist: [
+              "currency_price"
+              "filter"
+              "page"
+              "per_page"
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "coupons.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /coupons.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: true
+                k: "query"
+                n: "currency_price"
+                or: "currency_price"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/coupons.json"
+          q: {
+            exist: [
+              "currency_price"
+              "filter"
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "coupons.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /coupons/{coupon_id}/codes.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "coupon_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/coupons/{coupon_id}/codes.json"
+          q: {
+            "$action": "code"
+            exist: [
+              "id"
+              "page"
+              "per_page"
+            ]
+          }
+          r: {
+            param: {
+              coupon_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "coupons"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "codes.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /product_families/{product_family_id}/coupons/{coupon_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "coupon_id"
+                or: "coupon_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: true
+                k: "query"
+                n: "currency_price"
+                or: "currency_price"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/product_families/{product_family_id}/coupons/{coupon_id}.json"
+          q: {
+            "$action": "coupon_id"
+            exist: [
+              "coupon_id"
+              "currency_price"
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "coupons"
+            }
+            {
+              lit: "{coupon_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /coupons/find.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "code"
+                or: "code"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: true
+                k: "query"
+                n: "currency_price"
+                or: "currency_price"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/coupons/find.json"
+          q: {
+            "$action": "find"
+            exist: [
+              "code"
+              "currency_price"
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "coupons"
+            }
+            {
+              lit: "find.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.coupon`"
+          }
+        }
+        {
+          co: {
+            id: "GET /coupons/validate.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "code"
+                or: "code"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/coupons/validate.json"
+          q: {
+            "$action": "validate"
+            exist: [
+              "code"
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "coupons"
+            }
+            {
+              lit: "validate.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /coupons/{coupon_id}/codes/{subcode}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "coupon_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subcode"
+                or: "subcode"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/coupons/{coupon_id}/codes/{subcode}.json"
+          q: {
+            "$action": "code_subcode"
+            exist: [
+              "id"
+              "subcode"
+            ]
+          }
+          r: {
+            param: {
+              coupon_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "coupons"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "codes"
+            }
+            {
+              lit: "{subcode}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /product_families/{product_family_id}/coupons/{coupon_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "coupon_id"
+                or: "coupon_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/product_families/{product_family_id}/coupons/{coupon_id}.json"
+          q: {
+            "$action": "coupon_id"
+            exist: [
+              "coupon_id"
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "coupons"
+            }
+            {
+              lit: "{coupon_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /product_families/{product_family_id}/coupons/{coupon_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "coupon_id"
+                or: "coupon_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/product_families/{product_family_id}/coupons/{coupon_id}.json"
+          q: {
+            "$action": "coupon_id"
+            exist: [
+              "coupon_id"
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "coupons"
+            }
+            {
+              lit: "{coupon_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.product_family")]
+  ]
+
+}

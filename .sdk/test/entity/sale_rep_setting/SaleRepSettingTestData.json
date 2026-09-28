@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "sale_rep_setting": {
+      "SALE_REP_SETTING00": {
+        "customer_name": "s46",
+        "sales_rep_id": "SALES_REP01",
+        "sales_rep_name": "s48",
+        "site_link": "s49",
+        "site_name": "s4a",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_mrr": "s4c",
+        "seller_id": "SELLER01"
+      },
+      "SALE_REP_SETTING01": {
+        "customer_name": "s8c",
+        "sales_rep_id": "SALES_REP01",
+        "sales_rep_name": "s8e",
+        "site_link": "s8f",
+        "site_name": "s90",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_mrr": "s92",
+        "seller_id": "SELLER01"
+      },
+      "SALE_REP_SETTING02": {
+        "customer_name": "sd2",
+        "sales_rep_id": "SALES_REP01",
+        "sales_rep_name": "sd4",
+        "site_link": "sd5",
+        "site_name": "sd6",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_mrr": "sd8",
+        "seller_id": "SELLER01"
+      }
+    }
+  },
+  "new": {
+    "sale_rep_setting": {
+      "sale_rep_setting_ref01": {
+        "customer_name": "s118",
+        "sales_rep_id": "SALES_REP01",
+        "sales_rep_name": "s11a",
+        "site_link": "s11b",
+        "site_name": "s11c",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_mrr": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "GET /sellers/{seller_id}/sales_commission_settings.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

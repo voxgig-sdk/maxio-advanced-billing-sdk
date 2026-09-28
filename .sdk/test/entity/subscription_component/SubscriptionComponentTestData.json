@@ -1,0 +1,242 @@
+{
+  "existing": {
+    "subscription_component": {
+      "SUBSCRIPTION_COMPONENT00": {
+        "allocated_quantity": "s168",
+        "allocation": {},
+        "allocation_preview": {},
+        "allow_fractional_quantities": false,
+        "archived_at": "s16c",
+        "component": {},
+        "component_handle": "s16e",
+        "component_id": "COMPONENT01",
+        "created_at": "s170",
+        "currency": "s171",
+        "description": "s172",
+        "display_on_hosted_page": false,
+        "downgrade_credit": "s174",
+        "enabled": false,
+        "historic_usages": [],
+        "id": "SUBSCRIPTION_COMPONENT00",
+        "interval": 376,
+        "interval_unit": "s179",
+        "kind": "s17a",
+        "name": "s17b",
+        "price_point_handle": "s17c",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_name": "s17e",
+        "price_point_type": "s17f",
+        "pricing_scheme": "s180",
+        "product_family_handle": "s181",
+        "product_family_id": "PRODUCT_FAMILY01",
+        "recurring": false,
+        "subscription": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "unit_balance": "s186",
+        "unit_name": "s187",
+        "updated_at": "s188",
+        "upgrade_charge": "s189",
+        "usage": {},
+        "use_site_exchange_rate": false,
+        "api_handle": "API_HANDLE01",
+        "subscription_id_or_reference": "SUBSCRIPTION_ID_OR_REFERENCE01",
+        "allocation_id": "ALLOCATION01"
+      },
+      "SUBSCRIPTION_COMPONENT01": {
+        "allocated_quantity": "s2d0",
+        "allocation": {},
+        "allocation_preview": {},
+        "allow_fractional_quantities": false,
+        "archived_at": "s2d4",
+        "component": {},
+        "component_handle": "s2d6",
+        "component_id": "COMPONENT01",
+        "created_at": "s2d8",
+        "currency": "s2d9",
+        "description": "s2da",
+        "display_on_hosted_page": false,
+        "downgrade_credit": "s2dc",
+        "enabled": false,
+        "historic_usages": [],
+        "id": "SUBSCRIPTION_COMPONENT01",
+        "interval": 736,
+        "interval_unit": "s2e1",
+        "kind": "s2e2",
+        "name": "s2e3",
+        "price_point_handle": "s2e4",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_name": "s2e6",
+        "price_point_type": "s2e7",
+        "pricing_scheme": "s2e8",
+        "product_family_handle": "s2e9",
+        "product_family_id": "PRODUCT_FAMILY01",
+        "recurring": false,
+        "subscription": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "unit_balance": "s2ee",
+        "unit_name": "s2ef",
+        "updated_at": "s2f0",
+        "upgrade_charge": "s2f1",
+        "usage": {},
+        "use_site_exchange_rate": false,
+        "api_handle": "API_HANDLE01",
+        "subscription_id_or_reference": "SUBSCRIPTION_ID_OR_REFERENCE01",
+        "allocation_id": "ALLOCATION01"
+      },
+      "SUBSCRIPTION_COMPONENT02": {
+        "allocated_quantity": "s438",
+        "allocation": {},
+        "allocation_preview": {},
+        "allow_fractional_quantities": false,
+        "archived_at": "s43c",
+        "component": {},
+        "component_handle": "s43e",
+        "component_id": "COMPONENT01",
+        "created_at": "s440",
+        "currency": "s441",
+        "description": "s442",
+        "display_on_hosted_page": false,
+        "downgrade_credit": "s444",
+        "enabled": false,
+        "historic_usages": [],
+        "id": "SUBSCRIPTION_COMPONENT02",
+        "interval": 1096,
+        "interval_unit": "s449",
+        "kind": "s44a",
+        "name": "s44b",
+        "price_point_handle": "s44c",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_name": "s44e",
+        "price_point_type": "s44f",
+        "pricing_scheme": "s450",
+        "product_family_handle": "s451",
+        "product_family_id": "PRODUCT_FAMILY01",
+        "recurring": false,
+        "subscription": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "unit_balance": "s456",
+        "unit_name": "s457",
+        "updated_at": "s458",
+        "upgrade_charge": "s459",
+        "usage": {},
+        "use_site_exchange_rate": false,
+        "api_handle": "API_HANDLE01",
+        "subscription_id_or_reference": "SUBSCRIPTION_ID_OR_REFERENCE01",
+        "allocation_id": "ALLOCATION01"
+      }
+    }
+  },
+  "new": {
+    "subscription_component": {
+      "subscription_component_ref01": {
+        "allocated_quantity": "s5a0",
+        "allocation": {},
+        "allocation_preview": {},
+        "allow_fractional_quantities": false,
+        "archived_at": "s5a4",
+        "component": {},
+        "component_handle": "s5a6",
+        "component_id": "COMPONENT01",
+        "created_at": "s5a8",
+        "currency": "s5a9",
+        "description": "s5aa",
+        "display_on_hosted_page": false,
+        "downgrade_credit": "s5ac",
+        "enabled": false,
+        "historic_usages": [],
+        "interval": 1456,
+        "interval_unit": "s5b1",
+        "kind": "s5b2",
+        "name": "s5b3",
+        "price_point_handle": "s5b4",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_name": "s5b6",
+        "price_point_type": "s5b7",
+        "pricing_scheme": "s5b8",
+        "product_family_handle": "s5b9",
+        "product_family_id": "PRODUCT_FAMILY01",
+        "recurring": false,
+        "subscription": {},
+        "subscription_id": "SUBSCRIPTION01",
+        "unit_balance": "s5be",
+        "unit_name": "s5bf",
+        "updated_at": "s5c0",
+        "upgrade_charge": "s5c1",
+        "usage": {},
+        "use_site_exchange_rate": false
+      }
+    }
+  },
+  "requests": {
+    "POST /events/{api_handle}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /events/{api_handle}/bulk.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/activate.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/deactivate.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/components/{component_id}/allocations.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/price_points.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/allocations/preview.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/price_points/reset.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions_components.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions/{subscription_id}/components.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions/{subscription_id}/components/{component_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

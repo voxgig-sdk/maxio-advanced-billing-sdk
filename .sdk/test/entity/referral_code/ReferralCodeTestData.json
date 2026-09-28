@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "referral_code": {
+      "REFERRAL_CODE00": {
+        "id": "REFERRAL_CODE00"
+      },
+      "REFERRAL_CODE01": {
+        "id": "REFERRAL_CODE01"
+      },
+      "REFERRAL_CODE02": {
+        "id": "REFERRAL_CODE02"
+      }
+    }
+  },
+  "new": {
+    "referral_code": {
+      "referral_code_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /referral_codes/validate.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

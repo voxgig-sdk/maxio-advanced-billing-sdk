@@ -1,0 +1,59 @@
+# Entity: one_time_token
+
+main: kit: entity: one_time_token: {
+
+  alias: field: {}
+
+  name: "one_time_token"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /one_time_tokens/{chargify_token}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "chargify_token"
+                or: "chargify_token"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/one_time_tokens/{chargify_token}.json"
+          q: {
+            "$action": "chargify_token"
+            exist: [
+              "chargify_token"
+            ]
+          }
+          s: [
+            {
+              lit: "one_time_tokens"
+            }
+            {
+              lit: "{chargify_token}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.payment_profile`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

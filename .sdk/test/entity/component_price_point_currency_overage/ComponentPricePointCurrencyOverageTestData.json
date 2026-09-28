@@ -1,0 +1,123 @@
+{
+  "existing": {
+    "component_price_point_currency_overage": {
+      "COMPONENT_PRICE_POINT_CURRENCY_OVERAGE00": {
+        "archived_at": "sf0",
+        "component_id": "COMPONENT01",
+        "created_at": "sf2",
+        "currency_overage_prices": [],
+        "currency_prices": [],
+        "default": false,
+        "expiration_interval": 246,
+        "expiration_interval_unit": "sf7",
+        "handle": "sf8",
+        "id": "COMPONENT_PRICE_POINT_CURRENCY_OVERAGE00",
+        "interval": 250,
+        "interval_unit": "sfb",
+        "name": "sfc",
+        "overage_prices": [],
+        "overage_pricing_scheme": "sfe",
+        "prices": [],
+        "pricing_scheme": "s100",
+        "renew_prepaid_allocation": false,
+        "rollover_prepaid_remainder": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "tax_included": true,
+        "type": "s105",
+        "updated_at": "s106",
+        "use_site_exchange_rate": false,
+        "price_point_id": "PRICE_POINT01"
+      },
+      "COMPONENT_PRICE_POINT_CURRENCY_OVERAGE01": {
+        "archived_at": "s1e0",
+        "component_id": "COMPONENT01",
+        "created_at": "s1e2",
+        "currency_overage_prices": [],
+        "currency_prices": [],
+        "default": false,
+        "expiration_interval": 486,
+        "expiration_interval_unit": "s1e7",
+        "handle": "s1e8",
+        "id": "COMPONENT_PRICE_POINT_CURRENCY_OVERAGE01",
+        "interval": 490,
+        "interval_unit": "s1eb",
+        "name": "s1ec",
+        "overage_prices": [],
+        "overage_pricing_scheme": "s1ee",
+        "prices": [],
+        "pricing_scheme": "s1f0",
+        "renew_prepaid_allocation": false,
+        "rollover_prepaid_remainder": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "tax_included": true,
+        "type": "s1f5",
+        "updated_at": "s1f6",
+        "use_site_exchange_rate": false,
+        "price_point_id": "PRICE_POINT01"
+      },
+      "COMPONENT_PRICE_POINT_CURRENCY_OVERAGE02": {
+        "archived_at": "s2d0",
+        "component_id": "COMPONENT01",
+        "created_at": "s2d2",
+        "currency_overage_prices": [],
+        "currency_prices": [],
+        "default": false,
+        "expiration_interval": 726,
+        "expiration_interval_unit": "s2d7",
+        "handle": "s2d8",
+        "id": "COMPONENT_PRICE_POINT_CURRENCY_OVERAGE02",
+        "interval": 730,
+        "interval_unit": "s2db",
+        "name": "s2dc",
+        "overage_prices": [],
+        "overage_pricing_scheme": "s2de",
+        "prices": [],
+        "pricing_scheme": "s2e0",
+        "renew_prepaid_allocation": false,
+        "rollover_prepaid_remainder": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "tax_included": true,
+        "type": "s2e5",
+        "updated_at": "s2e6",
+        "use_site_exchange_rate": false,
+        "price_point_id": "PRICE_POINT01"
+      }
+    }
+  },
+  "new": {
+    "component_price_point_currency_overage": {
+      "component_price_point_currency_overage_ref01": {
+        "archived_at": "s3c0",
+        "component_id": "COMPONENT01",
+        "created_at": "s3c2",
+        "currency_overage_prices": [],
+        "currency_prices": [],
+        "default": false,
+        "expiration_interval": 966,
+        "expiration_interval_unit": "s3c7",
+        "handle": "s3c8",
+        "interval": 970,
+        "interval_unit": "s3cb",
+        "name": "s3cc",
+        "overage_prices": [],
+        "overage_pricing_scheme": "s3ce",
+        "prices": [],
+        "pricing_scheme": "s3d0",
+        "renew_prepaid_allocation": false,
+        "rollover_prepaid_remainder": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "tax_included": true,
+        "type": "s3d5",
+        "updated_at": "s3d6",
+        "use_site_exchange_rate": false
+      }
+    }
+  },
+  "requests": {
+    "GET /components/{component_id}/price_points/{price_point_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

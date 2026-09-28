@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "subscription_group_status": {
+      "SUBSCRIPTION_GROUP_STATUS00": {
+        "id": "SUBSCRIPTION_GROUP_STATUS00"
+      },
+      "SUBSCRIPTION_GROUP_STATUS01": {
+        "id": "SUBSCRIPTION_GROUP_STATUS01"
+      },
+      "SUBSCRIPTION_GROUP_STATUS02": {
+        "id": "SUBSCRIPTION_GROUP_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "subscription_group_status": {
+      "subscription_group_status_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /subscription_groups/{uid}/cancel.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscription_groups/{uid}/delayed_cancel.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscription_groups/{uid}/reactivate.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /subscription_groups/{uid}/delayed_cancel.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

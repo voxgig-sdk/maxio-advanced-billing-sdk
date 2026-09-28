@@ -1,0 +1,427 @@
+# Entity: subscription_status
+
+main: kit: entity: subscription_status: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    renewal_preview: {
+      h: "Renewal Preview"
+      n: "renewal_preview"
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "subscription_status"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/resume.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "calendar_billing_'resumption_charge'"
+                or: "calendar_billing_'resumption_charge'"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/resume.json"
+          q: {
+            "$action": "resume.json"
+            exist: [
+              "calendar_billing_'resumption_charge'"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "resume.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/hold.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/hold.json"
+          q: {
+            "$action": "hold.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "hold.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/renewals/preview.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/renewals/preview.json"
+          q: {
+            exist: [
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "renewals"
+            }
+            {
+              lit: "preview.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /subscriptions/{subscription_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "content_type"
+                or: "content_type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/subscriptions/{subscription_id}.json"
+          q: {
+            exist: [
+              "content_type"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "{subscription_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /subscriptions/{subscription_id}/delayed_cancel.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/subscriptions/{subscription_id}/delayed_cancel.json"
+          q: {
+            "$action": "delayed_cancel.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "delayed_cancel.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /subscriptions/{subscription_id}/hold.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/subscriptions/{subscription_id}/hold.json"
+          q: {
+            "$action": "hold.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "hold.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /subscriptions/{subscription_id}/reactivate.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/subscriptions/{subscription_id}/reactivate.json"
+          q: {
+            "$action": "reactivate.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "reactivate.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /subscriptions/{subscription_id}/retry.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/subscriptions/{subscription_id}/retry.json"
+          q: {
+            "$action": "retry.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "retry.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.subscription")]
+  ]
+
+}

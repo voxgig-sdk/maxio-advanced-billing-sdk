@@ -1,0 +1,562 @@
+# Entity: payment_profile
+
+main: kit: entity: payment_profile: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    payment_profile: {
+      h: "Payment Profile"
+      n: "payment_profile"
+      op: {
+        list: {
+          req: true
+          type: "`$ANY`"
+        }
+      }
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "payment_profile"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /subscription_groups/{uid}/payment_profiles/{payment_profile_id}/change_payment_profile.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "payment_profile_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_group_id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscription_groups/{uid}/payment_profiles/{payment_profile_id}/change_payment_profile.json"
+          q: {
+            "$action": "change_payment_profile"
+            exist: [
+              "id"
+              "subscription_group_id"
+            ]
+          }
+          r: {
+            param: {
+              payment_profile_id: "id"
+              uid: "subscription_group_id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "subscription_group_id"
+            }
+            {
+              lit: "payment_profiles"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "change_payment_profile.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}/change_payment_profile.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "payment_profile_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}/change_payment_profile.json"
+          q: {
+            "$action": "change_payment_profile"
+            exist: [
+              "id"
+              "subscription_id"
+            ]
+          }
+          r: {
+            param: {
+              payment_profile_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "payment_profiles"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "change_payment_profile.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/request_payment_profiles_update.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/request_payment_profiles_update.json"
+          q: {
+            exist: [
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "request_payment_profiles_update.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /payment_profiles.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/payment_profiles.json"
+          s: [
+            {
+              lit: "payment_profiles.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /payment_profiles.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "customer_id"
+                or: "customer_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/payment_profiles.json"
+          q: {
+            exist: [
+              "customer_id"
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "payment_profiles.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /payment_profiles/{payment_profile_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "payment_profile_id"
+                or: "payment_profile_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/payment_profiles/{payment_profile_id}.json"
+          q: {
+            "$action": "payment_profile_id"
+            exist: [
+              "payment_profile_id"
+            ]
+          }
+          s: [
+            {
+              lit: "payment_profiles"
+            }
+            {
+              lit: "{payment_profile_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "payment_profile_id"
+                or: "payment_profile_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_group_id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json"
+          q: {
+            "$action": "payment_profile_id"
+            exist: [
+              "payment_profile_id"
+              "subscription_group_id"
+            ]
+          }
+          r: {
+            param: {
+              uid: "subscription_group_id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "subscription_group_id"
+            }
+            {
+              lit: "payment_profiles"
+            }
+            {
+              lit: "{payment_profile_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "payment_profile_id"
+                or: "payment_profile_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json"
+          q: {
+            "$action": "payment_profile_id"
+            exist: [
+              "payment_profile_id"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "payment_profiles"
+            }
+            {
+              lit: "{payment_profile_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /payment_profiles/{payment_profile_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "payment_profile_id"
+                or: "payment_profile_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/payment_profiles/{payment_profile_id}.json"
+          q: {
+            "$action": "payment_profile_id"
+            exist: [
+              "payment_profile_id"
+            ]
+          }
+          s: [
+            {
+              lit: "payment_profiles"
+            }
+            {
+              lit: "{payment_profile_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /bank_accounts/{bank_account_id}/verification.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "bank_account_id"
+                or: "bank_account_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/bank_accounts/{bank_account_id}/verification.json"
+          q: {
+            exist: [
+              "bank_account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "bank_accounts"
+            }
+            {
+              var: "bank_account_id"
+            }
+            {
+              lit: "verification.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /payment_profiles/{payment_profile_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "payment_profile_id"
+                or: "payment_profile_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/payment_profiles/{payment_profile_id}.json"
+          q: {
+            "$action": "payment_profile_id"
+            exist: [
+              "payment_profile_id"
+            ]
+          }
+          s: [
+            {
+              lit: "payment_profiles"
+            }
+            {
+              lit: "{payment_profile_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.subscription_group")]
+    [path("$.main.kit.entity.subscription")]
+  ]
+
+}

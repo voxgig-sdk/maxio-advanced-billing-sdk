@@ -1,0 +1,28 @@
+# BasicReferralCodeFlow
+
+main: kit: flow: BasicReferralCodeFlow:
+{
+  entity: "referral_code",
+  kind: "basic",
+  name: "BasicReferralCodeFlow",
+  step: [
+    {
+      i: {
+        ref: "referral_code_ref01",
+        srcdatavar: "referral_code_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-referral_code_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicReferralCodeFlow"
+}

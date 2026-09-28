@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "subscription_group_invoice_account": {
+      "SUBSCRIPTION_GROUP_INVOICE_ACCOUNT00": {
+        "id": "SUBSCRIPTION_GROUP_INVOICE_ACCOUNT00"
+      },
+      "SUBSCRIPTION_GROUP_INVOICE_ACCOUNT01": {
+        "id": "SUBSCRIPTION_GROUP_INVOICE_ACCOUNT01"
+      },
+      "SUBSCRIPTION_GROUP_INVOICE_ACCOUNT02": {
+        "id": "SUBSCRIPTION_GROUP_INVOICE_ACCOUNT02"
+      }
+    }
+  },
+  "new": {
+    "subscription_group_invoice_account": {
+      "subscription_group_invoice_account_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /subscription_groups/{uid}/prepayments.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscription_groups/{uid}/service_credit_deductions.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscription_groups/{uid}/service_credits.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscription_groups/{uid}/prepayments.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

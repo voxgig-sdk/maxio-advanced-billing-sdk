@@ -1,0 +1,119 @@
+# Entity: endpoint
+
+main: kit: entity: endpoint: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    site_id: {
+      fo: "int32"
+      h: "Site Id"
+      n: "site_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      t: "`$STRING`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: false
+      t: "`$STRING`"
+    }
+    webhook_subscriptions: {
+      h: "Webhook Subscriptions"
+      n: "webhook_subscriptions"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "endpoint"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /endpoints.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/endpoints.json"
+          s: [
+            {
+              lit: "endpoints.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /endpoints/{endpoint_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "endpoint_id"
+                or: "endpoint_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/endpoints/{endpoint_id}.json"
+          q: {
+            "$action": "endpoint_id"
+            exist: [
+              "endpoint_id"
+            ]
+          }
+          s: [
+            {
+              lit: "endpoints"
+            }
+            {
+              lit: "{endpoint_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.endpoint`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,1072 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 57
+  metrics: count: path: 196
+  metrics: count: method: 268
+
+  entity: account_balance: {
+    path: "/subscriptions/{subscription_id}/account_balances.json": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: allocation: {
+    path: "/subscriptions/{subscription_id}/allocations.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/components/{component_id}/allocations.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: batch_job: {
+    path: "/api_exports/invoices.json": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.batchjob`")|top
+    }
+    path: "/api_exports/invoices/{batch_id}.json": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.batchjob`")|top
+    }
+    path: "/api_exports/proforma_invoices.json": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.batchjob`")|top
+    }
+    path: "/api_exports/proforma_invoices/{batch_id}.json": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.batchjob`")|top
+    }
+    path: "/api_exports/subscriptions.json": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.batchjob`")|top
+    }
+    path: "/api_exports/subscriptions/{batch_id}.json": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.batchjob`")|top
+    }
+  }
+
+  entity: billing_portal: {
+    path: "/portal/customers/{customer_id}/invitations/invite.json": {
+      op: create: method: *POST
+    }
+    path: "/portal/customers/{customer_id}/invitations/revoke.json": {
+      op: remove: method: *DELETE
+    }
+    path: "/portal/customers/{customer_id}/management_link.json": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: component: {
+    path: "/components.json": {
+      op: list: method: *GET
+    }
+    path: "/components/lookup.json": {
+      action: "lookup": {}
+      op: load: method: *GET
+    }
+    path: "/components/{component_id}.json": {
+      action: "component_id": {}
+      op: update: method: *PUT
+      op: update: transform: req: "component": *("`reqdata`")|top
+    }
+    path: "/product_families/{product_family_id}/components.json": {
+      op: list: method: *GET
+    }
+    path: "/product_families/{product_family_id}/components/{component_id}.json": {
+      action: "component_id": {}
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: req: "component": *("`reqdata`")|top
+    }
+    path: "/product_families/{product_family_id}/event_based_components.json": {
+      op: create: method: *POST
+    }
+    path: "/product_families/{product_family_id}/metered_components.json": {
+      op: create: method: *POST
+    }
+    path: "/product_families/{product_family_id}/on_off_components.json": {
+      op: create: method: *POST
+    }
+    path: "/product_families/{product_family_id}/prepaid_usage_components.json": {
+      op: create: method: *POST
+    }
+    path: "/product_families/{product_family_id}/quantity_based_components.json": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: component_feature: {
+    path: "/components/{component_id}/features/{id}.json": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: component_price_point: {
+    path: "/components/{component_id}/price_points.json": {
+      rename: param: "component_id": *"id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.price_point`")|top
+      op: list: method: *GET
+    }
+    path: "/components/{component_id}/price_points/bulk.json": {
+      op: create: method: *POST
+    }
+    path: "/components/{component_id}/price_points/{price_point_id}.json": {
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.price_point`")|top
+    }
+    path: "/components/{component_id}/price_points/{price_point_id}/clone.json": {
+      op: create: method: *POST
+    }
+    path: "/components/{component_id}/price_points/{price_point_id}/default.json": {
+      op: update: method: *PUT
+    }
+    path: "/components/{component_id}/price_points/{price_point_id}/unarchive.json": {
+      op: update: method: *PUT
+    }
+    path: "/components_price_points.json": {
+      op: list: method: *GET
+    }
+    path: "/price_points/{price_point_id}/currency_prices.json": {
+      op: create: method: *POST
+      op: update: method: *PUT
+    }
+  }
+
+  entity: component_price_point_currency_overage: {
+    path: "/components/{component_id}/price_points/{price_point_id}.json": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.price_point`")|top
+    }
+  }
+
+  entity: coupon: {
+    path: "/coupons.json": {
+      op: list: method: *GET
+    }
+    path: "/coupons/find.json": {
+      action: "find": {}
+      op: load: method: *GET
+      op: load: transform: res: *("`body.coupon`")|top
+    }
+    path: "/coupons/validate.json": {
+      action: "validate": {}
+      op: load: method: *GET
+    }
+    path: "/coupons/{coupon_id}/codes.json": {
+      action: "code": {}
+      rename: param: "coupon_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/coupons/{coupon_id}/codes/{subcode}.json": {
+      action: "code_subcode": {}
+      rename: param: "coupon_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/product_families/{product_family_id}/coupons.json": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.coupon`")|top
+      op: list: method: *GET
+    }
+    path: "/product_families/{product_family_id}/coupons/{coupon_id}.json": {
+      action: "coupon_id": {}
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: coupon_currency: {
+    path: "/coupons/{coupon_id}/currency_prices.json": {
+      action: "currency_prices.json": {}
+      rename: param: "coupon_id": *"id"
+      op: update: method: *PUT
+    }
+  }
+
+  entity: coupon_subcode: {
+    path: "/coupons/{coupon_id}/codes.json": {
+      rename: param: "coupon_id": *"id"
+      op: update: method: *PUT
+    }
+  }
+
+  entity: coupon_usage: {
+    path: "/product_families/{product_family_id}/coupons/{coupon_id}/usage.json": {
+      rename: param: "coupon_id": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: custom_field: {
+    path: "/{resource_type}/metadata.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.metadata`")|top
+    }
+    path: "/{resource_type}/metafields.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/{resource_type}/{resource_id}/metadata.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: customer: {
+    path: "/customers.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/customers/lookup.json": {
+      action: "lookup": {}
+      op: load: method: *GET
+      op: load: transform: res: *("`body.customer`")|top
+    }
+    path: "/customers/{id}.json": {
+      action: "id": {}
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/portal/customers/{customer_id}/enable.json": {
+      action: "enable": {}
+      rename: param: "customer_id": *"id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.customer`")|top
+    }
+  }
+
+  entity: delayed_cancel: {
+    path: "/subscriptions/{subscription_id}/delayed_cancel.json": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: endpoint: {
+    path: "/endpoints.json": {
+      op: list: method: *GET
+    }
+    path: "/endpoints/{endpoint_id}.json": {
+      action: "endpoint_id": {}
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.endpoint`")|top
+    }
+  }
+
+  entity: entitlement: {
+    path: "/subscriptions/{subscription_id}/entitlements.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: event: {
+    path: "/events.json": {
+      op: list: method: *GET
+    }
+    path: "/events/count.json": {
+      action: "count": {}
+      op: load: method: *GET
+    }
+    path: "/subscriptions/{subscription_id}/events.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: events_based_billing_segment: {
+    path: "/components/{component_id}/price_points/{price_point_id}/segments/{id}.json": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: feature: {
+    path: "/components/{component_id}/features.json": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.feature`")|top
+      op: create: transform: req: "feature": *("`reqdata`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.features`")|top
+    }
+    path: "/features.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/products/{product_id}/features.json": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.feature`")|top
+      op: create: transform: req: "feature": *("`reqdata`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.features`")|top
+    }
+  }
+
+  entity: feature_catalog_item: {
+    path: "/components/{component_id}/features/{id}.json": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.feature`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.feature`")|top
+    }
+    path: "/components/{component_id}/features/{id}/restore.json": {
+      action: "restore.json": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.feature`")|top
+    }
+    path: "/products/{product_id}/features/{id}.json": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.feature`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.feature`")|top
+    }
+    path: "/products/{product_id}/features/{id}/restore.json": {
+      action: "restore.json": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.feature`")|top
+    }
+  }
+
+  entity: feature_template: {
+    path: "/features/{id}.json": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.feature`")|top
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.feature`")|top
+    }
+    path: "/features/{id}/restore.json": {
+      action: "restore.json": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.feature`")|top
+    }
+  }
+
+  entity: insight: {
+    path: "/mrr.json": {
+      op: load: method: *GET
+    }
+    path: "/mrr_movements.json": {
+      op: load: method: *GET
+    }
+    path: "/stats.json": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: invoice: {
+    path: "/api_exports/invoices/{batch_id}/rows.json": {
+      action: "row": {}
+      rename: param: "batch_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/credit_notes.json": {
+      op: list: method: *GET
+    }
+    path: "/credit_notes/{uid}.json": {
+      op: list: method: *GET
+    }
+    path: "/invoices.json": {
+      op: list: method: *GET
+    }
+    path: "/invoices/events.json": {
+      action: "event": {}
+      op: list: method: *GET
+    }
+    path: "/invoices/payments.json": {
+      action: "payment": {}
+      op: create: method: *POST
+    }
+    path: "/invoices/{invoice_uid}/segments.json": {
+      action: "segment": {}
+      rename: param: "invoice_uid": *"id"
+      op: list: method: *GET
+    }
+    path: "/invoices/{uid}.json": {
+      action: "uid": {}
+      op: list: method: *GET
+    }
+    path: "/invoices/{uid}/customer_information.json": {
+      action: "customer_information": {}
+      rename: param: "uid": *"id"
+      op: update: method: *PUT
+    }
+    path: "/invoices/{uid}/customer_information/preview.json": {
+      action: "customer_information_preview": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/invoices/{uid}/deliveries.json": {
+      action: "delivery": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/invoices/{uid}/issue.json": {
+      action: "issue": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/invoices/{uid}/payments.json": {
+      action: "payment": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/invoices/{uid}/refunds.json": {
+      action: "refund": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/invoices/{uid}/reopen.json": {
+      action: "reopen": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/invoices/{uid}/void.json": {
+      action: "void": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/advance_invoice.json": {
+      op: list: method: *GET
+    }
+    path: "/subscriptions/{subscription_id}/advance_invoice/issue.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/advance_invoice/void.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/invoices.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/invoices/{uid}.json": {
+      action: "uid": {}
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.invoice`")|top
+    }
+    path: "/subscriptions/{subscription_id}/payments.json": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: list_proforma_invoice: {
+    path: "/subscription_groups/{uid}/proforma_invoices.json": {
+      rename: param: "uid": *"subscription_group_id"
+      op: list: method: *GET
+    }
+    path: "/subscriptions/{subscription_id}/proforma_invoices.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_sale_rep_item: {
+    path: "/sellers/{seller_id}/sales_reps.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_segment: {
+    path: "/components/{component_id}/price_points/{price_point_id}/segments.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.segments`")|top
+    }
+    path: "/components/{component_id}/price_points/{price_point_id}/segments/bulk.json": {
+      op: create: method: *POST
+      op: update: method: *PUT
+    }
+  }
+
+  entity: offer: {
+    path: "/offers.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/offers/{offer_id}.json": {
+      action: "offer_id": {}
+      op: load: method: *GET
+      op: load: transform: res: *("`body.offer`")|top
+    }
+    path: "/offers/{offer_id}/archive.json": {
+      action: "archive": {}
+      rename: param: "offer_id": *"id"
+      op: update: method: *PUT
+    }
+    path: "/offers/{offer_id}/unarchive.json": {
+      action: "unarchive": {}
+      rename: param: "offer_id": *"id"
+      op: update: method: *PUT
+    }
+  }
+
+  entity: one_time_token: {
+    path: "/one_time_tokens/{chargify_token}.json": {
+      action: "chargify_token": {}
+      op: load: method: *GET
+      op: load: transform: res: *("`body.payment_profile`")|top
+    }
+  }
+
+  entity: payment_profile: {
+    path: "/bank_accounts/{bank_account_id}/verification.json": {
+      op: update: method: *PUT
+    }
+    path: "/payment_profiles.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/payment_profiles/{payment_profile_id}.json": {
+      action: "payment_profile_id": {}
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json": {
+      action: "payment_profile_id": {}
+      rename: param: "uid": *"subscription_group_id"
+      op: remove: method: *DELETE
+    }
+    path: "/subscription_groups/{uid}/payment_profiles/{payment_profile_id}/change_payment_profile.json": {
+      action: "change_payment_profile": {}
+      rename: param: "payment_profile_id": *"id"
+      rename: param: "uid": *"subscription_group_id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json": {
+      action: "payment_profile_id": {}
+      op: remove: method: *DELETE
+    }
+    path: "/subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}/change_payment_profile.json": {
+      action: "change_payment_profile": {}
+      rename: param: "payment_profile_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/request_payment_profiles_update.json": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: prepayment: {
+    path: "/subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.json": {
+      action: "refund": {}
+      rename: param: "prepayment_id": *"id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.prepayment`")|top
+    }
+  }
+
+  entity: product: {
+    path: "/product_families/{product_family_id}/products.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/products.json": {
+      op: list: method: *GET
+    }
+    path: "/products/handle/{api_handle}.json": {
+      op: load: method: *GET
+    }
+    path: "/products/{product_id}.json": {
+      action: "product_id": {}
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: req: "product": *("`reqdata`")|top
+    }
+  }
+
+  entity: product_family: {
+    path: "/product_families.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/product_families/{id}.json": {
+      action: "id": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: product_feature: {
+    path: "/products/{product_id}/features/{id}.json": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: product_price_point: {
+    path: "/product_price_points/{product_price_point_id}/currency_prices.json": {
+      action: "currency_price": {}
+      rename: param: "product_price_point_id": *"id"
+      op: create: method: *POST
+      op: update: method: *PUT
+    }
+    path: "/products/{product_id}/price_points.json": {
+      rename: param: "product_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/products/{product_id}/price_points/bulk.json": {
+      op: create: method: *POST
+    }
+    path: "/products/{product_id}/price_points/{price_point_id}.json": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/products/{product_id}/price_points/{price_point_id}/default.json": {
+      op: patch: method: *PATCH
+    }
+    path: "/products/{product_id}/price_points/{price_point_id}/unarchive.json": {
+      op: patch: method: *PATCH
+    }
+    path: "/products_price_points.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: proforma_invoice: {
+    path: "/api_exports/proforma_invoices/{batch_id}/rows.json": {
+      action: "row": {}
+      rename: param: "batch_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/proforma_invoices/{proforma_invoice_uid}.json": {
+      action: "proforma_invoice_uid": {}
+      op: list: method: *GET
+    }
+    path: "/proforma_invoices/{proforma_invoice_uid}/deliveries.json": {
+      action: "delivery": {}
+      rename: param: "proforma_invoice_uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/proforma_invoices/{proforma_invoice_uid}/void.json": {
+      action: "void": {}
+      rename: param: "proforma_invoice_uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscription_groups/{uid}/proforma_invoices.json": {
+      rename: param: "uid": *"subscription_group_id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/proforma_invoices.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/proforma_invoices.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/proforma_invoices/preview.json": {
+      action: "preview": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: reason_code: {
+    path: "/reason_codes.json": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.reason_code`")|top
+      op: list: method: *GET
+    }
+    path: "/reason_codes/{reason_code_id}.json": {
+      action: "reason_code_id": {}
+      op: load: method: *GET
+      op: load: transform: res: *("`body.reason_code`")|top
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.reason_code`")|top
+      op: update: transform: req: "reason_code": *("`reqdata`")|top
+    }
+  }
+
+  entity: referral_code: {
+    path: "/referral_codes/validate.json": {
+      action: "validate": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: sale_rep_setting: {
+    path: "/sellers/{seller_id}/sales_commission_settings.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: sales_commission: {
+    path: "/sellers/{seller_id}/sales_reps/{sales_rep_id}.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: segment: {
+    path: "/components/{component_id}/price_points/{price_point_id}/segments.json": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.segment`")|top
+    }
+    path: "/components/{component_id}/price_points/{price_point_id}/segments/{id}.json": {
+      action: "id": {}
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.segment`")|top
+      op: update: transform: req: "segment": *("`reqdata`")|top
+    }
+  }
+
+  entity: signup_proforma_preview: {
+    path: "/subscriptions/proforma_invoices/preview.json": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.proforma_invoice_preview`")|top
+    }
+  }
+
+  entity: site: {
+    path: "/chargify_js_keys.json": {
+      op: list: method: *GET
+    }
+    path: "/site.json": {
+      op: load: method: *GET
+    }
+    path: "/sites/clear_data.json": {
+      action: "clear_data": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: subscription: {
+    path: "/api_exports/subscriptions/{batch_id}/rows.json": {
+      action: "row": {}
+      rename: param: "batch_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/customers/{customer_id}/subscriptions.json": {
+      op: list: method: *GET
+    }
+    path: "/subscriptions.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/subscriptions/lookup.json": {
+      action: "lookup": {}
+      op: load: method: *GET
+      op: load: transform: res: *("`body.subscription`")|top
+    }
+    path: "/subscriptions/preview.json": {
+      action: "preview": {}
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}.json": {
+      action: "subscription_id": {}
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/activate.json": {
+      action: "activate": {}
+      rename: param: "subscription_id": *"id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.subscription`")|top
+    }
+    path: "/subscriptions/{subscription_id}/add_coupon.json": {
+      action: "add_coupon": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/cancel_dunning.json": {
+      action: "cancel_dunning": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.subscription`")|top
+    }
+    path: "/subscriptions/{subscription_id}/override.json": {
+      action: "override": {}
+      rename: param: "subscription_id": *"id"
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/prepaid_configurations.json": {
+      action: "prepaid_configuration": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/purge.json": {
+      action: "purge": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.subscription`")|top
+    }
+    path: "/subscriptions/{subscription_id}/remove_coupon.json": {
+      action: "remove_coupon": {}
+      rename: param: "subscription_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: subscription_component: {
+    path: "/event_based_billing/subscriptions/{subscription_id}/components/{component_id}/activate.json": {
+      op: create: method: *POST
+    }
+    path: "/event_based_billing/subscriptions/{subscription_id}/components/{component_id}/deactivate.json": {
+      op: create: method: *POST
+    }
+    path: "/events/{api_handle}.json": {
+      op: create: method: *POST
+    }
+    path: "/events/{api_handle}/bulk.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/allocations/preview.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/components.json": {
+      rename: param: "subscription_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/subscriptions/{subscription_id}/components/{component_id}.json": {
+      op: load: method: *GET
+    }
+    path: "/subscriptions/{subscription_id}/components/{component_id}/allocations.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json": {
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/price_points.json": {
+      action: "price_points.json": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/price_points/reset.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions_components.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.subscriptions_components`")|top
+    }
+  }
+
+  entity: subscription_group: {
+    path: "/subscription_groups.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/subscription_groups/lookup.json": {
+      action: "lookup": {}
+      op: list: method: *GET
+    }
+    path: "/subscription_groups/{uid}.json": {
+      action: "uid": {}
+      op: list: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/group.json": {
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: subscription_group_invoice_account: {
+    path: "/subscription_groups/{uid}/prepayments.json": {
+      action: "prepayments.json": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/subscription_groups/{uid}/service_credit_deductions.json": {
+      action: "service_credit_deductions.json": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscription_groups/{uid}/service_credits.json": {
+      action: "service_credits.json": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: subscription_group_signup: {
+    path: "/subscription_groups/signup.json": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: subscription_group_status: {
+    path: "/subscription_groups/{uid}/cancel.json": {
+      action: "cancel.json": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscription_groups/{uid}/delayed_cancel.json": {
+      action: "delayed_cancel.json": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+      op: remove: method: *DELETE
+    }
+    path: "/subscription_groups/{uid}/reactivate.json": {
+      action: "reactivate.json": {}
+      rename: param: "uid": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: subscription_invoice_account: {
+    path: "/subscriptions/{subscription_id}/prepayments.json": {
+      action: "prepayments.json": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/subscriptions/{subscription_id}/service_credit_deductions.json": {
+      action: "service_credit_deductions.json": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/service_credits.json": {
+      action: "service_credits.json": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/service_credits/list.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: subscription_mrr: {
+    path: "/subscriptions_mrr.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.subscriptions_mrr`")|top
+    }
+  }
+
+  entity: subscription_note: {
+    path: "/subscriptions/{subscription_id}/notes.json": {
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.note`")|top
+      op: list: method: *GET
+    }
+    path: "/subscriptions/{subscription_id}/notes/{note_id}.json": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.note`")|top
+    }
+  }
+
+  entity: subscription_product: {
+    path: "/subscriptions/{subscription_id}/migrations.json": {
+      action: "migrations.json": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/migrations/preview.json": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: subscription_renewal: {
+    path: "/subscriptions/{subscription_id}/scheduled_renewals.json": {
+      action: "scheduled_renewals.json": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/subscriptions/{subscription_id}/scheduled_renewals/{id}.json": {
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/scheduled_renewals/{id}/cancel.json": {
+      rename: param: "id": *"scheduled_renewal_id"
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/scheduled_renewals/{id}/immediate_lock_in.json": {
+      rename: param: "id": *"scheduled_renewal_id"
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/scheduled_renewals/{id}/schedule_lock_in.json": {
+      rename: param: "id": *"scheduled_renewal_id"
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/scheduled_renewals/{id}/unpublish.json": {
+      rename: param: "id": *"scheduled_renewal_id"
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items.json": {
+      rename: param: "scheduled_renewals_configuration_id": *"scheduled_renewal_id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items/{id}.json": {
+      rename: param: "scheduled_renewals_configuration_id": *"scheduled_renewal_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: subscription_status: {
+    path: "/subscriptions/{subscription_id}.json": {
+      op: remove: method: *DELETE
+    }
+    path: "/subscriptions/{subscription_id}/delayed_cancel.json": {
+      action: "delayed_cancel.json": {}
+      rename: param: "subscription_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/subscriptions/{subscription_id}/hold.json": {
+      action: "hold.json": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/reactivate.json": {
+      action: "reactivate.json": {}
+      rename: param: "subscription_id": *"id"
+      op: update: method: *PUT
+    }
+    path: "/subscriptions/{subscription_id}/renewals/preview.json": {
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/resume.json": {
+      action: "resume.json": {}
+      rename: param: "subscription_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/subscriptions/{subscription_id}/retry.json": {
+      action: "retry.json": {}
+      rename: param: "subscription_id": *"id"
+      op: update: method: *PUT
+    }
+  }
+
+  entity: usage: {
+    path: "/subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: webhook: {
+    path: "/endpoints.json": {
+      op: create: method: *POST
+    }
+    path: "/webhooks.json": {
+      op: list: method: *GET
+    }
+    path: "/webhooks/replay.json": {
+      action: "replay": {}
+      op: create: method: *POST
+    }
+    path: "/webhooks/settings.json": {
+      action: "setting": {}
+      op: update: method: *PUT
+    }
+  }
+
+}

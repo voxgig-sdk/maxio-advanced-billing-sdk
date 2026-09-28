@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "endpoint": {
+      "ENDPOINT00": {
+        "id": "ENDPOINT00",
+        "site_id": "SITE01",
+        "status": "s34",
+        "url": "s35",
+        "webhook_subscriptions": [],
+        "endpoint_id": "ENDPOINT01"
+      },
+      "ENDPOINT01": {
+        "id": "ENDPOINT01",
+        "site_id": "SITE01",
+        "status": "s66",
+        "url": "s67",
+        "webhook_subscriptions": [],
+        "endpoint_id": "ENDPOINT01"
+      },
+      "ENDPOINT02": {
+        "id": "ENDPOINT02",
+        "site_id": "SITE01",
+        "status": "s98",
+        "url": "s99",
+        "webhook_subscriptions": [],
+        "endpoint_id": "ENDPOINT01"
+      }
+    }
+  },
+  "new": {
+    "endpoint": {
+      "endpoint_ref01": {
+        "site_id": "SITE01",
+        "status": "sca",
+        "url": "scb",
+        "webhook_subscriptions": []
+      }
+    }
+  },
+  "requests": {
+    "GET /endpoints.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /endpoints/{endpoint_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

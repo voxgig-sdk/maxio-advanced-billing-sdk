@@ -1,0 +1,119 @@
+# BasicSubscriptionNoteFlow
+
+main: kit: flow: BasicSubscriptionNoteFlow:
+{
+  entity: "subscription_note",
+  kind: "basic",
+  name: "BasicSubscriptionNoteFlow",
+  step: [
+    {
+      i: {
+        ref: "subscription_note_ref01"
+      }
+
+      m: {
+        note_id: "note01",
+        subscription_id: "subscription01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        subscription_id: "subscription01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "subscription_note_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        note_id: "note01"
+      }
+
+      i: {
+        ref: "subscription_note_ref01",
+        srcdatavar: "subscription_note_ref01_data",
+        suffix: "_up0",
+        textfield: "body"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-subscription_note_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "subscription_note_ref01",
+        srcdatavar: "subscription_note_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "subscription_note01",
+        note_id: "note01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-subscription_note_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "subscription_note_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "subscription_note01",
+        note_id: "note01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        subscription_id: "subscription01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "subscription_note_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSubscriptionNoteFlow"
+}

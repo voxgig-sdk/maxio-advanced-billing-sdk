@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Event | Maxio Advanced Billing</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Maxio Advanced Billing<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/maxio-advanced-billing-sdk">voxgig-sdk/maxio-advanced-billing-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Maxio Advanced Billing</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account_balance.html">AccountBalance</a>
+<a href="../api/allocation.html">Allocation</a>
+<a href="../api/batch_job.html">BatchJob</a>
+<a href="../api/billing_portal.html">BillingPortal</a>
+<a href="../api/component.html">Component</a>
+<a href="../api/component_feature.html">ComponentFeature</a>
+<a href="../api/component_price_point.html">ComponentPricePoint</a>
+<a href="../api/component_price_point_currency_overage.html">ComponentPricePointCurrencyOverage</a>
+<a href="../api/coupon.html">Coupon</a>
+<a href="../api/coupon_currency.html">CouponCurrency</a>
+<a href="../api/coupon_subcode.html">CouponSubcode</a>
+<a href="../api/coupon_usage.html">CouponUsage</a>
+<a href="../api/custom_field.html">CustomField</a>
+<a href="../api/customer.html">Customer</a>
+<a href="../api/delayed_cancel.html">DelayedCancel</a>
+<a href="../api/endpoint.html">Endpoint</a>
+<a href="../api/entitlement.html">Entitlement</a>
+<a aria-current="page" href="../api/event.html">Event</a><div class="nav-sections"><a class="nav-section" href="#get-eventsjson">GET /events.json</a>
+<a class="nav-section" href="#get-subscriptionssubscription_ideventsjson">GET /subscriptions/{subscription_id}/events.json</a>
+<a class="nav-section" href="#get-eventscountjson">GET /events/count.json</a></div>
+<a href="../api/events_based_billing_segment.html">EventsBasedBillingSegment</a>
+<a href="../api/feature.html">Feature</a>
+<a href="../api/feature_catalog_item.html">FeatureCatalogItem</a>
+<a href="../api/feature_template.html">FeatureTemplate</a>
+<a href="../api/insight.html">Insight</a>
+<a href="../api/invoice.html">Invoice</a>
+<a href="../api/list_proforma_invoice.html">ListProformaInvoice</a>
+<a href="../api/list_sale_rep_item.html">ListSaleRepItem</a>
+<a href="../api/list_segment.html">ListSegment</a>
+<a href="../api/offer.html">Offer</a>
+<a href="../api/one_time_token.html">OneTimeToken</a>
+<a href="../api/payment_profile.html">PaymentProfile</a>
+<a href="../api/prepayment.html">Prepayment</a>
+<a href="../api/product.html">Product</a>
+<a href="../api/product_family.html">ProductFamily</a>
+<a href="../api/product_feature.html">ProductFeature</a>
+<a href="../api/product_price_point.html">ProductPricePoint</a>
+<a href="../api/proforma_invoice.html">ProformaInvoice</a>
+<a href="../api/reason_code.html">ReasonCode</a>
+<a href="../api/referral_code.html">ReferralCode</a>
+<a href="../api/sale_rep_setting.html">SaleRepSetting</a>
+<a href="../api/sales_commission.html">SalesCommission</a>
+<a href="../api/segment.html">Segment</a>
+<a href="../api/signup_proforma_preview.html">SignupProformaPreview</a>
+<a href="../api/site.html">Site</a>
+<a href="../api/subscription.html">Subscription</a>
+<a href="../api/subscription_component.html">SubscriptionComponent</a>
+<a href="../api/subscription_group.html">SubscriptionGroup</a>
+<a href="../api/subscription_group_invoice_account.html">SubscriptionGroupInvoiceAccount</a>
+<a href="../api/subscription_group_signup.html">SubscriptionGroupSignup</a>
+<a href="../api/subscription_group_status.html">SubscriptionGroupStatus</a>
+<a href="../api/subscription_invoice_account.html">SubscriptionInvoiceAccount</a>
+<a href="../api/subscription_mrr.html">SubscriptionMrr</a>
+<a href="../api/subscription_note.html">SubscriptionNote</a>
+<a href="../api/subscription_product.html">SubscriptionProduct</a>
+<a href="../api/subscription_renewal.html">SubscriptionRenewal</a>
+<a href="../api/subscription_status.html">SubscriptionStatus</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="event">Event</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-eventsjson"><code>/events.json</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-subscriptionssubscription_ideventsjson"><code>/subscriptions/{subscription_id}/events.json</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-eventscountjson"><code>/events/count.json</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">events, err := client.Event(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(events)
+event, err := client.Event(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(event)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local events, err = client:Event():list()
+local event, err = client:Event():load()
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$events = $client-&gt;Event()-&gt;list();
+$event = $client-&gt;Event()-&gt;load();
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">events = client.Event().list()
+event = client.Event().load()
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">events = client.Event.list()
+event = client.Event.load()
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const events = await client.Event().list()
+const event = await client.Event().load()
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Event</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-eventsjson" class="operation" data-method="get"><code>GET</code> /events.json</h3>
+<p>Operation ID: <code>listEvents</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned. Use in query <code>page=1</code>. |
+| <code>per_page</code> | <code>query</code> | <code>integer (int32)</code> | No | This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any <code>per_page</code> value over 200 will be changed to 200. Use in query <code>per_page`=200`. | | `since_id` | `query` | `integer (int64)` | No | Returns events with an id greater than or equal to the one specified. | | `max_id` | `query` | `integer (int64)` | No | Returns events with an id less than or equal to the one specified. | | `direction` | `query` | `enum: asc, desc and any` | No | The sort direction of the returned events. | | `filter` | `query` | `array of enum: payment_success, payment_failure, signup_success, signup_failure, delayed_signup_creation_success, delayed_signup_creation_failure, ...` | No | You can pass multiple event keys after comma. Use in query `filter=`signup_success`,`payment_success</code>. |
+| <code>date_field</code> | <code>query</code> | <code>enum: created_at and any</code> | No | The type of filter you would like to apply to your search. |
+| <code>start_date</code> | <code>query</code> | <code>string</code> | No | The start date (format YYYY-MM-DD) with which to filter the <code>date_field</code>. Returns components with a timestamp at or after midnight (12:00:00 AM) in your site’s time zone on the date specified. |
+| <code>end_date</code> | <code>query</code> | <code>string</code> | No | The end date (format YYYY-MM-DD) with which to filter the <code>date_field</code>. Returns components with a timestamp up to and including 11:59:59PM in your site’s time zone on the date specified. |
+| <code>start_datetime</code> | <code>query</code> | <code>string</code> | No | The start date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the <code>date_field</code>. Returns components with a timestamp at or after exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of <code>start_date</code>. |
+| <code>end_datetime</code> | <code>query</code> | <code>string</code> | No | The end date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the <code>date_field</code>. Returns components with a timestamp at or before exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of <code>end_date</code>. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].event</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Event</td>
+</tr>
+<tr>
+<td><code>[].event.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.customer_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.event_specific_data</code></td>
+<td><code>object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or any</code></td>
+<td>Yes</td>
+<td>The schema varies based on the event key. The key-to-event data mapping is as follows: * <code>subscription_product_change</code>, <code>subscription_product_change_scheduled</code> - SubscriptionProductChange * <code>subscription_state_change</code> - SubscriptionStateChange * <code>signup_success</code>, <code>delayed_signup_creation_success</code>, <code>payment_success</code>, <code>payment_failure</code>, <code>renewal_success</code>, <code>renewal_failure</code>, <code>chargeback_lost</code>, <code>chargeback_accepted</code>, <code>chargeback_closed</code> - PaymentRelatedEvents * <code>refund_success</code> - RefundSuccess * <code>component_allocation_change</code> - ComponentAllocationChange * <code>metered_usage</code> - MeteredUsage * <code>prepaid_usage</code> - PrepaidUsage * <code>dunning_step_reached</code> - DunningStepReached * <code>invoice_issued</code> - InvoiceIssued * <code>pending_cancellation_change</code> - PendingCancellationChange * <code>prepaid_subscription_balance_changed</code> - PrepaidSubscriptionBalanceChanged * <code>subscription_group_signup_success</code> and <code>subscription_group_signup_failure</code> - SubscriptionGroupSignupEventData * <code>proforma_invoice_issued</code> - ProformaInvoiceIssued * <code>subscription_prepayment_account_balance_changed</code> - PrepaymentAccountBalanceChanged * <code>payment_collection_method_changed</code> - PaymentCollectionMethodChanged * <code>subscription_service_credit_account_balance_changed</code> - CreditAccountBalanceChanged * <code>item_price_point_changed</code> - ItemPricePointChanged * <code>custom_field_value_change</code> - CustomFieldValueChange * <code>chjs_tokenization_success</code> - ChjsTokenizationSuccess * <code>chjs_tokenization_failure</code> - ChjsTokenizationFailure * The rest, that is <code>delayed_signup_creation_failure</code>, <code>billing_date_change</code>, <code>expiration_date_change</code>, <code>expiring_card</code>, <code>customer_update</code>, <code>customer_create</code>, <code>customer_delete</code>, <code>upgrade_downgrade_success</code>, <code>upgrade_downgrade_failure</code>, <code>statement_closed</code>, <code>statement_settled</code>, <code>subscription_card_update</code>, <code>subscription_group_card_update</code>, <code>subscription_bank_account_update</code>, <code>refund_failure</code>, <code>upcoming_renewal_notice</code>, <code>trial_end_notice</code>, <code>direct_debit_payment_paid_out</code>, <code>direct_debit_payment_rejected</code>, <code>direct_debit_payment_pending</code>, <code>pending_payment_created</code>, <code>pending_payment_failed</code>, <code>pending_payment_completed</code>, don't have <code>event_specific_data</code> defined, <code>renewal_success_recreated</code>, <code>renewal_failure_recreated</code>, <code>payment_success_recreated</code>, <code>payment_failure_recreated</code>, <code>subscription_deletion</code>, <code>subscription_group_bank_account_update</code>, <code>subscription_paypal_account_update</code>, <code>subscription_group_paypal_account_update</code>, <code>subscription_customer_change</code>, <code>account_transaction_changed</code>, <code>go_cardless_payment_paid_out</code>, <code>go_cardless_payment_rejected</code>, <code>go_cardless_payment_pending</code>, <code>stripe_direct_debit_payment_paid_out</code>, <code>stripe_direct_debit_payment_rejected</code>, <code>stripe_direct_debit_payment_pending</code>, <code>maxio_payments_direct_debit_payment_paid_out</code>, <code>maxio_payments_direct_debit_payment_rejected</code>, <code>maxio_payments_direct_debit_payment_pending</code>, <code>invoice_in_collections_canceled</code>, <code>subscription_added_to_group</code>, <code>subscription_removed_from_group</code>, <code>chargeback_opened</code>, <code>chargeback_lost</code>, <code>chargeback_accepted</code>, <code>chargeback_closed</code>, <code>chargeback_won</code>, <code>payment_collection_method_changed</code>, <code>component_billing_date_changed</code>, <code>subscription_term_renewal_scheduled</code>, <code>subscription_term_renewal_pending</code>, <code>subscription_term_renewal_activated</code>, <code>subscription_term_renewal_removed</code> they map to <code>null</code> instead.</td>
+</tr>
+<tr>
+<td><code>[].event.id</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.key</code></td>
+<td><code>enum: payment_success, payment_failure, signup_success, signup_failure, delayed_signup_creation_success, delayed_signup_creation_failure, ...</code></td>
+<td>Yes</td>
+<td>EventKey</td>
+</tr>
+<tr>
+<td><code>[].event.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.subscription_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>application/xml</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].event</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Event</td>
+</tr>
+<tr>
+<td><code>[].event.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.customer_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.event_specific_data</code></td>
+<td><code>object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or any</code></td>
+<td>Yes</td>
+<td>The schema varies based on the event key. The key-to-event data mapping is as follows: * <code>subscription_product_change</code>, <code>subscription_product_change_scheduled</code> - SubscriptionProductChange * <code>subscription_state_change</code> - SubscriptionStateChange * <code>signup_success</code>, <code>delayed_signup_creation_success</code>, <code>payment_success</code>, <code>payment_failure</code>, <code>renewal_success</code>, <code>renewal_failure</code>, <code>chargeback_lost</code>, <code>chargeback_accepted</code>, <code>chargeback_closed</code> - PaymentRelatedEvents * <code>refund_success</code> - RefundSuccess * <code>component_allocation_change</code> - ComponentAllocationChange * <code>metered_usage</code> - MeteredUsage * <code>prepaid_usage</code> - PrepaidUsage * <code>dunning_step_reached</code> - DunningStepReached * <code>invoice_issued</code> - InvoiceIssued * <code>pending_cancellation_change</code> - PendingCancellationChange * <code>prepaid_subscription_balance_changed</code> - PrepaidSubscriptionBalanceChanged * <code>subscription_group_signup_success</code> and <code>subscription_group_signup_failure</code> - SubscriptionGroupSignupEventData * <code>proforma_invoice_issued</code> - ProformaInvoiceIssued * <code>subscription_prepayment_account_balance_changed</code> - PrepaymentAccountBalanceChanged * <code>payment_collection_method_changed</code> - PaymentCollectionMethodChanged * <code>subscription_service_credit_account_balance_changed</code> - CreditAccountBalanceChanged * <code>item_price_point_changed</code> - ItemPricePointChanged * <code>custom_field_value_change</code> - CustomFieldValueChange * <code>chjs_tokenization_success</code> - ChjsTokenizationSuccess * <code>chjs_tokenization_failure</code> - ChjsTokenizationFailure * The rest, that is <code>delayed_signup_creation_failure</code>, <code>billing_date_change</code>, <code>expiration_date_change</code>, <code>expiring_card</code>, <code>customer_update</code>, <code>customer_create</code>, <code>customer_delete</code>, <code>upgrade_downgrade_success</code>, <code>upgrade_downgrade_failure</code>, <code>statement_closed</code>, <code>statement_settled</code>, <code>subscription_card_update</code>, <code>subscription_group_card_update</code>, <code>subscription_bank_account_update</code>, <code>refund_failure</code>, <code>upcoming_renewal_notice</code>, <code>trial_end_notice</code>, <code>direct_debit_payment_paid_out</code>, <code>direct_debit_payment_rejected</code>, <code>direct_debit_payment_pending</code>, <code>pending_payment_created</code>, <code>pending_payment_failed</code>, <code>pending_payment_completed</code>, don't have <code>event_specific_data</code> defined, <code>renewal_success_recreated</code>, <code>renewal_failure_recreated</code>, <code>payment_success_recreated</code>, <code>payment_failure_recreated</code>, <code>subscription_deletion</code>, <code>subscription_group_bank_account_update</code>, <code>subscription_paypal_account_update</code>, <code>subscription_group_paypal_account_update</code>, <code>subscription_customer_change</code>, <code>account_transaction_changed</code>, <code>go_cardless_payment_paid_out</code>, <code>go_cardless_payment_rejected</code>, <code>go_cardless_payment_pending</code>, <code>stripe_direct_debit_payment_paid_out</code>, <code>stripe_direct_debit_payment_rejected</code>, <code>stripe_direct_debit_payment_pending</code>, <code>maxio_payments_direct_debit_payment_paid_out</code>, <code>maxio_payments_direct_debit_payment_rejected</code>, <code>maxio_payments_direct_debit_payment_pending</code>, <code>invoice_in_collections_canceled</code>, <code>subscription_added_to_group</code>, <code>subscription_removed_from_group</code>, <code>chargeback_opened</code>, <code>chargeback_lost</code>, <code>chargeback_accepted</code>, <code>chargeback_closed</code>, <code>chargeback_won</code>, <code>payment_collection_method_changed</code>, <code>component_billing_date_changed</code>, <code>subscription_term_renewal_scheduled</code>, <code>subscription_term_renewal_pending</code>, <code>subscription_term_renewal_activated</code>, <code>subscription_term_renewal_removed</code> they map to <code>null</code> instead.</td>
+</tr>
+<tr>
+<td><code>[].event.id</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.key</code></td>
+<td><code>enum: payment_success, payment_failure, signup_success, signup_failure, delayed_signup_creation_success, delayed_signup_creation_failure, ...</code></td>
+<td>Yes</td>
+<td>EventKey</td>
+</tr>
+<tr>
+<td><code>[].event.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.subscription_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>multipart/form-data</code></p>
+<p>The response is <code>any</code>.</p>
+<h3 id="get-subscriptionssubscription_ideventsjson" class="operation" data-method="get"><code>GET</code> /subscriptions/{subscription_id}/events.json</h3>
+<p>Operation ID: <code>listSubscriptionEvents</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>subscription_id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Chargify id of the subscription. |
+| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned. Use in query <code>page=1</code>. |
+| <code>per_page</code> | <code>query</code> | <code>integer (int32)</code> | No | This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any <code>per_page</code> value over 200 will be changed to 200. Use in query <code>per_page`=200`. | | `since_id` | `query` | `integer (int64)` | No | Returns events with an id greater than or equal to the one specified. | | `max_id` | `query` | `integer (int64)` | No | Returns events with an id less than or equal to the one specified. | | `direction` | `query` | `enum: asc, desc and any` | No | The sort direction of the returned events. | | `filter` | `query` | `array of enum: payment_success, payment_failure, signup_success, signup_failure, delayed_signup_creation_success, delayed_signup_creation_failure, ...` | No | You can pass multiple event keys after comma. Use in query `filter=`signup_success`,`payment_success</code>. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-ok-1" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].event</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Event</td>
+</tr>
+<tr>
+<td><code>[].event.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.customer_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.event_specific_data</code></td>
+<td><code>object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or any</code></td>
+<td>Yes</td>
+<td>The schema varies based on the event key. The key-to-event data mapping is as follows: * <code>subscription_product_change</code>, <code>subscription_product_change_scheduled</code> - SubscriptionProductChange * <code>subscription_state_change</code> - SubscriptionStateChange * <code>signup_success</code>, <code>delayed_signup_creation_success</code>, <code>payment_success</code>, <code>payment_failure</code>, <code>renewal_success</code>, <code>renewal_failure</code>, <code>chargeback_lost</code>, <code>chargeback_accepted</code>, <code>chargeback_closed</code> - PaymentRelatedEvents * <code>refund_success</code> - RefundSuccess * <code>component_allocation_change</code> - ComponentAllocationChange * <code>metered_usage</code> - MeteredUsage * <code>prepaid_usage</code> - PrepaidUsage * <code>dunning_step_reached</code> - DunningStepReached * <code>invoice_issued</code> - InvoiceIssued * <code>pending_cancellation_change</code> - PendingCancellationChange * <code>prepaid_subscription_balance_changed</code> - PrepaidSubscriptionBalanceChanged * <code>subscription_group_signup_success</code> and <code>subscription_group_signup_failure</code> - SubscriptionGroupSignupEventData * <code>proforma_invoice_issued</code> - ProformaInvoiceIssued * <code>subscription_prepayment_account_balance_changed</code> - PrepaymentAccountBalanceChanged * <code>payment_collection_method_changed</code> - PaymentCollectionMethodChanged * <code>subscription_service_credit_account_balance_changed</code> - CreditAccountBalanceChanged * <code>item_price_point_changed</code> - ItemPricePointChanged * <code>custom_field_value_change</code> - CustomFieldValueChange * <code>chjs_tokenization_success</code> - ChjsTokenizationSuccess * <code>chjs_tokenization_failure</code> - ChjsTokenizationFailure * The rest, that is <code>delayed_signup_creation_failure</code>, <code>billing_date_change</code>, <code>expiration_date_change</code>, <code>expiring_card</code>, <code>customer_update</code>, <code>customer_create</code>, <code>customer_delete</code>, <code>upgrade_downgrade_success</code>, <code>upgrade_downgrade_failure</code>, <code>statement_closed</code>, <code>statement_settled</code>, <code>subscription_card_update</code>, <code>subscription_group_card_update</code>, <code>subscription_bank_account_update</code>, <code>refund_failure</code>, <code>upcoming_renewal_notice</code>, <code>trial_end_notice</code>, <code>direct_debit_payment_paid_out</code>, <code>direct_debit_payment_rejected</code>, <code>direct_debit_payment_pending</code>, <code>pending_payment_created</code>, <code>pending_payment_failed</code>, <code>pending_payment_completed</code>, don't have <code>event_specific_data</code> defined, <code>renewal_success_recreated</code>, <code>renewal_failure_recreated</code>, <code>payment_success_recreated</code>, <code>payment_failure_recreated</code>, <code>subscription_deletion</code>, <code>subscription_group_bank_account_update</code>, <code>subscription_paypal_account_update</code>, <code>subscription_group_paypal_account_update</code>, <code>subscription_customer_change</code>, <code>account_transaction_changed</code>, <code>go_cardless_payment_paid_out</code>, <code>go_cardless_payment_rejected</code>, <code>go_cardless_payment_pending</code>, <code>stripe_direct_debit_payment_paid_out</code>, <code>stripe_direct_debit_payment_rejected</code>, <code>stripe_direct_debit_payment_pending</code>, <code>maxio_payments_direct_debit_payment_paid_out</code>, <code>maxio_payments_direct_debit_payment_rejected</code>, <code>maxio_payments_direct_debit_payment_pending</code>, <code>invoice_in_collections_canceled</code>, <code>subscription_added_to_group</code>, <code>subscription_removed_from_group</code>, <code>chargeback_opened</code>, <code>chargeback_lost</code>, <code>chargeback_accepted</code>, <code>chargeback_closed</code>, <code>chargeback_won</code>, <code>payment_collection_method_changed</code>, <code>component_billing_date_changed</code>, <code>subscription_term_renewal_scheduled</code>, <code>subscription_term_renewal_pending</code>, <code>subscription_term_renewal_activated</code>, <code>subscription_term_renewal_removed</code> they map to <code>null</code> instead.</td>
+</tr>
+<tr>
+<td><code>[].event.id</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.key</code></td>
+<td><code>enum: payment_success, payment_failure, signup_success, signup_failure, delayed_signup_creation_success, delayed_signup_creation_failure, ...</code></td>
+<td>Yes</td>
+<td>EventKey</td>
+</tr>
+<tr>
+<td><code>[].event.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].event.subscription_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-eventscountjson" class="operation" data-method="get"><code>GET</code> /events/count.json</h3>
+<p>Operation ID: <code>readEventsCount</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned. Use in query <code>page=1</code>. |
+| <code>per_page</code> | <code>query</code> | <code>integer (int32)</code> | No | This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any <code>per_page</code> value over 200 will be changed to 200. Use in query <code>per_page`=200`. | | `since_id` | `query` | `integer (int64)` | No | Returns events with an id greater than or equal to the one specified. | | `max_id` | `query` | `integer (int64)` | No | Returns events with an id less than or equal to the one specified. | | `direction` | `query` | `enum: asc, desc and any` | No | The sort direction of the returned events. | | `filter` | `query` | `array of enum: payment_success, payment_failure, signup_success, signup_failure, delayed_signup_creation_success, delayed_signup_creation_failure, ...` | No | You can pass multiple event keys after comma. Use in query `filter=`signup_success`,`payment_success</code>. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-ok-2" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "list_sale_rep_item": {
+      "LIST_SALE_REP_ITEM00": {
+        "full_name": "s32",
+        "id": "LIST_SALE_REP_ITEM00",
+        "mrr_data": {},
+        "subscriptions_count": 53,
+        "test_mode": true,
+        "seller_id": "SELLER01"
+      },
+      "LIST_SALE_REP_ITEM01": {
+        "full_name": "s64",
+        "id": "LIST_SALE_REP_ITEM01",
+        "mrr_data": {},
+        "subscriptions_count": 103,
+        "test_mode": true,
+        "seller_id": "SELLER01"
+      },
+      "LIST_SALE_REP_ITEM02": {
+        "full_name": "s96",
+        "id": "LIST_SALE_REP_ITEM02",
+        "mrr_data": {},
+        "subscriptions_count": 153,
+        "test_mode": true,
+        "seller_id": "SELLER01"
+      }
+    }
+  },
+  "new": {
+    "list_sale_rep_item": {
+      "list_sale_rep_item_ref01": {
+        "full_name": "sc8",
+        "mrr_data": {},
+        "subscriptions_count": 203,
+        "test_mode": true
+      }
+    }
+  },
+  "requests": {
+    "GET /sellers/{seller_id}/sales_reps.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

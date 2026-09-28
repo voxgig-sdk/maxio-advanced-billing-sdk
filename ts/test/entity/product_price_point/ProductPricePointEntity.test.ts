@@ -1,0 +1,201 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { MaxioAdvancedBillingSDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('ProductPricePointEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when MAXIO_ADVANCED_BILLING_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MAXIO_ADVANCED_BILLING_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = MaxioAdvancedBillingSDK.test()
+    const ent = testsdk.ProductPricePoint()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.MAXIO_ADVANCED_BILLING_TEST_LIVE
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'product_price_point.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$STRING`","key$":"id","index$":0},"price_point":{"a":true,"h":"Price Point","n":"price_point","op":{"create":{"req":false,"type":"`$OBJECT`"},"update":{"req":false,"type":"`$OBJECT`"}},"r":true,"t":"`$OBJECT`","union":{"branches":2,"count":3,"depth":4},"key$":"price_point","index$":1},"price_points":{"a":true,"h":"Price Points","n":"price_points","op":{"list":{"req":true,"type":"`$ARRAY`"}},"r":false,"t":"`$ARRAY`","key$":"price_points","index$":2},"product":{"a":true,"h":"Product","n":"product","r":true,"t":"`$OBJECT`","union":{"branches":2,"count":4,"depth":7},"key$":"product","index$":3}},"id":{"field":"id","name":"id"},"name":"product_price_point","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /product_price_points/{product_price_point_id}/currency_prices.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"product_price_point_id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"POST","o":"/product_price_points/{product_price_point_id}/currency_prices.json","q":{"$action":"currency_price","exist":["id"]},"r":{"param":{"product_price_point_id":"id"}},"s":[{"lit":"product_price_points"},{"var":"id"},{"lit":"currency_prices.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"POST /products/{product_id}/price_points.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"product_id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"POST","o":"/products/{product_id}/price_points.json","q":{"exist":["id"]},"r":{"param":{"product_id":"id"}},"s":[{"lit":"products"},{"var":"id"},{"lit":"price_points.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"POST /products/{product_id}/price_points/bulk.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"product_id","or":"product_id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"POST","o":"/products/{product_id}/price_points/bulk.json","q":{"exist":["product_id"]},"r":{},"s":[{"lit":"products"},{"var":"product_id"},{"lit":"price_points"},{"lit":"bulk.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":2}],"key$":"create"},"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /products/{product_id}/price_points.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"product_id","r":true,"t":"`$STRING`","index$":0}],"query":[{"a":true,"k":"query","n":"archived","or":"archived","r":false,"t":"`$BOOLEAN`","index$":0},{"a":true,"k":"query","n":"currency_price","or":"currency_price","r":false,"t":"`$BOOLEAN`","index$":1},{"a":true,"ex":["catalog","default"],"k":"query","n":"filter_type","or":"filter_type","r":false,"t":"`$ARRAY`","index$":2},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":3},{"a":true,"ex":10,"k":"query","n":"per_page","or":"per_page","r":false,"t":"`$INTEGER`","index$":4}]},"k":"http","m":"GET","o":"/products/{product_id}/price_points.json","q":{"exist":["archived","currency_price","filter_type","id","page","per_page"]},"r":{"param":{"product_id":"id"}},"s":[{"lit":"products"},{"var":"id"},{"lit":"price_points.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"GET /products_price_points.json","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"direction","or":"direction","r":false,"t":"`$ANY`","index$":0},{"a":true,"k":"query","n":"filter","or":"filter","r":false,"t":"`$ANY`","index$":1},{"a":true,"k":"query","n":"include","or":"include","r":false,"t":"`$ANY`","index$":2},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":3},{"a":true,"ex":50,"k":"query","n":"per_page","or":"per_page","r":false,"t":"`$INTEGER`","index$":4}]},"k":"http","m":"GET","o":"/products_price_points.json","q":{"exist":["direction","filter","include","page","per_page"]},"r":{},"s":[{"lit":"products_price_points.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /products/{product_id}/price_points/{price_point_id}.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"k":"param","n":"product_id","or":"product_id","r":true,"t":"`$STRING`","index$":1}],"query":[{"a":true,"k":"query","n":"currency_price","or":"currency_price","r":false,"t":"`$BOOLEAN`","index$":0}]},"k":"http","m":"GET","o":"/products/{product_id}/price_points/{price_point_id}.json","q":{"exist":["currency_price","price_point_id","product_id"]},"r":{},"s":[{"lit":"products"},{"var":"product_id"},{"lit":"price_points"},{"lit":"{price_point_id}.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"},"patch":{"input":"data","name":"patch","points":[{"a":true,"co":{"id":"PATCH /products/{product_id}/price_points/{price_point_id}/default.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$INTEGER`","index$":0},{"a":true,"k":"param","n":"product_id","or":"product_id","r":true,"t":"`$INTEGER`","index$":1}]},"k":"http","m":"PATCH","o":"/products/{product_id}/price_points/{price_point_id}/default.json","q":{"exist":["price_point_id","product_id"]},"r":{},"s":[{"lit":"products"},{"var":"product_id"},{"lit":"price_points"},{"var":"price_point_id"},{"lit":"default.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"PATCH /products/{product_id}/price_points/{price_point_id}/unarchive.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$INTEGER`","index$":0},{"a":true,"k":"param","n":"product_id","or":"product_id","r":true,"t":"`$INTEGER`","index$":1}]},"k":"http","m":"PATCH","o":"/products/{product_id}/price_points/{price_point_id}/unarchive.json","q":{"exist":["price_point_id","product_id"]},"r":{},"s":[{"lit":"products"},{"var":"product_id"},{"lit":"price_points"},{"var":"price_point_id"},{"lit":"unarchive.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"patch"},"remove":{"input":"data","name":"remove","points":[{"a":true,"co":{"id":"DELETE /products/{product_id}/price_points/{price_point_id}.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"k":"param","n":"product_id","or":"product_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"DELETE","o":"/products/{product_id}/price_points/{price_point_id}.json","q":{"exist":["price_point_id","product_id"]},"r":{},"s":[{"lit":"products"},{"var":"product_id"},{"lit":"price_points"},{"lit":"{price_point_id}.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"remove"},"update":{"input":"data","name":"update","points":[{"a":true,"co":{"id":"PUT /products/{product_id}/price_points/{price_point_id}.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"price_point_id","or":"price_point_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"k":"param","n":"product_id","or":"product_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"PUT","o":"/products/{product_id}/price_points/{price_point_id}.json","q":{"exist":["price_point_id","product_id"]},"r":{},"s":[{"lit":"products"},{"var":"product_id"},{"lit":"price_points"},{"lit":"{price_point_id}.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"PUT /product_price_points/{product_price_point_id}/currency_prices.json","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"product_price_point_id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"PUT","o":"/product_price_points/{product_price_point_id}/currency_prices.json","q":{"$action":"currency_price","exist":["id"]},"r":{"param":{"product_price_point_id":"id"}},"s":[{"lit":"product_price_points"},{"var":"id"},{"lit":"currency_prices.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"update"}},"relations":{"ancestors":[["$.main.kit.entity.product"],["$.main.kit.entity.product"]]},"key$":"product_price_point","name__orig":"product_price_point","Name":"ProductPricePoint","name_":"product_price_point","name-":"product-price-point","NAME":"PRODUCT_PRICE_POINT","index$":34}, {"active":true,"entity":"product_price_point","key$":"BasicProductPricePointFlow","kind":"basic","name":"BasicProductPricePointFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"product_price_point_ref01"},"m":{"price_point_id":"price_point01","product_id":"product01"},"o":"create","s":[],"v":[],"index$":0},{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"product_price_point_ref01"}}],"index$":1},{"a":true,"d":{},"i":{"ref":"product_price_point_ref01","srcdatavar":"product_price_point_ref01_data","suffix":"_up0"},"m":{},"o":"update","s":[{"apply":"TextFieldMark","def":{"mark":"Mark01-product_price_point_ref01"}}],"v":[],"index$":2},{"a":true,"d":{},"i":{"ref":"product_price_point_ref01","srcdatavar":"product_price_point_ref01_data","suffix":"_dt0"},"m":{"id":"product_price_point01","price_point_id":"price_point01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-product_price_point_ref01"}}],"index$":3},{"a":true,"d":{},"i":{"ref":"product_price_point_ref01","suffix":"_rm0"},"m":{"id":"product_price_point01","price_point_id":"price_point01"},"o":"remove","s":[],"v":[],"index$":4},{"a":true,"d":{},"i":{"suffix":"_rt0"},"m":{},"o":"list","s":[],"v":[{"apply":"ItemNotExists","def":{"ref":"product_price_point_ref01"}}],"index$":5}]}, 'ProductPricePoint', {"POST /product_price_points/{product_price_point_id}/currency_prices.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"CreateProductCurrencyPricesRequest","required":["currency_prices"],"type":"object","properties":{"currency_prices":{"type":"array","items":{"title":"CreateProductCurrencyPrice","required":[],"type":"object","properties":{},"x-ref":"#/components/schemas/CreateProductCurrencyPrice"},"description":""}},"x-ref":"#/components/schemas/CreateProductCurrencyPricesRequest"},{"example":{"currency_prices":[{"currency":"EUR","price":60,"role":"baseline"},{"currency":"EUR","price":30,"role":"trial"},{"currency":"EUR","price":100,"role":"initial"}]}}]},"examples":{"Example":{"value":{"currency_prices":[{"currency":"EUR","price":60,"role":"baseline"},{"currency":"EUR","price":30,"role":"trial"},{"currency":"EUR","price":100,"role":"initial"}]}}}}},"required":false},"parameters":[{"name":"product_price_point_id","in":"path","description":"The Advanced Billing id of the product price point","required":true,"schema":{"type":"integer","format":"int32"},"index$":0}]},"POST /products/{product_id}/price_points.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"CreateProductPricePointRequest","required":["price_point"],"type":"object","properties":{"price_point":{"title":"CreateProductPricePoint","required":["name","price_in_cents","interval","interval_unit"],"type":"object","properties":{"name":{},"handle":{},"price_in_cents":{},"interval":{},"interval_unit":{},"trial_price_in_cents":{},"trial_interval":{},"trial_interval_unit":{},"trial_type":{},"initial_charge_in_cents":{},"initial_charge_after_trial":{},"expiration_interval":{},"expiration_interval_unit":{},"use_site_exchange_rate":{}},"x-ref":"#/components/schemas/CreateProductPricePoint"}},"x-ref":"#/components/schemas/CreateProductPricePointRequest"},{"example":{"price_point":{"name":"Educational","handle":"educational","price_in_cents":1000,"interval":1,"interval_unit":"month","trial_price_in_cents":4900,"trial_interval":1,"trial_interval_unit":"month","trial_type":"payment_expected","initial_charge_in_cents":120000,"initial_charge_after_trial":false,"expiration_interval":12,"expiration_interval_unit":"month"}}}],"index$":1},"examples":{"Example":{"value":{"price_point":{"name":"Educational","handle":"educational","price_in_cents":1000,"interval":1,"interval_unit":"month","trial_price_in_cents":4900,"trial_interval":1,"trial_interval_unit":"month","trial_type":"payment_expected","initial_charge_in_cents":120000,"initial_charge_after_trial":false,"expiration_interval":12,"expiration_interval_unit":"month"}}}}}},"required":false},"parameters":[{"name":"product_id","in":"path","description":"The id or handle of the product. When using the handle, it must be prefixed with `handle:`","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":0}]},"POST /products/{product_id}/price_points/bulk.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"BulkCreateProductPricePointsRequest","required":["price_points"],"type":"object","properties":{"price_points":{"type":"array","items":{"title":"CreateProductPricePoint","required":[],"type":"object","properties":{},"x-ref":"#/components/schemas/CreateProductPricePoint"},"description":""}},"x-ref":"#/components/schemas/BulkCreateProductPricePointsRequest"},{"example":{"price_points":[{"name":"Educational","handle":"educational","price_in_cents":1000,"interval":1,"interval_unit":"month","trial_price_in_cents":4900,"trial_interval":1,"trial_interval_unit":"month","trial_type":"payment_expected","initial_charge_in_cents":120000,"initial_charge_after_trial":false,"expiration_interval":12,"expiration_interval_unit":"month"},{"name":"More Educational","handle":"more-educational","price_in_cents":2000,"interval":1,"interval_unit":"month","trial_price_in_cents":4900,"trial_interval":1,"trial_interval_unit":"month","trial_type":"payment_expected","initial_charge_in_cents":120000,"initial_charge_after_trial":false,"expiration_interval":12,"expiration_interval_unit":"month"}]}}],"index$":1},"examples":{"Example":{"value":{"price_points":[{"name":"Educational","handle":"educational","price_in_cents":1000,"interval":1,"interval_unit":"month","trial_price_in_cents":4900,"trial_interval":1,"trial_interval_unit":"month","trial_type":"payment_expected","initial_charge_in_cents":120000,"initial_charge_after_trial":false,"expiration_interval":12,"expiration_interval_unit":"month"},{"name":"More Educational","handle":"more-educational","price_in_cents":2000,"interval":1,"interval_unit":"month","trial_price_in_cents":4900,"trial_interval":1,"trial_interval_unit":"month","trial_type":"payment_expected","initial_charge_in_cents":120000,"initial_charge_after_trial":false,"expiration_interval":12,"expiration_interval_unit":"month"}]}}}}},"required":false},"parameters":[{"name":"product_id","in":"path","description":"The Advanced Billing id of the product to which the price points belong","required":true,"schema":{"type":"integer","format":"int32"},"index$":0}]},"GET /products/{product_id}/price_points.json":{"protocol":"http","parameters":[{"name":"product_id","in":"path","description":"The id or handle of the product. When using the handle, it must be prefixed with `handle:`","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":0},{"name":"page","in":"query","description":"Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned.\nUse in query `page=1`.","style":"form","explode":true,"schema":{"minimum":1,"type":"integer","format":"int32","default":1,"example":1},"index$":1},{"name":"per_page","in":"query","description":"This parameter indicates how many records to fetch in each request. Default value is 10. The maximum allowed values is 200; any per_page value over 200 will be changed to 200.","style":"form","explode":true,"schema":{"maximum":200,"type":"integer","format":"int32","default":10},"index$":2},{"name":"currency_prices","in":"query","description":"(Optional) If you have defined multiple currencies at the site level, you can pass ?currency_prices=true to include an array of currency price data in the response. If the product price point is set to use_site_exchange_rate: true, it will return pricing based on the current exchange rate. If the flag is set to false, it will return all of the defined prices for each currency.","style":"form","explode":true,"schema":{"type":"boolean"},"index$":3},{"name":"filter[type]","in":"query","description":"Use in query: `filter[type]=catalog,default`.","style":"form","explode":true,"schema":{"type":"array","items":{"title":"PricePointType","enum":["catalog","default","custom"],"type":"string","description":"Price point type. We expose the following types:\n1. **default**: a price point that is marked as a default price for a certain product.\n2. **custom**: a custom price point.\n3. **catalog**: a price point that is **not** marked as a default price for a certain product and is **not** a custom one.","x-ref":"#/components/schemas/PricePointType"},"example":["catalog","default"]},"index$":4},{"name":"archived","in":"query","description":"Set to include archived price points in the response.","style":"form","explode":true,"schema":{"type":"boolean"},"index$":5}]},"GET /products_price_points.json":{"protocol":"http","parameters":[{"name":"direction","in":"query","description":"Controls the order in which results are returned.\nUse in query `direction=asc`.","style":"form","explode":true,"schema":{"allOf":[{"title":"Sortingdirection","enum":["asc","desc"],"type":"string","description":"Used for sorting results.","x-ref":"#/components/schemas/Sortingdirection"},{"description":"Controls the order in which results are returned.\nUse in query `direction=asc`."}]},"index$":0},{"name":"filter","in":"query","description":"Filter to use for List PricePoints operations","style":"form","explode":true,"schema":{"allOf":[{"title":"ListPricePointsFilter","type":"object","properties":{"date_field":{"allOf":[{"title":"BasicDateField","enum":[],"type":"string","description":"Allows to filter by `created_at` or `updated_at`.","example":"updated_at","x-ref":"#/components/schemas/BasicDateField"},{"description":"The type of filter you would like to apply to your search. Use in query: `filter[date_field]=created_at`."}]},"start_date":{"type":"string","description":"The start date (format YYYY-MM-DD) with which to filter the date_field. Returns price points with a timestamp at or after midnight (12:00:00 AM) in your site’s time zone on the date specified.","format":"date","example":"2011-12-17"},"end_date":{"type":"string","description":"The end date (format YYYY-MM-DD) with which to filter the date_field. Returns price points with a timestamp up to and including 11:59:59PM in your site’s time zone on the date specified.","format":"date","example":"2011-12-15"},"start_datetime":{"type":"string","description":"The start date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the date_field. Returns price points with a timestamp at or after exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of start_date.","format":"date-time","example":"2011-12-19T10:15:30+01:00"},"end_datetime":{"type":"string","description":"The end date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the date_field. Returns price points with a timestamp at or before exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of end_date.","format":"date-time","example":"2019-06-07T17:20:06Z"},"type":{"type":"array","items":{"title":"PricePointType","enum":["catalog","default","custom"],"type":"string","description":"Price point type. We expose the following types:\n1. **default**: a price point that is marked as a default price for a certain product.\n2. **custom**: a custom price point.\n3. **catalog**: a price point that is **not** marked as a default price for a certain product and is **not** a custom one.","x-ref":"#/components/schemas/PricePointType"},"description":"Allows fetching price points with matching type. Use in query: `filter[type]=custom,catalog`.","example":["catalog","default","custom"]},"ids":{"type":"array","items":{"type":"integer","format":"int32"},"description":"Allows fetching price points with matching id based on provided values. Use in query: `filter[ids]=1,2,3`.","example":[1,2,3]},"archived_at":{"allOf":[{"title":"IncludeNullOrNotNull","enum":[],"type":"string","description":"Allows to filter by `not_null` or `null`.","example":"not_null","x-ref":"#/components/schemas/IncludeNullOrNotNull"},{"description":"Allows fetching price points only if archived_at is present or not. Use in query: `filter[archived_at]=not_null`."}]}},"x-ref":"#/components/schemas/ListPricePointsFilter"},{"description":"Filter to use for List PricePoints operations"}]},"index$":1},{"name":"include","in":"query","description":"Allows including additional data in the response. Use in query: `include=currency_prices`.","style":"form","explode":true,"schema":{"allOf":[{"title":"ListProductsPricePointsInclude","enum":["currency_prices"],"type":"string","example":"currency_prices","x-ref":"#/components/schemas/ListProductsPricePointsInclude"},{"description":"Allows including additional data in the response. Use in query: `include=currency_prices`.","example":"currency_prices"}]},"index$":2},{"name":"page","in":"query","description":"Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned.\nUse in query `page=1`.","style":"form","explode":true,"schema":{"minimum":1,"type":"integer","format":"int32","default":1,"example":1},"index$":3},{"name":"per_page","in":"query","description":"This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any per_page value over 200 will be changed to 200.\nUse in query `per_page=200`.","style":"form","explode":true,"schema":{"maximum":200,"type":"integer","format":"int32","default":20,"example":50},"index$":4}]},"GET /products/{product_id}/price_points/{price_point_id}.json":{"protocol":"http","parameters":[{"name":"product_id","in":"path","description":"The id or handle of the product. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-product-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":0},{"name":"price_point_id","in":"path","description":"The id or handle of the price point. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-product-price-point-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":1},{"name":"currency_prices","in":"query","description":"(Optional) If you have defined multiple currencies at the site level, you can pass ?currency_prices=true to include an array of currency price data in the response. If the product price point is set to use_site_exchange_rate: true, it will return pricing based on the current exchange rate. If the flag is set to false, it will return all of the defined prices for each currency.","style":"form","explode":true,"schema":{"type":"boolean"},"index$":2}]},"PATCH /products/{product_id}/price_points/{price_point_id}/default.json":{"protocol":"http","parameters":[{"name":"product_id","in":"path","description":"The Advanced Billing id of the product to which the price point belongs","required":true,"schema":{"type":"integer","format":"int32"},"index$":0},{"name":"price_point_id","in":"path","description":"The Advanced Billing id of the product price point","required":true,"schema":{"type":"integer","format":"int32"},"index$":1}]},"PATCH /products/{product_id}/price_points/{price_point_id}/unarchive.json":{"protocol":"http","parameters":[{"name":"product_id","in":"path","description":"The Advanced Billing id of the product to which the price point belongs","required":true,"schema":{"type":"integer","format":"int32"},"index$":0},{"name":"price_point_id","in":"path","description":"The Advanced Billing id of the product price point","required":true,"schema":{"type":"integer","format":"int32"},"index$":1}]},"DELETE /products/{product_id}/price_points/{price_point_id}.json":{"protocol":"http","parameters":[{"name":"product_id","in":"path","description":"The id or handle of the product. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-product-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":0},{"name":"price_point_id","in":"path","description":"The id or handle of the price point. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-product-price-point-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":1}]},"PUT /products/{product_id}/price_points/{price_point_id}.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"UpdateProductPricePointRequest","required":["price_point"],"type":"object","properties":{"price_point":{"title":"UpdateProductPricePoint","type":"object","properties":{"handle":{},"price_in_cents":{}},"x-ref":"#/components/schemas/UpdateProductPricePoint"}},"x-ref":"#/components/schemas/UpdateProductPricePointRequest"},{"example":{"price_point":{"handle":"educational","price_in_cents":1250}}}],"index$":1},"examples":{"Example":{"value":{"price_point":{"handle":"educational","price_in_cents":1250}}}}}},"required":false},"parameters":[{"name":"product_id","in":"path","description":"The id or handle of the product. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-product-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":0},{"name":"price_point_id","in":"path","description":"The id or handle of the price point. When using the handle, it must be prefixed with `handle:`. Example: `123` for an integer ID, or `handle:example-product-price-point-handle` for a string handle.","required":true,"schema":{"oneOf":[{"type":"integer","format":"int32"},{"type":"string"}]},"index$":1}]},"PUT /product_price_points/{product_price_point_id}/currency_prices.json":{"protocol":"http","requestBody":{"description":"","content":{"application/json":{"schema":{"allOf":[{"title":"UpdateCurrencyPricesRequest","required":["currency_prices"],"type":"object","properties":{"currency_prices":{"type":"array","items":{"title":"UpdateCurrencyPrice","required":[],"type":"object","properties":{},"x-ref":"#/components/schemas/UpdateCurrencyPrice"},"description":""}},"x-ref":"#/components/schemas/UpdateCurrencyPricesRequest"},{"example":{"currency_prices":[{"id":200,"price":15},{"id":201,"price":5}]}}]},"examples":{"Example":{"value":{"currency_prices":[{"id":200,"price":15},{"id":201,"price":5}]}}}}},"required":false},"parameters":[{"name":"product_price_point_id","in":"path","description":"The Advanced Billing id of the product price point","required":true,"schema":{"type":"integer","format":"int32"},"index$":0}]}})
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const product_price_point_ref01_ent = client.ProductPricePoint()
+    let product_price_point_ref01_data = setup.data.new.product_price_point['product_price_point_ref01']
+    product_price_point_ref01_data['price_point_id'] = setup.idmap['price_point01']
+    product_price_point_ref01_data['product_id'] = setup.idmap['product01']
+
+    product_price_point_ref01_data = (await product_price_point_ref01_ent.create(product_price_point_ref01_data)).data()
+    assert(null != product_price_point_ref01_data.id)
+
+
+    // LIST
+    const product_price_point_ref01_match: any = {}
+
+    const product_price_point_ref01_list = (await product_price_point_ref01_ent.list(product_price_point_ref01_match)).map((e: any) => e.data())
+
+    assert(!isempty(select(product_price_point_ref01_list, { id: product_price_point_ref01_data.id })))
+
+
+    // UPDATE
+    const product_price_point_ref01_data_up0: any = {}
+    product_price_point_ref01_data_up0.id = product_price_point_ref01_data.id
+
+    const product_price_point_ref01_resdata_up0 = (await product_price_point_ref01_ent.update(product_price_point_ref01_data_up0)).data()
+    assert(product_price_point_ref01_resdata_up0.id === product_price_point_ref01_data_up0.id)
+
+
+    // LOAD
+    const product_price_point_ref01_match_dt0: any = {}
+    product_price_point_ref01_match_dt0.id = product_price_point_ref01_data.id
+    const product_price_point_ref01_data_dt0 = (await product_price_point_ref01_ent.load(product_price_point_ref01_match_dt0)).data()
+    assert(product_price_point_ref01_data_dt0.id === product_price_point_ref01_data.id)
+
+
+    // REMOVE
+    const product_price_point_ref01_match_rm0: any = { id: product_price_point_ref01_data.id }
+    await product_price_point_ref01_ent.remove(product_price_point_ref01_match_rm0)
+  
+
+    // LIST
+    const product_price_point_ref01_match_rt0: any = {}
+
+    const product_price_point_ref01_list_rt0 = (await product_price_point_ref01_ent.list(product_price_point_ref01_match_rt0)).map((e: any) => e.data())
+
+    assert(isempty(select(product_price_point_ref01_list_rt0, { id: product_price_point_ref01_data.id })))
+
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/product_price_point/ProductPricePointTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = MaxioAdvancedBillingSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['product_price_point01','product_price_point02','product_price_point03','product01','product02','product03','price_point01'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'MAXIO_ADVANCED_BILLING_TEST_PRODUCT_PRICE_POINT_ENTID': idmap,
+    'MAXIO_ADVANCED_BILLING_TEST_LIVE': 'FALSE',
+    'MAXIO_ADVANCED_BILLING_TEST_EXPLAIN': 'FALSE',
+    'MAXIO_ADVANCED_BILLING_APIKEY': '',
+    'MAXIO_ADVANCED_BILLING_SECRET': '',
+    'MAXIO_ADVANCED_BILLING_SERVER_SITE': "subdomain",
+  })
+
+  idmap = env['MAXIO_ADVANCED_BILLING_TEST_PRODUCT_PRICE_POINT_ENTID']
+
+  const live = 'TRUE' === env.MAXIO_ADVANCED_BILLING_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['MAXIO_ADVANCED_BILLING_TEST_PRODUCT_PRICE_POINT_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new MaxioAdvancedBillingSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.MAXIO_ADVANCED_BILLING_APIKEY,
+        secret: env.MAXIO_ADVANCED_BILLING_SECRET,
+        server: {
+          site: env.MAXIO_ADVANCED_BILLING_SERVER_SITE,
+        },
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.MAXIO_ADVANCED_BILLING_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

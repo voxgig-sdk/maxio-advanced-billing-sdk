@@ -1,0 +1,221 @@
+# Entity: subscription_group_status
+
+main: kit: entity: subscription_group_status: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "subscription_group_status"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /subscription_groups/{uid}/cancel.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscription_groups/{uid}/cancel.json"
+          q: {
+            "$action": "cancel.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "cancel.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscription_groups/{uid}/delayed_cancel.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscription_groups/{uid}/delayed_cancel.json"
+          q: {
+            "$action": "delayed_cancel.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "delayed_cancel.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscription_groups/{uid}/reactivate.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscription_groups/{uid}/reactivate.json"
+          q: {
+            "$action": "reactivate.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "reactivate.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /subscription_groups/{uid}/delayed_cancel.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/subscription_groups/{uid}/delayed_cancel.json"
+          q: {
+            "$action": "delayed_cancel.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "delayed_cancel.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

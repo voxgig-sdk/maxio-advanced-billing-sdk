@@ -1,0 +1,1411 @@
+# Entity: subscription
+
+main: kit: entity: subscription: {
+
+  alias: field: {}
+
+  fields: {
+    activated_at: {
+      fo: "date-time"
+      h: "Activated At"
+      n: "activated_at"
+      r: false
+      sh: "Timestamp for when the subscription began (i.e., when it came out of trial, or when it began in the case of no trial)"
+      t: "`$STRING`"
+    }
+    automatically_resume_at: {
+      fo: "date-time"
+      h: "Automatically Resume At"
+      n: "automatically_resume_at"
+      r: false
+      sh: "The date the subscription is scheduled to automatically resume from the on_hold state."
+      t: "`$STRING`"
+    }
+    balance_in_cents: {
+      fo: "int64"
+      h: "Balance In Cents"
+      n: "balance_in_cents"
+      r: false
+      sh: "Gives the current outstanding subscription balance in the number of cents."
+      t: "`$INTEGER`"
+    }
+    bank_account: {
+      h: "Bank Account"
+      n: "bank_account"
+      r: true
+      t: "`$OBJECT`"
+    }
+    cancel_at_end_of_period: {
+      h: "Cancel At End Of Period"
+      n: "cancel_at_end_of_period"
+      r: false
+      sh: "Whether or not the subscription will (or has) canceled at the end of the period."
+      t: "`$BOOLEAN`"
+    }
+    canceled_at: {
+      fo: "date-time"
+      h: "Canceled At"
+      n: "canceled_at"
+      r: false
+      sh: "The timestamp of the most recent cancellation"
+      t: "`$STRING`"
+    }
+    cancellation_message: {
+      h: "Cancellation Message"
+      n: "cancellation_message"
+      r: false
+      sh: "Seller-provided reason for, or note about, the cancellation."
+      t: "`$STRING`"
+    }
+    cancellation_method: {
+      h: "Cancellation Method"
+      n: "cancellation_method"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    coupon_code: {
+      de: true
+      h: "Coupon Code"
+      n: "coupon_code"
+      r: false
+      sh: "(deprecated) The coupon code of the single coupon currently applied to the subscription."
+      t: "`$STRING`"
+    }
+    coupon_codes: {
+      h: "Coupon Codes"
+      n: "coupon_codes"
+      r: false
+      sh: "An array for all the coupons attached to the subscription."
+      t: "`$ARRAY`"
+    }
+    coupon_use_count: {
+      de: true
+      fo: "int32"
+      h: "Coupon Use Count"
+      n: "coupon_use_count"
+      r: false
+      sh: "(deprecated) How many times the subscription's single coupon has been used."
+      t: "`$INTEGER`"
+    }
+    coupon_uses_allowed: {
+      de: true
+      fo: "int32"
+      h: "Coupon Uses Allowed"
+      n: "coupon_uses_allowed"
+      r: false
+      sh: "(deprecated) How many times the subscription's single coupon may be used."
+      t: "`$INTEGER`"
+    }
+    coupons: {
+      h: "Coupons"
+      n: "coupons"
+      r: false
+      sh: "Additional coupon data."
+      t: "`$ARRAY`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      sh: "The creation date for this subscription"
+      t: "`$STRING`"
+    }
+    credit_balance_in_cents: {
+      fo: "int64"
+      h: "Credit Balance In Cents"
+      n: "credit_balance_in_cents"
+      r: false
+      t: "`$INTEGER`"
+    }
+    credit_card: {
+      h: "Credit Card"
+      n: "credit_card"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 6
+      }
+    }
+    currency: {
+      h: "Currency"
+      n: "currency"
+      r: false
+      t: "`$STRING`"
+    }
+    current_billing_amount_in_cents: {
+      fo: "int64"
+      h: "Current Billing Amount In Cents"
+      n: "current_billing_amount_in_cents"
+      r: false
+      sh: "The balance in cents plus the estimated renewal amount in cents."
+      t: "`$INTEGER`"
+    }
+    current_period_ends_at: {
+      fo: "date-time"
+      h: "Current Period Ends At"
+      n: "current_period_ends_at"
+      r: false
+      sh: "Timestamp relating to the end of the current (recurring) period (i.e., when the next regularly scheduled attempted charge will occur)"
+      t: "`$STRING`"
+    }
+    current_period_started_at: {
+      fo: "date-time"
+      h: "Current Period Started At"
+      n: "current_period_started_at"
+      r: false
+      sh: "Timestamp relating to the start of the current (recurring) period"
+      t: "`$STRING`"
+    }
+    customer: {
+      h: "Customer"
+      n: "customer"
+      r: false
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
+    }
+    delayed_cancel_at: {
+      fo: "date-time"
+      h: "Delayed Cancel At"
+      n: "delayed_cancel_at"
+      r: false
+      sh: "Timestamp for when the subscription is currently set to cancel."
+      t: "`$STRING`"
+    }
+    dunning_communication_delay_enabled: {
+      h: "Dunning Communication Delay Enabled"
+      n: "dunning_communication_delay_enabled"
+      r: false
+      sh: "Enable Communication Delay feature, making sure no communication (email or SMS) is sent to the Customer between 9PM and 8AM in time zone set by the `dunning_communication_delay_time_zone` attribute."
+      t: "`$BOOLEAN`"
+    }
+    dunning_communication_delay_time_zone: {
+      h: "Dunning Communication Delay Time Zone"
+      n: "dunning_communication_delay_time_zone"
+      r: false
+      sh: "Time zone for the Dunning Communication Delay feature."
+      t: "`$STRING`"
+    }
+    expires_at: {
+      fo: "date-time"
+      h: "Expires At"
+      n: "expires_at"
+      r: false
+      sh: "Timestamp giving the expiration date of this subscription (if any)"
+      t: "`$STRING`"
+    }
+    group: {
+      h: "Group"
+      n: "group"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "The subscription unique id within Chargify."
+      t: "`$INTEGER`"
+    }
+    locale: {
+      h: "Locale"
+      n: "locale"
+      r: false
+      t: "`$STRING`"
+    }
+    net_terms: {
+      fo: "int32"
+      h: "Net Terms"
+      n: "net_terms"
+      r: false
+      sh: "On Relationship Invoicing, the number of days before a renewal invoice is due."
+      t: "`$INTEGER`"
+    }
+    next_assessment_at: {
+      fo: "date-time"
+      h: "Next Assessment At"
+      n: "next_assessment_at"
+      r: false
+      sh: "Timestamp that indicates when capture of payment will be tried or retried."
+      t: "`$STRING`"
+    }
+    next_product_handle: {
+      h: "Next Product Handle"
+      n: "next_product_handle"
+      r: false
+      sh: "If a delayed product change is scheduled, the handle of the product that the subscription will be changed to at the next renewal."
+      t: "`$STRING`"
+    }
+    next_product_id: {
+      fo: "int32"
+      h: "Next Product Id"
+      n: "next_product_id"
+      r: false
+      sh: "If a delayed product change is scheduled, the ID of the product that the subscription will be changed to at the next renewal."
+      t: "`$INTEGER`"
+    }
+    next_product_price_point_id: {
+      fo: "int32"
+      h: "Next Product Price Point Id"
+      n: "next_product_price_point_id"
+      r: false
+      sh: "If a delayed product change is scheduled, the ID of the product price point that the subscription will be changed to at the next renewal."
+      t: "`$INTEGER`"
+    }
+    offer_id: {
+      fo: "int32"
+      h: "Offer Id"
+      n: "offer_id"
+      r: false
+      sh: "The ID of the offer associated with the subscription."
+      t: "`$INTEGER`"
+    }
+    on_hold_at: {
+      fo: "date-time"
+      h: "On Hold At"
+      n: "on_hold_at"
+      r: false
+      sh: "The timestamp of the most recent on hold action."
+      t: "`$STRING`"
+    }
+    payer_id: {
+      fo: "int32"
+      h: "Payer Id"
+      n: "payer_id"
+      r: false
+      sh: "On Relationship Invoicing, the ID of the individual paying for the subscription."
+      t: "`$INTEGER`"
+    }
+    payment_collection_method: {
+      h: "Payment Collection Method"
+      n: "payment_collection_method"
+      r: false
+      t: "`$ANY`"
+    }
+    payment_type: {
+      h: "Payment Type"
+      n: "payment_type"
+      r: false
+      sh: "The payment profile type for the active profile on file."
+      t: "`$STRING`"
+    }
+    prepaid_configuration: {
+      h: "Prepaid Configuration"
+      n: "prepaid_configuration"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    prepaid_dunning: {
+      h: "Prepaid Dunning"
+      n: "prepaid_dunning"
+      r: false
+      sh: "Boolean representing whether the subscription is prepaid and currently in dunning."
+      t: "`$BOOLEAN`"
+    }
+    prepayment_balance_in_cents: {
+      fo: "int64"
+      h: "Prepayment Balance In Cents"
+      n: "prepayment_balance_in_cents"
+      r: false
+      t: "`$INTEGER`"
+    }
+    previous_state: {
+      h: "Previous State"
+      n: "previous_state"
+      r: false
+      t: "`$ANY`"
+    }
+    product: {
+      h: "Product"
+      n: "product"
+      r: false
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 4
+        depth: 7
+      }
+    }
+    product_price_in_cents: {
+      fo: "int64"
+      h: "Product Price In Cents"
+      n: "product_price_in_cents"
+      r: false
+      sh: "(Added Nov 5 2013) The recurring amount of the product (and version), currently subscribed."
+      t: "`$INTEGER`"
+    }
+    product_price_point_id: {
+      fo: "int32"
+      h: "Product Price Point Id"
+      n: "product_price_point_id"
+      r: false
+      sh: "The product price point currently subscribed to."
+      t: "`$INTEGER`"
+    }
+    product_price_point_type: {
+      h: "Product Price Point Type"
+      n: "product_price_point_type"
+      r: false
+      t: "`$ANY`"
+    }
+    product_version_number: {
+      fo: "int32"
+      h: "Product Version Number"
+      n: "product_version_number"
+      r: false
+      sh: "The version of the product for the subscription."
+      t: "`$INTEGER`"
+    }
+    reason_code: {
+      h: "Reason Code"
+      n: "reason_code"
+      r: false
+      sh: "The churn reason code associated to a canceled subscription."
+      t: "`$STRING`"
+    }
+    receives_invoice_emails: {
+      h: "Receives Invoice Emails"
+      n: "receives_invoice_emails"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    reference: {
+      h: "Reference"
+      n: "reference"
+      r: false
+      sh: "The reference value (provided by your app) for the subscription itself."
+      t: "`$STRING`"
+    }
+    referral_code: {
+      h: "Referral Code"
+      n: "referral_code"
+      r: false
+      sh: "The subscription's unique code that can be given to referrals."
+      t: "`$STRING`"
+    }
+    scheduled_cancellation_at: {
+      fo: "date-time"
+      h: "Scheduled Cancellation At"
+      n: "scheduled_cancellation_at"
+      r: false
+      t: "`$STRING`"
+    }
+    self_service_page_token: {
+      h: "Self Service Page Token"
+      n: "self_service_page_token"
+      r: false
+      sh: "Returned only for list/read Subscription operation when `include[]=self_service_page_token` parameter is provided."
+      t: "`$STRING`"
+    }
+    signup_payment_id: {
+      fo: "int32"
+      h: "Signup Payment Id"
+      n: "signup_payment_id"
+      r: false
+      sh: "The ID of the transaction that generated the revenue"
+      t: "`$INTEGER`"
+    }
+    signup_revenue: {
+      h: "Signup Revenue"
+      n: "signup_revenue"
+      r: false
+      sh: "The revenue, formatted as a string of decimal separated dollars and cents, from the subscription signup ($50.00 would be formatted as 50.00)"
+      t: "`$STRING`"
+    }
+    snap_day: {
+      h: "Snap Day"
+      n: "snap_day"
+      r: false
+      sh: "A day of month that subscription will be processed on."
+      t: "`$STRING`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      t: "`$ANY`"
+    }
+    stored_credential_transaction_id: {
+      fo: "int32"
+      h: "Stored Credential Transaction Id"
+      n: "stored_credential_transaction_id"
+      r: false
+      sh: "For European sites subject to PSD2 and using 3D Secure, this can be used to reference a previous transaction for the customer."
+      t: "`$INTEGER`"
+    }
+    subscription: {
+      h: "Subscription"
+      n: "subscription"
+      r: false
+      t: "`$OBJECT`"
+    }
+    total_revenue_in_cents: {
+      fo: "int64"
+      h: "Total Revenue In Cents"
+      n: "total_revenue_in_cents"
+      r: false
+      sh: "Gives the total revenue from the subscription in the number of cents."
+      t: "`$INTEGER`"
+    }
+    trial_ended_at: {
+      fo: "date-time"
+      h: "Trial Ended At"
+      n: "trial_ended_at"
+      r: false
+      sh: "Timestamp for when the trial period (if any) ended"
+      t: "`$STRING`"
+    }
+    trial_started_at: {
+      fo: "date-time"
+      h: "Trial Started At"
+      n: "trial_started_at"
+      r: false
+      sh: "Timestamp for when the trial period (if any) began"
+      t: "`$STRING`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      sh: "The date of last update for this subscription"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "subscription"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/purge.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "ack"
+                or: "ack"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                ex: [
+                  "customer"
+                  "payment_profile"
+                ]
+                k: "query"
+                n: "cascade"
+                or: "cascade"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/purge.json"
+          q: {
+            "$action": "purge"
+            exist: [
+              "ack"
+              "cascade"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "purge.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.subscription`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/add_coupon.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "code"
+                or: "code"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/add_coupon.json"
+          q: {
+            "$action": "add_coupon"
+            exist: [
+              "code"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "add_coupon.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/cancel_dunning.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/cancel_dunning.json"
+          q: {
+            "$action": "cancel_dunning"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "cancel_dunning.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.subscription`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/{subscription_id}/prepaid_configurations.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/{subscription_id}/prepaid_configurations.json"
+          q: {
+            "$action": "prepaid_configuration"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "prepaid_configurations.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/subscriptions.json"
+          s: [
+            {
+              lit: "subscriptions.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /subscriptions/preview.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/subscriptions/preview.json"
+          q: {
+            "$action": "preview"
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "preview.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /subscriptions.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "branding_theme_id"
+                or: "branding_theme_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "collection_method"
+                or: "collection_method"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "coupon"
+                or: "coupon"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "coupon_code"
+                or: "coupon_code"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "currency"
+                or: "currency"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "customer_id"
+                or: "customer_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "date_field"
+                or: "date_field"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "dunning_exemption"
+                or: "dunning_exemption"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_datetime"
+                or: "end_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "group_status"
+                or: "group_status"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: [
+                  "self_service_page_token"
+                ]
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "metadata"
+                or: "metadata"
+                r: false
+                t: "`$OBJECT`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "payment_gateway"
+                or: "payment_gateway"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "product"
+                or: "product"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "product_price_point_id"
+                or: "product_price_point_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "q"
+                or: "q"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "q_scope"
+                or: "q_scope"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_datetime"
+                or: "start_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "state"
+                or: "state"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions.json"
+          q: {
+            exist: [
+              "branding_theme_id"
+              "collection_method"
+              "coupon"
+              "coupon_code"
+              "currency"
+              "customer_id"
+              "date_field"
+              "direction"
+              "dunning_exemption"
+              "end_date"
+              "end_datetime"
+              "group_status"
+              "include"
+              "metadata"
+              "page"
+              "payment_gateway"
+              "per_page"
+              "product"
+              "product_price_point_id"
+              "q"
+              "q_scope"
+              "sort"
+              "start_date"
+              "start_datetime"
+              "state"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api_exports/subscriptions/{batch_id}/rows.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "batch_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api_exports/subscriptions/{batch_id}/rows.json"
+          q: {
+            "$action": "row"
+            exist: [
+              "id"
+              "page"
+              "per_page"
+            ]
+          }
+          r: {
+            param: {
+              batch_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api_exports"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "rows.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /customers/{customer_id}/subscriptions.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "customer_id"
+                or: "customer_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/customers/{customer_id}/subscriptions.json"
+          q: {
+            exist: [
+              "customer_id"
+            ]
+          }
+          s: [
+            {
+              lit: "customers"
+            }
+            {
+              var: "customer_id"
+            }
+            {
+              lit: "subscriptions.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /subscriptions/{subscription_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: [
+                  "coupons"
+                  "self_service_page_token"
+                ]
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions/{subscription_id}.json"
+          q: {
+            "$action": "subscription_id"
+            exist: [
+              "include"
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "{subscription_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /subscriptions/lookup.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "reference"
+                or: "reference"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions/lookup.json"
+          q: {
+            "$action": "lookup"
+            exist: [
+              "reference"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "lookup.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.subscription`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /subscriptions/{subscription_id}/remove_coupon.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "coupon_code"
+                or: "coupon_code"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/subscriptions/{subscription_id}/remove_coupon.json"
+          q: {
+            "$action": "remove_coupon"
+            exist: [
+              "coupon_code"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "remove_coupon.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /subscriptions/{subscription_id}/activate.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/subscriptions/{subscription_id}/activate.json"
+          q: {
+            "$action": "activate"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "activate.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.subscription`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /subscriptions/{subscription_id}/override.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/subscriptions/{subscription_id}/override.json"
+          q: {
+            "$action": "override"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              subscription_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "override.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /subscriptions/{subscription_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/subscriptions/{subscription_id}.json"
+          q: {
+            "$action": "subscription_id"
+            exist: [
+              "subscription_id"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "{subscription_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.customer")]
+  ]
+
+}

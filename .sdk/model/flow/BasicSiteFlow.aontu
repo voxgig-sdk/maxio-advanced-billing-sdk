@@ -1,0 +1,48 @@
+# BasicSiteFlow
+
+main: kit: flow: BasicSiteFlow:
+{
+  entity: "site",
+  kind: "basic",
+  name: "BasicSiteFlow",
+  step: [
+    {
+      i: {
+        ref: "site_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "site_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "site_ref01",
+        srcdatavar: "site_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-site_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSiteFlow"
+}

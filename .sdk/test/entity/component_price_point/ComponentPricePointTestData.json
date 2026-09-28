@@ -1,0 +1,181 @@
+{
+  "existing": {
+    "component_price_point": {
+      "COMPONENT_PRICE_POINT00": {
+        "archived_at": "s104",
+        "component": {},
+        "component_id": "COMPONENT01",
+        "created_at": "s107",
+        "currency_prices": [],
+        "default": false,
+        "expiration_interval": 266,
+        "expiration_interval_unit": "s10b",
+        "handle": "s10c",
+        "id": "COMPONENT_PRICE_POINT00",
+        "interval": 270,
+        "interval_unit": "s10f",
+        "name": "s110",
+        "overage_prices": [],
+        "overage_pricing_scheme": "s112",
+        "price_point": {},
+        "price_points": [],
+        "prices": [],
+        "pricing_scheme": "s116",
+        "renew_prepaid_allocation": false,
+        "rollover_prepaid_remainder": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "tax_included": true,
+        "type": "s11b",
+        "updated_at": "s11c",
+        "use_site_exchange_rate": false,
+        "price_point_id": "PRICE_POINT01"
+      },
+      "COMPONENT_PRICE_POINT01": {
+        "archived_at": "s208",
+        "component": {},
+        "component_id": "COMPONENT01",
+        "created_at": "s20b",
+        "currency_prices": [],
+        "default": false,
+        "expiration_interval": 526,
+        "expiration_interval_unit": "s20f",
+        "handle": "s210",
+        "id": "COMPONENT_PRICE_POINT01",
+        "interval": 530,
+        "interval_unit": "s213",
+        "name": "s214",
+        "overage_prices": [],
+        "overage_pricing_scheme": "s216",
+        "price_point": {},
+        "price_points": [],
+        "prices": [],
+        "pricing_scheme": "s21a",
+        "renew_prepaid_allocation": false,
+        "rollover_prepaid_remainder": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "tax_included": true,
+        "type": "s21f",
+        "updated_at": "s220",
+        "use_site_exchange_rate": false,
+        "price_point_id": "PRICE_POINT01"
+      },
+      "COMPONENT_PRICE_POINT02": {
+        "archived_at": "s30c",
+        "component": {},
+        "component_id": "COMPONENT01",
+        "created_at": "s30f",
+        "currency_prices": [],
+        "default": false,
+        "expiration_interval": 786,
+        "expiration_interval_unit": "s313",
+        "handle": "s314",
+        "id": "COMPONENT_PRICE_POINT02",
+        "interval": 790,
+        "interval_unit": "s317",
+        "name": "s318",
+        "overage_prices": [],
+        "overage_pricing_scheme": "s31a",
+        "price_point": {},
+        "price_points": [],
+        "prices": [],
+        "pricing_scheme": "s31e",
+        "renew_prepaid_allocation": false,
+        "rollover_prepaid_remainder": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "tax_included": true,
+        "type": "s323",
+        "updated_at": "s324",
+        "use_site_exchange_rate": false,
+        "price_point_id": "PRICE_POINT01"
+      }
+    }
+  },
+  "new": {
+    "component_price_point": {
+      "component_price_point_ref01": {
+        "archived_at": "s410",
+        "component": {},
+        "component_id": "COMPONENT01",
+        "created_at": "s413",
+        "currency_prices": [],
+        "default": false,
+        "expiration_interval": 1046,
+        "expiration_interval_unit": "s417",
+        "handle": "s418",
+        "interval": 1050,
+        "interval_unit": "s41b",
+        "name": "s41c",
+        "overage_prices": [],
+        "overage_pricing_scheme": "s41e",
+        "price_point": {},
+        "price_points": [],
+        "prices": [],
+        "pricing_scheme": "s422",
+        "renew_prepaid_allocation": false,
+        "rollover_prepaid_remainder": true,
+        "subscription_id": "SUBSCRIPTION01",
+        "tax_included": true,
+        "type": "s427",
+        "updated_at": "s428",
+        "use_site_exchange_rate": false
+      }
+    }
+  },
+  "requests": {
+    "POST /components/{component_id}/price_points/{price_point_id}/clone.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /components/{component_id}/price_points/bulk.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /components/{component_id}/price_points.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /price_points/{price_point_id}/currency_prices.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /components/{component_id}/price_points.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /components_price_points.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /components/{component_id}/price_points/{price_point_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /components/{component_id}/price_points/{price_point_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /components/{component_id}/price_points/{price_point_id}/default.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /components/{component_id}/price_points/{price_point_id}/unarchive.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /price_points/{price_point_id}/currency_prices.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

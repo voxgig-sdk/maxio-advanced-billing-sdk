@@ -1,0 +1,26 @@
+# BasicEntitlementFlow
+
+main: kit: flow: BasicEntitlementFlow:
+{
+  entity: "entitlement",
+  kind: "basic",
+  name: "BasicEntitlementFlow",
+  step: [
+    {
+      m: {
+        subscription_id: "subscription01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "entitlement_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEntitlementFlow"
+}

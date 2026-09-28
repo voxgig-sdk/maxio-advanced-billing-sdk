@@ -1,0 +1,42 @@
+# Entity: subscription_group_signup
+
+main: kit: entity: subscription_group_signup: {
+
+  alias: field: {}
+
+  name: "subscription_group_signup"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /subscription_groups/signup.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/subscription_groups/signup.json"
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              lit: "signup.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

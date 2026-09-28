@@ -1,0 +1,27 @@
+# BasicUsageFlow
+
+main: kit: flow: BasicUsageFlow:
+{
+  entity: "usage",
+  kind: "basic",
+  name: "BasicUsageFlow",
+  step: [
+    {
+      m: {
+        component_id: "component01",
+        subscription_id_or_reference: "subscription_or_reference01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "usage_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUsageFlow"
+}

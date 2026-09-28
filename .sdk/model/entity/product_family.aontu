@@ -1,0 +1,170 @@
+# Entity: product_family
+
+main: kit: entity: product_family: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    product_family: {
+      h: "Product Family"
+      n: "product_family"
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "product_family"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /product_families.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/product_families.json"
+          s: [
+            {
+              lit: "product_families.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /product_families.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "date_field"
+                or: "date_field"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_datetime"
+                or: "end_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_datetime"
+                or: "start_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/product_families.json"
+          q: {
+            exist: [
+              "date_field"
+              "end_date"
+              "end_datetime"
+              "start_date"
+              "start_datetime"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /product_families/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/product_families/{id}.json"
+          q: {
+            "$action": "id"
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "prepayment": {
+      "PREPAYMENT00": {
+        "id": "PREPAYMENT00",
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "PREPAYMENT01": {
+        "id": "PREPAYMENT01",
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "PREPAYMENT02": {
+        "id": "PREPAYMENT02",
+        "subscription_id": "SUBSCRIPTION01"
+      }
+    }
+  },
+  "new": {
+    "prepayment": {
+      "prepayment_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

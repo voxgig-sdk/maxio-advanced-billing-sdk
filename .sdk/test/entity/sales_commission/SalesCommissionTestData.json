@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "sales_commission": {
+      "SALES_COMMISSION00": {
+        "full_name": "s32",
+        "id": "SALES_COMMISSION00",
+        "subscriptions": [],
+        "subscriptions_count": 53,
+        "test_mode": true,
+        "sales_rep_id": "SALES_REP01",
+        "seller_id": "SELLER01"
+      },
+      "SALES_COMMISSION01": {
+        "full_name": "s64",
+        "id": "SALES_COMMISSION01",
+        "subscriptions": [],
+        "subscriptions_count": 103,
+        "test_mode": true,
+        "sales_rep_id": "SALES_REP01",
+        "seller_id": "SELLER01"
+      },
+      "SALES_COMMISSION02": {
+        "full_name": "s96",
+        "id": "SALES_COMMISSION02",
+        "subscriptions": [],
+        "subscriptions_count": 153,
+        "test_mode": true,
+        "sales_rep_id": "SALES_REP01",
+        "seller_id": "SELLER01"
+      }
+    }
+  },
+  "new": {
+    "sales_commission": {
+      "sales_commission_ref01": {
+        "full_name": "sc8",
+        "subscriptions": [],
+        "subscriptions_count": 203,
+        "test_mode": true
+      }
+    }
+  },
+  "requests": {
+    "GET /sellers/{seller_id}/sales_reps/{sales_rep_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

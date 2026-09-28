@@ -1,0 +1,719 @@
+# Entity: component
+
+main: kit: entity: component: {
+
+  alias: field: {}
+
+  fields: {
+    component: {
+      h: "Component"
+      n: "component"
+      op: {
+        list: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "component"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /product_families/{product_family_id}/event_based_components.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/product_families/{product_family_id}/event_based_components.json"
+          q: {
+            exist: [
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "event_based_components.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /product_families/{product_family_id}/metered_components.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/product_families/{product_family_id}/metered_components.json"
+          q: {
+            exist: [
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "metered_components.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /product_families/{product_family_id}/on_off_components.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/product_families/{product_family_id}/on_off_components.json"
+          q: {
+            exist: [
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "on_off_components.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /product_families/{product_family_id}/prepaid_usage_components.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/product_families/{product_family_id}/prepaid_usage_components.json"
+          q: {
+            exist: [
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "prepaid_usage_components.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /product_families/{product_family_id}/quantity_based_components.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/product_families/{product_family_id}/quantity_based_components.json"
+          q: {
+            exist: [
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "quantity_based_components.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /product_families/{product_family_id}/components.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "date_field"
+                or: "date_field"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_datetime"
+                or: "end_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "include_archived"
+                or: "include_archived"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_datetime"
+                or: "start_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/product_families/{product_family_id}/components.json"
+          q: {
+            exist: [
+              "date_field"
+              "end_date"
+              "end_datetime"
+              "filter"
+              "include_archived"
+              "page"
+              "per_page"
+              "product_family_id"
+              "start_date"
+              "start_datetime"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "components.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /components.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "date_field"
+                or: "date_field"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_datetime"
+                or: "end_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "include_archived"
+                or: "include_archived"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_datetime"
+                or: "start_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/components.json"
+          q: {
+            exist: [
+              "date_field"
+              "end_date"
+              "end_datetime"
+              "filter"
+              "include_archived"
+              "page"
+              "per_page"
+              "start_date"
+              "start_datetime"
+            ]
+          }
+          s: [
+            {
+              lit: "components.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /product_families/{product_family_id}/components/{component_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "include_feature"
+                or: "include_feature"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/product_families/{product_family_id}/components/{component_id}.json"
+          q: {
+            "$action": "component_id"
+            exist: [
+              "component_id"
+              "include_feature"
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "components"
+            }
+            {
+              lit: "{component_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /components/lookup.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "handle"
+                or: "handle"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/components/lookup.json"
+          q: {
+            "$action": "lookup"
+            exist: [
+              "handle"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              lit: "lookup.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /product_families/{product_family_id}/components/{component_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/product_families/{product_family_id}/components/{component_id}.json"
+          q: {
+            "$action": "component_id"
+            exist: [
+              "component_id"
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "components"
+            }
+            {
+              lit: "{component_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /product_families/{product_family_id}/components/{component_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "product_family_id"
+                or: "product_family_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/product_families/{product_family_id}/components/{component_id}.json"
+          q: {
+            "$action": "component_id"
+            exist: [
+              "component_id"
+              "product_family_id"
+            ]
+          }
+          s: [
+            {
+              lit: "product_families"
+            }
+            {
+              var: "product_family_id"
+            }
+            {
+              lit: "components"
+            }
+            {
+              lit: "{component_id}.json"
+            }
+          ]
+          t: {
+            req: {
+              component: "`reqdata`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /components/{component_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/components/{component_id}.json"
+          q: {
+            "$action": "component_id"
+            exist: [
+              "component_id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              lit: "{component_id}.json"
+            }
+          ]
+          t: {
+            req: {
+              component: "`reqdata`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.product_family")]
+  ]
+
+}

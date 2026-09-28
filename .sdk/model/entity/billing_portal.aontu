@@ -1,0 +1,244 @@
+# Entity: billing_portal
+
+main: kit: entity: billing_portal: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    expires_at: {
+      fo: "date-time"
+      h: "Expires At"
+      n: "expires_at"
+      r: false
+      t: "`$STRING`"
+    }
+    fetch_count: {
+      fo: "int32"
+      h: "Fetch Count"
+      n: "fetch_count"
+      r: false
+      t: "`$INTEGER`"
+    }
+    last_accepted_at: {
+      de: true
+      h: "Last Accepted At"
+      n: "last_accepted_at"
+      r: false
+      t: "`$STRING`"
+    }
+    last_invite_accepted_at: {
+      fo: "date-time"
+      h: "Last Invite Accepted At"
+      n: "last_invite_accepted_at"
+      r: false
+      t: "`$STRING`"
+    }
+    last_invite_sent_at: {
+      fo: "date-time"
+      h: "Last Invite Sent At"
+      n: "last_invite_sent_at"
+      r: false
+      t: "`$STRING`"
+    }
+    last_sent_at: {
+      de: true
+      h: "Last Sent At"
+      n: "last_sent_at"
+      r: false
+      t: "`$STRING`"
+    }
+    new_link_available_at: {
+      fo: "date-time"
+      h: "New Link Available At"
+      n: "new_link_available_at"
+      r: false
+      t: "`$STRING`"
+    }
+    send_invite_link_text: {
+      h: "Send Invite Link Text"
+      n: "send_invite_link_text"
+      r: false
+      t: "`$STRING`"
+    }
+    uninvited_count: {
+      fo: "int32"
+      h: "Uninvited Count"
+      n: "uninvited_count"
+      r: false
+      t: "`$INTEGER`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "billing_portal"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /portal/customers/{customer_id}/invitations/invite.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "customer_id"
+                or: "customer_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/portal/customers/{customer_id}/invitations/invite.json"
+          q: {
+            exist: [
+              "customer_id"
+            ]
+          }
+          s: [
+            {
+              lit: "portal"
+            }
+            {
+              lit: "customers"
+            }
+            {
+              var: "customer_id"
+            }
+            {
+              lit: "invitations"
+            }
+            {
+              lit: "invite.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /portal/customers/{customer_id}/management_link.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "customer_id"
+                or: "customer_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/portal/customers/{customer_id}/management_link.json"
+          q: {
+            exist: [
+              "customer_id"
+            ]
+          }
+          s: [
+            {
+              lit: "portal"
+            }
+            {
+              lit: "customers"
+            }
+            {
+              var: "customer_id"
+            }
+            {
+              lit: "management_link.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /portal/customers/{customer_id}/invitations/revoke.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "customer_id"
+                or: "customer_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/portal/customers/{customer_id}/invitations/revoke.json"
+          q: {
+            exist: [
+              "customer_id"
+            ]
+          }
+          s: [
+            {
+              lit: "portal"
+            }
+            {
+              lit: "customers"
+            }
+            {
+              var: "customer_id"
+            }
+            {
+              lit: "invitations"
+            }
+            {
+              lit: "revoke.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.customer")]
+  ]
+
+}

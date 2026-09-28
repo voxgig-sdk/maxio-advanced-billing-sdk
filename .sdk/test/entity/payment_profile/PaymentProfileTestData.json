@@ -1,0 +1,94 @@
+{
+  "existing": {
+    "payment_profile": {
+      "PAYMENT_PROFILE00": {
+        "id": "PAYMENT_PROFILE00",
+        "payment_profile": {},
+        "subscription_group_id": "SUBSCRIPTION_GROUP01",
+        "subscription_id": "SUBSCRIPTION01",
+        "payment_profile_id": "PAYMENT_PROFILE01",
+        "bank_account_id": "BANK_ACCOUNT01"
+      },
+      "PAYMENT_PROFILE01": {
+        "id": "PAYMENT_PROFILE01",
+        "payment_profile": {},
+        "subscription_group_id": "SUBSCRIPTION_GROUP01",
+        "subscription_id": "SUBSCRIPTION01",
+        "payment_profile_id": "PAYMENT_PROFILE01",
+        "bank_account_id": "BANK_ACCOUNT01"
+      },
+      "PAYMENT_PROFILE02": {
+        "id": "PAYMENT_PROFILE02",
+        "payment_profile": {},
+        "subscription_group_id": "SUBSCRIPTION_GROUP01",
+        "subscription_id": "SUBSCRIPTION01",
+        "payment_profile_id": "PAYMENT_PROFILE01",
+        "bank_account_id": "BANK_ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "payment_profile": {
+      "payment_profile_ref01": {
+        "payment_profile": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /subscription_groups/{uid}/payment_profiles/{payment_profile_id}/change_payment_profile.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}/change_payment_profile.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/request_payment_profiles_update.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /payment_profiles.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /payment_profiles.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /payment_profiles/{payment_profile_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /payment_profiles/{payment_profile_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /bank_accounts/{bank_account_id}/verification.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /payment_profiles/{payment_profile_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

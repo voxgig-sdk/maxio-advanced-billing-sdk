@@ -1,0 +1,122 @@
+# BasicSubscriptionComponentFlow
+
+main: kit: flow: BasicSubscriptionComponentFlow:
+{
+  entity: "subscription_component",
+  kind: "basic",
+  name: "BasicSubscriptionComponentFlow",
+  step: [
+    {
+      i: {
+        ref: "subscription_component_ref01"
+      }
+
+      m: {
+        allocation_id: "allocation01",
+        component_id: "component01",
+        subscription_id: "subscription01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        subscription_id: "subscription01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "subscription_component_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        allocation_id: "allocation01",
+        subscription_id: "subscription01"
+      }
+
+      i: {
+        ref: "subscription_component_ref01",
+        srcdatavar: "subscription_component_ref01_data",
+        suffix: "_up0",
+        textfield: "archived_at"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-subscription_component_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "subscription_component_ref01",
+        srcdatavar: "subscription_component_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        component_id: "component01",
+        id: "subscription_component01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-subscription_component_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "subscription_component_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        allocation_id: "allocation01",
+        id: "subscription_component01",
+        subscription_id: "subscription01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        subscription_id: "subscription01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "subscription_component_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSubscriptionComponentFlow"
+}

@@ -1,0 +1,2212 @@
+-- Typed models for the MaxioAdvancedBilling SDK (LuaLS annotations).
+--
+-- GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+-- params (op.<name>.points[].g.params[]). Field/param types come from the
+-- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+-- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
+-- edit by hand.
+
+---@class AccountBalance
+---@field open_invoices? any
+---@field pending_discounts? any
+---@field pending_invoices? any
+---@field prepayments? any
+---@field service_credits? any
+
+---@class AccountBalanceLoadMatch
+---@field subscription_id number
+
+---@class Allocation
+---@field allocation? table
+
+---@class AllocationListMatch
+---@field component_id number
+---@field subscription_id number
+---@field page? number
+
+---@class AllocationCreateData
+---@field subscription_id number
+---@field allocation? table
+
+---@class BatchJob
+---@field completed? string
+---@field created_at? string
+---@field finished_at? string
+---@field id? number
+---@field row_count? number
+
+---@class BatchJobLoadMatch
+---@field batch_id string
+
+---@class BatchJobCreateData
+---@field completed? string
+---@field created_at? string
+---@field finished_at? string
+---@field id? number
+---@field row_count? number
+
+---@class BillingPortal
+---@field created_at? string
+---@field expires_at? string
+---@field fetch_count? number
+---@field last_accepted_at? string
+---@field last_invite_accepted_at? string
+---@field last_invite_sent_at? string
+---@field last_sent_at? string
+---@field new_link_available_at? string
+---@field send_invite_link_text? string
+---@field uninvited_count? number
+---@field url? string
+
+---@class BillingPortalLoadMatch
+---@field customer_id number
+
+---@class BillingPortalCreateData
+---@field customer_id number
+---@field created_at? string
+---@field expires_at? string
+---@field fetch_count? number
+---@field last_accepted_at? string
+---@field last_invite_accepted_at? string
+---@field last_invite_sent_at? string
+---@field last_sent_at? string
+---@field new_link_available_at? string
+---@field send_invite_link_text? string
+---@field uninvited_count? number
+---@field url? string
+
+---@class BillingPortalRemoveMatch
+---@field customer_id number
+
+---@class Component
+---@field component? table
+
+---@class ComponentLoadMatch
+---@field component_id string
+---@field product_family_id number
+---@field include_feature? boolean
+
+---@class ComponentListMatch
+---@field date_field? any
+---@field end_date? string
+---@field end_datetime? string
+---@field filter? any
+---@field include_archived? boolean
+---@field page? number
+---@field per_page? number
+---@field start_date? string
+---@field start_datetime? string
+
+---@class ComponentCreateData
+---@field product_family_id string
+---@field component? table
+
+---@class ComponentUpdateData
+---@field component_id string
+---@field product_family_id? number
+---@field component? table
+
+---@class ComponentRemoveMatch
+---@field component_id string
+---@field product_family_id number
+
+---@class ComponentFeature
+---@field id? string
+
+---@class ComponentFeatureRemoveMatch
+---@field component_id number
+---@field id number
+---@field destroy_entitlement? boolean
+
+---@class ComponentPricePoint
+---@field archived_at? string
+---@field component table
+---@field component_id? number
+---@field created_at? string
+---@field currency_prices? table
+---@field default? boolean
+---@field expiration_interval? number
+---@field expiration_interval_unit? any
+---@field handle? string
+---@field id? number
+---@field interval? number
+---@field interval_unit? any
+---@field name? string
+---@field overage_prices? table
+---@field overage_pricing_scheme? any
+---@field price_point? table
+---@field price_points? table
+---@field prices? table
+---@field pricing_scheme? any
+---@field renew_prepaid_allocation? boolean
+---@field rollover_prepaid_remainder? boolean
+---@field subscription_id? number
+---@field tax_included? boolean
+---@field type? any
+---@field updated_at? string
+---@field use_site_exchange_rate? boolean
+
+---@class ComponentPricePointListMatch
+---@field direction? any
+---@field filter? any
+---@field include? any
+---@field page? number
+---@field per_page? number
+
+---@class ComponentPricePointCreateData
+---@field id number
+---@field archived_at? string
+---@field component table
+---@field component_id? number
+---@field created_at? string
+---@field currency_prices? table
+---@field default? boolean
+---@field expiration_interval? number
+---@field expiration_interval_unit? any
+---@field handle? string
+---@field interval? number
+---@field interval_unit? any
+---@field name? string
+---@field overage_prices? table
+---@field overage_pricing_scheme? any
+---@field price_point? table
+---@field price_points? table
+---@field prices? table
+---@field pricing_scheme? any
+---@field renew_prepaid_allocation? boolean
+---@field rollover_prepaid_remainder? boolean
+---@field subscription_id? number
+---@field tax_included? boolean
+---@field type? any
+---@field updated_at? string
+---@field use_site_exchange_rate? boolean
+
+---@class ComponentPricePointUpdateData
+---@field component_id? string
+---@field price_point_id string
+---@field archived_at? string
+---@field component? table
+---@field created_at? string
+---@field currency_prices? table
+---@field default? boolean
+---@field expiration_interval? number
+---@field expiration_interval_unit? any
+---@field handle? string
+---@field id? number
+---@field interval? number
+---@field interval_unit? any
+---@field name? string
+---@field overage_prices? table
+---@field overage_pricing_scheme? any
+---@field price_point? table
+---@field price_points? table
+---@field prices? table
+---@field pricing_scheme? any
+---@field renew_prepaid_allocation? boolean
+---@field rollover_prepaid_remainder? boolean
+---@field subscription_id? number
+---@field tax_included? boolean
+---@field type? any
+---@field updated_at? string
+---@field use_site_exchange_rate? boolean
+
+---@class ComponentPricePointRemoveMatch
+---@field component_id string
+---@field price_point_id string
+
+---@class ComponentPricePointCurrencyOverage
+---@field archived_at? string
+---@field component_id? number
+---@field created_at? string
+---@field currency_overage_prices? table
+---@field currency_prices? table
+---@field default? boolean
+---@field expiration_interval? number
+---@field expiration_interval_unit? any
+---@field handle? string
+---@field id? number
+---@field interval? number
+---@field interval_unit? any
+---@field name? string
+---@field overage_prices? table
+---@field overage_pricing_scheme? any
+---@field prices? table
+---@field pricing_scheme? any
+---@field renew_prepaid_allocation? boolean
+---@field rollover_prepaid_remainder? boolean
+---@field subscription_id? number
+---@field tax_included? boolean
+---@field type? any
+---@field updated_at? string
+---@field use_site_exchange_rate? boolean
+
+---@class ComponentPricePointCurrencyOverageLoadMatch
+---@field component_id string
+---@field price_point_id string
+---@field currency_price? boolean
+
+---@class Coupon
+---@field allow_negative_balance? boolean
+---@field amount? number
+---@field amount_in_cents? number
+---@field apply_on_cancel_at_end_of_period? boolean
+---@field apply_on_subscription_expiration? boolean
+---@field archived_at? string
+---@field code? string
+---@field compounding_strategy? any
+---@field conversion_limit? string
+---@field coupon? table
+---@field coupon_restrictions? table
+---@field created_at? string
+---@field currency_prices? table
+---@field description? string
+---@field discount_type? string
+---@field duration_interval? number
+---@field duration_interval_span? string
+---@field duration_interval_unit? string
+---@field duration_period_count? number
+---@field end_date? string
+---@field exclude_mid_period_allocations? boolean
+---@field id? number
+---@field name? string
+---@field percentage? string
+---@field product_family_id? number
+---@field product_family_name? string
+---@field recurring? boolean
+---@field recurring_scheme? string
+---@field stackable? boolean
+---@field start_date? string
+---@field updated_at? string
+---@field use_site_exchange_rate? boolean
+
+---@class CouponLoadMatch
+---@field coupon_id number
+---@field product_family_id number
+---@field currency_price? boolean
+
+---@class CouponListMatch
+---@field currency_price? boolean
+---@field filter? any
+---@field page? number
+---@field per_page? number
+
+---@class CouponCreateData
+---@field product_family_id number
+---@field allow_negative_balance? boolean
+---@field amount? number
+---@field amount_in_cents? number
+---@field apply_on_cancel_at_end_of_period? boolean
+---@field apply_on_subscription_expiration? boolean
+---@field archived_at? string
+---@field code? string
+---@field compounding_strategy? any
+---@field conversion_limit? string
+---@field coupon? table
+---@field coupon_restrictions? table
+---@field created_at? string
+---@field currency_prices? table
+---@field description? string
+---@field discount_type? string
+---@field duration_interval? number
+---@field duration_interval_span? string
+---@field duration_interval_unit? string
+---@field duration_period_count? number
+---@field end_date? string
+---@field exclude_mid_period_allocations? boolean
+---@field id? number
+---@field name? string
+---@field percentage? string
+---@field product_family_name? string
+---@field recurring? boolean
+---@field recurring_scheme? string
+---@field stackable? boolean
+---@field start_date? string
+---@field updated_at? string
+---@field use_site_exchange_rate? boolean
+
+---@class CouponUpdateData
+---@field coupon_id number
+---@field product_family_id number
+---@field allow_negative_balance? boolean
+---@field amount? number
+---@field amount_in_cents? number
+---@field apply_on_cancel_at_end_of_period? boolean
+---@field apply_on_subscription_expiration? boolean
+---@field archived_at? string
+---@field code? string
+---@field compounding_strategy? any
+---@field conversion_limit? string
+---@field coupon? table
+---@field coupon_restrictions? table
+---@field created_at? string
+---@field currency_prices? table
+---@field description? string
+---@field discount_type? string
+---@field duration_interval? number
+---@field duration_interval_span? string
+---@field duration_interval_unit? string
+---@field duration_period_count? number
+---@field end_date? string
+---@field exclude_mid_period_allocations? boolean
+---@field id? number
+---@field name? string
+---@field percentage? string
+---@field product_family_name? string
+---@field recurring? boolean
+---@field recurring_scheme? string
+---@field stackable? boolean
+---@field start_date? string
+---@field updated_at? string
+---@field use_site_exchange_rate? boolean
+
+---@class CouponRemoveMatch
+---@field id number
+---@field subcode string
+
+---@class CouponCurrency
+---@field id? string
+
+---@class CouponCurrencyUpdateData
+---@field id number
+
+---@class CouponSubcode
+---@field created_codes? table
+---@field duplicate_codes? table
+---@field id? string
+---@field invalid_codes? table
+
+---@class CouponSubcodeUpdateData
+---@field id number
+---@field created_codes? table
+---@field duplicate_codes? table
+---@field invalid_codes? table
+
+---@class CouponUsage
+---@field id? number
+---@field name? string
+---@field revenue? number
+---@field revenue_in_cents? number
+---@field savings? number
+---@field savings_in_cents? number
+---@field signups? number
+
+---@class CouponUsageListMatch
+---@field id number
+---@field product_family_id number
+
+---@class CustomField
+---@field current_page? number
+---@field data_count? number
+---@field deleted_at? string
+---@field enum? string
+---@field id? number
+---@field input_type? string
+---@field metadata? table
+---@field metafield_id? number
+---@field metafields? any
+---@field name? string
+---@field per_page? number
+---@field resource_id? number
+---@field scope? table
+---@field total_count? number
+---@field total_pages? number
+---@field value? string
+
+---@class CustomFieldListMatch
+---@field resource_type any
+---@field date_field? any
+---@field direction? any
+---@field end_date? string
+---@field end_datetime? string
+---@field page? number
+---@field per_page? number
+---@field resource_id? table
+---@field start_date? string
+---@field start_datetime? string
+---@field with_deleted? boolean
+---@field name? string
+
+---@class CustomFieldCreateData
+---@field resource_id? number
+---@field resource_type any
+---@field current_page? number
+---@field data_count? number
+---@field deleted_at? string
+---@field enum? string
+---@field id? number
+---@field input_type? string
+---@field metadata? table
+---@field metafield_id? number
+---@field metafields? any
+---@field name? string
+---@field per_page? number
+---@field scope? table
+---@field total_count? number
+---@field total_pages? number
+---@field value? string
+
+---@class CustomFieldUpdateData
+---@field resource_id? number
+---@field resource_type any
+---@field current_page? number
+---@field data_count? number
+---@field deleted_at? string
+---@field enum? string
+---@field id? number
+---@field input_type? string
+---@field metadata? table
+---@field metafield_id? number
+---@field metafields? any
+---@field name? string
+---@field per_page? number
+---@field scope? table
+---@field total_count? number
+---@field total_pages? number
+---@field value? string
+
+---@class CustomFieldRemoveMatch
+---@field resource_id? number
+---@field resource_type any
+---@field name? string
+
+---@class Customer
+---@field address? string
+---@field address_2? string
+---@field branding_theme_id? number
+---@field cc_emails? string
+---@field city? string
+---@field country? string
+---@field country_name? string
+---@field created_at? string
+---@field customer? table
+---@field default_auto_renewal_profile_id? number
+---@field default_subscription_group_uid? string
+---@field email? string
+---@field entity_identifier_kind? any
+---@field entity_identifier_value? string
+---@field first_name? string
+---@field id? number
+---@field last_name? string
+---@field locale? string
+---@field maxioid? string
+---@field organization? string
+---@field parent_id? number
+---@field phone? string
+---@field portal_customer_created_at? string
+---@field portal_invite_last_accepted_at? string
+---@field portal_invite_last_sent_at? string
+---@field reference? string
+---@field salesforce_id? string
+---@field state? string
+---@field state_name? string
+---@field surcharging? boolean
+---@field tax_exempt? boolean
+---@field tax_exempt_reason? string
+---@field updated_at? string
+---@field vat_country? string
+---@field vat_number? string
+---@field verified? boolean
+---@field zip? string
+
+---@class CustomerLoadMatch
+---@field id number
+
+---@class CustomerListMatch
+---@field date_field? any
+---@field direction? any
+---@field end_date? string
+---@field end_datetime? string
+---@field page? number
+---@field per_page? number
+---@field q? string
+---@field start_date? string
+---@field start_datetime? string
+
+---@class CustomerCreateData
+---@field address? string
+---@field address_2? string
+---@field branding_theme_id? number
+---@field cc_emails? string
+---@field city? string
+---@field country? string
+---@field country_name? string
+---@field created_at? string
+---@field customer? table
+---@field default_auto_renewal_profile_id? number
+---@field default_subscription_group_uid? string
+---@field email? string
+---@field entity_identifier_kind? any
+---@field entity_identifier_value? string
+---@field first_name? string
+---@field id? number
+---@field last_name? string
+---@field locale? string
+---@field maxioid? string
+---@field organization? string
+---@field parent_id? number
+---@field phone? string
+---@field portal_customer_created_at? string
+---@field portal_invite_last_accepted_at? string
+---@field portal_invite_last_sent_at? string
+---@field reference? string
+---@field salesforce_id? string
+---@field state? string
+---@field state_name? string
+---@field surcharging? boolean
+---@field tax_exempt? boolean
+---@field tax_exempt_reason? string
+---@field updated_at? string
+---@field vat_country? string
+---@field vat_number? string
+---@field verified? boolean
+---@field zip? string
+
+---@class CustomerUpdateData
+---@field id number
+---@field address? string
+---@field address_2? string
+---@field branding_theme_id? number
+---@field cc_emails? string
+---@field city? string
+---@field country? string
+---@field country_name? string
+---@field created_at? string
+---@field customer? table
+---@field default_auto_renewal_profile_id? number
+---@field default_subscription_group_uid? string
+---@field email? string
+---@field entity_identifier_kind? any
+---@field entity_identifier_value? string
+---@field first_name? string
+---@field last_name? string
+---@field locale? string
+---@field maxioid? string
+---@field organization? string
+---@field parent_id? number
+---@field phone? string
+---@field portal_customer_created_at? string
+---@field portal_invite_last_accepted_at? string
+---@field portal_invite_last_sent_at? string
+---@field reference? string
+---@field salesforce_id? string
+---@field state? string
+---@field state_name? string
+---@field surcharging? boolean
+---@field tax_exempt? boolean
+---@field tax_exempt_reason? string
+---@field updated_at? string
+---@field vat_country? string
+---@field vat_number? string
+---@field verified? boolean
+---@field zip? string
+
+---@class CustomerRemoveMatch
+---@field id number
+
+---@class DelayedCancel
+---@field message? string
+---@field subscription table
+
+---@class DelayedCancelCreateData
+---@field subscription_id number
+---@field message? string
+---@field subscription table
+
+---@class Endpoint
+---@field id? number
+---@field site_id? number
+---@field status? string
+---@field url? string
+---@field webhook_subscriptions? table
+
+---@class EndpointListMatch
+---@field id? number
+---@field site_id? number
+---@field status? string
+---@field url? string
+---@field webhook_subscriptions? table
+
+---@class EndpointUpdateData
+---@field endpoint_id number
+---@field id? number
+---@field site_id? number
+---@field status? string
+---@field url? string
+---@field webhook_subscriptions? table
+
+---@class Entitlement
+---@field customer_id number
+---@field entitlements table
+---@field status string
+---@field subscription_id number
+
+---@class EntitlementListMatch
+---@field subscription_id number
+
+---@class Event
+---@field event table
+
+---@class EventLoadMatch
+---@field direction? any
+---@field filter? table
+---@field max_id? number
+---@field page? number
+---@field per_page? number
+---@field since_id? number
+
+---@class EventListMatch
+---@field date_field? any
+---@field direction? any
+---@field end_date? string
+---@field end_datetime? string
+---@field filter? table
+---@field max_id? number
+---@field page? number
+---@field per_page? number
+---@field since_id? number
+---@field start_date? string
+---@field start_datetime? string
+
+---@class EventsBasedBillingSegment
+---@field id? string
+
+---@class EventsBasedBillingSegmentRemoveMatch
+---@field component_id string
+---@field id number
+---@field price_point_id string
+
+---@class Feature
+---@field archived_at? string
+---@field archived_count number
+---@field created_at? string
+---@field feature table
+---@field feature_key? string
+---@field feature_kind? any
+---@field feature_name? string
+---@field feature_template_id? number
+---@field id? number
+---@field items table
+---@field periodicity_interval? number
+---@field periodicity_unit? any
+---@field price_point_id? number
+---@field price_point_type? any
+---@field total_count number
+---@field updated_at? string
+---@field value? string
+
+---@class FeatureListMatch
+---@field kind? any
+---@field page? number
+---@field per_page? number
+---@field q? string
+---@field sort_by? any
+---@field sort_direction? any
+---@field status? any
+---@field updated_from? string
+---@field updated_to? string
+
+---@class FeatureCreateData
+---@field archived_at? string
+---@field archived_count number
+---@field created_at? string
+---@field feature table
+---@field feature_key? string
+---@field feature_kind? any
+---@field feature_name? string
+---@field feature_template_id? number
+---@field id? number
+---@field items table
+---@field periodicity_interval? number
+---@field periodicity_unit? any
+---@field price_point_id? number
+---@field price_point_type? any
+---@field total_count number
+---@field updated_at? string
+---@field value? string
+
+---@class FeatureCatalogItem
+---@field archived_at? string
+---@field created_at? string
+---@field feature table
+---@field feature_key? string
+---@field feature_kind? any
+---@field feature_name? string
+---@field feature_template_id? number
+---@field id? number
+---@field periodicity_interval? number
+---@field periodicity_unit? any
+---@field price_point_id? number
+---@field price_point_type? any
+---@field updated_at? string
+---@field value? string
+
+---@class FeatureCatalogItemLoadMatch
+---@field component_id? number
+---@field id number
+---@field product_id? number
+
+---@class FeatureCatalogItemCreateData
+---@field component_id? number
+---@field id number
+---@field product_id? number
+---@field archived_at? string
+---@field created_at? string
+---@field feature table
+---@field feature_key? string
+---@field feature_kind? any
+---@field feature_name? string
+---@field feature_template_id? number
+---@field periodicity_interval? number
+---@field periodicity_unit? any
+---@field price_point_id? number
+---@field price_point_type? any
+---@field updated_at? string
+---@field value? string
+
+---@class FeatureCatalogItemUpdateData
+---@field component_id? number
+---@field id number
+---@field product_id? number
+---@field archived_at? string
+---@field created_at? string
+---@field feature? table
+---@field feature_key? string
+---@field feature_kind? any
+---@field feature_name? string
+---@field feature_template_id? number
+---@field periodicity_interval? number
+---@field periodicity_unit? any
+---@field price_point_id? number
+---@field price_point_type? any
+---@field updated_at? string
+---@field value? string
+
+---@class FeatureTemplate
+---@field archived_at? string
+---@field created_at? string
+---@field default_periodicity_interval? number
+---@field default_periodicity_unit? any
+---@field default_value? string
+---@field description? string
+---@field feature any
+---@field id? number
+---@field key? string
+---@field kind? any
+---@field name? string
+---@field plans_count? number
+---@field products_count? number
+---@field unit? string
+---@field updated_at? string
+---@field value_type? any
+
+---@class FeatureTemplateLoadMatch
+---@field id number
+
+---@class FeatureTemplateCreateData
+---@field id number
+---@field archived_at? string
+---@field created_at? string
+---@field default_periodicity_interval? number
+---@field default_periodicity_unit? any
+---@field default_value? string
+---@field description? string
+---@field feature any
+---@field key? string
+---@field kind? any
+---@field name? string
+---@field plans_count? number
+---@field products_count? number
+---@field unit? string
+---@field updated_at? string
+---@field value_type? any
+
+---@class FeatureTemplateUpdateData
+---@field id number
+---@field archived_at? string
+---@field created_at? string
+---@field default_periodicity_interval? number
+---@field default_periodicity_unit? any
+---@field default_value? string
+---@field description? string
+---@field feature? any
+---@field key? string
+---@field kind? any
+---@field name? string
+---@field plans_count? number
+---@field products_count? number
+---@field unit? string
+---@field updated_at? string
+---@field value_type? any
+
+---@class FeatureTemplateRemoveMatch
+---@field id number
+---@field remove_from_catalog? boolean
+
+---@class Insight
+---@field mrr table
+---@field seller_name? string
+---@field site_currency? string
+---@field site_id? number
+---@field site_name? string
+---@field stats? table
+
+---@class InsightLoadMatch
+---@field direction? any
+---@field page? number
+---@field per_page? number
+---@field subscription_id? number
+
+---@class Invoice
+---@field applications? table
+---@field applied_amount? string
+---@field applied_date? string
+---@field avatax_details? table
+---@field billing_address? any
+---@field branding_theme_id? number
+---@field collection_method? any
+---@field consolidation_level? any
+---@field created_at? string
+---@field credit_amount? string
+---@field credit_notes table
+---@field credits? table
+---@field currency? string
+---@field custom_fields? table
+---@field customer? any
+---@field customer_id? number
+---@field debit_amount? string
+---@field debits? table
+---@field discount_amount? string
+---@field discounts? table
+---@field display_settings? table
+---@field due_amount? string
+---@field due_date? string
+---@field group_primary_subscription_id? number
+---@field id? number
+---@field invoice? table
+---@field invoices table
+---@field issue_date? string
+---@field line_items? table
+---@field memo? string
+---@field net_terms? number
+---@field number? string
+---@field origin_invoices? table
+---@field paid_amount? string
+---@field paid_date? string
+---@field paid_invoices? table
+---@field parent_invoice_id? number
+---@field parent_invoice_number? number
+---@field parent_invoice_uid? string
+---@field payer? table
+---@field payment_instructions? string
+---@field payments? table
+---@field prepayment? string
+---@field previous_balance_data? table
+---@field product_family_name? string
+---@field product_name? string
+---@field public_url? string
+---@field public_url_expires_on? string
+---@field recipient_emails? table
+---@field refund_amount? string
+---@field refunds? table
+---@field remaining_amount? string
+---@field role? string
+---@field seller? any
+---@field sequence_number? number
+---@field shipping_address? any
+---@field site_id? number
+---@field status? any
+---@field subscription_group_id? number
+---@field subscription_id? number
+---@field subtotal_amount? string
+---@field tax_amount? string
+---@field taxes? table
+---@field total_amount? string
+---@field transaction_time? string
+---@field uid? string
+---@field updated_at? string
+---@field void table
+
+---@class InvoiceListMatch
+---@field uid string
+
+---@class InvoiceCreateData
+---@field subscription_id number
+---@field applications? table
+---@field applied_amount? string
+---@field applied_date? string
+---@field avatax_details? table
+---@field billing_address? any
+---@field branding_theme_id? number
+---@field collection_method? any
+---@field consolidation_level? any
+---@field created_at? string
+---@field credit_amount? string
+---@field credit_notes table
+---@field credits? table
+---@field currency? string
+---@field custom_fields? table
+---@field customer? any
+---@field customer_id? number
+---@field debit_amount? string
+---@field debits? table
+---@field discount_amount? string
+---@field discounts? table
+---@field display_settings? table
+---@field due_amount? string
+---@field due_date? string
+---@field group_primary_subscription_id? number
+---@field id? number
+---@field invoice? table
+---@field invoices table
+---@field issue_date? string
+---@field line_items? table
+---@field memo? string
+---@field net_terms? number
+---@field number? string
+---@field origin_invoices? table
+---@field paid_amount? string
+---@field paid_date? string
+---@field paid_invoices? table
+---@field parent_invoice_id? number
+---@field parent_invoice_number? number
+---@field parent_invoice_uid? string
+---@field payer? table
+---@field payment_instructions? string
+---@field payments? table
+---@field prepayment? string
+---@field previous_balance_data? table
+---@field product_family_name? string
+---@field product_name? string
+---@field public_url? string
+---@field public_url_expires_on? string
+---@field recipient_emails? table
+---@field refund_amount? string
+---@field refunds? table
+---@field remaining_amount? string
+---@field role? string
+---@field seller? any
+---@field sequence_number? number
+---@field shipping_address? any
+---@field site_id? number
+---@field status? any
+---@field subscription_group_id? number
+---@field subtotal_amount? string
+---@field tax_amount? string
+---@field taxes? table
+---@field total_amount? string
+---@field transaction_time? string
+---@field uid? string
+---@field updated_at? string
+---@field void table
+
+---@class InvoiceUpdateData
+---@field subscription_id number
+---@field uid string
+---@field applications? table
+---@field applied_amount? string
+---@field applied_date? string
+---@field avatax_details? table
+---@field billing_address? any
+---@field branding_theme_id? number
+---@field collection_method? any
+---@field consolidation_level? any
+---@field created_at? string
+---@field credit_amount? string
+---@field credit_notes? table
+---@field credits? table
+---@field currency? string
+---@field custom_fields? table
+---@field customer? any
+---@field customer_id? number
+---@field debit_amount? string
+---@field debits? table
+---@field discount_amount? string
+---@field discounts? table
+---@field display_settings? table
+---@field due_amount? string
+---@field due_date? string
+---@field group_primary_subscription_id? number
+---@field id? number
+---@field invoice? table
+---@field invoices? table
+---@field issue_date? string
+---@field line_items? table
+---@field memo? string
+---@field net_terms? number
+---@field number? string
+---@field origin_invoices? table
+---@field paid_amount? string
+---@field paid_date? string
+---@field paid_invoices? table
+---@field parent_invoice_id? number
+---@field parent_invoice_number? number
+---@field parent_invoice_uid? string
+---@field payer? table
+---@field payment_instructions? string
+---@field payments? table
+---@field prepayment? string
+---@field previous_balance_data? table
+---@field product_family_name? string
+---@field product_name? string
+---@field public_url? string
+---@field public_url_expires_on? string
+---@field recipient_emails? table
+---@field refund_amount? string
+---@field refunds? table
+---@field remaining_amount? string
+---@field role? string
+---@field seller? any
+---@field sequence_number? number
+---@field shipping_address? any
+---@field site_id? number
+---@field status? any
+---@field subscription_group_id? number
+---@field subtotal_amount? string
+---@field tax_amount? string
+---@field taxes? table
+---@field total_amount? string
+---@field transaction_time? string
+---@field updated_at? string
+---@field void? table
+
+---@class InvoiceRemoveMatch
+---@field subscription_id number
+---@field uid string
+
+---@class ListProformaInvoice
+---@field available_actions? table
+---@field billing_address? table
+---@field collection_method? any
+---@field consolidation_level? any
+---@field created_at? string
+---@field credit_amount? string
+---@field credits? table
+---@field currency? string
+---@field custom_fields? table
+---@field customer? any
+---@field customer_id? number
+---@field delivery_date? string
+---@field discount_amount? string
+---@field discounts? table
+---@field due_amount? string
+---@field line_items? table
+---@field memo? string
+---@field number? number
+---@field paid_amount? string
+---@field payment_instructions? string
+---@field payments? table
+---@field product_family_name? string
+---@field product_name? string
+---@field public_url? string
+---@field refund_amount? string
+---@field role? any
+---@field seller? any
+---@field sequence_number? number
+---@field shipping_address? table
+---@field site_id? number
+---@field status? string
+---@field subscription_id? number
+---@field subtotal_amount? string
+---@field tax_amount? string
+---@field taxes? table
+---@field total_amount? string
+---@field uid? string
+
+---@class ListProformaInvoiceListMatch
+---@field subscription_id number
+---@field credit? boolean
+---@field custom_field? boolean
+---@field direction? any
+---@field discount? boolean
+---@field end_date? string
+---@field line_item? boolean
+---@field page? number
+---@field payment? boolean
+---@field per_page? number
+---@field start_date? string
+---@field status? any
+---@field taxis? boolean
+
+---@class ListSaleRepItem
+---@field full_name? string
+---@field id? number
+---@field mrr_data? table
+---@field subscriptions_count? number
+---@field test_mode? boolean
+
+---@class ListSaleRepItemListMatch
+---@field seller_id string
+---@field live_mode? boolean
+---@field page? number
+---@field per_page? number
+
+---@class ListSegment
+---@field component_id? number
+---@field created_at? string
+---@field event_based_billing_metric_id? number
+---@field id? number
+---@field price_point_id? number
+---@field prices? table
+---@field pricing_scheme? any
+---@field segment_property_1_value? any
+---@field segment_property_2_value? any
+---@field segment_property_3_value? any
+---@field segment_property_4_value? any
+---@field segments? table
+---@field updated_at? string
+
+---@class ListSegmentListMatch
+---@field component_id string
+---@field price_point_id string
+---@field filter? any
+---@field page? number
+---@field per_page? number
+
+---@class ListSegmentCreateData
+---@field component_id string
+---@field price_point_id string
+---@field created_at? string
+---@field event_based_billing_metric_id? number
+---@field id? number
+---@field prices? table
+---@field pricing_scheme? any
+---@field segment_property_1_value? any
+---@field segment_property_2_value? any
+---@field segment_property_3_value? any
+---@field segment_property_4_value? any
+---@field segments? table
+---@field updated_at? string
+
+---@class ListSegmentUpdateData
+---@field component_id string
+---@field price_point_id string
+---@field created_at? string
+---@field event_based_billing_metric_id? number
+---@field id? number
+---@field prices? table
+---@field pricing_scheme? any
+---@field segment_property_1_value? any
+---@field segment_property_2_value? any
+---@field segment_property_3_value? any
+---@field segment_property_4_value? any
+---@field segments? table
+---@field updated_at? string
+
+---@class Offer
+---@field archived_at? string
+---@field created_at? string
+---@field description? string
+---@field handle? string
+---@field id? number
+---@field name? string
+---@field offer? table
+---@field offer_discounts? table
+---@field offer_items? table
+---@field offer_signup_pages? table
+---@field offers? table
+---@field product_family_id? number
+---@field product_family_name? string
+---@field product_id? number
+---@field product_name? string
+---@field product_price_in_cents? number
+---@field product_price_point_id? number
+---@field product_price_point_name? string
+---@field product_revisable_number? number
+---@field site_id? number
+---@field updated_at? string
+
+---@class OfferLoadMatch
+---@field offer_id number
+
+---@class OfferListMatch
+---@field include_archived? boolean
+---@field page? number
+---@field per_page? number
+
+---@class OfferCreateData
+---@field archived_at? string
+---@field created_at? string
+---@field description? string
+---@field handle? string
+---@field id? number
+---@field name? string
+---@field offer? table
+---@field offer_discounts? table
+---@field offer_items? table
+---@field offer_signup_pages? table
+---@field offers? table
+---@field product_family_id? number
+---@field product_family_name? string
+---@field product_id? number
+---@field product_name? string
+---@field product_price_in_cents? number
+---@field product_price_point_id? number
+---@field product_price_point_name? string
+---@field product_revisable_number? number
+---@field site_id? number
+---@field updated_at? string
+
+---@class OfferUpdateData
+---@field id number
+---@field archived_at? string
+---@field created_at? string
+---@field description? string
+---@field handle? string
+---@field name? string
+---@field offer? table
+---@field offer_discounts? table
+---@field offer_items? table
+---@field offer_signup_pages? table
+---@field offers? table
+---@field product_family_id? number
+---@field product_family_name? string
+---@field product_id? number
+---@field product_name? string
+---@field product_price_in_cents? number
+---@field product_price_point_id? number
+---@field product_price_point_name? string
+---@field product_revisable_number? number
+---@field site_id? number
+---@field updated_at? string
+
+---@class OneTimeToken
+
+---@class OneTimeTokenLoadMatch
+---@field chargify_token string
+
+---@class PaymentProfile
+---@field id? string
+---@field payment_profile? table
+
+---@class PaymentProfileLoadMatch
+---@field payment_profile_id number
+
+---@class PaymentProfileListMatch
+---@field customer_id? number
+---@field page? number
+---@field per_page? number
+
+---@class PaymentProfileCreateData
+---@field id? string
+---@field payment_profile? table
+
+---@class PaymentProfileUpdateData
+---@field bank_account_id number
+---@field id? string
+---@field payment_profile? table
+
+---@class PaymentProfileRemoveMatch
+---@field payment_profile_id number
+---@field subscription_group_id? string
+---@field subscription_id? number
+
+---@class Prepayment
+---@field id? string
+
+---@class PrepaymentCreateData
+---@field id number
+---@field subscription_id number
+
+---@class Product
+---@field product table
+
+---@class ProductLoadMatch
+---@field api_handle string
+
+---@class ProductListMatch
+---@field date_field? any
+---@field end_date? string
+---@field end_datetime? string
+---@field filter? any
+---@field include? any
+---@field include_archived? boolean
+---@field include_feature? boolean
+---@field page? number
+---@field per_page? number
+---@field start_date? string
+---@field start_datetime? string
+
+---@class ProductCreateData
+---@field product_family_id string
+---@field product table
+
+---@class ProductUpdateData
+---@field product_id number
+---@field product? table
+
+---@class ProductRemoveMatch
+---@field product_id number
+
+---@class ProductFamily
+---@field id? string
+---@field product_family? table
+
+---@class ProductFamilyLoadMatch
+---@field id number
+
+---@class ProductFamilyListMatch
+---@field date_field? any
+---@field end_date? string
+---@field end_datetime? string
+---@field start_date? string
+---@field start_datetime? string
+
+---@class ProductFamilyCreateData
+---@field id? string
+---@field product_family? table
+
+---@class ProductFeature
+---@field id? string
+
+---@class ProductFeatureRemoveMatch
+---@field id number
+---@field product_id number
+---@field destroy_entitlement? boolean
+
+---@class ProductPricePoint
+---@field id? string
+---@field price_point table
+---@field price_points? table
+---@field product table
+
+---@class ProductPricePointLoadMatch
+---@field price_point_id string
+---@field product_id string
+---@field currency_price? boolean
+
+---@class ProductPricePointListMatch
+---@field direction? any
+---@field filter? any
+---@field include? any
+---@field page? number
+---@field per_page? number
+
+---@class ProductPricePointCreateData
+---@field id string
+---@field price_point table
+---@field price_points? table
+---@field product table
+
+---@class ProductPricePointUpdateData
+---@field price_point_id string
+---@field product_id string
+---@field id? string
+---@field price_point? table
+---@field price_points? table
+---@field product? table
+
+---@class ProductPricePointRemoveMatch
+---@field price_point_id string
+---@field product_id string
+
+---@class ProformaInvoice
+---@field available_actions? table
+---@field billing_address? table
+---@field collection_method? any
+---@field consolidation_level? any
+---@field created_at? string
+---@field credit_amount? string
+---@field credits? table
+---@field currency? string
+---@field custom_fields? table
+---@field customer? any
+---@field customer_id? number
+---@field delivery_date? string
+---@field discount_amount? string
+---@field discounts? table
+---@field due_amount? string
+---@field id? string
+---@field line_items? table
+---@field memo? string
+---@field number? number
+---@field paid_amount? string
+---@field payment_instructions? string
+---@field payments? table
+---@field product_family_name? string
+---@field product_name? string
+---@field public_url? string
+---@field refund_amount? string
+---@field role? any
+---@field seller? any
+---@field sequence_number? number
+---@field shipping_address? table
+---@field site_id? number
+---@field status? string
+---@field subscription_id? number
+---@field subtotal_amount? string
+---@field tax_amount? string
+---@field taxes? table
+---@field total_amount? string
+---@field uid? string
+
+---@class ProformaInvoiceListMatch
+---@field proforma_invoice_uid string
+
+---@class ProformaInvoiceCreateData
+---@field available_actions? table
+---@field billing_address? table
+---@field collection_method? any
+---@field consolidation_level? any
+---@field created_at? string
+---@field credit_amount? string
+---@field credits? table
+---@field currency? string
+---@field custom_fields? table
+---@field customer? any
+---@field customer_id? number
+---@field delivery_date? string
+---@field discount_amount? string
+---@field discounts? table
+---@field due_amount? string
+---@field id? string
+---@field line_items? table
+---@field memo? string
+---@field number? number
+---@field paid_amount? string
+---@field payment_instructions? string
+---@field payments? table
+---@field product_family_name? string
+---@field product_name? string
+---@field public_url? string
+---@field refund_amount? string
+---@field role? any
+---@field seller? any
+---@field sequence_number? number
+---@field shipping_address? table
+---@field site_id? number
+---@field status? string
+---@field subscription_id? number
+---@field subtotal_amount? string
+---@field tax_amount? string
+---@field taxes? table
+---@field total_amount? string
+---@field uid? string
+
+---@class ReasonCode
+---@field code? string
+---@field created_at? string
+---@field description? string
+---@field id? number
+---@field position? number
+---@field reason_code table
+---@field site_id? number
+---@field updated_at? string
+
+---@class ReasonCodeLoadMatch
+---@field reason_code_id number
+
+---@class ReasonCodeListMatch
+---@field page? number
+---@field per_page? number
+
+---@class ReasonCodeCreateData
+---@field code? string
+---@field created_at? string
+---@field description? string
+---@field id? number
+---@field position? number
+---@field reason_code table
+---@field site_id? number
+---@field updated_at? string
+
+---@class ReasonCodeUpdateData
+---@field reason_code_id number
+---@field code? string
+---@field created_at? string
+---@field description? string
+---@field id? number
+---@field position? number
+---@field reason_code? table
+---@field site_id? number
+---@field updated_at? string
+
+---@class ReasonCodeRemoveMatch
+---@field reason_code_id number
+
+---@class ReferralCode
+
+---@class ReferralCodeLoadMatch
+---@field code string
+
+---@class SaleRepSetting
+---@field customer_name? string
+---@field sales_rep_id? number
+---@field sales_rep_name? string
+---@field site_link? string
+---@field site_name? string
+---@field subscription_id? number
+---@field subscription_mrr? string
+
+---@class SaleRepSettingListMatch
+---@field seller_id string
+---@field live_mode? boolean
+---@field page? number
+---@field per_page? number
+
+---@class SalesCommission
+---@field full_name? string
+---@field id? number
+---@field subscriptions? table
+---@field subscriptions_count? number
+---@field test_mode? boolean
+
+---@class SalesCommissionListMatch
+---@field sales_rep_id string
+---@field seller_id string
+---@field live_mode? boolean
+---@field page? number
+---@field per_page? number
+
+---@class Segment
+---@field component_id? number
+---@field created_at? string
+---@field event_based_billing_metric_id? number
+---@field id? number
+---@field price_point_id? number
+---@field prices? table
+---@field pricing_scheme? any
+---@field segment_property_1_value? any
+---@field segment_property_2_value? any
+---@field segment_property_3_value? any
+---@field segment_property_4_value? any
+---@field updated_at? string
+
+---@class SegmentCreateData
+---@field component_id string
+---@field price_point_id string
+---@field created_at? string
+---@field event_based_billing_metric_id? number
+---@field id? number
+---@field prices? table
+---@field pricing_scheme? any
+---@field segment_property_1_value? any
+---@field segment_property_2_value? any
+---@field segment_property_3_value? any
+---@field segment_property_4_value? any
+---@field updated_at? string
+
+---@class SegmentUpdateData
+---@field component_id string
+---@field id number
+---@field price_point_id string
+---@field created_at? string
+---@field event_based_billing_metric_id? number
+---@field prices? table
+---@field pricing_scheme? any
+---@field segment_property_1_value? any
+---@field segment_property_2_value? any
+---@field segment_property_3_value? any
+---@field segment_property_4_value? any
+---@field updated_at? string
+
+---@class SignupProformaPreview
+
+---@class SignupProformaPreviewCreateData
+---@field include? any
+
+---@class Site
+---@field chargify_js_keys? table
+---@field meta? table
+---@field site table
+
+---@class SiteLoadMatch
+---@field chargify_js_keys? table
+---@field meta? table
+---@field site? table
+
+---@class SiteListMatch
+---@field page? number
+---@field per_page? number
+
+---@class SiteCreateData
+---@field cleanup_scope? any
+---@field chargify_js_keys? table
+---@field meta? table
+---@field site table
+
+---@class Subscription
+---@field activated_at? string
+---@field automatically_resume_at? string
+---@field balance_in_cents? number
+---@field bank_account table
+---@field cancel_at_end_of_period? boolean
+---@field canceled_at? string
+---@field cancellation_message? string
+---@field cancellation_method? any
+---@field coupon_code? string
+---@field coupon_codes? table
+---@field coupon_use_count? number
+---@field coupon_uses_allowed? number
+---@field coupons? table
+---@field created_at? string
+---@field credit_balance_in_cents? number
+---@field credit_card? any
+---@field currency? string
+---@field current_billing_amount_in_cents? number
+---@field current_period_ends_at? string
+---@field current_period_started_at? string
+---@field customer? table
+---@field delayed_cancel_at? string
+---@field dunning_communication_delay_enabled? boolean
+---@field dunning_communication_delay_time_zone? string
+---@field expires_at? string
+---@field group? any
+---@field id? number
+---@field locale? string
+---@field net_terms? number
+---@field next_assessment_at? string
+---@field next_product_handle? string
+---@field next_product_id? number
+---@field next_product_price_point_id? number
+---@field offer_id? number
+---@field on_hold_at? string
+---@field payer_id? number
+---@field payment_collection_method? any
+---@field payment_type? string
+---@field prepaid_configuration? any
+---@field prepaid_dunning? boolean
+---@field prepayment_balance_in_cents? number
+---@field previous_state? any
+---@field product? table
+---@field product_price_in_cents? number
+---@field product_price_point_id? number
+---@field product_price_point_type? any
+---@field product_version_number? number
+---@field reason_code? string
+---@field receives_invoice_emails? boolean
+---@field reference? string
+---@field referral_code? string
+---@field scheduled_cancellation_at? string
+---@field self_service_page_token? string
+---@field signup_payment_id? number
+---@field signup_revenue? string
+---@field snap_day? string
+---@field state? any
+---@field stored_credential_transaction_id? number
+---@field subscription? table
+---@field total_revenue_in_cents? number
+---@field trial_ended_at? string
+---@field trial_started_at? string
+---@field updated_at? string
+
+---@class SubscriptionLoadMatch
+---@field subscription_id number
+---@field include? table
+
+---@class SubscriptionListMatch
+---@field branding_theme_id? number
+---@field collection_method? any
+---@field coupon? number
+---@field coupon_code? string
+---@field currency? string
+---@field customer_id? number
+---@field date_field? any
+---@field direction? any
+---@field dunning_exemption? boolean
+---@field end_date? string
+---@field end_datetime? string
+---@field group_status? any
+---@field include? table
+---@field metadata? table
+---@field page? number
+---@field payment_gateway? string
+---@field per_page? number
+---@field product? any
+---@field product_price_point_id? number
+---@field q? string
+---@field q_scope? any
+---@field sort? any
+---@field start_date? string
+---@field start_datetime? string
+---@field state? any
+
+---@class SubscriptionCreateData
+---@field activated_at? string
+---@field automatically_resume_at? string
+---@field balance_in_cents? number
+---@field bank_account table
+---@field cancel_at_end_of_period? boolean
+---@field canceled_at? string
+---@field cancellation_message? string
+---@field cancellation_method? any
+---@field coupon_code? string
+---@field coupon_codes? table
+---@field coupon_use_count? number
+---@field coupon_uses_allowed? number
+---@field coupons? table
+---@field created_at? string
+---@field credit_balance_in_cents? number
+---@field credit_card? any
+---@field currency? string
+---@field current_billing_amount_in_cents? number
+---@field current_period_ends_at? string
+---@field current_period_started_at? string
+---@field customer? table
+---@field delayed_cancel_at? string
+---@field dunning_communication_delay_enabled? boolean
+---@field dunning_communication_delay_time_zone? string
+---@field expires_at? string
+---@field group? any
+---@field id? number
+---@field locale? string
+---@field net_terms? number
+---@field next_assessment_at? string
+---@field next_product_handle? string
+---@field next_product_id? number
+---@field next_product_price_point_id? number
+---@field offer_id? number
+---@field on_hold_at? string
+---@field payer_id? number
+---@field payment_collection_method? any
+---@field payment_type? string
+---@field prepaid_configuration? any
+---@field prepaid_dunning? boolean
+---@field prepayment_balance_in_cents? number
+---@field previous_state? any
+---@field product? table
+---@field product_price_in_cents? number
+---@field product_price_point_id? number
+---@field product_price_point_type? any
+---@field product_version_number? number
+---@field reason_code? string
+---@field receives_invoice_emails? boolean
+---@field reference? string
+---@field referral_code? string
+---@field scheduled_cancellation_at? string
+---@field self_service_page_token? string
+---@field signup_payment_id? number
+---@field signup_revenue? string
+---@field snap_day? string
+---@field state? any
+---@field stored_credential_transaction_id? number
+---@field subscription? table
+---@field total_revenue_in_cents? number
+---@field trial_ended_at? string
+---@field trial_started_at? string
+---@field updated_at? string
+
+---@class SubscriptionUpdateData
+---@field subscription_id number
+---@field activated_at? string
+---@field automatically_resume_at? string
+---@field balance_in_cents? number
+---@field bank_account? table
+---@field cancel_at_end_of_period? boolean
+---@field canceled_at? string
+---@field cancellation_message? string
+---@field cancellation_method? any
+---@field coupon_code? string
+---@field coupon_codes? table
+---@field coupon_use_count? number
+---@field coupon_uses_allowed? number
+---@field coupons? table
+---@field created_at? string
+---@field credit_balance_in_cents? number
+---@field credit_card? any
+---@field currency? string
+---@field current_billing_amount_in_cents? number
+---@field current_period_ends_at? string
+---@field current_period_started_at? string
+---@field customer? table
+---@field delayed_cancel_at? string
+---@field dunning_communication_delay_enabled? boolean
+---@field dunning_communication_delay_time_zone? string
+---@field expires_at? string
+---@field group? any
+---@field id? number
+---@field locale? string
+---@field net_terms? number
+---@field next_assessment_at? string
+---@field next_product_handle? string
+---@field next_product_id? number
+---@field next_product_price_point_id? number
+---@field offer_id? number
+---@field on_hold_at? string
+---@field payer_id? number
+---@field payment_collection_method? any
+---@field payment_type? string
+---@field prepaid_configuration? any
+---@field prepaid_dunning? boolean
+---@field prepayment_balance_in_cents? number
+---@field previous_state? any
+---@field product? table
+---@field product_price_in_cents? number
+---@field product_price_point_id? number
+---@field product_price_point_type? any
+---@field product_version_number? number
+---@field reason_code? string
+---@field receives_invoice_emails? boolean
+---@field reference? string
+---@field referral_code? string
+---@field scheduled_cancellation_at? string
+---@field self_service_page_token? string
+---@field signup_payment_id? number
+---@field signup_revenue? string
+---@field snap_day? string
+---@field state? any
+---@field stored_credential_transaction_id? number
+---@field subscription? table
+---@field total_revenue_in_cents? number
+---@field trial_ended_at? string
+---@field trial_started_at? string
+---@field updated_at? string
+
+---@class SubscriptionRemoveMatch
+---@field id number
+---@field coupon_code? string
+
+---@class SubscriptionComponent
+---@field allocated_quantity? any
+---@field allocation? table
+---@field allocation_preview? table
+---@field allow_fractional_quantities? boolean
+---@field archived_at? string
+---@field component? table
+---@field component_handle? string
+---@field component_id? number
+---@field created_at? string
+---@field currency? string
+---@field description? string
+---@field display_on_hosted_page? boolean
+---@field downgrade_credit? any
+---@field enabled? boolean
+---@field historic_usages? table
+---@field id? number
+---@field interval? number
+---@field interval_unit? any
+---@field kind? any
+---@field name? string
+---@field price_point_handle? string
+---@field price_point_id? number
+---@field price_point_name? string
+---@field price_point_type? any
+---@field pricing_scheme? any
+---@field product_family_handle? string
+---@field product_family_id? number
+---@field recurring? boolean
+---@field subscription? table
+---@field subscription_id? number
+---@field unit_balance? any
+---@field unit_name? string
+---@field updated_at? string
+---@field upgrade_charge? any
+---@field usage? table
+---@field use_site_exchange_rate? boolean
+
+---@class SubscriptionComponentLoadMatch
+---@field component_id number
+---@field subscription_id number
+
+---@class SubscriptionComponentListMatch
+---@field date_field? any
+---@field direction? any
+---@field end_date? string
+---@field end_datetime? string
+---@field filter? any
+---@field include? any
+---@field page? number
+---@field per_page? number
+---@field price_point_id? string
+---@field product_family_id? table
+---@field sort? any
+---@field start_date? string
+---@field start_datetime? string
+---@field subscription_id? table
+
+---@class SubscriptionComponentCreateData
+---@field api_handle string
+---@field store_uid? string
+---@field allocated_quantity? any
+---@field allocation? table
+---@field allocation_preview? table
+---@field allow_fractional_quantities? boolean
+---@field archived_at? string
+---@field component? table
+---@field component_handle? string
+---@field component_id? number
+---@field created_at? string
+---@field currency? string
+---@field description? string
+---@field display_on_hosted_page? boolean
+---@field downgrade_credit? any
+---@field enabled? boolean
+---@field historic_usages? table
+---@field id? number
+---@field interval? number
+---@field interval_unit? any
+---@field kind? any
+---@field name? string
+---@field price_point_handle? string
+---@field price_point_id? number
+---@field price_point_name? string
+---@field price_point_type? any
+---@field pricing_scheme? any
+---@field product_family_handle? string
+---@field product_family_id? number
+---@field recurring? boolean
+---@field subscription? table
+---@field subscription_id? number
+---@field unit_balance? any
+---@field unit_name? string
+---@field updated_at? string
+---@field upgrade_charge? any
+---@field usage? table
+---@field use_site_exchange_rate? boolean
+
+---@class SubscriptionComponentUpdateData
+---@field allocation_id number
+---@field component_id number
+---@field subscription_id number
+---@field allocated_quantity? any
+---@field allocation? table
+---@field allocation_preview? table
+---@field allow_fractional_quantities? boolean
+---@field archived_at? string
+---@field component? table
+---@field component_handle? string
+---@field created_at? string
+---@field currency? string
+---@field description? string
+---@field display_on_hosted_page? boolean
+---@field downgrade_credit? any
+---@field enabled? boolean
+---@field historic_usages? table
+---@field id? number
+---@field interval? number
+---@field interval_unit? any
+---@field kind? any
+---@field name? string
+---@field price_point_handle? string
+---@field price_point_id? number
+---@field price_point_name? string
+---@field price_point_type? any
+---@field pricing_scheme? any
+---@field product_family_handle? string
+---@field product_family_id? number
+---@field recurring? boolean
+---@field subscription? table
+---@field unit_balance? any
+---@field unit_name? string
+---@field updated_at? string
+---@field upgrade_charge? any
+---@field usage? table
+---@field use_site_exchange_rate? boolean
+
+---@class SubscriptionComponentRemoveMatch
+---@field allocation_id number
+---@field component_id number
+---@field subscription_id number
+
+---@class SubscriptionGroup
+---@field id? string
+---@field meta? table
+---@field subscription_group? table
+---@field subscription_groups? table
+
+---@class SubscriptionGroupListMatch
+---@field include? table
+---@field page? number
+---@field per_page? number
+
+---@class SubscriptionGroupCreateData
+---@field id? string
+---@field meta? table
+---@field subscription_group? table
+---@field subscription_groups? table
+
+---@class SubscriptionGroupUpdateData
+---@field uid string
+---@field id? string
+---@field meta? table
+---@field subscription_group? table
+---@field subscription_groups? table
+
+---@class SubscriptionGroupRemoveMatch
+---@field id number
+
+---@class SubscriptionGroupInvoiceAccount
+---@field id? string
+
+---@class SubscriptionGroupInvoiceAccountListMatch
+---@field id string
+---@field filter? any
+---@field page? number
+---@field per_page? number
+
+---@class SubscriptionGroupInvoiceAccountCreateData
+---@field id string
+
+---@class SubscriptionGroupSignup
+
+---@class SubscriptionGroupSignupCreateData
+
+---@class SubscriptionGroupStatus
+---@field id? string
+
+---@class SubscriptionGroupStatusCreateData
+---@field id string
+
+---@class SubscriptionGroupStatusRemoveMatch
+---@field id string
+
+---@class SubscriptionInvoiceAccount
+---@field id? string
+---@field service_credits? table
+
+---@class SubscriptionInvoiceAccountListMatch
+---@field subscription_id number
+---@field direction? any
+---@field page? number
+---@field per_page? number
+
+---@class SubscriptionInvoiceAccountCreateData
+---@field id number
+---@field service_credits? table
+
+---@class SubscriptionMrr
+---@field breakouts table
+---@field mrr_amount_in_cents number
+---@field subscription_id number
+
+---@class SubscriptionMrrListMatch
+---@field at_time? string
+---@field direction? any
+---@field filter? any
+---@field page? number
+---@field per_page? number
+
+---@class SubscriptionNote
+---@field body? string
+---@field created_at? string
+---@field id? number
+---@field note table
+---@field sticky? boolean
+---@field subscription_id? number
+---@field updated_at? string
+
+---@class SubscriptionNoteLoadMatch
+---@field note_id number
+---@field subscription_id number
+
+---@class SubscriptionNoteListMatch
+---@field id number
+---@field page? number
+---@field per_page? number
+
+---@class SubscriptionNoteCreateData
+---@field id number
+---@field body? string
+---@field created_at? string
+---@field note table
+---@field sticky? boolean
+---@field subscription_id? number
+---@field updated_at? string
+
+---@class SubscriptionNoteUpdateData
+---@field note_id number
+---@field subscription_id number
+---@field body? string
+---@field created_at? string
+---@field id? number
+---@field note? table
+---@field sticky? boolean
+---@field updated_at? string
+
+---@class SubscriptionNoteRemoveMatch
+---@field note_id number
+---@field subscription_id number
+
+---@class SubscriptionProduct
+---@field id? string
+---@field migration table
+
+---@class SubscriptionProductCreateData
+---@field subscription_id number
+---@field id? string
+---@field migration table
+
+---@class SubscriptionRenewal
+---@field id? string
+---@field scheduled_renewal_configuration? table
+---@field scheduled_renewal_configuration_item? table
+
+---@class SubscriptionRenewalLoadMatch
+---@field id number
+---@field subscription_id number
+
+---@class SubscriptionRenewalListMatch
+---@field id number
+---@field status? any
+
+---@class SubscriptionRenewalCreateData
+---@field scheduled_renewal_id number
+---@field subscription_id number
+---@field id? string
+---@field scheduled_renewal_configuration? table
+---@field scheduled_renewal_configuration_item? table
+
+---@class SubscriptionRenewalUpdateData
+---@field id? number
+---@field scheduled_renewal_id? number
+---@field subscription_id number
+---@field scheduled_renewal_configuration? table
+---@field scheduled_renewal_configuration_item? table
+
+---@class SubscriptionRenewalRemoveMatch
+---@field id number
+---@field scheduled_renewal_id number
+---@field subscription_id number
+
+---@class SubscriptionStatus
+---@field id? string
+---@field renewal_preview? table
+
+---@class SubscriptionStatusCreateData
+---@field subscription_id number
+---@field id? string
+---@field renewal_preview? table
+
+---@class SubscriptionStatusUpdateData
+---@field id number
+---@field renewal_preview? table
+
+---@class SubscriptionStatusRemoveMatch
+---@field subscription_id number
+
+---@class Usage
+---@field usage table
+
+---@class UsageListMatch
+---@field component_id string
+---@field subscription_id_or_reference any
+---@field max_id? number
+---@field page? number
+---@field per_page? number
+---@field since_date? string
+---@field since_id? number
+---@field until_date? string
+
+---@class Webhook
+---@field endpoint? table
+---@field webhook? table
+
+---@class WebhookListMatch
+---@field order? any
+---@field page? number
+---@field per_page? number
+---@field since_date? string
+---@field status? any
+---@field subscription? number
+---@field until_date? string
+
+---@class WebhookCreateData
+---@field endpoint? table
+---@field webhook? table
+
+---@class WebhookUpdateData
+---@field endpoint? table
+---@field webhook? table
+
+local M = {}
+
+return M

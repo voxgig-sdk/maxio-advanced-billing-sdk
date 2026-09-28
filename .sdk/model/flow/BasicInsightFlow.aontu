@@ -1,0 +1,28 @@
+# BasicInsightFlow
+
+main: kit: flow: BasicInsightFlow:
+{
+  entity: "insight",
+  kind: "basic",
+  name: "BasicInsightFlow",
+  step: [
+    {
+      i: {
+        ref: "insight_ref01",
+        srcdatavar: "insight_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-insight_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicInsightFlow"
+}

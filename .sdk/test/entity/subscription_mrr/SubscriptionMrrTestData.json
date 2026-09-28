@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "subscription_mrr": {
+      "SUBSCRIPTION_MRR00": {
+        "breakouts": {},
+        "mrr_amount_in_cents": 31,
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "SUBSCRIPTION_MRR01": {
+        "breakouts": {},
+        "mrr_amount_in_cents": 61,
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "SUBSCRIPTION_MRR02": {
+        "breakouts": {},
+        "mrr_amount_in_cents": 91,
+        "subscription_id": "SUBSCRIPTION01"
+      }
+    }
+  },
+  "new": {
+    "subscription_mrr": {
+      "subscription_mrr_ref01": {
+        "breakouts": {},
+        "mrr_amount_in_cents": 121,
+        "subscription_id": "SUBSCRIPTION01"
+      }
+    }
+  },
+  "requests": {
+    "GET /subscriptions_mrr.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

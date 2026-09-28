@@ -1,0 +1,28 @@
+# BasicCouponCurrencyFlow
+
+main: kit: flow: BasicCouponCurrencyFlow:
+{
+  entity: "coupon_currency",
+  kind: "basic",
+  name: "BasicCouponCurrencyFlow",
+  step: [
+    {
+      i: {
+        ref: "coupon_currency_ref01",
+        srcdatavar: "coupon_currency_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-coupon_currency_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCouponCurrencyFlow"
+}

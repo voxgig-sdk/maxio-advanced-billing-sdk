@@ -1,0 +1,77 @@
+{
+  "existing": {
+    "segment": {
+      "SEGMENT00": {
+        "component_id": "COMPONENT01",
+        "created_at": "s79",
+        "event_based_billing_metric_id": "EVENT_BASED_BILLING_METRIC01",
+        "id": "SEGMENT00",
+        "price_point_id": "PRICE_POINT01",
+        "prices": [],
+        "pricing_scheme": "s7e",
+        "segment_property_1_value": "s7f",
+        "segment_property_2_value": "s80",
+        "segment_property_3_value": "s81",
+        "segment_property_4_value": "s82",
+        "updated_at": "s83"
+      },
+      "SEGMENT01": {
+        "component_id": "COMPONENT01",
+        "created_at": "sf1",
+        "event_based_billing_metric_id": "EVENT_BASED_BILLING_METRIC01",
+        "id": "SEGMENT01",
+        "price_point_id": "PRICE_POINT01",
+        "prices": [],
+        "pricing_scheme": "sf6",
+        "segment_property_1_value": "sf7",
+        "segment_property_2_value": "sf8",
+        "segment_property_3_value": "sf9",
+        "segment_property_4_value": "sfa",
+        "updated_at": "sfb"
+      },
+      "SEGMENT02": {
+        "component_id": "COMPONENT01",
+        "created_at": "s169",
+        "event_based_billing_metric_id": "EVENT_BASED_BILLING_METRIC01",
+        "id": "SEGMENT02",
+        "price_point_id": "PRICE_POINT01",
+        "prices": [],
+        "pricing_scheme": "s16e",
+        "segment_property_1_value": "s16f",
+        "segment_property_2_value": "s170",
+        "segment_property_3_value": "s171",
+        "segment_property_4_value": "s172",
+        "updated_at": "s173"
+      }
+    }
+  },
+  "new": {
+    "segment": {
+      "segment_ref01": {
+        "component_id": "COMPONENT01",
+        "created_at": "s1e1",
+        "event_based_billing_metric_id": "EVENT_BASED_BILLING_METRIC01",
+        "price_point_id": "PRICE_POINT01",
+        "prices": [],
+        "pricing_scheme": "s1e6",
+        "segment_property_1_value": "s1e7",
+        "segment_property_2_value": "s1e8",
+        "segment_property_3_value": "s1e9",
+        "segment_property_4_value": "s1ea",
+        "updated_at": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "POST /components/{component_id}/price_points/{price_point_id}/segments.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /components/{component_id}/price_points/{price_point_id}/segments/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

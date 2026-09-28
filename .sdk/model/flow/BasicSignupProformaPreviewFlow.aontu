@@ -1,0 +1,18 @@
+# BasicSignupProformaPreviewFlow
+
+main: kit: flow: BasicSignupProformaPreviewFlow:
+{
+  entity: "signup_proforma_preview",
+  kind: "basic",
+  name: "BasicSignupProformaPreviewFlow",
+  step: [
+    {
+      i: {
+        ref: "signup_proforma_preview_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicSignupProformaPreviewFlow"
+}

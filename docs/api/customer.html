@@ -1,0 +1,1253 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Customer | Maxio Advanced Billing</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Maxio Advanced Billing<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/maxio-advanced-billing-sdk">voxgig-sdk/maxio-advanced-billing-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Maxio Advanced Billing</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account_balance.html">AccountBalance</a>
+<a href="../api/allocation.html">Allocation</a>
+<a href="../api/batch_job.html">BatchJob</a>
+<a href="../api/billing_portal.html">BillingPortal</a>
+<a href="../api/component.html">Component</a>
+<a href="../api/component_feature.html">ComponentFeature</a>
+<a href="../api/component_price_point.html">ComponentPricePoint</a>
+<a href="../api/component_price_point_currency_overage.html">ComponentPricePointCurrencyOverage</a>
+<a href="../api/coupon.html">Coupon</a>
+<a href="../api/coupon_currency.html">CouponCurrency</a>
+<a href="../api/coupon_subcode.html">CouponSubcode</a>
+<a href="../api/coupon_usage.html">CouponUsage</a>
+<a href="../api/custom_field.html">CustomField</a>
+<a aria-current="page" href="../api/customer.html">Customer</a><div class="nav-sections"><a class="nav-section" href="#post-portalcustomerscustomer_idenablejson">POST /portal/customers/{customer_id}/enable.json</a>
+<a class="nav-section" href="#post-customersjson">POST /customers.json</a>
+<a class="nav-section" href="#get-customersjson">GET /customers.json</a>
+<a class="nav-section" href="#get-customersidjson">GET /customers/{id}.json</a>
+<a class="nav-section" href="#get-customerslookupjson">GET /customers/lookup.json</a>
+<a class="nav-section" href="#delete-customersidjson">DELETE /customers/{id}.json</a>
+<a class="nav-section" href="#put-customersidjson">PUT /customers/{id}.json</a></div>
+<a href="../api/delayed_cancel.html">DelayedCancel</a>
+<a href="../api/endpoint.html">Endpoint</a>
+<a href="../api/entitlement.html">Entitlement</a>
+<a href="../api/event.html">Event</a>
+<a href="../api/events_based_billing_segment.html">EventsBasedBillingSegment</a>
+<a href="../api/feature.html">Feature</a>
+<a href="../api/feature_catalog_item.html">FeatureCatalogItem</a>
+<a href="../api/feature_template.html">FeatureTemplate</a>
+<a href="../api/insight.html">Insight</a>
+<a href="../api/invoice.html">Invoice</a>
+<a href="../api/list_proforma_invoice.html">ListProformaInvoice</a>
+<a href="../api/list_sale_rep_item.html">ListSaleRepItem</a>
+<a href="../api/list_segment.html">ListSegment</a>
+<a href="../api/offer.html">Offer</a>
+<a href="../api/one_time_token.html">OneTimeToken</a>
+<a href="../api/payment_profile.html">PaymentProfile</a>
+<a href="../api/prepayment.html">Prepayment</a>
+<a href="../api/product.html">Product</a>
+<a href="../api/product_family.html">ProductFamily</a>
+<a href="../api/product_feature.html">ProductFeature</a>
+<a href="../api/product_price_point.html">ProductPricePoint</a>
+<a href="../api/proforma_invoice.html">ProformaInvoice</a>
+<a href="../api/reason_code.html">ReasonCode</a>
+<a href="../api/referral_code.html">ReferralCode</a>
+<a href="../api/sale_rep_setting.html">SaleRepSetting</a>
+<a href="../api/sales_commission.html">SalesCommission</a>
+<a href="../api/segment.html">Segment</a>
+<a href="../api/signup_proforma_preview.html">SignupProformaPreview</a>
+<a href="../api/site.html">Site</a>
+<a href="../api/subscription.html">Subscription</a>
+<a href="../api/subscription_component.html">SubscriptionComponent</a>
+<a href="../api/subscription_group.html">SubscriptionGroup</a>
+<a href="../api/subscription_group_invoice_account.html">SubscriptionGroupInvoiceAccount</a>
+<a href="../api/subscription_group_signup.html">SubscriptionGroupSignup</a>
+<a href="../api/subscription_group_status.html">SubscriptionGroupStatus</a>
+<a href="../api/subscription_invoice_account.html">SubscriptionInvoiceAccount</a>
+<a href="../api/subscription_mrr.html">SubscriptionMrr</a>
+<a href="../api/subscription_note.html">SubscriptionNote</a>
+<a href="../api/subscription_product.html">SubscriptionProduct</a>
+<a href="../api/subscription_renewal.html">SubscriptionRenewal</a>
+<a href="../api/subscription_status.html">SubscriptionStatus</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="customer">Customer</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-portalcustomerscustomer_idenablejson"><code>/portal/customers/{customer_id}/enable.json</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-customersjson"><code>/customers.json</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-customersjson"><code>/customers.json</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-customersidjson"><code>/customers/{id}.json</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-customerslookupjson"><code>/customers/lookup.json</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-customersidjson"><code>/customers/{id}.json</code></a></td>
+<td><code>remove</code></td>
+<td>No Content</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-customersidjson"><code>/customers/{id}.json</code></a></td>
+<td><code>update</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">customers, err := client.Customer(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(customers)
+customer, err := client.Customer(nil).Load(map[string]any{&quot;id&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(customer)
+created, err := client.Customer(nil).Create(map[string]any{&quot;address&quot;: &quot;example&quot;, &quot;address_2&quot;: &quot;example&quot;, &quot;branding_theme_id&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.Customer(nil).Update(map[string]any{&quot;id&quot;: 1, &quot;address&quot;: &quot;example&quot;, &quot;address_2&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.Customer(nil).Remove(map[string]any{&quot;id&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local customers, err = client:Customer():list()
+local customer, err = client:Customer():load({ id = 1 })
+local created, err = client:Customer():create({ address = &quot;example&quot;, address_2 = &quot;example&quot;, branding_theme_id = 1 })
+local updated, err = client:Customer():update({ id = 1, address = &quot;example&quot;, address_2 = &quot;example&quot; })
+local removed, err = client:Customer():remove({ id = 1 })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$customers = $client-&gt;Customer()-&gt;list();
+$customer = $client-&gt;Customer()-&gt;load([&quot;id&quot; =&gt; 1]);
+$created = $client-&gt;Customer()-&gt;create([&quot;address&quot; =&gt; &quot;example&quot;, &quot;address_2&quot; =&gt; &quot;example&quot;, &quot;branding_theme_id&quot; =&gt; 1]);
+$updated = $client-&gt;Customer()-&gt;update([&quot;id&quot; =&gt; 1, &quot;address&quot; =&gt; &quot;example&quot;, &quot;address_2&quot; =&gt; &quot;example&quot;]);
+$client-&gt;Customer()-&gt;remove([&quot;id&quot; =&gt; 1]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">customers = client.Customer().list()
+customer = client.Customer().load({&quot;id&quot;: 1})
+created = client.Customer().create({ &quot;address&quot;: &quot;example&quot;, &quot;address_2&quot;: &quot;example&quot;, &quot;branding_theme_id&quot;: 1 })
+updated = client.Customer().update({&quot;id&quot;: 1, &quot;address&quot;: &quot;example&quot;, &quot;address_2&quot;: &quot;example&quot;})
+client.Customer().remove({&quot;id&quot;: 1})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">customers = client.Customer.list()
+customer = client.Customer.load({ &quot;id&quot; =&gt; 1 })
+created = client.Customer.create({ &quot;address&quot; =&gt; &quot;example&quot;, &quot;address_2&quot; =&gt; &quot;example&quot;, &quot;branding_theme_id&quot; =&gt; 1 })
+updated = client.Customer.update({ &quot;id&quot; =&gt; 1, &quot;address&quot; =&gt; &quot;example&quot;, &quot;address_2&quot; =&gt; &quot;example&quot; })
+client.Customer.remove({ &quot;id&quot; =&gt; 1 })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const customers = await client.Customer().list()
+const customer = await client.Customer().load({ id: 1 })
+const created = await client.Customer().create({ address: &quot;example&quot;, address_2: &quot;example&quot;, branding_theme_id: 1 })
+const updated = await client.Customer().update({ id: 1, address: &quot;example&quot;, address_2: &quot;example&quot; })
+await client.Customer().remove({ id: 1 })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>address</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping street address (for example, “123 Main St.”)</td>
+</tr>
+<tr>
+<td><code>address_2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Second line of the customer’s shipping address for example, “Apt.</td>
+</tr>
+<tr>
+<td><code>branding_theme_id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The ID of the Branding Theme assigned to this customer as the customer's default Branding Theme.</td>
+</tr>
+<tr>
+<td><code>cc_emails</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>“A comma-separated list of emails that should be cc’d on all customer communications (for example, “joe@example.com, sue@example.com”)”</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address city (for example, “Boston”)</td>
+</tr>
+<tr>
+<td><code>country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer shipping address country</td>
+</tr>
+<tr>
+<td><code>country_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer's full name of country</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The timestamp in which the customer object was created in Chargify</td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Customer</td>
+</tr>
+<tr>
+<td><code>default_auto_renewal_profile_id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The default auto-renewal profile ID for the customer</td>
+</tr>
+<tr>
+<td><code>default_subscription_group_uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Default Subscription Group Uid</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The email address of the customer</td>
+</tr>
+<tr>
+<td><code>entity_identifier_kind</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Entity Identifier Kind</td>
+</tr>
+<tr>
+<td><code>entity_identifier_value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The value of the customer's tax or business identifier.</td>
+</tr>
+<tr>
+<td><code>first_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The first name of the customer</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The customer ID in Chargify</td>
+</tr>
+<tr>
+<td><code>last_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The last name of the customer</td>
+</tr>
+<tr>
+<td><code>locale</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The locale for the customer to identify language-region</td>
+</tr>
+<tr>
+<td><code>maxioid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Maxio-generated unique identifier for the customer.</td>
+</tr>
+<tr>
+<td><code>organization</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The organization of the customer.</td>
+</tr>
+<tr>
+<td><code>parent_id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The parent ID in Chargify if applicable.</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The phone number of the customer</td>
+</tr>
+<tr>
+<td><code>portal_customer_created_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal entry was created at for the customer</td>
+</tr>
+<tr>
+<td><code>portal_invite_last_accepted_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal invite was last accepted</td>
+</tr>
+<tr>
+<td><code>portal_invite_last_sent_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal invite was last sent at</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unique identifier used within your own application for this customer</td>
+</tr>
+<tr>
+<td><code>salesforce_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Salesforce ID for the customer</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address state (for example, “MA”)</td>
+</tr>
+<tr>
+<td><code>state_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer's full name of state</td>
+</tr>
+<tr>
+<td><code>surcharging</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether surcharging is enabled for the customer.</td>
+</tr>
+<tr>
+<td><code>tax_exempt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>The tax exempt status for the customer.</td>
+</tr>
+<tr>
+<td><code>tax_exempt_reason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Tax Exemption Reason Code for the customer</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The timestamp in which the customer object was last edited</td>
+</tr>
+<tr>
+<td><code>vat_country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The two-letter ISO 3166-1 country code that qualifies the customer's VAT number.</td>
+</tr>
+<tr>
+<td><code>vat_number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The VAT business identification number for the customer.</td>
+</tr>
+<tr>
+<td><code>verified</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the customer verified to use ACH as a payment method.</td>
+</tr>
+<tr>
+<td><code>zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address zip code (for example, “12345”)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-portalcustomerscustomer_idenablejson" class="operation" data-method="post"><code>POST</code> /portal/customers/{customer_id}/enable.json</h3>
+<p>Operation ID: <code>enableBillingPortalForCustomer</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>customer_id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Chargify id of the customer |
+| <code>auto_invite</code> | <code>query</code> | <code>enum: 0, 1 and any</code> | No | When set to 1, an Invitation email will be sent to the Customer. When set to 0, or not sent, an email will not be sent. Use in query: ``auto_invite<code>=1</code>. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>customer</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Customer</td>
+</tr>
+<tr>
+<td><code>customer.address</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping street address (for example, “123 Main St.”)</td>
+</tr>
+<tr>
+<td><code>customer.address_2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Second line of the customer’s shipping address for example, “Apt. 100”</td>
+</tr>
+<tr>
+<td><code>customer.branding_theme_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the Branding Theme assigned to this customer as the customer's default Branding Theme. This customer-level Branding Theme is used when a subscription does not have its own subscription-level Branding Theme. Available only when Branding Themes are enabled for the site.</td>
+</tr>
+<tr>
+<td><code>customer.cc_emails</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>“A comma-separated list of emails that should be cc’d on all customer communications (for example, “joe@example.com, sue@example.com”)”</td>
+</tr>
+<tr>
+<td><code>customer.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address city (for example, “Boston”)</td>
+</tr>
+<tr>
+<td><code>customer.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer shipping address country</td>
+</tr>
+<tr>
+<td><code>customer.country_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer's full name of country</td>
+</tr>
+<tr>
+<td><code>customer.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp in which the customer object was created in Chargify</td>
+</tr>
+<tr>
+<td><code>customer.default_auto_renewal_profile_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The default auto-renewal profile ID for the customer</td>
+</tr>
+<tr>
+<td><code>customer.default_subscription_group_uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer.email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The email address of the customer</td>
+</tr>
+<tr>
+<td><code>customer.entity_identifier_kind</code></td>
+<td><code>any or enum: vat_eu, national_tax, company_reg, gln, duns, lei and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer.entity_identifier_value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The value of the customer's tax or business identifier. Returned as <code>null</code> when the customer has no entity identifier.</td>
+</tr>
+<tr>
+<td><code>customer.first_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The first name of the customer</td>
+</tr>
+<tr>
+<td><code>customer.id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The customer ID in Chargify</td>
+</tr>
+<tr>
+<td><code>customer.last_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The last name of the customer</td>
+</tr>
+<tr>
+<td><code>customer.locale</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The locale for the customer to identify language-region</td>
+</tr>
+<tr>
+<td><code>customer.maxioid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Maxio-generated unique identifier for the customer.</td>
+</tr>
+<tr>
+<td><code>customer.organization</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The organization of the customer. If no value, <code>null</code> or empty string is provided, <code>organization</code> will be populated with the customer's first and last name, separated with a space.</td>
+</tr>
+<tr>
+<td><code>customer.parent_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The parent ID in Chargify if applicable. Parent is another Customer object.</td>
+</tr>
+<tr>
+<td><code>customer.phone</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The phone number of the customer</td>
+</tr>
+<tr>
+<td><code>customer.portal_customer_created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal entry was created at for the customer</td>
+</tr>
+<tr>
+<td><code>customer.portal_invite_last_accepted_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal invite was last accepted</td>
+</tr>
+<tr>
+<td><code>customer.portal_invite_last_sent_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal invite was last sent at</td>
+</tr>
+<tr>
+<td><code>customer.reference</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unique identifier used within your own application for this customer</td>
+</tr>
+<tr>
+<td><code>customer.salesforce_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Salesforce ID for the customer</td>
+</tr>
+<tr>
+<td><code>customer.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address state (for example, “MA”)</td>
+</tr>
+<tr>
+<td><code>customer.state_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer's full name of state</td>
+</tr>
+<tr>
+<td><code>customer.surcharging</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether surcharging is enabled for the customer. Only included on sites where surcharging control is enabled.</td>
+</tr>
+<tr>
+<td><code>customer.tax_exempt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>The tax exempt status for the customer. Acceptable values are true or 1 for true and false or 0 for false.</td>
+</tr>
+<tr>
+<td><code>customer.tax_exempt_reason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Tax Exemption Reason Code for the customer</td>
+</tr>
+<tr>
+<td><code>customer.updated_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp in which the customer object was last edited</td>
+</tr>
+<tr>
+<td><code>customer.vat_country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The two-letter ISO 3166-1 country code that qualifies the customer's VAT number. Set to <code>null</code> when an identifier is stored through <code>entity_identifier_kind</code> for a kind that is not tied to a VAT country, meaning <code>company_reg</code>, <code>gln</code>, <code>duns</code>, or <code>lei</code>.</td>
+</tr>
+<tr>
+<td><code>customer.vat_number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The VAT business identification number for the customer. This number is used to determine VAT tax opt out rules. It is not validated when added or updated on a customer record. Instead, it is validated via VIES before calculating taxes. Only valid business identification numbers will allow for VAT opt out. When the customer holds an entity identifier, this field returns that identifier's value, whatever its kind.</td>
+</tr>
+<tr>
+<td><code>customer.verified</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the customer verified to use ACH as a payment method.</td>
+</tr>
+<tr>
+<td><code>customer.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address zip code (for example, “12345”)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="422-unprocessable-entity-webdav" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h3 id="post-customersjson" class="operation" data-method="post"><code>POST</code> /customers.json</h3>
+<p>Operation ID: <code>createCustomer</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and any</code>.</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-ok-1" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h5 id="422-unprocessable-entity-webdav-1" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h2 id="list">list</h2>
+<h3 id="get-customersjson" class="operation" data-method="get"><code>GET</code> /customers.json</h3>
+<p>Operation ID: <code>listCustomers</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc and any</code> | No | Direction to sort customers by time of creation |
+| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned. Use in query <code>page=1</code>. |
+| <code>per_page</code> | <code>query</code> | <code>integer (int32)</code> | No | This parameter indicates how many records to fetch in each request. Default value is 50. The maximum allowed values is 200; any <code>per_page</code> value over 200 will be changed to 200. Use in query <code>per_page`=200`. | | `date_field` | `query` | `enum: updated_at, created_at and any` | No | The type of filter you would like to apply to your search. Use in query: </code>date_field<code>=</code>created_at``. |
+| <code>start_date</code> | <code>query</code> | <code>string</code> | No | The start date (format YYYY-MM-DD) with which to filter the <code>date_field</code>. Returns subscriptions with a timestamp at or after midnight (12:00:00 AM) in your site’s time zone on the date specified. |
+| <code>end_date</code> | <code>query</code> | <code>string</code> | No | The end date (format YYYY-MM-DD) with which to filter the <code>date_field</code>. Returns subscriptions with a timestamp up to and including 11:59:59PM in your site’s time zone on the date specified. |
+| <code>start_datetime</code> | <code>query</code> | <code>string</code> | No | The start date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the <code>date_field</code>. Returns subscriptions with a timestamp at or after exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of <code>start_date</code>. |
+| <code>end_datetime</code> | <code>query</code> | <code>string</code> | No | The end date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the <code>date_field</code>. Returns subscriptions with a timestamp at or before exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of <code>end_date</code>. |
+| <code>q</code> | <code>query</code> | <code>string</code> | No | A search query by which to filter customers (can be an email, an ID, a reference, organization) |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-ok-2" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].customer</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Customer</td>
+</tr>
+<tr>
+<td><code>[].customer.address</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping street address (for example, “123 Main St.”)</td>
+</tr>
+<tr>
+<td><code>[].customer.address_2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Second line of the customer’s shipping address for example, “Apt. 100”</td>
+</tr>
+<tr>
+<td><code>[].customer.branding_theme_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the Branding Theme assigned to this customer as the customer's default Branding Theme. This customer-level Branding Theme is used when a subscription does not have its own subscription-level Branding Theme. Available only when Branding Themes are enabled for the site.</td>
+</tr>
+<tr>
+<td><code>[].customer.cc_emails</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>“A comma-separated list of emails that should be cc’d on all customer communications (for example, “joe@example.com, sue@example.com”)”</td>
+</tr>
+<tr>
+<td><code>[].customer.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address city (for example, “Boston”)</td>
+</tr>
+<tr>
+<td><code>[].customer.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer shipping address country</td>
+</tr>
+<tr>
+<td><code>[].customer.country_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer's full name of country</td>
+</tr>
+<tr>
+<td><code>[].customer.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp in which the customer object was created in Chargify</td>
+</tr>
+<tr>
+<td><code>[].customer.default_auto_renewal_profile_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The default auto-renewal profile ID for the customer</td>
+</tr>
+<tr>
+<td><code>[].customer.default_subscription_group_uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].customer.email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The email address of the customer</td>
+</tr>
+<tr>
+<td><code>[].customer.entity_identifier_kind</code></td>
+<td><code>any or enum: vat_eu, national_tax, company_reg, gln, duns, lei and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].customer.entity_identifier_value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The value of the customer's tax or business identifier. Returned as <code>null</code> when the customer has no entity identifier.</td>
+</tr>
+<tr>
+<td><code>[].customer.first_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The first name of the customer</td>
+</tr>
+<tr>
+<td><code>[].customer.id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The customer ID in Chargify</td>
+</tr>
+<tr>
+<td><code>[].customer.last_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The last name of the customer</td>
+</tr>
+<tr>
+<td><code>[].customer.locale</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The locale for the customer to identify language-region</td>
+</tr>
+<tr>
+<td><code>[].customer.maxioid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Maxio-generated unique identifier for the customer.</td>
+</tr>
+<tr>
+<td><code>[].customer.organization</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The organization of the customer. If no value, <code>null</code> or empty string is provided, <code>organization</code> will be populated with the customer's first and last name, separated with a space.</td>
+</tr>
+<tr>
+<td><code>[].customer.parent_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The parent ID in Chargify if applicable. Parent is another Customer object.</td>
+</tr>
+<tr>
+<td><code>[].customer.phone</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The phone number of the customer</td>
+</tr>
+<tr>
+<td><code>[].customer.portal_customer_created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal entry was created at for the customer</td>
+</tr>
+<tr>
+<td><code>[].customer.portal_invite_last_accepted_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal invite was last accepted</td>
+</tr>
+<tr>
+<td><code>[].customer.portal_invite_last_sent_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal invite was last sent at</td>
+</tr>
+<tr>
+<td><code>[].customer.reference</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unique identifier used within your own application for this customer</td>
+</tr>
+<tr>
+<td><code>[].customer.salesforce_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Salesforce ID for the customer</td>
+</tr>
+<tr>
+<td><code>[].customer.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address state (for example, “MA”)</td>
+</tr>
+<tr>
+<td><code>[].customer.state_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer's full name of state</td>
+</tr>
+<tr>
+<td><code>[].customer.surcharging</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether surcharging is enabled for the customer. Only included on sites where surcharging control is enabled.</td>
+</tr>
+<tr>
+<td><code>[].customer.tax_exempt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>The tax exempt status for the customer. Acceptable values are true or 1 for true and false or 0 for false.</td>
+</tr>
+<tr>
+<td><code>[].customer.tax_exempt_reason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Tax Exemption Reason Code for the customer</td>
+</tr>
+<tr>
+<td><code>[].customer.updated_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp in which the customer object was last edited</td>
+</tr>
+<tr>
+<td><code>[].customer.vat_country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The two-letter ISO 3166-1 country code that qualifies the customer's VAT number. Set to <code>null</code> when an identifier is stored through <code>entity_identifier_kind</code> for a kind that is not tied to a VAT country, meaning <code>company_reg</code>, <code>gln</code>, <code>duns</code>, or <code>lei</code>.</td>
+</tr>
+<tr>
+<td><code>[].customer.vat_number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The VAT business identification number for the customer. This number is used to determine VAT tax opt out rules. It is not validated when added or updated on a customer record. Instead, it is validated via VIES before calculating taxes. Only valid business identification numbers will allow for VAT opt out. When the customer holds an entity identifier, this field returns that identifier's value, whatever its kind.</td>
+</tr>
+<tr>
+<td><code>[].customer.verified</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the customer verified to use ACH as a payment method.</td>
+</tr>
+<tr>
+<td><code>[].customer.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address zip code (for example, “12345”)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-customersidjson" class="operation" data-method="get"><code>GET</code> /customers/{id}.json</h3>
+<p>Operation ID: <code>readCustomer</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Advanced Billing id of the customer |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-ok-3" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h3 id="get-customerslookupjson" class="operation" data-method="get"><code>GET</code> /customers/lookup.json</h3>
+<p>Operation ID: <code>readCustomerByReference</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>reference</code> | <code>query</code> | <code>string</code> | Yes | Customer reference |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-ok-4" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>customer</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Customer</td>
+</tr>
+<tr>
+<td><code>customer.address</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping street address (for example, “123 Main St.”)</td>
+</tr>
+<tr>
+<td><code>customer.address_2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Second line of the customer’s shipping address for example, “Apt. 100”</td>
+</tr>
+<tr>
+<td><code>customer.branding_theme_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the Branding Theme assigned to this customer as the customer's default Branding Theme. This customer-level Branding Theme is used when a subscription does not have its own subscription-level Branding Theme. Available only when Branding Themes are enabled for the site.</td>
+</tr>
+<tr>
+<td><code>customer.cc_emails</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>“A comma-separated list of emails that should be cc’d on all customer communications (for example, “joe@example.com, sue@example.com”)”</td>
+</tr>
+<tr>
+<td><code>customer.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address city (for example, “Boston”)</td>
+</tr>
+<tr>
+<td><code>customer.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer shipping address country</td>
+</tr>
+<tr>
+<td><code>customer.country_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer's full name of country</td>
+</tr>
+<tr>
+<td><code>customer.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp in which the customer object was created in Chargify</td>
+</tr>
+<tr>
+<td><code>customer.default_auto_renewal_profile_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The default auto-renewal profile ID for the customer</td>
+</tr>
+<tr>
+<td><code>customer.default_subscription_group_uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer.email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The email address of the customer</td>
+</tr>
+<tr>
+<td><code>customer.entity_identifier_kind</code></td>
+<td><code>any or enum: vat_eu, national_tax, company_reg, gln, duns, lei and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer.entity_identifier_value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The value of the customer's tax or business identifier. Returned as <code>null</code> when the customer has no entity identifier.</td>
+</tr>
+<tr>
+<td><code>customer.first_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The first name of the customer</td>
+</tr>
+<tr>
+<td><code>customer.id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The customer ID in Chargify</td>
+</tr>
+<tr>
+<td><code>customer.last_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The last name of the customer</td>
+</tr>
+<tr>
+<td><code>customer.locale</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The locale for the customer to identify language-region</td>
+</tr>
+<tr>
+<td><code>customer.maxioid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Maxio-generated unique identifier for the customer.</td>
+</tr>
+<tr>
+<td><code>customer.organization</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The organization of the customer. If no value, <code>null</code> or empty string is provided, <code>organization</code> will be populated with the customer's first and last name, separated with a space.</td>
+</tr>
+<tr>
+<td><code>customer.parent_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The parent ID in Chargify if applicable. Parent is another Customer object.</td>
+</tr>
+<tr>
+<td><code>customer.phone</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The phone number of the customer</td>
+</tr>
+<tr>
+<td><code>customer.portal_customer_created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal entry was created at for the customer</td>
+</tr>
+<tr>
+<td><code>customer.portal_invite_last_accepted_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal invite was last accepted</td>
+</tr>
+<tr>
+<td><code>customer.portal_invite_last_sent_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp of when the Billing Portal invite was last sent at</td>
+</tr>
+<tr>
+<td><code>customer.reference</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unique identifier used within your own application for this customer</td>
+</tr>
+<tr>
+<td><code>customer.salesforce_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Salesforce ID for the customer</td>
+</tr>
+<tr>
+<td><code>customer.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address state (for example, “MA”)</td>
+</tr>
+<tr>
+<td><code>customer.state_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer's full name of state</td>
+</tr>
+<tr>
+<td><code>customer.surcharging</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether surcharging is enabled for the customer. Only included on sites where surcharging control is enabled.</td>
+</tr>
+<tr>
+<td><code>customer.tax_exempt</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>The tax exempt status for the customer. Acceptable values are true or 1 for true and false or 0 for false.</td>
+</tr>
+<tr>
+<td><code>customer.tax_exempt_reason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The Tax Exemption Reason Code for the customer</td>
+</tr>
+<tr>
+<td><code>customer.updated_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The timestamp in which the customer object was last edited</td>
+</tr>
+<tr>
+<td><code>customer.vat_country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The two-letter ISO 3166-1 country code that qualifies the customer's VAT number. Set to <code>null</code> when an identifier is stored through <code>entity_identifier_kind</code> for a kind that is not tied to a VAT country, meaning <code>company_reg</code>, <code>gln</code>, <code>duns</code>, or <code>lei</code>.</td>
+</tr>
+<tr>
+<td><code>customer.vat_number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The VAT business identification number for the customer. This number is used to determine VAT tax opt out rules. It is not validated when added or updated on a customer record. Instead, it is validated via VIES before calculating taxes. Only valid business identification numbers will allow for VAT opt out. When the customer holds an entity identifier, this field returns that identifier's value, whatever its kind.</td>
+</tr>
+<tr>
+<td><code>customer.verified</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is the customer verified to use ACH as a payment method.</td>
+</tr>
+<tr>
+<td><code>customer.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The customer’s shipping address zip code (for example, “12345”)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-customersidjson" class="operation" data-method="delete"><code>DELETE</code> /customers/{id}.json</h3>
+<p>Operation ID: <code>deleteCustomer</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Advanced Billing id of the customer |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="204-no-content" class="status" data-status="2xx">204: No Content</h5>
+<h2 id="update">update</h2>
+<h3 id="put-customersidjson" class="operation" data-method="put"><code>PUT</code> /customers/{id}.json</h3>
+<p>Operation ID: <code>updateCustomer</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Advanced Billing id of the customer |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and any</code>.</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-ok-5" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h5 id="404-not-found" class="status" data-status="4xx">404: Not Found</h5>
+<h5 id="422-unprocessable-entity-webdav-2" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

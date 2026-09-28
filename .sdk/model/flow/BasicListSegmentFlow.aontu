@@ -1,0 +1,63 @@
+# BasicListSegmentFlow
+
+main: kit: flow: BasicListSegmentFlow:
+{
+  entity: "list_segment",
+  kind: "basic",
+  name: "BasicListSegmentFlow",
+  step: [
+    {
+      i: {
+        ref: "list_segment_ref01"
+      }
+
+      m: {
+        component_id: "component01",
+        price_point_id: "price_point01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        component_id: "component01",
+        price_point_id: "price_point01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_segment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        component_id: "component01"
+      }
+
+      i: {
+        ref: "list_segment_ref01",
+        srcdatavar: "list_segment_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-list_segment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListSegmentFlow"
+}

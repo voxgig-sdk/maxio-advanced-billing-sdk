@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ComponentPricePointCurrencyOverage | Maxio Advanced Billing</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Maxio Advanced Billing<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/maxio-advanced-billing-sdk">voxgig-sdk/maxio-advanced-billing-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Maxio Advanced Billing</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account_balance.html">AccountBalance</a>
+<a href="../api/allocation.html">Allocation</a>
+<a href="../api/batch_job.html">BatchJob</a>
+<a href="../api/billing_portal.html">BillingPortal</a>
+<a href="../api/component.html">Component</a>
+<a href="../api/component_feature.html">ComponentFeature</a>
+<a href="../api/component_price_point.html">ComponentPricePoint</a>
+<a aria-current="page" href="../api/component_price_point_currency_overage.html">ComponentPricePointCurrencyOverage</a><div class="nav-sections"><a class="nav-section" href="#get-componentscomponent_idprice_pointsprice_point_idjson">GET /components/{component_id}/price_points/{price_point_id}.json</a></div>
+<a href="../api/coupon.html">Coupon</a>
+<a href="../api/coupon_currency.html">CouponCurrency</a>
+<a href="../api/coupon_subcode.html">CouponSubcode</a>
+<a href="../api/coupon_usage.html">CouponUsage</a>
+<a href="../api/custom_field.html">CustomField</a>
+<a href="../api/customer.html">Customer</a>
+<a href="../api/delayed_cancel.html">DelayedCancel</a>
+<a href="../api/endpoint.html">Endpoint</a>
+<a href="../api/entitlement.html">Entitlement</a>
+<a href="../api/event.html">Event</a>
+<a href="../api/events_based_billing_segment.html">EventsBasedBillingSegment</a>
+<a href="../api/feature.html">Feature</a>
+<a href="../api/feature_catalog_item.html">FeatureCatalogItem</a>
+<a href="../api/feature_template.html">FeatureTemplate</a>
+<a href="../api/insight.html">Insight</a>
+<a href="../api/invoice.html">Invoice</a>
+<a href="../api/list_proforma_invoice.html">ListProformaInvoice</a>
+<a href="../api/list_sale_rep_item.html">ListSaleRepItem</a>
+<a href="../api/list_segment.html">ListSegment</a>
+<a href="../api/offer.html">Offer</a>
+<a href="../api/one_time_token.html">OneTimeToken</a>
+<a href="../api/payment_profile.html">PaymentProfile</a>
+<a href="../api/prepayment.html">Prepayment</a>
+<a href="../api/product.html">Product</a>
+<a href="../api/product_family.html">ProductFamily</a>
+<a href="../api/product_feature.html">ProductFeature</a>
+<a href="../api/product_price_point.html">ProductPricePoint</a>
+<a href="../api/proforma_invoice.html">ProformaInvoice</a>
+<a href="../api/reason_code.html">ReasonCode</a>
+<a href="../api/referral_code.html">ReferralCode</a>
+<a href="../api/sale_rep_setting.html">SaleRepSetting</a>
+<a href="../api/sales_commission.html">SalesCommission</a>
+<a href="../api/segment.html">Segment</a>
+<a href="../api/signup_proforma_preview.html">SignupProformaPreview</a>
+<a href="../api/site.html">Site</a>
+<a href="../api/subscription.html">Subscription</a>
+<a href="../api/subscription_component.html">SubscriptionComponent</a>
+<a href="../api/subscription_group.html">SubscriptionGroup</a>
+<a href="../api/subscription_group_invoice_account.html">SubscriptionGroupInvoiceAccount</a>
+<a href="../api/subscription_group_signup.html">SubscriptionGroupSignup</a>
+<a href="../api/subscription_group_status.html">SubscriptionGroupStatus</a>
+<a href="../api/subscription_invoice_account.html">SubscriptionInvoiceAccount</a>
+<a href="../api/subscription_mrr.html">SubscriptionMrr</a>
+<a href="../api/subscription_note.html">SubscriptionNote</a>
+<a href="../api/subscription_product.html">SubscriptionProduct</a>
+<a href="../api/subscription_renewal.html">SubscriptionRenewal</a>
+<a href="../api/subscription_status.html">SubscriptionStatus</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="componentpricepointcurrencyoverage">ComponentPricePointCurrencyOverage</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-componentscomponent_idprice_pointsprice_point_idjson"><code>/components/{component_id}/price_points/{price_point_id}.json</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">component_price_point_currency_overage, err := client.ComponentPricePointCurrencyOverage(nil).Load(map[string]any{&quot;component_id&quot;: &quot;example&quot;, &quot;price_point_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(component_price_point_currency_overage)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local component_price_point_currency_overage, err = client:ComponentPricePointCurrencyOverage():load({ component_id = &quot;example&quot;, price_point_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$component_price_point_currency_overage = $client-&gt;ComponentPricePointCurrencyOverage()-&gt;load([&quot;component_id&quot; =&gt; &quot;example&quot;, &quot;price_point_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">component_price_point_currency_overage = client.ComponentPricePointCurrencyOverage().load({&quot;component_id&quot;: &quot;example&quot;, &quot;price_point_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">component_price_point_currency_overage = client.ComponentPricePointCurrencyOverage.load({ &quot;component_id&quot; =&gt; &quot;example&quot;, &quot;price_point_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const component_price_point_currency_overage = await client.ComponentPricePointCurrencyOverage().load({ component_id: &quot;example&quot;, price_point_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>archived_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Archived At</td>
+</tr>
+<tr>
+<td><code>component_id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Component Id</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Created At</td>
+</tr>
+<tr>
+<td><code>currency_overage_prices</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Applicable only to prepaid usage components.</td>
+</tr>
+<tr>
+<td><code>currency_prices</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>An array of currency pricing data is available when multiple currencies are defined for the site.</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Note: Refer to type attribute instead.</td>
+</tr>
+<tr>
+<td><code>expiration_interval</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Applicable only to prepaid usage components where <code>rollover_prepaid_remainder</code> is true.</td>
+</tr>
+<tr>
+<td><code>expiration_interval_unit</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Expiration Interval Unit</td>
+</tr>
+<tr>
+<td><code>handle</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Handle</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>interval</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The numerical interval.</td>
+</tr>
+<tr>
+<td><code>interval_unit</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Interval Unit</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name</td>
+</tr>
+<tr>
+<td><code>overage_prices</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Applicable only to prepaid usage components.</td>
+</tr>
+<tr>
+<td><code>overage_pricing_scheme</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Overage Pricing Scheme</td>
+</tr>
+<tr>
+<td><code>prices</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Prices</td>
+</tr>
+<tr>
+<td><code>pricing_scheme</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Pricing Scheme</td>
+</tr>
+<tr>
+<td><code>renew_prepaid_allocation</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Applicable only to prepaid usage components.</td>
+</tr>
+<tr>
+<td><code>rollover_prepaid_remainder</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Applicable only to prepaid usage components.</td>
+</tr>
+<tr>
+<td><code>subscription_id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>(only used for Custom Pricing - ie.</td>
+</tr>
+<tr>
+<td><code>tax_included</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Tax Included</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Type</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Updated At</td>
+</tr>
+<tr>
+<td><code>use_site_exchange_rate</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether to use the site level exchange rate or define your own prices for each currency if you have multiple currencies defined on the site.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-componentscomponent_idprice_pointsprice_point_idjson" class="operation" data-method="get"><code>GET</code> /components/{component_id}/price_points/{price_point_id}.json</h3>
+<p>Operation ID: <code>readComponentPricePoint</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>component_id</code> | <code>path</code> | <code>integer (int32) or string</code> | Yes | The id or handle of the component. When using the handle, it must be prefixed with <code>handle:</code>. Example: <code>123</code> for an integer ID, or <code>handle:example-product-handle</code> for a string handle. |
+| <code>price_point_id</code> | <code>path</code> | <code>integer (int32) or string</code> | Yes | The id or handle of the price point. When using the handle, it must be prefixed with <code>handle:</code>. Example: <code>123</code> for an integer ID, or <code>handle:example-</code>price_point<code>-handle</code> for a string handle. |
+| <code>currency_prices</code> | <code>query</code> | <code>boolean</code> | No | Include an array of currency price data. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>price_point</code></td>
+<td><code>object and any</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

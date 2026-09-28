@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "subscription_status": {
+      "SUBSCRIPTION_STATUS00": {
+        "id": "SUBSCRIPTION_STATUS00",
+        "renewal_preview": {},
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "SUBSCRIPTION_STATUS01": {
+        "id": "SUBSCRIPTION_STATUS01",
+        "renewal_preview": {},
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "SUBSCRIPTION_STATUS02": {
+        "id": "SUBSCRIPTION_STATUS02",
+        "renewal_preview": {},
+        "subscription_id": "SUBSCRIPTION01"
+      }
+    }
+  },
+  "new": {
+    "subscription_status": {
+      "subscription_status_ref01": {
+        "renewal_preview": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /subscriptions/{subscription_id}/resume.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/hold.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/renewals/preview.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /subscriptions/{subscription_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /subscriptions/{subscription_id}/delayed_cancel.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/hold.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/reactivate.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /subscriptions/{subscription_id}/retry.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

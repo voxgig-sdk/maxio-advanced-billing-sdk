@@ -1,0 +1,248 @@
+# Entity: batch_job
+
+main: kit: entity: batch_job: {
+
+  alias: field: {}
+
+  fields: {
+    completed: {
+      h: "Completed"
+      n: "completed"
+      r: false
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    finished_at: {
+      fo: "date-time"
+      h: "Finished At"
+      n: "finished_at"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    row_count: {
+      fo: "int32"
+      h: "Row Count"
+      n: "row_count"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "batch_job"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api_exports/invoices.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api_exports/invoices.json"
+          s: [
+            {
+              lit: "api_exports"
+            }
+            {
+              lit: "invoices.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.batchjob`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api_exports/proforma_invoices.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api_exports/proforma_invoices.json"
+          s: [
+            {
+              lit: "api_exports"
+            }
+            {
+              lit: "proforma_invoices.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.batchjob`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api_exports/subscriptions.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api_exports/subscriptions.json"
+          s: [
+            {
+              lit: "api_exports"
+            }
+            {
+              lit: "subscriptions.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.batchjob`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api_exports/invoices/{batch_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "batch_id"
+                or: "batch_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api_exports/invoices/{batch_id}.json"
+          q: {
+            exist: [
+              "batch_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api_exports"
+            }
+            {
+              lit: "invoices"
+            }
+            {
+              lit: "{batch_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.batchjob`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api_exports/proforma_invoices/{batch_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "batch_id"
+                or: "batch_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api_exports/proforma_invoices/{batch_id}.json"
+          q: {
+            exist: [
+              "batch_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api_exports"
+            }
+            {
+              lit: "proforma_invoices"
+            }
+            {
+              lit: "{batch_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.batchjob`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api_exports/subscriptions/{batch_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "batch_id"
+                or: "batch_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api_exports/subscriptions/{batch_id}.json"
+          q: {
+            exist: [
+              "batch_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api_exports"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "{batch_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.batchjob`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,506 @@
+# Entity: list_proforma_invoice
+
+main: kit: entity: list_proforma_invoice: {
+
+  alias: field: {}
+
+  fields: {
+    available_actions: {
+      h: "Available Actions"
+      n: "available_actions"
+      r: false
+      t: "`$OBJECT`"
+    }
+    billing_address: {
+      h: "Billing Address"
+      n: "billing_address"
+      r: false
+      t: "`$OBJECT`"
+    }
+    collection_method: {
+      h: "Collection Method"
+      n: "collection_method"
+      r: false
+      t: "`$ANY`"
+    }
+    consolidation_level: {
+      h: "Consolidation Level"
+      n: "consolidation_level"
+      r: false
+      t: "`$ANY`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    credit_amount: {
+      h: "Credit Amount"
+      n: "credit_amount"
+      r: false
+      t: "`$STRING`"
+    }
+    credits: {
+      h: "Credits"
+      n: "credits"
+      r: false
+      t: "`$ARRAY`"
+    }
+    currency: {
+      h: "Currency"
+      n: "currency"
+      r: false
+      t: "`$STRING`"
+    }
+    custom_fields: {
+      h: "Custom Fields"
+      n: "custom_fields"
+      r: false
+      t: "`$ARRAY`"
+    }
+    customer: {
+      h: "Customer"
+      n: "customer"
+      r: false
+      t: "`$ANY`"
+    }
+    customer_id: {
+      fo: "int32"
+      h: "Customer Id"
+      n: "customer_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    delivery_date: {
+      fo: "date"
+      h: "Delivery Date"
+      n: "delivery_date"
+      r: false
+      t: "`$STRING`"
+    }
+    discount_amount: {
+      h: "Discount Amount"
+      n: "discount_amount"
+      r: false
+      t: "`$STRING`"
+    }
+    discounts: {
+      h: "Discounts"
+      n: "discounts"
+      r: false
+      t: "`$ARRAY`"
+    }
+    due_amount: {
+      h: "Due Amount"
+      n: "due_amount"
+      r: false
+      t: "`$STRING`"
+    }
+    line_items: {
+      h: "Line Items"
+      n: "line_items"
+      r: false
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 5
+      }
+    }
+    memo: {
+      h: "Memo"
+      n: "memo"
+      r: false
+      t: "`$STRING`"
+    }
+    number: {
+      fo: "int32"
+      h: "Number"
+      n: "number"
+      r: false
+      t: "`$INTEGER`"
+    }
+    paid_amount: {
+      h: "Paid Amount"
+      n: "paid_amount"
+      r: false
+      t: "`$STRING`"
+    }
+    payment_instructions: {
+      h: "Payment Instructions"
+      n: "payment_instructions"
+      r: false
+      t: "`$STRING`"
+    }
+    payments: {
+      h: "Payments"
+      n: "payments"
+      r: false
+      t: "`$ARRAY`"
+    }
+    product_family_name: {
+      h: "Product Family Name"
+      n: "product_family_name"
+      r: false
+      t: "`$STRING`"
+    }
+    product_name: {
+      h: "Product Name"
+      n: "product_name"
+      r: false
+      t: "`$STRING`"
+    }
+    public_url: {
+      h: "Public Url"
+      n: "public_url"
+      r: false
+      t: "`$STRING`"
+    }
+    refund_amount: {
+      h: "Refund Amount"
+      n: "refund_amount"
+      r: false
+      t: "`$STRING`"
+    }
+    role: {
+      h: "Role"
+      n: "role"
+      r: false
+      t: "`$ANY`"
+    }
+    seller: {
+      h: "Seller"
+      n: "seller"
+      r: false
+      t: "`$ANY`"
+    }
+    sequence_number: {
+      fo: "int32"
+      h: "Sequence Number"
+      n: "sequence_number"
+      r: false
+      t: "`$INTEGER`"
+    }
+    shipping_address: {
+      h: "Shipping Address"
+      n: "shipping_address"
+      r: false
+      t: "`$OBJECT`"
+    }
+    site_id: {
+      fo: "int32"
+      h: "Site Id"
+      n: "site_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      t: "`$STRING`"
+    }
+    subscription_id: {
+      fo: "int32"
+      h: "Subscription Id"
+      n: "subscription_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    subtotal_amount: {
+      h: "Subtotal Amount"
+      n: "subtotal_amount"
+      r: false
+      t: "`$STRING`"
+    }
+    tax_amount: {
+      h: "Tax Amount"
+      n: "tax_amount"
+      r: false
+      t: "`$STRING`"
+    }
+    taxes: {
+      h: "Taxes"
+      n: "taxes"
+      r: false
+      t: "`$ARRAY`"
+    }
+    total_amount: {
+      h: "Total Amount"
+      n: "total_amount"
+      r: false
+      t: "`$STRING`"
+    }
+    uid: {
+      h: "Uid"
+      n: "uid"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "list_proforma_invoice"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /subscriptions/{subscription_id}/proforma_invoices.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "credit"
+                or: "credit"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "custom_field"
+                or: "custom_field"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "discount"
+                or: "discount"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "line_item"
+                or: "line_item"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "payment"
+                or: "payment"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "taxis"
+                or: "taxis"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions/{subscription_id}/proforma_invoices.json"
+          q: {
+            exist: [
+              "credit"
+              "custom_field"
+              "direction"
+              "discount"
+              "end_date"
+              "line_item"
+              "page"
+              "payment"
+              "per_page"
+              "start_date"
+              "status"
+              "subscription_id"
+              "taxis"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "proforma_invoices.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /subscription_groups/{uid}/proforma_invoices.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_group_id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "credit"
+                or: "credit"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "custom_field"
+                or: "custom_field"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "discount"
+                or: "discount"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "line_item"
+                or: "line_item"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "payment"
+                or: "payment"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "taxis"
+                or: "taxis"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscription_groups/{uid}/proforma_invoices.json"
+          q: {
+            exist: [
+              "credit"
+              "custom_field"
+              "discount"
+              "line_item"
+              "payment"
+              "subscription_group_id"
+              "taxis"
+            ]
+          }
+          r: {
+            param: {
+              uid: "subscription_group_id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "subscription_group_id"
+            }
+            {
+              lit: "proforma_invoices.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.subscription_group")]
+    [path("$.main.kit.entity.subscription")]
+  ]
+
+}

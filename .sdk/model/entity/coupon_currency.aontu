@@ -1,0 +1,78 @@
+# Entity: coupon_currency
+
+main: kit: entity: coupon_currency: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "coupon_currency"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /coupons/{coupon_id}/currency_prices.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "coupon_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/coupons/{coupon_id}/currency_prices.json"
+          q: {
+            "$action": "currency_prices.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              coupon_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "coupons"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "currency_prices.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,208 @@
+{
+  "existing": {
+    "coupon": {
+      "COUPON00": {
+        "allow_negative_balance": true,
+        "amount": 321,
+        "amount_in_cents": 322,
+        "apply_on_cancel_at_end_of_period": false,
+        "apply_on_subscription_expiration": true,
+        "archived_at": "s145",
+        "code": "s146",
+        "compounding_strategy": "s147",
+        "conversion_limit": "s148",
+        "coupon": {},
+        "coupon_restrictions": [],
+        "created_at": "s14b",
+        "currency_prices": [],
+        "description": "s14d",
+        "discount_type": "s14e",
+        "duration_interval": 335,
+        "duration_interval_span": "s150",
+        "duration_interval_unit": "s151",
+        "duration_period_count": 338,
+        "end_date": "s153",
+        "exclude_mid_period_allocations": true,
+        "id": "COUPON00",
+        "name": "s156",
+        "percentage": "s157",
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_family_name": "s159",
+        "recurring": true,
+        "recurring_scheme": "s15b",
+        "stackable": true,
+        "start_date": "s15d",
+        "updated_at": "s15e",
+        "use_site_exchange_rate": false,
+        "coupon_id": "COUPON01",
+        "subcode": "SUBCODE01"
+      },
+      "COUPON01": {
+        "allow_negative_balance": true,
+        "amount": 641,
+        "amount_in_cents": 642,
+        "apply_on_cancel_at_end_of_period": false,
+        "apply_on_subscription_expiration": true,
+        "archived_at": "s285",
+        "code": "s286",
+        "compounding_strategy": "s287",
+        "conversion_limit": "s288",
+        "coupon": {},
+        "coupon_restrictions": [],
+        "created_at": "s28b",
+        "currency_prices": [],
+        "description": "s28d",
+        "discount_type": "s28e",
+        "duration_interval": 655,
+        "duration_interval_span": "s290",
+        "duration_interval_unit": "s291",
+        "duration_period_count": 658,
+        "end_date": "s293",
+        "exclude_mid_period_allocations": true,
+        "id": "COUPON01",
+        "name": "s296",
+        "percentage": "s297",
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_family_name": "s299",
+        "recurring": true,
+        "recurring_scheme": "s29b",
+        "stackable": true,
+        "start_date": "s29d",
+        "updated_at": "s29e",
+        "use_site_exchange_rate": false,
+        "coupon_id": "COUPON01",
+        "subcode": "SUBCODE01"
+      },
+      "COUPON02": {
+        "allow_negative_balance": true,
+        "amount": 961,
+        "amount_in_cents": 962,
+        "apply_on_cancel_at_end_of_period": false,
+        "apply_on_subscription_expiration": true,
+        "archived_at": "s3c5",
+        "code": "s3c6",
+        "compounding_strategy": "s3c7",
+        "conversion_limit": "s3c8",
+        "coupon": {},
+        "coupon_restrictions": [],
+        "created_at": "s3cb",
+        "currency_prices": [],
+        "description": "s3cd",
+        "discount_type": "s3ce",
+        "duration_interval": 975,
+        "duration_interval_span": "s3d0",
+        "duration_interval_unit": "s3d1",
+        "duration_period_count": 978,
+        "end_date": "s3d3",
+        "exclude_mid_period_allocations": true,
+        "id": "COUPON02",
+        "name": "s3d6",
+        "percentage": "s3d7",
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_family_name": "s3d9",
+        "recurring": true,
+        "recurring_scheme": "s3db",
+        "stackable": true,
+        "start_date": "s3dd",
+        "updated_at": "s3de",
+        "use_site_exchange_rate": false,
+        "coupon_id": "COUPON01",
+        "subcode": "SUBCODE01"
+      }
+    }
+  },
+  "new": {
+    "coupon": {
+      "coupon_ref01": {
+        "allow_negative_balance": true,
+        "amount": 1281,
+        "amount_in_cents": 1282,
+        "apply_on_cancel_at_end_of_period": false,
+        "apply_on_subscription_expiration": true,
+        "archived_at": "s505",
+        "code": "s506",
+        "compounding_strategy": "s507",
+        "conversion_limit": "s508",
+        "coupon": {},
+        "coupon_restrictions": [],
+        "created_at": "s50b",
+        "currency_prices": [],
+        "description": "s50d",
+        "discount_type": "s50e",
+        "duration_interval": 1295,
+        "duration_interval_span": "s510",
+        "duration_interval_unit": "s511",
+        "duration_period_count": 1298,
+        "end_date": "s513",
+        "exclude_mid_period_allocations": true,
+        "name": "s516",
+        "percentage": "s517",
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_family_name": "s519",
+        "recurring": true,
+        "recurring_scheme": "s51b",
+        "stackable": true,
+        "start_date": "s51d",
+        "updated_at": "s51e",
+        "use_site_exchange_rate": false
+      }
+    }
+  },
+  "requests": {
+    "POST /coupons/{coupon_id}/codes.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /product_families/{product_family_id}/coupons.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /product_families/{product_family_id}/coupons.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /coupons.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /coupons/{coupon_id}/codes.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /product_families/{product_family_id}/coupons/{coupon_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /coupons/find.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /coupons/validate.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /coupons/{coupon_id}/codes/{subcode}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /product_families/{product_family_id}/coupons/{coupon_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /product_families/{product_family_id}/coupons/{coupon_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

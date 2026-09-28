@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "entitlement": {
+      "ENTITLEMENT00": {
+        "customer_id": "CUSTOMER01",
+        "entitlements": [],
+        "status": "s2a",
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "ENTITLEMENT01": {
+        "customer_id": "CUSTOMER01",
+        "entitlements": [],
+        "status": "s52",
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "ENTITLEMENT02": {
+        "customer_id": "CUSTOMER01",
+        "entitlements": [],
+        "status": "s7a",
+        "subscription_id": "SUBSCRIPTION01"
+      }
+    }
+  },
+  "new": {
+    "entitlement": {
+      "entitlement_ref01": {
+        "customer_id": "CUSTOMER01",
+        "entitlements": [],
+        "status": "sa2",
+        "subscription_id": "SUBSCRIPTION01"
+      }
+    }
+  },
+  "requests": {
+    "GET /subscriptions/{subscription_id}/entitlements.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

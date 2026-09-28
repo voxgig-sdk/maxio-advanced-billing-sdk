@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "product": {
+      "PRODUCT00": {
+        "product": {},
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_id": "PRODUCT01",
+        "api_handle": "API_HANDLE01",
+        "id": "PRODUCT00"
+      },
+      "PRODUCT01": {
+        "product": {},
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_id": "PRODUCT01",
+        "api_handle": "API_HANDLE01",
+        "id": "PRODUCT01"
+      },
+      "PRODUCT02": {
+        "product": {},
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_id": "PRODUCT01",
+        "api_handle": "API_HANDLE01",
+        "id": "PRODUCT02"
+      }
+    }
+  },
+  "new": {
+    "product": {
+      "product_ref01": {
+        "product": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /product_families/{product_family_id}/products.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /products.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /product_families/{product_family_id}/products.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /products/{product_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /products/handle/{api_handle}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /products/{product_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /products/{product_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

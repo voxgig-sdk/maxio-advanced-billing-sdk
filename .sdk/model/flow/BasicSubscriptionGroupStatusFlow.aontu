@@ -1,0 +1,35 @@
+# BasicSubscriptionGroupStatusFlow
+
+main: kit: flow: BasicSubscriptionGroupStatusFlow:
+{
+  entity: "subscription_group_status",
+  kind: "basic",
+  name: "BasicSubscriptionGroupStatusFlow",
+  step: [
+    {
+      i: {
+        ref: "subscription_group_status_ref01"
+      }
+
+      m: {
+        uid: "uid01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "subscription_group_status_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "subscription_group_status01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicSubscriptionGroupStatusFlow"
+}

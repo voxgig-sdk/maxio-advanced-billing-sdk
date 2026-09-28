@@ -1,0 +1,110 @@
+# Entity: subscription_mrr
+
+main: kit: entity: subscription_mrr: {
+
+  alias: field: {}
+
+  fields: {
+    breakouts: {
+      h: "Breakouts"
+      n: "breakouts"
+      r: true
+      t: "`$OBJECT`"
+    }
+    mrr_amount_in_cents: {
+      fo: "int64"
+      h: "Mrr Amount In Cents"
+      n: "mrr_amount_in_cents"
+      r: true
+      t: "`$INTEGER`"
+    }
+    subscription_id: {
+      fo: "int32"
+      h: "Subscription Id"
+      n: "subscription_id"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "subscription_mrr"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /subscriptions_mrr.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "at_time=2022-01-10T10:00:00-05:00"
+                k: "query"
+                n: "at_time"
+                or: "at_time"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions_mrr.json"
+          q: {
+            exist: [
+              "at_time"
+              "direction"
+              "filter"
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions_mrr.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.subscriptions_mrr`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,26 @@
+# BasicSaleRepSettingFlow
+
+main: kit: flow: BasicSaleRepSettingFlow:
+{
+  entity: "sale_rep_setting",
+  kind: "basic",
+  name: "BasicSaleRepSettingFlow",
+  step: [
+    {
+      m: {
+        seller_id: "seller01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "sale_rep_setting_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSaleRepSettingFlow"
+}

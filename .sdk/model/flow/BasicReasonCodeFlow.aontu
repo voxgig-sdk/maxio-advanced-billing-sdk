@@ -1,0 +1,108 @@
+# BasicReasonCodeFlow
+
+main: kit: flow: BasicReasonCodeFlow:
+{
+  entity: "reason_code",
+  kind: "basic",
+  name: "BasicReasonCodeFlow",
+  step: [
+    {
+      i: {
+        ref: "reason_code_ref01"
+      }
+
+      m: {
+        reason_code_id: "reason_code01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "reason_code_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        reason_code_id: "reason_code01"
+      }
+
+      i: {
+        ref: "reason_code_ref01",
+        srcdatavar: "reason_code_ref01_data",
+        suffix: "_up0",
+        textfield: "code"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-reason_code_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "reason_code_ref01",
+        srcdatavar: "reason_code_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        reason_code_id: "reason_code01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-reason_code_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "reason_code_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        reason_code_id: "reason_code01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "reason_code_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicReasonCodeFlow"
+}

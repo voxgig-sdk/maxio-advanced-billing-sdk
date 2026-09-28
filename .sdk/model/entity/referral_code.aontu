@@ -1,0 +1,59 @@
+# Entity: referral_code
+
+main: kit: entity: referral_code: {
+
+  alias: field: {}
+
+  name: "referral_code"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /referral_codes/validate.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "code"
+                or: "code"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/referral_codes/validate.json"
+          q: {
+            "$action": "validate"
+            exist: [
+              "code"
+            ]
+          }
+          s: [
+            {
+              lit: "referral_codes"
+            }
+            {
+              lit: "validate.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

@@ -1,0 +1,93 @@
+# BasicCustomFieldFlow
+
+main: kit: flow: BasicCustomFieldFlow:
+{
+  entity: "custom_field",
+  kind: "basic",
+  name: "BasicCustomFieldFlow",
+  step: [
+    {
+      i: {
+        ref: "custom_field_ref01"
+      }
+
+      m: {
+        resource_id: "resource01",
+        resource_type: "resource_type01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        resource_id: "resource01",
+        resource_type: "resource_type01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "custom_field_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "custom_field_ref01",
+        srcdatavar: "custom_field_ref01_data",
+        suffix: "_up0",
+        textfield: "deleted_at"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-custom_field_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "custom_field_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "custom_field01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        resource_id: "resource01",
+        resource_type: "resource_type01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "custom_field_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCustomFieldFlow"
+}

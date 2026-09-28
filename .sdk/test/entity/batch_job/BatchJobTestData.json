@@ -1,0 +1,72 @@
+{
+  "existing": {
+    "batch_job": {
+      "BATCH_JOB00": {
+        "completed": "s32",
+        "created_at": "s33",
+        "finished_at": "s34",
+        "id": "BATCH_JOB00",
+        "row_count": 54,
+        "batch_id": "BATCH01"
+      },
+      "BATCH_JOB01": {
+        "completed": "s64",
+        "created_at": "s65",
+        "finished_at": "s66",
+        "id": "BATCH_JOB01",
+        "row_count": 104,
+        "batch_id": "BATCH01"
+      },
+      "BATCH_JOB02": {
+        "completed": "s96",
+        "created_at": "s97",
+        "finished_at": "s98",
+        "id": "BATCH_JOB02",
+        "row_count": 154,
+        "batch_id": "BATCH01"
+      }
+    }
+  },
+  "new": {
+    "batch_job": {
+      "batch_job_ref01": {
+        "completed": "sc8",
+        "created_at": "sc9",
+        "finished_at": "sca",
+        "row_count": 204
+      }
+    }
+  },
+  "requests": {
+    "POST /api_exports/invoices.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api_exports/proforma_invoices.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api_exports/subscriptions.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api_exports/invoices/{batch_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api_exports/proforma_invoices/{batch_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api_exports/subscriptions/{batch_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

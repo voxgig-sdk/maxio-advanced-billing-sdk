@@ -1,0 +1,85 @@
+{
+  "existing": {
+    "billing_portal": {
+      "BILLING_PORTAL00": {
+        "created_at": "s6e",
+        "expires_at": "s6f",
+        "fetch_count": 112,
+        "last_accepted_at": "s71",
+        "last_invite_accepted_at": "s72",
+        "last_invite_sent_at": "s73",
+        "last_sent_at": "s74",
+        "new_link_available_at": "s75",
+        "send_invite_link_text": "s76",
+        "uninvited_count": 119,
+        "url": "s78",
+        "customer_id": "CUSTOMER01",
+        "id": "BILLING_PORTAL00"
+      },
+      "BILLING_PORTAL01": {
+        "created_at": "sdc",
+        "expires_at": "sdd",
+        "fetch_count": 222,
+        "last_accepted_at": "sdf",
+        "last_invite_accepted_at": "se0",
+        "last_invite_sent_at": "se1",
+        "last_sent_at": "se2",
+        "new_link_available_at": "se3",
+        "send_invite_link_text": "se4",
+        "uninvited_count": 229,
+        "url": "se6",
+        "customer_id": "CUSTOMER01",
+        "id": "BILLING_PORTAL01"
+      },
+      "BILLING_PORTAL02": {
+        "created_at": "s14a",
+        "expires_at": "s14b",
+        "fetch_count": 332,
+        "last_accepted_at": "s14d",
+        "last_invite_accepted_at": "s14e",
+        "last_invite_sent_at": "s14f",
+        "last_sent_at": "s150",
+        "new_link_available_at": "s151",
+        "send_invite_link_text": "s152",
+        "uninvited_count": 339,
+        "url": "s154",
+        "customer_id": "CUSTOMER01",
+        "id": "BILLING_PORTAL02"
+      }
+    }
+  },
+  "new": {
+    "billing_portal": {
+      "billing_portal_ref01": {
+        "created_at": "s1b8",
+        "expires_at": "s1b9",
+        "fetch_count": 442,
+        "last_accepted_at": "s1bb",
+        "last_invite_accepted_at": "s1bc",
+        "last_invite_sent_at": "s1bd",
+        "last_sent_at": "s1be",
+        "new_link_available_at": "s1bf",
+        "send_invite_link_text": "s1c0",
+        "uninvited_count": 449,
+        "url": "s1c2"
+      }
+    }
+  },
+  "requests": {
+    "POST /portal/customers/{customer_id}/invitations/invite.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /portal/customers/{customer_id}/management_link.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /portal/customers/{customer_id}/invitations/revoke.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

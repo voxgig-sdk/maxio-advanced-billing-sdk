@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "subscription_invoice_account": {
+      "SUBSCRIPTION_INVOICE_ACCOUNT00": {
+        "id": "SUBSCRIPTION_INVOICE_ACCOUNT00",
+        "service_credits": [],
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "SUBSCRIPTION_INVOICE_ACCOUNT01": {
+        "id": "SUBSCRIPTION_INVOICE_ACCOUNT01",
+        "service_credits": [],
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "SUBSCRIPTION_INVOICE_ACCOUNT02": {
+        "id": "SUBSCRIPTION_INVOICE_ACCOUNT02",
+        "service_credits": [],
+        "subscription_id": "SUBSCRIPTION01"
+      }
+    }
+  },
+  "new": {
+    "subscription_invoice_account": {
+      "subscription_invoice_account_ref01": {
+        "service_credits": []
+      }
+    }
+  },
+  "requests": {
+    "POST /subscriptions/{subscription_id}/prepayments.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/service_credit_deductions.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /subscriptions/{subscription_id}/service_credits.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions/{subscription_id}/service_credits/list.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscriptions/{subscription_id}/prepayments.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

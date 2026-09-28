@@ -1,0 +1,5362 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ProformaInvoice | Maxio Advanced Billing</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Maxio Advanced Billing<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/maxio-advanced-billing-sdk">voxgig-sdk/maxio-advanced-billing-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Maxio Advanced Billing</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account_balance.html">AccountBalance</a>
+<a href="../api/allocation.html">Allocation</a>
+<a href="../api/batch_job.html">BatchJob</a>
+<a href="../api/billing_portal.html">BillingPortal</a>
+<a href="../api/component.html">Component</a>
+<a href="../api/component_feature.html">ComponentFeature</a>
+<a href="../api/component_price_point.html">ComponentPricePoint</a>
+<a href="../api/component_price_point_currency_overage.html">ComponentPricePointCurrencyOverage</a>
+<a href="../api/coupon.html">Coupon</a>
+<a href="../api/coupon_currency.html">CouponCurrency</a>
+<a href="../api/coupon_subcode.html">CouponSubcode</a>
+<a href="../api/coupon_usage.html">CouponUsage</a>
+<a href="../api/custom_field.html">CustomField</a>
+<a href="../api/customer.html">Customer</a>
+<a href="../api/delayed_cancel.html">DelayedCancel</a>
+<a href="../api/endpoint.html">Endpoint</a>
+<a href="../api/entitlement.html">Entitlement</a>
+<a href="../api/event.html">Event</a>
+<a href="../api/events_based_billing_segment.html">EventsBasedBillingSegment</a>
+<a href="../api/feature.html">Feature</a>
+<a href="../api/feature_catalog_item.html">FeatureCatalogItem</a>
+<a href="../api/feature_template.html">FeatureTemplate</a>
+<a href="../api/insight.html">Insight</a>
+<a href="../api/invoice.html">Invoice</a>
+<a href="../api/list_proforma_invoice.html">ListProformaInvoice</a>
+<a href="../api/list_sale_rep_item.html">ListSaleRepItem</a>
+<a href="../api/list_segment.html">ListSegment</a>
+<a href="../api/offer.html">Offer</a>
+<a href="../api/one_time_token.html">OneTimeToken</a>
+<a href="../api/payment_profile.html">PaymentProfile</a>
+<a href="../api/prepayment.html">Prepayment</a>
+<a href="../api/product.html">Product</a>
+<a href="../api/product_family.html">ProductFamily</a>
+<a href="../api/product_feature.html">ProductFeature</a>
+<a href="../api/product_price_point.html">ProductPricePoint</a>
+<a aria-current="page" href="../api/proforma_invoice.html">ProformaInvoice</a><div class="nav-sections"><a class="nav-section" href="#post-proforma_invoicesproforma_invoice_uiddeliveriesjson">POST /proforma_invoices/{proforma_invoice_uid}/deliveries.json</a>
+<a class="nav-section" href="#post-proforma_invoicesproforma_invoice_uidvoidjson">POST /proforma_invoices/{proforma_invoice_uid}/void.json</a>
+<a class="nav-section" href="#post-subscription_groupsuidproforma_invoicesjson">POST /subscription_groups/{uid}/proforma_invoices.json</a>
+<a class="nav-section" href="#post-subscriptionssubscription_idproforma_invoicesjson">POST /subscriptions/{subscription_id}/proforma_invoices.json</a>
+<a class="nav-section" href="#post-subscriptionssubscription_idproforma_invoicespreviewjson">POST /subscriptions/{subscription_id}/proforma_invoices/preview.json</a>
+<a class="nav-section" href="#post-subscriptionsproforma_invoicesjson">POST /subscriptions/proforma_invoices.json</a>
+<a class="nav-section" href="#get-api_exportsproforma_invoicesbatch_idrowsjson">GET /api_exports/proforma_invoices/{batch_id}/rows.json</a>
+<a class="nav-section" href="#get-proforma_invoicesproforma_invoice_uidjson">GET /proforma_invoices/{proforma_invoice_uid}.json</a></div>
+<a href="../api/reason_code.html">ReasonCode</a>
+<a href="../api/referral_code.html">ReferralCode</a>
+<a href="../api/sale_rep_setting.html">SaleRepSetting</a>
+<a href="../api/sales_commission.html">SalesCommission</a>
+<a href="../api/segment.html">Segment</a>
+<a href="../api/signup_proforma_preview.html">SignupProformaPreview</a>
+<a href="../api/site.html">Site</a>
+<a href="../api/subscription.html">Subscription</a>
+<a href="../api/subscription_component.html">SubscriptionComponent</a>
+<a href="../api/subscription_group.html">SubscriptionGroup</a>
+<a href="../api/subscription_group_invoice_account.html">SubscriptionGroupInvoiceAccount</a>
+<a href="../api/subscription_group_signup.html">SubscriptionGroupSignup</a>
+<a href="../api/subscription_group_status.html">SubscriptionGroupStatus</a>
+<a href="../api/subscription_invoice_account.html">SubscriptionInvoiceAccount</a>
+<a href="../api/subscription_mrr.html">SubscriptionMrr</a>
+<a href="../api/subscription_note.html">SubscriptionNote</a>
+<a href="../api/subscription_product.html">SubscriptionProduct</a>
+<a href="../api/subscription_renewal.html">SubscriptionRenewal</a>
+<a href="../api/subscription_status.html">SubscriptionStatus</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/webhook.html">Webhook</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="proformainvoice">ProformaInvoice</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-proforma_invoicesproforma_invoice_uiddeliveriesjson"><code>/proforma_invoices/{proforma_invoice_uid}/deliveries.json</code></a></td>
+<td><code>create</code></td>
+<td>Created</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-proforma_invoicesproforma_invoice_uidvoidjson"><code>/proforma_invoices/{proforma_invoice_uid}/void.json</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-subscription_groupsuidproforma_invoicesjson"><code>/subscription_groups/{uid}/proforma_invoices.json</code></a></td>
+<td><code>create</code></td>
+<td>Created</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-subscriptionssubscription_idproforma_invoicesjson"><code>/subscriptions/{subscription_id}/proforma_invoices.json</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-subscriptionssubscription_idproforma_invoicespreviewjson"><code>/subscriptions/{subscription_id}/proforma_invoices/preview.json</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-subscriptionsproforma_invoicesjson"><code>/subscriptions/proforma_invoices.json</code></a></td>
+<td><code>create</code></td>
+<td>Created</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-api_exportsproforma_invoicesbatch_idrowsjson"><code>/api_exports/proforma_invoices/{batch_id}/rows.json</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-proforma_invoicesproforma_invoice_uidjson"><code>/proforma_invoices/{proforma_invoice_uid}.json</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">proforma_invoices, err := client.ProformaInvoice(nil).List(map[string]any{&quot;proforma_invoice_uid&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(proforma_invoices)
+created, err := client.ProformaInvoice(nil).Create(map[string]any{&quot;available_actions&quot;: map[string]any{}, &quot;billing_address&quot;: map[string]any{}, &quot;collection_method&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local proforma_invoices, err = client:ProformaInvoice():list({ proforma_invoice_uid = &quot;example&quot; })
+local created, err = client:ProformaInvoice():create({ available_actions = {}, billing_address = {}, collection_method = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$proforma_invoices = $client-&gt;ProformaInvoice()-&gt;list([&quot;proforma_invoice_uid&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;ProformaInvoice()-&gt;create([&quot;available_actions&quot; =&gt; [], &quot;billing_address&quot; =&gt; [], &quot;collection_method&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">proforma_invoices = client.ProformaInvoice().list({&quot;proforma_invoice_uid&quot;: &quot;example&quot;})
+created = client.ProformaInvoice().create({ &quot;available_actions&quot;: {}, &quot;billing_address&quot;: {}, &quot;collection_method&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">proforma_invoices = client.ProformaInvoice.list({ &quot;proforma_invoice_uid&quot; =&gt; &quot;example&quot; })
+created = client.ProformaInvoice.create({ &quot;available_actions&quot; =&gt; {}, &quot;billing_address&quot; =&gt; {}, &quot;collection_method&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const proforma_invoices = await client.ProformaInvoice().list({ proforma_invoice_uid: &quot;example&quot; })
+const created = await client.ProformaInvoice().create({ available_actions: {}, billing_address: {}, collection_method: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>available_actions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Available Actions</td>
+</tr>
+<tr>
+<td><code>billing_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Billing Address</td>
+</tr>
+<tr>
+<td><code>collection_method</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Collection Method</td>
+</tr>
+<tr>
+<td><code>consolidation_level</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Consolidation Level</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Created At</td>
+</tr>
+<tr>
+<td><code>credit_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Credit Amount</td>
+</tr>
+<tr>
+<td><code>credits</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Credits</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Currency</td>
+</tr>
+<tr>
+<td><code>custom_fields</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Custom Fields</td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Customer</td>
+</tr>
+<tr>
+<td><code>customer_id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Customer Id</td>
+</tr>
+<tr>
+<td><code>delivery_date</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Delivery Date</td>
+</tr>
+<tr>
+<td><code>discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Discount Amount</td>
+</tr>
+<tr>
+<td><code>discounts</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Discounts</td>
+</tr>
+<tr>
+<td><code>due_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Due Amount</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>line_items</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Line Items</td>
+</tr>
+<tr>
+<td><code>memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Memo</td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Number</td>
+</tr>
+<tr>
+<td><code>paid_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Paid Amount</td>
+</tr>
+<tr>
+<td><code>payment_instructions</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Payment Instructions</td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Payments</td>
+</tr>
+<tr>
+<td><code>product_family_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Product Family Name</td>
+</tr>
+<tr>
+<td><code>product_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Product Name</td>
+</tr>
+<tr>
+<td><code>public_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Public Url</td>
+</tr>
+<tr>
+<td><code>refund_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Refund Amount</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Role</td>
+</tr>
+<tr>
+<td><code>seller</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Seller</td>
+</tr>
+<tr>
+<td><code>sequence_number</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Sequence Number</td>
+</tr>
+<tr>
+<td><code>shipping_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Shipping Address</td>
+</tr>
+<tr>
+<td><code>site_id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Site Id</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Status</td>
+</tr>
+<tr>
+<td><code>subscription_id</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Subscription Id</td>
+</tr>
+<tr>
+<td><code>subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Subtotal Amount</td>
+</tr>
+<tr>
+<td><code>tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Tax Amount</td>
+</tr>
+<tr>
+<td><code>taxes</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Taxes</td>
+</tr>
+<tr>
+<td><code>total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Total Amount</td>
+</tr>
+<tr>
+<td><code>uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Uid</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-proforma_invoicesproforma_invoice_uiddeliveriesjson" class="operation" data-method="post"><code>POST</code> /proforma_invoices/{proforma_invoice_uid}/deliveries.json</h3>
+<p>Operation ID: <code>deliverProformaInvoice</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>proforma_invoice_uid</code> | <code>path</code> | <code>string</code> | Yes | The uid of the proforma invoice |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and any</code>.</p>
+<h4 id="responses">Responses</h4>
+<h5 id="201-created" class="status" data-status="2xx">201: Created</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>available_actions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>AvailableActions</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>SendEmail</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.can_execute</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>billing_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>collection_method</code></td>
+<td><code>enum: automatic, remittance, prepaid, invoice and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>consolidation_level</code></td>
+<td><code>enum: none, child, parent and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credit_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].metadatum_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_type</code></td>
+<td><code>enum: Customer, Subscription</code></td>
+<td>No</td>
+<td>CustomFieldOwner</td>
+</tr>
+<tr>
+<td><code>custom_fields[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>delivery_date</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_type</code></td>
+<td><code>enum: percentage, flat_amount, rollover</code></td>
+<td>No</td>
+<td>InvoiceDiscountType</td>
+</tr>
+<tr>
+<td><code>discounts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].source_type</code></td>
+<td><code>enum: Coupon, Referral</code></td>
+<td>No</td>
+<td>ProformaInvoiceDiscountSourceType</td>
+</tr>
+<tr>
+<td><code>discounts[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>due_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].billing_schedule_item_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_cost_data</code></td>
+<td><code>any or object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].custom_item</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Detailed description for the charge or item represented by this line. May include proration details in plain text. Note: this string may contain line breaks that are hints for the best display format on the invoice.</td>
+</tr>
+<tr>
+<td><code>line_items[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate discount applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total discount among many lines. Several lines may have been summed prior to applying the discount to arrive at <code>discount_amount</code> for the invoice - backing that out to the discount on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].hide</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].kind</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_end</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>End date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the next (future) billing date. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the current billing date. * For non-periodic charges, this date and the start date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_start</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>Start date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the billing date, and the end date will be in the future. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the previous billing, and the end date will be the current billing date. * For non-periodic charges, this date and the end date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].prepaid_allocation_expires_at</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>The date a prepaid allocation is set to expire. Only present on line items representing prepaid component allocations. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the product subscribed when the charge was made. This may be set even for component charges, so true product-only (non-component) charges will also have a nil <code>component_id</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the line item's product</td>
+</tr>
+<tr>
+<td><code>line_items[].product_version</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The version of the product subscribed when the charge was made.</td>
+</tr>
+<tr>
+<td><code>line_items[].quantity</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The quantity or count of units billed by the line item. This is a decimal number represented as a string. (See &quot;About Decimal Numbers&quot;.)</td>
+</tr>
+<tr>
+<td><code>line_items[].subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The line subtotal, generally calculated as <code>quantity * </code>unit_price<code>. This is the canonical amount of record for the line - when rounding differences are in play, </code>subtotal_amount<code> takes precedence over the value derived from `quantity * `unit_price</code> (which may not have the proper precision to exactly equal this amount).</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate tax applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total tax among many lines. Several lines may have been summed prior to applying the tax rate to arrive at <code>tax_amount</code> for the invoice - backing that out to the tax on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_included</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether the unit price for this line item is tax-inclusive. When <code>true</code>, <code>unit_price</code> already includes tax and <code>tax_amount</code> represents the portion of the price attributable to tax. When <code>false</code>, any applicable tax is added on top of the price. The value is inherited from the source price point's <code>tax_included</code> setting. Custom or ad-hoc line items (which have no associated price point) always return <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].tiered_unit_price</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When <code>true</code>, indicates that the actual pricing scheme for the line was tiered, so the <code>unit_price</code> shown is the blended average for all units.</td>
+</tr>
+<tr>
+<td><code>line_items[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A short descriptor for the charge or item represented by this line.</td>
+</tr>
+<tr>
+<td><code>line_items[].total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The non-canonical total amount for the line. <code>subtotal_amount</code> is the canonical amount for a line. The invoice <code>total_amount</code> is derived from the sum of the line <code>subtotal_amount</code>s and discounts or taxes applied thereafter. Therefore, due to rounding or precision errors, the sum of line <code>total_amount</code>s may not equal the invoice <code>total_amount</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].transaction_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier for the line item. Useful when cross-referencing the line against individual discounts in the <code>discounts</code> or <code>taxes</code> lists.</td>
+</tr>
+<tr>
+<td><code>line_items[].unit_price</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The price per unit for the line item. When tiered pricing was used (that is, not every unit was actually priced at the same price) this will be the blended average cost per unit and the <code>tiered_unit_price</code> field will be set to <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paid_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payment_instructions</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].prepayment</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_family_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>refund_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>enum: unset, proforma, proforma_adhoc, proforma_automatic and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>seller</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sequence_number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>shipping_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>site_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: draft, voided, archived</code></td>
+<td>No</td>
+<td>ProformaInvoiceStatus</td>
+</tr>
+<tr>
+<td><code>subscription_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_exempt_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].percentage</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].source_type</code></td>
+<td><code>enum: Tax, Avalara</code></td>
+<td>No</td>
+<td>ProformaInvoiceTaxSourceType</td>
+</tr>
+<tr>
+<td><code>taxes[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-not-found" class="status" data-status="4xx">404: Not Found</h5>
+<h5 id="422-unprocessable-entity-webdav" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h3 id="post-proforma_invoicesproforma_invoice_uidvoidjson" class="operation" data-method="post"><code>POST</code> /proforma_invoices/{proforma_invoice_uid}/void.json</h3>
+<p>Operation ID: <code>voidProformaInvoice</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>proforma_invoice_uid</code> | <code>path</code> | <code>string</code> | Yes | The uid of the proforma invoice |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>void</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>VoidInvoice</td>
+</tr>
+<tr>
+<td><code>void.reason</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>available_actions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>AvailableActions</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>SendEmail</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.can_execute</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>billing_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>collection_method</code></td>
+<td><code>enum: automatic, remittance, prepaid, invoice and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>consolidation_level</code></td>
+<td><code>enum: none, child, parent and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credit_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].metadatum_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_type</code></td>
+<td><code>enum: Customer, Subscription</code></td>
+<td>No</td>
+<td>CustomFieldOwner</td>
+</tr>
+<tr>
+<td><code>custom_fields[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>delivery_date</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_type</code></td>
+<td><code>enum: percentage, flat_amount, rollover</code></td>
+<td>No</td>
+<td>InvoiceDiscountType</td>
+</tr>
+<tr>
+<td><code>discounts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].source_type</code></td>
+<td><code>enum: Coupon, Referral</code></td>
+<td>No</td>
+<td>ProformaInvoiceDiscountSourceType</td>
+</tr>
+<tr>
+<td><code>discounts[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>due_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].billing_schedule_item_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_cost_data</code></td>
+<td><code>any or object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].custom_item</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Detailed description for the charge or item represented by this line. May include proration details in plain text. Note: this string may contain line breaks that are hints for the best display format on the invoice.</td>
+</tr>
+<tr>
+<td><code>line_items[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate discount applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total discount among many lines. Several lines may have been summed prior to applying the discount to arrive at <code>discount_amount</code> for the invoice - backing that out to the discount on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].hide</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].kind</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_end</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>End date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the next (future) billing date. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the current billing date. * For non-periodic charges, this date and the start date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_start</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>Start date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the billing date, and the end date will be in the future. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the previous billing, and the end date will be the current billing date. * For non-periodic charges, this date and the end date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].prepaid_allocation_expires_at</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>The date a prepaid allocation is set to expire. Only present on line items representing prepaid component allocations. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the product subscribed when the charge was made. This may be set even for component charges, so true product-only (non-component) charges will also have a nil <code>component_id</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the line item's product</td>
+</tr>
+<tr>
+<td><code>line_items[].product_version</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The version of the product subscribed when the charge was made.</td>
+</tr>
+<tr>
+<td><code>line_items[].quantity</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The quantity or count of units billed by the line item. This is a decimal number represented as a string. (See &quot;About Decimal Numbers&quot;.)</td>
+</tr>
+<tr>
+<td><code>line_items[].subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The line subtotal, generally calculated as <code>quantity * </code>unit_price<code>. This is the canonical amount of record for the line - when rounding differences are in play, </code>subtotal_amount<code> takes precedence over the value derived from `quantity * `unit_price</code> (which may not have the proper precision to exactly equal this amount).</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate tax applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total tax among many lines. Several lines may have been summed prior to applying the tax rate to arrive at <code>tax_amount</code> for the invoice - backing that out to the tax on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_included</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether the unit price for this line item is tax-inclusive. When <code>true</code>, <code>unit_price</code> already includes tax and <code>tax_amount</code> represents the portion of the price attributable to tax. When <code>false</code>, any applicable tax is added on top of the price. The value is inherited from the source price point's <code>tax_included</code> setting. Custom or ad-hoc line items (which have no associated price point) always return <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].tiered_unit_price</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When <code>true</code>, indicates that the actual pricing scheme for the line was tiered, so the <code>unit_price</code> shown is the blended average for all units.</td>
+</tr>
+<tr>
+<td><code>line_items[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A short descriptor for the charge or item represented by this line.</td>
+</tr>
+<tr>
+<td><code>line_items[].total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The non-canonical total amount for the line. <code>subtotal_amount</code> is the canonical amount for a line. The invoice <code>total_amount</code> is derived from the sum of the line <code>subtotal_amount</code>s and discounts or taxes applied thereafter. Therefore, due to rounding or precision errors, the sum of line <code>total_amount</code>s may not equal the invoice <code>total_amount</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].transaction_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier for the line item. Useful when cross-referencing the line against individual discounts in the <code>discounts</code> or <code>taxes</code> lists.</td>
+</tr>
+<tr>
+<td><code>line_items[].unit_price</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The price per unit for the line item. When tiered pricing was used (that is, not every unit was actually priced at the same price) this will be the blended average cost per unit and the <code>tiered_unit_price</code> field will be set to <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paid_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payment_instructions</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].prepayment</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_family_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>refund_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>enum: unset, proforma, proforma_adhoc, proforma_automatic and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>seller</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sequence_number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>shipping_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>site_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: draft, voided, archived</code></td>
+<td>No</td>
+<td>ProformaInvoiceStatus</td>
+</tr>
+<tr>
+<td><code>subscription_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_exempt_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].percentage</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].source_type</code></td>
+<td><code>enum: Tax, Avalara</code></td>
+<td>No</td>
+<td>ProformaInvoiceTaxSourceType</td>
+</tr>
+<tr>
+<td><code>taxes[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-not-found-1" class="status" data-status="4xx">404: Not Found</h5>
+<h5 id="422-unprocessable-entity-webdav-1" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h3 id="post-subscription_groupsuidproforma_invoicesjson" class="operation" data-method="post"><code>POST</code> /subscription_groups/{uid}/proforma_invoices.json</h3>
+<p>Operation ID: <code>createConsolidatedProformaInvoice</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>uid</code> | <code>path</code> | <code>string</code> | Yes | The uid of the subscription group |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="201-created-1" class="status" data-status="2xx">201: Created</h5>
+<h5 id="422-unprocessable-entity-webdav-2" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h3 id="post-subscriptionssubscription_idproforma_invoicesjson" class="operation" data-method="post"><code>POST</code> /subscriptions/{subscription_id}/proforma_invoices.json</h3>
+<p>Operation ID: <code>createProformaInvoice</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>subscription_id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Chargify id of the subscription. |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-ok-1" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>available_actions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>AvailableActions</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>SendEmail</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.can_execute</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>billing_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>collection_method</code></td>
+<td><code>enum: automatic, remittance, prepaid, invoice and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>consolidation_level</code></td>
+<td><code>enum: none, child, parent and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credit_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].metadatum_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_type</code></td>
+<td><code>enum: Customer, Subscription</code></td>
+<td>No</td>
+<td>CustomFieldOwner</td>
+</tr>
+<tr>
+<td><code>custom_fields[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>delivery_date</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_type</code></td>
+<td><code>enum: percentage, flat_amount, rollover</code></td>
+<td>No</td>
+<td>InvoiceDiscountType</td>
+</tr>
+<tr>
+<td><code>discounts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].source_type</code></td>
+<td><code>enum: Coupon, Referral</code></td>
+<td>No</td>
+<td>ProformaInvoiceDiscountSourceType</td>
+</tr>
+<tr>
+<td><code>discounts[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>due_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].billing_schedule_item_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_cost_data</code></td>
+<td><code>any or object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].custom_item</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Detailed description for the charge or item represented by this line. May include proration details in plain text. Note: this string may contain line breaks that are hints for the best display format on the invoice.</td>
+</tr>
+<tr>
+<td><code>line_items[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate discount applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total discount among many lines. Several lines may have been summed prior to applying the discount to arrive at <code>discount_amount</code> for the invoice - backing that out to the discount on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].hide</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].kind</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_end</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>End date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the next (future) billing date. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the current billing date. * For non-periodic charges, this date and the start date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_start</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>Start date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the billing date, and the end date will be in the future. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the previous billing, and the end date will be the current billing date. * For non-periodic charges, this date and the end date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].prepaid_allocation_expires_at</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>The date a prepaid allocation is set to expire. Only present on line items representing prepaid component allocations. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the product subscribed when the charge was made. This may be set even for component charges, so true product-only (non-component) charges will also have a nil <code>component_id</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the line item's product</td>
+</tr>
+<tr>
+<td><code>line_items[].product_version</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The version of the product subscribed when the charge was made.</td>
+</tr>
+<tr>
+<td><code>line_items[].quantity</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The quantity or count of units billed by the line item. This is a decimal number represented as a string. (See &quot;About Decimal Numbers&quot;.)</td>
+</tr>
+<tr>
+<td><code>line_items[].subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The line subtotal, generally calculated as <code>quantity * </code>unit_price<code>. This is the canonical amount of record for the line - when rounding differences are in play, </code>subtotal_amount<code> takes precedence over the value derived from `quantity * `unit_price</code> (which may not have the proper precision to exactly equal this amount).</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate tax applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total tax among many lines. Several lines may have been summed prior to applying the tax rate to arrive at <code>tax_amount</code> for the invoice - backing that out to the tax on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_included</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether the unit price for this line item is tax-inclusive. When <code>true</code>, <code>unit_price</code> already includes tax and <code>tax_amount</code> represents the portion of the price attributable to tax. When <code>false</code>, any applicable tax is added on top of the price. The value is inherited from the source price point's <code>tax_included</code> setting. Custom or ad-hoc line items (which have no associated price point) always return <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].tiered_unit_price</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When <code>true</code>, indicates that the actual pricing scheme for the line was tiered, so the <code>unit_price</code> shown is the blended average for all units.</td>
+</tr>
+<tr>
+<td><code>line_items[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A short descriptor for the charge or item represented by this line.</td>
+</tr>
+<tr>
+<td><code>line_items[].total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The non-canonical total amount for the line. <code>subtotal_amount</code> is the canonical amount for a line. The invoice <code>total_amount</code> is derived from the sum of the line <code>subtotal_amount</code>s and discounts or taxes applied thereafter. Therefore, due to rounding or precision errors, the sum of line <code>total_amount</code>s may not equal the invoice <code>total_amount</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].transaction_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier for the line item. Useful when cross-referencing the line against individual discounts in the <code>discounts</code> or <code>taxes</code> lists.</td>
+</tr>
+<tr>
+<td><code>line_items[].unit_price</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The price per unit for the line item. When tiered pricing was used (that is, not every unit was actually priced at the same price) this will be the blended average cost per unit and the <code>tiered_unit_price</code> field will be set to <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paid_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payment_instructions</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].prepayment</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_family_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>refund_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>enum: unset, proforma, proforma_adhoc, proforma_automatic and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>seller</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sequence_number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>shipping_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>site_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: draft, voided, archived</code></td>
+<td>No</td>
+<td>ProformaInvoiceStatus</td>
+</tr>
+<tr>
+<td><code>subscription_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_exempt_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].percentage</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].source_type</code></td>
+<td><code>enum: Tax, Avalara</code></td>
+<td>No</td>
+<td>ProformaInvoiceTaxSourceType</td>
+</tr>
+<tr>
+<td><code>taxes[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="422-unprocessable-entity-webdav-3" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h3 id="post-subscriptionssubscription_idproforma_invoicespreviewjson" class="operation" data-method="post"><code>POST</code> /subscriptions/{subscription_id}/proforma_invoices/preview.json</h3>
+<p>Operation ID: <code>previewProformaInvoice</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>subscription_id</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The Chargify id of the subscription. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-ok-2" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>available_actions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>AvailableActions</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>SendEmail</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.can_execute</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>billing_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>collection_method</code></td>
+<td><code>enum: automatic, remittance, prepaid, invoice and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>consolidation_level</code></td>
+<td><code>enum: none, child, parent and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credit_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].metadatum_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_type</code></td>
+<td><code>enum: Customer, Subscription</code></td>
+<td>No</td>
+<td>CustomFieldOwner</td>
+</tr>
+<tr>
+<td><code>custom_fields[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>delivery_date</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_type</code></td>
+<td><code>enum: percentage, flat_amount, rollover</code></td>
+<td>No</td>
+<td>InvoiceDiscountType</td>
+</tr>
+<tr>
+<td><code>discounts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].source_type</code></td>
+<td><code>enum: Coupon, Referral</code></td>
+<td>No</td>
+<td>ProformaInvoiceDiscountSourceType</td>
+</tr>
+<tr>
+<td><code>discounts[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>due_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].billing_schedule_item_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_cost_data</code></td>
+<td><code>any or object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].custom_item</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Detailed description for the charge or item represented by this line. May include proration details in plain text. Note: this string may contain line breaks that are hints for the best display format on the invoice.</td>
+</tr>
+<tr>
+<td><code>line_items[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate discount applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total discount among many lines. Several lines may have been summed prior to applying the discount to arrive at <code>discount_amount</code> for the invoice - backing that out to the discount on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].hide</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].kind</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_end</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>End date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the next (future) billing date. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the current billing date. * For non-periodic charges, this date and the start date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_start</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>Start date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the billing date, and the end date will be in the future. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the previous billing, and the end date will be the current billing date. * For non-periodic charges, this date and the end date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].prepaid_allocation_expires_at</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>The date a prepaid allocation is set to expire. Only present on line items representing prepaid component allocations. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the product subscribed when the charge was made. This may be set even for component charges, so true product-only (non-component) charges will also have a nil <code>component_id</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the line item's product</td>
+</tr>
+<tr>
+<td><code>line_items[].product_version</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The version of the product subscribed when the charge was made.</td>
+</tr>
+<tr>
+<td><code>line_items[].quantity</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The quantity or count of units billed by the line item. This is a decimal number represented as a string. (See &quot;About Decimal Numbers&quot;.)</td>
+</tr>
+<tr>
+<td><code>line_items[].subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The line subtotal, generally calculated as <code>quantity * </code>unit_price<code>. This is the canonical amount of record for the line - when rounding differences are in play, </code>subtotal_amount<code> takes precedence over the value derived from `quantity * `unit_price</code> (which may not have the proper precision to exactly equal this amount).</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate tax applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total tax among many lines. Several lines may have been summed prior to applying the tax rate to arrive at <code>tax_amount</code> for the invoice - backing that out to the tax on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_included</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether the unit price for this line item is tax-inclusive. When <code>true</code>, <code>unit_price</code> already includes tax and <code>tax_amount</code> represents the portion of the price attributable to tax. When <code>false</code>, any applicable tax is added on top of the price. The value is inherited from the source price point's <code>tax_included</code> setting. Custom or ad-hoc line items (which have no associated price point) always return <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].tiered_unit_price</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When <code>true</code>, indicates that the actual pricing scheme for the line was tiered, so the <code>unit_price</code> shown is the blended average for all units.</td>
+</tr>
+<tr>
+<td><code>line_items[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A short descriptor for the charge or item represented by this line.</td>
+</tr>
+<tr>
+<td><code>line_items[].total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The non-canonical total amount for the line. <code>subtotal_amount</code> is the canonical amount for a line. The invoice <code>total_amount</code> is derived from the sum of the line <code>subtotal_amount</code>s and discounts or taxes applied thereafter. Therefore, due to rounding or precision errors, the sum of line <code>total_amount</code>s may not equal the invoice <code>total_amount</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].transaction_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier for the line item. Useful when cross-referencing the line against individual discounts in the <code>discounts</code> or <code>taxes</code> lists.</td>
+</tr>
+<tr>
+<td><code>line_items[].unit_price</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The price per unit for the line item. When tiered pricing was used (that is, not every unit was actually priced at the same price) this will be the blended average cost per unit and the <code>tiered_unit_price</code> field will be set to <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paid_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payment_instructions</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].prepayment</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_family_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>refund_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>enum: unset, proforma, proforma_adhoc, proforma_automatic and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>seller</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sequence_number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>shipping_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>site_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: draft, voided, archived</code></td>
+<td>No</td>
+<td>ProformaInvoiceStatus</td>
+</tr>
+<tr>
+<td><code>subscription_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_exempt_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].percentage</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].source_type</code></td>
+<td><code>enum: Tax, Avalara</code></td>
+<td>No</td>
+<td>ProformaInvoiceTaxSourceType</td>
+</tr>
+<tr>
+<td><code>taxes[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-not-found-2" class="status" data-status="4xx">404: Not Found</h5>
+<h5 id="422-unprocessable-entity-webdav-4" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h3 id="post-subscriptionsproforma_invoicesjson" class="operation" data-method="post"><code>POST</code> /subscriptions/proforma_invoices.json</h3>
+<p>Operation ID: <code>createSignupProformaInvoice</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and any</code>.</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="201-created-2" class="status" data-status="2xx">201: Created</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>available_actions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>AvailableActions</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>SendEmail</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.can_execute</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>billing_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>collection_method</code></td>
+<td><code>enum: automatic, remittance, prepaid, invoice and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>consolidation_level</code></td>
+<td><code>enum: none, child, parent and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credit_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].metadatum_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_type</code></td>
+<td><code>enum: Customer, Subscription</code></td>
+<td>No</td>
+<td>CustomFieldOwner</td>
+</tr>
+<tr>
+<td><code>custom_fields[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>delivery_date</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_type</code></td>
+<td><code>enum: percentage, flat_amount, rollover</code></td>
+<td>No</td>
+<td>InvoiceDiscountType</td>
+</tr>
+<tr>
+<td><code>discounts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].source_type</code></td>
+<td><code>enum: Coupon, Referral</code></td>
+<td>No</td>
+<td>ProformaInvoiceDiscountSourceType</td>
+</tr>
+<tr>
+<td><code>discounts[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>due_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].billing_schedule_item_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_cost_data</code></td>
+<td><code>any or object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].custom_item</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Detailed description for the charge or item represented by this line. May include proration details in plain text. Note: this string may contain line breaks that are hints for the best display format on the invoice.</td>
+</tr>
+<tr>
+<td><code>line_items[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate discount applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total discount among many lines. Several lines may have been summed prior to applying the discount to arrive at <code>discount_amount</code> for the invoice - backing that out to the discount on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].hide</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].kind</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_end</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>End date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the next (future) billing date. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the current billing date. * For non-periodic charges, this date and the start date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_start</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>Start date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the billing date, and the end date will be in the future. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the previous billing, and the end date will be the current billing date. * For non-periodic charges, this date and the end date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].prepaid_allocation_expires_at</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>The date a prepaid allocation is set to expire. Only present on line items representing prepaid component allocations. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the product subscribed when the charge was made. This may be set even for component charges, so true product-only (non-component) charges will also have a nil <code>component_id</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the line item's product</td>
+</tr>
+<tr>
+<td><code>line_items[].product_version</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The version of the product subscribed when the charge was made.</td>
+</tr>
+<tr>
+<td><code>line_items[].quantity</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The quantity or count of units billed by the line item. This is a decimal number represented as a string. (See &quot;About Decimal Numbers&quot;.)</td>
+</tr>
+<tr>
+<td><code>line_items[].subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The line subtotal, generally calculated as <code>quantity * </code>unit_price<code>. This is the canonical amount of record for the line - when rounding differences are in play, </code>subtotal_amount<code> takes precedence over the value derived from `quantity * `unit_price</code> (which may not have the proper precision to exactly equal this amount).</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate tax applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total tax among many lines. Several lines may have been summed prior to applying the tax rate to arrive at <code>tax_amount</code> for the invoice - backing that out to the tax on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_included</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether the unit price for this line item is tax-inclusive. When <code>true</code>, <code>unit_price</code> already includes tax and <code>tax_amount</code> represents the portion of the price attributable to tax. When <code>false</code>, any applicable tax is added on top of the price. The value is inherited from the source price point's <code>tax_included</code> setting. Custom or ad-hoc line items (which have no associated price point) always return <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].tiered_unit_price</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When <code>true</code>, indicates that the actual pricing scheme for the line was tiered, so the <code>unit_price</code> shown is the blended average for all units.</td>
+</tr>
+<tr>
+<td><code>line_items[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A short descriptor for the charge or item represented by this line.</td>
+</tr>
+<tr>
+<td><code>line_items[].total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The non-canonical total amount for the line. <code>subtotal_amount</code> is the canonical amount for a line. The invoice <code>total_amount</code> is derived from the sum of the line <code>subtotal_amount</code>s and discounts or taxes applied thereafter. Therefore, due to rounding or precision errors, the sum of line <code>total_amount</code>s may not equal the invoice <code>total_amount</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].transaction_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier for the line item. Useful when cross-referencing the line against individual discounts in the <code>discounts</code> or <code>taxes</code> lists.</td>
+</tr>
+<tr>
+<td><code>line_items[].unit_price</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The price per unit for the line item. When tiered pricing was used (that is, not every unit was actually priced at the same price) this will be the blended average cost per unit and the <code>tiered_unit_price</code> field will be set to <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paid_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payment_instructions</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].prepayment</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_family_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>refund_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>enum: unset, proforma, proforma_adhoc, proforma_automatic and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>seller</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sequence_number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>shipping_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>site_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: draft, voided, archived</code></td>
+<td>No</td>
+<td>ProformaInvoiceStatus</td>
+</tr>
+<tr>
+<td><code>subscription_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_exempt_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].percentage</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].source_type</code></td>
+<td><code>enum: Tax, Avalara</code></td>
+<td>No</td>
+<td>ProformaInvoiceTaxSourceType</td>
+</tr>
+<tr>
+<td><code>taxes[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h5 id="422-unprocessable-entity-webdav-5" class="status" data-status="4xx">422: Unprocessable Entity (WebDAV)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and any</code>.</p>
+<h2 id="list">list</h2>
+<h3 id="get-api_exportsproforma_invoicesbatch_idrowsjson" class="operation" data-method="get"><code>GET</code> /api_exports/proforma_invoices/{batch_id}/rows.json</h3>
+<p>Operation ID: <code>listExportedProformaInvoices</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>batch_id</code> | <code>path</code> | <code>string</code> | Yes | Id of a Batch Job. |
+| <code>per_page</code> | <code>query</code> | <code>integer (int32)</code> | No | This parameter indicates how many records to fetch in each request. Default value is 100. The maximum allowed values is 10000; any <code>per_page</code> value over 10000 will be changed to 10000. |
+| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned. Use in query <code>page=1</code>. |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-ok-3" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].available_actions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>AvailableActions</td>
+</tr>
+<tr>
+<td><code>[].available_actions.send_email</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>SendEmail</td>
+</tr>
+<tr>
+<td><code>[].available_actions.send_email.can_execute</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].available_actions.send_email.url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].billing_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>[].billing_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].billing_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].billing_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].billing_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].billing_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].billing_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].collection_method</code></td>
+<td><code>enum: automatic, remittance, prepaid, invoice and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].consolidation_level</code></td>
+<td><code>enum: none, child, parent and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].credit_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].credits</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].credits[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].credits[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].credits[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].credits[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].custom_fields</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].custom_fields[].metadatum_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].custom_fields[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].custom_fields[].owner_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].custom_fields[].owner_type</code></td>
+<td><code>enum: Customer, Subscription</code></td>
+<td>No</td>
+<td>CustomFieldOwner</td>
+</tr>
+<tr>
+<td><code>[].custom_fields[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].customer</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].customer_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].delivery_date</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discounts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discounts[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discounts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discounts[].discount_type</code></td>
+<td><code>enum: percentage, flat_amount, rollover</code></td>
+<td>No</td>
+<td>InvoiceDiscountType</td>
+</tr>
+<tr>
+<td><code>[].discounts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discounts[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discounts[].line_item_breakouts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discounts[].line_item_breakouts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discounts[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discounts[].source_type</code></td>
+<td><code>enum: Coupon, Referral</code></td>
+<td>No</td>
+<td>ProformaInvoiceDiscountSourceType</td>
+</tr>
+<tr>
+<td><code>[].discounts[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].discounts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].due_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].line_items</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].line_items[].billing_schedule_item_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].line_items[].component_cost_data</code></td>
+<td><code>any or object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].line_items[].component_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].custom_item</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].line_items[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Detailed description for the charge or item represented by this line. May include proration details in plain text. Note: this string may contain line breaks that are hints for the best display format on the invoice.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate discount applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total discount among many lines. Several lines may have been summed prior to applying the discount to arrive at <code>discount_amount</code> for the invoice - backing that out to the discount on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].hide</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].line_items[].kind</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].line_items[].period_range_end</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>End date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the next (future) billing date. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the current billing date. * For non-periodic charges, this date and the start date will match.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].period_range_start</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>Start date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the billing date, and the end date will be in the future. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the previous billing, and the end date will be the current billing date. * For non-periodic charges, this date and the end date will match.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].prepaid_allocation_expires_at</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>The date a prepaid allocation is set to expire. Only present on line items representing prepaid component allocations. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].product_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the product subscribed when the charge was made. This may be set even for component charges, so true product-only (non-component) charges will also have a nil <code>component_id</code>.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the line item's product</td>
+</tr>
+<tr>
+<td><code>[].line_items[].product_version</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The version of the product subscribed when the charge was made.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].quantity</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The quantity or count of units billed by the line item. This is a decimal number represented as a string. (See &quot;About Decimal Numbers&quot;.)</td>
+</tr>
+<tr>
+<td><code>[].line_items[].subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The line subtotal, generally calculated as <code>quantity * </code>unit_price<code>. This is the canonical amount of record for the line - when rounding differences are in play, </code>subtotal_amount<code> takes precedence over the value derived from `quantity * `unit_price</code> (which may not have the proper precision to exactly equal this amount).</td>
+</tr>
+<tr>
+<td><code>[].line_items[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate tax applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total tax among many lines. Several lines may have been summed prior to applying the tax rate to arrive at <code>tax_amount</code> for the invoice - backing that out to the tax on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].tax_included</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether the unit price for this line item is tax-inclusive. When <code>true</code>, <code>unit_price</code> already includes tax and <code>tax_amount</code> represents the portion of the price attributable to tax. When <code>false</code>, any applicable tax is added on top of the price. The value is inherited from the source price point's <code>tax_included</code> setting. Custom or ad-hoc line items (which have no associated price point) always return <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].tiered_unit_price</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When <code>true</code>, indicates that the actual pricing scheme for the line was tiered, so the <code>unit_price</code> shown is the blended average for all units.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A short descriptor for the charge or item represented by this line.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The non-canonical total amount for the line. <code>subtotal_amount</code> is the canonical amount for a line. The invoice <code>total_amount</code> is derived from the sum of the line <code>subtotal_amount</code>s and discounts or taxes applied thereafter. Therefore, due to rounding or precision errors, the sum of line <code>total_amount</code>s may not equal the invoice <code>total_amount</code>.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].transaction_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].line_items[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier for the line item. Useful when cross-referencing the line against individual discounts in the <code>discounts</code> or <code>taxes</code> lists.</td>
+</tr>
+<tr>
+<td><code>[].line_items[].unit_price</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The price per unit for the line item. When tiered pricing was used (that is, not every unit was actually priced at the same price) this will be the blended average cost per unit and the <code>tiered_unit_price</code> field will be set to <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].paid_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].payment_instructions</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].payments</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].payments[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].payments[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].payments[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].payments[].prepayment</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product_family_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].product_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].public_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].refund_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].role</code></td>
+<td><code>enum: unset, proforma, proforma_adhoc, proforma_automatic and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].seller</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].sequence_number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].shipping_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>[].shipping_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].shipping_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].shipping_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].shipping_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].shipping_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].shipping_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].site_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].status</code></td>
+<td><code>enum: draft, voided, archived</code></td>
+<td>No</td>
+<td>ProformaInvoiceStatus</td>
+</tr>
+<tr>
+<td><code>[].subscription_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes[].line_item_breakouts[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes[].line_item_breakouts[].tax_exempt_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes[].line_item_breakouts[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes[].percentage</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes[].source_type</code></td>
+<td><code>enum: Tax, Avalara</code></td>
+<td>No</td>
+<td>ProformaInvoiceTaxSourceType</td>
+</tr>
+<tr>
+<td><code>[].taxes[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].taxes[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-not-found-3" class="status" data-status="4xx">404: Not Found</h5>
+<h3 id="get-proforma_invoicesproforma_invoice_uidjson" class="operation" data-method="get"><code>GET</code> /proforma_invoices/{proforma_invoice_uid}.json</h3>
+<p>Operation ID: <code>readProformaInvoice</code>.</p>
+<p>Authentication: basic token (<code>BasicAuth</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>proforma_invoice_uid</code> | <code>path</code> | <code>string</code> | Yes | The uid of the proforma invoice |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-ok-4" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>available_actions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>AvailableActions</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>SendEmail</td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.can_execute</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>available_actions.send_email.url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>billing_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>billing_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>collection_method</code></td>
+<td><code>enum: automatic, remittance, prepaid, invoice and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>consolidation_level</code></td>
+<td><code>enum: none, child, parent and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credit_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>credits[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].metadatum_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>custom_fields[].owner_type</code></td>
+<td><code>enum: Customer, Subscription</code></td>
+<td>No</td>
+<td>CustomFieldOwner</td>
+</tr>
+<tr>
+<td><code>custom_fields[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>customer_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>delivery_date</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].discount_type</code></td>
+<td><code>enum: percentage, flat_amount, rollover</code></td>
+<td>No</td>
+<td>InvoiceDiscountType</td>
+</tr>
+<tr>
+<td><code>discounts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].eligible_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].source_type</code></td>
+<td><code>enum: Coupon, Referral</code></td>
+<td>No</td>
+<td>ProformaInvoiceDiscountSourceType</td>
+</tr>
+<tr>
+<td><code>discounts[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>discounts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>due_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].billing_schedule_item_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_cost_data</code></td>
+<td><code>any or object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].component_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].custom_item</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Detailed description for the charge or item represented by this line. May include proration details in plain text. Note: this string may contain line breaks that are hints for the best display format on the invoice.</td>
+</tr>
+<tr>
+<td><code>line_items[].discount_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate discount applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total discount among many lines. Several lines may have been summed prior to applying the discount to arrive at <code>discount_amount</code> for the invoice - backing that out to the discount on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].hide</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].kind</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_end</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>End date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the next (future) billing date. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the current billing date. * For non-periodic charges, this date and the start date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].period_range_start</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>Start date for the period covered by this line. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>. * For periodic charges paid in advance, this date will match the billing date, and the end date will be in the future. * For periodic charges paid in arrears (for example, metered charges), this date will be the date of the previous billing, and the end date will be the current billing date. * For non-periodic charges, this date and the end date will match.</td>
+</tr>
+<tr>
+<td><code>line_items[].prepaid_allocation_expires_at</code></td>
+<td><code>string (date)</code></td>
+<td>No</td>
+<td>The date a prepaid allocation is set to expire. Only present on line items representing prepaid component allocations. The format is <code>&amp;quot;YYYY-MM-DD&amp;quot;</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the component being billed. Will be <code>nil</code> for non-component charges.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The ID of the product subscribed when the charge was made. This may be set even for component charges, so true product-only (non-component) charges will also have a nil <code>component_id</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].product_price_point_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The price point ID of the line item's product</td>
+</tr>
+<tr>
+<td><code>line_items[].product_version</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The version of the product subscribed when the charge was made.</td>
+</tr>
+<tr>
+<td><code>line_items[].quantity</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The quantity or count of units billed by the line item. This is a decimal number represented as a string. (See &quot;About Decimal Numbers&quot;.)</td>
+</tr>
+<tr>
+<td><code>line_items[].subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The line subtotal, generally calculated as <code>quantity * </code>unit_price<code>. This is the canonical amount of record for the line - when rounding differences are in play, </code>subtotal_amount<code> takes precedence over the value derived from `quantity * `unit_price</code> (which may not have the proper precision to exactly equal this amount).</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The approximate tax applied to just this line. The value is approximated in cases where rounding errors make it difficult to apportion exactly a total tax among many lines. Several lines may have been summed prior to applying the tax rate to arrive at <code>tax_amount</code> for the invoice - backing that out to the tax on a single line may introduce rounding or precision errors.</td>
+</tr>
+<tr>
+<td><code>line_items[].tax_included</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether the unit price for this line item is tax-inclusive. When <code>true</code>, <code>unit_price</code> already includes tax and <code>tax_amount</code> represents the portion of the price attributable to tax. When <code>false</code>, any applicable tax is added on top of the price. The value is inherited from the source price point's <code>tax_included</code> setting. Custom or ad-hoc line items (which have no associated price point) always return <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].tiered_unit_price</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When <code>true</code>, indicates that the actual pricing scheme for the line was tiered, so the <code>unit_price</code> shown is the blended average for all units.</td>
+</tr>
+<tr>
+<td><code>line_items[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A short descriptor for the charge or item represented by this line.</td>
+</tr>
+<tr>
+<td><code>line_items[].total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The non-canonical total amount for the line. <code>subtotal_amount</code> is the canonical amount for a line. The invoice <code>total_amount</code> is derived from the sum of the line <code>subtotal_amount</code>s and discounts or taxes applied thereafter. Therefore, due to rounding or precision errors, the sum of line <code>total_amount</code>s may not equal the invoice <code>total_amount</code>.</td>
+</tr>
+<tr>
+<td><code>line_items[].transaction_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>line_items[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier for the line item. Useful when cross-referencing the line against individual discounts in the <code>discounts</code> or <code>taxes</code> lists.</td>
+</tr>
+<tr>
+<td><code>line_items[].unit_price</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The price per unit for the line item. When tiered pricing was used (that is, not every unit was actually priced at the same price) this will be the blended average cost per unit and the <code>tiered_unit_price</code> field will be set to <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paid_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payment_instructions</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].applied_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].memo</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].original_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>payments[].prepayment</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_family_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>refund_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>enum: unset, proforma, proforma_adhoc, proforma_automatic and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>seller</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sequence_number</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>InvoiceAddress</td>
+</tr>
+<tr>
+<td><code>shipping_address.city</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.country</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.line2</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.street</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shipping_address.zip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>site_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: draft, voided, archived</code></td>
+<td>No</td>
+<td>ProformaInvoiceStatus</td>
+</tr>
+<tr>
+<td><code>subscription_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subtotal_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].tax_exempt_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].line_item_breakouts[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].percentage</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].source_type</code></td>
+<td><code>enum: Tax, Avalara</code></td>
+<td>No</td>
+<td>ProformaInvoiceTaxSourceType</td>
+</tr>
+<tr>
+<td><code>taxes[].tax_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].taxable_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taxes[].uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total_amount</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uid</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-not-found-4" class="status" data-status="4xx">404: Not Found</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

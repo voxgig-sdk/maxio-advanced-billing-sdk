@@ -1,0 +1,694 @@
+# Entity: custom_field
+
+main: kit: entity: custom_field: {
+
+  alias: field: {}
+
+  fields: {
+    current_page: {
+      fo: "int32"
+      h: "Current Page"
+      n: "current_page"
+      r: false
+      t: "`$INTEGER`"
+    }
+    data_count: {
+      h: "Data Count"
+      n: "data_count"
+      r: false
+      t: "`$INTEGER`"
+    }
+    deleted_at: {
+      fo: "date-time"
+      h: "Deleted At"
+      n: "deleted_at"
+      r: false
+      t: "`$STRING`"
+    }
+    enum: {
+      h: "Enum"
+      n: "enum"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    input_type: {
+      h: "Input Type"
+      n: "input_type"
+      r: false
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      t: "`$OBJECT`"
+    }
+    metafield_id: {
+      fo: "int32"
+      h: "Metafield Id"
+      n: "metafield_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    metafields: {
+      h: "Metafields"
+      n: "metafields"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      t: "`$STRING`"
+    }
+    per_page: {
+      fo: "int32"
+      h: "Per Page"
+      n: "per_page"
+      r: false
+      t: "`$INTEGER`"
+    }
+    resource_id: {
+      fo: "int32"
+      h: "Resource Id"
+      n: "resource_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    scope: {
+      h: "Scope"
+      n: "scope"
+      r: false
+      t: "`$OBJECT`"
+    }
+    total_count: {
+      fo: "int32"
+      h: "Total Count"
+      n: "total_count"
+      r: false
+      t: "`$INTEGER`"
+    }
+    total_pages: {
+      fo: "int32"
+      h: "Total Pages"
+      n: "total_pages"
+      r: false
+      t: "`$INTEGER`"
+    }
+    value: {
+      h: "Value"
+      n: "value"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "custom_field"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /{resource_type}/{resource_id}/metadata.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "resource_id"
+                or: "resource_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "resource_type"
+                or: "resource_type"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/{resource_type}/{resource_id}/metadata.json"
+          q: {
+            exist: [
+              "resource_id"
+              "resource_type"
+            ]
+          }
+          s: [
+            {
+              var: "resource_type"
+            }
+            {
+              var: "resource_id"
+            }
+            {
+              lit: "metadata.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /{resource_type}/metafields.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "resource_type"
+                or: "resource_type"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/{resource_type}/metafields.json"
+          q: {
+            exist: [
+              "resource_type"
+            ]
+          }
+          s: [
+            {
+              var: "resource_type"
+            }
+            {
+              lit: "metafields.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /{resource_type}/metadata.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "resource_type"
+                or: "resource_type"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "date_field"
+                or: "date_field"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_datetime"
+                or: "end_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "resource_id"
+                or: "resource_id"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_datetime"
+                or: "start_datetime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "with_deleted"
+                or: "with_deleted"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/{resource_type}/metadata.json"
+          q: {
+            exist: [
+              "date_field"
+              "direction"
+              "end_date"
+              "end_datetime"
+              "page"
+              "per_page"
+              "resource_id"
+              "resource_type"
+              "start_date"
+              "start_datetime"
+              "with_deleted"
+            ]
+          }
+          s: [
+            {
+              var: "resource_type"
+            }
+            {
+              lit: "metadata.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.metadata`"
+          }
+        }
+        {
+          co: {
+            id: "GET /{resource_type}/metafields.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "resource_type"
+                or: "resource_type"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/{resource_type}/metafields.json"
+          q: {
+            exist: [
+              "direction"
+              "name"
+              "page"
+              "per_page"
+              "resource_type"
+            ]
+          }
+          s: [
+            {
+              var: "resource_type"
+            }
+            {
+              lit: "metafields.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /{resource_type}/{resource_id}/metadata.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "resource_id"
+                or: "resource_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "resource_type"
+                or: "resource_type"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/{resource_type}/{resource_id}/metadata.json"
+          q: {
+            exist: [
+              "page"
+              "per_page"
+              "resource_id"
+              "resource_type"
+            ]
+          }
+          s: [
+            {
+              var: "resource_type"
+            }
+            {
+              var: "resource_id"
+            }
+            {
+              lit: "metadata.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /{resource_type}/{resource_id}/metadata.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "resource_id"
+                or: "resource_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "resource_type"
+                or: "resource_type"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/{resource_type}/{resource_id}/metadata.json"
+          q: {
+            exist: [
+              "name"
+              "resource_id"
+              "resource_type"
+            ]
+          }
+          s: [
+            {
+              var: "resource_type"
+            }
+            {
+              var: "resource_id"
+            }
+            {
+              lit: "metadata.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /{resource_type}/metafields.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "resource_type"
+                or: "resource_type"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/{resource_type}/metafields.json"
+          q: {
+            exist: [
+              "name"
+              "resource_type"
+            ]
+          }
+          s: [
+            {
+              var: "resource_type"
+            }
+            {
+              lit: "metafields.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /{resource_type}/{resource_id}/metadata.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "resource_id"
+                or: "resource_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "resource_type"
+                or: "resource_type"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/{resource_type}/{resource_id}/metadata.json"
+          q: {
+            exist: [
+              "resource_id"
+              "resource_type"
+            ]
+          }
+          s: [
+            {
+              var: "resource_type"
+            }
+            {
+              var: "resource_id"
+            }
+            {
+              lit: "metadata.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /{resource_type}/metafields.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "resource_type"
+                or: "resource_type"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/{resource_type}/metafields.json"
+          q: {
+            exist: [
+              "resource_type"
+            ]
+          }
+          s: [
+            {
+              var: "resource_type"
+            }
+            {
+              lit: "metafields.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

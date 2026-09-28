@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "coupon_usage": {
+      "COUPON_USAGE00": {
+        "id": "COUPON_USAGE00",
+        "name": "s47",
+        "revenue": 72,
+        "revenue_in_cents": 73,
+        "savings": 74,
+        "savings_in_cents": 75,
+        "signups": 76,
+        "product_family_id": "PRODUCT_FAMILY01"
+      },
+      "COUPON_USAGE01": {
+        "id": "COUPON_USAGE01",
+        "name": "s8d",
+        "revenue": 142,
+        "revenue_in_cents": 143,
+        "savings": 144,
+        "savings_in_cents": 145,
+        "signups": 146,
+        "product_family_id": "PRODUCT_FAMILY01"
+      },
+      "COUPON_USAGE02": {
+        "id": "COUPON_USAGE02",
+        "name": "sd3",
+        "revenue": 212,
+        "revenue_in_cents": 213,
+        "savings": 214,
+        "savings_in_cents": 215,
+        "signups": 216,
+        "product_family_id": "PRODUCT_FAMILY01"
+      }
+    }
+  },
+  "new": {
+    "coupon_usage": {
+      "coupon_usage_ref01": {
+        "name": "s119",
+        "revenue": 282,
+        "revenue_in_cents": 283,
+        "savings": 284,
+        "savings_in_cents": 285,
+        "signups": 286
+      }
+    }
+  },
+  "requests": {
+    "GET /product_families/{product_family_id}/coupons/{coupon_id}/usage.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

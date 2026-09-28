@@ -1,0 +1,144 @@
+# Entity: sale_rep_setting
+
+main: kit: entity: sale_rep_setting: {
+
+  alias: field: {}
+
+  fields: {
+    customer_name: {
+      h: "Customer Name"
+      n: "customer_name"
+      r: false
+      t: "`$STRING`"
+    }
+    sales_rep_id: {
+      fo: "int32"
+      h: "Sales Rep Id"
+      n: "sales_rep_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    sales_rep_name: {
+      h: "Sales Rep Name"
+      n: "sales_rep_name"
+      r: false
+      t: "`$STRING`"
+    }
+    site_link: {
+      h: "Site Link"
+      n: "site_link"
+      r: false
+      t: "`$STRING`"
+    }
+    site_name: {
+      h: "Site Name"
+      n: "site_name"
+      r: false
+      t: "`$STRING`"
+    }
+    subscription_id: {
+      fo: "int32"
+      h: "Subscription Id"
+      n: "subscription_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    subscription_mrr: {
+      h: "Subscription Mrr"
+      n: "subscription_mrr"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "sale_rep_setting"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /sellers/{seller_id}/sales_commission_settings.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "Bearer <<apiKey>>"
+                k: "header"
+                n: "authorization"
+                or: "authorization"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "seller_id"
+                or: "seller_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "live_mode"
+                or: "live_mode"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/sellers/{seller_id}/sales_commission_settings.json"
+          q: {
+            exist: [
+              "authorization"
+              "live_mode"
+              "page"
+              "per_page"
+              "seller_id"
+            ]
+          }
+          s: [
+            {
+              lit: "sellers"
+            }
+            {
+              var: "seller_id"
+            }
+            {
+              lit: "sales_commission_settings.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

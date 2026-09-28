@@ -1,0 +1,27 @@
+# BasicCouponUsageFlow
+
+main: kit: flow: BasicCouponUsageFlow:
+{
+  entity: "coupon_usage",
+  kind: "basic",
+  name: "BasicCouponUsageFlow",
+  step: [
+    {
+      m: {
+        coupon_id: "coupon01",
+        product_family_id: "product_family01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "coupon_usage_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCouponUsageFlow"
+}

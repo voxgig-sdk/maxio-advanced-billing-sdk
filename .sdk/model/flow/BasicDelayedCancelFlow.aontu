@@ -1,0 +1,22 @@
+# BasicDelayedCancelFlow
+
+main: kit: flow: BasicDelayedCancelFlow:
+{
+  entity: "delayed_cancel",
+  kind: "basic",
+  name: "BasicDelayedCancelFlow",
+  step: [
+    {
+      i: {
+        ref: "delayed_cancel_ref01"
+      }
+
+      m: {
+        subscription_id: "subscription01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicDelayedCancelFlow"
+}

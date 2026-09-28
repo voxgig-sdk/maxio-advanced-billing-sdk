@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "events_based_billing_segment": {
+      "EVENTS_BASED_BILLING_SEGMENT00": {
+        "id": "EVENTS_BASED_BILLING_SEGMENT00",
+        "component_id": "COMPONENT01",
+        "price_point_id": "PRICE_POINT01"
+      },
+      "EVENTS_BASED_BILLING_SEGMENT01": {
+        "id": "EVENTS_BASED_BILLING_SEGMENT01",
+        "component_id": "COMPONENT01",
+        "price_point_id": "PRICE_POINT01"
+      },
+      "EVENTS_BASED_BILLING_SEGMENT02": {
+        "id": "EVENTS_BASED_BILLING_SEGMENT02",
+        "component_id": "COMPONENT01",
+        "price_point_id": "PRICE_POINT01"
+      }
+    }
+  },
+  "new": {
+    "events_based_billing_segment": {
+      "events_based_billing_segment_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /components/{component_id}/price_points/{price_point_id}/segments/{id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

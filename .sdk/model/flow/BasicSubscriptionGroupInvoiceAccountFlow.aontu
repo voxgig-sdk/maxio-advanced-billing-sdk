@@ -1,0 +1,38 @@
+# BasicSubscriptionGroupInvoiceAccountFlow
+
+main: kit: flow: BasicSubscriptionGroupInvoiceAccountFlow:
+{
+  entity: "subscription_group_invoice_account",
+  kind: "basic",
+  name: "BasicSubscriptionGroupInvoiceAccountFlow",
+  step: [
+    {
+      i: {
+        ref: "subscription_group_invoice_account_ref01"
+      }
+
+      m: {
+        uid: "uid01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        uid: "uid01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "subscription_group_invoice_account_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSubscriptionGroupInvoiceAccountFlow"
+}

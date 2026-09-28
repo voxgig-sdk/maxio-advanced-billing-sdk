@@ -1,0 +1,28 @@
+# BasicCouponSubcodeFlow
+
+main: kit: flow: BasicCouponSubcodeFlow:
+{
+  entity: "coupon_subcode",
+  kind: "basic",
+  name: "BasicCouponSubcodeFlow",
+  step: [
+    {
+      i: {
+        ref: "coupon_subcode_ref01",
+        srcdatavar: "coupon_subcode_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-coupon_subcode_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCouponSubcodeFlow"
+}

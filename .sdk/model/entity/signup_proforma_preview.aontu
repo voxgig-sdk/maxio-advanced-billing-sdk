@@ -1,0 +1,61 @@
+# Entity: signup_proforma_preview
+
+main: kit: entity: signup_proforma_preview: {
+
+  alias: field: {}
+
+  name: "signup_proforma_preview"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /subscriptions/proforma_invoices/preview.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/subscriptions/proforma_invoices/preview.json"
+          q: {
+            exist: [
+              "include"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "proforma_invoices"
+            }
+            {
+              lit: "preview.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.proforma_invoice_preview`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

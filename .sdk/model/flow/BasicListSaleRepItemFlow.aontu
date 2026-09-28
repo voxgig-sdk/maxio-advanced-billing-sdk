@@ -1,0 +1,26 @@
+# BasicListSaleRepItemFlow
+
+main: kit: flow: BasicListSaleRepItemFlow:
+{
+  entity: "list_sale_rep_item",
+  kind: "basic",
+  name: "BasicListSaleRepItemFlow",
+  step: [
+    {
+      m: {
+        seller_id: "seller01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_sale_rep_item_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListSaleRepItemFlow"
+}

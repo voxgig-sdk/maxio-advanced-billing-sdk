@@ -1,0 +1,62 @@
+{
+  "existing": {
+    "insight": {
+      "INSIGHT00": {
+        "mrr": {},
+        "seller_name": "s3d",
+        "site_currency": "s3e",
+        "site_id": "SITE01",
+        "site_name": "s40",
+        "stats": {},
+        "id": "INSIGHT00"
+      },
+      "INSIGHT01": {
+        "mrr": {},
+        "seller_name": "s79",
+        "site_currency": "s7a",
+        "site_id": "SITE01",
+        "site_name": "s7c",
+        "stats": {},
+        "id": "INSIGHT01"
+      },
+      "INSIGHT02": {
+        "mrr": {},
+        "seller_name": "sb5",
+        "site_currency": "sb6",
+        "site_id": "SITE01",
+        "site_name": "sb8",
+        "stats": {},
+        "id": "INSIGHT02"
+      }
+    }
+  },
+  "new": {
+    "insight": {
+      "insight_ref01": {
+        "mrr": {},
+        "seller_name": "sf1",
+        "site_currency": "sf2",
+        "site_id": "SITE01",
+        "site_name": "sf4",
+        "stats": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /mrr_movements.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /mrr.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /stats.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

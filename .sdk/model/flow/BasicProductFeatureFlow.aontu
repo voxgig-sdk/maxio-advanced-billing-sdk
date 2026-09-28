@@ -1,0 +1,9 @@
+# BasicProductFeatureFlow
+
+main: kit: flow: BasicProductFeatureFlow:
+{
+  entity: "product_feature",
+  kind: "basic",
+  name: "BasicProductFeatureFlow",
+  "key$": "BasicProductFeatureFlow"
+}

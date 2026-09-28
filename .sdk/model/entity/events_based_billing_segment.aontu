@@ -1,0 +1,100 @@
+# Entity: events_based_billing_segment
+
+main: kit: entity: events_based_billing_segment: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "events_based_billing_segment"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /components/{component_id}/price_points/{price_point_id}/segments/{id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "component_id"
+                or: "component_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$NUMBER`"
+              }
+              {
+                k: "param"
+                n: "price_point_id"
+                or: "price_point_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/components/{component_id}/price_points/{price_point_id}/segments/{id}.json"
+          q: {
+            exist: [
+              "component_id"
+              "id"
+              "price_point_id"
+            ]
+          }
+          s: [
+            {
+              lit: "components"
+            }
+            {
+              var: "component_id"
+            }
+            {
+              lit: "price_points"
+            }
+            {
+              var: "price_point_id"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              lit: "{id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.component")]
+  ]
+
+}

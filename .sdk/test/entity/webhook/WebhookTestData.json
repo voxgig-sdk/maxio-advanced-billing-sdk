@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "webhook": {
+      "WEBHOOK00": {
+        "endpoint": {},
+        "webhook": {},
+        "id": "WEBHOOK00"
+      },
+      "WEBHOOK01": {
+        "endpoint": {},
+        "webhook": {},
+        "id": "WEBHOOK01"
+      },
+      "WEBHOOK02": {
+        "endpoint": {},
+        "webhook": {},
+        "id": "WEBHOOK02"
+      }
+    }
+  },
+  "new": {
+    "webhook": {
+      "webhook_ref01": {
+        "endpoint": {},
+        "webhook": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /endpoints.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /webhooks/replay.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /webhooks.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /webhooks/settings.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

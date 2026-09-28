@@ -1,0 +1,53 @@
+# BasicSubscriptionStatusFlow
+
+main: kit: flow: BasicSubscriptionStatusFlow:
+{
+  entity: "subscription_status",
+  kind: "basic",
+  name: "BasicSubscriptionStatusFlow",
+  step: [
+    {
+      i: {
+        ref: "subscription_status_ref01"
+      }
+
+      m: {
+        subscription_id: "subscription01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "subscription_status_ref01",
+        srcdatavar: "subscription_status_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-subscription_status_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "subscription_status_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "subscription_status01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicSubscriptionStatusFlow"
+}

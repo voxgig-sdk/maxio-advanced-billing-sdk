@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "signup_proforma_preview": {
+      "SIGNUP_PROFORMA_PREVIEW00": {
+        "id": "SIGNUP_PROFORMA_PREVIEW00"
+      },
+      "SIGNUP_PROFORMA_PREVIEW01": {
+        "id": "SIGNUP_PROFORMA_PREVIEW01"
+      },
+      "SIGNUP_PROFORMA_PREVIEW02": {
+        "id": "SIGNUP_PROFORMA_PREVIEW02"
+      }
+    }
+  },
+  "new": {
+    "signup_proforma_preview": {
+      "signup_proforma_preview_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /subscriptions/proforma_invoices/preview.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

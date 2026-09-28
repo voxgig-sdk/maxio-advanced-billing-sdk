@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "account_balance": {
+      "ACCOUNT_BALANCE00": {
+        "open_invoices": "s32",
+        "pending_discounts": "s33",
+        "pending_invoices": "s34",
+        "prepayments": "s35",
+        "service_credits": "s36",
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "ACCOUNT_BALANCE00"
+      },
+      "ACCOUNT_BALANCE01": {
+        "open_invoices": "s64",
+        "pending_discounts": "s65",
+        "pending_invoices": "s66",
+        "prepayments": "s67",
+        "service_credits": "s68",
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "ACCOUNT_BALANCE01"
+      },
+      "ACCOUNT_BALANCE02": {
+        "open_invoices": "s96",
+        "pending_discounts": "s97",
+        "pending_invoices": "s98",
+        "prepayments": "s99",
+        "service_credits": "s9a",
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "ACCOUNT_BALANCE02"
+      }
+    }
+  },
+  "new": {
+    "account_balance": {
+      "account_balance_ref01": {
+        "open_invoices": "sc8",
+        "pending_discounts": "sc9",
+        "pending_invoices": "sca",
+        "prepayments": "scb",
+        "service_credits": "scc"
+      }
+    }
+  },
+  "requests": {
+    "GET /subscriptions/{subscription_id}/account_balances.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

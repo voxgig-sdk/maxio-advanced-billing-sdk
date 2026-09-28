@@ -1,0 +1,107 @@
+# BasicPaymentProfileFlow
+
+main: kit: flow: BasicPaymentProfileFlow:
+{
+  entity: "payment_profile",
+  kind: "basic",
+  name: "BasicPaymentProfileFlow",
+  step: [
+    {
+      i: {
+        ref: "payment_profile_ref01"
+      }
+
+      m: {
+        payment_profile_id: "payment_profile01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "payment_profile_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        payment_profile_id: "payment_profile01"
+      }
+
+      i: {
+        ref: "payment_profile_ref01",
+        srcdatavar: "payment_profile_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-payment_profile_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "payment_profile_ref01",
+        srcdatavar: "payment_profile_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        payment_profile_id: "payment_profile01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-payment_profile_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "payment_profile_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        payment_profile_id: "payment_profile01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "payment_profile_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPaymentProfileFlow"
+}

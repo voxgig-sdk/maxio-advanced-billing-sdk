@@ -1,0 +1,277 @@
+# Entity: reason_code
+
+main: kit: entity: reason_code: {
+
+  alias: field: {}
+
+  fields: {
+    code: {
+      h: "Code"
+      n: "code"
+      r: false
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    position: {
+      fo: "int32"
+      h: "Position"
+      n: "position"
+      r: false
+      t: "`$INTEGER`"
+    }
+    reason_code: {
+      h: "Reason Code"
+      n: "reason_code"
+      r: true
+      t: "`$OBJECT`"
+    }
+    site_id: {
+      fo: "int32"
+      h: "Site Id"
+      n: "site_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "reason_code"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /reason_codes.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/reason_codes.json"
+          s: [
+            {
+              lit: "reason_codes.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.reason_code`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /reason_codes.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/reason_codes.json"
+          q: {
+            exist: [
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "reason_codes.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /reason_codes/{reason_code_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "reason_code_id"
+                or: "reason_code_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/reason_codes/{reason_code_id}.json"
+          q: {
+            "$action": "reason_code_id"
+            exist: [
+              "reason_code_id"
+            ]
+          }
+          s: [
+            {
+              lit: "reason_codes"
+            }
+            {
+              lit: "{reason_code_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.reason_code`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /reason_codes/{reason_code_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "reason_code_id"
+                or: "reason_code_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/reason_codes/{reason_code_id}.json"
+          q: {
+            "$action": "reason_code_id"
+            exist: [
+              "reason_code_id"
+            ]
+          }
+          s: [
+            {
+              lit: "reason_codes"
+            }
+            {
+              lit: "{reason_code_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /reason_codes/{reason_code_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "reason_code_id"
+                or: "reason_code_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/reason_codes/{reason_code_id}.json"
+          q: {
+            "$action": "reason_code_id"
+            exist: [
+              "reason_code_id"
+            ]
+          }
+          s: [
+            {
+              lit: "reason_codes"
+            }
+            {
+              lit: "{reason_code_id}.json"
+            }
+          ]
+          t: {
+            req: {
+              reason_code: "`reqdata`"
+            }
+            res: "`body.reason_code`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

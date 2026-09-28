@@ -1,0 +1,115 @@
+# BasicCouponFlow
+
+main: kit: flow: BasicCouponFlow:
+{
+  entity: "coupon",
+  kind: "basic",
+  name: "BasicCouponFlow",
+  step: [
+    {
+      i: {
+        ref: "coupon_ref01"
+      }
+
+      m: {
+        coupon_id: "coupon01",
+        product_family_id: "product_family01",
+        subcode: "subcode01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        coupon_id: "coupon01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "coupon_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        coupon_id: "coupon01"
+      }
+
+      i: {
+        ref: "coupon_ref01",
+        srcdatavar: "coupon_ref01_data",
+        suffix: "_up0",
+        textfield: "archived_at"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-coupon_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "coupon_ref01",
+        srcdatavar: "coupon_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-coupon_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "coupon_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        coupon_id: "coupon01",
+        id: "coupon01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        coupon_id: "coupon01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "coupon_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCouponFlow"
+}

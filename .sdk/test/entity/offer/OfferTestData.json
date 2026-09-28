@@ -1,0 +1,131 @@
+{
+  "existing": {
+    "offer": {
+      "OFFER00": {
+        "archived_at": "sd2",
+        "created_at": "sd3",
+        "description": "sd4",
+        "handle": "sd5",
+        "id": "OFFER00",
+        "name": "sd7",
+        "offer": {},
+        "offer_discounts": [],
+        "offer_items": [],
+        "offer_signup_pages": [],
+        "offers": [],
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_family_name": "sde",
+        "product_id": "PRODUCT01",
+        "product_name": "se0",
+        "product_price_in_cents": 225,
+        "product_price_point_id": "PRODUCT_PRICE_POINT01",
+        "product_price_point_name": "se3",
+        "product_revisable_number": 228,
+        "site_id": "SITE01",
+        "updated_at": "se6",
+        "offer_id": "OFFER01"
+      },
+      "OFFER01": {
+        "archived_at": "s1a4",
+        "created_at": "s1a5",
+        "description": "s1a6",
+        "handle": "s1a7",
+        "id": "OFFER01",
+        "name": "s1a9",
+        "offer": {},
+        "offer_discounts": [],
+        "offer_items": [],
+        "offer_signup_pages": [],
+        "offers": [],
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_family_name": "s1b0",
+        "product_id": "PRODUCT01",
+        "product_name": "s1b2",
+        "product_price_in_cents": 435,
+        "product_price_point_id": "PRODUCT_PRICE_POINT01",
+        "product_price_point_name": "s1b5",
+        "product_revisable_number": 438,
+        "site_id": "SITE01",
+        "updated_at": "s1b8",
+        "offer_id": "OFFER01"
+      },
+      "OFFER02": {
+        "archived_at": "s276",
+        "created_at": "s277",
+        "description": "s278",
+        "handle": "s279",
+        "id": "OFFER02",
+        "name": "s27b",
+        "offer": {},
+        "offer_discounts": [],
+        "offer_items": [],
+        "offer_signup_pages": [],
+        "offers": [],
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_family_name": "s282",
+        "product_id": "PRODUCT01",
+        "product_name": "s284",
+        "product_price_in_cents": 645,
+        "product_price_point_id": "PRODUCT_PRICE_POINT01",
+        "product_price_point_name": "s287",
+        "product_revisable_number": 648,
+        "site_id": "SITE01",
+        "updated_at": "s28a",
+        "offer_id": "OFFER01"
+      }
+    }
+  },
+  "new": {
+    "offer": {
+      "offer_ref01": {
+        "archived_at": "s348",
+        "created_at": "s349",
+        "description": "s34a",
+        "handle": "s34b",
+        "name": "s34d",
+        "offer": {},
+        "offer_discounts": [],
+        "offer_items": [],
+        "offer_signup_pages": [],
+        "offers": [],
+        "product_family_id": "PRODUCT_FAMILY01",
+        "product_family_name": "s354",
+        "product_id": "PRODUCT01",
+        "product_name": "s356",
+        "product_price_in_cents": 855,
+        "product_price_point_id": "PRODUCT_PRICE_POINT01",
+        "product_price_point_name": "s359",
+        "product_revisable_number": 858,
+        "site_id": "SITE01",
+        "updated_at": "s35c"
+      }
+    }
+  },
+  "requests": {
+    "POST /offers.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /offers.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /offers/{offer_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /offers/{offer_id}/archive.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /offers/{offer_id}/unarchive.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

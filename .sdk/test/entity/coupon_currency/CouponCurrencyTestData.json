@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "coupon_currency": {
+      "COUPON_CURRENCY00": {
+        "id": "COUPON_CURRENCY00"
+      },
+      "COUPON_CURRENCY01": {
+        "id": "COUPON_CURRENCY01"
+      },
+      "COUPON_CURRENCY02": {
+        "id": "COUPON_CURRENCY02"
+      }
+    }
+  },
+  "new": {
+    "coupon_currency": {
+      "coupon_currency_ref01": {}
+    }
+  },
+  "requests": {
+    "PUT /coupons/{coupon_id}/currency_prices.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "existing": {
+    "reason_code": {
+      "REASON_CODE00": {
+        "code": "s50",
+        "created_at": "s51",
+        "description": "s52",
+        "id": "REASON_CODE00",
+        "position": 84,
+        "reason_code": {},
+        "site_id": "SITE01",
+        "updated_at": "s57",
+        "reason_code_id": "REASON_CODE01"
+      },
+      "REASON_CODE01": {
+        "code": "sa0",
+        "created_at": "sa1",
+        "description": "sa2",
+        "id": "REASON_CODE01",
+        "position": 164,
+        "reason_code": {},
+        "site_id": "SITE01",
+        "updated_at": "sa7",
+        "reason_code_id": "REASON_CODE01"
+      },
+      "REASON_CODE02": {
+        "code": "sf0",
+        "created_at": "sf1",
+        "description": "sf2",
+        "id": "REASON_CODE02",
+        "position": 244,
+        "reason_code": {},
+        "site_id": "SITE01",
+        "updated_at": "sf7",
+        "reason_code_id": "REASON_CODE01"
+      }
+    }
+  },
+  "new": {
+    "reason_code": {
+      "reason_code_ref01": {
+        "code": "s140",
+        "created_at": "s141",
+        "description": "s142",
+        "position": 324,
+        "reason_code": {},
+        "site_id": "SITE01",
+        "updated_at": "s147"
+      }
+    }
+  },
+  "requests": {
+    "POST /reason_codes.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /reason_codes.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /reason_codes/{reason_code_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /reason_codes/{reason_code_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /reason_codes/{reason_code_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}
