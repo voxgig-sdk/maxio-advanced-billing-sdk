@@ -6,7 +6,7 @@
 - **Retrieved:** 2026-09-28T20:35:54Z
 - **SHA-256:** `1faf6375df150b84c80e3335c298d9679f3d2ac2638633b4fec239e250ccc067`
 - **Definition:** OpenAPI 3.0.0, `info.version` 1.0, 196 paths, 268 operations, 2482 KB.
-- **Licence:** none stated.
+- **Licence:** MIT, inherited from the SDK generated from this definition: maxio-com/ab-typescript-sdk is MIT ("Copyright (c) 2014 - 2026 APIMATIC Limited", checked at ed4c80a). The definition itself has no `info.license`.
 - **Changes:** none. This is the vendor's definition, byte for byte.
 
 ## Why this SDK exists
