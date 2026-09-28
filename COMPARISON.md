@@ -1,6 +1,6 @@
 # Maxio Advanced Billing: the Voxgig SDK and the APIMatic SDK compared
 
-Vergleich: APIMatic. Compared with maxio-com/ab-typescript-sdk 10.0.0, which covers 249 of the spec's operations. Spec: developers.maxio.com OpenAPI 3.0 export, OAS 3.0.0, 196 paths / 268 ops, no licence stated. Added 2026-09-28.
+Vergleich: APIMatic. Compared with maxio-com/ab-typescript-sdk 10.0.0, which covers 249 of the spec's operations. Spec: developers.maxio.com OpenAPI 3.0 export, OAS 3.0.0, 196 paths / 268 ops, MIT, inherited from maxio-com/ab-typescript-sdk (the definition states none). Added 2026-09-28.
 
 This repository is on the admin **vergleich** list. It is built only to be compared, and it is not published.
 
@@ -8,7 +8,7 @@ This repository is on the admin **vergleich** list. It is built only to be compa
 
 | | Voxgig | APIMatic |
 |---|---|---|
-| SDK | this repository, commit `e90b0b8`: eight targets (go, go-cli, go-mcp, ts, py, rb, lua, php) | `@maxio-com/advanced-billing-sdk@10.0.0` (TypeScript) |
+| SDK | this repository, commit `4ff6323`: eight targets (go, go-cli, go-mcp, ts, py, rb, lua, php) | `@maxio-com/advanced-billing-sdk@10.0.0` (TypeScript) |
 | Input | `maxio-advanced-billing-openapi.json`: OAS 3.0.0, `info.version` 1.0, 196 paths, 268 operations | the vendor's own generation; the note above names the definition version it came from |
 | Operations callable | 266 of 268 (2 modelled as `patch` but not generated) | 249 operation methods |
 | Entities | 57 | not applicable |
@@ -92,9 +92,10 @@ Each SDK lists one resource, loads and removes the first item it listed, and cre
 
 ## Voxgig toolchain findings
 
-- **PATCH-OP** (@voxgig/apidef 8.17.2 + @voxgig/sdkgen 4.30.2). apidef resolves a PATCH beside a PUT on the same entity as a sixth op, `patch`. sdkgen generates only load, list, create, update and remove, so those operations are modelled but have no method. The coverage gate counts entities, so it passes anyway. Here: maxio: PATCH /products/{product_id}/price_points/{price_point_id}/default.json; maxio: PATCH /products/{product_id}/price_points/{price_point_id}/unarchive.json. Reported, not changed: a design decision across both tools.
+- **PATCH-OP** (@voxgig/apidef 8.17.2 + @voxgig/sdkgen 4.30.3). apidef resolves a PATCH beside a PUT on the same entity as a sixth op, `patch`. sdkgen generates only load, list, create, update and remove, so those operations are modelled but have no method. The coverage gate counts entities, so it passes anyway. Here: maxio: PATCH /products/{product_id}/price_points/{price_point_id}/default.json; maxio: PATCH /products/{product_id}/price_points/{price_point_id}/unarchive.json. Reported, not changed: a design decision across both tools.
 - **UNWRAP** (@voxgig/apidef 8.17.2). The response transform that says where an operation's data sits is inferred wrongly for several resources, in both directions. A schema whose one object-valued property is ordinary data is taken for an envelope (Apicurio's `labels`, SaladCloud's `container`), and a real envelope is missed when it is composed with allOf (Lob) or sits beside another property (Neon's `projects` beside `pagination`). The SDKs' own tests cannot see it, because they mock from the same model; a mock built from the vendor definition does. Here: maxio customer list and load: `body`, so the Customer entity's data is the `{ customer }` wrapper, one level above its own fields (lookup unwraps `body.customer`). Reported, not changed: heuristic design in apidef.
-- **QUERY-ECHO** (@voxgig/sdkgen 4.30.2 (PrepareQuery: ts, js and rb read the field; other targets not checked)). Every match field, path parameters included, is also sent as a query parameter: GET /video/v1/assets/a1?id=a1 (Mux), GET /assistant/asst_1?id=asst_1 (Vapi), DELETE .../containers/web?id=web&organization_name=acme&project_id=demo (SaladCloud). prepareQuery excludes names in point.params, but the generated config carries path parameters in point.args.params (which prepareParams reads), so nothing is excluded. Harmless to a lenient server, rejected by a strict one. Prism logs paths without query strings, so its runs did not show it. Reported, not changed: the same exclusion exists per target.
+- **QUERY-ECHO** (@voxgig/sdkgen 4.30.3 (PrepareQuery: ts, js and rb read the field; other targets not checked)). Every match field, path parameters included, is also sent as a query parameter: GET /video/v1/assets/a1?id=a1 (Mux), GET /assistant/asst_1?id=asst_1 (Vapi), DELETE .../containers/web?id=web&organization_name=acme&project_id=demo (SaladCloud). prepareQuery excludes names in point.params, but the generated config carries path parameters in point.args.params (which prepareParams reads), so nothing is excluded. Harmless to a lenient server, rejected by a strict one. Prism logs paths without query strings, so its runs did not show it. Reported, not changed: the same exclusion exists per target.
+- **DOCS-QA** (@voxgig/docgen 0.29.2 (the generated Documentation workflow)). The generated API pages quote each vendor's own descriptions, and the Documentation workflow runs its prose checks over them. Vale reads identifiers such as `asset_id` as misspellings (272 errors on Mux, 44 on Neon), and docgen's own rules reject the vendor's repeated words and first-person prose (Apicurio). Vapi and Maxio fail the same step. Every SDK's tests pass on every target; only the documentation check fails. Reported, not changed: whether a vendor's text is prose-checked is docgen's design. Lob and Novu fail earlier, at generation, on the unpatched YAML parser (Y1-Y3). SaladCloud's pages pass the check; only the deploy fails, because GitHub Pages is not enabled for the repository.
 
 ## APIMatic SDK notes
 
