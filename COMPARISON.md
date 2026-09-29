@@ -1,6 +1,6 @@
 # Maxio Advanced Billing: the Voxgig SDK and the APIMatic SDK compared
 
-Vergleich: APIMatic. Compared with maxio-com/ab-typescript-sdk 10.0.0, which covers 249 of the spec's operations. Spec: developers.maxio.com OpenAPI 3.0 export, OAS 3.0.0, 196 paths / 268 ops, MIT (inherited from maxio-com/ab-typescript-sdk). Added 2026-09-28.
+Vergleich: APIMatic. Compared with maxio-com/ab-typescript-sdk 10.0.0, which covers 249 of the spec's operations. Spec: developers.maxio.com OpenAPI 3.0 export, OAS 3.0.0, 196 paths / 268 ops, MIT (inherited from maxio-com/ab-typescript-sdk). Added 2026-09-28. Rebuilt 2026-09-29 on sdkgen 4.32.1 and apidef 8.22.0.
 
 This repository is on the admin **vergleich** list. It is built only to be compared, and it is not published.
 
@@ -8,15 +8,15 @@ This repository is on the admin **vergleich** list. It is built only to be compa
 
 | | Voxgig | APIMatic |
 |---|---|---|
-| SDK | this repository, commit `4ff6323`: eight targets (go, go-cli, go-mcp, ts, py, rb, lua, php) | `@maxio-com/advanced-billing-sdk@10.0.0` (TypeScript) |
+| SDK | this repository, commit `d937621`: eight targets (go, go-cli, go-mcp, ts, py, rb, lua, php) | `@maxio-com/advanced-billing-sdk@10.0.0` (TypeScript) |
 | Input | `maxio-advanced-billing-openapi.json`: OAS 3.0.0, `info.version` 1.0, 196 paths, 268 operations | the vendor's own generation; the note above names the definition version it came from |
 | Operations callable | 266 of 268 (2 modelled as `patch` but not generated) | 249 operation methods |
-| Entities | 57 | not applicable |
-| ts package | 4.36 MB, 472 files | 9.41 MB, 7205 files |
+| Entities | 56 | not applicable |
+| ts package | 3.06 MB, 468 files | 9.41 MB, 7205 files |
 | Runtime dependencies | 0 | 5 |
-| Generated tests | ts 432 pass / 0 fail; py 427 pass; rb 451 runs / 0 fail; lua 425 pass / 0 fail; php 451 tests, 0 fail; go, go-cli, go-mcp build, vet and test | not run: a published package |
+| Generated tests | ts 670 pass / 0 fail / 8 skipped; py 423 pass / 57 skipped; rb 447 runs / 0 fail; lua 421 pass / 0 fail; php 447 tests / 0 fail; go, go-cli, go-mcp build, vet and test | not run: a published package |
 | Determinism | a second generation on the same toolchain is byte-identical | not measured |
-| Scenario against a mock | 2 of 4 steps right, 2 returned wrong data, 0 request violations (static) | 4 of 4 steps right, 0 request violations (static) |
+| Scenario against a mock | 3 of 4 steps right, 1 returned wrong data, 0 request violations (static) | 4 of 4 steps right, 0 request violations (static) |
 
 ## Features
 
@@ -69,16 +69,16 @@ Voxgig's features are opt-in; these builds enable the standard set. The APIMatic
 
 Each SDK lists one resource, loads and removes the first item it listed, and creates one from the definition's own example or required fields, against a mock built from the same vendor definition. The mock is Prism: static mode answers with the definition's examples, and dynamic mode generates schema-valid data. Each SDK is credited with its better mode. Request violations are Prism's verdicts on what the SDK sent.
 
-- **Voxgig, static:** 2 of 4 steps right, 0 request violations.
-  - ⚠ `list`: each entity's data is the `{ customer }` wrapper, not the customer
-  - ⚠ `load`: the entity's data is the `{ customer }` wrapper, not the customer
+- **Voxgig, static:** 3 of 4 steps right, 0 request violations.
+  - ⚠ `list`: 3 items, each still inside its `{ customer }` envelope, because apidef unwraps a page but not each record in it (voxgig/apidef#113)
+  - ✓ `load`
   - ✓ `create`
   - ✓ `remove`
-- **Voxgig, dynamic:** 1 of 4 steps right, 2 request violations.
-  - ⚠ `list`: each entity's data is the `{ customer }` wrapper, not the customer
-  - ✗ `load`: MaxioAdvancedBillingSDK: load: request: 422: Unprocessable Entity
+- **Voxgig, dynamic:** 1 of 4 steps right, 0 request violations.
+  - ⚠ `list`: 0 items, because the mock generated an empty page (`[]`)
+  - ✗ `load`: no listed item to load; on a fallback id it returned the customer
   - ✓ `create`
-  - ✗ `remove`: MaxioAdvancedBillingSDK: remove: request: 422: Unprocessable Entity
+  - ✗ `remove`: no listed item to remove
 - **APIMatic, static:** 4 of 4 steps right, 0 request violations.
   - ✓ `list`
   - ✓ `load`
@@ -92,10 +92,11 @@ Each SDK lists one resource, loads and removes the first item it listed, and cre
 
 ## Voxgig toolchain findings
 
-- **PATCH-OP** (@voxgig/apidef 8.17.2 + @voxgig/sdkgen 4.30.3). apidef resolves a PATCH beside a PUT on the same entity as a sixth op, `patch`. sdkgen generates only load, list, create, update and remove, so those operations are modelled but have no method. The coverage gate counts entities, so it passes anyway. Here: maxio: PATCH /products/{product_id}/price_points/{price_point_id}/default.json; maxio: PATCH /products/{product_id}/price_points/{price_point_id}/unarchive.json. Reported, not changed: a design decision across both tools.
-- **UNWRAP** (@voxgig/apidef 8.17.2). The response transform that says where an operation's data sits is inferred wrongly for several resources, in both directions. A schema whose one object-valued property is ordinary data is taken for an envelope (Apicurio's `labels`, SaladCloud's `container`), and a real envelope is missed when it is composed with allOf (Lob) or sits beside another property (Neon's `projects` beside `pagination`). The SDKs' own tests cannot see it, because they mock from the same model; a mock built from the vendor definition does. Here: maxio customer list and load: `body`, so the Customer entity's data is the `{ customer }` wrapper, one level above its own fields (lookup unwraps `body.customer`). Reported, not changed: heuristic design in apidef.
-- **QUERY-ECHO** (@voxgig/sdkgen 4.30.3 (PrepareQuery: ts, js and rb read the field; other targets not checked)). Every match field, path parameters included, is also sent as a query parameter: GET /video/v1/assets/a1?id=a1 (Mux), GET /assistant/asst_1?id=asst_1 (Vapi), DELETE .../containers/web?id=web&organization_name=acme&project_id=demo (SaladCloud). prepareQuery excludes names in point.params, but the generated config carries path parameters in point.args.params (which prepareParams reads), so nothing is excluded. Harmless to a lenient server, rejected by a strict one. Prism logs paths without query strings, so its runs did not show it. Reported, not changed: the same exclusion exists per target.
-- **DOCS-QA** (@voxgig/docgen 0.29.2 (the generated Documentation workflow)). The generated API pages quote each vendor's own descriptions, and the Documentation workflow runs its prose checks over them. Vale reads identifiers such as `asset_id` as misspellings (272 errors on Mux, 44 on Neon), and docgen's own rules reject the vendor's repeated words and first-person prose (Apicurio). Vapi and Maxio fail the same step. Every SDK's tests pass on every target; only the documentation check fails. Reported, not changed: whether a vendor's text is prose-checked is docgen's design. Lob and Novu fail earlier, at generation, on the unpatched YAML parser (Y1-Y3). SaladCloud's pages pass the check; only the deploy fails, because GitHub Pages is not enabled for the repository.
+- **PATCH-OP** (@voxgig/apidef + @voxgig/sdkgen). apidef resolves a PATCH beside a PUT on the same entity as a sixth op, `patch`, and sdkgen generates only load, list, create, update and remove, so those operations are modelled but have no method. Here: PATCH /products/{product_id}/price_points/{price_point_id}/default.json and PATCH /products/{product_id}/price_points/{price_point_id}/unarchive.json. Open: voxgig/sdkgen#211.
+- **UNWRAP** (@voxgig/apidef). The response transform that says where an operation's data sits was inferred wrongly for several resources in the first build. Here: a customer's list and load read `body`, the `{ customer }` envelope, one level above the customer's own fields. Load, create and update read the customer in the rebuild. The list still returns each customer inside its envelope, because Maxio's lists answer an array of wrapped records and apidef unwraps a page, not each item in it. Open: voxgig/apidef#113.
+- **QUERY-ECHO** (@voxgig/sdkgen, PrepareQuery). Every match field, path parameters included, was also sent as a query parameter, such as `?id=` on a load. Fixed in voxgig/sdkgen#222, released in 4.31.0: query parameters go out under the definition's names, and the rebuild's scenario requests carry no echoed parameter.
+- **HEADERS** (@voxgig/sdkgen, PrepareHeaders, 20 targets). A parameter the definition declares `in: header` was sent in the query or the body, never as a header. Here: Maxio's `Authorization` and `Content-Type` went out as `?authorization=` and `?content_type=`. Fixed in voxgig/sdkgen#223, released in 4.32.0, with a definition-suite check that each one arrives as a header. Cookie parameters have the same gap and stay open in voxgig/sdkgen#221.
+- **DOCS-QA** (@voxgig/docgen, the generated Documentation workflow). The generated API pages quote the vendor's own descriptions, and the workflow runs its prose checks over them, so the step fails on the vendor's identifiers and repeated words rather than on anything the generator wrote. Open: voxgig/docgen#33.
 
 ## APIMatic SDK notes
 
@@ -107,4 +108,6 @@ Each SDK lists one resource, loads and removes the first item it listed, and cre
 - Package size and file count: `npm pack --dry-run` for the Voxgig ts target, and the registry's `dist.unpackedSize` and `dist.fileCount` for the compared package.
 - Tests: `admin/scripts/cedar-test-all.sh` runs each target's generated suite.
 - Features: read from the code of the published package, crediting a feature only for a mechanism, not a word in the API's own models.
-
+- Rebuild: 2026-09-29, on create-sdkgen 0.30.4, sdkgen 4.32.1, apidef 8.22.0, model 12.0.0 and @tabnas/yaml 0.5.14, all as published, with no overlay.
+- Tests on the rebuild: all eight targets, the lua suite under Lua 5.4 with busted 2.2.0.
+- Scenario on the rebuild: the Voxgig side was re-run on 2026-09-29; the compared SDK's run is from 2026-09-28, and its package is unchanged. The generated create input honours the definition's minimums, which the first run did not.
