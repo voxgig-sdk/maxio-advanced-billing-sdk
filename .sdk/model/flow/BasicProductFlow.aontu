@@ -44,7 +44,8 @@ main: kit: flow: BasicProductFlow:
       i: {
         ref: "product_ref01",
         srcdatavar: "product_ref01_data",
-        suffix: "_up0"
+        suffix: "_up0",
+        textfield: "accounting_code"
       }
 
       o: "update",

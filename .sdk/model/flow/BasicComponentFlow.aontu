@@ -39,7 +39,8 @@ main: kit: flow: BasicComponentFlow:
       i: {
         ref: "component_ref01",
         srcdatavar: "component_ref01_data",
-        suffix: "_up0"
+        suffix: "_up0",
+        textfield: "accounting_code"
       }
 
       o: "update",

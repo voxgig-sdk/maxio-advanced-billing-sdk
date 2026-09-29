@@ -40,19 +40,19 @@ describe('ProformaInvoiceDirect', async () => {
     if (liveScenariosActive()) { t.skip('Covered by live operation scenarios'); return }
     const setup = directSetup([{ id: 'direct01' }, { id: 'direct02' }])
     if (maybeSkipControl(t, 'direct', 'direct-list-proforma_invoice', setup.live)) return
-    if (skipIfMissingIds(t, setup, ["proforma_invoice01"])) return
+    if (skipIfMissingIds(t, setup, ["subscription01"])) return
     const { client, calls } = setup
 
     const params: any = {}
     const query: any = {}
     if (setup.live) {
-      params.id = setup.idmap['proforma_invoice01']
+      params.subscription_id = setup.idmap['subscription01']
     } else {
-      params.id = 'direct01'
+      params.subscription_id = 'direct01'
     }
 
     const result: any = await client.direct({
-      path: 'api_exports/proforma_invoices/{id}/rows.json',
+      path: 'subscriptions/{subscription_id}/proforma_invoices.json',
       method: 'GET',
       params,
       query,

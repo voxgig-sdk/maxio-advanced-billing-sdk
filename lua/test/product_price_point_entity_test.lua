@@ -105,11 +105,16 @@ describe("ProductPricePointEntity", function()
       id = product_price_point_ref01_data["id"],
     }
 
+    local product_price_point_ref01_markdef_up0_name = "accounting_code"
+    local product_price_point_ref01_markdef_up0_value = "Mark01-product_price_point_ref01_" .. tostring(setup.now)
+    product_price_point_ref01_data_up0_up[product_price_point_ref01_markdef_up0_name] = product_price_point_ref01_markdef_up0_value
+
     local product_price_point_ref01_resdata_up0_result, err = product_price_point_ref01_ent:update(product_price_point_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local product_price_point_ref01_resdata_up0 = helpers.to_map(type(product_price_point_ref01_resdata_up0_result) == 'table' and product_price_point_ref01_resdata_up0_result.data_get and product_price_point_ref01_resdata_up0_result:data_get() or product_price_point_ref01_resdata_up0_result)
     assert.is_not_nil(product_price_point_ref01_resdata_up0)
     assert.are.equal(product_price_point_ref01_resdata_up0["id"], product_price_point_ref01_data_up0_up["id"])
+    assert.are.equal(product_price_point_ref01_resdata_up0[product_price_point_ref01_markdef_up0_name], product_price_point_ref01_markdef_up0_value)
 
     -- LOAD
     local product_price_point_ref01_match_dt0 = {

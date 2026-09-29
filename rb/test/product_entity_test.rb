@@ -78,6 +78,7 @@ class ProductEntityTest < Minitest::Test
     product_ref01_data_result = product_ref01_ent.create(product_ref01_data, nil)
     product_ref01_data = Helpers.to_map(product_ref01_data_result.respond_to?(:data_get) ? product_ref01_data_result.data_get : product_ref01_data_result)
     assert !product_ref01_data.nil?
+    assert !product_ref01_data["id"].nil?
 
     # LIST
     product_ref01_match = {
@@ -87,20 +88,41 @@ class ProductEntityTest < Minitest::Test
     product_ref01_list_result = product_ref01_ent.list(product_ref01_match, nil)
     assert product_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(product_ref01_list_result),
+      { "id" => product_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     product_ref01_data_up0_up = {
+      "id" => product_ref01_data["id"],
       "product_id" => setup[:idmap]["product_id"],
     }
+
+    product_ref01_markdef_up0_name = "accounting_code"
+    product_ref01_markdef_up0_value = "Mark01-product_ref01_#{setup[:now]}"
+    product_ref01_data_up0_up[product_ref01_markdef_up0_name] = product_ref01_markdef_up0_value
 
     product_ref01_resdata_up0_result = product_ref01_ent.update(product_ref01_data_up0_up, nil)
     product_ref01_resdata_up0 = Helpers.to_map(product_ref01_resdata_up0_result.respond_to?(:data_get) ? product_ref01_resdata_up0_result.data_get : product_ref01_resdata_up0_result)
     assert !product_ref01_resdata_up0.nil?
+    assert_equal product_ref01_resdata_up0["id"], product_ref01_data_up0_up["id"]
+    assert_equal product_ref01_resdata_up0[product_ref01_markdef_up0_name], product_ref01_markdef_up0_value
 
     # LOAD
-    product_ref01_match_dt0 = {}
+    product_ref01_match_dt0 = {
+      "id" => product_ref01_data["id"],
+    }
     product_ref01_data_dt0_loaded = product_ref01_ent.load(product_ref01_match_dt0, nil)
-    assert !product_ref01_data_dt0_loaded.nil?
+    product_ref01_data_dt0_load_result = Helpers.to_map(product_ref01_data_dt0_loaded.respond_to?(:data_get) ? product_ref01_data_dt0_loaded.data_get : product_ref01_data_dt0_loaded)
+    assert !product_ref01_data_dt0_load_result.nil?
+    assert_equal product_ref01_data_dt0_load_result["id"], product_ref01_data["id"]
 
+    # REMOVE
+    product_ref01_match_rm0 = {
+      "id" => product_ref01_data["id"],
+    }
+    product_ref01_ent.remove(product_ref01_match_rm0, nil)
 
     # LIST
     product_ref01_match_rt0 = {
@@ -109,6 +131,11 @@ class ProductEntityTest < Minitest::Test
 
     product_ref01_list_rt0_result = product_ref01_ent.list(product_ref01_match_rt0, nil)
     assert product_ref01_list_rt0_result.is_a?(Array)
+
+    not_found_item = Vs.select(
+      Runner.entity_list_to_data(product_ref01_list_rt0_result),
+      { "id" => product_ref01_data["id"] })
+    assert Vs.isempty(not_found_item)
 
   end
 end

@@ -217,7 +217,7 @@ main: kit: entity: component_price_point_currency_overage: {
               {
                 k: "query"
                 n: "currency_price"
-                or: "currency_price"
+                or: "currency_prices"
                 r: false
                 t: "`$BOOLEAN`"
               }

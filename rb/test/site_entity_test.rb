@@ -75,6 +75,7 @@ class SiteEntityTest < Minitest::Test
     site_ref01_data_result = site_ref01_ent.create(site_ref01_data, nil)
     site_ref01_data = Helpers.to_map(site_ref01_data_result.respond_to?(:data_get) ? site_ref01_data_result.data_get : site_ref01_data_result)
     assert !site_ref01_data.nil?
+    assert !site_ref01_data["id"].nil?
 
     # LIST
     site_ref01_match = {}
@@ -82,10 +83,19 @@ class SiteEntityTest < Minitest::Test
     site_ref01_list_result = site_ref01_ent.list(site_ref01_match, nil)
     assert site_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(site_ref01_list_result),
+      { "id" => site_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # LOAD
-    site_ref01_match_dt0 = {}
+    site_ref01_match_dt0 = {
+      "id" => site_ref01_data["id"],
+    }
     site_ref01_data_dt0_loaded = site_ref01_ent.load(site_ref01_match_dt0, nil)
-    assert !site_ref01_data_dt0_loaded.nil?
+    site_ref01_data_dt0_load_result = Helpers.to_map(site_ref01_data_dt0_loaded.respond_to?(:data_get) ? site_ref01_data_dt0_loaded.data_get : site_ref01_data_dt0_loaded)
+    assert !site_ref01_data_dt0_load_result.nil?
+    assert_equal site_ref01_data_dt0_load_result["id"], site_ref01_data["id"]
 
   end
 end

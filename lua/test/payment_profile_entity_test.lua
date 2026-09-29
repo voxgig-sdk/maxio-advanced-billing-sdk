@@ -105,11 +105,16 @@ describe("PaymentProfileEntity", function()
       ["payment_profile_id"] = setup.idmap["payment_profile_id"],
     }
 
+    local payment_profile_ref01_markdef_up0_name = "bank_name"
+    local payment_profile_ref01_markdef_up0_value = "Mark01-payment_profile_ref01_" .. tostring(setup.now)
+    payment_profile_ref01_data_up0_up[payment_profile_ref01_markdef_up0_name] = payment_profile_ref01_markdef_up0_value
+
     local payment_profile_ref01_resdata_up0_result, err = payment_profile_ref01_ent:update(payment_profile_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local payment_profile_ref01_resdata_up0 = helpers.to_map(type(payment_profile_ref01_resdata_up0_result) == 'table' and payment_profile_ref01_resdata_up0_result.data_get and payment_profile_ref01_resdata_up0_result:data_get() or payment_profile_ref01_resdata_up0_result)
     assert.is_not_nil(payment_profile_ref01_resdata_up0)
     assert.are.equal(payment_profile_ref01_resdata_up0["id"], payment_profile_ref01_data_up0_up["id"])
+    assert.are.equal(payment_profile_ref01_resdata_up0[payment_profile_ref01_markdef_up0_name], payment_profile_ref01_markdef_up0_value)
 
     -- LOAD
     local payment_profile_ref01_match_dt0 = {

@@ -125,9 +125,6 @@ func init() {
 	core.NewInvoiceEntityFunc = func(client *core.MaxioAdvancedBillingSDK, entopts map[string]any) core.MaxioAdvancedBillingEntity {
 		return entity.NewInvoiceEntity(client, entopts)
 	}
-	core.NewListProformaInvoiceEntityFunc = func(client *core.MaxioAdvancedBillingSDK, entopts map[string]any) core.MaxioAdvancedBillingEntity {
-		return entity.NewListProformaInvoiceEntity(client, entopts)
-	}
 	core.NewListSaleRepItemEntityFunc = func(client *core.MaxioAdvancedBillingSDK, entopts map[string]any) core.MaxioAdvancedBillingEntity {
 		return entity.NewListSaleRepItemEntity(client, entopts)
 	}

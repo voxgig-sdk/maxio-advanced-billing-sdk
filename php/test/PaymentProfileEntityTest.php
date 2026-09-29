@@ -105,10 +105,15 @@ class PaymentProfileEntityTest extends TestCase
             "payment_profile_id" => $setup["idmap"]["payment_profile_id"],
         ];
 
+        $payment_profile_ref01_markdef_up0_name = "bank_name";
+        $payment_profile_ref01_markdef_up0_value = "Mark01-payment_profile_ref01_" . $setup["now"];
+        $payment_profile_ref01_data_up0_up[$payment_profile_ref01_markdef_up0_name] = $payment_profile_ref01_markdef_up0_value;
+
         $payment_profile_ref01_resdata_up0_result = $payment_profile_ref01_ent->update($payment_profile_ref01_data_up0_up, null);
         $payment_profile_ref01_resdata_up0 = Helpers::to_map(is_object($payment_profile_ref01_resdata_up0_result) && method_exists($payment_profile_ref01_resdata_up0_result, 'data_get') ? $payment_profile_ref01_resdata_up0_result->data_get() : $payment_profile_ref01_resdata_up0_result);
         $this->assertNotNull($payment_profile_ref01_resdata_up0);
         $this->assertEquals($payment_profile_ref01_resdata_up0["id"], $payment_profile_ref01_data_up0_up["id"]);
+        $this->assertEquals($payment_profile_ref01_resdata_up0[$payment_profile_ref01_markdef_up0_name], $payment_profile_ref01_markdef_up0_value);
 
         // LOAD
         $payment_profile_ref01_match_dt0 = [

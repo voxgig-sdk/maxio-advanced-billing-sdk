@@ -100,9 +100,14 @@ class TestSubscriptionGroupEntity:
             "uid": setup["idmap"]["uid"],
         }
 
+        subscription_group_ref01_markdef_up0_name = "created_at"
+        subscription_group_ref01_markdef_up0_value = "Mark01-subscription_group_ref01_" + str(setup["now"])
+        subscription_group_ref01_data_up0_up[subscription_group_ref01_markdef_up0_name] = subscription_group_ref01_markdef_up0_value
+
         subscription_group_ref01_resdata_up0 = helpers.to_map(runner.entity_data(subscription_group_ref01_ent.update(subscription_group_ref01_data_up0_up, None)))
         assert subscription_group_ref01_resdata_up0 is not None
         assert subscription_group_ref01_resdata_up0["id"] == subscription_group_ref01_data_up0_up["id"]
+        assert subscription_group_ref01_resdata_up0[subscription_group_ref01_markdef_up0_name] == subscription_group_ref01_markdef_up0_value
 
         # REMOVE
         subscription_group_ref01_match_rm0 = {

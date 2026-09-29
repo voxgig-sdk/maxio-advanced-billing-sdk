@@ -95,10 +95,15 @@ class ProductPricePointEntityTest < Minitest::Test
       "id" => product_price_point_ref01_data["id"],
     }
 
+    product_price_point_ref01_markdef_up0_name = "accounting_code"
+    product_price_point_ref01_markdef_up0_value = "Mark01-product_price_point_ref01_#{setup[:now]}"
+    product_price_point_ref01_data_up0_up[product_price_point_ref01_markdef_up0_name] = product_price_point_ref01_markdef_up0_value
+
     product_price_point_ref01_resdata_up0_result = product_price_point_ref01_ent.update(product_price_point_ref01_data_up0_up, nil)
     product_price_point_ref01_resdata_up0 = Helpers.to_map(product_price_point_ref01_resdata_up0_result.respond_to?(:data_get) ? product_price_point_ref01_resdata_up0_result.data_get : product_price_point_ref01_resdata_up0_result)
     assert !product_price_point_ref01_resdata_up0.nil?
     assert_equal product_price_point_ref01_resdata_up0["id"], product_price_point_ref01_data_up0_up["id"]
+    assert_equal product_price_point_ref01_resdata_up0[product_price_point_ref01_markdef_up0_name], product_price_point_ref01_markdef_up0_value
 
     # LOAD
     product_price_point_ref01_match_dt0 = {

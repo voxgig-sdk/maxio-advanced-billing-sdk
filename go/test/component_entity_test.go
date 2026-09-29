@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -112,6 +113,9 @@ func TestComponentEntity(t *testing.T) {
 		if componentRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if componentRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		componentRef01Match := map[string]any{}
@@ -120,15 +124,25 @@ func TestComponentEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, componentRef01ListOk := componentRef01ListResult.([]any)
+		componentRef01List, componentRef01ListOk := componentRef01ListResult.([]any)
 		if !componentRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", componentRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(componentRef01List), map[string]any{"id": componentRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		componentRef01DataUp0Up := map[string]any{
+			"id": componentRef01Data["id"],
 			"component_id": setup.idmap["component_id"],
 		}
+
+		componentRef01MarkdefUp0Name := "accounting_code"
+		componentRef01MarkdefUp0Value := fmt.Sprintf("Mark01-component_ref01_%d", setup.now)
+		componentRef01DataUp0Up[componentRef01MarkdefUp0Name] = componentRef01MarkdefUp0Value
 
 		componentRef01ResdataUp0Result, err := componentRef01Ent.Update(componentRef01DataUp0Up, nil)
 		if err != nil {
@@ -138,17 +152,37 @@ func TestComponentEntity(t *testing.T) {
 		if componentRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if componentRef01ResdataUp0["id"] != componentRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
+		if componentRef01ResdataUp0[componentRef01MarkdefUp0Name] != componentRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", componentRef01MarkdefUp0Name, componentRef01ResdataUp0[componentRef01MarkdefUp0Name])
+		}
 
 		// LOAD
-		componentRef01MatchDt0 := map[string]any{}
+		componentRef01MatchDt0 := map[string]any{
+			"id": componentRef01Data["id"],
+		}
 		componentRef01DataDt0Loaded, err := componentRef01Ent.Load(componentRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if componentRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		componentRef01DataDt0LoadResult := core.ToMapAny(entityData(componentRef01DataDt0Loaded))
+		if componentRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if componentRef01DataDt0LoadResult["id"] != componentRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
+		// REMOVE
+		componentRef01MatchRm0 := map[string]any{
+			"id": componentRef01Data["id"],
+		}
+		_, err = componentRef01Ent.Remove(componentRef01MatchRm0, nil)
+		if err != nil {
+			t.Fatalf("remove failed: %v", err)
+		}
 
 		// LIST
 		componentRef01MatchRt0 := map[string]any{}
@@ -157,9 +191,14 @@ func TestComponentEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, componentRef01ListRt0Ok := componentRef01ListRt0Result.([]any)
+		componentRef01ListRt0, componentRef01ListRt0Ok := componentRef01ListRt0Result.([]any)
 		if !componentRef01ListRt0Ok {
 			t.Fatalf("expected list result to be an array, got %T", componentRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(componentRef01ListRt0), map[string]any{"id": componentRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})

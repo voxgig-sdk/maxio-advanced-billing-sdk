@@ -2,23 +2,55 @@
   "existing": {
     "product_family": {
       "PRODUCT_FAMILY00": {
+        "accounting_code": "s64",
+        "archived_at": "s65",
+        "created_at": "s66",
+        "description": "s67",
+        "handle": "s68",
         "id": "PRODUCT_FAMILY00",
-        "product_family": {}
+        "name": "s6a",
+        "product_family": {},
+        "surcharging": true,
+        "updated_at": "s6d"
       },
       "PRODUCT_FAMILY01": {
+        "accounting_code": "sc8",
+        "archived_at": "sc9",
+        "created_at": "sca",
+        "description": "scb",
+        "handle": "scc",
         "id": "PRODUCT_FAMILY01",
-        "product_family": {}
+        "name": "sce",
+        "product_family": {},
+        "surcharging": true,
+        "updated_at": "sd1"
       },
       "PRODUCT_FAMILY02": {
+        "accounting_code": "s12c",
+        "archived_at": "s12d",
+        "created_at": "s12e",
+        "description": "s12f",
+        "handle": "s130",
         "id": "PRODUCT_FAMILY02",
-        "product_family": {}
+        "name": "s132",
+        "product_family": {},
+        "surcharging": true,
+        "updated_at": "s135"
       }
     }
   },
   "new": {
     "product_family": {
       "product_family_ref01": {
-        "product_family": {}
+        "accounting_code": "s190",
+        "archived_at": "s191",
+        "created_at": "s192",
+        "description": "s193",
+        "handle": "s194",
+        "name": "s196",
+        "product_family": {},
+        "surcharging": true,
+        "updated_at": "s199"
       }
     }
   },

@@ -107,10 +107,15 @@ class SubscriptionRenewalEntityTest extends TestCase
             "subscription_id" => $setup["idmap"]["subscription_id"],
         ];
 
+        $subscription_renewal_ref01_markdef_up0_name = "created_at";
+        $subscription_renewal_ref01_markdef_up0_value = "Mark01-subscription_renewal_ref01_" . $setup["now"];
+        $subscription_renewal_ref01_data_up0_up[$subscription_renewal_ref01_markdef_up0_name] = $subscription_renewal_ref01_markdef_up0_value;
+
         $subscription_renewal_ref01_resdata_up0_result = $subscription_renewal_ref01_ent->update($subscription_renewal_ref01_data_up0_up, null);
         $subscription_renewal_ref01_resdata_up0 = Helpers::to_map(is_object($subscription_renewal_ref01_resdata_up0_result) && method_exists($subscription_renewal_ref01_resdata_up0_result, 'data_get') ? $subscription_renewal_ref01_resdata_up0_result->data_get() : $subscription_renewal_ref01_resdata_up0_result);
         $this->assertNotNull($subscription_renewal_ref01_resdata_up0);
         $this->assertEquals($subscription_renewal_ref01_resdata_up0["id"], $subscription_renewal_ref01_data_up0_up["id"]);
+        $this->assertEquals($subscription_renewal_ref01_resdata_up0[$subscription_renewal_ref01_markdef_up0_name], $subscription_renewal_ref01_markdef_up0_value);
 
         // LOAD
         $subscription_renewal_ref01_match_dt0 = [

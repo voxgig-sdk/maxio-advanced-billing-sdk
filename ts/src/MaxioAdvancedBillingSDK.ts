@@ -24,7 +24,6 @@ import { FeatureCatalogItemEntity } from './entity/FeatureCatalogItemEntity'
 import { FeatureTemplateEntity } from './entity/FeatureTemplateEntity'
 import { InsightEntity } from './entity/InsightEntity'
 import { InvoiceEntity } from './entity/InvoiceEntity'
-import { ListProformaInvoiceEntity } from './entity/ListProformaInvoiceEntity'
 import { ListSaleRepItemEntity } from './entity/ListSaleRepItemEntity'
 import { ListSegmentEntity } from './entity/ListSegmentEntity'
 import { OfferEntity } from './entity/OfferEntity'
@@ -551,15 +550,6 @@ class MaxioAdvancedBillingSDK {
   Invoice(entopts?: Record<string, any>) {
     const self = this
     return new InvoiceEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListProformaInvoice().list()` / `client.ListProformaInvoice().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListProformaInvoice(entopts?: Record<string, any>) {
-    const self = this
-    return new ListProformaInvoiceEntity(self, entopts)
   }
 
 

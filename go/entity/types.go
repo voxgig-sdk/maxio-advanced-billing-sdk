@@ -113,14 +113,86 @@ type ComponentListMatch struct {
 // ComponentCreateData is the typed request payload for Component.CreateTyped.
 type ComponentCreateData struct {
 	ProductFamilyId string `json:"product_family_id"`
+	AccountingCode *string `json:"accounting_code,omitempty"`
+	AllowFractionalQuantities *bool `json:"allow_fractional_quantities,omitempty"`
+	Archived *bool `json:"archived,omitempty"`
+	ArchivedAt *string `json:"archived_at,omitempty"`
 	Component *map[string]any `json:"component,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	DefaultPricePointId *int `json:"default_price_point_id,omitempty"`
+	DefaultPricePointName *string `json:"default_price_point_name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	DowngradeCredit *any `json:"downgrade_credit,omitempty"`
+	EventBasedBillingMetricId *int `json:"event_based_billing_metric_id,omitempty"`
+	Features *[]any `json:"features,omitempty"`
+	Handle *string `json:"handle,omitempty"`
+	HideDateRangeOnInvoice *bool `json:"hide_date_range_on_invoice,omitempty"`
+	Id *int `json:"id,omitempty"`
+	Interval *int `json:"interval,omitempty"`
+	IntervalUnit *any `json:"interval_unit,omitempty"`
+	ItemCategory *any `json:"item_category,omitempty"`
+	Kind *any `json:"kind,omitempty"`
+	Name *string `json:"name,omitempty"`
+	OveragePrices *[]any `json:"overage_prices,omitempty"`
+	PricePerUnitInCents *int `json:"price_per_unit_in_cents,omitempty"`
+	PricePointCount *int `json:"price_point_count,omitempty"`
+	PricePointsUrl *string `json:"price_points_url,omitempty"`
+	Prices *[]any `json:"prices,omitempty"`
+	PricingScheme *any `json:"pricing_scheme,omitempty"`
+	ProductFamilyHandle *string `json:"product_family_handle,omitempty"`
+	ProductFamilyName *string `json:"product_family_name,omitempty"`
+	Recurring *bool `json:"recurring,omitempty"`
+	TaxCode *string `json:"tax_code,omitempty"`
+	Taxable *bool `json:"taxable,omitempty"`
+	UnitName *string `json:"unit_name,omitempty"`
+	UnitPrice *string `json:"unit_price,omitempty"`
+	UnspscCode *string `json:"unspsc_code,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
+	UpgradeCharge *any `json:"upgrade_charge,omitempty"`
+	UseSiteExchangeRate *bool `json:"use_site_exchange_rate,omitempty"`
 }
 
 // ComponentUpdateData is the typed request payload for Component.UpdateTyped.
 type ComponentUpdateData struct {
 	ComponentId string `json:"component_id"`
 	ProductFamilyId *int `json:"product_family_id,omitempty"`
+	AccountingCode *string `json:"accounting_code,omitempty"`
+	AllowFractionalQuantities *bool `json:"allow_fractional_quantities,omitempty"`
+	Archived *bool `json:"archived,omitempty"`
+	ArchivedAt *string `json:"archived_at,omitempty"`
 	Component *map[string]any `json:"component,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	DefaultPricePointId *int `json:"default_price_point_id,omitempty"`
+	DefaultPricePointName *string `json:"default_price_point_name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	DowngradeCredit *any `json:"downgrade_credit,omitempty"`
+	EventBasedBillingMetricId *int `json:"event_based_billing_metric_id,omitempty"`
+	Features *[]any `json:"features,omitempty"`
+	Handle *string `json:"handle,omitempty"`
+	HideDateRangeOnInvoice *bool `json:"hide_date_range_on_invoice,omitempty"`
+	Id *int `json:"id,omitempty"`
+	Interval *int `json:"interval,omitempty"`
+	IntervalUnit *any `json:"interval_unit,omitempty"`
+	ItemCategory *any `json:"item_category,omitempty"`
+	Kind *any `json:"kind,omitempty"`
+	Name *string `json:"name,omitempty"`
+	OveragePrices *[]any `json:"overage_prices,omitempty"`
+	PricePerUnitInCents *int `json:"price_per_unit_in_cents,omitempty"`
+	PricePointCount *int `json:"price_point_count,omitempty"`
+	PricePointsUrl *string `json:"price_points_url,omitempty"`
+	Prices *[]any `json:"prices,omitempty"`
+	PricingScheme *any `json:"pricing_scheme,omitempty"`
+	ProductFamilyHandle *string `json:"product_family_handle,omitempty"`
+	ProductFamilyName *string `json:"product_family_name,omitempty"`
+	Recurring *bool `json:"recurring,omitempty"`
+	TaxCode *string `json:"tax_code,omitempty"`
+	Taxable *bool `json:"taxable,omitempty"`
+	UnitName *string `json:"unit_name,omitempty"`
+	UnitPrice *string `json:"unit_price,omitempty"`
+	UnspscCode *string `json:"unspsc_code,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
+	UpgradeCharge *any `json:"upgrade_charge,omitempty"`
+	UseSiteExchangeRate *bool `json:"use_site_exchange_rate,omitempty"`
 }
 
 // ComponentRemoveMatch is the typed request payload for Component.RemoveTyped.
@@ -156,30 +228,54 @@ type ComponentPricePointListMatch struct {
 // ComponentPricePointCreateData is the typed request payload for ComponentPricePoint.CreateTyped.
 type ComponentPricePointCreateData struct {
 	Id int `json:"id"`
+	AccountingCode *string `json:"accounting_code,omitempty"`
+	AllowFractionalQuantities *bool `json:"allow_fractional_quantities,omitempty"`
+	Archived *bool `json:"archived,omitempty"`
 	ArchivedAt *string `json:"archived_at,omitempty"`
-	Component map[string]any `json:"component"`
 	ComponentId *int `json:"component_id,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CurrencyPrices *[]any `json:"currency_prices,omitempty"`
 	Default *bool `json:"default,omitempty"`
+	DefaultPricePointId *int `json:"default_price_point_id,omitempty"`
+	DefaultPricePointName *string `json:"default_price_point_name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	DowngradeCredit *any `json:"downgrade_credit,omitempty"`
+	EventBasedBillingMetricId *int `json:"event_based_billing_metric_id,omitempty"`
 	ExpirationInterval *int `json:"expiration_interval,omitempty"`
 	ExpirationIntervalUnit *any `json:"expiration_interval_unit,omitempty"`
+	Features *[]any `json:"features,omitempty"`
 	Handle *string `json:"handle,omitempty"`
+	HideDateRangeOnInvoice *bool `json:"hide_date_range_on_invoice,omitempty"`
 	Interval *int `json:"interval,omitempty"`
 	IntervalUnit *any `json:"interval_unit,omitempty"`
+	ItemCategory *any `json:"item_category,omitempty"`
+	Kind *any `json:"kind,omitempty"`
 	Name *string `json:"name,omitempty"`
 	OveragePrices *[]any `json:"overage_prices,omitempty"`
 	OveragePricingScheme *any `json:"overage_pricing_scheme,omitempty"`
+	PricePerUnitInCents *int `json:"price_per_unit_in_cents,omitempty"`
 	PricePoint *map[string]any `json:"price_point,omitempty"`
+	PricePointCount *int `json:"price_point_count,omitempty"`
 	PricePoints *[]any `json:"price_points,omitempty"`
+	PricePointsUrl *string `json:"price_points_url,omitempty"`
 	Prices *[]any `json:"prices,omitempty"`
 	PricingScheme *any `json:"pricing_scheme,omitempty"`
+	ProductFamilyHandle *string `json:"product_family_handle,omitempty"`
+	ProductFamilyId *int `json:"product_family_id,omitempty"`
+	ProductFamilyName *string `json:"product_family_name,omitempty"`
+	Recurring *bool `json:"recurring,omitempty"`
 	RenewPrepaidAllocation *bool `json:"renew_prepaid_allocation,omitempty"`
 	RolloverPrepaidRemainder *bool `json:"rollover_prepaid_remainder,omitempty"`
 	SubscriptionId *int `json:"subscription_id,omitempty"`
+	TaxCode *string `json:"tax_code,omitempty"`
 	TaxIncluded *bool `json:"tax_included,omitempty"`
+	Taxable *bool `json:"taxable,omitempty"`
 	Type *any `json:"type,omitempty"`
+	UnitName *string `json:"unit_name,omitempty"`
+	UnitPrice *string `json:"unit_price,omitempty"`
+	UnspscCode *string `json:"unspsc_code,omitempty"`
 	UpdatedAt *string `json:"updated_at,omitempty"`
+	UpgradeCharge *any `json:"upgrade_charge,omitempty"`
 	UseSiteExchangeRate *bool `json:"use_site_exchange_rate,omitempty"`
 }
 
@@ -187,30 +283,54 @@ type ComponentPricePointCreateData struct {
 type ComponentPricePointUpdateData struct {
 	ComponentId *string `json:"component_id,omitempty"`
 	PricePointId string `json:"price_point_id"`
+	AccountingCode *string `json:"accounting_code,omitempty"`
+	AllowFractionalQuantities *bool `json:"allow_fractional_quantities,omitempty"`
+	Archived *bool `json:"archived,omitempty"`
 	ArchivedAt *string `json:"archived_at,omitempty"`
-	Component *map[string]any `json:"component,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CurrencyPrices *[]any `json:"currency_prices,omitempty"`
 	Default *bool `json:"default,omitempty"`
+	DefaultPricePointId *int `json:"default_price_point_id,omitempty"`
+	DefaultPricePointName *string `json:"default_price_point_name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	DowngradeCredit *any `json:"downgrade_credit,omitempty"`
+	EventBasedBillingMetricId *int `json:"event_based_billing_metric_id,omitempty"`
 	ExpirationInterval *int `json:"expiration_interval,omitempty"`
 	ExpirationIntervalUnit *any `json:"expiration_interval_unit,omitempty"`
+	Features *[]any `json:"features,omitempty"`
 	Handle *string `json:"handle,omitempty"`
+	HideDateRangeOnInvoice *bool `json:"hide_date_range_on_invoice,omitempty"`
 	Id *int `json:"id,omitempty"`
 	Interval *int `json:"interval,omitempty"`
 	IntervalUnit *any `json:"interval_unit,omitempty"`
+	ItemCategory *any `json:"item_category,omitempty"`
+	Kind *any `json:"kind,omitempty"`
 	Name *string `json:"name,omitempty"`
 	OveragePrices *[]any `json:"overage_prices,omitempty"`
 	OveragePricingScheme *any `json:"overage_pricing_scheme,omitempty"`
+	PricePerUnitInCents *int `json:"price_per_unit_in_cents,omitempty"`
 	PricePoint *map[string]any `json:"price_point,omitempty"`
+	PricePointCount *int `json:"price_point_count,omitempty"`
 	PricePoints *[]any `json:"price_points,omitempty"`
+	PricePointsUrl *string `json:"price_points_url,omitempty"`
 	Prices *[]any `json:"prices,omitempty"`
 	PricingScheme *any `json:"pricing_scheme,omitempty"`
+	ProductFamilyHandle *string `json:"product_family_handle,omitempty"`
+	ProductFamilyId *int `json:"product_family_id,omitempty"`
+	ProductFamilyName *string `json:"product_family_name,omitempty"`
+	Recurring *bool `json:"recurring,omitempty"`
 	RenewPrepaidAllocation *bool `json:"renew_prepaid_allocation,omitempty"`
 	RolloverPrepaidRemainder *bool `json:"rollover_prepaid_remainder,omitempty"`
 	SubscriptionId *int `json:"subscription_id,omitempty"`
+	TaxCode *string `json:"tax_code,omitempty"`
 	TaxIncluded *bool `json:"tax_included,omitempty"`
+	Taxable *bool `json:"taxable,omitempty"`
 	Type *any `json:"type,omitempty"`
+	UnitName *string `json:"unit_name,omitempty"`
+	UnitPrice *string `json:"unit_price,omitempty"`
+	UnspscCode *string `json:"unspsc_code,omitempty"`
 	UpdatedAt *string `json:"updated_at,omitempty"`
+	UpgradeCharge *any `json:"upgrade_charge,omitempty"`
 	UseSiteExchangeRate *bool `json:"use_site_exchange_rate,omitempty"`
 }
 
@@ -384,7 +504,6 @@ type CustomFieldListMatch struct {
 type CustomFieldCreateData struct {
 	ResourceId *int `json:"resource_id,omitempty"`
 	ResourceType any `json:"resource_type"`
-	CurrentPage *int `json:"current_page,omitempty"`
 	DataCount *int `json:"data_count,omitempty"`
 	DeletedAt *string `json:"deleted_at,omitempty"`
 	Enum *string `json:"enum,omitempty"`
@@ -394,10 +513,7 @@ type CustomFieldCreateData struct {
 	MetafieldId *int `json:"metafield_id,omitempty"`
 	Metafields *any `json:"metafields,omitempty"`
 	Name *string `json:"name,omitempty"`
-	PerPage *int `json:"per_page,omitempty"`
 	Scope *map[string]any `json:"scope,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
-	TotalPages *int `json:"total_pages,omitempty"`
 	Value *string `json:"value,omitempty"`
 }
 
@@ -405,7 +521,6 @@ type CustomFieldCreateData struct {
 type CustomFieldUpdateData struct {
 	ResourceId *int `json:"resource_id,omitempty"`
 	ResourceType any `json:"resource_type"`
-	CurrentPage *int `json:"current_page,omitempty"`
 	DataCount *int `json:"data_count,omitempty"`
 	DeletedAt *string `json:"deleted_at,omitempty"`
 	Enum *string `json:"enum,omitempty"`
@@ -415,10 +530,7 @@ type CustomFieldUpdateData struct {
 	MetafieldId *int `json:"metafield_id,omitempty"`
 	Metafields *any `json:"metafields,omitempty"`
 	Name *string `json:"name,omitempty"`
-	PerPage *int `json:"per_page,omitempty"`
 	Scope *map[string]any `json:"scope,omitempty"`
-	TotalCount *int `json:"total_count,omitempty"`
-	TotalPages *int `json:"total_pages,omitempty"`
 	Value *string `json:"value,omitempty"`
 }
 
@@ -461,7 +573,7 @@ type CustomerCreateData struct {
 	Country *string `json:"country,omitempty"`
 	CountryName *string `json:"country_name,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
-	Customer *map[string]any `json:"customer,omitempty"`
+	Customer map[string]any `json:"customer"`
 	DefaultAutoRenewalProfileId *int `json:"default_auto_renewal_profile_id,omitempty"`
 	DefaultSubscriptionGroupUid *string `json:"default_subscription_group_uid,omitempty"`
 	Email *string `json:"email,omitempty"`
@@ -641,22 +753,30 @@ type FeatureListMatch struct {
 // FeatureCreateData is the typed request payload for Feature.CreateTyped.
 type FeatureCreateData struct {
 	ArchivedAt *string `json:"archived_at,omitempty"`
-	ArchivedCount int `json:"archived_count"`
 	CreatedAt *string `json:"created_at,omitempty"`
+	DefaultPeriodicityInterval *int `json:"default_periodicity_interval,omitempty"`
+	DefaultPeriodicityUnit *any `json:"default_periodicity_unit,omitempty"`
+	DefaultValue *string `json:"default_value,omitempty"`
+	Description *string `json:"description,omitempty"`
 	Feature map[string]any `json:"feature"`
 	FeatureKey *string `json:"feature_key,omitempty"`
 	FeatureKind *any `json:"feature_kind,omitempty"`
 	FeatureName *string `json:"feature_name,omitempty"`
 	FeatureTemplateId *int `json:"feature_template_id,omitempty"`
 	Id *int `json:"id,omitempty"`
-	Items []any `json:"items"`
+	Key *string `json:"key,omitempty"`
+	Kind *any `json:"kind,omitempty"`
+	Name *string `json:"name,omitempty"`
 	PeriodicityInterval *int `json:"periodicity_interval,omitempty"`
 	PeriodicityUnit *any `json:"periodicity_unit,omitempty"`
+	PlansCount *int `json:"plans_count,omitempty"`
 	PricePointId *int `json:"price_point_id,omitempty"`
 	PricePointType *any `json:"price_point_type,omitempty"`
-	TotalCount int `json:"total_count"`
+	ProductsCount *int `json:"products_count,omitempty"`
+	Unit *string `json:"unit,omitempty"`
 	UpdatedAt *string `json:"updated_at,omitempty"`
 	Value *string `json:"value,omitempty"`
+	ValueType *any `json:"value_type,omitempty"`
 }
 
 // FeatureCatalogItem is the typed data model for the feature_catalog_item entity.
@@ -799,7 +919,6 @@ type InvoiceCreateData struct {
 	ConsolidationLevel *any `json:"consolidation_level,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CreditAmount *string `json:"credit_amount,omitempty"`
-	CreditNotes []any `json:"credit_notes"`
 	Credits *[]any `json:"credits,omitempty"`
 	Currency *string `json:"currency,omitempty"`
 	CustomFields *[]any `json:"custom_fields,omitempty"`
@@ -814,8 +933,6 @@ type InvoiceCreateData struct {
 	DueDate *string `json:"due_date,omitempty"`
 	GroupPrimarySubscriptionId *int `json:"group_primary_subscription_id,omitempty"`
 	Id *int `json:"id,omitempty"`
-	Invoice *map[string]any `json:"invoice,omitempty"`
-	Invoices []any `json:"invoices"`
 	IssueDate *string `json:"issue_date,omitempty"`
 	LineItems *[]any `json:"line_items,omitempty"`
 	Memo *string `json:"memo,omitempty"`
@@ -872,7 +989,6 @@ type InvoiceUpdateData struct {
 	ConsolidationLevel *any `json:"consolidation_level,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	CreditAmount *string `json:"credit_amount,omitempty"`
-	CreditNotes *[]any `json:"credit_notes,omitempty"`
 	Credits *[]any `json:"credits,omitempty"`
 	Currency *string `json:"currency,omitempty"`
 	CustomFields *[]any `json:"custom_fields,omitempty"`
@@ -887,8 +1003,6 @@ type InvoiceUpdateData struct {
 	DueDate *string `json:"due_date,omitempty"`
 	GroupPrimarySubscriptionId *int `json:"group_primary_subscription_id,omitempty"`
 	Id *int `json:"id,omitempty"`
-	Invoice *map[string]any `json:"invoice,omitempty"`
-	Invoices *[]any `json:"invoices,omitempty"`
 	IssueDate *string `json:"issue_date,omitempty"`
 	LineItems *[]any `json:"line_items,omitempty"`
 	Memo *string `json:"memo,omitempty"`
@@ -934,27 +1048,6 @@ type InvoiceUpdateData struct {
 type InvoiceRemoveMatch struct {
 	SubscriptionId int `json:"subscription_id"`
 	Uid string `json:"uid"`
-}
-
-// ListProformaInvoice is the typed data model for the list_proforma_invoice entity.
-type ListProformaInvoice struct {
-}
-
-// ListProformaInvoiceListMatch is the typed request payload for ListProformaInvoice.ListTyped.
-type ListProformaInvoiceListMatch struct {
-	SubscriptionId int `json:"subscription_id"`
-	Credit *bool `json:"credit,omitempty"`
-	CustomField *bool `json:"custom_field,omitempty"`
-	Direction *any `json:"direction,omitempty"`
-	Discount *bool `json:"discount,omitempty"`
-	EndDate *string `json:"end_date,omitempty"`
-	LineItem *bool `json:"line_item,omitempty"`
-	Page *int `json:"page,omitempty"`
-	Payment *bool `json:"payment,omitempty"`
-	PerPage *int `json:"per_page,omitempty"`
-	StartDate *string `json:"start_date,omitempty"`
-	Status *any `json:"status,omitempty"`
-	Taxis *bool `json:"taxis,omitempty"`
 }
 
 // ListSaleRepItem is the typed data model for the list_sale_rep_item entity.
@@ -1044,7 +1137,6 @@ type OfferCreateData struct {
 	OfferDiscounts *[]any `json:"offer_discounts,omitempty"`
 	OfferItems *[]any `json:"offer_items,omitempty"`
 	OfferSignupPages *[]any `json:"offer_signup_pages,omitempty"`
-	Offers *[]any `json:"offers,omitempty"`
 	ProductFamilyId *int `json:"product_family_id,omitempty"`
 	ProductFamilyName *string `json:"product_family_name,omitempty"`
 	ProductId *int `json:"product_id,omitempty"`
@@ -1069,7 +1161,6 @@ type OfferUpdateData struct {
 	OfferDiscounts *[]any `json:"offer_discounts,omitempty"`
 	OfferItems *[]any `json:"offer_items,omitempty"`
 	OfferSignupPages *[]any `json:"offer_signup_pages,omitempty"`
-	Offers *[]any `json:"offers,omitempty"`
 	ProductFamilyId *int `json:"product_family_id,omitempty"`
 	ProductFamilyName *string `json:"product_family_name,omitempty"`
 	ProductId *int `json:"product_id,omitempty"`
@@ -1109,15 +1200,71 @@ type PaymentProfileListMatch struct {
 
 // PaymentProfileCreateData is the typed request payload for PaymentProfile.CreateTyped.
 type PaymentProfileCreateData struct {
-	Id *string `json:"id,omitempty"`
-	PaymentProfile *map[string]any `json:"payment_profile,omitempty"`
+	BankAccountHolderType *any `json:"bank_account_holder_type,omitempty"`
+	BankAccountType *any `json:"bank_account_type,omitempty"`
+	BankName *string `json:"bank_name,omitempty"`
+	BillingAddress *string `json:"billing_address,omitempty"`
+	BillingAddress2 *string `json:"billing_address_2,omitempty"`
+	BillingCity *string `json:"billing_city,omitempty"`
+	BillingCountry *string `json:"billing_country,omitempty"`
+	BillingState *string `json:"billing_state,omitempty"`
+	BillingZip *string `json:"billing_zip,omitempty"`
+	CardType *string `json:"card_type,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	CurrentVault *string `json:"current_vault,omitempty"`
+	CustomerId *int `json:"customer_id,omitempty"`
+	CustomerVaultToken *string `json:"customer_vault_token,omitempty"`
+	Disabled *bool `json:"disabled,omitempty"`
+	ExpirationMonth *int `json:"expiration_month,omitempty"`
+	ExpirationYear *int `json:"expiration_year,omitempty"`
+	FirstName *string `json:"first_name,omitempty"`
+	GatewayHandle *string `json:"gateway_handle,omitempty"`
+	Id *int `json:"id,omitempty"`
+	LastName *string `json:"last_name,omitempty"`
+	MaskedBankAccountNumber *string `json:"masked_bank_account_number,omitempty"`
+	MaskedBankRoutingNumber *string `json:"masked_bank_routing_number,omitempty"`
+	MaskedCardNumber *string `json:"masked_card_number,omitempty"`
+	PaymentProfile any `json:"payment_profile"`
+	PaymentType *string `json:"payment_type,omitempty"`
+	SiteGatewaySettingId *int `json:"site_gateway_setting_id,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
+	VaultToken *string `json:"vault_token,omitempty"`
+	Verified *bool `json:"verified,omitempty"`
 }
 
 // PaymentProfileUpdateData is the typed request payload for PaymentProfile.UpdateTyped.
 type PaymentProfileUpdateData struct {
 	BankAccountId int `json:"bank_account_id"`
-	Id *string `json:"id,omitempty"`
-	PaymentProfile *map[string]any `json:"payment_profile,omitempty"`
+	BankAccountHolderType *any `json:"bank_account_holder_type,omitempty"`
+	BankAccountType *any `json:"bank_account_type,omitempty"`
+	BankName *string `json:"bank_name,omitempty"`
+	BillingAddress *string `json:"billing_address,omitempty"`
+	BillingAddress2 *string `json:"billing_address_2,omitempty"`
+	BillingCity *string `json:"billing_city,omitempty"`
+	BillingCountry *string `json:"billing_country,omitempty"`
+	BillingState *string `json:"billing_state,omitempty"`
+	BillingZip *string `json:"billing_zip,omitempty"`
+	CardType *string `json:"card_type,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	CurrentVault *string `json:"current_vault,omitempty"`
+	CustomerId *int `json:"customer_id,omitempty"`
+	CustomerVaultToken *string `json:"customer_vault_token,omitempty"`
+	Disabled *bool `json:"disabled,omitempty"`
+	ExpirationMonth *int `json:"expiration_month,omitempty"`
+	ExpirationYear *int `json:"expiration_year,omitempty"`
+	FirstName *string `json:"first_name,omitempty"`
+	GatewayHandle *string `json:"gateway_handle,omitempty"`
+	Id *int `json:"id,omitempty"`
+	LastName *string `json:"last_name,omitempty"`
+	MaskedBankAccountNumber *string `json:"masked_bank_account_number,omitempty"`
+	MaskedBankRoutingNumber *string `json:"masked_bank_routing_number,omitempty"`
+	MaskedCardNumber *string `json:"masked_card_number,omitempty"`
+	PaymentProfile *any `json:"payment_profile,omitempty"`
+	PaymentType *string `json:"payment_type,omitempty"`
+	SiteGatewaySettingId *int `json:"site_gateway_setting_id,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
+	VaultToken *string `json:"vault_token,omitempty"`
+	Verified *bool `json:"verified,omitempty"`
 }
 
 // PaymentProfileRemoveMatch is the typed request payload for PaymentProfile.RemoveTyped.
@@ -1164,13 +1311,91 @@ type ProductListMatch struct {
 // ProductCreateData is the typed request payload for Product.CreateTyped.
 type ProductCreateData struct {
 	ProductFamilyId string `json:"product_family_id"`
-	Product map[string]any `json:"product"`
+	AccountingCode *string `json:"accounting_code,omitempty"`
+	ArchivedAt *string `json:"archived_at,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	DefaultProductPricePointId *int `json:"default_product_price_point_id,omitempty"`
+	Description *string `json:"description,omitempty"`
+	ExpirationInterval *int `json:"expiration_interval,omitempty"`
+	ExpirationIntervalUnit *any `json:"expiration_interval_unit,omitempty"`
+	Features *[]any `json:"features,omitempty"`
+	Handle *string `json:"handle,omitempty"`
+	Id *int `json:"id,omitempty"`
+	InitialChargeAfterTrial *bool `json:"initial_charge_after_trial,omitempty"`
+	InitialChargeInCents *int `json:"initial_charge_in_cents,omitempty"`
+	Interval *int `json:"interval,omitempty"`
+	IntervalUnit *any `json:"interval_unit,omitempty"`
+	ItemCategory *string `json:"item_category,omitempty"`
+	Name *string `json:"name,omitempty"`
+	PriceInCents *int `json:"price_in_cents,omitempty"`
+	Product *map[string]any `json:"product,omitempty"`
+	ProductFamily *map[string]any `json:"product_family,omitempty"`
+	ProductPricePointHandle *string `json:"product_price_point_handle,omitempty"`
+	ProductPricePointId *int `json:"product_price_point_id,omitempty"`
+	ProductPricePointName *string `json:"product_price_point_name,omitempty"`
+	PublicSignupPages *[]any `json:"public_signup_pages,omitempty"`
+	RequestBillingAddress *bool `json:"request_billing_address,omitempty"`
+	RequestCreditCard *bool `json:"request_credit_card,omitempty"`
+	RequireBillingAddress *bool `json:"require_billing_address,omitempty"`
+	RequireCreditCard *bool `json:"require_credit_card,omitempty"`
+	RequireShippingAddress *bool `json:"require_shipping_address,omitempty"`
+	ReturnParams *string `json:"return_params,omitempty"`
+	TaxCode *string `json:"tax_code,omitempty"`
+	Taxable *bool `json:"taxable,omitempty"`
+	TrialInterval *int `json:"trial_interval,omitempty"`
+	TrialIntervalUnit *any `json:"trial_interval_unit,omitempty"`
+	TrialPriceInCents *int `json:"trial_price_in_cents,omitempty"`
+	UnspscCode *string `json:"unspsc_code,omitempty"`
+	UpdateReturnParams *string `json:"update_return_params,omitempty"`
+	UpdateReturnUrl *string `json:"update_return_url,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
+	UseSiteExchangeRate *bool `json:"use_site_exchange_rate,omitempty"`
+	VersionNumber *int `json:"version_number,omitempty"`
 }
 
 // ProductUpdateData is the typed request payload for Product.UpdateTyped.
 type ProductUpdateData struct {
 	ProductId int `json:"product_id"`
+	AccountingCode *string `json:"accounting_code,omitempty"`
+	ArchivedAt *string `json:"archived_at,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	DefaultProductPricePointId *int `json:"default_product_price_point_id,omitempty"`
+	Description *string `json:"description,omitempty"`
+	ExpirationInterval *int `json:"expiration_interval,omitempty"`
+	ExpirationIntervalUnit *any `json:"expiration_interval_unit,omitempty"`
+	Features *[]any `json:"features,omitempty"`
+	Handle *string `json:"handle,omitempty"`
+	Id *int `json:"id,omitempty"`
+	InitialChargeAfterTrial *bool `json:"initial_charge_after_trial,omitempty"`
+	InitialChargeInCents *int `json:"initial_charge_in_cents,omitempty"`
+	Interval *int `json:"interval,omitempty"`
+	IntervalUnit *any `json:"interval_unit,omitempty"`
+	ItemCategory *string `json:"item_category,omitempty"`
+	Name *string `json:"name,omitempty"`
+	PriceInCents *int `json:"price_in_cents,omitempty"`
 	Product *map[string]any `json:"product,omitempty"`
+	ProductFamily *map[string]any `json:"product_family,omitempty"`
+	ProductPricePointHandle *string `json:"product_price_point_handle,omitempty"`
+	ProductPricePointId *int `json:"product_price_point_id,omitempty"`
+	ProductPricePointName *string `json:"product_price_point_name,omitempty"`
+	PublicSignupPages *[]any `json:"public_signup_pages,omitempty"`
+	RequestBillingAddress *bool `json:"request_billing_address,omitempty"`
+	RequestCreditCard *bool `json:"request_credit_card,omitempty"`
+	RequireBillingAddress *bool `json:"require_billing_address,omitempty"`
+	RequireCreditCard *bool `json:"require_credit_card,omitempty"`
+	RequireShippingAddress *bool `json:"require_shipping_address,omitempty"`
+	ReturnParams *string `json:"return_params,omitempty"`
+	TaxCode *string `json:"tax_code,omitempty"`
+	Taxable *bool `json:"taxable,omitempty"`
+	TrialInterval *int `json:"trial_interval,omitempty"`
+	TrialIntervalUnit *any `json:"trial_interval_unit,omitempty"`
+	TrialPriceInCents *int `json:"trial_price_in_cents,omitempty"`
+	UnspscCode *string `json:"unspsc_code,omitempty"`
+	UpdateReturnParams *string `json:"update_return_params,omitempty"`
+	UpdateReturnUrl *string `json:"update_return_url,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
+	UseSiteExchangeRate *bool `json:"use_site_exchange_rate,omitempty"`
+	VersionNumber *int `json:"version_number,omitempty"`
 }
 
 // ProductRemoveMatch is the typed request payload for Product.RemoveTyped.
@@ -1198,8 +1423,16 @@ type ProductFamilyListMatch struct {
 
 // ProductFamilyCreateData is the typed request payload for ProductFamily.CreateTyped.
 type ProductFamilyCreateData struct {
-	Id *string `json:"id,omitempty"`
+	AccountingCode *string `json:"accounting_code,omitempty"`
+	ArchivedAt *string `json:"archived_at,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Handle *string `json:"handle,omitempty"`
+	Id *int `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
 	ProductFamily *map[string]any `json:"product_family,omitempty"`
+	Surcharging *bool `json:"surcharging,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
 }
 
 // ProductFeature is the typed data model for the product_feature entity.
@@ -1236,19 +1469,106 @@ type ProductPricePointListMatch struct {
 // ProductPricePointCreateData is the typed request payload for ProductPricePoint.CreateTyped.
 type ProductPricePointCreateData struct {
 	Id string `json:"id"`
-	PricePoint map[string]any `json:"price_point"`
+	AccountingCode *string `json:"accounting_code,omitempty"`
+	ArchivedAt *string `json:"archived_at,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	CurrencyPrices *[]any `json:"currency_prices,omitempty"`
+	DefaultProductPricePointId *int `json:"default_product_price_point_id,omitempty"`
+	Description *string `json:"description,omitempty"`
+	ExpirationInterval *int `json:"expiration_interval,omitempty"`
+	ExpirationIntervalUnit *any `json:"expiration_interval_unit,omitempty"`
+	Features *[]any `json:"features,omitempty"`
+	Handle *string `json:"handle,omitempty"`
+	InitialChargeAfterTrial *bool `json:"initial_charge_after_trial,omitempty"`
+	InitialChargeInCents *int `json:"initial_charge_in_cents,omitempty"`
+	Interval *int `json:"interval,omitempty"`
+	IntervalUnit *any `json:"interval_unit,omitempty"`
+	IntroductoryOffer *bool `json:"introductory_offer,omitempty"`
+	ItemCategory *string `json:"item_category,omitempty"`
+	Name *string `json:"name,omitempty"`
+	PriceInCents *int `json:"price_in_cents,omitempty"`
+	PricePoint *map[string]any `json:"price_point,omitempty"`
 	PricePoints *[]any `json:"price_points,omitempty"`
-	Product map[string]any `json:"product"`
+	ProductFamily *map[string]any `json:"product_family,omitempty"`
+	ProductId *int `json:"product_id,omitempty"`
+	ProductPricePointHandle *string `json:"product_price_point_handle,omitempty"`
+	ProductPricePointId *int `json:"product_price_point_id,omitempty"`
+	ProductPricePointName *string `json:"product_price_point_name,omitempty"`
+	PublicSignupPages *[]any `json:"public_signup_pages,omitempty"`
+	RequestBillingAddress *bool `json:"request_billing_address,omitempty"`
+	RequestCreditCard *bool `json:"request_credit_card,omitempty"`
+	RequireBillingAddress *bool `json:"require_billing_address,omitempty"`
+	RequireCreditCard *bool `json:"require_credit_card,omitempty"`
+	RequireShippingAddress *bool `json:"require_shipping_address,omitempty"`
+	ReturnParams *string `json:"return_params,omitempty"`
+	SubscriptionId *int `json:"subscription_id,omitempty"`
+	TaxCode *string `json:"tax_code,omitempty"`
+	TaxIncluded *bool `json:"tax_included,omitempty"`
+	Taxable *bool `json:"taxable,omitempty"`
+	TrialInterval *int `json:"trial_interval,omitempty"`
+	TrialIntervalUnit *any `json:"trial_interval_unit,omitempty"`
+	TrialPriceInCents *int `json:"trial_price_in_cents,omitempty"`
+	TrialType *any `json:"trial_type,omitempty"`
+	Type *any `json:"type,omitempty"`
+	UnspscCode *string `json:"unspsc_code,omitempty"`
+	UpdateReturnParams *string `json:"update_return_params,omitempty"`
+	UpdateReturnUrl *string `json:"update_return_url,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
+	UseSiteExchangeRate *bool `json:"use_site_exchange_rate,omitempty"`
+	VersionNumber *int `json:"version_number,omitempty"`
 }
 
 // ProductPricePointUpdateData is the typed request payload for ProductPricePoint.UpdateTyped.
 type ProductPricePointUpdateData struct {
 	PricePointId string `json:"price_point_id"`
 	ProductId string `json:"product_id"`
-	Id *string `json:"id,omitempty"`
+	AccountingCode *string `json:"accounting_code,omitempty"`
+	ArchivedAt *string `json:"archived_at,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	CurrencyPrices *[]any `json:"currency_prices,omitempty"`
+	DefaultProductPricePointId *int `json:"default_product_price_point_id,omitempty"`
+	Description *string `json:"description,omitempty"`
+	ExpirationInterval *int `json:"expiration_interval,omitempty"`
+	ExpirationIntervalUnit *any `json:"expiration_interval_unit,omitempty"`
+	Features *[]any `json:"features,omitempty"`
+	Handle *string `json:"handle,omitempty"`
+	Id *int `json:"id,omitempty"`
+	InitialChargeAfterTrial *bool `json:"initial_charge_after_trial,omitempty"`
+	InitialChargeInCents *int `json:"initial_charge_in_cents,omitempty"`
+	Interval *int `json:"interval,omitempty"`
+	IntervalUnit *any `json:"interval_unit,omitempty"`
+	IntroductoryOffer *bool `json:"introductory_offer,omitempty"`
+	ItemCategory *string `json:"item_category,omitempty"`
+	Name *string `json:"name,omitempty"`
+	PriceInCents *int `json:"price_in_cents,omitempty"`
 	PricePoint *map[string]any `json:"price_point,omitempty"`
 	PricePoints *[]any `json:"price_points,omitempty"`
-	Product *map[string]any `json:"product,omitempty"`
+	ProductFamily *map[string]any `json:"product_family,omitempty"`
+	ProductPricePointHandle *string `json:"product_price_point_handle,omitempty"`
+	ProductPricePointId *int `json:"product_price_point_id,omitempty"`
+	ProductPricePointName *string `json:"product_price_point_name,omitempty"`
+	PublicSignupPages *[]any `json:"public_signup_pages,omitempty"`
+	RequestBillingAddress *bool `json:"request_billing_address,omitempty"`
+	RequestCreditCard *bool `json:"request_credit_card,omitempty"`
+	RequireBillingAddress *bool `json:"require_billing_address,omitempty"`
+	RequireCreditCard *bool `json:"require_credit_card,omitempty"`
+	RequireShippingAddress *bool `json:"require_shipping_address,omitempty"`
+	ReturnParams *string `json:"return_params,omitempty"`
+	SubscriptionId *int `json:"subscription_id,omitempty"`
+	TaxCode *string `json:"tax_code,omitempty"`
+	TaxIncluded *bool `json:"tax_included,omitempty"`
+	Taxable *bool `json:"taxable,omitempty"`
+	TrialInterval *int `json:"trial_interval,omitempty"`
+	TrialIntervalUnit *any `json:"trial_interval_unit,omitempty"`
+	TrialPriceInCents *int `json:"trial_price_in_cents,omitempty"`
+	TrialType *any `json:"trial_type,omitempty"`
+	Type *any `json:"type,omitempty"`
+	UnspscCode *string `json:"unspsc_code,omitempty"`
+	UpdateReturnParams *string `json:"update_return_params,omitempty"`
+	UpdateReturnUrl *string `json:"update_return_url,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
+	UseSiteExchangeRate *bool `json:"use_site_exchange_rate,omitempty"`
+	VersionNumber *int `json:"version_number,omitempty"`
 }
 
 // ProductPricePointRemoveMatch is the typed request payload for ProductPricePoint.RemoveTyped.
@@ -1263,7 +1583,19 @@ type ProformaInvoice struct {
 
 // ProformaInvoiceListMatch is the typed request payload for ProformaInvoice.ListTyped.
 type ProformaInvoiceListMatch struct {
-	ProformaInvoiceUid string `json:"proforma_invoice_uid"`
+	SubscriptionId int `json:"subscription_id"`
+	Credit *bool `json:"credit,omitempty"`
+	CustomField *bool `json:"custom_field,omitempty"`
+	Direction *any `json:"direction,omitempty"`
+	Discount *bool `json:"discount,omitempty"`
+	EndDate *string `json:"end_date,omitempty"`
+	LineItem *bool `json:"line_item,omitempty"`
+	Page *int `json:"page,omitempty"`
+	Payment *bool `json:"payment,omitempty"`
+	PerPage *int `json:"per_page,omitempty"`
+	StartDate *string `json:"start_date,omitempty"`
+	Status *any `json:"status,omitempty"`
+	Taxis *bool `json:"taxis,omitempty"`
 }
 
 // ProformaInvoiceCreateData is the typed request payload for ProformaInvoice.CreateTyped.
@@ -1438,9 +1770,29 @@ type Site struct {
 
 // SiteLoadMatch is the typed request payload for Site.LoadTyped.
 type SiteLoadMatch struct {
-	ChargifyJsKeys *[]any `json:"chargify_js_keys,omitempty"`
-	Meta *map[string]any `json:"meta,omitempty"`
-	Site *map[string]any `json:"site,omitempty"`
+	AllocationSettings *map[string]any `json:"allocation_settings,omitempty"`
+	AutoRenewalsEnabled *bool `json:"auto_renewals_enabled,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	CustomerHierarchyEnabled *bool `json:"customer_hierarchy_enabled,omitempty"`
+	DefaultPaymentCollectionMethod *string `json:"default_payment_collection_method,omitempty"`
+	Id int `json:"id"`
+	MultiFrequencyEnabled *bool `json:"multi_frequency_enabled,omitempty"`
+	Name *string `json:"name,omitempty"`
+	NetTerms *map[string]any `json:"net_terms,omitempty"`
+	NonPrimaryCurrencies *[]any `json:"non_primary_currencies,omitempty"`
+	OrganizationAddress *map[string]any `json:"organization_address,omitempty"`
+	PortalEnabled *bool `json:"portal_enabled,omitempty"`
+	PublicKey *string `json:"public_key,omitempty"`
+	RelationshipInvoicingEnabled *bool `json:"relationship_invoicing_enabled,omitempty"`
+	RequiresSecurityToken *bool `json:"requires_security_token,omitempty"`
+	ScheduleSubscriptionCancellationEnabled *bool `json:"schedule_subscription_cancellation_enabled,omitempty"`
+	SellerId *int `json:"seller_id,omitempty"`
+	Subdomain *string `json:"subdomain,omitempty"`
+	TaxConfiguration *map[string]any `json:"tax_configuration,omitempty"`
+	Test *bool `json:"test,omitempty"`
+	WhopaysDefaultPayer *string `json:"whopays_default_payer,omitempty"`
+	WhopaysEnabled *bool `json:"whopays_enabled,omitempty"`
 }
 
 // SiteListMatch is the typed request payload for Site.ListTyped.
@@ -1452,9 +1804,29 @@ type SiteListMatch struct {
 // SiteCreateData is the typed request payload for Site.CreateTyped.
 type SiteCreateData struct {
 	CleanupScope *any `json:"cleanup_scope,omitempty"`
-	ChargifyJsKeys *[]any `json:"chargify_js_keys,omitempty"`
-	Meta *map[string]any `json:"meta,omitempty"`
-	Site map[string]any `json:"site"`
+	AllocationSettings *map[string]any `json:"allocation_settings,omitempty"`
+	AutoRenewalsEnabled *bool `json:"auto_renewals_enabled,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	CustomerHierarchyEnabled *bool `json:"customer_hierarchy_enabled,omitempty"`
+	DefaultPaymentCollectionMethod *string `json:"default_payment_collection_method,omitempty"`
+	Id *int `json:"id,omitempty"`
+	MultiFrequencyEnabled *bool `json:"multi_frequency_enabled,omitempty"`
+	Name *string `json:"name,omitempty"`
+	NetTerms *map[string]any `json:"net_terms,omitempty"`
+	NonPrimaryCurrencies *[]any `json:"non_primary_currencies,omitempty"`
+	OrganizationAddress *map[string]any `json:"organization_address,omitempty"`
+	PortalEnabled *bool `json:"portal_enabled,omitempty"`
+	PublicKey *string `json:"public_key,omitempty"`
+	RelationshipInvoicingEnabled *bool `json:"relationship_invoicing_enabled,omitempty"`
+	RequiresSecurityToken *bool `json:"requires_security_token,omitempty"`
+	ScheduleSubscriptionCancellationEnabled *bool `json:"schedule_subscription_cancellation_enabled,omitempty"`
+	SellerId *int `json:"seller_id,omitempty"`
+	Subdomain *string `json:"subdomain,omitempty"`
+	TaxConfiguration *map[string]any `json:"tax_configuration,omitempty"`
+	Test *bool `json:"test,omitempty"`
+	WhopaysDefaultPayer *string `json:"whopays_default_payer,omitempty"`
+	WhopaysEnabled *bool `json:"whopays_enabled,omitempty"`
 }
 
 // Subscription is the typed data model for the subscription entity.
@@ -1669,26 +2041,40 @@ type SubscriptionComponentListMatch struct {
 type SubscriptionComponentCreateData struct {
 	ApiHandle string `json:"api_handle"`
 	StoreUid *string `json:"store_uid,omitempty"`
+	AccrueCharge *bool `json:"accrue_charge,omitempty"`
 	AllocatedQuantity *any `json:"allocated_quantity,omitempty"`
-	Allocation *map[string]any `json:"allocation,omitempty"`
-	AllocationPreview *map[string]any `json:"allocation_preview,omitempty"`
+	AllocationId *int `json:"allocation_id,omitempty"`
+	Allocations *[]any `json:"allocations,omitempty"`
 	AllowFractionalQuantities *bool `json:"allow_fractional_quantities,omitempty"`
 	ArchivedAt *string `json:"archived_at,omitempty"`
+	ChargeId *int `json:"charge_id,omitempty"`
 	Component *map[string]any `json:"component,omitempty"`
 	ComponentHandle *string `json:"component_handle,omitempty"`
 	ComponentId *int `json:"component_id,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Currency *string `json:"currency,omitempty"`
 	Description *string `json:"description,omitempty"`
+	Direction *string `json:"direction,omitempty"`
 	DisplayOnHostedPage *bool `json:"display_on_hosted_page,omitempty"`
 	DowngradeCredit *any `json:"downgrade_credit,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
+	EndDate *string `json:"end_date,omitempty"`
+	ExistingBalanceInCents *int `json:"existing_balance_in_cents,omitempty"`
+	ExpiresAt *string `json:"expires_at,omitempty"`
 	HistoricUsages *[]any `json:"historic_usages,omitempty"`
 	Id *int `json:"id,omitempty"`
+	InitiateDunning *bool `json:"initiate_dunning,omitempty"`
 	Interval *int `json:"interval,omitempty"`
 	IntervalUnit *any `json:"interval_unit,omitempty"`
 	Kind *any `json:"kind,omitempty"`
+	LineItems *[]any `json:"line_items,omitempty"`
+	Memo *string `json:"memo,omitempty"`
 	Name *string `json:"name,omitempty"`
+	OverageQuantity *int `json:"overage_quantity,omitempty"`
+	Payment *any `json:"payment,omitempty"`
+	PeriodType *string `json:"period_type,omitempty"`
+	PreviousPricePointId *int `json:"previous_price_point_id,omitempty"`
+	PreviousQuantity *any `json:"previous_quantity,omitempty"`
 	PricePointHandle *string `json:"price_point_handle,omitempty"`
 	PricePointId *int `json:"price_point_id,omitempty"`
 	PricePointName *string `json:"price_point_name,omitempty"`
@@ -1696,15 +2082,25 @@ type SubscriptionComponentCreateData struct {
 	PricingScheme *any `json:"pricing_scheme,omitempty"`
 	ProductFamilyHandle *string `json:"product_family_handle,omitempty"`
 	ProductFamilyId *int `json:"product_family_id,omitempty"`
+	ProrationDowngradeScheme *string `json:"proration_downgrade_scheme,omitempty"`
+	ProrationScheme *string `json:"proration_scheme,omitempty"`
+	ProrationUpgradeScheme *string `json:"proration_upgrade_scheme,omitempty"`
+	Quantity *any `json:"quantity,omitempty"`
 	Recurring *bool `json:"recurring,omitempty"`
-	Subscription *map[string]any `json:"subscription,omitempty"`
+	StartDate *string `json:"start_date,omitempty"`
+	Subscription *any `json:"subscription,omitempty"`
 	SubscriptionId *int `json:"subscription_id,omitempty"`
+	SubtotalInCents *int `json:"subtotal_in_cents,omitempty"`
+	Timestamp *string `json:"timestamp,omitempty"`
+	TotalDiscountInCents *int `json:"total_discount_in_cents,omitempty"`
+	TotalInCents *int `json:"total_in_cents,omitempty"`
+	TotalTaxInCents *int `json:"total_tax_in_cents,omitempty"`
 	UnitBalance *any `json:"unit_balance,omitempty"`
 	UnitName *string `json:"unit_name,omitempty"`
 	UpdatedAt *string `json:"updated_at,omitempty"`
 	UpgradeCharge *any `json:"upgrade_charge,omitempty"`
-	Usage *map[string]any `json:"usage,omitempty"`
 	UseSiteExchangeRate *bool `json:"use_site_exchange_rate,omitempty"`
+	UsedQuantity *int `json:"used_quantity,omitempty"`
 }
 
 // SubscriptionComponentUpdateData is the typed request payload for SubscriptionComponent.UpdateTyped.
@@ -1712,25 +2108,38 @@ type SubscriptionComponentUpdateData struct {
 	AllocationId int `json:"allocation_id"`
 	ComponentId int `json:"component_id"`
 	SubscriptionId int `json:"subscription_id"`
+	AccrueCharge *bool `json:"accrue_charge,omitempty"`
 	AllocatedQuantity *any `json:"allocated_quantity,omitempty"`
-	Allocation *map[string]any `json:"allocation,omitempty"`
-	AllocationPreview *map[string]any `json:"allocation_preview,omitempty"`
+	Allocations *[]any `json:"allocations,omitempty"`
 	AllowFractionalQuantities *bool `json:"allow_fractional_quantities,omitempty"`
 	ArchivedAt *string `json:"archived_at,omitempty"`
+	ChargeId *int `json:"charge_id,omitempty"`
 	Component *map[string]any `json:"component,omitempty"`
 	ComponentHandle *string `json:"component_handle,omitempty"`
 	CreatedAt *string `json:"created_at,omitempty"`
 	Currency *string `json:"currency,omitempty"`
 	Description *string `json:"description,omitempty"`
+	Direction *string `json:"direction,omitempty"`
 	DisplayOnHostedPage *bool `json:"display_on_hosted_page,omitempty"`
 	DowngradeCredit *any `json:"downgrade_credit,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
+	EndDate *string `json:"end_date,omitempty"`
+	ExistingBalanceInCents *int `json:"existing_balance_in_cents,omitempty"`
+	ExpiresAt *string `json:"expires_at,omitempty"`
 	HistoricUsages *[]any `json:"historic_usages,omitempty"`
 	Id *int `json:"id,omitempty"`
+	InitiateDunning *bool `json:"initiate_dunning,omitempty"`
 	Interval *int `json:"interval,omitempty"`
 	IntervalUnit *any `json:"interval_unit,omitempty"`
 	Kind *any `json:"kind,omitempty"`
+	LineItems *[]any `json:"line_items,omitempty"`
+	Memo *string `json:"memo,omitempty"`
 	Name *string `json:"name,omitempty"`
+	OverageQuantity *int `json:"overage_quantity,omitempty"`
+	Payment *any `json:"payment,omitempty"`
+	PeriodType *string `json:"period_type,omitempty"`
+	PreviousPricePointId *int `json:"previous_price_point_id,omitempty"`
+	PreviousQuantity *any `json:"previous_quantity,omitempty"`
 	PricePointHandle *string `json:"price_point_handle,omitempty"`
 	PricePointId *int `json:"price_point_id,omitempty"`
 	PricePointName *string `json:"price_point_name,omitempty"`
@@ -1738,14 +2147,24 @@ type SubscriptionComponentUpdateData struct {
 	PricingScheme *any `json:"pricing_scheme,omitempty"`
 	ProductFamilyHandle *string `json:"product_family_handle,omitempty"`
 	ProductFamilyId *int `json:"product_family_id,omitempty"`
+	ProrationDowngradeScheme *string `json:"proration_downgrade_scheme,omitempty"`
+	ProrationScheme *string `json:"proration_scheme,omitempty"`
+	ProrationUpgradeScheme *string `json:"proration_upgrade_scheme,omitempty"`
+	Quantity *any `json:"quantity,omitempty"`
 	Recurring *bool `json:"recurring,omitempty"`
-	Subscription *map[string]any `json:"subscription,omitempty"`
+	StartDate *string `json:"start_date,omitempty"`
+	Subscription *any `json:"subscription,omitempty"`
+	SubtotalInCents *int `json:"subtotal_in_cents,omitempty"`
+	Timestamp *string `json:"timestamp,omitempty"`
+	TotalDiscountInCents *int `json:"total_discount_in_cents,omitempty"`
+	TotalInCents *int `json:"total_in_cents,omitempty"`
+	TotalTaxInCents *int `json:"total_tax_in_cents,omitempty"`
 	UnitBalance *any `json:"unit_balance,omitempty"`
 	UnitName *string `json:"unit_name,omitempty"`
 	UpdatedAt *string `json:"updated_at,omitempty"`
 	UpgradeCharge *any `json:"upgrade_charge,omitempty"`
-	Usage *map[string]any `json:"usage,omitempty"`
 	UseSiteExchangeRate *bool `json:"use_site_exchange_rate,omitempty"`
+	UsedQuantity *int `json:"used_quantity,omitempty"`
 }
 
 // SubscriptionComponentRemoveMatch is the typed request payload for SubscriptionComponent.RemoveTyped.
@@ -1768,19 +2187,40 @@ type SubscriptionGroupListMatch struct {
 
 // SubscriptionGroupCreateData is the typed request payload for SubscriptionGroup.CreateTyped.
 type SubscriptionGroupCreateData struct {
+	AccountBalances *map[string]any `json:"account_balances,omitempty"`
+	CancelAtEndOfPeriod *bool `json:"cancel_at_end_of_period,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	CustomerId *int `json:"customer_id,omitempty"`
+	GroupType *string `json:"group_type,omitempty"`
 	Id *string `json:"id,omitempty"`
-	Meta *map[string]any `json:"meta,omitempty"`
-	SubscriptionGroup *map[string]any `json:"subscription_group,omitempty"`
-	SubscriptionGroups *[]any `json:"subscription_groups,omitempty"`
+	NextAssessmentAt *string `json:"next_assessment_at,omitempty"`
+	PaymentCollectionMethod *any `json:"payment_collection_method,omitempty"`
+	PaymentProfile *map[string]any `json:"payment_profile,omitempty"`
+	PaymentProfileId *int `json:"payment_profile_id,omitempty"`
+	PrimarySubscriptionId *int `json:"primary_subscription_id,omitempty"`
+	Scheme *int `json:"scheme,omitempty"`
+	State *string `json:"state,omitempty"`
+	SubscriptionIds *[]any `json:"subscription_ids,omitempty"`
+	Uid *string `json:"uid,omitempty"`
 }
 
 // SubscriptionGroupUpdateData is the typed request payload for SubscriptionGroup.UpdateTyped.
 type SubscriptionGroupUpdateData struct {
 	Uid string `json:"uid"`
+	AccountBalances *map[string]any `json:"account_balances,omitempty"`
+	CancelAtEndOfPeriod *bool `json:"cancel_at_end_of_period,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	CustomerId *int `json:"customer_id,omitempty"`
+	GroupType *string `json:"group_type,omitempty"`
 	Id *string `json:"id,omitempty"`
-	Meta *map[string]any `json:"meta,omitempty"`
-	SubscriptionGroup *map[string]any `json:"subscription_group,omitempty"`
-	SubscriptionGroups *[]any `json:"subscription_groups,omitempty"`
+	NextAssessmentAt *string `json:"next_assessment_at,omitempty"`
+	PaymentCollectionMethod *any `json:"payment_collection_method,omitempty"`
+	PaymentProfile *map[string]any `json:"payment_profile,omitempty"`
+	PaymentProfileId *int `json:"payment_profile_id,omitempty"`
+	PrimarySubscriptionId *int `json:"primary_subscription_id,omitempty"`
+	Scheme *int `json:"scheme,omitempty"`
+	State *string `json:"state,omitempty"`
+	SubscriptionIds *[]any `json:"subscription_ids,omitempty"`
 }
 
 // SubscriptionGroupRemoveMatch is the typed request payload for SubscriptionGroup.RemoveTyped.
@@ -1842,7 +2282,13 @@ type SubscriptionInvoiceAccountListMatch struct {
 // SubscriptionInvoiceAccountCreateData is the typed request payload for SubscriptionInvoiceAccount.CreateTyped.
 type SubscriptionInvoiceAccountCreateData struct {
 	Id int `json:"id"`
-	ServiceCredits *[]any `json:"service_credits,omitempty"`
+	AmountInCents *int `json:"amount_in_cents,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	EndingBalanceInCents *int `json:"ending_balance_in_cents,omitempty"`
+	EntryType *any `json:"entry_type,omitempty"`
+	InvoiceUid *string `json:"invoice_uid,omitempty"`
+	Memo *string `json:"memo,omitempty"`
+	RemainingBalanceInCents *int `json:"remaining_balance_in_cents,omitempty"`
 }
 
 // SubscriptionMrr is the typed data model for the subscription_mrr entity.
@@ -1911,8 +2357,12 @@ type SubscriptionProduct struct {
 // SubscriptionProductCreateData is the typed request payload for SubscriptionProduct.CreateTyped.
 type SubscriptionProductCreateData struct {
 	SubscriptionId int `json:"subscription_id"`
+	ChargeInCents *int `json:"charge_in_cents,omitempty"`
+	CreditAppliedInCents *int `json:"credit_applied_in_cents,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Migration map[string]any `json:"migration"`
+	PaymentDueInCents *int `json:"payment_due_in_cents,omitempty"`
+	ProratedAdjustmentInCents *int `json:"prorated_adjustment_in_cents,omitempty"`
 }
 
 // SubscriptionRenewal is the typed data model for the subscription_renewal entity.
@@ -1935,9 +2385,24 @@ type SubscriptionRenewalListMatch struct {
 type SubscriptionRenewalCreateData struct {
 	ScheduledRenewalId int `json:"scheduled_renewal_id"`
 	SubscriptionId int `json:"subscription_id"`
-	Id *string `json:"id,omitempty"`
-	ScheduledRenewalConfiguration *map[string]any `json:"scheduled_renewal_configuration,omitempty"`
+	Contract *any `json:"contract,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	DecimalQuantity *string `json:"decimal_quantity,omitempty"`
+	EndsAt *string `json:"ends_at,omitempty"`
+	Id *int `json:"id,omitempty"`
+	ItemId *int `json:"item_id,omitempty"`
+	ItemSubclass *string `json:"item_subclass,omitempty"`
+	ItemType *string `json:"item_type,omitempty"`
+	LockInAt *string `json:"lock_in_at,omitempty"`
+	PricePointId *int `json:"price_point_id,omitempty"`
+	PricePointType *string `json:"price_point_type,omitempty"`
+	Quantity *int `json:"quantity,omitempty"`
 	ScheduledRenewalConfigurationItem *map[string]any `json:"scheduled_renewal_configuration_item,omitempty"`
+	ScheduledRenewalConfigurationItems *[]any `json:"scheduled_renewal_configuration_items,omitempty"`
+	SiteId *int `json:"site_id,omitempty"`
+	StartsAt *string `json:"starts_at,omitempty"`
+	Status *string `json:"status,omitempty"`
+	SubscriptionRenewalConfigurationId *int `json:"subscription_renewal_configuration_id,omitempty"`
 }
 
 // SubscriptionRenewalUpdateData is the typed request payload for SubscriptionRenewal.UpdateTyped.
@@ -1945,8 +2410,23 @@ type SubscriptionRenewalUpdateData struct {
 	Id *int `json:"id,omitempty"`
 	ScheduledRenewalId *int `json:"scheduled_renewal_id,omitempty"`
 	SubscriptionId int `json:"subscription_id"`
-	ScheduledRenewalConfiguration *map[string]any `json:"scheduled_renewal_configuration,omitempty"`
+	Contract *any `json:"contract,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	DecimalQuantity *string `json:"decimal_quantity,omitempty"`
+	EndsAt *string `json:"ends_at,omitempty"`
+	ItemId *int `json:"item_id,omitempty"`
+	ItemSubclass *string `json:"item_subclass,omitempty"`
+	ItemType *string `json:"item_type,omitempty"`
+	LockInAt *string `json:"lock_in_at,omitempty"`
+	PricePointId *int `json:"price_point_id,omitempty"`
+	PricePointType *string `json:"price_point_type,omitempty"`
+	Quantity *int `json:"quantity,omitempty"`
 	ScheduledRenewalConfigurationItem *map[string]any `json:"scheduled_renewal_configuration_item,omitempty"`
+	ScheduledRenewalConfigurationItems *[]any `json:"scheduled_renewal_configuration_items,omitempty"`
+	SiteId *int `json:"site_id,omitempty"`
+	StartsAt *string `json:"starts_at,omitempty"`
+	Status *string `json:"status,omitempty"`
+	SubscriptionRenewalConfigurationId *int `json:"subscription_renewal_configuration_id,omitempty"`
 }
 
 // SubscriptionRenewalRemoveMatch is the typed request payload for SubscriptionRenewal.RemoveTyped.
@@ -1963,14 +2443,30 @@ type SubscriptionStatus struct {
 // SubscriptionStatusCreateData is the typed request payload for SubscriptionStatus.CreateTyped.
 type SubscriptionStatusCreateData struct {
 	SubscriptionId int `json:"subscription_id"`
+	ExistingBalanceInCents *int `json:"existing_balance_in_cents,omitempty"`
 	Id *string `json:"id,omitempty"`
-	RenewalPreview *map[string]any `json:"renewal_preview,omitempty"`
+	LineItems *[]any `json:"line_items,omitempty"`
+	NextAssessmentAt *string `json:"next_assessment_at,omitempty"`
+	SubtotalInCents *int `json:"subtotal_in_cents,omitempty"`
+	TotalAmountDueInCents *int `json:"total_amount_due_in_cents,omitempty"`
+	TotalDiscountInCents *int `json:"total_discount_in_cents,omitempty"`
+	TotalInCents *int `json:"total_in_cents,omitempty"`
+	TotalTaxInCents *int `json:"total_tax_in_cents,omitempty"`
+	UncalculatedTaxes *bool `json:"uncalculated_taxes,omitempty"`
 }
 
 // SubscriptionStatusUpdateData is the typed request payload for SubscriptionStatus.UpdateTyped.
 type SubscriptionStatusUpdateData struct {
 	Id int `json:"id"`
-	RenewalPreview *map[string]any `json:"renewal_preview,omitempty"`
+	ExistingBalanceInCents *int `json:"existing_balance_in_cents,omitempty"`
+	LineItems *[]any `json:"line_items,omitempty"`
+	NextAssessmentAt *string `json:"next_assessment_at,omitempty"`
+	SubtotalInCents *int `json:"subtotal_in_cents,omitempty"`
+	TotalAmountDueInCents *int `json:"total_amount_due_in_cents,omitempty"`
+	TotalDiscountInCents *int `json:"total_discount_in_cents,omitempty"`
+	TotalInCents *int `json:"total_in_cents,omitempty"`
+	TotalTaxInCents *int `json:"total_tax_in_cents,omitempty"`
+	UncalculatedTaxes *bool `json:"uncalculated_taxes,omitempty"`
 }
 
 // SubscriptionStatusRemoveMatch is the typed request payload for SubscriptionStatus.RemoveTyped.
@@ -2011,14 +2507,22 @@ type WebhookListMatch struct {
 
 // WebhookCreateData is the typed request payload for Webhook.CreateTyped.
 type WebhookCreateData struct {
-	Endpoint *map[string]any `json:"endpoint,omitempty"`
+	Id *int `json:"id,omitempty"`
+	SiteId *int `json:"site_id,omitempty"`
+	Status *string `json:"status,omitempty"`
+	Url *string `json:"url,omitempty"`
 	Webhook *map[string]any `json:"webhook,omitempty"`
+	WebhookSubscriptions *[]any `json:"webhook_subscriptions,omitempty"`
 }
 
 // WebhookUpdateData is the typed request payload for Webhook.UpdateTyped.
 type WebhookUpdateData struct {
-	Endpoint *map[string]any `json:"endpoint,omitempty"`
+	Id *int `json:"id,omitempty"`
+	SiteId *int `json:"site_id,omitempty"`
+	Status *string `json:"status,omitempty"`
+	Url *string `json:"url,omitempty"`
 	Webhook *map[string]any `json:"webhook,omitempty"`
+	WebhookSubscriptions *[]any `json:"webhook_subscriptions,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

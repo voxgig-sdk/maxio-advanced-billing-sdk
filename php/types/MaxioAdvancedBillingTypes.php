@@ -123,7 +123,44 @@ class BillingPortalRemoveMatch
 /** Component entity data model. */
 class Component
 {
+    public ?string $accounting_code = null;
+    public ?bool $allow_fractional_quantities = null;
+    public ?bool $archived = null;
+    public ?string $archived_at = null;
     public ?array $component = null;
+    public ?string $created_at = null;
+    public ?int $default_price_point_id = null;
+    public ?string $default_price_point_name = null;
+    public ?string $description = null;
+    public mixed $downgrade_credit = null;
+    public ?int $event_based_billing_metric_id = null;
+    public ?array $features = null;
+    public ?string $handle = null;
+    public ?bool $hide_date_range_on_invoice = null;
+    public ?int $id = null;
+    public ?int $interval = null;
+    public mixed $interval_unit = null;
+    public mixed $item_category = null;
+    public mixed $kind = null;
+    public ?string $name = null;
+    public ?array $overage_prices = null;
+    public ?int $price_per_unit_in_cents = null;
+    public ?int $price_point_count = null;
+    public ?string $price_points_url = null;
+    public ?array $prices = null;
+    public mixed $pricing_scheme = null;
+    public ?string $product_family_handle = null;
+    public ?int $product_family_id = null;
+    public ?string $product_family_name = null;
+    public ?bool $recurring = null;
+    public ?string $tax_code = null;
+    public ?bool $taxable = null;
+    public ?string $unit_name = null;
+    public ?string $unit_price = null;
+    public ?string $unspsc_code = null;
+    public ?string $updated_at = null;
+    public mixed $upgrade_charge = null;
+    public ?bool $use_site_exchange_rate = null;
 }
 
 /** Request payload for Component#load. */
@@ -152,7 +189,43 @@ class ComponentListMatch
 class ComponentCreateData
 {
     public string $product_family_id;
+    public ?string $accounting_code = null;
+    public ?bool $allow_fractional_quantities = null;
+    public ?bool $archived = null;
+    public ?string $archived_at = null;
     public ?array $component = null;
+    public ?string $created_at = null;
+    public ?int $default_price_point_id = null;
+    public ?string $default_price_point_name = null;
+    public ?string $description = null;
+    public mixed $downgrade_credit = null;
+    public ?int $event_based_billing_metric_id = null;
+    public ?array $features = null;
+    public ?string $handle = null;
+    public ?bool $hide_date_range_on_invoice = null;
+    public ?int $id = null;
+    public ?int $interval = null;
+    public mixed $interval_unit = null;
+    public mixed $item_category = null;
+    public mixed $kind = null;
+    public ?string $name = null;
+    public ?array $overage_prices = null;
+    public ?int $price_per_unit_in_cents = null;
+    public ?int $price_point_count = null;
+    public ?string $price_points_url = null;
+    public ?array $prices = null;
+    public mixed $pricing_scheme = null;
+    public ?string $product_family_handle = null;
+    public ?string $product_family_name = null;
+    public ?bool $recurring = null;
+    public ?string $tax_code = null;
+    public ?bool $taxable = null;
+    public ?string $unit_name = null;
+    public ?string $unit_price = null;
+    public ?string $unspsc_code = null;
+    public ?string $updated_at = null;
+    public mixed $upgrade_charge = null;
+    public ?bool $use_site_exchange_rate = null;
 }
 
 /** Request payload for Component#update. */
@@ -160,7 +233,43 @@ class ComponentUpdateData
 {
     public string $component_id;
     public ?int $product_family_id = null;
+    public ?string $accounting_code = null;
+    public ?bool $allow_fractional_quantities = null;
+    public ?bool $archived = null;
+    public ?string $archived_at = null;
     public ?array $component = null;
+    public ?string $created_at = null;
+    public ?int $default_price_point_id = null;
+    public ?string $default_price_point_name = null;
+    public ?string $description = null;
+    public mixed $downgrade_credit = null;
+    public ?int $event_based_billing_metric_id = null;
+    public ?array $features = null;
+    public ?string $handle = null;
+    public ?bool $hide_date_range_on_invoice = null;
+    public ?int $id = null;
+    public ?int $interval = null;
+    public mixed $interval_unit = null;
+    public mixed $item_category = null;
+    public mixed $kind = null;
+    public ?string $name = null;
+    public ?array $overage_prices = null;
+    public ?int $price_per_unit_in_cents = null;
+    public ?int $price_point_count = null;
+    public ?string $price_points_url = null;
+    public ?array $prices = null;
+    public mixed $pricing_scheme = null;
+    public ?string $product_family_handle = null;
+    public ?string $product_family_name = null;
+    public ?bool $recurring = null;
+    public ?string $tax_code = null;
+    public ?bool $taxable = null;
+    public ?string $unit_name = null;
+    public ?string $unit_price = null;
+    public ?string $unspsc_code = null;
+    public ?string $updated_at = null;
+    public mixed $upgrade_charge = null;
+    public ?bool $use_site_exchange_rate = null;
 }
 
 /** Request payload for Component#remove. */
@@ -187,31 +296,55 @@ class ComponentFeatureRemoveMatch
 /** ComponentPricePoint entity data model. */
 class ComponentPricePoint
 {
+    public ?string $accounting_code = null;
+    public ?bool $allow_fractional_quantities = null;
+    public ?bool $archived = null;
     public ?string $archived_at = null;
-    public array $component;
     public ?int $component_id = null;
     public ?string $created_at = null;
     public ?array $currency_prices = null;
     public ?bool $default = null;
+    public ?int $default_price_point_id = null;
+    public ?string $default_price_point_name = null;
+    public ?string $description = null;
+    public mixed $downgrade_credit = null;
+    public ?int $event_based_billing_metric_id = null;
     public ?int $expiration_interval = null;
     public mixed $expiration_interval_unit = null;
+    public ?array $features = null;
     public ?string $handle = null;
+    public ?bool $hide_date_range_on_invoice = null;
     public ?int $id = null;
     public ?int $interval = null;
     public mixed $interval_unit = null;
+    public mixed $item_category = null;
+    public mixed $kind = null;
     public ?string $name = null;
     public ?array $overage_prices = null;
     public mixed $overage_pricing_scheme = null;
+    public ?int $price_per_unit_in_cents = null;
     public ?array $price_point = null;
+    public ?int $price_point_count = null;
     public ?array $price_points = null;
+    public ?string $price_points_url = null;
     public ?array $prices = null;
     public mixed $pricing_scheme = null;
+    public ?string $product_family_handle = null;
+    public ?int $product_family_id = null;
+    public ?string $product_family_name = null;
+    public ?bool $recurring = null;
     public ?bool $renew_prepaid_allocation = null;
     public ?bool $rollover_prepaid_remainder = null;
     public ?int $subscription_id = null;
+    public ?string $tax_code = null;
     public ?bool $tax_included = null;
+    public ?bool $taxable = null;
     public mixed $type = null;
+    public ?string $unit_name = null;
+    public ?string $unit_price = null;
+    public ?string $unspsc_code = null;
     public ?string $updated_at = null;
+    public mixed $upgrade_charge = null;
     public ?bool $use_site_exchange_rate = null;
 }
 
@@ -229,30 +362,54 @@ class ComponentPricePointListMatch
 class ComponentPricePointCreateData
 {
     public int $id;
+    public ?string $accounting_code = null;
+    public ?bool $allow_fractional_quantities = null;
+    public ?bool $archived = null;
     public ?string $archived_at = null;
-    public array $component;
     public ?int $component_id = null;
     public ?string $created_at = null;
     public ?array $currency_prices = null;
     public ?bool $default = null;
+    public ?int $default_price_point_id = null;
+    public ?string $default_price_point_name = null;
+    public ?string $description = null;
+    public mixed $downgrade_credit = null;
+    public ?int $event_based_billing_metric_id = null;
     public ?int $expiration_interval = null;
     public mixed $expiration_interval_unit = null;
+    public ?array $features = null;
     public ?string $handle = null;
+    public ?bool $hide_date_range_on_invoice = null;
     public ?int $interval = null;
     public mixed $interval_unit = null;
+    public mixed $item_category = null;
+    public mixed $kind = null;
     public ?string $name = null;
     public ?array $overage_prices = null;
     public mixed $overage_pricing_scheme = null;
+    public ?int $price_per_unit_in_cents = null;
     public ?array $price_point = null;
+    public ?int $price_point_count = null;
     public ?array $price_points = null;
+    public ?string $price_points_url = null;
     public ?array $prices = null;
     public mixed $pricing_scheme = null;
+    public ?string $product_family_handle = null;
+    public ?int $product_family_id = null;
+    public ?string $product_family_name = null;
+    public ?bool $recurring = null;
     public ?bool $renew_prepaid_allocation = null;
     public ?bool $rollover_prepaid_remainder = null;
     public ?int $subscription_id = null;
+    public ?string $tax_code = null;
     public ?bool $tax_included = null;
+    public ?bool $taxable = null;
     public mixed $type = null;
+    public ?string $unit_name = null;
+    public ?string $unit_price = null;
+    public ?string $unspsc_code = null;
     public ?string $updated_at = null;
+    public mixed $upgrade_charge = null;
     public ?bool $use_site_exchange_rate = null;
 }
 
@@ -261,30 +418,54 @@ class ComponentPricePointUpdateData
 {
     public ?string $component_id = null;
     public string $price_point_id;
+    public ?string $accounting_code = null;
+    public ?bool $allow_fractional_quantities = null;
+    public ?bool $archived = null;
     public ?string $archived_at = null;
-    public ?array $component = null;
     public ?string $created_at = null;
     public ?array $currency_prices = null;
     public ?bool $default = null;
+    public ?int $default_price_point_id = null;
+    public ?string $default_price_point_name = null;
+    public ?string $description = null;
+    public mixed $downgrade_credit = null;
+    public ?int $event_based_billing_metric_id = null;
     public ?int $expiration_interval = null;
     public mixed $expiration_interval_unit = null;
+    public ?array $features = null;
     public ?string $handle = null;
+    public ?bool $hide_date_range_on_invoice = null;
     public ?int $id = null;
     public ?int $interval = null;
     public mixed $interval_unit = null;
+    public mixed $item_category = null;
+    public mixed $kind = null;
     public ?string $name = null;
     public ?array $overage_prices = null;
     public mixed $overage_pricing_scheme = null;
+    public ?int $price_per_unit_in_cents = null;
     public ?array $price_point = null;
+    public ?int $price_point_count = null;
     public ?array $price_points = null;
+    public ?string $price_points_url = null;
     public ?array $prices = null;
     public mixed $pricing_scheme = null;
+    public ?string $product_family_handle = null;
+    public ?int $product_family_id = null;
+    public ?string $product_family_name = null;
+    public ?bool $recurring = null;
     public ?bool $renew_prepaid_allocation = null;
     public ?bool $rollover_prepaid_remainder = null;
     public ?int $subscription_id = null;
+    public ?string $tax_code = null;
     public ?bool $tax_included = null;
+    public ?bool $taxable = null;
     public mixed $type = null;
+    public ?string $unit_name = null;
+    public ?string $unit_price = null;
+    public ?string $unspsc_code = null;
     public ?string $updated_at = null;
+    public mixed $upgrade_charge = null;
     public ?bool $use_site_exchange_rate = null;
 }
 
@@ -520,7 +701,6 @@ class CouponUsageListMatch
 /** CustomField entity data model. */
 class CustomField
 {
-    public ?int $current_page = null;
     public ?int $data_count = null;
     public ?string $deleted_at = null;
     public ?string $enum = null;
@@ -530,11 +710,8 @@ class CustomField
     public ?int $metafield_id = null;
     public mixed $metafields = null;
     public ?string $name = null;
-    public ?int $per_page = null;
     public ?int $resource_id = null;
     public ?array $scope = null;
-    public ?int $total_count = null;
-    public ?int $total_pages = null;
     public ?string $value = null;
 }
 
@@ -560,7 +737,6 @@ class CustomFieldCreateData
 {
     public ?int $resource_id = null;
     public mixed $resource_type;
-    public ?int $current_page = null;
     public ?int $data_count = null;
     public ?string $deleted_at = null;
     public ?string $enum = null;
@@ -570,10 +746,7 @@ class CustomFieldCreateData
     public ?int $metafield_id = null;
     public mixed $metafields = null;
     public ?string $name = null;
-    public ?int $per_page = null;
     public ?array $scope = null;
-    public ?int $total_count = null;
-    public ?int $total_pages = null;
     public ?string $value = null;
 }
 
@@ -582,7 +755,6 @@ class CustomFieldUpdateData
 {
     public ?int $resource_id = null;
     public mixed $resource_type;
-    public ?int $current_page = null;
     public ?int $data_count = null;
     public ?string $deleted_at = null;
     public ?string $enum = null;
@@ -592,10 +764,7 @@ class CustomFieldUpdateData
     public ?int $metafield_id = null;
     public mixed $metafields = null;
     public ?string $name = null;
-    public ?int $per_page = null;
     public ?array $scope = null;
-    public ?int $total_count = null;
-    public ?int $total_pages = null;
     public ?string $value = null;
 }
 
@@ -618,7 +787,7 @@ class Customer
     public ?string $country = null;
     public ?string $country_name = null;
     public ?string $created_at = null;
-    public ?array $customer = null;
+    public array $customer;
     public ?int $default_auto_renewal_profile_id = null;
     public ?string $default_subscription_group_uid = null;
     public ?string $email = null;
@@ -680,7 +849,7 @@ class CustomerCreateData
     public ?string $country = null;
     public ?string $country_name = null;
     public ?string $created_at = null;
-    public ?array $customer = null;
+    public array $customer;
     public ?int $default_auto_renewal_profile_id = null;
     public ?string $default_subscription_group_uid = null;
     public ?string $email = null;
@@ -871,22 +1040,30 @@ class EventsBasedBillingSegmentRemoveMatch
 class Feature
 {
     public ?string $archived_at = null;
-    public int $archived_count;
     public ?string $created_at = null;
+    public ?int $default_periodicity_interval = null;
+    public mixed $default_periodicity_unit = null;
+    public ?string $default_value = null;
+    public ?string $description = null;
     public array $feature;
     public ?string $feature_key = null;
     public mixed $feature_kind = null;
     public ?string $feature_name = null;
     public ?int $feature_template_id = null;
     public ?int $id = null;
-    public array $items;
+    public ?string $key = null;
+    public mixed $kind = null;
+    public ?string $name = null;
     public ?int $periodicity_interval = null;
     public mixed $periodicity_unit = null;
+    public ?int $plans_count = null;
     public ?int $price_point_id = null;
     public mixed $price_point_type = null;
-    public int $total_count;
+    public ?int $products_count = null;
+    public ?string $unit = null;
     public ?string $updated_at = null;
     public ?string $value = null;
+    public mixed $value_type = null;
 }
 
 /** Request payload for Feature#list. */
@@ -907,22 +1084,30 @@ class FeatureListMatch
 class FeatureCreateData
 {
     public ?string $archived_at = null;
-    public int $archived_count;
     public ?string $created_at = null;
+    public ?int $default_periodicity_interval = null;
+    public mixed $default_periodicity_unit = null;
+    public ?string $default_value = null;
+    public ?string $description = null;
     public array $feature;
     public ?string $feature_key = null;
     public mixed $feature_kind = null;
     public ?string $feature_name = null;
     public ?int $feature_template_id = null;
     public ?int $id = null;
-    public array $items;
+    public ?string $key = null;
+    public mixed $kind = null;
+    public ?string $name = null;
     public ?int $periodicity_interval = null;
     public mixed $periodicity_unit = null;
+    public ?int $plans_count = null;
     public ?int $price_point_id = null;
     public mixed $price_point_type = null;
-    public int $total_count;
+    public ?int $products_count = null;
+    public ?string $unit = null;
     public ?string $updated_at = null;
     public ?string $value = null;
+    public mixed $value_type = null;
 }
 
 /** FeatureCatalogItem entity data model. */
@@ -1073,12 +1258,22 @@ class FeatureTemplateRemoveMatch
 /** Insight entity data model. */
 class Insight
 {
-    public array $mrr;
+    public ?string $amount_formatted = null;
+    public ?int $amount_in_cents = null;
+    public ?string $at_time = null;
+    public ?array $breakouts = null;
+    public ?string $currency = null;
+    public ?string $currency_symbol = null;
+    public ?array $movements = null;
+    public ?int $page = null;
+    public ?int $per_page = null;
     public ?string $seller_name = null;
     public ?string $site_currency = null;
     public ?int $site_id = null;
     public ?string $site_name = null;
     public ?array $stats = null;
+    public ?int $total_entries = null;
+    public ?int $total_pages = null;
 }
 
 /** Request payload for Insight#load. */
@@ -1103,7 +1298,6 @@ class Invoice
     public mixed $consolidation_level = null;
     public ?string $created_at = null;
     public ?string $credit_amount = null;
-    public array $credit_notes;
     public ?array $credits = null;
     public ?string $currency = null;
     public ?array $custom_fields = null;
@@ -1118,8 +1312,6 @@ class Invoice
     public ?string $due_date = null;
     public ?int $group_primary_subscription_id = null;
     public ?int $id = null;
-    public ?array $invoice = null;
-    public array $invoices;
     public ?string $issue_date = null;
     public ?array $line_items = null;
     public ?string $memo = null;
@@ -1183,7 +1375,6 @@ class InvoiceCreateData
     public mixed $consolidation_level = null;
     public ?string $created_at = null;
     public ?string $credit_amount = null;
-    public array $credit_notes;
     public ?array $credits = null;
     public ?string $currency = null;
     public ?array $custom_fields = null;
@@ -1198,8 +1389,6 @@ class InvoiceCreateData
     public ?string $due_date = null;
     public ?int $group_primary_subscription_id = null;
     public ?int $id = null;
-    public ?array $invoice = null;
-    public array $invoices;
     public ?string $issue_date = null;
     public ?array $line_items = null;
     public ?string $memo = null;
@@ -1257,7 +1446,6 @@ class InvoiceUpdateData
     public mixed $consolidation_level = null;
     public ?string $created_at = null;
     public ?string $credit_amount = null;
-    public ?array $credit_notes = null;
     public ?array $credits = null;
     public ?string $currency = null;
     public ?array $custom_fields = null;
@@ -1272,8 +1460,6 @@ class InvoiceUpdateData
     public ?string $due_date = null;
     public ?int $group_primary_subscription_id = null;
     public ?int $id = null;
-    public ?array $invoice = null;
-    public ?array $invoices = null;
     public ?string $issue_date = null;
     public ?array $line_items = null;
     public ?string $memo = null;
@@ -1320,66 +1506,6 @@ class InvoiceRemoveMatch
 {
     public int $subscription_id;
     public string $uid;
-}
-
-/** ListProformaInvoice entity data model. */
-class ListProformaInvoice
-{
-    public ?array $available_actions = null;
-    public ?array $billing_address = null;
-    public mixed $collection_method = null;
-    public mixed $consolidation_level = null;
-    public ?string $created_at = null;
-    public ?string $credit_amount = null;
-    public ?array $credits = null;
-    public ?string $currency = null;
-    public ?array $custom_fields = null;
-    public mixed $customer = null;
-    public ?int $customer_id = null;
-    public ?string $delivery_date = null;
-    public ?string $discount_amount = null;
-    public ?array $discounts = null;
-    public ?string $due_amount = null;
-    public ?array $line_items = null;
-    public ?string $memo = null;
-    public ?int $number = null;
-    public ?string $paid_amount = null;
-    public ?string $payment_instructions = null;
-    public ?array $payments = null;
-    public ?string $product_family_name = null;
-    public ?string $product_name = null;
-    public ?string $public_url = null;
-    public ?string $refund_amount = null;
-    public mixed $role = null;
-    public mixed $seller = null;
-    public ?int $sequence_number = null;
-    public ?array $shipping_address = null;
-    public ?int $site_id = null;
-    public ?string $status = null;
-    public ?int $subscription_id = null;
-    public ?string $subtotal_amount = null;
-    public ?string $tax_amount = null;
-    public ?array $taxes = null;
-    public ?string $total_amount = null;
-    public ?string $uid = null;
-}
-
-/** Request payload for ListProformaInvoice#list. */
-class ListProformaInvoiceListMatch
-{
-    public int $subscription_id;
-    public ?bool $credit = null;
-    public ?bool $custom_field = null;
-    public mixed $direction = null;
-    public ?bool $discount = null;
-    public ?string $end_date = null;
-    public ?bool $line_item = null;
-    public ?int $page = null;
-    public ?bool $payment = null;
-    public ?int $per_page = null;
-    public ?string $start_date = null;
-    public mixed $status = null;
-    public ?bool $taxis = null;
 }
 
 /** ListSaleRepItem entity data model. */
@@ -1478,7 +1604,6 @@ class Offer
     public ?array $offer_discounts = null;
     public ?array $offer_items = null;
     public ?array $offer_signup_pages = null;
-    public ?array $offers = null;
     public ?int $product_family_id = null;
     public ?string $product_family_name = null;
     public ?int $product_id = null;
@@ -1518,7 +1643,6 @@ class OfferCreateData
     public ?array $offer_discounts = null;
     public ?array $offer_items = null;
     public ?array $offer_signup_pages = null;
-    public ?array $offers = null;
     public ?int $product_family_id = null;
     public ?string $product_family_name = null;
     public ?int $product_id = null;
@@ -1544,7 +1668,6 @@ class OfferUpdateData
     public ?array $offer_discounts = null;
     public ?array $offer_items = null;
     public ?array $offer_signup_pages = null;
-    public ?array $offers = null;
     public ?int $product_family_id = null;
     public ?string $product_family_name = null;
     public ?int $product_id = null;
@@ -1571,8 +1694,36 @@ class OneTimeTokenLoadMatch
 /** PaymentProfile entity data model. */
 class PaymentProfile
 {
-    public ?string $id = null;
-    public ?array $payment_profile = null;
+    public mixed $bank_account_holder_type = null;
+    public mixed $bank_account_type = null;
+    public ?string $bank_name = null;
+    public ?string $billing_address = null;
+    public ?string $billing_address_2 = null;
+    public ?string $billing_city = null;
+    public ?string $billing_country = null;
+    public ?string $billing_state = null;
+    public ?string $billing_zip = null;
+    public ?string $card_type = null;
+    public ?string $created_at = null;
+    public ?string $current_vault = null;
+    public ?int $customer_id = null;
+    public ?string $customer_vault_token = null;
+    public ?bool $disabled = null;
+    public ?int $expiration_month = null;
+    public ?int $expiration_year = null;
+    public ?string $first_name = null;
+    public ?string $gateway_handle = null;
+    public ?int $id = null;
+    public ?string $last_name = null;
+    public ?string $masked_bank_account_number = null;
+    public ?string $masked_bank_routing_number = null;
+    public ?string $masked_card_number = null;
+    public mixed $payment_profile;
+    public ?string $payment_type = null;
+    public ?int $site_gateway_setting_id = null;
+    public ?string $updated_at = null;
+    public ?string $vault_token = null;
+    public ?bool $verified = null;
 }
 
 /** Request payload for PaymentProfile#load. */
@@ -1592,16 +1743,72 @@ class PaymentProfileListMatch
 /** Request payload for PaymentProfile#create. */
 class PaymentProfileCreateData
 {
-    public ?string $id = null;
-    public ?array $payment_profile = null;
+    public mixed $bank_account_holder_type = null;
+    public mixed $bank_account_type = null;
+    public ?string $bank_name = null;
+    public ?string $billing_address = null;
+    public ?string $billing_address_2 = null;
+    public ?string $billing_city = null;
+    public ?string $billing_country = null;
+    public ?string $billing_state = null;
+    public ?string $billing_zip = null;
+    public ?string $card_type = null;
+    public ?string $created_at = null;
+    public ?string $current_vault = null;
+    public ?int $customer_id = null;
+    public ?string $customer_vault_token = null;
+    public ?bool $disabled = null;
+    public ?int $expiration_month = null;
+    public ?int $expiration_year = null;
+    public ?string $first_name = null;
+    public ?string $gateway_handle = null;
+    public ?int $id = null;
+    public ?string $last_name = null;
+    public ?string $masked_bank_account_number = null;
+    public ?string $masked_bank_routing_number = null;
+    public ?string $masked_card_number = null;
+    public mixed $payment_profile;
+    public ?string $payment_type = null;
+    public ?int $site_gateway_setting_id = null;
+    public ?string $updated_at = null;
+    public ?string $vault_token = null;
+    public ?bool $verified = null;
 }
 
 /** Request payload for PaymentProfile#update. */
 class PaymentProfileUpdateData
 {
     public int $bank_account_id;
-    public ?string $id = null;
-    public ?array $payment_profile = null;
+    public mixed $bank_account_holder_type = null;
+    public mixed $bank_account_type = null;
+    public ?string $bank_name = null;
+    public ?string $billing_address = null;
+    public ?string $billing_address_2 = null;
+    public ?string $billing_city = null;
+    public ?string $billing_country = null;
+    public ?string $billing_state = null;
+    public ?string $billing_zip = null;
+    public ?string $card_type = null;
+    public ?string $created_at = null;
+    public ?string $current_vault = null;
+    public ?int $customer_id = null;
+    public ?string $customer_vault_token = null;
+    public ?bool $disabled = null;
+    public ?int $expiration_month = null;
+    public ?int $expiration_year = null;
+    public ?string $first_name = null;
+    public ?string $gateway_handle = null;
+    public ?int $id = null;
+    public ?string $last_name = null;
+    public ?string $masked_bank_account_number = null;
+    public ?string $masked_bank_routing_number = null;
+    public ?string $masked_card_number = null;
+    public mixed $payment_profile = null;
+    public ?string $payment_type = null;
+    public ?int $site_gateway_setting_id = null;
+    public ?string $updated_at = null;
+    public ?string $vault_token = null;
+    public ?bool $verified = null;
 }
 
 /** Request payload for PaymentProfile#remove. */
@@ -1628,7 +1835,46 @@ class PrepaymentCreateData
 /** Product entity data model. */
 class Product
 {
-    public array $product;
+    public ?string $accounting_code = null;
+    public ?string $archived_at = null;
+    public ?string $created_at = null;
+    public ?int $default_product_price_point_id = null;
+    public ?string $description = null;
+    public ?int $expiration_interval = null;
+    public mixed $expiration_interval_unit = null;
+    public ?array $features = null;
+    public ?string $handle = null;
+    public ?int $id = null;
+    public ?bool $initial_charge_after_trial = null;
+    public ?int $initial_charge_in_cents = null;
+    public ?int $interval = null;
+    public mixed $interval_unit = null;
+    public ?string $item_category = null;
+    public ?string $name = null;
+    public ?int $price_in_cents = null;
+    public ?array $product = null;
+    public ?array $product_family = null;
+    public ?string $product_price_point_handle = null;
+    public ?int $product_price_point_id = null;
+    public ?string $product_price_point_name = null;
+    public ?array $public_signup_pages = null;
+    public ?bool $request_billing_address = null;
+    public ?bool $request_credit_card = null;
+    public ?bool $require_billing_address = null;
+    public ?bool $require_credit_card = null;
+    public ?bool $require_shipping_address = null;
+    public ?string $return_params = null;
+    public ?string $tax_code = null;
+    public ?bool $taxable = null;
+    public ?int $trial_interval = null;
+    public mixed $trial_interval_unit = null;
+    public ?int $trial_price_in_cents = null;
+    public ?string $unspsc_code = null;
+    public ?string $update_return_params = null;
+    public ?string $update_return_url = null;
+    public ?string $updated_at = null;
+    public ?bool $use_site_exchange_rate = null;
+    public ?int $version_number = null;
 }
 
 /** Request payload for Product#load. */
@@ -1657,14 +1903,92 @@ class ProductListMatch
 class ProductCreateData
 {
     public string $product_family_id;
-    public array $product;
+    public ?string $accounting_code = null;
+    public ?string $archived_at = null;
+    public ?string $created_at = null;
+    public ?int $default_product_price_point_id = null;
+    public ?string $description = null;
+    public ?int $expiration_interval = null;
+    public mixed $expiration_interval_unit = null;
+    public ?array $features = null;
+    public ?string $handle = null;
+    public ?int $id = null;
+    public ?bool $initial_charge_after_trial = null;
+    public ?int $initial_charge_in_cents = null;
+    public ?int $interval = null;
+    public mixed $interval_unit = null;
+    public ?string $item_category = null;
+    public ?string $name = null;
+    public ?int $price_in_cents = null;
+    public ?array $product = null;
+    public ?array $product_family = null;
+    public ?string $product_price_point_handle = null;
+    public ?int $product_price_point_id = null;
+    public ?string $product_price_point_name = null;
+    public ?array $public_signup_pages = null;
+    public ?bool $request_billing_address = null;
+    public ?bool $request_credit_card = null;
+    public ?bool $require_billing_address = null;
+    public ?bool $require_credit_card = null;
+    public ?bool $require_shipping_address = null;
+    public ?string $return_params = null;
+    public ?string $tax_code = null;
+    public ?bool $taxable = null;
+    public ?int $trial_interval = null;
+    public mixed $trial_interval_unit = null;
+    public ?int $trial_price_in_cents = null;
+    public ?string $unspsc_code = null;
+    public ?string $update_return_params = null;
+    public ?string $update_return_url = null;
+    public ?string $updated_at = null;
+    public ?bool $use_site_exchange_rate = null;
+    public ?int $version_number = null;
 }
 
 /** Request payload for Product#update. */
 class ProductUpdateData
 {
     public int $product_id;
+    public ?string $accounting_code = null;
+    public ?string $archived_at = null;
+    public ?string $created_at = null;
+    public ?int $default_product_price_point_id = null;
+    public ?string $description = null;
+    public ?int $expiration_interval = null;
+    public mixed $expiration_interval_unit = null;
+    public ?array $features = null;
+    public ?string $handle = null;
+    public ?int $id = null;
+    public ?bool $initial_charge_after_trial = null;
+    public ?int $initial_charge_in_cents = null;
+    public ?int $interval = null;
+    public mixed $interval_unit = null;
+    public ?string $item_category = null;
+    public ?string $name = null;
+    public ?int $price_in_cents = null;
     public ?array $product = null;
+    public ?array $product_family = null;
+    public ?string $product_price_point_handle = null;
+    public ?int $product_price_point_id = null;
+    public ?string $product_price_point_name = null;
+    public ?array $public_signup_pages = null;
+    public ?bool $request_billing_address = null;
+    public ?bool $request_credit_card = null;
+    public ?bool $require_billing_address = null;
+    public ?bool $require_credit_card = null;
+    public ?bool $require_shipping_address = null;
+    public ?string $return_params = null;
+    public ?string $tax_code = null;
+    public ?bool $taxable = null;
+    public ?int $trial_interval = null;
+    public mixed $trial_interval_unit = null;
+    public ?int $trial_price_in_cents = null;
+    public ?string $unspsc_code = null;
+    public ?string $update_return_params = null;
+    public ?string $update_return_url = null;
+    public ?string $updated_at = null;
+    public ?bool $use_site_exchange_rate = null;
+    public ?int $version_number = null;
 }
 
 /** Request payload for Product#remove. */
@@ -1676,8 +2000,16 @@ class ProductRemoveMatch
 /** ProductFamily entity data model. */
 class ProductFamily
 {
-    public ?string $id = null;
+    public ?string $accounting_code = null;
+    public ?string $archived_at = null;
+    public ?string $created_at = null;
+    public ?string $description = null;
+    public ?string $handle = null;
+    public ?int $id = null;
+    public ?string $name = null;
     public ?array $product_family = null;
+    public ?bool $surcharging = null;
+    public ?string $updated_at = null;
 }
 
 /** Request payload for ProductFamily#load. */
@@ -1699,8 +2031,16 @@ class ProductFamilyListMatch
 /** Request payload for ProductFamily#create. */
 class ProductFamilyCreateData
 {
-    public ?string $id = null;
+    public ?string $accounting_code = null;
+    public ?string $archived_at = null;
+    public ?string $created_at = null;
+    public ?string $description = null;
+    public ?string $handle = null;
+    public ?int $id = null;
+    public ?string $name = null;
     public ?array $product_family = null;
+    public ?bool $surcharging = null;
+    public ?string $updated_at = null;
 }
 
 /** ProductFeature entity data model. */
@@ -1720,10 +2060,54 @@ class ProductFeatureRemoveMatch
 /** ProductPricePoint entity data model. */
 class ProductPricePoint
 {
-    public ?string $id = null;
-    public array $price_point;
+    public ?string $accounting_code = null;
+    public ?string $archived_at = null;
+    public ?string $created_at = null;
+    public ?array $currency_prices = null;
+    public ?int $default_product_price_point_id = null;
+    public ?string $description = null;
+    public ?int $expiration_interval = null;
+    public mixed $expiration_interval_unit = null;
+    public ?array $features = null;
+    public ?string $handle = null;
+    public ?int $id = null;
+    public ?bool $initial_charge_after_trial = null;
+    public ?int $initial_charge_in_cents = null;
+    public ?int $interval = null;
+    public mixed $interval_unit = null;
+    public ?bool $introductory_offer = null;
+    public ?string $item_category = null;
+    public ?string $name = null;
+    public ?int $price_in_cents = null;
+    public ?array $price_point = null;
     public ?array $price_points = null;
-    public array $product;
+    public ?array $product_family = null;
+    public ?int $product_id = null;
+    public ?string $product_price_point_handle = null;
+    public ?int $product_price_point_id = null;
+    public ?string $product_price_point_name = null;
+    public ?array $public_signup_pages = null;
+    public ?bool $request_billing_address = null;
+    public ?bool $request_credit_card = null;
+    public ?bool $require_billing_address = null;
+    public ?bool $require_credit_card = null;
+    public ?bool $require_shipping_address = null;
+    public ?string $return_params = null;
+    public ?int $subscription_id = null;
+    public ?string $tax_code = null;
+    public ?bool $tax_included = null;
+    public ?bool $taxable = null;
+    public ?int $trial_interval = null;
+    public mixed $trial_interval_unit = null;
+    public ?int $trial_price_in_cents = null;
+    public mixed $trial_type = null;
+    public mixed $type = null;
+    public ?string $unspsc_code = null;
+    public ?string $update_return_params = null;
+    public ?string $update_return_url = null;
+    public ?string $updated_at = null;
+    public ?bool $use_site_exchange_rate = null;
+    public ?int $version_number = null;
 }
 
 /** Request payload for ProductPricePoint#load. */
@@ -1748,9 +2132,53 @@ class ProductPricePointListMatch
 class ProductPricePointCreateData
 {
     public string $id;
-    public array $price_point;
+    public ?string $accounting_code = null;
+    public ?string $archived_at = null;
+    public ?string $created_at = null;
+    public ?array $currency_prices = null;
+    public ?int $default_product_price_point_id = null;
+    public ?string $description = null;
+    public ?int $expiration_interval = null;
+    public mixed $expiration_interval_unit = null;
+    public ?array $features = null;
+    public ?string $handle = null;
+    public ?bool $initial_charge_after_trial = null;
+    public ?int $initial_charge_in_cents = null;
+    public ?int $interval = null;
+    public mixed $interval_unit = null;
+    public ?bool $introductory_offer = null;
+    public ?string $item_category = null;
+    public ?string $name = null;
+    public ?int $price_in_cents = null;
+    public ?array $price_point = null;
     public ?array $price_points = null;
-    public array $product;
+    public ?array $product_family = null;
+    public ?int $product_id = null;
+    public ?string $product_price_point_handle = null;
+    public ?int $product_price_point_id = null;
+    public ?string $product_price_point_name = null;
+    public ?array $public_signup_pages = null;
+    public ?bool $request_billing_address = null;
+    public ?bool $request_credit_card = null;
+    public ?bool $require_billing_address = null;
+    public ?bool $require_credit_card = null;
+    public ?bool $require_shipping_address = null;
+    public ?string $return_params = null;
+    public ?int $subscription_id = null;
+    public ?string $tax_code = null;
+    public ?bool $tax_included = null;
+    public ?bool $taxable = null;
+    public ?int $trial_interval = null;
+    public mixed $trial_interval_unit = null;
+    public ?int $trial_price_in_cents = null;
+    public mixed $trial_type = null;
+    public mixed $type = null;
+    public ?string $unspsc_code = null;
+    public ?string $update_return_params = null;
+    public ?string $update_return_url = null;
+    public ?string $updated_at = null;
+    public ?bool $use_site_exchange_rate = null;
+    public ?int $version_number = null;
 }
 
 /** Request payload for ProductPricePoint#update. */
@@ -1758,10 +2186,53 @@ class ProductPricePointUpdateData
 {
     public string $price_point_id;
     public string $product_id;
-    public ?string $id = null;
+    public ?string $accounting_code = null;
+    public ?string $archived_at = null;
+    public ?string $created_at = null;
+    public ?array $currency_prices = null;
+    public ?int $default_product_price_point_id = null;
+    public ?string $description = null;
+    public ?int $expiration_interval = null;
+    public mixed $expiration_interval_unit = null;
+    public ?array $features = null;
+    public ?string $handle = null;
+    public ?int $id = null;
+    public ?bool $initial_charge_after_trial = null;
+    public ?int $initial_charge_in_cents = null;
+    public ?int $interval = null;
+    public mixed $interval_unit = null;
+    public ?bool $introductory_offer = null;
+    public ?string $item_category = null;
+    public ?string $name = null;
+    public ?int $price_in_cents = null;
     public ?array $price_point = null;
     public ?array $price_points = null;
-    public ?array $product = null;
+    public ?array $product_family = null;
+    public ?string $product_price_point_handle = null;
+    public ?int $product_price_point_id = null;
+    public ?string $product_price_point_name = null;
+    public ?array $public_signup_pages = null;
+    public ?bool $request_billing_address = null;
+    public ?bool $request_credit_card = null;
+    public ?bool $require_billing_address = null;
+    public ?bool $require_credit_card = null;
+    public ?bool $require_shipping_address = null;
+    public ?string $return_params = null;
+    public ?int $subscription_id = null;
+    public ?string $tax_code = null;
+    public ?bool $tax_included = null;
+    public ?bool $taxable = null;
+    public ?int $trial_interval = null;
+    public mixed $trial_interval_unit = null;
+    public ?int $trial_price_in_cents = null;
+    public mixed $trial_type = null;
+    public mixed $type = null;
+    public ?string $unspsc_code = null;
+    public ?string $update_return_params = null;
+    public ?string $update_return_url = null;
+    public ?string $updated_at = null;
+    public ?bool $use_site_exchange_rate = null;
+    public ?int $version_number = null;
 }
 
 /** Request payload for ProductPricePoint#remove. */
@@ -1817,7 +2288,19 @@ class ProformaInvoice
 /** Request payload for ProformaInvoice#list. */
 class ProformaInvoiceListMatch
 {
-    public string $proforma_invoice_uid;
+    public int $subscription_id;
+    public ?bool $credit = null;
+    public ?bool $custom_field = null;
+    public mixed $direction = null;
+    public ?bool $discount = null;
+    public ?string $end_date = null;
+    public ?bool $line_item = null;
+    public ?int $page = null;
+    public ?bool $payment = null;
+    public ?int $per_page = null;
+    public ?string $start_date = null;
+    public mixed $status = null;
+    public ?bool $taxis = null;
 }
 
 /** Request payload for ProformaInvoice#create. */
@@ -1925,6 +2408,10 @@ class ReasonCodeRemoveMatch
 /** ReferralCode entity data model. */
 class ReferralCode
 {
+    public ?string $code = null;
+    public ?int $id = null;
+    public ?int $site_id = null;
+    public ?int $subscription_id = null;
 }
 
 /** Request payload for ReferralCode#load. */
@@ -2039,17 +2526,57 @@ class SignupProformaPreviewCreateData
 /** Site entity data model. */
 class Site
 {
-    public ?array $chargify_js_keys = null;
-    public ?array $meta = null;
-    public array $site;
+    public ?array $allocation_settings = null;
+    public ?bool $auto_renewals_enabled = null;
+    public ?string $created_at = null;
+    public ?string $currency = null;
+    public ?bool $customer_hierarchy_enabled = null;
+    public ?string $default_payment_collection_method = null;
+    public ?int $id = null;
+    public ?bool $multi_frequency_enabled = null;
+    public ?string $name = null;
+    public ?array $net_terms = null;
+    public ?array $non_primary_currencies = null;
+    public ?array $organization_address = null;
+    public ?bool $portal_enabled = null;
+    public ?string $public_key = null;
+    public ?bool $relationship_invoicing_enabled = null;
+    public ?bool $requires_security_token = null;
+    public ?bool $schedule_subscription_cancellation_enabled = null;
+    public ?int $seller_id = null;
+    public ?string $subdomain = null;
+    public ?array $tax_configuration = null;
+    public ?bool $test = null;
+    public ?string $whopays_default_payer = null;
+    public ?bool $whopays_enabled = null;
 }
 
 /** Request payload for Site#load. */
 class SiteLoadMatch
 {
-    public ?array $chargify_js_keys = null;
-    public ?array $meta = null;
-    public ?array $site = null;
+    public ?array $allocation_settings = null;
+    public ?bool $auto_renewals_enabled = null;
+    public ?string $created_at = null;
+    public ?string $currency = null;
+    public ?bool $customer_hierarchy_enabled = null;
+    public ?string $default_payment_collection_method = null;
+    public int $id;
+    public ?bool $multi_frequency_enabled = null;
+    public ?string $name = null;
+    public ?array $net_terms = null;
+    public ?array $non_primary_currencies = null;
+    public ?array $organization_address = null;
+    public ?bool $portal_enabled = null;
+    public ?string $public_key = null;
+    public ?bool $relationship_invoicing_enabled = null;
+    public ?bool $requires_security_token = null;
+    public ?bool $schedule_subscription_cancellation_enabled = null;
+    public ?int $seller_id = null;
+    public ?string $subdomain = null;
+    public ?array $tax_configuration = null;
+    public ?bool $test = null;
+    public ?string $whopays_default_payer = null;
+    public ?bool $whopays_enabled = null;
 }
 
 /** Request payload for Site#list. */
@@ -2063,9 +2590,29 @@ class SiteListMatch
 class SiteCreateData
 {
     public mixed $cleanup_scope = null;
-    public ?array $chargify_js_keys = null;
-    public ?array $meta = null;
-    public array $site;
+    public ?array $allocation_settings = null;
+    public ?bool $auto_renewals_enabled = null;
+    public ?string $created_at = null;
+    public ?string $currency = null;
+    public ?bool $customer_hierarchy_enabled = null;
+    public ?string $default_payment_collection_method = null;
+    public ?int $id = null;
+    public ?bool $multi_frequency_enabled = null;
+    public ?string $name = null;
+    public ?array $net_terms = null;
+    public ?array $non_primary_currencies = null;
+    public ?array $organization_address = null;
+    public ?bool $portal_enabled = null;
+    public ?string $public_key = null;
+    public ?bool $relationship_invoicing_enabled = null;
+    public ?bool $requires_security_token = null;
+    public ?bool $schedule_subscription_cancellation_enabled = null;
+    public ?int $seller_id = null;
+    public ?string $subdomain = null;
+    public ?array $tax_configuration = null;
+    public ?bool $test = null;
+    public ?string $whopays_default_payer = null;
+    public ?bool $whopays_enabled = null;
 }
 
 /** Subscription entity data model. */
@@ -2320,26 +2867,40 @@ class SubscriptionRemoveMatch
 /** SubscriptionComponent entity data model. */
 class SubscriptionComponent
 {
+    public ?bool $accrue_charge = null;
     public mixed $allocated_quantity = null;
-    public ?array $allocation = null;
-    public ?array $allocation_preview = null;
+    public ?int $allocation_id = null;
+    public ?array $allocations = null;
     public ?bool $allow_fractional_quantities = null;
     public ?string $archived_at = null;
+    public ?int $charge_id = null;
     public ?array $component = null;
     public ?string $component_handle = null;
     public ?int $component_id = null;
     public ?string $created_at = null;
     public ?string $currency = null;
     public ?string $description = null;
+    public ?string $direction = null;
     public ?bool $display_on_hosted_page = null;
     public mixed $downgrade_credit = null;
     public ?bool $enabled = null;
+    public ?string $end_date = null;
+    public ?int $existing_balance_in_cents = null;
+    public ?string $expires_at = null;
     public ?array $historic_usages = null;
     public ?int $id = null;
+    public ?bool $initiate_dunning = null;
     public ?int $interval = null;
     public mixed $interval_unit = null;
     public mixed $kind = null;
+    public ?array $line_items = null;
+    public ?string $memo = null;
     public ?string $name = null;
+    public ?int $overage_quantity = null;
+    public mixed $payment = null;
+    public ?string $period_type = null;
+    public ?int $previous_price_point_id = null;
+    public mixed $previous_quantity = null;
     public ?string $price_point_handle = null;
     public ?int $price_point_id = null;
     public ?string $price_point_name = null;
@@ -2347,15 +2908,25 @@ class SubscriptionComponent
     public mixed $pricing_scheme = null;
     public ?string $product_family_handle = null;
     public ?int $product_family_id = null;
+    public ?string $proration_downgrade_scheme = null;
+    public ?string $proration_scheme = null;
+    public ?string $proration_upgrade_scheme = null;
+    public mixed $quantity = null;
     public ?bool $recurring = null;
-    public ?array $subscription = null;
+    public ?string $start_date = null;
+    public mixed $subscription = null;
     public ?int $subscription_id = null;
+    public ?int $subtotal_in_cents = null;
+    public ?string $timestamp = null;
+    public ?int $total_discount_in_cents = null;
+    public ?int $total_in_cents = null;
+    public ?int $total_tax_in_cents = null;
     public mixed $unit_balance = null;
     public ?string $unit_name = null;
     public ?string $updated_at = null;
     public mixed $upgrade_charge = null;
-    public ?array $usage = null;
     public ?bool $use_site_exchange_rate = null;
+    public ?int $used_quantity = null;
 }
 
 /** Request payload for SubscriptionComponent#load. */
@@ -2389,26 +2960,40 @@ class SubscriptionComponentCreateData
 {
     public string $api_handle;
     public ?string $store_uid = null;
+    public ?bool $accrue_charge = null;
     public mixed $allocated_quantity = null;
-    public ?array $allocation = null;
-    public ?array $allocation_preview = null;
+    public ?int $allocation_id = null;
+    public ?array $allocations = null;
     public ?bool $allow_fractional_quantities = null;
     public ?string $archived_at = null;
+    public ?int $charge_id = null;
     public ?array $component = null;
     public ?string $component_handle = null;
     public ?int $component_id = null;
     public ?string $created_at = null;
     public ?string $currency = null;
     public ?string $description = null;
+    public ?string $direction = null;
     public ?bool $display_on_hosted_page = null;
     public mixed $downgrade_credit = null;
     public ?bool $enabled = null;
+    public ?string $end_date = null;
+    public ?int $existing_balance_in_cents = null;
+    public ?string $expires_at = null;
     public ?array $historic_usages = null;
     public ?int $id = null;
+    public ?bool $initiate_dunning = null;
     public ?int $interval = null;
     public mixed $interval_unit = null;
     public mixed $kind = null;
+    public ?array $line_items = null;
+    public ?string $memo = null;
     public ?string $name = null;
+    public ?int $overage_quantity = null;
+    public mixed $payment = null;
+    public ?string $period_type = null;
+    public ?int $previous_price_point_id = null;
+    public mixed $previous_quantity = null;
     public ?string $price_point_handle = null;
     public ?int $price_point_id = null;
     public ?string $price_point_name = null;
@@ -2416,15 +3001,25 @@ class SubscriptionComponentCreateData
     public mixed $pricing_scheme = null;
     public ?string $product_family_handle = null;
     public ?int $product_family_id = null;
+    public ?string $proration_downgrade_scheme = null;
+    public ?string $proration_scheme = null;
+    public ?string $proration_upgrade_scheme = null;
+    public mixed $quantity = null;
     public ?bool $recurring = null;
-    public ?array $subscription = null;
+    public ?string $start_date = null;
+    public mixed $subscription = null;
     public ?int $subscription_id = null;
+    public ?int $subtotal_in_cents = null;
+    public ?string $timestamp = null;
+    public ?int $total_discount_in_cents = null;
+    public ?int $total_in_cents = null;
+    public ?int $total_tax_in_cents = null;
     public mixed $unit_balance = null;
     public ?string $unit_name = null;
     public ?string $updated_at = null;
     public mixed $upgrade_charge = null;
-    public ?array $usage = null;
     public ?bool $use_site_exchange_rate = null;
+    public ?int $used_quantity = null;
 }
 
 /** Request payload for SubscriptionComponent#update. */
@@ -2433,25 +3028,38 @@ class SubscriptionComponentUpdateData
     public int $allocation_id;
     public int $component_id;
     public int $subscription_id;
+    public ?bool $accrue_charge = null;
     public mixed $allocated_quantity = null;
-    public ?array $allocation = null;
-    public ?array $allocation_preview = null;
+    public ?array $allocations = null;
     public ?bool $allow_fractional_quantities = null;
     public ?string $archived_at = null;
+    public ?int $charge_id = null;
     public ?array $component = null;
     public ?string $component_handle = null;
     public ?string $created_at = null;
     public ?string $currency = null;
     public ?string $description = null;
+    public ?string $direction = null;
     public ?bool $display_on_hosted_page = null;
     public mixed $downgrade_credit = null;
     public ?bool $enabled = null;
+    public ?string $end_date = null;
+    public ?int $existing_balance_in_cents = null;
+    public ?string $expires_at = null;
     public ?array $historic_usages = null;
     public ?int $id = null;
+    public ?bool $initiate_dunning = null;
     public ?int $interval = null;
     public mixed $interval_unit = null;
     public mixed $kind = null;
+    public ?array $line_items = null;
+    public ?string $memo = null;
     public ?string $name = null;
+    public ?int $overage_quantity = null;
+    public mixed $payment = null;
+    public ?string $period_type = null;
+    public ?int $previous_price_point_id = null;
+    public mixed $previous_quantity = null;
     public ?string $price_point_handle = null;
     public ?int $price_point_id = null;
     public ?string $price_point_name = null;
@@ -2459,14 +3067,24 @@ class SubscriptionComponentUpdateData
     public mixed $pricing_scheme = null;
     public ?string $product_family_handle = null;
     public ?int $product_family_id = null;
+    public ?string $proration_downgrade_scheme = null;
+    public ?string $proration_scheme = null;
+    public ?string $proration_upgrade_scheme = null;
+    public mixed $quantity = null;
     public ?bool $recurring = null;
-    public ?array $subscription = null;
+    public ?string $start_date = null;
+    public mixed $subscription = null;
+    public ?int $subtotal_in_cents = null;
+    public ?string $timestamp = null;
+    public ?int $total_discount_in_cents = null;
+    public ?int $total_in_cents = null;
+    public ?int $total_tax_in_cents = null;
     public mixed $unit_balance = null;
     public ?string $unit_name = null;
     public ?string $updated_at = null;
     public mixed $upgrade_charge = null;
-    public ?array $usage = null;
     public ?bool $use_site_exchange_rate = null;
+    public ?int $used_quantity = null;
 }
 
 /** Request payload for SubscriptionComponent#remove. */
@@ -2480,10 +3098,21 @@ class SubscriptionComponentRemoveMatch
 /** SubscriptionGroup entity data model. */
 class SubscriptionGroup
 {
+    public ?array $account_balances = null;
+    public ?bool $cancel_at_end_of_period = null;
+    public ?string $created_at = null;
+    public ?int $customer_id = null;
+    public ?string $group_type = null;
     public ?string $id = null;
-    public ?array $meta = null;
-    public ?array $subscription_group = null;
-    public ?array $subscription_groups = null;
+    public ?string $next_assessment_at = null;
+    public mixed $payment_collection_method = null;
+    public ?array $payment_profile = null;
+    public ?int $payment_profile_id = null;
+    public ?int $primary_subscription_id = null;
+    public ?int $scheme = null;
+    public ?string $state = null;
+    public ?array $subscription_ids = null;
+    public ?string $uid = null;
 }
 
 /** Request payload for SubscriptionGroup#list. */
@@ -2497,20 +3126,41 @@ class SubscriptionGroupListMatch
 /** Request payload for SubscriptionGroup#create. */
 class SubscriptionGroupCreateData
 {
+    public ?array $account_balances = null;
+    public ?bool $cancel_at_end_of_period = null;
+    public ?string $created_at = null;
+    public ?int $customer_id = null;
+    public ?string $group_type = null;
     public ?string $id = null;
-    public ?array $meta = null;
-    public ?array $subscription_group = null;
-    public ?array $subscription_groups = null;
+    public ?string $next_assessment_at = null;
+    public mixed $payment_collection_method = null;
+    public ?array $payment_profile = null;
+    public ?int $payment_profile_id = null;
+    public ?int $primary_subscription_id = null;
+    public ?int $scheme = null;
+    public ?string $state = null;
+    public ?array $subscription_ids = null;
+    public ?string $uid = null;
 }
 
 /** Request payload for SubscriptionGroup#update. */
 class SubscriptionGroupUpdateData
 {
     public string $uid;
+    public ?array $account_balances = null;
+    public ?bool $cancel_at_end_of_period = null;
+    public ?string $created_at = null;
+    public ?int $customer_id = null;
+    public ?string $group_type = null;
     public ?string $id = null;
-    public ?array $meta = null;
-    public ?array $subscription_group = null;
-    public ?array $subscription_groups = null;
+    public ?string $next_assessment_at = null;
+    public mixed $payment_collection_method = null;
+    public ?array $payment_profile = null;
+    public ?int $payment_profile_id = null;
+    public ?int $primary_subscription_id = null;
+    public ?int $scheme = null;
+    public ?string $state = null;
+    public ?array $subscription_ids = null;
 }
 
 /** Request payload for SubscriptionGroup#remove. */
@@ -2571,8 +3221,14 @@ class SubscriptionGroupStatusRemoveMatch
 /** SubscriptionInvoiceAccount entity data model. */
 class SubscriptionInvoiceAccount
 {
-    public ?string $id = null;
-    public ?array $service_credits = null;
+    public ?int $amount_in_cents = null;
+    public ?string $created_at = null;
+    public ?int $ending_balance_in_cents = null;
+    public mixed $entry_type = null;
+    public ?int $id = null;
+    public ?string $invoice_uid = null;
+    public ?string $memo = null;
+    public ?int $remaining_balance_in_cents = null;
 }
 
 /** Request payload for SubscriptionInvoiceAccount#list. */
@@ -2588,7 +3244,13 @@ class SubscriptionInvoiceAccountListMatch
 class SubscriptionInvoiceAccountCreateData
 {
     public int $id;
-    public ?array $service_credits = null;
+    public ?int $amount_in_cents = null;
+    public ?string $created_at = null;
+    public ?int $ending_balance_in_cents = null;
+    public mixed $entry_type = null;
+    public ?string $invoice_uid = null;
+    public ?string $memo = null;
+    public ?int $remaining_balance_in_cents = null;
 }
 
 /** SubscriptionMrr entity data model. */
@@ -2671,24 +3333,48 @@ class SubscriptionNoteRemoveMatch
 /** SubscriptionProduct entity data model. */
 class SubscriptionProduct
 {
+    public ?int $charge_in_cents = null;
+    public ?int $credit_applied_in_cents = null;
     public ?string $id = null;
     public array $migration;
+    public ?int $payment_due_in_cents = null;
+    public ?int $prorated_adjustment_in_cents = null;
 }
 
 /** Request payload for SubscriptionProduct#create. */
 class SubscriptionProductCreateData
 {
     public int $subscription_id;
+    public ?int $charge_in_cents = null;
+    public ?int $credit_applied_in_cents = null;
     public ?string $id = null;
     public array $migration;
+    public ?int $payment_due_in_cents = null;
+    public ?int $prorated_adjustment_in_cents = null;
 }
 
 /** SubscriptionRenewal entity data model. */
 class SubscriptionRenewal
 {
-    public ?string $id = null;
-    public ?array $scheduled_renewal_configuration = null;
+    public mixed $contract = null;
+    public ?string $created_at = null;
+    public ?string $decimal_quantity = null;
+    public ?string $ends_at = null;
+    public ?int $id = null;
+    public ?int $item_id = null;
+    public ?string $item_subclass = null;
+    public ?string $item_type = null;
+    public ?string $lock_in_at = null;
+    public ?int $price_point_id = null;
+    public ?string $price_point_type = null;
+    public ?int $quantity = null;
     public ?array $scheduled_renewal_configuration_item = null;
+    public ?array $scheduled_renewal_configuration_items = null;
+    public ?int $site_id = null;
+    public ?string $starts_at = null;
+    public ?string $status = null;
+    public ?int $subscription_id = null;
+    public ?int $subscription_renewal_configuration_id = null;
 }
 
 /** Request payload for SubscriptionRenewal#load. */
@@ -2710,9 +3396,24 @@ class SubscriptionRenewalCreateData
 {
     public int $scheduled_renewal_id;
     public int $subscription_id;
-    public ?string $id = null;
-    public ?array $scheduled_renewal_configuration = null;
+    public mixed $contract = null;
+    public ?string $created_at = null;
+    public ?string $decimal_quantity = null;
+    public ?string $ends_at = null;
+    public ?int $id = null;
+    public ?int $item_id = null;
+    public ?string $item_subclass = null;
+    public ?string $item_type = null;
+    public ?string $lock_in_at = null;
+    public ?int $price_point_id = null;
+    public ?string $price_point_type = null;
+    public ?int $quantity = null;
     public ?array $scheduled_renewal_configuration_item = null;
+    public ?array $scheduled_renewal_configuration_items = null;
+    public ?int $site_id = null;
+    public ?string $starts_at = null;
+    public ?string $status = null;
+    public ?int $subscription_renewal_configuration_id = null;
 }
 
 /** Request payload for SubscriptionRenewal#update. */
@@ -2721,8 +3422,23 @@ class SubscriptionRenewalUpdateData
     public ?int $id = null;
     public ?int $scheduled_renewal_id = null;
     public int $subscription_id;
-    public ?array $scheduled_renewal_configuration = null;
+    public mixed $contract = null;
+    public ?string $created_at = null;
+    public ?string $decimal_quantity = null;
+    public ?string $ends_at = null;
+    public ?int $item_id = null;
+    public ?string $item_subclass = null;
+    public ?string $item_type = null;
+    public ?string $lock_in_at = null;
+    public ?int $price_point_id = null;
+    public ?string $price_point_type = null;
+    public ?int $quantity = null;
     public ?array $scheduled_renewal_configuration_item = null;
+    public ?array $scheduled_renewal_configuration_items = null;
+    public ?int $site_id = null;
+    public ?string $starts_at = null;
+    public ?string $status = null;
+    public ?int $subscription_renewal_configuration_id = null;
 }
 
 /** Request payload for SubscriptionRenewal#remove. */
@@ -2736,23 +3452,47 @@ class SubscriptionRenewalRemoveMatch
 /** SubscriptionStatus entity data model. */
 class SubscriptionStatus
 {
+    public ?int $existing_balance_in_cents = null;
     public ?string $id = null;
-    public ?array $renewal_preview = null;
+    public ?array $line_items = null;
+    public ?string $next_assessment_at = null;
+    public ?int $subtotal_in_cents = null;
+    public ?int $total_amount_due_in_cents = null;
+    public ?int $total_discount_in_cents = null;
+    public ?int $total_in_cents = null;
+    public ?int $total_tax_in_cents = null;
+    public ?bool $uncalculated_taxes = null;
 }
 
 /** Request payload for SubscriptionStatus#create. */
 class SubscriptionStatusCreateData
 {
     public int $subscription_id;
+    public ?int $existing_balance_in_cents = null;
     public ?string $id = null;
-    public ?array $renewal_preview = null;
+    public ?array $line_items = null;
+    public ?string $next_assessment_at = null;
+    public ?int $subtotal_in_cents = null;
+    public ?int $total_amount_due_in_cents = null;
+    public ?int $total_discount_in_cents = null;
+    public ?int $total_in_cents = null;
+    public ?int $total_tax_in_cents = null;
+    public ?bool $uncalculated_taxes = null;
 }
 
 /** Request payload for SubscriptionStatus#update. */
 class SubscriptionStatusUpdateData
 {
     public int $id;
-    public ?array $renewal_preview = null;
+    public ?int $existing_balance_in_cents = null;
+    public ?array $line_items = null;
+    public ?string $next_assessment_at = null;
+    public ?int $subtotal_in_cents = null;
+    public ?int $total_amount_due_in_cents = null;
+    public ?int $total_discount_in_cents = null;
+    public ?int $total_in_cents = null;
+    public ?int $total_tax_in_cents = null;
+    public ?bool $uncalculated_taxes = null;
 }
 
 /** Request payload for SubscriptionStatus#remove. */
@@ -2783,8 +3523,12 @@ class UsageListMatch
 /** Webhook entity data model. */
 class Webhook
 {
-    public ?array $endpoint = null;
+    public ?int $id = null;
+    public ?int $site_id = null;
+    public ?string $status = null;
+    public ?string $url = null;
     public ?array $webhook = null;
+    public ?array $webhook_subscriptions = null;
 }
 
 /** Request payload for Webhook#list. */
@@ -2802,14 +3546,22 @@ class WebhookListMatch
 /** Request payload for Webhook#create. */
 class WebhookCreateData
 {
-    public ?array $endpoint = null;
+    public ?int $id = null;
+    public ?int $site_id = null;
+    public ?string $status = null;
+    public ?string $url = null;
     public ?array $webhook = null;
+    public ?array $webhook_subscriptions = null;
 }
 
 /** Request payload for Webhook#update. */
 class WebhookUpdateData
 {
-    public ?array $endpoint = null;
+    public ?int $id = null;
+    public ?int $site_id = null;
+    public ?string $status = null;
+    public ?string $url = null;
     public ?array $webhook = null;
+    public ?array $webhook_subscriptions = null;
 }
 

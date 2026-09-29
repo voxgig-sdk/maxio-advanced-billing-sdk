@@ -44,10 +44,14 @@ describe("ReferralCodeEntity", function()
 
     -- LOAD
     local referral_code_ref01_ent = client:ReferralCode(nil)
-    local referral_code_ref01_match_dt0 = {}
+    local referral_code_ref01_match_dt0 = {
+      id = referral_code_ref01_data["id"],
+    }
     local referral_code_ref01_data_dt0_loaded, err = referral_code_ref01_ent:load(referral_code_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(referral_code_ref01_data_dt0_loaded)
+    local referral_code_ref01_data_dt0_load_result = helpers.to_map(type(referral_code_ref01_data_dt0_loaded) == 'table' and referral_code_ref01_data_dt0_loaded.data_get and referral_code_ref01_data_dt0_loaded:data_get() or referral_code_ref01_data_dt0_loaded)
+    assert.is_not_nil(referral_code_ref01_data_dt0_load_result)
+    assert.are.equal(referral_code_ref01_data_dt0_load_result["id"], referral_code_ref01_data["id"])
 
   end)
 end)

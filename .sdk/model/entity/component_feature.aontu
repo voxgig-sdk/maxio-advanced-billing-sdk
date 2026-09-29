@@ -51,7 +51,7 @@ main: kit: entity: component_feature: {
                 ex: false
                 k: "query"
                 n: "destroy_entitlement"
-                or: "destroy_entitlement"
+                or: "destroy_entitlements"
                 r: false
                 t: "`$BOOLEAN`"
               }

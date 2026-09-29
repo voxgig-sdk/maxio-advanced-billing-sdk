@@ -5,9 +5,49 @@ main: kit: entity: product_family: {
   alias: field: {}
 
   fields: {
+    accounting_code: {
+      h: "Accounting Code"
+      n: "accounting_code"
+      r: false
+      t: "`$STRING`"
+    }
+    archived_at: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archived_at"
+      r: false
+      sh: "Timestamp indicating when this product family was archived."
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    handle: {
+      h: "Handle"
+      n: "handle"
+      r: false
+      t: "`$STRING`"
+    }
     id: {
+      fo: "int32"
       h: "Id"
       n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
       r: false
       t: "`$STRING`"
     }
@@ -16,6 +56,20 @@ main: kit: entity: product_family: {
       n: "product_family"
       r: false
       t: "`$OBJECT`"
+    }
+    surcharging: {
+      h: "Surcharging"
+      n: "surcharging"
+      r: false
+      sh: "Whether surcharging applies to this product family."
+      t: "`$BOOLEAN`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      t: "`$STRING`"
     }
   }
 
@@ -44,7 +98,7 @@ main: kit: entity: product_family: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.product_family`"
           }
         }
       ]
@@ -158,7 +212,7 @@ main: kit: entity: product_family: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.product_family`"
           }
         }
       ]

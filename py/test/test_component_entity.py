@@ -82,6 +82,7 @@ class TestComponentEntity:
 
         component_ref01_data = helpers.to_map(runner.entity_data(component_ref01_ent.create(component_ref01_data, None)))
         assert component_ref01_data is not None
+        assert component_ref01_data["id"] is not None
 
         # LIST
         component_ref01_match = {}
@@ -89,25 +90,51 @@ class TestComponentEntity:
         component_ref01_list_result = component_ref01_ent.list(component_ref01_match, None)
         assert isinstance(component_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(component_ref01_list_result),
+            {"id": component_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         component_ref01_data_up0_up = {
+            "id": component_ref01_data["id"],
             "component_id": setup["idmap"]["component_id"],
         }
 
+        component_ref01_markdef_up0_name = "accounting_code"
+        component_ref01_markdef_up0_value = "Mark01-component_ref01_" + str(setup["now"])
+        component_ref01_data_up0_up[component_ref01_markdef_up0_name] = component_ref01_markdef_up0_value
+
         component_ref01_resdata_up0 = helpers.to_map(runner.entity_data(component_ref01_ent.update(component_ref01_data_up0_up, None)))
         assert component_ref01_resdata_up0 is not None
+        assert component_ref01_resdata_up0["id"] == component_ref01_data_up0_up["id"]
+        assert component_ref01_resdata_up0[component_ref01_markdef_up0_name] == component_ref01_markdef_up0_value
 
         # LOAD
-        component_ref01_match_dt0 = {}
+        component_ref01_match_dt0 = {
+            "id": component_ref01_data["id"],
+        }
         component_ref01_data_dt0_loaded = component_ref01_ent.load(component_ref01_match_dt0, None)
-        assert component_ref01_data_dt0_loaded is not None
+        component_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(component_ref01_data_dt0_loaded))
+        assert component_ref01_data_dt0_load_result is not None
+        assert component_ref01_data_dt0_load_result["id"] == component_ref01_data["id"]
 
+        # REMOVE
+        component_ref01_match_rm0 = {
+            "id": component_ref01_data["id"],
+        }
+        component_ref01_ent.remove(component_ref01_match_rm0, None)
 
         # LIST
         component_ref01_match_rt0 = {}
 
         component_ref01_list_rt0_result = component_ref01_ent.list(component_ref01_match_rt0, None)
         assert isinstance(component_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(component_ref01_list_rt0_result),
+            {"id": component_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 

@@ -110,6 +110,9 @@ func TestSiteEntity(t *testing.T) {
 		if siteRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if siteRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		siteRef01Match := map[string]any{}
@@ -118,19 +121,30 @@ func TestSiteEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, siteRef01ListOk := siteRef01ListResult.([]any)
+		siteRef01List, siteRef01ListOk := siteRef01ListResult.([]any)
 		if !siteRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", siteRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(siteRef01List), map[string]any{"id": siteRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// LOAD
-		siteRef01MatchDt0 := map[string]any{}
+		siteRef01MatchDt0 := map[string]any{
+			"id": siteRef01Data["id"],
+		}
 		siteRef01DataDt0Loaded, err := siteRef01Ent.Load(siteRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if siteRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		siteRef01DataDt0LoadResult := core.ToMapAny(entityData(siteRef01DataDt0Loaded))
+		if siteRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if siteRef01DataDt0LoadResult["id"] != siteRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

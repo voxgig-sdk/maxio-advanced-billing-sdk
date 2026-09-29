@@ -100,9 +100,14 @@ class TestProductPricePointEntity:
             "id": product_price_point_ref01_data["id"],
         }
 
+        product_price_point_ref01_markdef_up0_name = "accounting_code"
+        product_price_point_ref01_markdef_up0_value = "Mark01-product_price_point_ref01_" + str(setup["now"])
+        product_price_point_ref01_data_up0_up[product_price_point_ref01_markdef_up0_name] = product_price_point_ref01_markdef_up0_value
+
         product_price_point_ref01_resdata_up0 = helpers.to_map(runner.entity_data(product_price_point_ref01_ent.update(product_price_point_ref01_data_up0_up, None)))
         assert product_price_point_ref01_resdata_up0 is not None
         assert product_price_point_ref01_resdata_up0["id"] == product_price_point_ref01_data_up0_up["id"]
+        assert product_price_point_ref01_resdata_up0[product_price_point_ref01_markdef_up0_name] == product_price_point_ref01_markdef_up0_value
 
         # LOAD
         product_price_point_ref01_match_dt0 = {

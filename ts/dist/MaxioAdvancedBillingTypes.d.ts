@@ -71,7 +71,44 @@ export interface BillingPortalRemoveMatch {
     customer_id: number;
 }
 export interface Component {
+    accounting_code?: string;
+    allow_fractional_quantities?: boolean;
+    archived?: boolean;
+    archived_at?: string;
     component?: Record<string, any>;
+    created_at?: string;
+    default_price_point_id?: number;
+    default_price_point_name?: string;
+    description?: string;
+    downgrade_credit?: any;
+    event_based_billing_metric_id?: number;
+    features?: any[];
+    handle?: string;
+    hide_date_range_on_invoice?: boolean;
+    id?: number;
+    interval?: number;
+    interval_unit?: any;
+    item_category?: any;
+    kind?: any;
+    name?: string;
+    overage_prices?: any[];
+    price_per_unit_in_cents?: number;
+    price_point_count?: number;
+    price_points_url?: string;
+    prices?: any[];
+    pricing_scheme?: any;
+    product_family_handle?: string;
+    product_family_id?: number;
+    product_family_name?: string;
+    recurring?: boolean;
+    tax_code?: string;
+    taxable?: boolean;
+    unit_name?: string;
+    unit_price?: string;
+    unspsc_code?: string;
+    updated_at?: string;
+    upgrade_charge?: any;
+    use_site_exchange_rate?: boolean;
 }
 export interface ComponentLoadMatch {
     component_id: string;
@@ -93,12 +130,84 @@ export interface ComponentListMatch {
 }
 export interface ComponentCreateData {
     product_family_id: string;
+    accounting_code?: string;
+    allow_fractional_quantities?: boolean;
+    archived?: boolean;
+    archived_at?: string;
     component?: Record<string, any>;
+    created_at?: string;
+    default_price_point_id?: number;
+    default_price_point_name?: string;
+    description?: string;
+    downgrade_credit?: any;
+    event_based_billing_metric_id?: number;
+    features?: any[];
+    handle?: string;
+    hide_date_range_on_invoice?: boolean;
+    id?: number;
+    interval?: number;
+    interval_unit?: any;
+    item_category?: any;
+    kind?: any;
+    name?: string;
+    overage_prices?: any[];
+    price_per_unit_in_cents?: number;
+    price_point_count?: number;
+    price_points_url?: string;
+    prices?: any[];
+    pricing_scheme?: any;
+    product_family_handle?: string;
+    product_family_name?: string;
+    recurring?: boolean;
+    tax_code?: string;
+    taxable?: boolean;
+    unit_name?: string;
+    unit_price?: string;
+    unspsc_code?: string;
+    updated_at?: string;
+    upgrade_charge?: any;
+    use_site_exchange_rate?: boolean;
 }
 export interface ComponentUpdateData {
     component_id: string;
     product_family_id?: number;
+    accounting_code?: string;
+    allow_fractional_quantities?: boolean;
+    archived?: boolean;
+    archived_at?: string;
     component?: Record<string, any>;
+    created_at?: string;
+    default_price_point_id?: number;
+    default_price_point_name?: string;
+    description?: string;
+    downgrade_credit?: any;
+    event_based_billing_metric_id?: number;
+    features?: any[];
+    handle?: string;
+    hide_date_range_on_invoice?: boolean;
+    id?: number;
+    interval?: number;
+    interval_unit?: any;
+    item_category?: any;
+    kind?: any;
+    name?: string;
+    overage_prices?: any[];
+    price_per_unit_in_cents?: number;
+    price_point_count?: number;
+    price_points_url?: string;
+    prices?: any[];
+    pricing_scheme?: any;
+    product_family_handle?: string;
+    product_family_name?: string;
+    recurring?: boolean;
+    tax_code?: string;
+    taxable?: boolean;
+    unit_name?: string;
+    unit_price?: string;
+    unspsc_code?: string;
+    updated_at?: string;
+    upgrade_charge?: any;
+    use_site_exchange_rate?: boolean;
     $action?: string;
     [action: string]: any;
 }
@@ -117,31 +226,55 @@ export interface ComponentFeatureRemoveMatch {
     destroy_entitlement?: boolean;
 }
 export interface ComponentPricePoint {
+    accounting_code?: string;
+    allow_fractional_quantities?: boolean;
+    archived?: boolean;
     archived_at?: string;
-    component: Record<string, any>;
     component_id?: number;
     created_at?: string;
     currency_prices?: any[];
     default?: boolean;
+    default_price_point_id?: number;
+    default_price_point_name?: string;
+    description?: string;
+    downgrade_credit?: any;
+    event_based_billing_metric_id?: number;
     expiration_interval?: number;
     expiration_interval_unit?: any;
+    features?: any[];
     handle?: string;
+    hide_date_range_on_invoice?: boolean;
     id?: number;
     interval?: number;
     interval_unit?: any;
+    item_category?: any;
+    kind?: any;
     name?: string;
     overage_prices?: any[];
     overage_pricing_scheme?: any;
+    price_per_unit_in_cents?: number;
     price_point?: Record<string, any>;
+    price_point_count?: number;
     price_points?: any[];
+    price_points_url?: string;
     prices?: any[];
     pricing_scheme?: any;
+    product_family_handle?: string;
+    product_family_id?: number;
+    product_family_name?: string;
+    recurring?: boolean;
     renew_prepaid_allocation?: boolean;
     rollover_prepaid_remainder?: boolean;
     subscription_id?: number;
+    tax_code?: string;
     tax_included?: boolean;
+    taxable?: boolean;
     type?: any;
+    unit_name?: string;
+    unit_price?: string;
+    unspsc_code?: string;
     updated_at?: string;
+    upgrade_charge?: any;
     use_site_exchange_rate?: boolean;
 }
 export interface ComponentPricePointListMatch {
@@ -153,59 +286,107 @@ export interface ComponentPricePointListMatch {
 }
 export interface ComponentPricePointCreateData {
     id: number;
+    accounting_code?: string;
+    allow_fractional_quantities?: boolean;
+    archived?: boolean;
     archived_at?: string;
-    component: Record<string, any>;
     component_id?: number;
     created_at?: string;
     currency_prices?: any[];
     default?: boolean;
+    default_price_point_id?: number;
+    default_price_point_name?: string;
+    description?: string;
+    downgrade_credit?: any;
+    event_based_billing_metric_id?: number;
     expiration_interval?: number;
     expiration_interval_unit?: any;
+    features?: any[];
     handle?: string;
+    hide_date_range_on_invoice?: boolean;
     interval?: number;
     interval_unit?: any;
+    item_category?: any;
+    kind?: any;
     name?: string;
     overage_prices?: any[];
     overage_pricing_scheme?: any;
+    price_per_unit_in_cents?: number;
     price_point?: Record<string, any>;
+    price_point_count?: number;
     price_points?: any[];
+    price_points_url?: string;
     prices?: any[];
     pricing_scheme?: any;
+    product_family_handle?: string;
+    product_family_id?: number;
+    product_family_name?: string;
+    recurring?: boolean;
     renew_prepaid_allocation?: boolean;
     rollover_prepaid_remainder?: boolean;
     subscription_id?: number;
+    tax_code?: string;
     tax_included?: boolean;
+    taxable?: boolean;
     type?: any;
+    unit_name?: string;
+    unit_price?: string;
+    unspsc_code?: string;
     updated_at?: string;
+    upgrade_charge?: any;
     use_site_exchange_rate?: boolean;
 }
 export interface ComponentPricePointUpdateData {
     component_id?: string;
     price_point_id: string;
+    accounting_code?: string;
+    allow_fractional_quantities?: boolean;
+    archived?: boolean;
     archived_at?: string;
-    component?: Record<string, any>;
     created_at?: string;
     currency_prices?: any[];
     default?: boolean;
+    default_price_point_id?: number;
+    default_price_point_name?: string;
+    description?: string;
+    downgrade_credit?: any;
+    event_based_billing_metric_id?: number;
     expiration_interval?: number;
     expiration_interval_unit?: any;
+    features?: any[];
     handle?: string;
+    hide_date_range_on_invoice?: boolean;
     id?: number;
     interval?: number;
     interval_unit?: any;
+    item_category?: any;
+    kind?: any;
     name?: string;
     overage_prices?: any[];
     overage_pricing_scheme?: any;
+    price_per_unit_in_cents?: number;
     price_point?: Record<string, any>;
+    price_point_count?: number;
     price_points?: any[];
+    price_points_url?: string;
     prices?: any[];
     pricing_scheme?: any;
+    product_family_handle?: string;
+    product_family_id?: number;
+    product_family_name?: string;
+    recurring?: boolean;
     renew_prepaid_allocation?: boolean;
     rollover_prepaid_remainder?: boolean;
     subscription_id?: number;
+    tax_code?: string;
     tax_included?: boolean;
+    taxable?: boolean;
     type?: any;
+    unit_name?: string;
+    unit_price?: string;
+    unspsc_code?: string;
     updated_at?: string;
+    upgrade_charge?: any;
     use_site_exchange_rate?: boolean;
 }
 export interface ComponentPricePointRemoveMatch {
@@ -405,7 +586,6 @@ export interface CouponUsageListMatch {
     product_family_id: number;
 }
 export interface CustomField {
-    current_page?: number;
     data_count?: number;
     deleted_at?: string;
     enum?: string;
@@ -415,11 +595,8 @@ export interface CustomField {
     metafield_id?: number;
     metafields?: any;
     name?: string;
-    per_page?: number;
     resource_id?: number;
     scope?: Record<string, any>;
-    total_count?: number;
-    total_pages?: number;
     value?: string;
 }
 export interface CustomFieldListMatch {
@@ -439,7 +616,6 @@ export interface CustomFieldListMatch {
 export interface CustomFieldCreateData {
     resource_id?: number;
     resource_type: any;
-    current_page?: number;
     data_count?: number;
     deleted_at?: string;
     enum?: string;
@@ -449,16 +625,12 @@ export interface CustomFieldCreateData {
     metafield_id?: number;
     metafields?: any;
     name?: string;
-    per_page?: number;
     scope?: Record<string, any>;
-    total_count?: number;
-    total_pages?: number;
     value?: string;
 }
 export interface CustomFieldUpdateData {
     resource_id?: number;
     resource_type: any;
-    current_page?: number;
     data_count?: number;
     deleted_at?: string;
     enum?: string;
@@ -468,10 +640,7 @@ export interface CustomFieldUpdateData {
     metafield_id?: number;
     metafields?: any;
     name?: string;
-    per_page?: number;
     scope?: Record<string, any>;
-    total_count?: number;
-    total_pages?: number;
     value?: string;
 }
 export interface CustomFieldRemoveMatch {
@@ -488,7 +657,7 @@ export interface Customer {
     country?: string;
     country_name?: string;
     created_at?: string;
-    customer?: Record<string, any>;
+    customer: Record<string, any>;
     default_auto_renewal_profile_id?: number;
     default_subscription_group_uid?: string;
     email?: string;
@@ -543,7 +712,7 @@ export interface CustomerCreateData {
     country?: string;
     country_name?: string;
     created_at?: string;
-    customer?: Record<string, any>;
+    customer: Record<string, any>;
     default_auto_renewal_profile_id?: number;
     default_subscription_group_uid?: string;
     email?: string;
@@ -699,22 +868,30 @@ export interface EventsBasedBillingSegmentRemoveMatch {
 }
 export interface Feature {
     archived_at?: string;
-    archived_count: number;
     created_at?: string;
+    default_periodicity_interval?: number;
+    default_periodicity_unit?: any;
+    default_value?: string;
+    description?: string;
     feature: Record<string, any>;
     feature_key?: string;
     feature_kind?: any;
     feature_name?: string;
     feature_template_id?: number;
     id?: number;
-    items: any[];
+    key?: string;
+    kind?: any;
+    name?: string;
     periodicity_interval?: number;
     periodicity_unit?: any;
+    plans_count?: number;
     price_point_id?: number;
     price_point_type?: any;
-    total_count: number;
+    products_count?: number;
+    unit?: string;
     updated_at?: string;
     value?: string;
+    value_type?: any;
 }
 export interface FeatureListMatch {
     kind?: any;
@@ -729,22 +906,30 @@ export interface FeatureListMatch {
 }
 export interface FeatureCreateData {
     archived_at?: string;
-    archived_count: number;
     created_at?: string;
+    default_periodicity_interval?: number;
+    default_periodicity_unit?: any;
+    default_value?: string;
+    description?: string;
     feature: Record<string, any>;
     feature_key?: string;
     feature_kind?: any;
     feature_name?: string;
     feature_template_id?: number;
     id?: number;
-    items: any[];
+    key?: string;
+    kind?: any;
+    name?: string;
     periodicity_interval?: number;
     periodicity_unit?: any;
+    plans_count?: number;
     price_point_id?: number;
     price_point_type?: any;
-    total_count: number;
+    products_count?: number;
+    unit?: string;
     updated_at?: string;
     value?: string;
+    value_type?: any;
 }
 export interface FeatureCatalogItem {
     archived_at?: string;
@@ -869,12 +1054,22 @@ export interface FeatureTemplateRemoveMatch {
     remove_from_catalog?: boolean;
 }
 export interface Insight {
-    mrr: Record<string, any>;
+    amount_formatted?: string;
+    amount_in_cents?: number;
+    at_time?: string;
+    breakouts?: Record<string, any>;
+    currency?: string;
+    currency_symbol?: string;
+    movements?: any[];
+    page?: number;
+    per_page?: number;
     seller_name?: string;
     site_currency?: string;
     site_id?: number;
     site_name?: string;
     stats?: Record<string, any>;
+    total_entries?: number;
+    total_pages?: number;
 }
 export interface InsightLoadMatch {
     direction?: any;
@@ -893,7 +1088,6 @@ export interface Invoice {
     consolidation_level?: any;
     created_at?: string;
     credit_amount?: string;
-    credit_notes: any[];
     credits?: any[];
     currency?: string;
     custom_fields?: any[];
@@ -908,8 +1102,6 @@ export interface Invoice {
     due_date?: string;
     group_primary_subscription_id?: number;
     id?: number;
-    invoice?: Record<string, any>;
-    invoices: any[];
     issue_date?: string;
     line_items?: any[];
     memo?: string;
@@ -969,7 +1161,6 @@ export interface InvoiceCreateData {
     consolidation_level?: any;
     created_at?: string;
     credit_amount?: string;
-    credit_notes: any[];
     credits?: any[];
     currency?: string;
     custom_fields?: any[];
@@ -984,8 +1175,6 @@ export interface InvoiceCreateData {
     due_date?: string;
     group_primary_subscription_id?: number;
     id?: number;
-    invoice?: Record<string, any>;
-    invoices: any[];
     issue_date?: string;
     line_items?: any[];
     memo?: string;
@@ -1042,7 +1231,6 @@ export interface InvoiceUpdateData {
     consolidation_level?: any;
     created_at?: string;
     credit_amount?: string;
-    credit_notes?: any[];
     credits?: any[];
     currency?: string;
     custom_fields?: any[];
@@ -1057,8 +1245,6 @@ export interface InvoiceUpdateData {
     due_date?: string;
     group_primary_subscription_id?: number;
     id?: number;
-    invoice?: Record<string, any>;
-    invoices?: any[];
     issue_date?: string;
     line_items?: any[];
     memo?: string;
@@ -1106,60 +1292,6 @@ export interface InvoiceRemoveMatch {
     uid: string;
     $action?: string;
     [action: string]: any;
-}
-export interface ListProformaInvoice {
-    available_actions?: Record<string, any>;
-    billing_address?: Record<string, any>;
-    collection_method?: any;
-    consolidation_level?: any;
-    created_at?: string;
-    credit_amount?: string;
-    credits?: any[];
-    currency?: string;
-    custom_fields?: any[];
-    customer?: any;
-    customer_id?: number;
-    delivery_date?: string;
-    discount_amount?: string;
-    discounts?: any[];
-    due_amount?: string;
-    line_items?: any[];
-    memo?: string;
-    number?: number;
-    paid_amount?: string;
-    payment_instructions?: string;
-    payments?: any[];
-    product_family_name?: string;
-    product_name?: string;
-    public_url?: string;
-    refund_amount?: string;
-    role?: any;
-    seller?: any;
-    sequence_number?: number;
-    shipping_address?: Record<string, any>;
-    site_id?: number;
-    status?: string;
-    subscription_id?: number;
-    subtotal_amount?: string;
-    tax_amount?: string;
-    taxes?: any[];
-    total_amount?: string;
-    uid?: string;
-}
-export interface ListProformaInvoiceListMatch {
-    subscription_id: number;
-    credit?: boolean;
-    custom_field?: boolean;
-    direction?: any;
-    discount?: boolean;
-    end_date?: string;
-    line_item?: boolean;
-    page?: number;
-    payment?: boolean;
-    per_page?: number;
-    start_date?: string;
-    status?: any;
-    taxis?: boolean;
 }
 export interface ListSaleRepItem {
     full_name?: string;
@@ -1237,7 +1369,6 @@ export interface Offer {
     offer_discounts?: any[];
     offer_items?: any[];
     offer_signup_pages?: any[];
-    offers?: any[];
     product_family_id?: number;
     product_family_name?: string;
     product_id?: number;
@@ -1270,7 +1401,6 @@ export interface OfferCreateData {
     offer_discounts?: any[];
     offer_items?: any[];
     offer_signup_pages?: any[];
-    offers?: any[];
     product_family_id?: number;
     product_family_name?: string;
     product_id?: number;
@@ -1293,7 +1423,6 @@ export interface OfferUpdateData {
     offer_discounts?: any[];
     offer_items?: any[];
     offer_signup_pages?: any[];
-    offers?: any[];
     product_family_id?: number;
     product_family_name?: string;
     product_id?: number;
@@ -1315,8 +1444,36 @@ export interface OneTimeTokenLoadMatch {
     [action: string]: any;
 }
 export interface PaymentProfile {
-    id?: string;
-    payment_profile?: Record<string, any>;
+    bank_account_holder_type?: any;
+    bank_account_type?: any;
+    bank_name?: string;
+    billing_address?: string;
+    billing_address_2?: string;
+    billing_city?: string;
+    billing_country?: string;
+    billing_state?: string;
+    billing_zip?: string;
+    card_type?: string;
+    created_at?: string;
+    current_vault?: string;
+    customer_id?: number;
+    customer_vault_token?: string;
+    disabled?: boolean;
+    expiration_month?: number;
+    expiration_year?: number;
+    first_name?: string;
+    gateway_handle?: string;
+    id?: number;
+    last_name?: string;
+    masked_bank_account_number?: string;
+    masked_bank_routing_number?: string;
+    masked_card_number?: string;
+    payment_profile: any;
+    payment_type?: string;
+    site_gateway_setting_id?: number;
+    updated_at?: string;
+    vault_token?: string;
+    verified?: boolean;
 }
 export interface PaymentProfileLoadMatch {
     payment_profile_id: number;
@@ -1329,15 +1486,71 @@ export interface PaymentProfileListMatch {
     per_page?: number;
 }
 export interface PaymentProfileCreateData {
-    id?: string;
-    payment_profile?: Record<string, any>;
+    bank_account_holder_type?: any;
+    bank_account_type?: any;
+    bank_name?: string;
+    billing_address?: string;
+    billing_address_2?: string;
+    billing_city?: string;
+    billing_country?: string;
+    billing_state?: string;
+    billing_zip?: string;
+    card_type?: string;
+    created_at?: string;
+    current_vault?: string;
+    customer_id?: number;
+    customer_vault_token?: string;
+    disabled?: boolean;
+    expiration_month?: number;
+    expiration_year?: number;
+    first_name?: string;
+    gateway_handle?: string;
+    id?: number;
+    last_name?: string;
+    masked_bank_account_number?: string;
+    masked_bank_routing_number?: string;
+    masked_card_number?: string;
+    payment_profile: any;
+    payment_type?: string;
+    site_gateway_setting_id?: number;
+    updated_at?: string;
+    vault_token?: string;
+    verified?: boolean;
     $action?: string;
     [action: string]: any;
 }
 export interface PaymentProfileUpdateData {
     bank_account_id: number;
-    id?: string;
-    payment_profile?: Record<string, any>;
+    bank_account_holder_type?: any;
+    bank_account_type?: any;
+    bank_name?: string;
+    billing_address?: string;
+    billing_address_2?: string;
+    billing_city?: string;
+    billing_country?: string;
+    billing_state?: string;
+    billing_zip?: string;
+    card_type?: string;
+    created_at?: string;
+    current_vault?: string;
+    customer_id?: number;
+    customer_vault_token?: string;
+    disabled?: boolean;
+    expiration_month?: number;
+    expiration_year?: number;
+    first_name?: string;
+    gateway_handle?: string;
+    id?: number;
+    last_name?: string;
+    masked_bank_account_number?: string;
+    masked_bank_routing_number?: string;
+    masked_card_number?: string;
+    payment_profile?: any;
+    payment_type?: string;
+    site_gateway_setting_id?: number;
+    updated_at?: string;
+    vault_token?: string;
+    verified?: boolean;
     $action?: string;
     [action: string]: any;
 }
@@ -1358,7 +1571,46 @@ export interface PrepaymentCreateData {
     [action: string]: any;
 }
 export interface Product {
-    product: Record<string, any>;
+    accounting_code?: string;
+    archived_at?: string;
+    created_at?: string;
+    default_product_price_point_id?: number;
+    description?: string;
+    expiration_interval?: number;
+    expiration_interval_unit?: any;
+    features?: any[];
+    handle?: string;
+    id?: number;
+    initial_charge_after_trial?: boolean;
+    initial_charge_in_cents?: number;
+    interval?: number;
+    interval_unit?: any;
+    item_category?: string;
+    name?: string;
+    price_in_cents?: number;
+    product?: Record<string, any>;
+    product_family?: Record<string, any>;
+    product_price_point_handle?: string;
+    product_price_point_id?: number;
+    product_price_point_name?: string;
+    public_signup_pages?: any[];
+    request_billing_address?: boolean;
+    request_credit_card?: boolean;
+    require_billing_address?: boolean;
+    require_credit_card?: boolean;
+    require_shipping_address?: boolean;
+    return_params?: string;
+    tax_code?: string;
+    taxable?: boolean;
+    trial_interval?: number;
+    trial_interval_unit?: any;
+    trial_price_in_cents?: number;
+    unspsc_code?: string;
+    update_return_params?: string;
+    update_return_url?: string;
+    updated_at?: string;
+    use_site_exchange_rate?: boolean;
+    version_number?: number;
 }
 export interface ProductLoadMatch {
     api_handle: string;
@@ -1380,11 +1632,89 @@ export interface ProductListMatch {
 }
 export interface ProductCreateData {
     product_family_id: string;
-    product: Record<string, any>;
+    accounting_code?: string;
+    archived_at?: string;
+    created_at?: string;
+    default_product_price_point_id?: number;
+    description?: string;
+    expiration_interval?: number;
+    expiration_interval_unit?: any;
+    features?: any[];
+    handle?: string;
+    id?: number;
+    initial_charge_after_trial?: boolean;
+    initial_charge_in_cents?: number;
+    interval?: number;
+    interval_unit?: any;
+    item_category?: string;
+    name?: string;
+    price_in_cents?: number;
+    product?: Record<string, any>;
+    product_family?: Record<string, any>;
+    product_price_point_handle?: string;
+    product_price_point_id?: number;
+    product_price_point_name?: string;
+    public_signup_pages?: any[];
+    request_billing_address?: boolean;
+    request_credit_card?: boolean;
+    require_billing_address?: boolean;
+    require_credit_card?: boolean;
+    require_shipping_address?: boolean;
+    return_params?: string;
+    tax_code?: string;
+    taxable?: boolean;
+    trial_interval?: number;
+    trial_interval_unit?: any;
+    trial_price_in_cents?: number;
+    unspsc_code?: string;
+    update_return_params?: string;
+    update_return_url?: string;
+    updated_at?: string;
+    use_site_exchange_rate?: boolean;
+    version_number?: number;
 }
 export interface ProductUpdateData {
     product_id: number;
+    accounting_code?: string;
+    archived_at?: string;
+    created_at?: string;
+    default_product_price_point_id?: number;
+    description?: string;
+    expiration_interval?: number;
+    expiration_interval_unit?: any;
+    features?: any[];
+    handle?: string;
+    id?: number;
+    initial_charge_after_trial?: boolean;
+    initial_charge_in_cents?: number;
+    interval?: number;
+    interval_unit?: any;
+    item_category?: string;
+    name?: string;
+    price_in_cents?: number;
     product?: Record<string, any>;
+    product_family?: Record<string, any>;
+    product_price_point_handle?: string;
+    product_price_point_id?: number;
+    product_price_point_name?: string;
+    public_signup_pages?: any[];
+    request_billing_address?: boolean;
+    request_credit_card?: boolean;
+    require_billing_address?: boolean;
+    require_credit_card?: boolean;
+    require_shipping_address?: boolean;
+    return_params?: string;
+    tax_code?: string;
+    taxable?: boolean;
+    trial_interval?: number;
+    trial_interval_unit?: any;
+    trial_price_in_cents?: number;
+    unspsc_code?: string;
+    update_return_params?: string;
+    update_return_url?: string;
+    updated_at?: string;
+    use_site_exchange_rate?: boolean;
+    version_number?: number;
     $action?: string;
     [action: string]: any;
 }
@@ -1394,8 +1724,16 @@ export interface ProductRemoveMatch {
     [action: string]: any;
 }
 export interface ProductFamily {
-    id?: string;
+    accounting_code?: string;
+    archived_at?: string;
+    created_at?: string;
+    description?: string;
+    handle?: string;
+    id?: number;
+    name?: string;
     product_family?: Record<string, any>;
+    surcharging?: boolean;
+    updated_at?: string;
 }
 export interface ProductFamilyLoadMatch {
     id: number;
@@ -1410,8 +1748,16 @@ export interface ProductFamilyListMatch {
     start_datetime?: string;
 }
 export interface ProductFamilyCreateData {
-    id?: string;
+    accounting_code?: string;
+    archived_at?: string;
+    created_at?: string;
+    description?: string;
+    handle?: string;
+    id?: number;
+    name?: string;
     product_family?: Record<string, any>;
+    surcharging?: boolean;
+    updated_at?: string;
 }
 export interface ProductFeature {
     id?: string;
@@ -1422,10 +1768,54 @@ export interface ProductFeatureRemoveMatch {
     destroy_entitlement?: boolean;
 }
 export interface ProductPricePoint {
-    id?: string;
-    price_point: Record<string, any>;
+    accounting_code?: string;
+    archived_at?: string;
+    created_at?: string;
+    currency_prices?: any[];
+    default_product_price_point_id?: number;
+    description?: string;
+    expiration_interval?: number;
+    expiration_interval_unit?: any;
+    features?: any[];
+    handle?: string;
+    id?: number;
+    initial_charge_after_trial?: boolean;
+    initial_charge_in_cents?: number;
+    interval?: number;
+    interval_unit?: any;
+    introductory_offer?: boolean;
+    item_category?: string;
+    name?: string;
+    price_in_cents?: number;
+    price_point?: Record<string, any>;
     price_points?: any[];
-    product: Record<string, any>;
+    product_family?: Record<string, any>;
+    product_id?: number;
+    product_price_point_handle?: string;
+    product_price_point_id?: number;
+    product_price_point_name?: string;
+    public_signup_pages?: any[];
+    request_billing_address?: boolean;
+    request_credit_card?: boolean;
+    require_billing_address?: boolean;
+    require_credit_card?: boolean;
+    require_shipping_address?: boolean;
+    return_params?: string;
+    subscription_id?: number;
+    tax_code?: string;
+    tax_included?: boolean;
+    taxable?: boolean;
+    trial_interval?: number;
+    trial_interval_unit?: any;
+    trial_price_in_cents?: number;
+    trial_type?: any;
+    type?: any;
+    unspsc_code?: string;
+    update_return_params?: string;
+    update_return_url?: string;
+    updated_at?: string;
+    use_site_exchange_rate?: boolean;
+    version_number?: number;
 }
 export interface ProductPricePointLoadMatch {
     price_point_id: string;
@@ -1441,19 +1831,106 @@ export interface ProductPricePointListMatch {
 }
 export interface ProductPricePointCreateData {
     id: string;
-    price_point: Record<string, any>;
+    accounting_code?: string;
+    archived_at?: string;
+    created_at?: string;
+    currency_prices?: any[];
+    default_product_price_point_id?: number;
+    description?: string;
+    expiration_interval?: number;
+    expiration_interval_unit?: any;
+    features?: any[];
+    handle?: string;
+    initial_charge_after_trial?: boolean;
+    initial_charge_in_cents?: number;
+    interval?: number;
+    interval_unit?: any;
+    introductory_offer?: boolean;
+    item_category?: string;
+    name?: string;
+    price_in_cents?: number;
+    price_point?: Record<string, any>;
     price_points?: any[];
-    product: Record<string, any>;
+    product_family?: Record<string, any>;
+    product_id?: number;
+    product_price_point_handle?: string;
+    product_price_point_id?: number;
+    product_price_point_name?: string;
+    public_signup_pages?: any[];
+    request_billing_address?: boolean;
+    request_credit_card?: boolean;
+    require_billing_address?: boolean;
+    require_credit_card?: boolean;
+    require_shipping_address?: boolean;
+    return_params?: string;
+    subscription_id?: number;
+    tax_code?: string;
+    tax_included?: boolean;
+    taxable?: boolean;
+    trial_interval?: number;
+    trial_interval_unit?: any;
+    trial_price_in_cents?: number;
+    trial_type?: any;
+    type?: any;
+    unspsc_code?: string;
+    update_return_params?: string;
+    update_return_url?: string;
+    updated_at?: string;
+    use_site_exchange_rate?: boolean;
+    version_number?: number;
     $action?: string;
     [action: string]: any;
 }
 export interface ProductPricePointUpdateData {
     price_point_id: string;
     product_id: string;
-    id?: string;
+    accounting_code?: string;
+    archived_at?: string;
+    created_at?: string;
+    currency_prices?: any[];
+    default_product_price_point_id?: number;
+    description?: string;
+    expiration_interval?: number;
+    expiration_interval_unit?: any;
+    features?: any[];
+    handle?: string;
+    id?: number;
+    initial_charge_after_trial?: boolean;
+    initial_charge_in_cents?: number;
+    interval?: number;
+    interval_unit?: any;
+    introductory_offer?: boolean;
+    item_category?: string;
+    name?: string;
+    price_in_cents?: number;
     price_point?: Record<string, any>;
     price_points?: any[];
-    product?: Record<string, any>;
+    product_family?: Record<string, any>;
+    product_price_point_handle?: string;
+    product_price_point_id?: number;
+    product_price_point_name?: string;
+    public_signup_pages?: any[];
+    request_billing_address?: boolean;
+    request_credit_card?: boolean;
+    require_billing_address?: boolean;
+    require_credit_card?: boolean;
+    require_shipping_address?: boolean;
+    return_params?: string;
+    subscription_id?: number;
+    tax_code?: string;
+    tax_included?: boolean;
+    taxable?: boolean;
+    trial_interval?: number;
+    trial_interval_unit?: any;
+    trial_price_in_cents?: number;
+    trial_type?: any;
+    type?: any;
+    unspsc_code?: string;
+    update_return_params?: string;
+    update_return_url?: string;
+    updated_at?: string;
+    use_site_exchange_rate?: boolean;
+    version_number?: number;
     $action?: string;
     [action: string]: any;
 }
@@ -1502,7 +1979,19 @@ export interface ProformaInvoice {
     uid?: string;
 }
 export interface ProformaInvoiceListMatch {
-    proforma_invoice_uid: string;
+    subscription_id: number;
+    credit?: boolean;
+    custom_field?: boolean;
+    direction?: any;
+    discount?: boolean;
+    end_date?: string;
+    line_item?: boolean;
+    page?: number;
+    payment?: boolean;
+    per_page?: number;
+    start_date?: string;
+    status?: any;
+    taxis?: boolean;
     $action?: string;
     [action: string]: any;
 }
@@ -1596,6 +2085,10 @@ export interface ReasonCodeRemoveMatch {
     [action: string]: any;
 }
 export interface ReferralCode {
+    code?: string;
+    id?: number;
+    site_id?: number;
+    subscription_id?: number;
 }
 export interface ReferralCodeLoadMatch {
     code: string;
@@ -1681,14 +2174,54 @@ export interface SignupProformaPreviewCreateData {
     include?: any;
 }
 export interface Site {
-    chargify_js_keys?: any[];
-    meta?: Record<string, any>;
-    site: Record<string, any>;
+    allocation_settings?: Record<string, any>;
+    auto_renewals_enabled?: boolean;
+    created_at?: string;
+    currency?: string;
+    customer_hierarchy_enabled?: boolean;
+    default_payment_collection_method?: string;
+    id?: number;
+    multi_frequency_enabled?: boolean;
+    name?: string;
+    net_terms?: Record<string, any>;
+    non_primary_currencies?: any[];
+    organization_address?: Record<string, any>;
+    portal_enabled?: boolean;
+    public_key?: string;
+    relationship_invoicing_enabled?: boolean;
+    requires_security_token?: boolean;
+    schedule_subscription_cancellation_enabled?: boolean;
+    seller_id?: number;
+    subdomain?: string;
+    tax_configuration?: Record<string, any>;
+    test?: boolean;
+    whopays_default_payer?: string;
+    whopays_enabled?: boolean;
 }
 export interface SiteLoadMatch {
-    chargify_js_keys?: any[];
-    meta?: Record<string, any>;
-    site?: Record<string, any>;
+    allocation_settings?: Record<string, any>;
+    auto_renewals_enabled?: boolean;
+    created_at?: string;
+    currency?: string;
+    customer_hierarchy_enabled?: boolean;
+    default_payment_collection_method?: string;
+    id: number;
+    multi_frequency_enabled?: boolean;
+    name?: string;
+    net_terms?: Record<string, any>;
+    non_primary_currencies?: any[];
+    organization_address?: Record<string, any>;
+    portal_enabled?: boolean;
+    public_key?: string;
+    relationship_invoicing_enabled?: boolean;
+    requires_security_token?: boolean;
+    schedule_subscription_cancellation_enabled?: boolean;
+    seller_id?: number;
+    subdomain?: string;
+    tax_configuration?: Record<string, any>;
+    test?: boolean;
+    whopays_default_payer?: string;
+    whopays_enabled?: boolean;
 }
 export interface SiteListMatch {
     page?: number;
@@ -1696,9 +2229,29 @@ export interface SiteListMatch {
 }
 export interface SiteCreateData {
     cleanup_scope?: any;
-    chargify_js_keys?: any[];
-    meta?: Record<string, any>;
-    site: Record<string, any>;
+    allocation_settings?: Record<string, any>;
+    auto_renewals_enabled?: boolean;
+    created_at?: string;
+    currency?: string;
+    customer_hierarchy_enabled?: boolean;
+    default_payment_collection_method?: string;
+    id?: number;
+    multi_frequency_enabled?: boolean;
+    name?: string;
+    net_terms?: Record<string, any>;
+    non_primary_currencies?: any[];
+    organization_address?: Record<string, any>;
+    portal_enabled?: boolean;
+    public_key?: string;
+    relationship_invoicing_enabled?: boolean;
+    requires_security_token?: boolean;
+    schedule_subscription_cancellation_enabled?: boolean;
+    seller_id?: number;
+    subdomain?: string;
+    tax_configuration?: Record<string, any>;
+    test?: boolean;
+    whopays_default_payer?: string;
+    whopays_enabled?: boolean;
     $action?: string;
     [action: string]: any;
 }
@@ -1944,26 +2497,40 @@ export interface SubscriptionRemoveMatch {
     [action: string]: any;
 }
 export interface SubscriptionComponent {
+    accrue_charge?: boolean;
     allocated_quantity?: any;
-    allocation?: Record<string, any>;
-    allocation_preview?: Record<string, any>;
+    allocation_id?: number;
+    allocations?: any[];
     allow_fractional_quantities?: boolean;
     archived_at?: string;
+    charge_id?: number;
     component?: Record<string, any>;
     component_handle?: string;
     component_id?: number;
     created_at?: string;
     currency?: string;
     description?: string;
+    direction?: string;
     display_on_hosted_page?: boolean;
     downgrade_credit?: any;
     enabled?: boolean;
+    end_date?: string;
+    existing_balance_in_cents?: number;
+    expires_at?: string;
     historic_usages?: any[];
     id?: number;
+    initiate_dunning?: boolean;
     interval?: number;
     interval_unit?: any;
     kind?: any;
+    line_items?: any[];
+    memo?: string;
     name?: string;
+    overage_quantity?: number;
+    payment?: any;
+    period_type?: string;
+    previous_price_point_id?: number;
+    previous_quantity?: any;
     price_point_handle?: string;
     price_point_id?: number;
     price_point_name?: string;
@@ -1971,15 +2538,25 @@ export interface SubscriptionComponent {
     pricing_scheme?: any;
     product_family_handle?: string;
     product_family_id?: number;
+    proration_downgrade_scheme?: string;
+    proration_scheme?: string;
+    proration_upgrade_scheme?: string;
+    quantity?: any;
     recurring?: boolean;
-    subscription?: Record<string, any>;
+    start_date?: string;
+    subscription?: any;
     subscription_id?: number;
+    subtotal_in_cents?: number;
+    timestamp?: string;
+    total_discount_in_cents?: number;
+    total_in_cents?: number;
+    total_tax_in_cents?: number;
     unit_balance?: any;
     unit_name?: string;
     updated_at?: string;
     upgrade_charge?: any;
-    usage?: Record<string, any>;
     use_site_exchange_rate?: boolean;
+    used_quantity?: number;
 }
 export interface SubscriptionComponentLoadMatch {
     component_id: number;
@@ -2004,26 +2581,40 @@ export interface SubscriptionComponentListMatch {
 export interface SubscriptionComponentCreateData {
     api_handle: string;
     store_uid?: string;
+    accrue_charge?: boolean;
     allocated_quantity?: any;
-    allocation?: Record<string, any>;
-    allocation_preview?: Record<string, any>;
+    allocation_id?: number;
+    allocations?: any[];
     allow_fractional_quantities?: boolean;
     archived_at?: string;
+    charge_id?: number;
     component?: Record<string, any>;
     component_handle?: string;
     component_id?: number;
     created_at?: string;
     currency?: string;
     description?: string;
+    direction?: string;
     display_on_hosted_page?: boolean;
     downgrade_credit?: any;
     enabled?: boolean;
+    end_date?: string;
+    existing_balance_in_cents?: number;
+    expires_at?: string;
     historic_usages?: any[];
     id?: number;
+    initiate_dunning?: boolean;
     interval?: number;
     interval_unit?: any;
     kind?: any;
+    line_items?: any[];
+    memo?: string;
     name?: string;
+    overage_quantity?: number;
+    payment?: any;
+    period_type?: string;
+    previous_price_point_id?: number;
+    previous_quantity?: any;
     price_point_handle?: string;
     price_point_id?: number;
     price_point_name?: string;
@@ -2031,15 +2622,25 @@ export interface SubscriptionComponentCreateData {
     pricing_scheme?: any;
     product_family_handle?: string;
     product_family_id?: number;
+    proration_downgrade_scheme?: string;
+    proration_scheme?: string;
+    proration_upgrade_scheme?: string;
+    quantity?: any;
     recurring?: boolean;
-    subscription?: Record<string, any>;
+    start_date?: string;
+    subscription?: any;
     subscription_id?: number;
+    subtotal_in_cents?: number;
+    timestamp?: string;
+    total_discount_in_cents?: number;
+    total_in_cents?: number;
+    total_tax_in_cents?: number;
     unit_balance?: any;
     unit_name?: string;
     updated_at?: string;
     upgrade_charge?: any;
-    usage?: Record<string, any>;
     use_site_exchange_rate?: boolean;
+    used_quantity?: number;
     $action?: string;
     [action: string]: any;
 }
@@ -2047,25 +2648,38 @@ export interface SubscriptionComponentUpdateData {
     allocation_id: number;
     component_id: number;
     subscription_id: number;
+    accrue_charge?: boolean;
     allocated_quantity?: any;
-    allocation?: Record<string, any>;
-    allocation_preview?: Record<string, any>;
+    allocations?: any[];
     allow_fractional_quantities?: boolean;
     archived_at?: string;
+    charge_id?: number;
     component?: Record<string, any>;
     component_handle?: string;
     created_at?: string;
     currency?: string;
     description?: string;
+    direction?: string;
     display_on_hosted_page?: boolean;
     downgrade_credit?: any;
     enabled?: boolean;
+    end_date?: string;
+    existing_balance_in_cents?: number;
+    expires_at?: string;
     historic_usages?: any[];
     id?: number;
+    initiate_dunning?: boolean;
     interval?: number;
     interval_unit?: any;
     kind?: any;
+    line_items?: any[];
+    memo?: string;
     name?: string;
+    overage_quantity?: number;
+    payment?: any;
+    period_type?: string;
+    previous_price_point_id?: number;
+    previous_quantity?: any;
     price_point_handle?: string;
     price_point_id?: number;
     price_point_name?: string;
@@ -2073,14 +2687,24 @@ export interface SubscriptionComponentUpdateData {
     pricing_scheme?: any;
     product_family_handle?: string;
     product_family_id?: number;
+    proration_downgrade_scheme?: string;
+    proration_scheme?: string;
+    proration_upgrade_scheme?: string;
+    quantity?: any;
     recurring?: boolean;
-    subscription?: Record<string, any>;
+    start_date?: string;
+    subscription?: any;
+    subtotal_in_cents?: number;
+    timestamp?: string;
+    total_discount_in_cents?: number;
+    total_in_cents?: number;
+    total_tax_in_cents?: number;
     unit_balance?: any;
     unit_name?: string;
     updated_at?: string;
     upgrade_charge?: any;
-    usage?: Record<string, any>;
     use_site_exchange_rate?: boolean;
+    used_quantity?: number;
 }
 export interface SubscriptionComponentRemoveMatch {
     allocation_id: number;
@@ -2088,10 +2712,21 @@ export interface SubscriptionComponentRemoveMatch {
     subscription_id: number;
 }
 export interface SubscriptionGroup {
+    account_balances?: Record<string, any>;
+    cancel_at_end_of_period?: boolean;
+    created_at?: string;
+    customer_id?: number;
+    group_type?: string;
     id?: string;
-    meta?: Record<string, any>;
-    subscription_group?: Record<string, any>;
-    subscription_groups?: any[];
+    next_assessment_at?: string;
+    payment_collection_method?: any;
+    payment_profile?: Record<string, any>;
+    payment_profile_id?: number;
+    primary_subscription_id?: number;
+    scheme?: number;
+    state?: string;
+    subscription_ids?: any[];
+    uid?: string;
 }
 export interface SubscriptionGroupListMatch {
     include?: any[];
@@ -2101,17 +2736,38 @@ export interface SubscriptionGroupListMatch {
     [action: string]: any;
 }
 export interface SubscriptionGroupCreateData {
+    account_balances?: Record<string, any>;
+    cancel_at_end_of_period?: boolean;
+    created_at?: string;
+    customer_id?: number;
+    group_type?: string;
     id?: string;
-    meta?: Record<string, any>;
-    subscription_group?: Record<string, any>;
-    subscription_groups?: any[];
+    next_assessment_at?: string;
+    payment_collection_method?: any;
+    payment_profile?: Record<string, any>;
+    payment_profile_id?: number;
+    primary_subscription_id?: number;
+    scheme?: number;
+    state?: string;
+    subscription_ids?: any[];
+    uid?: string;
 }
 export interface SubscriptionGroupUpdateData {
     uid: string;
+    account_balances?: Record<string, any>;
+    cancel_at_end_of_period?: boolean;
+    created_at?: string;
+    customer_id?: number;
+    group_type?: string;
     id?: string;
-    meta?: Record<string, any>;
-    subscription_group?: Record<string, any>;
-    subscription_groups?: any[];
+    next_assessment_at?: string;
+    payment_collection_method?: any;
+    payment_profile?: Record<string, any>;
+    payment_profile_id?: number;
+    primary_subscription_id?: number;
+    scheme?: number;
+    state?: string;
+    subscription_ids?: any[];
     $action?: string;
     [action: string]: any;
 }
@@ -2154,8 +2810,14 @@ export interface SubscriptionGroupStatusRemoveMatch {
     [action: string]: any;
 }
 export interface SubscriptionInvoiceAccount {
-    id?: string;
-    service_credits?: any[];
+    amount_in_cents?: number;
+    created_at?: string;
+    ending_balance_in_cents?: number;
+    entry_type?: any;
+    id?: number;
+    invoice_uid?: string;
+    memo?: string;
+    remaining_balance_in_cents?: number;
 }
 export interface SubscriptionInvoiceAccountListMatch {
     subscription_id: number;
@@ -2167,7 +2829,13 @@ export interface SubscriptionInvoiceAccountListMatch {
 }
 export interface SubscriptionInvoiceAccountCreateData {
     id: number;
-    service_credits?: any[];
+    amount_in_cents?: number;
+    created_at?: string;
+    ending_balance_in_cents?: number;
+    entry_type?: any;
+    invoice_uid?: string;
+    memo?: string;
+    remaining_balance_in_cents?: number;
     $action?: string;
     [action: string]: any;
 }
@@ -2225,20 +2893,44 @@ export interface SubscriptionNoteRemoveMatch {
     subscription_id: number;
 }
 export interface SubscriptionProduct {
+    charge_in_cents?: number;
+    credit_applied_in_cents?: number;
     id?: string;
     migration: Record<string, any>;
+    payment_due_in_cents?: number;
+    prorated_adjustment_in_cents?: number;
 }
 export interface SubscriptionProductCreateData {
     subscription_id: number;
+    charge_in_cents?: number;
+    credit_applied_in_cents?: number;
     id?: string;
     migration: Record<string, any>;
+    payment_due_in_cents?: number;
+    prorated_adjustment_in_cents?: number;
     $action?: string;
     [action: string]: any;
 }
 export interface SubscriptionRenewal {
-    id?: string;
-    scheduled_renewal_configuration?: Record<string, any>;
+    contract?: any;
+    created_at?: string;
+    decimal_quantity?: string;
+    ends_at?: string;
+    id?: number;
+    item_id?: number;
+    item_subclass?: string;
+    item_type?: string;
+    lock_in_at?: string;
+    price_point_id?: number;
+    price_point_type?: string;
+    quantity?: number;
     scheduled_renewal_configuration_item?: Record<string, any>;
+    scheduled_renewal_configuration_items?: any[];
+    site_id?: number;
+    starts_at?: string;
+    status?: string;
+    subscription_id?: number;
+    subscription_renewal_configuration_id?: number;
 }
 export interface SubscriptionRenewalLoadMatch {
     id: number;
@@ -2253,9 +2945,24 @@ export interface SubscriptionRenewalListMatch {
 export interface SubscriptionRenewalCreateData {
     scheduled_renewal_id: number;
     subscription_id: number;
-    id?: string;
-    scheduled_renewal_configuration?: Record<string, any>;
+    contract?: any;
+    created_at?: string;
+    decimal_quantity?: string;
+    ends_at?: string;
+    id?: number;
+    item_id?: number;
+    item_subclass?: string;
+    item_type?: string;
+    lock_in_at?: string;
+    price_point_id?: number;
+    price_point_type?: string;
+    quantity?: number;
     scheduled_renewal_configuration_item?: Record<string, any>;
+    scheduled_renewal_configuration_items?: any[];
+    site_id?: number;
+    starts_at?: string;
+    status?: string;
+    subscription_renewal_configuration_id?: number;
     $action?: string;
     [action: string]: any;
 }
@@ -2263,8 +2970,23 @@ export interface SubscriptionRenewalUpdateData {
     id?: number;
     scheduled_renewal_id?: number;
     subscription_id: number;
-    scheduled_renewal_configuration?: Record<string, any>;
+    contract?: any;
+    created_at?: string;
+    decimal_quantity?: string;
+    ends_at?: string;
+    item_id?: number;
+    item_subclass?: string;
+    item_type?: string;
+    lock_in_at?: string;
+    price_point_id?: number;
+    price_point_type?: string;
+    quantity?: number;
     scheduled_renewal_configuration_item?: Record<string, any>;
+    scheduled_renewal_configuration_items?: any[];
+    site_id?: number;
+    starts_at?: string;
+    status?: string;
+    subscription_renewal_configuration_id?: number;
 }
 export interface SubscriptionRenewalRemoveMatch {
     id: number;
@@ -2272,19 +2994,43 @@ export interface SubscriptionRenewalRemoveMatch {
     subscription_id: number;
 }
 export interface SubscriptionStatus {
+    existing_balance_in_cents?: number;
     id?: string;
-    renewal_preview?: Record<string, any>;
+    line_items?: any[];
+    next_assessment_at?: string;
+    subtotal_in_cents?: number;
+    total_amount_due_in_cents?: number;
+    total_discount_in_cents?: number;
+    total_in_cents?: number;
+    total_tax_in_cents?: number;
+    uncalculated_taxes?: boolean;
 }
 export interface SubscriptionStatusCreateData {
     subscription_id: number;
+    existing_balance_in_cents?: number;
     id?: string;
-    renewal_preview?: Record<string, any>;
+    line_items?: any[];
+    next_assessment_at?: string;
+    subtotal_in_cents?: number;
+    total_amount_due_in_cents?: number;
+    total_discount_in_cents?: number;
+    total_in_cents?: number;
+    total_tax_in_cents?: number;
+    uncalculated_taxes?: boolean;
     $action?: string;
     [action: string]: any;
 }
 export interface SubscriptionStatusUpdateData {
     id: number;
-    renewal_preview?: Record<string, any>;
+    existing_balance_in_cents?: number;
+    line_items?: any[];
+    next_assessment_at?: string;
+    subtotal_in_cents?: number;
+    total_amount_due_in_cents?: number;
+    total_discount_in_cents?: number;
+    total_in_cents?: number;
+    total_tax_in_cents?: number;
+    uncalculated_taxes?: boolean;
     $action?: string;
     [action: string]: any;
 }
@@ -2307,8 +3053,12 @@ export interface UsageListMatch {
     until_date?: string;
 }
 export interface Webhook {
-    endpoint?: Record<string, any>;
+    id?: number;
+    site_id?: number;
+    status?: string;
+    url?: string;
     webhook?: Record<string, any>;
+    webhook_subscriptions?: any[];
 }
 export interface WebhookListMatch {
     order?: any;
@@ -2320,14 +3070,22 @@ export interface WebhookListMatch {
     until_date?: string;
 }
 export interface WebhookCreateData {
-    endpoint?: Record<string, any>;
+    id?: number;
+    site_id?: number;
+    status?: string;
+    url?: string;
     webhook?: Record<string, any>;
+    webhook_subscriptions?: any[];
     $action?: string;
     [action: string]: any;
 }
 export interface WebhookUpdateData {
-    endpoint?: Record<string, any>;
+    id?: number;
+    site_id?: number;
+    status?: string;
+    url?: string;
     webhook?: Record<string, any>;
+    webhook_subscriptions?: any[];
     $action?: string;
     [action: string]: any;
 }

@@ -36,7 +36,7 @@ main: kit: flow: BasicComponentPricePointFlow:
         ref: "component_price_point_ref01",
         srcdatavar: "component_price_point_ref01_data",
         suffix: "_up0",
-        textfield: "archived_at"
+        textfield: "accounting_code"
       }
 
       o: "update",

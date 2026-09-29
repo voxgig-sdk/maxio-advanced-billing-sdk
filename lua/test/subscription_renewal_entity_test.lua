@@ -107,11 +107,16 @@ describe("SubscriptionRenewalEntity", function()
       ["subscription_id"] = setup.idmap["subscription_id"],
     }
 
+    local subscription_renewal_ref01_markdef_up0_name = "created_at"
+    local subscription_renewal_ref01_markdef_up0_value = "Mark01-subscription_renewal_ref01_" .. tostring(setup.now)
+    subscription_renewal_ref01_data_up0_up[subscription_renewal_ref01_markdef_up0_name] = subscription_renewal_ref01_markdef_up0_value
+
     local subscription_renewal_ref01_resdata_up0_result, err = subscription_renewal_ref01_ent:update(subscription_renewal_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local subscription_renewal_ref01_resdata_up0 = helpers.to_map(type(subscription_renewal_ref01_resdata_up0_result) == 'table' and subscription_renewal_ref01_resdata_up0_result.data_get and subscription_renewal_ref01_resdata_up0_result:data_get() or subscription_renewal_ref01_resdata_up0_result)
     assert.is_not_nil(subscription_renewal_ref01_resdata_up0)
     assert.are.equal(subscription_renewal_ref01_resdata_up0["id"], subscription_renewal_ref01_data_up0_up["id"])
+    assert.are.equal(subscription_renewal_ref01_resdata_up0[subscription_renewal_ref01_markdef_up0_name], subscription_renewal_ref01_markdef_up0_value)
 
     -- LOAD
     local subscription_renewal_ref01_match_dt0 = {

@@ -5,23 +5,310 @@ main: kit: entity: product: {
   alias: field: {}
 
   fields: {
+    accounting_code: {
+      h: "Accounting Code"
+      n: "accounting_code"
+      r: false
+      sh: "E.g., Internal ID or SKU Number"
+      t: "`$STRING`"
+    }
+    archived_at: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archived_at"
+      r: false
+      sh: "Timestamp indicating when this product was archived"
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      sh: "Timestamp indicating when this product was created"
+      t: "`$STRING`"
+    }
+    default_product_price_point_id: {
+      fo: "int32"
+      h: "Default Product Price Point Id"
+      n: "default_product_price_point_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "The product description"
+      t: "`$STRING`"
+    }
+    expiration_interval: {
+      fo: "int32"
+      h: "Expiration Interval"
+      n: "expiration_interval"
+      r: false
+      sh: "A numerical interval for the length a subscription to this product will run before it expires."
+      t: "`$INTEGER`"
+    }
+    expiration_interval_unit: {
+      h: "Expiration Interval Unit"
+      n: "expiration_interval_unit"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    features: {
+      h: "Features"
+      n: "features"
+      r: false
+      sh: "The active feature catalog items attached to this product."
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 2
+        depth: 5
+      }
+    }
+    handle: {
+      h: "Handle"
+      n: "handle"
+      r: false
+      sh: "The product API handle"
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    initial_charge_after_trial: {
+      h: "Initial Charge After Trial"
+      n: "initial_charge_after_trial"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    initial_charge_in_cents: {
+      fo: "int64"
+      h: "Initial Charge In Cents"
+      n: "initial_charge_in_cents"
+      r: false
+      sh: "The up front charge you have specified."
+      t: "`$INTEGER`"
+    }
+    interval: {
+      fo: "int32"
+      h: "Interval"
+      n: "interval"
+      r: false
+      sh: "The numerical interval."
+      t: "`$INTEGER`"
+    }
+    interval_unit: {
+      h: "Interval Unit"
+      n: "interval_unit"
+      r: false
+      t: "`$ANY`"
+    }
+    item_category: {
+      h: "Item Category"
+      n: "item_category"
+      r: false
+      sh: "One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The product name"
+      t: "`$STRING`"
+    }
+    price_in_cents: {
+      fo: "int64"
+      h: "Price In Cents"
+      n: "price_in_cents"
+      r: false
+      sh: "The product price, in integer cents"
+      t: "`$INTEGER`"
+    }
     product: {
       h: "Product"
       n: "product"
       op: {
-        create: {
-          req: false
+        list: {
+          req: true
           type: "`$OBJECT`"
         }
       }
-      r: true
+      r: false
       t: "`$OBJECT`"
+    }
+    product_family: {
+      h: "Product Family"
+      n: "product_family"
+      r: false
+      t: "`$OBJECT`"
+    }
+    product_price_point_handle: {
+      h: "Product Price Point Handle"
+      n: "product_price_point_handle"
+      r: false
+      t: "`$STRING`"
+    }
+    product_price_point_id: {
+      fo: "int32"
+      h: "Product Price Point Id"
+      n: "product_price_point_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    product_price_point_name: {
+      h: "Product Price Point Name"
+      n: "product_price_point_name"
+      r: false
+      t: "`$STRING`"
+    }
+    public_signup_pages: {
+      h: "Public Signup Pages"
+      n: "public_signup_pages"
+      r: false
+      t: "`$ARRAY`"
+    }
+    request_billing_address: {
+      h: "Request Billing Address"
+      n: "request_billing_address"
+      r: false
+      sh: "A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product."
+      t: "`$BOOLEAN`"
+    }
+    request_credit_card: {
+      h: "Request Credit Card"
+      n: "request_credit_card"
+      r: false
+      sh: "Deprecated value that can be ignored unless you have legacy hosted pages."
+      t: "`$BOOLEAN`"
+    }
+    require_billing_address: {
+      h: "Require Billing Address"
+      n: "require_billing_address"
+      r: false
+      sh: "A boolean indicating whether a billing address is required to add a payment profile, especially at signup."
+      t: "`$BOOLEAN`"
+    }
+    require_credit_card: {
+      h: "Require Credit Card"
+      n: "require_credit_card"
+      r: false
+      sh: "Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product."
+      t: "`$BOOLEAN`"
+    }
+    require_shipping_address: {
+      h: "Require Shipping Address"
+      n: "require_shipping_address"
+      r: false
+      sh: "A boolean indicating whether a shipping address is required for the customer, especially at signup."
+      t: "`$BOOLEAN`"
+    }
+    return_params: {
+      h: "Return Params"
+      n: "return_params"
+      r: false
+      t: "`$STRING`"
+    }
+    tax_code: {
+      h: "Tax Code"
+      n: "tax_code"
+      r: false
+      sh: "A string representing the tax code related to the product type."
+      t: "`$STRING`"
+    }
+    taxable: {
+      h: "Taxable"
+      n: "taxable"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    trial_interval: {
+      fo: "int32"
+      h: "Trial Interval"
+      n: "trial_interval"
+      r: false
+      sh: "A numerical interval for the length of the trial period of a subscription to this product."
+      t: "`$INTEGER`"
+    }
+    trial_interval_unit: {
+      h: "Trial Interval Unit"
+      n: "trial_interval_unit"
+      r: false
+      t: "`$ANY`"
       union: {
         branches: 2
-        count: 4
-        depth: 7
+        count: 1
+        depth: 2
       }
     }
+    trial_price_in_cents: {
+      fo: "int64"
+      h: "Trial Price In Cents"
+      n: "trial_price_in_cents"
+      r: false
+      sh: "The price of the trial period for a subscription to this product, in integer cents."
+      t: "`$INTEGER`"
+    }
+    unspsc_code: {
+      h: "Unspsc Code"
+      n: "unspsc_code"
+      r: false
+      sh: "(Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data."
+      t: "`$STRING`"
+    }
+    update_return_params: {
+      h: "Update Return Params"
+      n: "update_return_params"
+      r: false
+      sh: "The parameters will append to the url after a successful account update."
+      t: "`$STRING`"
+    }
+    update_return_url: {
+      h: "Update Return Url"
+      n: "update_return_url"
+      r: false
+      sh: "The url to which a customer will be returned after a successful account update"
+      t: "`$STRING`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      sh: "Timestamp indicating when this product was last updated"
+      t: "`$STRING`"
+    }
+    use_site_exchange_rate: {
+      h: "Use Site Exchange Rate"
+      n: "use_site_exchange_rate"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    version_number: {
+      fo: "int32"
+      h: "Version Number"
+      n: "version_number"
+      r: false
+      sh: "The version of the product"
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
   }
 
   name: "product"
@@ -66,7 +353,7 @@ main: kit: entity: product: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.product`"
           }
         }
       ]
@@ -129,7 +416,7 @@ main: kit: entity: product: {
                 ex: false
                 k: "query"
                 n: "include_feature"
-                or: "include_feature"
+                or: "include_features"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -342,7 +629,7 @@ main: kit: entity: product: {
                 ex: false
                 k: "query"
                 n: "include_feature"
-                or: "include_feature"
+                or: "include_features"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -367,7 +654,7 @@ main: kit: entity: product: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.product`"
           }
         }
         {
@@ -407,7 +694,7 @@ main: kit: entity: product: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.product`"
           }
         }
       ]
@@ -450,7 +737,7 @@ main: kit: entity: product: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.product`"
           }
         }
       ]
@@ -495,7 +782,7 @@ main: kit: entity: product: {
             req: {
               product: "`reqdata`"
             }
-            res: "`body`"
+            res: "`body.product`"
           }
         }
       ]

@@ -22,7 +22,7 @@ class ProformaInvoiceDirectTest extends TestCase
             return;
         }
         if ($setup["live"]) {
-            foreach (["proforma_invoice01"] as $_liveKey) {
+            foreach (["subscription01"] as $_liveKey) {
                 if (!isset($setup["idmap"][$_liveKey]) || $setup["idmap"][$_liveKey] === null) {
                     $this->markTestSkipped("live test needs $_liveKey via *_ENTID env var (synthetic IDs only)");
                     return;
@@ -33,13 +33,13 @@ class ProformaInvoiceDirectTest extends TestCase
 
         $params = [];
         if ($setup["live"]) {
-            $params["id"] = $setup["idmap"]["proforma_invoice01"];
+            $params["subscription_id"] = $setup["idmap"]["subscription01"];
         } else {
-            $params["id"] = "direct01";
+            $params["subscription_id"] = "direct01";
         }
 
         $result = $client->direct([
-            "path" => "api_exports/proforma_invoices/{id}/rows.json",
+            "path" => "subscriptions/{subscription_id}/proforma_invoices.json",
             "method" => "GET",
             "params" => $params,
         ]);

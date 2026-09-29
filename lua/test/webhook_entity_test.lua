@@ -84,6 +84,7 @@ describe("WebhookEntity", function()
     assert.is_nil(err)
     webhook_ref01_data = helpers.to_map(type(webhook_ref01_data_result) == 'table' and webhook_ref01_data_result.data_get and webhook_ref01_data_result:data_get() or webhook_ref01_data_result)
     assert.is_not_nil(webhook_ref01_data)
+    assert.is_not_nil(webhook_ref01_data["id"])
 
     -- LIST
     local webhook_ref01_match = {}
@@ -92,14 +93,26 @@ describe("WebhookEntity", function()
     assert.is_nil(err)
     assert.is_table(webhook_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(webhook_ref01_list_result),
+      { id = webhook_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local webhook_ref01_data_up0_up = {
+      id = webhook_ref01_data["id"],
     }
+
+    local webhook_ref01_markdef_up0_name = "status"
+    local webhook_ref01_markdef_up0_value = "Mark01-webhook_ref01_" .. tostring(setup.now)
+    webhook_ref01_data_up0_up[webhook_ref01_markdef_up0_name] = webhook_ref01_markdef_up0_value
 
     local webhook_ref01_resdata_up0_result, err = webhook_ref01_ent:update(webhook_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local webhook_ref01_resdata_up0 = helpers.to_map(type(webhook_ref01_resdata_up0_result) == 'table' and webhook_ref01_resdata_up0_result.data_get and webhook_ref01_resdata_up0_result:data_get() or webhook_ref01_resdata_up0_result)
     assert.is_not_nil(webhook_ref01_resdata_up0)
+    assert.are.equal(webhook_ref01_resdata_up0["id"], webhook_ref01_data_up0_up["id"])
+    assert.are.equal(webhook_ref01_resdata_up0[webhook_ref01_markdef_up0_name], webhook_ref01_markdef_up0_value)
 
   end)
 end)

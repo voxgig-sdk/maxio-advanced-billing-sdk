@@ -30,7 +30,8 @@ main: kit: flow: BasicWebhookFlow:
       i: {
         ref: "webhook_ref01",
         srcdatavar: "webhook_ref01_data",
-        suffix: "_up0"
+        suffix: "_up0",
+        textfield: "status"
       }
 
       o: "update",

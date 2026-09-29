@@ -518,14 +518,6 @@ func (sdk *MaxioAdvancedBillingSDK) Invoice(data map[string]any) MaxioAdvancedBi
 }
 
 
-// ListProformaInvoice returns a ListProformaInvoice entity bound to this client.
-// Idiomatic usage: client.ListProformaInvoice(nil).List(nil, nil) or
-// client.ListProformaInvoice(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MaxioAdvancedBillingSDK) ListProformaInvoice(data map[string]any) MaxioAdvancedBillingEntity {
-	return NewListProformaInvoiceEntityFunc(sdk, data)
-}
-
-
 // ListSaleRepItem returns a ListSaleRepItem entity bound to this client.
 // Idiomatic usage: client.ListSaleRepItem(nil).List(nil, nil) or
 // client.ListSaleRepItem(nil).Load(map[string]any{"id": ...}, nil).

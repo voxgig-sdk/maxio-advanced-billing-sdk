@@ -87,6 +87,7 @@ describe("ProductEntity", function()
     assert.is_nil(err)
     product_ref01_data = helpers.to_map(type(product_ref01_data_result) == 'table' and product_ref01_data_result.data_get and product_ref01_data_result:data_get() or product_ref01_data_result)
     assert.is_not_nil(product_ref01_data)
+    assert.is_not_nil(product_ref01_data["id"])
 
     -- LIST
     local product_ref01_match = {
@@ -97,22 +98,44 @@ describe("ProductEntity", function()
     assert.is_nil(err)
     assert.is_table(product_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(product_ref01_list_result),
+      { id = product_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local product_ref01_data_up0_up = {
+      id = product_ref01_data["id"],
       ["product_id"] = setup.idmap["product_id"],
     }
+
+    local product_ref01_markdef_up0_name = "accounting_code"
+    local product_ref01_markdef_up0_value = "Mark01-product_ref01_" .. tostring(setup.now)
+    product_ref01_data_up0_up[product_ref01_markdef_up0_name] = product_ref01_markdef_up0_value
 
     local product_ref01_resdata_up0_result, err = product_ref01_ent:update(product_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local product_ref01_resdata_up0 = helpers.to_map(type(product_ref01_resdata_up0_result) == 'table' and product_ref01_resdata_up0_result.data_get and product_ref01_resdata_up0_result:data_get() or product_ref01_resdata_up0_result)
     assert.is_not_nil(product_ref01_resdata_up0)
+    assert.are.equal(product_ref01_resdata_up0["id"], product_ref01_data_up0_up["id"])
+    assert.are.equal(product_ref01_resdata_up0[product_ref01_markdef_up0_name], product_ref01_markdef_up0_value)
 
     -- LOAD
-    local product_ref01_match_dt0 = {}
+    local product_ref01_match_dt0 = {
+      id = product_ref01_data["id"],
+    }
     local product_ref01_data_dt0_loaded, err = product_ref01_ent:load(product_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(product_ref01_data_dt0_loaded)
+    local product_ref01_data_dt0_load_result = helpers.to_map(type(product_ref01_data_dt0_loaded) == 'table' and product_ref01_data_dt0_loaded.data_get and product_ref01_data_dt0_loaded:data_get() or product_ref01_data_dt0_loaded)
+    assert.is_not_nil(product_ref01_data_dt0_load_result)
+    assert.are.equal(product_ref01_data_dt0_load_result["id"], product_ref01_data["id"])
 
+    -- REMOVE
+    local product_ref01_match_rm0 = {
+      id = product_ref01_data["id"],
+    }
+    local _, err = product_ref01_ent:remove(product_ref01_match_rm0, nil)
+    assert.is_nil(err)
 
     -- LIST
     local product_ref01_match_rt0 = {
@@ -122,6 +145,11 @@ describe("ProductEntity", function()
     local product_ref01_list_rt0_result, err = product_ref01_ent:list(product_ref01_match_rt0, nil)
     assert.is_nil(err)
     assert.is_table(product_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(product_ref01_list_rt0_result),
+      { id = product_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)

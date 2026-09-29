@@ -138,10 +138,6 @@ Create a new `InsightEntity` instance. Pass `None` for no initial data.
 
 Create a new `InvoiceEntity` instance. Pass `None` for no initial data.
 
-#### `ListProformaInvoice(data=None)`
-
-Create a new `ListProformaInvoiceEntity` instance. Pass `None` for no initial data.
-
 #### `ListSaleRepItem(data=None)`
 
 Create a new `ListSaleRepItemEntity` instance. Pass `None` for no initial data.
@@ -573,13 +569,87 @@ component = client.Component()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `accounting_code` | `str` | No | E.g. |
+| `allow_fractional_quantities` | `bool` | No |  |
+| `archived` | `bool` | No | Boolean flag describing whether a component is archived or not. |
+| `archived_at` | `str` | No | Timestamp indicating when this component was archived |
 | `component` | `dict` | No |  |
+| `created_at` | `str` | No | Timestamp indicating when this component was created |
+| `default_price_point_id` | `int` | No |  |
+| `default_price_point_name` | `str` | No |  |
+| `description` | `str` | No | The description of the component. |
+| `downgrade_credit` | `Any` | No |  |
+| `event_based_billing_metric_id` | `int` | No | (Only for Event Based Components) This is an ID of a metric attached to the component. |
+| `features` | `list` | No | The active feature catalog items attached to this component. |
+| `handle` | `str` | No | The component API handle |
+| `hide_date_range_on_invoice` | `bool` | No | (Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices. |
+| `id` | `int` | No | The unique ID assigned to the component by Chargify. |
+| `interval` | `int` | No | The numerical interval. |
+| `interval_unit` | `Any` | No |  |
+| `item_category` | `Any` | No |  |
+| `kind` | `Any` | No |  |
+| `name` | `str` | No | The name of the Component, suitable for display on statements. |
+| `overage_prices` | `list` | No | Applicable only to prepaid usage components. |
+| `price_per_unit_in_cents` | `int` | No | deprecated - use unit_price instead. |
+| `price_point_count` | `int` | No | Count for the number of price points associated with the component |
+| `price_points_url` | `str` | No | URL that points to the location to read the existing price points via GET request |
+| `prices` | `list` | No | An array of price brackets. |
+| `pricing_scheme` | `Any` | No |  |
+| `product_family_handle` | `str` | No | The handle of the Product Family to which the Component belongs |
+| `product_family_id` | `int` | No | The id of the Product Family to which the Component belongs |
+| `product_family_name` | `str` | No | The name of the Product Family to which the Component belongs |
+| `recurring` | `bool` | No |  |
+| `tax_code` | `str` | No | A string representing the tax code related to the component type. |
+| `taxable` | `bool` | No | Boolean flag describing whether a component is taxable or not. |
+| `unit_name` | `str` | No | The name of the unit that the component’s usage is measured in. |
+| `unit_price` | `str` | No | The amount the customer will be charged per unit. |
+| `unspsc_code` | `str` | No | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `updated_at` | `str` | No | Timestamp indicating when this component was updated |
+| `upgrade_charge` | `Any` | No |  |
+| `use_site_exchange_rate` | `bool` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
+| `accounting_code` | - | - | - | - | - |
+| `allow_fractional_quantities` | - | - | - | - | - |
+| `archived` | - | - | - | - | - |
+| `archived_at` | - | - | - | - | - |
 | `component` | - | Yes | - | - | - |
+| `created_at` | - | - | - | - | - |
+| `default_price_point_id` | - | - | - | - | - |
+| `default_price_point_name` | - | - | - | - | - |
+| `description` | - | - | - | - | - |
+| `downgrade_credit` | - | - | - | - | - |
+| `event_based_billing_metric_id` | - | - | - | - | - |
+| `features` | - | - | - | - | - |
+| `handle` | - | - | - | - | - |
+| `hide_date_range_on_invoice` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `interval` | - | - | - | - | - |
+| `interval_unit` | - | - | - | - | - |
+| `item_category` | - | - | - | - | - |
+| `kind` | - | - | - | - | - |
+| `name` | - | - | - | - | - |
+| `overage_prices` | - | - | - | - | - |
+| `price_per_unit_in_cents` | - | - | - | - | - |
+| `price_point_count` | - | - | - | - | - |
+| `price_points_url` | - | - | - | - | - |
+| `prices` | - | - | - | - | - |
+| `pricing_scheme` | - | - | - | - | - |
+| `product_family_handle` | - | - | - | - | - |
+| `product_family_id` | - | - | - | - | - |
+| `product_family_name` | - | - | - | - | - |
+| `recurring` | - | - | - | - | - |
+| `tax_code` | - | - | - | - | - |
+| `taxable` | - | - | - | - | - |
+| `unit_name` | - | - | - | - | - |
+| `unit_price` | - | - | - | - | - |
+| `unspsc_code` | - | - | - | - | - |
+| `updated_at` | - | - | - | - | - |
+| `upgrade_charge` | - | - | - | - | - |
+| `use_site_exchange_rate` | - | - | - | - | - |
 
 ### Operations
 
@@ -720,63 +790,56 @@ component_price_point = client.ComponentPricePoint()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `archived_at` | `str` | No |  |
-| `component` | `dict` | Yes |  |
+| `accounting_code` | `str` | No | E.g. |
+| `allow_fractional_quantities` | `bool` | No |  |
+| `archived` | `bool` | No | Boolean flag describing whether a component is archived or not. |
+| `archived_at` | `str` | No | Timestamp indicating when this component was archived |
 | `component_id` | `int` | No |  |
-| `created_at` | `str` | No |  |
+| `created_at` | `str` | No | Timestamp indicating when this component was created |
 | `currency_prices` | `list` | No | An array of currency pricing data is available when multiple currencies are defined for the site. |
 | `default` | `bool` | No | Note: Refer to type attribute instead. |
+| `default_price_point_id` | `int` | No |  |
+| `default_price_point_name` | `str` | No |  |
+| `description` | `str` | No | The description of the component. |
+| `downgrade_credit` | `Any` | No |  |
+| `event_based_billing_metric_id` | `int` | No | (Only for Event Based Components) This is an ID of a metric attached to the component. |
 | `expiration_interval` | `int` | No | Applicable only to prepaid usage components where rollover_prepaid_remainder is true. |
 | `expiration_interval_unit` | `Any` | No |  |
-| `handle` | `str` | No |  |
-| `id` | `int` | No |  |
+| `features` | `list` | No | The active feature catalog items attached to this component. |
+| `handle` | `str` | No | The component API handle |
+| `hide_date_range_on_invoice` | `bool` | No | (Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices. |
+| `id` | `int` | No | The unique ID assigned to the component by Chargify. |
 | `interval` | `int` | No | The numerical interval. |
 | `interval_unit` | `Any` | No |  |
-| `name` | `str` | No |  |
+| `item_category` | `Any` | No |  |
+| `kind` | `Any` | No |  |
+| `name` | `str` | No | The name of the Component, suitable for display on statements. |
 | `overage_prices` | `list` | No | Applicable only to prepaid usage components. |
 | `overage_pricing_scheme` | `Any` | No |  |
+| `price_per_unit_in_cents` | `int` | No | deprecated - use unit_price instead. |
 | `price_point` | `dict` | No |  |
+| `price_point_count` | `int` | No | Count for the number of price points associated with the component |
 | `price_points` | `list` | No |  |
-| `prices` | `list` | No |  |
+| `price_points_url` | `str` | No | URL that points to the location to read the existing price points via GET request |
+| `prices` | `list` | No | An array of price brackets. |
 | `pricing_scheme` | `Any` | No |  |
+| `product_family_handle` | `str` | No | The handle of the Product Family to which the Component belongs |
+| `product_family_id` | `int` | No | The id of the Product Family to which the Component belongs |
+| `product_family_name` | `str` | No | The name of the Product Family to which the Component belongs |
+| `recurring` | `bool` | No |  |
 | `renew_prepaid_allocation` | `bool` | No | Applicable only to prepaid usage components. |
 | `rollover_prepaid_remainder` | `bool` | No | Applicable only to prepaid usage components. |
 | `subscription_id` | `int` | No | (only used for Custom Pricing - ie. |
+| `tax_code` | `str` | No | A string representing the tax code related to the component type. |
 | `tax_included` | `bool` | No |  |
+| `taxable` | `bool` | No | Boolean flag describing whether a component is taxable or not. |
 | `type` | `Any` | No |  |
-| `updated_at` | `str` | No |  |
+| `unit_name` | `str` | No | The name of the unit that the component’s usage is measured in. |
+| `unit_price` | `str` | No | The amount the customer will be charged per unit. |
+| `unspsc_code` | `str` | No | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `updated_at` | `str` | No | Timestamp indicating when this component was updated |
+| `upgrade_charge` | `Any` | No |  |
 | `use_site_exchange_rate` | `bool` | No | Whether to use the site level exchange rate or define your own prices for each currency if you have multiple currencies defined on the site. |
-
-### Field Usage by Operation
-
-| Field | list | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `archived_at` | - | - | - | - |
-| `component` | - | - | - | - |
-| `component_id` | - | - | - | - |
-| `created_at` | - | - | - | - |
-| `currency_prices` | - | - | - | - |
-| `default` | - | - | - | - |
-| `expiration_interval` | - | - | - | - |
-| `expiration_interval_unit` | - | - | - | - |
-| `handle` | - | - | - | - |
-| `id` | - | - | - | - |
-| `interval` | - | - | - | - |
-| `interval_unit` | - | - | - | - |
-| `name` | - | - | - | - |
-| `overage_prices` | - | - | - | - |
-| `overage_pricing_scheme` | - | - | - | - |
-| `price_point` | - | - | Yes | - |
-| `price_points` | Yes | - | - | - |
-| `prices` | - | - | - | - |
-| `pricing_scheme` | - | - | - | - |
-| `renew_prepaid_allocation` | - | - | - | - |
-| `rollover_prepaid_remainder` | - | - | - | - |
-| `subscription_id` | - | - | - | - |
-| `tax_included` | - | - | - | - |
-| `type` | - | - | - | - |
-| `updated_at` | - | - | - | - |
-| `use_site_exchange_rate` | - | - | - | - |
 
 ### Operations
 
@@ -787,7 +850,6 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.ComponentPricePoint().create({
     "id": 1,  # int
-    "component": {},  # dict
 })
 ```
 
@@ -1225,8 +1287,7 @@ custom_field = client.CustomField()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `current_page` | `int` | No |  |
-| `data_count` | `int` | No |  |
+| `data_count` | `int` | No | The amount of subscriptions this metafield has been applied to in Advanced Billing. |
 | `deleted_at` | `str` | No |  |
 | `enum` | `str` | No |  |
 | `id` | `int` | No |  |
@@ -1235,11 +1296,8 @@ custom_field = client.CustomField()
 | `metafield_id` | `int` | No |  |
 | `metafields` | `Any` | No |  |
 | `name` | `str` | No |  |
-| `per_page` | `int` | No |  |
 | `resource_id` | `int` | No |  |
 | `scope` | `dict` | No |  |
-| `total_count` | `int` | No |  |
-| `total_pages` | `int` | No |  |
 | `value` | `str` | No |  |
 
 ### Operations
@@ -1330,7 +1388,7 @@ customer = client.Customer()
 | `country` | `str` | No | The customer shipping address country |
 | `country_name` | `str` | No | The customer's full name of country |
 | `created_at` | `str` | No | The timestamp in which the customer object was created in Chargify |
-| `customer` | `dict` | No |  |
+| `customer` | `dict` | Yes |  |
 | `default_auto_renewal_profile_id` | `int` | No | The default auto-renewal profile ID for the customer |
 | `default_subscription_group_uid` | `str` | No |  |
 | `email` | `str` | No | The email address of the customer |
@@ -1360,48 +1418,6 @@ customer = client.Customer()
 | `verified` | `bool` | No | Is the customer verified to use ACH as a payment method. |
 | `zip` | `str` | No | The customer’s shipping address zip code (e.g., “12345”) |
 
-### Field Usage by Operation
-
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `address` | - | - | - | - | - |
-| `address_2` | - | - | - | - | - |
-| `branding_theme_id` | - | - | - | - | - |
-| `cc_emails` | - | - | - | - | - |
-| `city` | - | - | - | - | - |
-| `country` | - | - | - | - | - |
-| `country_name` | - | - | - | - | - |
-| `created_at` | - | - | - | - | - |
-| `customer` | - | Yes | - | - | - |
-| `default_auto_renewal_profile_id` | - | - | - | - | - |
-| `default_subscription_group_uid` | - | - | - | - | - |
-| `email` | - | - | - | - | - |
-| `entity_identifier_kind` | - | - | - | - | - |
-| `entity_identifier_value` | - | - | - | - | - |
-| `first_name` | - | - | - | - | - |
-| `id` | - | - | - | - | - |
-| `last_name` | - | - | - | - | - |
-| `locale` | - | - | - | - | - |
-| `maxioid` | - | - | - | - | - |
-| `organization` | - | - | - | - | - |
-| `parent_id` | - | - | - | - | - |
-| `phone` | - | - | - | - | - |
-| `portal_customer_created_at` | - | - | - | - | - |
-| `portal_invite_last_accepted_at` | - | - | - | - | - |
-| `portal_invite_last_sent_at` | - | - | - | - | - |
-| `reference` | - | - | - | - | - |
-| `salesforce_id` | - | - | - | - | - |
-| `state` | - | - | - | - | - |
-| `state_name` | - | - | - | - | - |
-| `surcharging` | - | - | - | - | - |
-| `tax_exempt` | - | - | - | - | - |
-| `tax_exempt_reason` | - | - | - | - | - |
-| `updated_at` | - | - | - | - | - |
-| `vat_country` | - | - | - | - | - |
-| `vat_number` | - | - | - | - | - |
-| `verified` | - | - | - | - | - |
-| `zip` | - | - | - | - | - |
-
 ### Operations
 
 #### `create(reqdata, ctrl=None) -> dict`
@@ -1410,6 +1426,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Customer().create({
+    "customer": {},  # dict
 })
 ```
 
@@ -1780,45 +1797,61 @@ feature = client.Feature()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `archived_at` | `str` | No |  |
-| `archived_count` | `int` | Yes | Number of archived feature templates matching the filters. |
+| `archived_at` | `str` | No | The date and time the feature template was archived, or `null` if it is active. |
 | `created_at` | `str` | No |  |
+| `default_periodicity_interval` | `int` | No | For `usage_limit` features, the default periodicity interval used to pre-populate new feature catalog items. |
+| `default_periodicity_unit` | `Any` | No |  |
+| `default_value` | `str` | No | A default value used to pre-populate new feature catalog items created from this template. |
+| `description` | `str` | No |  |
 | `feature` | `dict` | Yes |  |
 | `feature_key` | `str` | No | The `key` of the parent feature template. |
 | `feature_kind` | `Any` | No |  |
 | `feature_name` | `str` | No | The `name` of the parent feature template. |
 | `feature_template_id` | `int` | No | The id of the feature template this item was created from. |
-| `id` | `int` | No |  |
-| `items` | `list` | Yes |  |
+| `id` | `int` | No | The Advanced Billing id of the feature template. |
+| `key` | `str` | No | A unique, lowercase, underscore-separated identifier for the feature. |
+| `kind` | `Any` | No |  |
+| `name` | `str` | No | The display name of the feature. |
 | `periodicity_interval` | `int` | No | Set when `feature_kind` is `usage_limit`; `null` otherwise. |
 | `periodicity_unit` | `Any` | No |  |
+| `plans_count` | `int` | No | The number of **products** this feature template is currently attached to via an active feature catalog item. |
 | `price_point_id` | `int` | No | Set together with `price_point_type` for price-point-specific overrides. |
 | `price_point_type` | `Any` | No |  |
-| `total_count` | `int` | Yes | Total number of feature templates matching the filters, across all pages. |
+| `products_count` | `int` | No | The number of **components** this feature template is currently attached to via an active feature catalog item. |
+| `unit` | `str` | No | The unit the feature is measured in (for example, `requests` or `GB`). |
 | `updated_at` | `str` | No |  |
 | `value` | `str` | No | The value granted by this feature catalog item. |
+| `value_type` | `Any` | No |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
 | `archived_at` | - | - |
-| `archived_count` | - | - |
 | `created_at` | - | - |
+| `default_periodicity_interval` | - | - |
+| `default_periodicity_unit` | - | - |
+| `default_value` | - | - |
+| `description` | - | - |
 | `feature` | - | Yes |
 | `feature_key` | - | - |
 | `feature_kind` | - | - |
 | `feature_name` | - | - |
 | `feature_template_id` | - | - |
 | `id` | - | - |
-| `items` | - | - |
+| `key` | - | - |
+| `kind` | - | - |
+| `name` | - | - |
 | `periodicity_interval` | - | - |
 | `periodicity_unit` | - | - |
+| `plans_count` | - | - |
 | `price_point_id` | - | - |
 | `price_point_type` | - | - |
-| `total_count` | - | - |
+| `products_count` | - | - |
+| `unit` | - | - |
 | `updated_at` | - | - |
 | `value` | - | - |
+| `value_type` | - | - |
 
 ### Operations
 
@@ -1828,10 +1861,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Feature().create({
-    "archived_count": 1,  # int
     "feature": {},  # dict
-    "items": [],  # list
-    "total_count": 1,  # int
 })
 ```
 
@@ -2066,12 +2096,22 @@ insight = client.Insight()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mrr` | `dict` | Yes |  |
+| `amount_formatted` | `str` | No |  |
+| `amount_in_cents` | `int` | No |  |
+| `at_time` | `str` | No | ISO8601 timestamp |
+| `breakouts` | `dict` | No |  |
+| `currency` | `str` | No |  |
+| `currency_symbol` | `str` | No |  |
+| `movements` | `list` | No |  |
+| `page` | `int` | No |  |
+| `per_page` | `int` | No |  |
 | `seller_name` | `str` | No |  |
 | `site_currency` | `str` | No |  |
 | `site_id` | `int` | No |  |
 | `site_name` | `str` | No |  |
 | `stats` | `dict` | No |  |
+| `total_entries` | `int` | No |  |
+| `total_pages` | `int` | No |  |
 
 ### Operations
 
@@ -2132,7 +2172,6 @@ invoice = client.Invoice()
 | `consolidation_level` | `Any` | No |  |
 | `created_at` | `str` | No |  |
 | `credit_amount` | `str` | No | The amount of credit (from credit notes) applied to this invoice. |
-| `credit_notes` | `list` | Yes |  |
 | `credits` | `list` | No |  |
 | `currency` | `str` | No | The ISO 4217 currency code (3 character string) representing the currency of invoice transaction. |
 | `custom_fields` | `list` | No |  |
@@ -2147,8 +2186,6 @@ invoice = client.Invoice()
 | `due_date` | `str` | No | Date the invoice is due. |
 | `group_primary_subscription_id` | `int` | No | For invoices with `consolidation_level` of `parent`, this specifies the ID of the subscription which was the primary subscription of the subscription group that generated the invoice. |
 | `id` | `int` | No |  |
-| `invoice` | `dict` | No |  |
-| `invoices` | `list` | Yes |  |
 | `issue_date` | `str` | No | Date the invoice was issued to the customer. |
 | `line_items` | `list` | No | Line items on the invoice. |
 | `memo` | `str` | No | The memo printed on invoices of any collection type. |
@@ -2200,8 +2237,6 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.Invoice().create({
     "subscription_id": 1,  # int
-    "credit_notes": [],  # list
-    "invoices": [],  # list
     "void": {},  # dict
 })
 ```
@@ -2257,95 +2292,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `InvoiceEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListProformaInvoiceEntity
-
-```python
-list_proforma_invoice = client.ListProformaInvoice()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `available_actions` | `dict` | No |  |
-| `billing_address` | `dict` | No |  |
-| `collection_method` | `Any` | No |  |
-| `consolidation_level` | `Any` | No |  |
-| `created_at` | `str` | No |  |
-| `credit_amount` | `str` | No |  |
-| `credits` | `list` | No |  |
-| `currency` | `str` | No |  |
-| `custom_fields` | `list` | No |  |
-| `customer` | `Any` | No |  |
-| `customer_id` | `int` | No |  |
-| `delivery_date` | `str` | No |  |
-| `discount_amount` | `str` | No |  |
-| `discounts` | `list` | No |  |
-| `due_amount` | `str` | No |  |
-| `line_items` | `list` | No |  |
-| `memo` | `str` | No |  |
-| `number` | `int` | No |  |
-| `paid_amount` | `str` | No |  |
-| `payment_instructions` | `str` | No |  |
-| `payments` | `list` | No |  |
-| `product_family_name` | `str` | No |  |
-| `product_name` | `str` | No |  |
-| `public_url` | `str` | No |  |
-| `refund_amount` | `str` | No |  |
-| `role` | `Any` | No |  |
-| `seller` | `Any` | No |  |
-| `sequence_number` | `int` | No |  |
-| `shipping_address` | `dict` | No |  |
-| `site_id` | `int` | No |  |
-| `status` | `str` | No |  |
-| `subscription_id` | `int` | No |  |
-| `subtotal_amount` | `str` | No |  |
-| `tax_amount` | `str` | No |  |
-| `taxes` | `list` | No |  |
-| `total_amount` | `str` | No |  |
-| `uid` | `str` | No |  |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListProformaInvoice().list({"subscription_id": 1})
-for list_proforma_invoice in results:
-    print(list_proforma_invoice)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListProformaInvoiceEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -2519,7 +2465,6 @@ offer = client.Offer()
 | `offer_discounts` | `list` | No |  |
 | `offer_items` | `list` | No |  |
 | `offer_signup_pages` | `list` | No |  |
-| `offers` | `list` | No |  |
 | `product_family_id` | `int` | No |  |
 | `product_family_name` | `str` | No |  |
 | `product_id` | `int` | No |  |
@@ -2655,15 +2600,71 @@ payment_profile = client.PaymentProfile()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | No |  |
-| `payment_profile` | `dict` | No |  |
+| `bank_account_holder_type` | `Any` | No |  |
+| `bank_account_type` | `Any` | No |  |
+| `bank_name` | `str` | No | The bank where the account resides |
+| `billing_address` | `str` | No | The current billing street address for the bank account |
+| `billing_address_2` | `str` | No | The current billing street address, second line, for the bank account |
+| `billing_city` | `str` | No | The current billing address city for the bank account |
+| `billing_country` | `str` | No | The current billing address country for the bank account |
+| `billing_state` | `str` | No | The current billing address state for the bank account |
+| `billing_zip` | `str` | No | The current billing address zip code for the bank account |
+| `card_type` | `str` | No |  |
+| `created_at` | `str` | No | A timestamp indicating when this payment profile was created |
+| `current_vault` | `str` | No |  |
+| `customer_id` | `int` | No | The Chargify-assigned ID for the customer record to which the bank account belongs |
+| `customer_vault_token` | `str` | No | (only for Authorize.Net CIM storage): the customerProfileId for the owner of the customerPaymentProfileId provided as the vault_token. |
+| `disabled` | `bool` | No |  |
+| `expiration_month` | `int` | No |  |
+| `expiration_year` | `int` | No |  |
+| `first_name` | `str` | No | The first name of the bank account holder |
+| `gateway_handle` | `str` | No |  |
+| `id` | `int` | No | The Chargify-assigned ID of the stored bank account. |
+| `last_name` | `str` | No | The last name of the bank account holder |
+| `masked_bank_account_number` | `str` | No | A string representation of the stored bank account number with all but the last 4 digits marked with X's (i.e. |
+| `masked_bank_routing_number` | `str` | No | A string representation of the stored bank routing number with all but the last 4 digits marked with X's (i.e. |
+| `masked_card_number` | `str` | No |  |
+| `payment_profile` | `Any` | Yes |  |
+| `payment_type` | `str` | No |  |
+| `site_gateway_setting_id` | `int` | No |  |
+| `updated_at` | `str` | No | A timestamp indicating when this payment profile was last updated |
+| `vault_token` | `str` | No | The "token" provided by your vault storage for an already stored payment profile |
+| `verified` | `bool` | No | Denotes whether a bank account has been verified by providing the amounts of two small deposits made into the account. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
+| `bank_account_holder_type` | - | - | - | - | - |
+| `bank_account_type` | - | - | - | - | - |
+| `bank_name` | - | - | - | - | - |
+| `billing_address` | - | - | - | - | - |
+| `billing_address_2` | - | - | - | - | - |
+| `billing_city` | - | - | - | - | - |
+| `billing_country` | - | - | - | - | - |
+| `billing_state` | - | - | - | - | - |
+| `billing_zip` | - | - | - | - | - |
+| `card_type` | - | - | - | - | - |
+| `created_at` | - | - | - | - | - |
+| `current_vault` | - | - | - | - | - |
+| `customer_id` | - | - | - | - | - |
+| `customer_vault_token` | - | - | - | - | - |
+| `disabled` | - | - | - | - | - |
+| `expiration_month` | - | - | - | - | - |
+| `expiration_year` | - | - | - | - | - |
+| `first_name` | - | - | - | - | - |
+| `gateway_handle` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
-| `payment_profile` | - | Yes | - | - | - |
+| `last_name` | - | - | - | - | - |
+| `masked_bank_account_number` | - | - | - | - | - |
+| `masked_bank_routing_number` | - | - | - | - | - |
+| `masked_card_number` | - | - | - | - | - |
+| `payment_profile` | - | - | - | - | - |
+| `payment_type` | - | - | - | Yes | - |
+| `site_gateway_setting_id` | - | - | - | - | - |
+| `updated_at` | - | - | - | - | - |
+| `vault_token` | - | - | - | - | - |
+| `verified` | - | - | - | - | - |
 
 ### Operations
 
@@ -2673,6 +2674,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.PaymentProfile().create({
+    "payment_profile": "example_payment_profile",  # Any
 })
 ```
 
@@ -2806,13 +2808,91 @@ product = client.Product()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `product` | `dict` | Yes |  |
+| `accounting_code` | `str` | No | E.g., Internal ID or SKU Number |
+| `archived_at` | `str` | No | Timestamp indicating when this product was archived |
+| `created_at` | `str` | No | Timestamp indicating when this product was created |
+| `default_product_price_point_id` | `int` | No |  |
+| `description` | `str` | No | The product description |
+| `expiration_interval` | `int` | No | A numerical interval for the length a subscription to this product will run before it expires. |
+| `expiration_interval_unit` | `Any` | No |  |
+| `features` | `list` | No | The active feature catalog items attached to this product. |
+| `handle` | `str` | No | The product API handle |
+| `id` | `int` | No |  |
+| `initial_charge_after_trial` | `bool` | No |  |
+| `initial_charge_in_cents` | `int` | No | The up front charge you have specified. |
+| `interval` | `int` | No | The numerical interval. |
+| `interval_unit` | `Any` | No |  |
+| `item_category` | `str` | No | One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other |
+| `name` | `str` | No | The product name |
+| `price_in_cents` | `int` | No | The product price, in integer cents |
+| `product` | `dict` | No |  |
+| `product_family` | `dict` | No |  |
+| `product_price_point_handle` | `str` | No |  |
+| `product_price_point_id` | `int` | No |  |
+| `product_price_point_name` | `str` | No |  |
+| `public_signup_pages` | `list` | No |  |
+| `request_billing_address` | `bool` | No | A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product. |
+| `request_credit_card` | `bool` | No | Deprecated value that can be ignored unless you have legacy hosted pages. |
+| `require_billing_address` | `bool` | No | A boolean indicating whether a billing address is required to add a payment profile, especially at signup. |
+| `require_credit_card` | `bool` | No | Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product. |
+| `require_shipping_address` | `bool` | No | A boolean indicating whether a shipping address is required for the customer, especially at signup. |
+| `return_params` | `str` | No |  |
+| `tax_code` | `str` | No | A string representing the tax code related to the product type. |
+| `taxable` | `bool` | No |  |
+| `trial_interval` | `int` | No | A numerical interval for the length of the trial period of a subscription to this product. |
+| `trial_interval_unit` | `Any` | No |  |
+| `trial_price_in_cents` | `int` | No | The price of the trial period for a subscription to this product, in integer cents. |
+| `unspsc_code` | `str` | No | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `update_return_params` | `str` | No | The parameters will append to the url after a successful account update. |
+| `update_return_url` | `str` | No | The url to which a customer will be returned after a successful account update |
+| `updated_at` | `str` | No | Timestamp indicating when this product was last updated |
+| `use_site_exchange_rate` | `bool` | No |  |
+| `version_number` | `int` | No | The version of the product |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `product` | - | - | Yes | - | - |
+| `accounting_code` | - | - | - | - | - |
+| `archived_at` | - | - | - | - | - |
+| `created_at` | - | - | - | - | - |
+| `default_product_price_point_id` | - | - | - | - | - |
+| `description` | - | - | - | - | - |
+| `expiration_interval` | - | - | - | - | - |
+| `expiration_interval_unit` | - | - | - | - | - |
+| `features` | - | - | - | - | - |
+| `handle` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `initial_charge_after_trial` | - | - | - | - | - |
+| `initial_charge_in_cents` | - | - | - | - | - |
+| `interval` | - | - | - | - | - |
+| `interval_unit` | - | - | - | - | - |
+| `item_category` | - | - | - | - | - |
+| `name` | - | - | - | - | - |
+| `price_in_cents` | - | - | - | - | - |
+| `product` | - | Yes | - | - | - |
+| `product_family` | - | - | - | - | - |
+| `product_price_point_handle` | - | - | - | - | - |
+| `product_price_point_id` | - | - | - | - | - |
+| `product_price_point_name` | - | - | - | - | - |
+| `public_signup_pages` | - | - | - | - | - |
+| `request_billing_address` | - | - | - | - | - |
+| `request_credit_card` | - | - | - | - | - |
+| `require_billing_address` | - | - | - | - | - |
+| `require_credit_card` | - | - | - | - | - |
+| `require_shipping_address` | - | - | - | - | - |
+| `return_params` | - | - | - | - | - |
+| `tax_code` | - | - | - | - | - |
+| `taxable` | - | - | - | - | - |
+| `trial_interval` | - | - | - | - | - |
+| `trial_interval_unit` | - | - | - | - | - |
+| `trial_price_in_cents` | - | - | - | - | - |
+| `unspsc_code` | - | - | - | - | - |
+| `update_return_params` | - | - | - | - | - |
+| `update_return_url` | - | - | - | - | - |
+| `updated_at` | - | - | - | - | - |
+| `use_site_exchange_rate` | - | - | - | - | - |
+| `version_number` | - | - | - | - | - |
 
 ### Operations
 
@@ -2823,7 +2903,6 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.Product().create({
     "product_family_id": "example_product_family_id",  # str
-    "product": {},  # dict
 })
 ```
 
@@ -2903,8 +2982,16 @@ product_family = client.ProductFamily()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | No |  |
+| `accounting_code` | `str` | No |  |
+| `archived_at` | `str` | No | Timestamp indicating when this product family was archived. |
+| `created_at` | `str` | No |  |
+| `description` | `str` | No |  |
+| `handle` | `str` | No |  |
+| `id` | `int` | No |  |
+| `name` | `str` | No |  |
 | `product_family` | `dict` | No |  |
+| `surcharging` | `bool` | No | Whether surcharging applies to this product family. |
+| `updated_at` | `str` | No |  |
 
 ### Operations
 
@@ -3025,19 +3112,54 @@ product_price_point = client.ProductPricePoint()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | No |  |
-| `price_point` | `dict` | Yes |  |
+| `accounting_code` | `str` | No | E.g., Internal ID or SKU Number |
+| `archived_at` | `str` | No | Timestamp indicating when this price point was archived |
+| `created_at` | `str` | No | Timestamp indicating when this price point was created |
+| `currency_prices` | `list` | No | An array of currency pricing data is available when multiple currencies are defined for the site. |
+| `default_product_price_point_id` | `int` | No |  |
+| `description` | `str` | No | The product description |
+| `expiration_interval` | `int` | No | The numerical expiration interval. |
+| `expiration_interval_unit` | `Any` | No |  |
+| `features` | `list` | No | The active feature catalog items attached to this product. |
+| `handle` | `str` | No | The product price point API handle |
+| `id` | `int` | No |  |
+| `initial_charge_after_trial` | `bool` | No |  |
+| `initial_charge_in_cents` | `int` | No | The product price point initial charge, in integer cents |
+| `interval` | `int` | No | The numerical interval. |
+| `interval_unit` | `Any` | No |  |
+| `introductory_offer` | `bool` | No | reserved for future use |
+| `item_category` | `str` | No | One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other |
+| `name` | `str` | No | The product price point name |
+| `price_in_cents` | `int` | No | The product price point price, in integer cents |
+| `price_point` | `dict` | No |  |
 | `price_points` | `list` | No |  |
-| `product` | `dict` | Yes |  |
-
-### Field Usage by Operation
-
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `id` | - | - | - | - | - |
-| `price_point` | - | - | Yes | Yes | - |
-| `price_points` | - | Yes | - | - | - |
-| `product` | - | - | - | - | - |
+| `product_family` | `dict` | No |  |
+| `product_id` | `int` | No | The product id this price point belongs to |
+| `product_price_point_handle` | `str` | No |  |
+| `product_price_point_id` | `int` | No |  |
+| `product_price_point_name` | `str` | No |  |
+| `public_signup_pages` | `list` | No |  |
+| `request_billing_address` | `bool` | No | A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product. |
+| `request_credit_card` | `bool` | No | Deprecated value that can be ignored unless you have legacy hosted pages. |
+| `require_billing_address` | `bool` | No | A boolean indicating whether a billing address is required to add a payment profile, especially at signup. |
+| `require_credit_card` | `bool` | No | Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product. |
+| `require_shipping_address` | `bool` | No | A boolean indicating whether a shipping address is required for the customer, especially at signup. |
+| `return_params` | `str` | No |  |
+| `subscription_id` | `int` | No | The subscription id this price point belongs to |
+| `tax_code` | `str` | No | A string representing the tax code related to the product type. |
+| `tax_included` | `bool` | No | Whether or not the price point includes tax |
+| `taxable` | `bool` | No |  |
+| `trial_interval` | `int` | No | The numerical trial interval. |
+| `trial_interval_unit` | `Any` | No |  |
+| `trial_price_in_cents` | `int` | No | The product price point trial price, in integer cents |
+| `trial_type` | `Any` | No |  |
+| `type` | `Any` | No |  |
+| `unspsc_code` | `str` | No | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `update_return_params` | `str` | No | The parameters will append to the url after a successful account update. |
+| `update_return_url` | `str` | No | The url to which a customer will be returned after a successful account update |
+| `updated_at` | `str` | No | Timestamp indicating when this price point was last updated |
+| `use_site_exchange_rate` | `bool` | No | Whether or not to use the site's exchange rate or define your own pricing when your site has multiple currencies defined. |
+| `version_number` | `int` | No | The version of the product |
 
 ### Operations
 
@@ -3048,8 +3170,6 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.ProductPricePoint().create({
     "id": "example_id",  # str
-    "price_point": {},  # dict
-    "product": {},  # dict
 })
 ```
 
@@ -3185,7 +3305,7 @@ result = client.ProformaInvoice().create({
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.ProformaInvoice().list({"proforma_invoice_uid": "example"})
+results = client.ProformaInvoice().list({"subscription_id": 1})
 for proforma_invoice in results:
     print(proforma_invoice)
 ```
@@ -3321,6 +3441,15 @@ Return the entity name.
 ```python
 referral_code = client.ReferralCode()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `code` | `str` | No |  |
+| `id` | `int` | No |  |
+| `site_id` | `int` | No |  |
+| `subscription_id` | `int` | No |  |
 
 ### Operations
 
@@ -3611,9 +3740,29 @@ site = client.Site()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chargify_js_keys` | `list` | No |  |
-| `meta` | `dict` | No |  |
-| `site` | `dict` | Yes |  |
+| `allocation_settings` | `dict` | No |  |
+| `auto_renewals_enabled` | `bool` | No | Whether the auto-renewals feature is enabled for this site. |
+| `created_at` | `str` | No |  |
+| `currency` | `str` | No |  |
+| `customer_hierarchy_enabled` | `bool` | No |  |
+| `default_payment_collection_method` | `str` | No |  |
+| `id` | `int` | No |  |
+| `multi_frequency_enabled` | `bool` | No | Whether the site has the multi-frequency billing feature enabled. |
+| `name` | `str` | No |  |
+| `net_terms` | `dict` | No |  |
+| `non_primary_currencies` | `list` | No |  |
+| `organization_address` | `dict` | No |  |
+| `portal_enabled` | `bool` | No | Whether the Billing Portal is enabled for this site. |
+| `public_key` | `str` | No |  |
+| `relationship_invoicing_enabled` | `bool` | No |  |
+| `requires_security_token` | `bool` | No |  |
+| `schedule_subscription_cancellation_enabled` | `bool` | No |  |
+| `seller_id` | `int` | No |  |
+| `subdomain` | `str` | No |  |
+| `tax_configuration` | `dict` | No |  |
+| `test` | `bool` | No |  |
+| `whopays_default_payer` | `str` | No |  |
+| `whopays_enabled` | `bool` | No |  |
 
 ### Operations
 
@@ -3623,7 +3772,6 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Site().create({
-    "site": {},  # dict
 })
 ```
 
@@ -3642,7 +3790,7 @@ for site in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Site().load()
+result = client.Site().load({"id": 1})
 ```
 
 ### Common Methods
@@ -3836,26 +3984,40 @@ subscription_component = client.SubscriptionComponent()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `accrue_charge` | `bool` | No | If the change in cost is an upgrade, this determines if the charge should accrue to the next renewal or if capture should be attempted immediately. |
 | `allocated_quantity` | `Any` | No | For Quantity-based components: The current allocation for the component on the given subscription. |
-| `allocation` | `dict` | No |  |
-| `allocation_preview` | `dict` | No |  |
+| `allocation_id` | `int` | No | The allocation unique ID |
+| `allocations` | `list` | No |  |
 | `allow_fractional_quantities` | `bool` | No |  |
 | `archived_at` | `str` | No |  |
+| `charge_id` | `int` | No |  |
 | `component` | `dict` | No |  |
-| `component_handle` | `str` | No |  |
-| `component_id` | `int` | No |  |
-| `created_at` | `str` | No |  |
+| `component_handle` | `str` | No | The handle of the component. |
+| `component_id` | `int` | No | The integer component ID for the allocation. |
+| `created_at` | `str` | No | Timestamp indicating when this allocation was created |
 | `currency` | `str` | No |  |
 | `description` | `str` | No |  |
+| `direction` | `str` | No |  |
 | `display_on_hosted_page` | `bool` | No |  |
 | `downgrade_credit` | `Any` | No |  |
 | `enabled` | `bool` | No | (for on/off components) indicates if the component is enabled for the subscription. |
+| `end_date` | `str` | No |  |
+| `existing_balance_in_cents` | `int` | No | An integer representing the amount of the subscription's current balance |
+| `expires_at` | `str` | No |  |
 | `historic_usages` | `list` | No |  |
 | `id` | `int` | No |  |
+| `initiate_dunning` | `bool` | No | If true, if the immediate component payment fails, initiate dunning for the subscription. |
 | `interval` | `int` | No | The numerical interval. |
 | `interval_unit` | `Any` | No |  |
 | `kind` | `Any` | No |  |
+| `line_items` | `list` | No |  |
+| `memo` | `str` | No | The memo passed when the allocation was created |
 | `name` | `str` | No |  |
+| `overage_quantity` | `int` | No |  |
+| `payment` | `Any` | No |  |
+| `period_type` | `str` | No |  |
+| `previous_price_point_id` | `int` | No |  |
+| `previous_quantity` | `Any` | No | The allocated quantity that was in effect before this allocation was created. |
 | `price_point_handle` | `str` | No |  |
 | `price_point_id` | `int` | No |  |
 | `price_point_name` | `str` | No |  |
@@ -3863,15 +4025,25 @@ subscription_component = client.SubscriptionComponent()
 | `pricing_scheme` | `Any` | No |  |
 | `product_family_handle` | `str` | No |  |
 | `product_family_id` | `int` | No |  |
+| `proration_downgrade_scheme` | `str` | No | The scheme used if the proration was a downgrade. |
+| `proration_scheme` | `str` | No |  |
+| `proration_upgrade_scheme` | `str` | No | The scheme used if the proration was an upgrade. |
+| `quantity` | `Any` | No | The allocated quantity set into effect by the allocation. |
 | `recurring` | `bool` | No |  |
-| `subscription` | `dict` | No |  |
-| `subscription_id` | `int` | No |  |
+| `start_date` | `str` | No |  |
+| `subscription` | `Any` | No |  |
+| `subscription_id` | `int` | No | The integer subscription ID for the allocation. |
+| `subtotal_in_cents` | `int` | No |  |
+| `timestamp` | `str` | No | The time that the allocation was recorded, in ISO 8601 format and UTC timezone, e.g., 2012-11-20T22:00:37Z |
+| `total_discount_in_cents` | `int` | No |  |
+| `total_in_cents` | `int` | No |  |
+| `total_tax_in_cents` | `int` | No |  |
 | `unit_balance` | `Any` | No |  |
 | `unit_name` | `str` | No |  |
 | `updated_at` | `str` | No |  |
 | `upgrade_charge` | `Any` | No |  |
-| `usage` | `dict` | No |  |
 | `use_site_exchange_rate` | `bool` | No |  |
+| `used_quantity` | `int` | No |  |
 
 ### Operations
 
@@ -3963,10 +4135,21 @@ subscription_group = client.SubscriptionGroup()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `account_balances` | `dict` | No |  |
+| `cancel_at_end_of_period` | `bool` | No |  |
+| `created_at` | `str` | No |  |
+| `customer_id` | `int` | No |  |
+| `group_type` | `str` | No |  |
 | `id` | `str` | No |  |
-| `meta` | `dict` | No |  |
-| `subscription_group` | `dict` | No |  |
-| `subscription_groups` | `list` | No |  |
+| `next_assessment_at` | `str` | No |  |
+| `payment_collection_method` | `Any` | No |  |
+| `payment_profile` | `dict` | No |  |
+| `payment_profile_id` | `int` | No |  |
+| `primary_subscription_id` | `int` | No |  |
+| `scheme` | `int` | No |  |
+| `state` | `str` | No |  |
+| `subscription_ids` | `list` | No |  |
+| `uid` | `str` | No |  |
 
 ### Operations
 
@@ -4217,8 +4400,14 @@ subscription_invoice_account = client.SubscriptionInvoiceAccount()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | No |  |
-| `service_credits` | `list` | No |  |
+| `amount_in_cents` | `int` | No | The amount in cents of the entry |
+| `created_at` | `str` | No | The date and time the entry was created |
+| `ending_balance_in_cents` | `int` | No | The new balance for the credit account |
+| `entry_type` | `Any` | No |  |
+| `id` | `int` | No |  |
+| `invoice_uid` | `str` | No | The invoice uid associated with the entry. |
+| `memo` | `str` | No | The memo attached to the entry |
+| `remaining_balance_in_cents` | `int` | No | The remaining balance for the entry |
 
 ### Operations
 
@@ -4434,8 +4623,12 @@ subscription_product = client.SubscriptionProduct()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `charge_in_cents` | `int` | No | The amount of the charge that would be created for the new product. |
+| `credit_applied_in_cents` | `int` | No | Represents a credit in cents that is applied to your subscription as part of a migration process for a specific product, which reduces the amount owed for the subscription. |
 | `id` | `str` | No |  |
 | `migration` | `dict` | Yes |  |
+| `payment_due_in_cents` | `int` | No | The amount of the payment due in the case of an upgrade. |
+| `prorated_adjustment_in_cents` | `int` | No | The amount of the prorated adjustment that would be issued for the current subscription. |
 
 ### Operations
 
@@ -4489,9 +4682,25 @@ subscription_renewal = client.SubscriptionRenewal()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | No |  |
-| `scheduled_renewal_configuration` | `dict` | No |  |
+| `contract` | `Any` | No |  |
+| `created_at` | `str` | No |  |
+| `decimal_quantity` | `str` | No |  |
+| `ends_at` | `str` | No |  |
+| `id` | `int` | No | ID of the renewal. |
+| `item_id` | `int` | No |  |
+| `item_subclass` | `str` | No |  |
+| `item_type` | `str` | No |  |
+| `lock_in_at` | `str` | No |  |
+| `price_point_id` | `int` | No |  |
+| `price_point_type` | `str` | No |  |
+| `quantity` | `int` | No |  |
 | `scheduled_renewal_configuration_item` | `dict` | No |  |
+| `scheduled_renewal_configuration_items` | `list` | No |  |
+| `site_id` | `int` | No | ID of the site to which the renewal belongs. |
+| `starts_at` | `str` | No |  |
+| `status` | `str` | No |  |
+| `subscription_id` | `int` | No | The id of the subscription. |
+| `subscription_renewal_configuration_id` | `int` | No |  |
 
 ### Operations
 
@@ -4583,8 +4792,16 @@ subscription_status = client.SubscriptionStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `existing_balance_in_cents` | `int` | No | An integer representing the amount of the subscription’s current balance |
 | `id` | `str` | No |  |
-| `renewal_preview` | `dict` | No |  |
+| `line_items` | `list` | No | An array of objects representing the individual transactions that will be created at the next renewal |
+| `next_assessment_at` | `str` | No | The timestamp for the subscription’s next renewal |
+| `subtotal_in_cents` | `int` | No | An integer representing the amount of the total pre-tax, pre-discount charges that will be assessed at the next renewal |
+| `total_amount_due_in_cents` | `int` | No | An integer representing the existing_balance_in_cents plus the total_in_cents |
+| `total_discount_in_cents` | `int` | No | An integer representing the amount of the coupon discounts that will be applied to the next renewal |
+| `total_in_cents` | `int` | No | An integer representing the total amount owed, less any discounts, that will be assessed at the next renewal |
+| `total_tax_in_cents` | `int` | No | An integer representing the total tax charges that will be assessed at the next renewal |
+| `uncalculated_taxes` | `bool` | No | A boolean indicating whether or not additional taxes will be calculated at the time of renewal. |
 
 ### Operations
 
@@ -4709,8 +4926,12 @@ webhook = client.Webhook()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `endpoint` | `dict` | No |  |
+| `id` | `int` | No |  |
+| `site_id` | `int` | No |  |
+| `status` | `str` | No |  |
+| `url` | `str` | No |  |
 | `webhook` | `dict` | No |  |
+| `webhook_subscriptions` | `list` | No |  |
 
 ### Operations
 

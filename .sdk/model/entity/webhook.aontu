@@ -5,11 +5,31 @@ main: kit: entity: webhook: {
   alias: field: {}
 
   fields: {
-    endpoint: {
-      h: "Endpoint"
-      n: "endpoint"
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
       r: false
-      t: "`$OBJECT`"
+      t: "`$INTEGER`"
+    }
+    site_id: {
+      fo: "int32"
+      h: "Site Id"
+      n: "site_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      t: "`$STRING`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: false
+      t: "`$STRING`"
     }
     webhook: {
       h: "Webhook"
@@ -17,6 +37,17 @@ main: kit: entity: webhook: {
       r: false
       t: "`$OBJECT`"
     }
+    webhook_subscriptions: {
+      h: "Webhook Subscriptions"
+      n: "webhook_subscriptions"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
   }
 
   name: "webhook"
@@ -39,7 +70,7 @@ main: kit: entity: webhook: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.endpoint`"
           }
         }
         {

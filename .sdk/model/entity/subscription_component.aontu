@@ -5,6 +5,13 @@ main: kit: entity: subscription_component: {
   alias: field: {}
 
   fields: {
+    accrue_charge: {
+      h: "Accrue Charge"
+      n: "accrue_charge"
+      r: false
+      sh: "If the change in cost is an upgrade, this determines if the charge should accrue to the next renewal or if capture should be attempted immediately."
+      t: "`$BOOLEAN`"
+    }
     allocated_quantity: {
       h: "Allocated Quantity"
       n: "allocated_quantity"
@@ -17,17 +24,24 @@ main: kit: entity: subscription_component: {
         depth: 0
       }
     }
-    allocation: {
-      h: "Allocation"
-      n: "allocation"
+    allocation_id: {
+      fo: "int32"
+      h: "Allocation Id"
+      n: "allocation_id"
       r: false
-      t: "`$OBJECT`"
+      sh: "The allocation unique ID"
+      t: "`$INTEGER`"
     }
-    allocation_preview: {
-      h: "Allocation Preview"
-      n: "allocation_preview"
+    allocations: {
+      h: "Allocations"
+      n: "allocations"
       r: false
-      t: "`$OBJECT`"
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 5
+        depth: 5
+      }
     }
     allow_fractional_quantities: {
       h: "Allow Fractional Quantities"
@@ -41,6 +55,13 @@ main: kit: entity: subscription_component: {
       n: "archived_at"
       r: false
       t: "`$STRING`"
+    }
+    charge_id: {
+      fo: "int64"
+      h: "Charge Id"
+      n: "charge_id"
+      r: false
+      t: "`$INTEGER`"
     }
     component: {
       h: "Component"
@@ -57,6 +78,7 @@ main: kit: entity: subscription_component: {
       h: "Component Handle"
       n: "component_handle"
       r: false
+      sh: "The handle of the component."
       t: "`$STRING`"
     }
     component_id: {
@@ -64,6 +86,7 @@ main: kit: entity: subscription_component: {
       h: "Component Id"
       n: "component_id"
       r: false
+      sh: "The integer component ID for the allocation."
       t: "`$INTEGER`"
     }
     created_at: {
@@ -71,6 +94,7 @@ main: kit: entity: subscription_component: {
       h: "Created At"
       n: "created_at"
       r: false
+      sh: "Timestamp indicating when this allocation was created"
       t: "`$STRING`"
     }
     currency: {
@@ -82,6 +106,12 @@ main: kit: entity: subscription_component: {
     description: {
       h: "Description"
       n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    direction: {
+      h: "Direction"
+      n: "direction"
       r: false
       t: "`$STRING`"
     }
@@ -109,6 +139,28 @@ main: kit: entity: subscription_component: {
       sh: "(for on/off components) indicates if the component is enabled for the subscription."
       t: "`$BOOLEAN`"
     }
+    end_date: {
+      fo: "date-time"
+      h: "End Date"
+      n: "end_date"
+      r: false
+      t: "`$STRING`"
+    }
+    existing_balance_in_cents: {
+      fo: "int64"
+      h: "Existing Balance In Cents"
+      n: "existing_balance_in_cents"
+      r: false
+      sh: "An integer representing the amount of the subscription's current balance"
+      t: "`$INTEGER`"
+    }
+    expires_at: {
+      fo: "date-time"
+      h: "Expires At"
+      n: "expires_at"
+      r: false
+      t: "`$STRING`"
+    }
     historic_usages: {
       h: "Historic Usages"
       n: "historic_usages"
@@ -121,6 +173,13 @@ main: kit: entity: subscription_component: {
       n: "id"
       r: false
       t: "`$INTEGER`"
+    }
+    initiate_dunning: {
+      h: "Initiate Dunning"
+      n: "initiate_dunning"
+      r: false
+      sh: "If true, if the immediate component payment fails, initiate dunning for the subscription."
+      t: "`$BOOLEAN`"
     }
     interval: {
       fo: "int32"
@@ -147,11 +206,67 @@ main: kit: entity: subscription_component: {
       r: false
       t: "`$ANY`"
     }
+    line_items: {
+      h: "Line Items"
+      n: "line_items"
+      r: false
+      t: "`$ARRAY`"
+    }
+    memo: {
+      h: "Memo"
+      n: "memo"
+      r: false
+      sh: "The memo passed when the allocation was created"
+      t: "`$STRING`"
+    }
     name: {
       h: "Name"
       n: "name"
       r: false
       t: "`$STRING`"
+    }
+    overage_quantity: {
+      fo: "int32"
+      h: "Overage Quantity"
+      n: "overage_quantity"
+      r: false
+      t: "`$INTEGER`"
+    }
+    payment: {
+      h: "Payment"
+      n: "payment"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    period_type: {
+      h: "Period Type"
+      n: "period_type"
+      r: false
+      t: "`$STRING`"
+    }
+    previous_price_point_id: {
+      fo: "int32"
+      h: "Previous Price Point Id"
+      n: "previous_price_point_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    previous_quantity: {
+      h: "Previous Quantity"
+      n: "previous_quantity"
+      r: false
+      sh: "The allocated quantity that was in effect before this allocation was created."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
     }
     price_point_handle: {
       h: "Price Point Handle"
@@ -207,22 +322,100 @@ main: kit: entity: subscription_component: {
       r: false
       t: "`$INTEGER`"
     }
+    proration_downgrade_scheme: {
+      de: true
+      h: "Proration Downgrade Scheme"
+      n: "proration_downgrade_scheme"
+      r: false
+      sh: "The scheme used if the proration was a downgrade."
+      t: "`$STRING`"
+    }
+    proration_scheme: {
+      h: "Proration Scheme"
+      n: "proration_scheme"
+      r: false
+      t: "`$STRING`"
+    }
+    proration_upgrade_scheme: {
+      de: true
+      h: "Proration Upgrade Scheme"
+      n: "proration_upgrade_scheme"
+      r: false
+      sh: "The scheme used if the proration was an upgrade."
+      t: "`$STRING`"
+    }
+    quantity: {
+      h: "Quantity"
+      n: "quantity"
+      r: false
+      sh: "The allocated quantity set into effect by the allocation."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
     recurring: {
       h: "Recurring"
       n: "recurring"
       r: false
       t: "`$BOOLEAN`"
     }
+    start_date: {
+      fo: "date-time"
+      h: "Start Date"
+      n: "start_date"
+      r: false
+      t: "`$STRING`"
+    }
     subscription: {
       h: "Subscription"
       n: "subscription"
       r: false
-      t: "`$OBJECT`"
+      t: "`$ANY`"
     }
     subscription_id: {
       fo: "int32"
       h: "Subscription Id"
       n: "subscription_id"
+      r: false
+      sh: "The integer subscription ID for the allocation."
+      t: "`$INTEGER`"
+    }
+    subtotal_in_cents: {
+      fo: "int64"
+      h: "Subtotal In Cents"
+      n: "subtotal_in_cents"
+      r: false
+      t: "`$INTEGER`"
+    }
+    timestamp: {
+      fo: "date-time"
+      h: "Timestamp"
+      n: "timestamp"
+      r: false
+      sh: "The time that the allocation was recorded, in ISO 8601 format and UTC timezone, e.g., 2012-11-20T22:00:37Z"
+      t: "`$STRING`"
+    }
+    total_discount_in_cents: {
+      fo: "int64"
+      h: "Total Discount In Cents"
+      n: "total_discount_in_cents"
+      r: false
+      t: "`$INTEGER`"
+    }
+    total_in_cents: {
+      fo: "int64"
+      h: "Total In Cents"
+      n: "total_in_cents"
+      r: false
+      t: "`$INTEGER`"
+    }
+    total_tax_in_cents: {
+      fo: "int64"
+      h: "Total Tax In Cents"
+      n: "total_tax_in_cents"
       r: false
       t: "`$INTEGER`"
     }
@@ -261,17 +454,18 @@ main: kit: entity: subscription_component: {
         depth: 2
       }
     }
-    usage: {
-      h: "Usage"
-      n: "usage"
-      r: false
-      t: "`$OBJECT`"
-    }
     use_site_exchange_rate: {
       h: "Use Site Exchange Rate"
       n: "use_site_exchange_rate"
       r: false
       t: "`$BOOLEAN`"
+    }
+    used_quantity: {
+      fo: "int64"
+      h: "Used Quantity"
+      n: "used_quantity"
+      r: false
+      t: "`$INTEGER`"
     }
   }
 
@@ -547,7 +741,7 @@ main: kit: entity: subscription_component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.allocation`"
           }
         }
         {
@@ -601,7 +795,7 @@ main: kit: entity: subscription_component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.usage`"
           }
         }
         {
@@ -690,7 +884,7 @@ main: kit: entity: subscription_component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.allocation_preview`"
           }
         }
         {
@@ -733,7 +927,7 @@ main: kit: entity: subscription_component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
       ]
@@ -810,7 +1004,7 @@ main: kit: entity: subscription_component: {
               {
                 k: "query"
                 n: "price_point_id"
-                or: "price_point_id"
+                or: "price_point_ids"
                 r: false
                 t: "`$STRING`"
               }
@@ -822,7 +1016,7 @@ main: kit: entity: subscription_component: {
                 ]
                 k: "query"
                 n: "product_family_id"
-                or: "product_family_id"
+                or: "product_family_ids"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -855,7 +1049,7 @@ main: kit: entity: subscription_component: {
                 ]
                 k: "query"
                 n: "subscription_id"
-                or: "subscription_id"
+                or: "subscription_ids"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -965,7 +1159,7 @@ main: kit: entity: subscription_component: {
               {
                 k: "query"
                 n: "price_point_id"
-                or: "price_point_id"
+                or: "price_point_ids"
                 r: false
                 t: "`$STRING`"
               }
@@ -977,7 +1171,7 @@ main: kit: entity: subscription_component: {
                 ]
                 k: "query"
                 n: "product_family_id"
-                or: "product_family_id"
+                or: "product_family_ids"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -1097,7 +1291,7 @@ main: kit: entity: subscription_component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.component`"
           }
         }
       ]
@@ -1116,7 +1310,7 @@ main: kit: entity: subscription_component: {
               {
                 k: "header"
                 n: "content_type"
-                or: "content_type"
+                or: "Content-Type"
                 r: true
                 t: "`$STRING`"
               }

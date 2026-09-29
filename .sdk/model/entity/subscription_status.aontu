@@ -5,17 +5,81 @@ main: kit: entity: subscription_status: {
   alias: field: {}
 
   fields: {
+    existing_balance_in_cents: {
+      fo: "int64"
+      h: "Existing Balance In Cents"
+      n: "existing_balance_in_cents"
+      r: false
+      sh: "An integer representing the amount of the subscription’s current balance"
+      t: "`$INTEGER`"
+    }
     id: {
       h: "Id"
       n: "id"
       r: false
       t: "`$STRING`"
     }
-    renewal_preview: {
-      h: "Renewal Preview"
-      n: "renewal_preview"
+    line_items: {
+      h: "Line Items"
+      n: "line_items"
       r: false
-      t: "`$OBJECT`"
+      sh: "An array of objects representing the individual transactions that will be created at the next renewal"
+      t: "`$ARRAY`"
+    }
+    next_assessment_at: {
+      fo: "date-time"
+      h: "Next Assessment At"
+      n: "next_assessment_at"
+      r: false
+      sh: "The timestamp for the subscription’s next renewal"
+      t: "`$STRING`"
+    }
+    subtotal_in_cents: {
+      fo: "int64"
+      h: "Subtotal In Cents"
+      n: "subtotal_in_cents"
+      r: false
+      sh: "An integer representing the amount of the total pre-tax, pre-discount charges that will be assessed at the next renewal"
+      t: "`$INTEGER`"
+    }
+    total_amount_due_in_cents: {
+      fo: "int64"
+      h: "Total Amount Due In Cents"
+      n: "total_amount_due_in_cents"
+      r: false
+      sh: "An integer representing the existing_balance_in_cents plus the total_in_cents"
+      t: "`$INTEGER`"
+    }
+    total_discount_in_cents: {
+      fo: "int64"
+      h: "Total Discount In Cents"
+      n: "total_discount_in_cents"
+      r: false
+      sh: "An integer representing the amount of the coupon discounts that will be applied to the next renewal"
+      t: "`$INTEGER`"
+    }
+    total_in_cents: {
+      fo: "int64"
+      h: "Total In Cents"
+      n: "total_in_cents"
+      r: false
+      sh: "An integer representing the total amount owed, less any discounts, that will be assessed at the next renewal"
+      t: "`$INTEGER`"
+    }
+    total_tax_in_cents: {
+      fo: "int64"
+      h: "Total Tax In Cents"
+      n: "total_tax_in_cents"
+      r: false
+      sh: "An integer representing the total tax charges that will be assessed at the next renewal"
+      t: "`$INTEGER`"
+    }
+    uncalculated_taxes: {
+      h: "Uncalculated Taxes"
+      n: "uncalculated_taxes"
+      r: false
+      sh: "A boolean indicating whether or not additional taxes will be calculated at the time of renewal."
+      t: "`$BOOLEAN`"
     }
   }
 
@@ -49,7 +113,7 @@ main: kit: entity: subscription_status: {
               {
                 k: "query"
                 n: "calendar_billing_'resumption_charge'"
-                or: "calendar_billing_'resumption_charge'"
+                or: "calendar_billing['resumption_charge']"
                 r: false
                 t: "`$ANY`"
               }
@@ -82,7 +146,7 @@ main: kit: entity: subscription_status: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
         {
@@ -128,7 +192,7 @@ main: kit: entity: subscription_status: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
         {
@@ -171,7 +235,7 @@ main: kit: entity: subscription_status: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.renewal_preview`"
           }
         }
       ]
@@ -190,7 +254,7 @@ main: kit: entity: subscription_status: {
               {
                 k: "header"
                 n: "content_type"
-                or: "content_type"
+                or: "Content-Type"
                 r: true
                 t: "`$STRING`"
               }
@@ -223,7 +287,7 @@ main: kit: entity: subscription_status: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
         {
@@ -320,7 +384,7 @@ main: kit: entity: subscription_status: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
         {
@@ -366,7 +430,7 @@ main: kit: entity: subscription_status: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
         {
@@ -412,7 +476,7 @@ main: kit: entity: subscription_status: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
       ]

@@ -4,6 +4,41 @@ main: kit: entity: referral_code: {
 
   alias: field: {}
 
+  fields: {
+    code: {
+      h: "Code"
+      n: "code"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    site_id: {
+      fo: "int32"
+      h: "Site Id"
+      n: "site_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    subscription_id: {
+      fo: "int32"
+      h: "Subscription Id"
+      n: "subscription_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
   name: "referral_code"
   op: {
     load: {
@@ -44,14 +79,11 @@ main: kit: entity: referral_code: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.referral_code`"
           }
         }
       ]
     }
-  }
-
-  fields: {
   }
 
 

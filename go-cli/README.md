@@ -107,7 +107,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 ### Discover the available entities
 
 `/help` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes 57 entities.
+below — this SDK exposes 56 entities.
 
 ## Reference
 
@@ -162,9 +162,9 @@ Meta-commands use the `/` prefix (everything else on a line is evaluated as boru
 
 ### Entities
 
-The 57 entities this SDK exposes (any is valid as `<entity>`):
+The 56 entities this SDK exposes (any is valid as `<entity>`):
 
-account_balance allocation batch_job billing_portal component component_feature component_price_point component_price_point_currency_overage coupon coupon_currency coupon_subcode coupon_usage custom_field customer delayed_cancel endpoint entitlement event events_based_billing_segment feature feature_catalog_item feature_template insight invoice list_proforma_invoice list_sale_rep_item list_segment offer one_time_token payment_profile prepayment product product_family product_feature product_price_point proforma_invoice reason_code referral_code sale_rep_setting sales_commission segment signup_proforma_preview site subscription subscription_component subscription_group subscription_group_invoice_account subscription_group_signup subscription_group_status subscription_invoice_account subscription_mrr subscription_note subscription_product subscription_renewal subscription_status usage webhook
+account_balance allocation batch_job billing_portal component component_feature component_price_point component_price_point_currency_overage coupon coupon_currency coupon_subcode coupon_usage custom_field customer delayed_cancel endpoint entitlement event events_based_billing_segment feature feature_catalog_item feature_template insight invoice list_sale_rep_item list_segment offer one_time_token payment_profile prepayment product product_family product_feature product_price_point proforma_invoice reason_code referral_code sale_rep_setting sales_commission segment signup_proforma_preview site subscription subscription_component subscription_group subscription_group_invoice_account subscription_group_signup subscription_group_status subscription_invoice_account subscription_mrr subscription_note subscription_product subscription_renewal subscription_status usage webhook
 
 ## Explanation
 

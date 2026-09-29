@@ -506,6 +506,253 @@ main: kit: entity: proforma_invoice: {
       points: [
         {
           co: {
+            id: "GET /subscriptions/{subscription_id}/proforma_invoices.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "credit"
+                or: "credits"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "custom_field"
+                or: "custom_fields"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "discount"
+                or: "discounts"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "line_item"
+                or: "line_items"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "payment"
+                or: "payments"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "taxis"
+                or: "taxes"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscriptions/{subscription_id}/proforma_invoices.json"
+          q: {
+            exist: [
+              "credit"
+              "custom_field"
+              "direction"
+              "discount"
+              "end_date"
+              "line_item"
+              "page"
+              "payment"
+              "per_page"
+              "start_date"
+              "status"
+              "subscription_id"
+              "taxis"
+            ]
+          }
+          s: [
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+            {
+              lit: "proforma_invoices.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.proforma_invoices`"
+          }
+        }
+        {
+          co: {
+            id: "GET /subscription_groups/{uid}/proforma_invoices.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subscription_group_id"
+                or: "uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "credit"
+                or: "credits"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "custom_field"
+                or: "custom_fields"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "discount"
+                or: "discounts"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "line_item"
+                or: "line_items"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "payment"
+                or: "payments"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "taxis"
+                or: "taxes"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subscription_groups/{uid}/proforma_invoices.json"
+          q: {
+            exist: [
+              "credit"
+              "custom_field"
+              "discount"
+              "line_item"
+              "payment"
+              "subscription_group_id"
+              "taxis"
+            ]
+          }
+          r: {
+            param: {
+              uid: "subscription_group_id"
+            }
+          }
+          s: [
+            {
+              lit: "subscription_groups"
+            }
+            {
+              var: "subscription_group_id"
+            }
+            {
+              lit: "proforma_invoices.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.proforma_invoices`"
+          }
+        }
+        {
+          co: {
             id: "GET /api_exports/proforma_invoices/{batch_id}/rows.json"
             source: "openapi3"
             version: 2

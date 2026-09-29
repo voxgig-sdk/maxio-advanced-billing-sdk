@@ -86,6 +86,7 @@ describe("ComponentEntity", function()
     assert.is_nil(err)
     component_ref01_data = helpers.to_map(type(component_ref01_data_result) == 'table' and component_ref01_data_result.data_get and component_ref01_data_result:data_get() or component_ref01_data_result)
     assert.is_not_nil(component_ref01_data)
+    assert.is_not_nil(component_ref01_data["id"])
 
     -- LIST
     local component_ref01_match = {}
@@ -94,22 +95,44 @@ describe("ComponentEntity", function()
     assert.is_nil(err)
     assert.is_table(component_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(component_ref01_list_result),
+      { id = component_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- UPDATE
     local component_ref01_data_up0_up = {
+      id = component_ref01_data["id"],
       ["component_id"] = setup.idmap["component_id"],
     }
+
+    local component_ref01_markdef_up0_name = "accounting_code"
+    local component_ref01_markdef_up0_value = "Mark01-component_ref01_" .. tostring(setup.now)
+    component_ref01_data_up0_up[component_ref01_markdef_up0_name] = component_ref01_markdef_up0_value
 
     local component_ref01_resdata_up0_result, err = component_ref01_ent:update(component_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local component_ref01_resdata_up0 = helpers.to_map(type(component_ref01_resdata_up0_result) == 'table' and component_ref01_resdata_up0_result.data_get and component_ref01_resdata_up0_result:data_get() or component_ref01_resdata_up0_result)
     assert.is_not_nil(component_ref01_resdata_up0)
+    assert.are.equal(component_ref01_resdata_up0["id"], component_ref01_data_up0_up["id"])
+    assert.are.equal(component_ref01_resdata_up0[component_ref01_markdef_up0_name], component_ref01_markdef_up0_value)
 
     -- LOAD
-    local component_ref01_match_dt0 = {}
+    local component_ref01_match_dt0 = {
+      id = component_ref01_data["id"],
+    }
     local component_ref01_data_dt0_loaded, err = component_ref01_ent:load(component_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(component_ref01_data_dt0_loaded)
+    local component_ref01_data_dt0_load_result = helpers.to_map(type(component_ref01_data_dt0_loaded) == 'table' and component_ref01_data_dt0_loaded.data_get and component_ref01_data_dt0_loaded:data_get() or component_ref01_data_dt0_loaded)
+    assert.is_not_nil(component_ref01_data_dt0_load_result)
+    assert.are.equal(component_ref01_data_dt0_load_result["id"], component_ref01_data["id"])
 
+    -- REMOVE
+    local component_ref01_match_rm0 = {
+      id = component_ref01_data["id"],
+    }
+    local _, err = component_ref01_ent:remove(component_ref01_match_rm0, nil)
+    assert.is_nil(err)
 
     -- LIST
     local component_ref01_match_rt0 = {}
@@ -117,6 +140,11 @@ describe("ComponentEntity", function()
     local component_ref01_list_rt0_result, err = component_ref01_ent:list(component_ref01_match_rt0, nil)
     assert.is_nil(err)
     assert.is_table(component_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(component_ref01_list_rt0_result),
+      { id = component_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)

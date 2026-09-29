@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -113,6 +114,9 @@ func TestProductEntity(t *testing.T) {
 		if productRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if productRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		productRef01Match := map[string]any{
@@ -123,15 +127,25 @@ func TestProductEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, productRef01ListOk := productRef01ListResult.([]any)
+		productRef01List, productRef01ListOk := productRef01ListResult.([]any)
 		if !productRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", productRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(productRef01List), map[string]any{"id": productRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		productRef01DataUp0Up := map[string]any{
+			"id": productRef01Data["id"],
 			"product_id": setup.idmap["product_id"],
 		}
+
+		productRef01MarkdefUp0Name := "accounting_code"
+		productRef01MarkdefUp0Value := fmt.Sprintf("Mark01-product_ref01_%d", setup.now)
+		productRef01DataUp0Up[productRef01MarkdefUp0Name] = productRef01MarkdefUp0Value
 
 		productRef01ResdataUp0Result, err := productRef01Ent.Update(productRef01DataUp0Up, nil)
 		if err != nil {
@@ -141,17 +155,37 @@ func TestProductEntity(t *testing.T) {
 		if productRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
+		if productRef01ResdataUp0["id"] != productRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
+		if productRef01ResdataUp0[productRef01MarkdefUp0Name] != productRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", productRef01MarkdefUp0Name, productRef01ResdataUp0[productRef01MarkdefUp0Name])
+		}
 
 		// LOAD
-		productRef01MatchDt0 := map[string]any{}
+		productRef01MatchDt0 := map[string]any{
+			"id": productRef01Data["id"],
+		}
 		productRef01DataDt0Loaded, err := productRef01Ent.Load(productRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if productRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		productRef01DataDt0LoadResult := core.ToMapAny(entityData(productRef01DataDt0Loaded))
+		if productRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if productRef01DataDt0LoadResult["id"] != productRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
+		// REMOVE
+		productRef01MatchRm0 := map[string]any{
+			"id": productRef01Data["id"],
+		}
+		_, err = productRef01Ent.Remove(productRef01MatchRm0, nil)
+		if err != nil {
+			t.Fatalf("remove failed: %v", err)
+		}
 
 		// LIST
 		productRef01MatchRt0 := map[string]any{
@@ -162,9 +196,14 @@ func TestProductEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, productRef01ListRt0Ok := productRef01ListRt0Result.([]any)
+		productRef01ListRt0, productRef01ListRt0Ok := productRef01ListRt0Result.([]any)
 		if !productRef01ListRt0Ok {
 			t.Fatalf("expected list result to be an array, got %T", productRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(productRef01ListRt0), map[string]any{"id": productRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})

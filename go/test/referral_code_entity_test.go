@@ -61,13 +61,19 @@ func TestReferralCodeEntity(t *testing.T) {
 
 		// LOAD
 		referralCodeRef01Ent := client.ReferralCode(nil)
-		referralCodeRef01MatchDt0 := map[string]any{}
+		referralCodeRef01MatchDt0 := map[string]any{
+			"id": referralCodeRef01Data["id"],
+		}
 		referralCodeRef01DataDt0Loaded, err := referralCodeRef01Ent.Load(referralCodeRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if referralCodeRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		referralCodeRef01DataDt0LoadResult := core.ToMapAny(entityData(referralCodeRef01DataDt0Loaded))
+		if referralCodeRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if referralCodeRef01DataDt0LoadResult["id"] != referralCodeRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

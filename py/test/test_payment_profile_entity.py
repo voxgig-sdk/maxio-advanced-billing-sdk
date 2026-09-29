@@ -100,9 +100,14 @@ class TestPaymentProfileEntity:
             "payment_profile_id": setup["idmap"]["payment_profile_id"],
         }
 
+        payment_profile_ref01_markdef_up0_name = "bank_name"
+        payment_profile_ref01_markdef_up0_value = "Mark01-payment_profile_ref01_" + str(setup["now"])
+        payment_profile_ref01_data_up0_up[payment_profile_ref01_markdef_up0_name] = payment_profile_ref01_markdef_up0_value
+
         payment_profile_ref01_resdata_up0 = helpers.to_map(runner.entity_data(payment_profile_ref01_ent.update(payment_profile_ref01_data_up0_up, None)))
         assert payment_profile_ref01_resdata_up0 is not None
         assert payment_profile_ref01_resdata_up0["id"] == payment_profile_ref01_data_up0_up["id"]
+        assert payment_profile_ref01_resdata_up0[payment_profile_ref01_markdef_up0_name] == payment_profile_ref01_markdef_up0_value
 
         # LOAD
         payment_profile_ref01_match_dt0 = {

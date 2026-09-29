@@ -84,6 +84,7 @@ describe("SiteEntity", function()
     assert.is_nil(err)
     site_ref01_data = helpers.to_map(type(site_ref01_data_result) == 'table' and site_ref01_data_result.data_get and site_ref01_data_result:data_get() or site_ref01_data_result)
     assert.is_not_nil(site_ref01_data)
+    assert.is_not_nil(site_ref01_data["id"])
 
     -- LIST
     local site_ref01_match = {}
@@ -92,11 +93,20 @@ describe("SiteEntity", function()
     assert.is_nil(err)
     assert.is_table(site_ref01_list_result)
 
+    local found_item = vs.select(
+      runner.entity_list_to_data(site_ref01_list_result),
+      { id = site_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- LOAD
-    local site_ref01_match_dt0 = {}
+    local site_ref01_match_dt0 = {
+      id = site_ref01_data["id"],
+    }
     local site_ref01_data_dt0_loaded, err = site_ref01_ent:load(site_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(site_ref01_data_dt0_loaded)
+    local site_ref01_data_dt0_load_result = helpers.to_map(type(site_ref01_data_dt0_loaded) == 'table' and site_ref01_data_dt0_loaded.data_get and site_ref01_data_dt0_loaded:data_get() or site_ref01_data_dt0_loaded)
+    assert.is_not_nil(site_ref01_data_dt0_load_result)
+    assert.are.equal(site_ref01_data_dt0_load_result["id"], site_ref01_data["id"])
 
   end)
 end)

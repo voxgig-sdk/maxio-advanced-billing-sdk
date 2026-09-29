@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -140,6 +141,10 @@ func TestSubscriptionRenewalEntity(t *testing.T) {
 			"subscription_id": setup.idmap["subscription_id"],
 		}
 
+		subscriptionRenewalRef01MarkdefUp0Name := "created_at"
+		subscriptionRenewalRef01MarkdefUp0Value := fmt.Sprintf("Mark01-subscription_renewal_ref01_%d", setup.now)
+		subscriptionRenewalRef01DataUp0Up[subscriptionRenewalRef01MarkdefUp0Name] = subscriptionRenewalRef01MarkdefUp0Value
+
 		subscriptionRenewalRef01ResdataUp0Result, err := subscriptionRenewalRef01Ent.Update(subscriptionRenewalRef01DataUp0Up, nil)
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
@@ -150,6 +155,9 @@ func TestSubscriptionRenewalEntity(t *testing.T) {
 		}
 		if subscriptionRenewalRef01ResdataUp0["id"] != subscriptionRenewalRef01DataUp0Up["id"] {
 			t.Fatal("expected update result id to match")
+		}
+		if subscriptionRenewalRef01ResdataUp0[subscriptionRenewalRef01MarkdefUp0Name] != subscriptionRenewalRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", subscriptionRenewalRef01MarkdefUp0Name, subscriptionRenewalRef01ResdataUp0[subscriptionRenewalRef01MarkdefUp0Name])
 		}
 
 		// LOAD

@@ -345,7 +345,7 @@ main: kit: entity: coupon: {
                 ex: true
                 k: "query"
                 n: "currency_price"
-                or: "currency_price"
+                or: "currency_prices"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -413,7 +413,7 @@ main: kit: entity: coupon: {
                 ex: true
                 k: "query"
                 n: "currency_price"
-                or: "currency_price"
+                or: "currency_prices"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -525,7 +525,7 @@ main: kit: entity: coupon: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.codes`"
           }
         }
       ]
@@ -561,7 +561,7 @@ main: kit: entity: coupon: {
                 ex: true
                 k: "query"
                 n: "currency_price"
-                or: "currency_price"
+                or: "currency_prices"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -593,7 +593,7 @@ main: kit: entity: coupon: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.coupon`"
           }
         }
         {
@@ -615,7 +615,7 @@ main: kit: entity: coupon: {
                 ex: true
                 k: "query"
                 n: "currency_price"
-                or: "currency_price"
+                or: "currency_prices"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -694,7 +694,7 @@ main: kit: entity: coupon: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.coupon`"
           }
         }
       ]
@@ -808,7 +808,7 @@ main: kit: entity: coupon: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.coupon`"
           }
         }
       ]
@@ -865,7 +865,7 @@ main: kit: entity: coupon: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.coupon`"
           }
         }
       ]

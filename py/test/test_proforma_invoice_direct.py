@@ -22,7 +22,7 @@ class TestProformaInvoiceDirect:
             pytest.skip(_reason or "skipped via sdk-test-control.json")
             return
         if setup["live"]:
-            for _live_key in ["proforma_invoice01"]:
+            for _live_key in ["subscription01"]:
                 if setup["idmap"].get(_live_key) is None:
                     # pytest already imported at module scope
                     pytest.skip(f"live test needs {_live_key} via *_ENTID env var (synthetic IDs only)")
@@ -32,12 +32,12 @@ class TestProformaInvoiceDirect:
 
         params = {}
         if setup["live"]:
-            params["id"] = setup["idmap"]["proforma_invoice01"]
+            params["subscription_id"] = setup["idmap"]["subscription01"]
         else:
-            params["id"] = "direct01"
+            params["subscription_id"] = "direct01"
 
         result = client.direct({
-            "path": "api_exports/proforma_invoices/{id}/rows.json",
+            "path": "subscriptions/{subscription_id}/proforma_invoices.json",
             "method": "GET",
             "params": params,
         })

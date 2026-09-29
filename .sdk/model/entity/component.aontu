@@ -5,6 +5,34 @@ main: kit: entity: component: {
   alias: field: {}
 
   fields: {
+    accounting_code: {
+      h: "Accounting Code"
+      n: "accounting_code"
+      r: false
+      sh: "E.g."
+      t: "`$STRING`"
+    }
+    allow_fractional_quantities: {
+      h: "Allow Fractional Quantities"
+      n: "allow_fractional_quantities"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    archived: {
+      h: "Archived"
+      n: "archived"
+      r: false
+      sh: "Boolean flag describing whether a component is archived or not."
+      t: "`$BOOLEAN`"
+    }
+    archived_at: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archived_at"
+      r: false
+      sh: "Timestamp indicating when this component was archived"
+      t: "`$STRING`"
+    }
     component: {
       h: "Component"
       n: "component"
@@ -17,6 +45,271 @@ main: kit: entity: component: {
       r: false
       t: "`$OBJECT`"
     }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      sh: "Timestamp indicating when this component was created"
+      t: "`$STRING`"
+    }
+    default_price_point_id: {
+      fo: "int32"
+      h: "Default Price Point Id"
+      n: "default_price_point_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    default_price_point_name: {
+      h: "Default Price Point Name"
+      n: "default_price_point_name"
+      r: false
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "The description of the component."
+      t: "`$STRING`"
+    }
+    downgrade_credit: {
+      h: "Downgrade Credit"
+      n: "downgrade_credit"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    event_based_billing_metric_id: {
+      fo: "int32"
+      h: "Event Based Billing Metric Id"
+      n: "event_based_billing_metric_id"
+      r: false
+      sh: "(Only for Event Based Components) This is an ID of a metric attached to the component."
+      t: "`$INTEGER`"
+    }
+    features: {
+      h: "Features"
+      n: "features"
+      r: false
+      sh: "The active feature catalog items attached to this component."
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 2
+        depth: 5
+      }
+    }
+    handle: {
+      h: "Handle"
+      n: "handle"
+      r: false
+      sh: "The component API handle"
+      t: "`$STRING`"
+    }
+    hide_date_range_on_invoice: {
+      h: "Hide Date Range On Invoice"
+      n: "hide_date_range_on_invoice"
+      r: false
+      sh: "(Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices."
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "The unique ID assigned to the component by Chargify."
+      t: "`$INTEGER`"
+    }
+    interval: {
+      fo: "int32"
+      h: "Interval"
+      n: "interval"
+      r: false
+      sh: "The numerical interval."
+      t: "`$INTEGER`"
+    }
+    interval_unit: {
+      h: "Interval Unit"
+      n: "interval_unit"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    item_category: {
+      h: "Item Category"
+      n: "item_category"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    kind: {
+      h: "Kind"
+      n: "kind"
+      r: false
+      t: "`$ANY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The name of the Component, suitable for display on statements."
+      t: "`$STRING`"
+    }
+    overage_prices: {
+      h: "Overage Prices"
+      n: "overage_prices"
+      r: false
+      sh: "Applicable only to prepaid usage components."
+      t: "`$ARRAY`"
+    }
+    price_per_unit_in_cents: {
+      fo: "int64"
+      h: "Price Per Unit In Cents"
+      n: "price_per_unit_in_cents"
+      r: false
+      sh: "deprecated - use unit_price instead."
+      t: "`$INTEGER`"
+    }
+    price_point_count: {
+      fo: "int32"
+      h: "Price Point Count"
+      n: "price_point_count"
+      r: false
+      sh: "Count for the number of price points associated with the component"
+      t: "`$INTEGER`"
+    }
+    price_points_url: {
+      h: "Price Points Url"
+      n: "price_points_url"
+      r: false
+      sh: "URL that points to the location to read the existing price points via GET request"
+      t: "`$STRING`"
+    }
+    prices: {
+      h: "Prices"
+      n: "prices"
+      r: false
+      sh: "An array of price brackets."
+      t: "`$ARRAY`"
+    }
+    pricing_scheme: {
+      h: "Pricing Scheme"
+      n: "pricing_scheme"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    product_family_handle: {
+      h: "Product Family Handle"
+      n: "product_family_handle"
+      r: false
+      sh: "The handle of the Product Family to which the Component belongs"
+      t: "`$STRING`"
+    }
+    product_family_id: {
+      fo: "int32"
+      h: "Product Family Id"
+      n: "product_family_id"
+      r: false
+      sh: "The id of the Product Family to which the Component belongs"
+      t: "`$INTEGER`"
+    }
+    product_family_name: {
+      h: "Product Family Name"
+      n: "product_family_name"
+      r: false
+      sh: "The name of the Product Family to which the Component belongs"
+      t: "`$STRING`"
+    }
+    recurring: {
+      h: "Recurring"
+      n: "recurring"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    tax_code: {
+      h: "Tax Code"
+      n: "tax_code"
+      r: false
+      sh: "A string representing the tax code related to the component type."
+      t: "`$STRING`"
+    }
+    taxable: {
+      h: "Taxable"
+      n: "taxable"
+      r: false
+      sh: "Boolean flag describing whether a component is taxable or not."
+      t: "`$BOOLEAN`"
+    }
+    unit_name: {
+      h: "Unit Name"
+      n: "unit_name"
+      r: false
+      sh: "The name of the unit that the component’s usage is measured in."
+      t: "`$STRING`"
+    }
+    unit_price: {
+      h: "Unit Price"
+      n: "unit_price"
+      r: false
+      sh: "The amount the customer will be charged per unit."
+      t: "`$STRING`"
+    }
+    unspsc_code: {
+      h: "Unspsc Code"
+      n: "unspsc_code"
+      r: false
+      sh: "(Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data."
+      t: "`$STRING`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      sh: "Timestamp indicating when this component was updated"
+      t: "`$STRING`"
+    }
+    upgrade_charge: {
+      h: "Upgrade Charge"
+      n: "upgrade_charge"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    use_site_exchange_rate: {
+      h: "Use Site Exchange Rate"
+      n: "use_site_exchange_rate"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
   }
 
   name: "component"
@@ -61,7 +354,7 @@ main: kit: entity: component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.component`"
           }
         }
         {
@@ -101,7 +394,7 @@ main: kit: entity: component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.component`"
           }
         }
         {
@@ -141,7 +434,7 @@ main: kit: entity: component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.component`"
           }
         }
         {
@@ -181,7 +474,7 @@ main: kit: entity: component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.component`"
           }
         }
         {
@@ -221,7 +514,7 @@ main: kit: entity: component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.component`"
           }
         }
       ]
@@ -478,7 +771,7 @@ main: kit: entity: component: {
                 ex: false
                 k: "query"
                 n: "include_feature"
-                or: "include_feature"
+                or: "include_features"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -510,7 +803,7 @@ main: kit: entity: component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.component`"
           }
         }
         {
@@ -548,7 +841,7 @@ main: kit: entity: component: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.component`"
           }
         }
       ]
@@ -664,7 +957,7 @@ main: kit: entity: component: {
             req: {
               component: "`reqdata`"
             }
-            res: "`body`"
+            res: "`body.component`"
           }
         }
         {
@@ -704,7 +997,7 @@ main: kit: entity: component: {
             req: {
               component: "`reqdata`"
             }
-            res: "`body`"
+            res: "`body.component`"
           }
         }
       ]

@@ -457,13 +457,6 @@ class MaxioAdvancedBillingSDK
   end
 
 
-  # Canonical facade: client.ListProformaInvoice.list / client.ListProformaInvoice.load({ "id" => ... })
-  def ListProformaInvoice(data = nil)
-    require_relative 'entity/list_proforma_invoice_entity'
-    ListProformaInvoiceEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.ListSaleRepItem.list / client.ListSaleRepItem.load({ "id" => ... })
   def ListSaleRepItem(data = nil)
     require_relative 'entity/list_sale_rep_item_entity'

@@ -28,7 +28,7 @@ func TestProformaInvoiceDirect(t *testing.T) {
 			return
 		}
 		if setup.live {
-			for _, _liveKey := range []string{"proforma_invoice01"} {
+			for _, _liveKey := range []string{"subscription01"} {
 				if v := setup.idmap[_liveKey]; v == nil {
 					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
 					return
@@ -39,13 +39,13 @@ func TestProformaInvoiceDirect(t *testing.T) {
 
 		params := map[string]any{}
 		if setup.live {
-			params["id"] = setup.idmap["proforma_invoice01"]
+			params["subscription_id"] = setup.idmap["subscription01"]
 		} else {
-			params["id"] = "direct01"
+			params["subscription_id"] = "direct01"
 		}
 
 		result, err := client.Direct(map[string]any{
-			"path":   "api_exports/proforma_invoices/{id}/rows.json",
+			"path":   "subscriptions/{subscription_id}/proforma_invoices.json",
 			"method": "GET",
 			"params": params,
 		})

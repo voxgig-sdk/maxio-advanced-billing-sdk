@@ -137,10 +137,6 @@ Create a new `Insight` entity instance. Pass `nil` for no initial data.
 
 Create a new `Invoice` entity instance. Pass `nil` for no initial data.
 
-#### `ListProformaInvoice(data)`
-
-Create a new `ListProformaInvoice` entity instance. Pass `nil` for no initial data.
-
 #### `ListSaleRepItem(data)`
 
 Create a new `ListSaleRepItem` entity instance. Pass `nil` for no initial data.
@@ -578,13 +574,87 @@ local component = client:Component(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `accounting_code` | `string` | No | E.g. |
+| `allow_fractional_quantities` | `boolean` | No |  |
+| `archived` | `boolean` | No | Boolean flag describing whether a component is archived or not. |
+| `archived_at` | `string` | No | Timestamp indicating when this component was archived |
 | `component` | `table` | No |  |
+| `created_at` | `string` | No | Timestamp indicating when this component was created |
+| `default_price_point_id` | `number` | No |  |
+| `default_price_point_name` | `string` | No |  |
+| `description` | `string` | No | The description of the component. |
+| `downgrade_credit` | `any` | No |  |
+| `event_based_billing_metric_id` | `number` | No | (Only for Event Based Components) This is an ID of a metric attached to the component. |
+| `features` | `table` | No | The active feature catalog items attached to this component. |
+| `handle` | `string` | No | The component API handle |
+| `hide_date_range_on_invoice` | `boolean` | No | (Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices. |
+| `id` | `number` | No | The unique ID assigned to the component by Chargify. |
+| `interval` | `number` | No | The numerical interval. |
+| `interval_unit` | `any` | No |  |
+| `item_category` | `any` | No |  |
+| `kind` | `any` | No |  |
+| `name` | `string` | No | The name of the Component, suitable for display on statements. |
+| `overage_prices` | `table` | No | Applicable only to prepaid usage components. |
+| `price_per_unit_in_cents` | `number` | No | deprecated - use unit_price instead. |
+| `price_point_count` | `number` | No | Count for the number of price points associated with the component |
+| `price_points_url` | `string` | No | URL that points to the location to read the existing price points via GET request |
+| `prices` | `table` | No | An array of price brackets. |
+| `pricing_scheme` | `any` | No |  |
+| `product_family_handle` | `string` | No | The handle of the Product Family to which the Component belongs |
+| `product_family_id` | `number` | No | The id of the Product Family to which the Component belongs |
+| `product_family_name` | `string` | No | The name of the Product Family to which the Component belongs |
+| `recurring` | `boolean` | No |  |
+| `tax_code` | `string` | No | A string representing the tax code related to the component type. |
+| `taxable` | `boolean` | No | Boolean flag describing whether a component is taxable or not. |
+| `unit_name` | `string` | No | The name of the unit that the component’s usage is measured in. |
+| `unit_price` | `string` | No | The amount the customer will be charged per unit. |
+| `unspsc_code` | `string` | No | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `updated_at` | `string` | No | Timestamp indicating when this component was updated |
+| `upgrade_charge` | `any` | No |  |
+| `use_site_exchange_rate` | `boolean` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
+| `accounting_code` | - | - | - | - | - |
+| `allow_fractional_quantities` | - | - | - | - | - |
+| `archived` | - | - | - | - | - |
+| `archived_at` | - | - | - | - | - |
 | `component` | - | Yes | - | - | - |
+| `created_at` | - | - | - | - | - |
+| `default_price_point_id` | - | - | - | - | - |
+| `default_price_point_name` | - | - | - | - | - |
+| `description` | - | - | - | - | - |
+| `downgrade_credit` | - | - | - | - | - |
+| `event_based_billing_metric_id` | - | - | - | - | - |
+| `features` | - | - | - | - | - |
+| `handle` | - | - | - | - | - |
+| `hide_date_range_on_invoice` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `interval` | - | - | - | - | - |
+| `interval_unit` | - | - | - | - | - |
+| `item_category` | - | - | - | - | - |
+| `kind` | - | - | - | - | - |
+| `name` | - | - | - | - | - |
+| `overage_prices` | - | - | - | - | - |
+| `price_per_unit_in_cents` | - | - | - | - | - |
+| `price_point_count` | - | - | - | - | - |
+| `price_points_url` | - | - | - | - | - |
+| `prices` | - | - | - | - | - |
+| `pricing_scheme` | - | - | - | - | - |
+| `product_family_handle` | - | - | - | - | - |
+| `product_family_id` | - | - | - | - | - |
+| `product_family_name` | - | - | - | - | - |
+| `recurring` | - | - | - | - | - |
+| `tax_code` | - | - | - | - | - |
+| `taxable` | - | - | - | - | - |
+| `unit_name` | - | - | - | - | - |
+| `unit_price` | - | - | - | - | - |
+| `unspsc_code` | - | - | - | - | - |
+| `updated_at` | - | - | - | - | - |
+| `upgrade_charge` | - | - | - | - | - |
+| `use_site_exchange_rate` | - | - | - | - | - |
 
 ### Operations
 
@@ -725,63 +795,56 @@ local component_price_point = client:ComponentPricePoint(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `archived_at` | `string` | No |  |
-| `component` | `table` | Yes |  |
+| `accounting_code` | `string` | No | E.g. |
+| `allow_fractional_quantities` | `boolean` | No |  |
+| `archived` | `boolean` | No | Boolean flag describing whether a component is archived or not. |
+| `archived_at` | `string` | No | Timestamp indicating when this component was archived |
 | `component_id` | `number` | No |  |
-| `created_at` | `string` | No |  |
+| `created_at` | `string` | No | Timestamp indicating when this component was created |
 | `currency_prices` | `table` | No | An array of currency pricing data is available when multiple currencies are defined for the site. |
 | `default` | `boolean` | No | Note: Refer to type attribute instead. |
+| `default_price_point_id` | `number` | No |  |
+| `default_price_point_name` | `string` | No |  |
+| `description` | `string` | No | The description of the component. |
+| `downgrade_credit` | `any` | No |  |
+| `event_based_billing_metric_id` | `number` | No | (Only for Event Based Components) This is an ID of a metric attached to the component. |
 | `expiration_interval` | `number` | No | Applicable only to prepaid usage components where rollover_prepaid_remainder is true. |
 | `expiration_interval_unit` | `any` | No |  |
-| `handle` | `string` | No |  |
-| `id` | `number` | No |  |
+| `features` | `table` | No | The active feature catalog items attached to this component. |
+| `handle` | `string` | No | The component API handle |
+| `hide_date_range_on_invoice` | `boolean` | No | (Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices. |
+| `id` | `number` | No | The unique ID assigned to the component by Chargify. |
 | `interval` | `number` | No | The numerical interval. |
 | `interval_unit` | `any` | No |  |
-| `name` | `string` | No |  |
+| `item_category` | `any` | No |  |
+| `kind` | `any` | No |  |
+| `name` | `string` | No | The name of the Component, suitable for display on statements. |
 | `overage_prices` | `table` | No | Applicable only to prepaid usage components. |
 | `overage_pricing_scheme` | `any` | No |  |
+| `price_per_unit_in_cents` | `number` | No | deprecated - use unit_price instead. |
 | `price_point` | `table` | No |  |
+| `price_point_count` | `number` | No | Count for the number of price points associated with the component |
 | `price_points` | `table` | No |  |
-| `prices` | `table` | No |  |
+| `price_points_url` | `string` | No | URL that points to the location to read the existing price points via GET request |
+| `prices` | `table` | No | An array of price brackets. |
 | `pricing_scheme` | `any` | No |  |
+| `product_family_handle` | `string` | No | The handle of the Product Family to which the Component belongs |
+| `product_family_id` | `number` | No | The id of the Product Family to which the Component belongs |
+| `product_family_name` | `string` | No | The name of the Product Family to which the Component belongs |
+| `recurring` | `boolean` | No |  |
 | `renew_prepaid_allocation` | `boolean` | No | Applicable only to prepaid usage components. |
 | `rollover_prepaid_remainder` | `boolean` | No | Applicable only to prepaid usage components. |
 | `subscription_id` | `number` | No | (only used for Custom Pricing - ie. |
+| `tax_code` | `string` | No | A string representing the tax code related to the component type. |
 | `tax_included` | `boolean` | No |  |
+| `taxable` | `boolean` | No | Boolean flag describing whether a component is taxable or not. |
 | `type` | `any` | No |  |
-| `updated_at` | `string` | No |  |
+| `unit_name` | `string` | No | The name of the unit that the component’s usage is measured in. |
+| `unit_price` | `string` | No | The amount the customer will be charged per unit. |
+| `unspsc_code` | `string` | No | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `updated_at` | `string` | No | Timestamp indicating when this component was updated |
+| `upgrade_charge` | `any` | No |  |
 | `use_site_exchange_rate` | `boolean` | No | Whether to use the site level exchange rate or define your own prices for each currency if you have multiple currencies defined on the site. |
-
-### Field Usage by Operation
-
-| Field | list | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `archived_at` | - | - | - | - |
-| `component` | - | - | - | - |
-| `component_id` | - | - | - | - |
-| `created_at` | - | - | - | - |
-| `currency_prices` | - | - | - | - |
-| `default` | - | - | - | - |
-| `expiration_interval` | - | - | - | - |
-| `expiration_interval_unit` | - | - | - | - |
-| `handle` | - | - | - | - |
-| `id` | - | - | - | - |
-| `interval` | - | - | - | - |
-| `interval_unit` | - | - | - | - |
-| `name` | - | - | - | - |
-| `overage_prices` | - | - | - | - |
-| `overage_pricing_scheme` | - | - | - | - |
-| `price_point` | - | - | Yes | - |
-| `price_points` | Yes | - | - | - |
-| `prices` | - | - | - | - |
-| `pricing_scheme` | - | - | - | - |
-| `renew_prepaid_allocation` | - | - | - | - |
-| `rollover_prepaid_remainder` | - | - | - | - |
-| `subscription_id` | - | - | - | - |
-| `tax_included` | - | - | - | - |
-| `type` | - | - | - | - |
-| `updated_at` | - | - | - | - |
-| `use_site_exchange_rate` | - | - | - | - |
 
 ### Operations
 
@@ -792,7 +855,6 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:ComponentPricePoint():create({
   id = --[[ number ]],
-  component = --[[ table ]],
 })
 ```
 
@@ -1230,8 +1292,7 @@ local custom_field = client:CustomField(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `current_page` | `number` | No |  |
-| `data_count` | `number` | No |  |
+| `data_count` | `number` | No | The amount of subscriptions this metafield has been applied to in Advanced Billing. |
 | `deleted_at` | `string` | No |  |
 | `enum` | `string` | No |  |
 | `id` | `number` | No |  |
@@ -1240,11 +1301,8 @@ local custom_field = client:CustomField(nil)
 | `metafield_id` | `number` | No |  |
 | `metafields` | `any` | No |  |
 | `name` | `string` | No |  |
-| `per_page` | `number` | No |  |
 | `resource_id` | `number` | No |  |
 | `scope` | `table` | No |  |
-| `total_count` | `number` | No |  |
-| `total_pages` | `number` | No |  |
 | `value` | `string` | No |  |
 
 ### Operations
@@ -1334,7 +1392,7 @@ local customer = client:Customer(nil)
 | `country` | `string` | No | The customer shipping address country |
 | `country_name` | `string` | No | The customer's full name of country |
 | `created_at` | `string` | No | The timestamp in which the customer object was created in Chargify |
-| `customer` | `table` | No |  |
+| `customer` | `table` | Yes |  |
 | `default_auto_renewal_profile_id` | `number` | No | The default auto-renewal profile ID for the customer |
 | `default_subscription_group_uid` | `string` | No |  |
 | `email` | `string` | No | The email address of the customer |
@@ -1364,48 +1422,6 @@ local customer = client:Customer(nil)
 | `verified` | `boolean` | No | Is the customer verified to use ACH as a payment method. |
 | `zip` | `string` | No | The customer’s shipping address zip code (e.g., “12345”) |
 
-### Field Usage by Operation
-
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `address` | - | - | - | - | - |
-| `address_2` | - | - | - | - | - |
-| `branding_theme_id` | - | - | - | - | - |
-| `cc_emails` | - | - | - | - | - |
-| `city` | - | - | - | - | - |
-| `country` | - | - | - | - | - |
-| `country_name` | - | - | - | - | - |
-| `created_at` | - | - | - | - | - |
-| `customer` | - | Yes | - | - | - |
-| `default_auto_renewal_profile_id` | - | - | - | - | - |
-| `default_subscription_group_uid` | - | - | - | - | - |
-| `email` | - | - | - | - | - |
-| `entity_identifier_kind` | - | - | - | - | - |
-| `entity_identifier_value` | - | - | - | - | - |
-| `first_name` | - | - | - | - | - |
-| `id` | - | - | - | - | - |
-| `last_name` | - | - | - | - | - |
-| `locale` | - | - | - | - | - |
-| `maxioid` | - | - | - | - | - |
-| `organization` | - | - | - | - | - |
-| `parent_id` | - | - | - | - | - |
-| `phone` | - | - | - | - | - |
-| `portal_customer_created_at` | - | - | - | - | - |
-| `portal_invite_last_accepted_at` | - | - | - | - | - |
-| `portal_invite_last_sent_at` | - | - | - | - | - |
-| `reference` | - | - | - | - | - |
-| `salesforce_id` | - | - | - | - | - |
-| `state` | - | - | - | - | - |
-| `state_name` | - | - | - | - | - |
-| `surcharging` | - | - | - | - | - |
-| `tax_exempt` | - | - | - | - | - |
-| `tax_exempt_reason` | - | - | - | - | - |
-| `updated_at` | - | - | - | - | - |
-| `vat_country` | - | - | - | - | - |
-| `vat_number` | - | - | - | - | - |
-| `verified` | - | - | - | - | - |
-| `zip` | - | - | - | - | - |
-
 ### Operations
 
 #### `create(reqdata, ctrl) -> any, err`
@@ -1414,6 +1430,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Customer():create({
+  customer = --[[ table ]],
 })
 ```
 
@@ -1782,45 +1799,61 @@ local feature = client:Feature(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `archived_at` | `string` | No |  |
-| `archived_count` | `number` | Yes | Number of archived feature templates matching the filters. |
+| `archived_at` | `string` | No | The date and time the feature template was archived, or `null` if it is active. |
 | `created_at` | `string` | No |  |
+| `default_periodicity_interval` | `number` | No | For `usage_limit` features, the default periodicity interval used to pre-populate new feature catalog items. |
+| `default_periodicity_unit` | `any` | No |  |
+| `default_value` | `string` | No | A default value used to pre-populate new feature catalog items created from this template. |
+| `description` | `string` | No |  |
 | `feature` | `table` | Yes |  |
 | `feature_key` | `string` | No | The `key` of the parent feature template. |
 | `feature_kind` | `any` | No |  |
 | `feature_name` | `string` | No | The `name` of the parent feature template. |
 | `feature_template_id` | `number` | No | The id of the feature template this item was created from. |
-| `id` | `number` | No |  |
-| `items` | `table` | Yes |  |
+| `id` | `number` | No | The Advanced Billing id of the feature template. |
+| `key` | `string` | No | A unique, lowercase, underscore-separated identifier for the feature. |
+| `kind` | `any` | No |  |
+| `name` | `string` | No | The display name of the feature. |
 | `periodicity_interval` | `number` | No | Set when `feature_kind` is `usage_limit`; `null` otherwise. |
 | `periodicity_unit` | `any` | No |  |
+| `plans_count` | `number` | No | The number of **products** this feature template is currently attached to via an active feature catalog item. |
 | `price_point_id` | `number` | No | Set together with `price_point_type` for price-point-specific overrides. |
 | `price_point_type` | `any` | No |  |
-| `total_count` | `number` | Yes | Total number of feature templates matching the filters, across all pages. |
+| `products_count` | `number` | No | The number of **components** this feature template is currently attached to via an active feature catalog item. |
+| `unit` | `string` | No | The unit the feature is measured in (for example, `requests` or `GB`). |
 | `updated_at` | `string` | No |  |
 | `value` | `string` | No | The value granted by this feature catalog item. |
+| `value_type` | `any` | No |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
 | `archived_at` | - | - |
-| `archived_count` | - | - |
 | `created_at` | - | - |
+| `default_periodicity_interval` | - | - |
+| `default_periodicity_unit` | - | - |
+| `default_value` | - | - |
+| `description` | - | - |
 | `feature` | - | Yes |
 | `feature_key` | - | - |
 | `feature_kind` | - | - |
 | `feature_name` | - | - |
 | `feature_template_id` | - | - |
 | `id` | - | - |
-| `items` | - | - |
+| `key` | - | - |
+| `kind` | - | - |
+| `name` | - | - |
 | `periodicity_interval` | - | - |
 | `periodicity_unit` | - | - |
+| `plans_count` | - | - |
 | `price_point_id` | - | - |
 | `price_point_type` | - | - |
-| `total_count` | - | - |
+| `products_count` | - | - |
+| `unit` | - | - |
 | `updated_at` | - | - |
 | `value` | - | - |
+| `value_type` | - | - |
 
 ### Operations
 
@@ -1830,10 +1863,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Feature():create({
-  archived_count = --[[ number ]],
   feature = --[[ table ]],
-  items = --[[ table ]],
-  total_count = --[[ number ]],
 })
 ```
 
@@ -2069,12 +2099,22 @@ local insight = client:Insight(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mrr` | `table` | Yes |  |
+| `amount_formatted` | `string` | No |  |
+| `amount_in_cents` | `number` | No |  |
+| `at_time` | `string` | No | ISO8601 timestamp |
+| `breakouts` | `table` | No |  |
+| `currency` | `string` | No |  |
+| `currency_symbol` | `string` | No |  |
+| `movements` | `table` | No |  |
+| `page` | `number` | No |  |
+| `per_page` | `number` | No |  |
 | `seller_name` | `string` | No |  |
 | `site_currency` | `string` | No |  |
 | `site_id` | `number` | No |  |
 | `site_name` | `string` | No |  |
 | `stats` | `table` | No |  |
+| `total_entries` | `number` | No |  |
+| `total_pages` | `number` | No |  |
 
 ### Operations
 
@@ -2136,7 +2176,6 @@ local invoice = client:Invoice(nil)
 | `consolidation_level` | `any` | No |  |
 | `created_at` | `string` | No |  |
 | `credit_amount` | `string` | No | The amount of credit (from credit notes) applied to this invoice. |
-| `credit_notes` | `table` | Yes |  |
 | `credits` | `table` | No |  |
 | `currency` | `string` | No | The ISO 4217 currency code (3 character string) representing the currency of invoice transaction. |
 | `custom_fields` | `table` | No |  |
@@ -2151,8 +2190,6 @@ local invoice = client:Invoice(nil)
 | `due_date` | `string` | No | Date the invoice is due. |
 | `group_primary_subscription_id` | `number` | No | For invoices with `consolidation_level` of `parent`, this specifies the ID of the subscription which was the primary subscription of the subscription group that generated the invoice. |
 | `id` | `number` | No |  |
-| `invoice` | `table` | No |  |
-| `invoices` | `table` | Yes |  |
 | `issue_date` | `string` | No | Date the invoice was issued to the customer. |
 | `line_items` | `table` | No | Line items on the invoice. |
 | `memo` | `string` | No | The memo printed on invoices of any collection type. |
@@ -2204,8 +2241,6 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:Invoice():create({
   subscription_id = --[[ number ]],
-  credit_notes = --[[ table ]],
-  invoices = --[[ table ]],
   void = --[[ table ]],
 })
 ```
@@ -2259,94 +2294,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `InvoiceEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListProformaInvoiceEntity
-
-```lua
-local list_proforma_invoice = client:ListProformaInvoice(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `available_actions` | `table` | No |  |
-| `billing_address` | `table` | No |  |
-| `collection_method` | `any` | No |  |
-| `consolidation_level` | `any` | No |  |
-| `created_at` | `string` | No |  |
-| `credit_amount` | `string` | No |  |
-| `credits` | `table` | No |  |
-| `currency` | `string` | No |  |
-| `custom_fields` | `table` | No |  |
-| `customer` | `any` | No |  |
-| `customer_id` | `number` | No |  |
-| `delivery_date` | `string` | No |  |
-| `discount_amount` | `string` | No |  |
-| `discounts` | `table` | No |  |
-| `due_amount` | `string` | No |  |
-| `line_items` | `table` | No |  |
-| `memo` | `string` | No |  |
-| `number` | `number` | No |  |
-| `paid_amount` | `string` | No |  |
-| `payment_instructions` | `string` | No |  |
-| `payments` | `table` | No |  |
-| `product_family_name` | `string` | No |  |
-| `product_name` | `string` | No |  |
-| `public_url` | `string` | No |  |
-| `refund_amount` | `string` | No |  |
-| `role` | `any` | No |  |
-| `seller` | `any` | No |  |
-| `sequence_number` | `number` | No |  |
-| `shipping_address` | `table` | No |  |
-| `site_id` | `number` | No |  |
-| `status` | `string` | No |  |
-| `subscription_id` | `number` | No |  |
-| `subtotal_amount` | `string` | No |  |
-| `tax_amount` | `string` | No |  |
-| `taxes` | `table` | No |  |
-| `total_amount` | `string` | No |  |
-| `uid` | `string` | No |  |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListProformaInvoice():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListProformaInvoiceEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -2519,7 +2466,6 @@ local offer = client:Offer(nil)
 | `offer_discounts` | `table` | No |  |
 | `offer_items` | `table` | No |  |
 | `offer_signup_pages` | `table` | No |  |
-| `offers` | `table` | No |  |
 | `product_family_id` | `number` | No |  |
 | `product_family_name` | `string` | No |  |
 | `product_id` | `number` | No |  |
@@ -2655,15 +2601,71 @@ local payment_profile = client:PaymentProfile(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `payment_profile` | `table` | No |  |
+| `bank_account_holder_type` | `any` | No |  |
+| `bank_account_type` | `any` | No |  |
+| `bank_name` | `string` | No | The bank where the account resides |
+| `billing_address` | `string` | No | The current billing street address for the bank account |
+| `billing_address_2` | `string` | No | The current billing street address, second line, for the bank account |
+| `billing_city` | `string` | No | The current billing address city for the bank account |
+| `billing_country` | `string` | No | The current billing address country for the bank account |
+| `billing_state` | `string` | No | The current billing address state for the bank account |
+| `billing_zip` | `string` | No | The current billing address zip code for the bank account |
+| `card_type` | `string` | No |  |
+| `created_at` | `string` | No | A timestamp indicating when this payment profile was created |
+| `current_vault` | `string` | No |  |
+| `customer_id` | `number` | No | The Chargify-assigned ID for the customer record to which the bank account belongs |
+| `customer_vault_token` | `string` | No | (only for Authorize.Net CIM storage): the customerProfileId for the owner of the customerPaymentProfileId provided as the vault_token. |
+| `disabled` | `boolean` | No |  |
+| `expiration_month` | `number` | No |  |
+| `expiration_year` | `number` | No |  |
+| `first_name` | `string` | No | The first name of the bank account holder |
+| `gateway_handle` | `string` | No |  |
+| `id` | `number` | No | The Chargify-assigned ID of the stored bank account. |
+| `last_name` | `string` | No | The last name of the bank account holder |
+| `masked_bank_account_number` | `string` | No | A string representation of the stored bank account number with all but the last 4 digits marked with X's (i.e. |
+| `masked_bank_routing_number` | `string` | No | A string representation of the stored bank routing number with all but the last 4 digits marked with X's (i.e. |
+| `masked_card_number` | `string` | No |  |
+| `payment_profile` | `any` | Yes |  |
+| `payment_type` | `string` | No |  |
+| `site_gateway_setting_id` | `number` | No |  |
+| `updated_at` | `string` | No | A timestamp indicating when this payment profile was last updated |
+| `vault_token` | `string` | No | The "token" provided by your vault storage for an already stored payment profile |
+| `verified` | `boolean` | No | Denotes whether a bank account has been verified by providing the amounts of two small deposits made into the account. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
+| `bank_account_holder_type` | - | - | - | - | - |
+| `bank_account_type` | - | - | - | - | - |
+| `bank_name` | - | - | - | - | - |
+| `billing_address` | - | - | - | - | - |
+| `billing_address_2` | - | - | - | - | - |
+| `billing_city` | - | - | - | - | - |
+| `billing_country` | - | - | - | - | - |
+| `billing_state` | - | - | - | - | - |
+| `billing_zip` | - | - | - | - | - |
+| `card_type` | - | - | - | - | - |
+| `created_at` | - | - | - | - | - |
+| `current_vault` | - | - | - | - | - |
+| `customer_id` | - | - | - | - | - |
+| `customer_vault_token` | - | - | - | - | - |
+| `disabled` | - | - | - | - | - |
+| `expiration_month` | - | - | - | - | - |
+| `expiration_year` | - | - | - | - | - |
+| `first_name` | - | - | - | - | - |
+| `gateway_handle` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
-| `payment_profile` | - | Yes | - | - | - |
+| `last_name` | - | - | - | - | - |
+| `masked_bank_account_number` | - | - | - | - | - |
+| `masked_bank_routing_number` | - | - | - | - | - |
+| `masked_card_number` | - | - | - | - | - |
+| `payment_profile` | - | - | - | - | - |
+| `payment_type` | - | - | - | Yes | - |
+| `site_gateway_setting_id` | - | - | - | - | - |
+| `updated_at` | - | - | - | - | - |
+| `vault_token` | - | - | - | - | - |
+| `verified` | - | - | - | - | - |
 
 ### Operations
 
@@ -2673,6 +2675,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:PaymentProfile():create({
+  payment_profile = --[[ any ]],
 })
 ```
 
@@ -2806,13 +2809,91 @@ local product = client:Product(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `product` | `table` | Yes |  |
+| `accounting_code` | `string` | No | E.g., Internal ID or SKU Number |
+| `archived_at` | `string` | No | Timestamp indicating when this product was archived |
+| `created_at` | `string` | No | Timestamp indicating when this product was created |
+| `default_product_price_point_id` | `number` | No |  |
+| `description` | `string` | No | The product description |
+| `expiration_interval` | `number` | No | A numerical interval for the length a subscription to this product will run before it expires. |
+| `expiration_interval_unit` | `any` | No |  |
+| `features` | `table` | No | The active feature catalog items attached to this product. |
+| `handle` | `string` | No | The product API handle |
+| `id` | `number` | No |  |
+| `initial_charge_after_trial` | `boolean` | No |  |
+| `initial_charge_in_cents` | `number` | No | The up front charge you have specified. |
+| `interval` | `number` | No | The numerical interval. |
+| `interval_unit` | `any` | No |  |
+| `item_category` | `string` | No | One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other |
+| `name` | `string` | No | The product name |
+| `price_in_cents` | `number` | No | The product price, in integer cents |
+| `product` | `table` | No |  |
+| `product_family` | `table` | No |  |
+| `product_price_point_handle` | `string` | No |  |
+| `product_price_point_id` | `number` | No |  |
+| `product_price_point_name` | `string` | No |  |
+| `public_signup_pages` | `table` | No |  |
+| `request_billing_address` | `boolean` | No | A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product. |
+| `request_credit_card` | `boolean` | No | Deprecated value that can be ignored unless you have legacy hosted pages. |
+| `require_billing_address` | `boolean` | No | A boolean indicating whether a billing address is required to add a payment profile, especially at signup. |
+| `require_credit_card` | `boolean` | No | Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product. |
+| `require_shipping_address` | `boolean` | No | A boolean indicating whether a shipping address is required for the customer, especially at signup. |
+| `return_params` | `string` | No |  |
+| `tax_code` | `string` | No | A string representing the tax code related to the product type. |
+| `taxable` | `boolean` | No |  |
+| `trial_interval` | `number` | No | A numerical interval for the length of the trial period of a subscription to this product. |
+| `trial_interval_unit` | `any` | No |  |
+| `trial_price_in_cents` | `number` | No | The price of the trial period for a subscription to this product, in integer cents. |
+| `unspsc_code` | `string` | No | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `update_return_params` | `string` | No | The parameters will append to the url after a successful account update. |
+| `update_return_url` | `string` | No | The url to which a customer will be returned after a successful account update |
+| `updated_at` | `string` | No | Timestamp indicating when this product was last updated |
+| `use_site_exchange_rate` | `boolean` | No |  |
+| `version_number` | `number` | No | The version of the product |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `product` | - | - | Yes | - | - |
+| `accounting_code` | - | - | - | - | - |
+| `archived_at` | - | - | - | - | - |
+| `created_at` | - | - | - | - | - |
+| `default_product_price_point_id` | - | - | - | - | - |
+| `description` | - | - | - | - | - |
+| `expiration_interval` | - | - | - | - | - |
+| `expiration_interval_unit` | - | - | - | - | - |
+| `features` | - | - | - | - | - |
+| `handle` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `initial_charge_after_trial` | - | - | - | - | - |
+| `initial_charge_in_cents` | - | - | - | - | - |
+| `interval` | - | - | - | - | - |
+| `interval_unit` | - | - | - | - | - |
+| `item_category` | - | - | - | - | - |
+| `name` | - | - | - | - | - |
+| `price_in_cents` | - | - | - | - | - |
+| `product` | - | Yes | - | - | - |
+| `product_family` | - | - | - | - | - |
+| `product_price_point_handle` | - | - | - | - | - |
+| `product_price_point_id` | - | - | - | - | - |
+| `product_price_point_name` | - | - | - | - | - |
+| `public_signup_pages` | - | - | - | - | - |
+| `request_billing_address` | - | - | - | - | - |
+| `request_credit_card` | - | - | - | - | - |
+| `require_billing_address` | - | - | - | - | - |
+| `require_credit_card` | - | - | - | - | - |
+| `require_shipping_address` | - | - | - | - | - |
+| `return_params` | - | - | - | - | - |
+| `tax_code` | - | - | - | - | - |
+| `taxable` | - | - | - | - | - |
+| `trial_interval` | - | - | - | - | - |
+| `trial_interval_unit` | - | - | - | - | - |
+| `trial_price_in_cents` | - | - | - | - | - |
+| `unspsc_code` | - | - | - | - | - |
+| `update_return_params` | - | - | - | - | - |
+| `update_return_url` | - | - | - | - | - |
+| `updated_at` | - | - | - | - | - |
+| `use_site_exchange_rate` | - | - | - | - | - |
+| `version_number` | - | - | - | - | - |
 
 ### Operations
 
@@ -2823,7 +2904,6 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:Product():create({
   product_family_id = --[[ string ]],
-  product = --[[ table ]],
 })
 ```
 
@@ -2902,8 +2982,16 @@ local product_family = client:ProductFamily(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
+| `accounting_code` | `string` | No |  |
+| `archived_at` | `string` | No | Timestamp indicating when this product family was archived. |
+| `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `handle` | `string` | No |  |
+| `id` | `number` | No |  |
+| `name` | `string` | No |  |
 | `product_family` | `table` | No |  |
+| `surcharging` | `boolean` | No | Whether surcharging applies to this product family. |
+| `updated_at` | `string` | No |  |
 
 ### Operations
 
@@ -3024,19 +3112,54 @@ local product_price_point = client:ProductPricePoint(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `price_point` | `table` | Yes |  |
+| `accounting_code` | `string` | No | E.g., Internal ID or SKU Number |
+| `archived_at` | `string` | No | Timestamp indicating when this price point was archived |
+| `created_at` | `string` | No | Timestamp indicating when this price point was created |
+| `currency_prices` | `table` | No | An array of currency pricing data is available when multiple currencies are defined for the site. |
+| `default_product_price_point_id` | `number` | No |  |
+| `description` | `string` | No | The product description |
+| `expiration_interval` | `number` | No | The numerical expiration interval. |
+| `expiration_interval_unit` | `any` | No |  |
+| `features` | `table` | No | The active feature catalog items attached to this product. |
+| `handle` | `string` | No | The product price point API handle |
+| `id` | `number` | No |  |
+| `initial_charge_after_trial` | `boolean` | No |  |
+| `initial_charge_in_cents` | `number` | No | The product price point initial charge, in integer cents |
+| `interval` | `number` | No | The numerical interval. |
+| `interval_unit` | `any` | No |  |
+| `introductory_offer` | `boolean` | No | reserved for future use |
+| `item_category` | `string` | No | One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other |
+| `name` | `string` | No | The product price point name |
+| `price_in_cents` | `number` | No | The product price point price, in integer cents |
+| `price_point` | `table` | No |  |
 | `price_points` | `table` | No |  |
-| `product` | `table` | Yes |  |
-
-### Field Usage by Operation
-
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `id` | - | - | - | - | - |
-| `price_point` | - | - | Yes | Yes | - |
-| `price_points` | - | Yes | - | - | - |
-| `product` | - | - | - | - | - |
+| `product_family` | `table` | No |  |
+| `product_id` | `number` | No | The product id this price point belongs to |
+| `product_price_point_handle` | `string` | No |  |
+| `product_price_point_id` | `number` | No |  |
+| `product_price_point_name` | `string` | No |  |
+| `public_signup_pages` | `table` | No |  |
+| `request_billing_address` | `boolean` | No | A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product. |
+| `request_credit_card` | `boolean` | No | Deprecated value that can be ignored unless you have legacy hosted pages. |
+| `require_billing_address` | `boolean` | No | A boolean indicating whether a billing address is required to add a payment profile, especially at signup. |
+| `require_credit_card` | `boolean` | No | Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product. |
+| `require_shipping_address` | `boolean` | No | A boolean indicating whether a shipping address is required for the customer, especially at signup. |
+| `return_params` | `string` | No |  |
+| `subscription_id` | `number` | No | The subscription id this price point belongs to |
+| `tax_code` | `string` | No | A string representing the tax code related to the product type. |
+| `tax_included` | `boolean` | No | Whether or not the price point includes tax |
+| `taxable` | `boolean` | No |  |
+| `trial_interval` | `number` | No | The numerical trial interval. |
+| `trial_interval_unit` | `any` | No |  |
+| `trial_price_in_cents` | `number` | No | The product price point trial price, in integer cents |
+| `trial_type` | `any` | No |  |
+| `type` | `any` | No |  |
+| `unspsc_code` | `string` | No | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `update_return_params` | `string` | No | The parameters will append to the url after a successful account update. |
+| `update_return_url` | `string` | No | The url to which a customer will be returned after a successful account update |
+| `updated_at` | `string` | No | Timestamp indicating when this price point was last updated |
+| `use_site_exchange_rate` | `boolean` | No | Whether or not to use the site's exchange rate or define your own pricing when your site has multiple currencies defined. |
+| `version_number` | `number` | No | The version of the product |
 
 ### Operations
 
@@ -3047,8 +3170,6 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:ProductPricePoint():create({
   id = --[[ string ]],
-  price_point = --[[ table ]],
-  product = --[[ table ]],
 })
 ```
 
@@ -3317,6 +3438,15 @@ Return the entity name.
 ```lua
 local referral_code = client:ReferralCode(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `code` | `string` | No |  |
+| `id` | `number` | No |  |
+| `site_id` | `number` | No |  |
+| `subscription_id` | `number` | No |  |
 
 ### Operations
 
@@ -3608,9 +3738,29 @@ local site = client:Site(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `chargify_js_keys` | `table` | No |  |
-| `meta` | `table` | No |  |
-| `site` | `table` | Yes |  |
+| `allocation_settings` | `table` | No |  |
+| `auto_renewals_enabled` | `boolean` | No | Whether the auto-renewals feature is enabled for this site. |
+| `created_at` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `customer_hierarchy_enabled` | `boolean` | No |  |
+| `default_payment_collection_method` | `string` | No |  |
+| `id` | `number` | No |  |
+| `multi_frequency_enabled` | `boolean` | No | Whether the site has the multi-frequency billing feature enabled. |
+| `name` | `string` | No |  |
+| `net_terms` | `table` | No |  |
+| `non_primary_currencies` | `table` | No |  |
+| `organization_address` | `table` | No |  |
+| `portal_enabled` | `boolean` | No | Whether the Billing Portal is enabled for this site. |
+| `public_key` | `string` | No |  |
+| `relationship_invoicing_enabled` | `boolean` | No |  |
+| `requires_security_token` | `boolean` | No |  |
+| `schedule_subscription_cancellation_enabled` | `boolean` | No |  |
+| `seller_id` | `number` | No |  |
+| `subdomain` | `string` | No |  |
+| `tax_configuration` | `table` | No |  |
+| `test` | `boolean` | No |  |
+| `whopays_default_payer` | `string` | No |  |
+| `whopays_enabled` | `boolean` | No |  |
 
 ### Operations
 
@@ -3620,7 +3770,6 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Site():create({
-  site = --[[ table ]],
 })
 ```
 
@@ -3637,7 +3786,7 @@ local results, err = client:Site():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Site():load()
+local result, err = client:Site():load({ id = 1 })
 ```
 
 ### Common Methods
@@ -3831,26 +3980,40 @@ local subscription_component = client:SubscriptionComponent(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `accrue_charge` | `boolean` | No | If the change in cost is an upgrade, this determines if the charge should accrue to the next renewal or if capture should be attempted immediately. |
 | `allocated_quantity` | `any` | No | For Quantity-based components: The current allocation for the component on the given subscription. |
-| `allocation` | `table` | No |  |
-| `allocation_preview` | `table` | No |  |
+| `allocation_id` | `number` | No | The allocation unique ID |
+| `allocations` | `table` | No |  |
 | `allow_fractional_quantities` | `boolean` | No |  |
 | `archived_at` | `string` | No |  |
+| `charge_id` | `number` | No |  |
 | `component` | `table` | No |  |
-| `component_handle` | `string` | No |  |
-| `component_id` | `number` | No |  |
-| `created_at` | `string` | No |  |
+| `component_handle` | `string` | No | The handle of the component. |
+| `component_id` | `number` | No | The integer component ID for the allocation. |
+| `created_at` | `string` | No | Timestamp indicating when this allocation was created |
 | `currency` | `string` | No |  |
 | `description` | `string` | No |  |
+| `direction` | `string` | No |  |
 | `display_on_hosted_page` | `boolean` | No |  |
 | `downgrade_credit` | `any` | No |  |
 | `enabled` | `boolean` | No | (for on/off components) indicates if the component is enabled for the subscription. |
+| `end_date` | `string` | No |  |
+| `existing_balance_in_cents` | `number` | No | An integer representing the amount of the subscription's current balance |
+| `expires_at` | `string` | No |  |
 | `historic_usages` | `table` | No |  |
 | `id` | `number` | No |  |
+| `initiate_dunning` | `boolean` | No | If true, if the immediate component payment fails, initiate dunning for the subscription. |
 | `interval` | `number` | No | The numerical interval. |
 | `interval_unit` | `any` | No |  |
 | `kind` | `any` | No |  |
+| `line_items` | `table` | No |  |
+| `memo` | `string` | No | The memo passed when the allocation was created |
 | `name` | `string` | No |  |
+| `overage_quantity` | `number` | No |  |
+| `payment` | `any` | No |  |
+| `period_type` | `string` | No |  |
+| `previous_price_point_id` | `number` | No |  |
+| `previous_quantity` | `any` | No | The allocated quantity that was in effect before this allocation was created. |
 | `price_point_handle` | `string` | No |  |
 | `price_point_id` | `number` | No |  |
 | `price_point_name` | `string` | No |  |
@@ -3858,15 +4021,25 @@ local subscription_component = client:SubscriptionComponent(nil)
 | `pricing_scheme` | `any` | No |  |
 | `product_family_handle` | `string` | No |  |
 | `product_family_id` | `number` | No |  |
+| `proration_downgrade_scheme` | `string` | No | The scheme used if the proration was a downgrade. |
+| `proration_scheme` | `string` | No |  |
+| `proration_upgrade_scheme` | `string` | No | The scheme used if the proration was an upgrade. |
+| `quantity` | `any` | No | The allocated quantity set into effect by the allocation. |
 | `recurring` | `boolean` | No |  |
-| `subscription` | `table` | No |  |
-| `subscription_id` | `number` | No |  |
+| `start_date` | `string` | No |  |
+| `subscription` | `any` | No |  |
+| `subscription_id` | `number` | No | The integer subscription ID for the allocation. |
+| `subtotal_in_cents` | `number` | No |  |
+| `timestamp` | `string` | No | The time that the allocation was recorded, in ISO 8601 format and UTC timezone, e.g., 2012-11-20T22:00:37Z |
+| `total_discount_in_cents` | `number` | No |  |
+| `total_in_cents` | `number` | No |  |
+| `total_tax_in_cents` | `number` | No |  |
 | `unit_balance` | `any` | No |  |
 | `unit_name` | `string` | No |  |
 | `updated_at` | `string` | No |  |
 | `upgrade_charge` | `any` | No |  |
-| `usage` | `table` | No |  |
 | `use_site_exchange_rate` | `boolean` | No |  |
+| `used_quantity` | `number` | No |  |
 
 ### Operations
 
@@ -3957,10 +4130,21 @@ local subscription_group = client:SubscriptionGroup(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `account_balances` | `table` | No |  |
+| `cancel_at_end_of_period` | `boolean` | No |  |
+| `created_at` | `string` | No |  |
+| `customer_id` | `number` | No |  |
+| `group_type` | `string` | No |  |
 | `id` | `string` | No |  |
-| `meta` | `table` | No |  |
-| `subscription_group` | `table` | No |  |
-| `subscription_groups` | `table` | No |  |
+| `next_assessment_at` | `string` | No |  |
+| `payment_collection_method` | `any` | No |  |
+| `payment_profile` | `table` | No |  |
+| `payment_profile_id` | `number` | No |  |
+| `primary_subscription_id` | `number` | No |  |
+| `scheme` | `number` | No |  |
+| `state` | `string` | No |  |
+| `subscription_ids` | `table` | No |  |
+| `uid` | `string` | No |  |
 
 ### Operations
 
@@ -4211,8 +4395,14 @@ local subscription_invoice_account = client:SubscriptionInvoiceAccount(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `service_credits` | `table` | No |  |
+| `amount_in_cents` | `number` | No | The amount in cents of the entry |
+| `created_at` | `string` | No | The date and time the entry was created |
+| `ending_balance_in_cents` | `number` | No | The new balance for the credit account |
+| `entry_type` | `any` | No |  |
+| `id` | `number` | No |  |
+| `invoice_uid` | `string` | No | The invoice uid associated with the entry. |
+| `memo` | `string` | No | The memo attached to the entry |
+| `remaining_balance_in_cents` | `number` | No | The remaining balance for the entry |
 
 ### Operations
 
@@ -4425,8 +4615,12 @@ local subscription_product = client:SubscriptionProduct(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `charge_in_cents` | `number` | No | The amount of the charge that would be created for the new product. |
+| `credit_applied_in_cents` | `number` | No | Represents a credit in cents that is applied to your subscription as part of a migration process for a specific product, which reduces the amount owed for the subscription. |
 | `id` | `string` | No |  |
 | `migration` | `table` | Yes |  |
+| `payment_due_in_cents` | `number` | No | The amount of the payment due in the case of an upgrade. |
+| `prorated_adjustment_in_cents` | `number` | No | The amount of the prorated adjustment that would be issued for the current subscription. |
 
 ### Operations
 
@@ -4481,9 +4675,25 @@ local subscription_renewal = client:SubscriptionRenewal(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `scheduled_renewal_configuration` | `table` | No |  |
+| `contract` | `any` | No |  |
+| `created_at` | `string` | No |  |
+| `decimal_quantity` | `string` | No |  |
+| `ends_at` | `string` | No |  |
+| `id` | `number` | No | ID of the renewal. |
+| `item_id` | `number` | No |  |
+| `item_subclass` | `string` | No |  |
+| `item_type` | `string` | No |  |
+| `lock_in_at` | `string` | No |  |
+| `price_point_id` | `number` | No |  |
+| `price_point_type` | `string` | No |  |
+| `quantity` | `number` | No |  |
 | `scheduled_renewal_configuration_item` | `table` | No |  |
+| `scheduled_renewal_configuration_items` | `table` | No |  |
+| `site_id` | `number` | No | ID of the site to which the renewal belongs. |
+| `starts_at` | `string` | No |  |
+| `status` | `string` | No |  |
+| `subscription_id` | `number` | No | The id of the subscription. |
+| `subscription_renewal_configuration_id` | `number` | No |  |
 
 ### Operations
 
@@ -4574,8 +4784,16 @@ local subscription_status = client:SubscriptionStatus(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `existing_balance_in_cents` | `number` | No | An integer representing the amount of the subscription’s current balance |
 | `id` | `string` | No |  |
-| `renewal_preview` | `table` | No |  |
+| `line_items` | `table` | No | An array of objects representing the individual transactions that will be created at the next renewal |
+| `next_assessment_at` | `string` | No | The timestamp for the subscription’s next renewal |
+| `subtotal_in_cents` | `number` | No | An integer representing the amount of the total pre-tax, pre-discount charges that will be assessed at the next renewal |
+| `total_amount_due_in_cents` | `number` | No | An integer representing the existing_balance_in_cents plus the total_in_cents |
+| `total_discount_in_cents` | `number` | No | An integer representing the amount of the coupon discounts that will be applied to the next renewal |
+| `total_in_cents` | `number` | No | An integer representing the total amount owed, less any discounts, that will be assessed at the next renewal |
+| `total_tax_in_cents` | `number` | No | An integer representing the total tax charges that will be assessed at the next renewal |
+| `uncalculated_taxes` | `boolean` | No | A boolean indicating whether or not additional taxes will be calculated at the time of renewal. |
 
 ### Operations
 
@@ -4700,8 +4918,12 @@ local webhook = client:Webhook(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `endpoint` | `table` | No |  |
+| `id` | `number` | No |  |
+| `site_id` | `number` | No |  |
+| `status` | `string` | No |  |
+| `url` | `string` | No |  |
 | `webhook` | `table` | No |  |
+| `webhook_subscriptions` | `table` | No |  |
 
 ### Operations
 

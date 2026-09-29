@@ -26,7 +26,6 @@ const FeatureCatalogItemEntity_1 = require("./entity/FeatureCatalogItemEntity");
 const FeatureTemplateEntity_1 = require("./entity/FeatureTemplateEntity");
 const InsightEntity_1 = require("./entity/InsightEntity");
 const InvoiceEntity_1 = require("./entity/InvoiceEntity");
-const ListProformaInvoiceEntity_1 = require("./entity/ListProformaInvoiceEntity");
 const ListSaleRepItemEntity_1 = require("./entity/ListSaleRepItemEntity");
 const ListSegmentEntity_1 = require("./entity/ListSegmentEntity");
 const OfferEntity_1 = require("./entity/OfferEntity");
@@ -433,13 +432,6 @@ class MaxioAdvancedBillingSDK {
     Invoice(entopts) {
         const self = this;
         return new InvoiceEntity_1.InvoiceEntity(self, entopts);
-    }
-    // Entity access: `client.ListProformaInvoice().list()` / `client.ListProformaInvoice().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListProformaInvoice(entopts) {
-        const self = this;
-        return new ListProformaInvoiceEntity_1.ListProformaInvoiceEntity(self, entopts);
     }
     // Entity access: `client.ListSaleRepItem().list()` / `client.ListSaleRepItem().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity

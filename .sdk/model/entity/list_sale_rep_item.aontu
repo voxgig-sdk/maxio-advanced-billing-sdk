@@ -61,7 +61,7 @@ main: kit: entity: list_sale_rep_item: {
                 ex: "Bearer <<apiKey>>"
                 k: "header"
                 n: "authorization"
-                or: "authorization"
+                or: "Authorization"
                 r: false
                 t: "`$STRING`"
               }

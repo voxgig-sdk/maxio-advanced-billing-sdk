@@ -42,7 +42,8 @@ main: kit: flow: BasicSubscriptionRenewalFlow:
       i: {
         ref: "subscription_renewal_ref01",
         srcdatavar: "subscription_renewal_ref01_data",
-        suffix: "_up0"
+        suffix: "_up0",
+        textfield: "created_at"
       }
 
       o: "update",

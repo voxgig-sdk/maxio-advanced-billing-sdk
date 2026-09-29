@@ -73,17 +73,6 @@ main: kit: entity: offer: {
       r: false
       t: "`$ARRAY`"
     }
-    offers: {
-      h: "Offers"
-      n: "offers"
-      r: false
-      t: "`$ARRAY`"
-      union: {
-        branches: 2
-        count: 1
-        depth: 8
-      }
-    }
     product_family_id: {
       fo: "int32"
       h: "Product Family Id"
@@ -178,7 +167,7 @@ main: kit: entity: offer: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.offer`"
           }
         }
       ]
@@ -236,7 +225,7 @@ main: kit: entity: offer: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.offers`"
           }
         }
       ]

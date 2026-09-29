@@ -67,7 +67,6 @@ class ReadmeExamplesTest < Minitest::Test
     "FeatureTemplate" => "feature_template",
     "Insight" => "insight",
     "Invoice" => "invoice",
-    "ListProformaInvoice" => "list_proforma_invoice",
     "ListSaleRepItem" => "list_sale_rep_item",
     "ListSegment" => "list_segment",
     "Offer" => "offer",

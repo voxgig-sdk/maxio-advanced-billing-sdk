@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -138,6 +139,10 @@ func TestPaymentProfileEntity(t *testing.T) {
 			"payment_profile_id": setup.idmap["payment_profile_id"],
 		}
 
+		paymentProfileRef01MarkdefUp0Name := "bank_name"
+		paymentProfileRef01MarkdefUp0Value := fmt.Sprintf("Mark01-payment_profile_ref01_%d", setup.now)
+		paymentProfileRef01DataUp0Up[paymentProfileRef01MarkdefUp0Name] = paymentProfileRef01MarkdefUp0Value
+
 		paymentProfileRef01ResdataUp0Result, err := paymentProfileRef01Ent.Update(paymentProfileRef01DataUp0Up, nil)
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
@@ -148,6 +153,9 @@ func TestPaymentProfileEntity(t *testing.T) {
 		}
 		if paymentProfileRef01ResdataUp0["id"] != paymentProfileRef01DataUp0Up["id"] {
 			t.Fatal("expected update result id to match")
+		}
+		if paymentProfileRef01ResdataUp0[paymentProfileRef01MarkdefUp0Name] != paymentProfileRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", paymentProfileRef01MarkdefUp0Name, paymentProfileRef01ResdataUp0[paymentProfileRef01MarkdefUp0Name])
 		}
 
 		// LOAD

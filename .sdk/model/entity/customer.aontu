@@ -66,14 +66,13 @@ main: kit: entity: customer: {
     customer: {
       h: "Customer"
       n: "customer"
-      op: {
-        list: {
-          req: true
-          type: "`$OBJECT`"
-        }
-      }
-      r: false
+      r: true
       t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
     }
     default_auto_renewal_profile_id: {
       fo: "int32"
@@ -367,7 +366,7 @@ main: kit: entity: customer: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.customer`"
           }
         }
       ]
@@ -515,7 +514,7 @@ main: kit: entity: customer: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.customer`"
           }
         }
         {
@@ -639,7 +638,7 @@ main: kit: entity: customer: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.customer`"
           }
         }
       ]

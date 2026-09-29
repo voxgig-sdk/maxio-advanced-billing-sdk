@@ -80,6 +80,7 @@ class TestWebhookEntity:
 
         webhook_ref01_data = helpers.to_map(runner.entity_data(webhook_ref01_ent.create(webhook_ref01_data, None)))
         assert webhook_ref01_data is not None
+        assert webhook_ref01_data["id"] is not None
 
         # LIST
         webhook_ref01_match = {}
@@ -87,12 +88,24 @@ class TestWebhookEntity:
         webhook_ref01_list_result = webhook_ref01_ent.list(webhook_ref01_match, None)
         assert isinstance(webhook_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(webhook_ref01_list_result),
+            {"id": webhook_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         webhook_ref01_data_up0_up = {
+            "id": webhook_ref01_data["id"],
         }
+
+        webhook_ref01_markdef_up0_name = "status"
+        webhook_ref01_markdef_up0_value = "Mark01-webhook_ref01_" + str(setup["now"])
+        webhook_ref01_data_up0_up[webhook_ref01_markdef_up0_name] = webhook_ref01_markdef_up0_value
 
         webhook_ref01_resdata_up0 = helpers.to_map(runner.entity_data(webhook_ref01_ent.update(webhook_ref01_data_up0_up, None)))
         assert webhook_ref01_resdata_up0 is not None
+        assert webhook_ref01_resdata_up0["id"] == webhook_ref01_data_up0_up["id"]
+        assert webhook_ref01_resdata_up0[webhook_ref01_markdef_up0_name] == webhook_ref01_markdef_up0_value
 
 
 

@@ -72,6 +72,8 @@ class ProformaInvoiceEntityTest < Minitest::Test
     proforma_invoice_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.proforma_invoice"), "proforma_invoice_ref01"))
     proforma_invoice_ref01_data["proforma_invoice_uid"] = setup[:idmap]["proforma_invoice_uid01"]
+    proforma_invoice_ref01_data["subscription_group_id"] = setup[:idmap]["subscription_group01"]
+    proforma_invoice_ref01_data["subscription_id"] = setup[:idmap]["subscription01"]
 
     proforma_invoice_ref01_data_result = proforma_invoice_ref01_ent.create(proforma_invoice_ref01_data, nil)
     proforma_invoice_ref01_data = Helpers.to_map(proforma_invoice_ref01_data_result.respond_to?(:data_get) ? proforma_invoice_ref01_data_result.data_get : proforma_invoice_ref01_data_result)

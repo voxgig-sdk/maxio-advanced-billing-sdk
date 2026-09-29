@@ -203,6 +203,16 @@
       "version": 2,
       "source": "openapi3"
     },
+    "GET /subscriptions/{subscription_id}/proforma_invoices.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subscription_groups/{uid}/proforma_invoices.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /api_exports/proforma_invoices/{batch_id}/rows.json": {
       "provenance": "operation-contract",
       "version": 2,

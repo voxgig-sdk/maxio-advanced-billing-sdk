@@ -102,6 +102,8 @@ func TestProformaInvoiceEntity(t *testing.T) {
 		proformaInvoiceRef01Data := core.ToMapAny(vs.GetProp(
 			vs.GetPath(setup.data, []any{"new", "proforma_invoice"}), "proforma_invoice_ref01"))
 		proformaInvoiceRef01Data["proforma_invoice_uid"] = setup.idmap["proforma_invoice_uid01"]
+		proformaInvoiceRef01Data["subscription_group_id"] = setup.idmap["subscription_group01"]
+		proformaInvoiceRef01Data["subscription_id"] = setup.idmap["subscription01"]
 
 		proformaInvoiceRef01DataResult, err := proformaInvoiceRef01Ent.Create(proformaInvoiceRef01Data, nil)
 		if err != nil {

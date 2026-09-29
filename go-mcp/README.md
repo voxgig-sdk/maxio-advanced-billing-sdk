@@ -129,7 +129,7 @@ Both tools take the same argument object:
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `entity` | string | One of the 57 supported entities (see below). |
+| `entity` | string | One of the 56 supported entities (see below). |
 | `query` | object | Optional match map. `{"id":N}` for load; omit or `{}` for list. |
 
 JSON schemas are emitted by the SDK from the `Args` struct's `json` /
@@ -151,9 +151,9 @@ JSON schemas are emitted by the SDK from the `Args` struct's `json` /
 
 ### Entities
 
-The 57 entities valid as the `entity` argument:
+The 56 entities valid as the `entity` argument:
 
-account_balance | allocation | batch_job | billing_portal | component | component_feature | component_price_point | component_price_point_currency_overage | coupon | coupon_currency | coupon_subcode | coupon_usage | custom_field | customer | delayed_cancel | endpoint | entitlement | event | events_based_billing_segment | feature | feature_catalog_item | feature_template | insight | invoice | list_proforma_invoice | list_sale_rep_item | list_segment | offer | one_time_token | payment_profile | prepayment | product | product_family | product_feature | product_price_point | proforma_invoice | reason_code | referral_code | sale_rep_setting | sales_commission | segment | signup_proforma_preview | site | subscription | subscription_component | subscription_group | subscription_group_invoice_account | subscription_group_signup | subscription_group_status | subscription_invoice_account | subscription_mrr | subscription_note | subscription_product | subscription_renewal | subscription_status | usage | webhook
+account_balance | allocation | batch_job | billing_portal | component | component_feature | component_price_point | component_price_point_currency_overage | coupon | coupon_currency | coupon_subcode | coupon_usage | custom_field | customer | delayed_cancel | endpoint | entitlement | event | events_based_billing_segment | feature | feature_catalog_item | feature_template | insight | invoice | list_sale_rep_item | list_segment | offer | one_time_token | payment_profile | prepayment | product | product_family | product_feature | product_price_point | proforma_invoice | reason_code | referral_code | sale_rep_setting | sales_commission | segment | signup_proforma_preview | site | subscription | subscription_component | subscription_group | subscription_group_invoice_account | subscription_group_signup | subscription_group_status | subscription_invoice_account | subscription_mrr | subscription_note | subscription_product | subscription_renewal | subscription_status | usage | webhook
 
 ### Smoke test via HTTP (raw JSON-RPC)
 

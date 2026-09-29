@@ -5,17 +5,12 @@ main: kit: entity: custom_field: {
   alias: field: {}
 
   fields: {
-    current_page: {
-      fo: "int32"
-      h: "Current Page"
-      n: "current_page"
-      r: false
-      t: "`$INTEGER`"
-    }
     data_count: {
+      fo: "int32"
       h: "Data Count"
       n: "data_count"
       r: false
+      sh: "The amount of subscriptions this metafield has been applied to in Advanced Billing."
       t: "`$INTEGER`"
     }
     deleted_at: {
@@ -74,13 +69,6 @@ main: kit: entity: custom_field: {
       r: false
       t: "`$STRING`"
     }
-    per_page: {
-      fo: "int32"
-      h: "Per Page"
-      n: "per_page"
-      r: false
-      t: "`$INTEGER`"
-    }
     resource_id: {
       fo: "int32"
       h: "Resource Id"
@@ -93,20 +81,6 @@ main: kit: entity: custom_field: {
       n: "scope"
       r: false
       t: "`$OBJECT`"
-    }
-    total_count: {
-      fo: "int32"
-      h: "Total Count"
-      n: "total_count"
-      r: false
-      t: "`$INTEGER`"
-    }
-    total_pages: {
-      fo: "int32"
-      h: "Total Pages"
-      n: "total_pages"
-      r: false
-      t: "`$INTEGER`"
     }
     value: {
       h: "Value"
@@ -280,7 +254,7 @@ main: kit: entity: custom_field: {
               {
                 k: "query"
                 n: "resource_id"
-                or: "resource_id"
+                or: "resource_ids"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -407,7 +381,7 @@ main: kit: entity: custom_field: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.metafields`"
           }
         }
         {
@@ -475,7 +449,7 @@ main: kit: entity: custom_field: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.metadata`"
           }
         }
       ]
@@ -517,7 +491,7 @@ main: kit: entity: custom_field: {
               {
                 k: "query"
                 n: "name"
-                or: "name"
+                or: "names"
                 r: false
                 t: "`$ARRAY`"
               }

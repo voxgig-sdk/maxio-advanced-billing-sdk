@@ -95,10 +95,15 @@ class SubscriptionGroupEntityTest < Minitest::Test
       "uid" => setup[:idmap]["uid"],
     }
 
+    subscription_group_ref01_markdef_up0_name = "created_at"
+    subscription_group_ref01_markdef_up0_value = "Mark01-subscription_group_ref01_#{setup[:now]}"
+    subscription_group_ref01_data_up0_up[subscription_group_ref01_markdef_up0_name] = subscription_group_ref01_markdef_up0_value
+
     subscription_group_ref01_resdata_up0_result = subscription_group_ref01_ent.update(subscription_group_ref01_data_up0_up, nil)
     subscription_group_ref01_resdata_up0 = Helpers.to_map(subscription_group_ref01_resdata_up0_result.respond_to?(:data_get) ? subscription_group_ref01_resdata_up0_result.data_get : subscription_group_ref01_resdata_up0_result)
     assert !subscription_group_ref01_resdata_up0.nil?
     assert_equal subscription_group_ref01_resdata_up0["id"], subscription_group_ref01_data_up0_up["id"]
+    assert_equal subscription_group_ref01_resdata_up0[subscription_group_ref01_markdef_up0_name], subscription_group_ref01_markdef_up0_value
 
     # REMOVE
     subscription_group_ref01_match_rm0 = {

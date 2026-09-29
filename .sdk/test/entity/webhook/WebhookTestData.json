@@ -2,27 +2,39 @@
   "existing": {
     "webhook": {
       "WEBHOOK00": {
-        "endpoint": {},
+        "id": "WEBHOOK00",
+        "site_id": "SITE01",
+        "status": "s3e",
+        "url": "s3f",
         "webhook": {},
-        "id": "WEBHOOK00"
+        "webhook_subscriptions": []
       },
       "WEBHOOK01": {
-        "endpoint": {},
+        "id": "WEBHOOK01",
+        "site_id": "SITE01",
+        "status": "s7a",
+        "url": "s7b",
         "webhook": {},
-        "id": "WEBHOOK01"
+        "webhook_subscriptions": []
       },
       "WEBHOOK02": {
-        "endpoint": {},
+        "id": "WEBHOOK02",
+        "site_id": "SITE01",
+        "status": "sb6",
+        "url": "sb7",
         "webhook": {},
-        "id": "WEBHOOK02"
+        "webhook_subscriptions": []
       }
     }
   },
   "new": {
     "webhook": {
       "webhook_ref01": {
-        "endpoint": {},
-        "webhook": {}
+        "site_id": "SITE01",
+        "status": "sf2",
+        "url": "sf3",
+        "webhook": {},
+        "webhook_subscriptions": []
       }
     }
   },

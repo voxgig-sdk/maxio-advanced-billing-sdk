@@ -85,6 +85,7 @@ class SiteEntityTest extends TestCase
         $site_ref01_data_result = $site_ref01_ent->create($site_ref01_data, null);
         $site_ref01_data = Helpers::to_map(is_object($site_ref01_data_result) && method_exists($site_ref01_data_result, 'data_get') ? $site_ref01_data_result->data_get() : $site_ref01_data_result);
         $this->assertNotNull($site_ref01_data);
+        $this->assertNotNull($site_ref01_data["id"]);
 
         // LIST
         $site_ref01_match = [];
@@ -92,10 +93,19 @@ class SiteEntityTest extends TestCase
         $site_ref01_list_result = $site_ref01_ent->list($site_ref01_match, null);
         $this->assertIsArray($site_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($site_ref01_list_result),
+            ["id" => $site_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // LOAD
-        $site_ref01_match_dt0 = [];
+        $site_ref01_match_dt0 = [
+            "id" => $site_ref01_data["id"],
+        ];
         $site_ref01_data_dt0_loaded = $site_ref01_ent->load($site_ref01_match_dt0, null);
-        $this->assertNotNull($site_ref01_data_dt0_loaded);
+        $site_ref01_data_dt0_load_result = Helpers::to_map(is_object($site_ref01_data_dt0_loaded) && method_exists($site_ref01_data_dt0_loaded, 'data_get') ? $site_ref01_data_dt0_loaded->data_get() : $site_ref01_data_dt0_loaded);
+        $this->assertNotNull($site_ref01_data_dt0_load_result);
+        $this->assertEquals($site_ref01_data_dt0_load_result["id"], $site_ref01_data["id"]);
 
     }
 }

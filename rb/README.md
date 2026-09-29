@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/maxio-advanced-billing-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/maxio-advanced-billing-sdk/releases](https://github.com/voxgig-sdk/maxio-advanced-billing-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/maxio-advanced-billing-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-maxio-advanced-billing-sdk", path: "./maxio-advanced-billing-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
@@ -53,9 +62,9 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  accountbalance = client.AccountBalance.load({ "subscription_id" => 1 })
+  customfields = client.CustomField.list()
 rescue => err
-  warn "load failed: #{err}"
+  warn "list failed: #{err}"
 end
 ```
 
@@ -123,8 +132,8 @@ client = MaxioAdvancedBillingSDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-accountbalance = client.AccountBalance.load({ "subscription_id" => 1 })
-puts accountbalance
+customfield = client.CustomField.list()
+puts customfield
 ```
 
 ### Use a custom fetch function
@@ -226,7 +235,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `FeatureTemplate` | `(data) -> FeatureTemplateEntity` | Create a FeatureTemplate entity instance. |
 | `Insight` | `(data) -> InsightEntity` | Create an Insight entity instance. |
 | `Invoice` | `(data) -> InvoiceEntity` | Create an Invoice entity instance. |
-| `ListProformaInvoice` | `(data) -> ListProformaInvoiceEntity` | Create a ListProformaInvoice entity instance. |
 | `ListSaleRepItem` | `(data) -> ListSaleRepItemEntity` | Create a ListSaleRepItem entity instance. |
 | `ListSegment` | `(data) -> ListSegmentEntity` | Create a ListSegment entity instance. |
 | `Offer` | `(data) -> OfferEntity` | Create an Offer entity instance. |
@@ -359,7 +367,44 @@ API path: `/portal/customers/{customer_id}/invitations/invite.json`
 
 | Field | Description |
 | --- | --- |
+| `accounting_code` | E.g. |
+| `allow_fractional_quantities` |  |
+| `archived` | Boolean flag describing whether a component is archived or not. |
+| `archived_at` | Timestamp indicating when this component was archived |
 | `component` |  |
+| `created_at` | Timestamp indicating when this component was created |
+| `default_price_point_id` |  |
+| `default_price_point_name` |  |
+| `description` | The description of the component. |
+| `downgrade_credit` |  |
+| `event_based_billing_metric_id` | (Only for Event Based Components) This is an ID of a metric attached to the component. |
+| `features` | The active feature catalog items attached to this component. |
+| `handle` | The component API handle |
+| `hide_date_range_on_invoice` | (Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices. |
+| `id` | The unique ID assigned to the component by Chargify. |
+| `interval` | The numerical interval. |
+| `interval_unit` |  |
+| `item_category` |  |
+| `kind` |  |
+| `name` | The name of the Component, suitable for display on statements. |
+| `overage_prices` | Applicable only to prepaid usage components. |
+| `price_per_unit_in_cents` | deprecated - use unit_price instead. |
+| `price_point_count` | Count for the number of price points associated with the component |
+| `price_points_url` | URL that points to the location to read the existing price points via GET request |
+| `prices` | An array of price brackets. |
+| `pricing_scheme` |  |
+| `product_family_handle` | The handle of the Product Family to which the Component belongs |
+| `product_family_id` | The id of the Product Family to which the Component belongs |
+| `product_family_name` | The name of the Product Family to which the Component belongs |
+| `recurring` |  |
+| `tax_code` | A string representing the tax code related to the component type. |
+| `taxable` | Boolean flag describing whether a component is taxable or not. |
+| `unit_name` | The name of the unit that the component’s usage is measured in. |
+| `unit_price` | The amount the customer will be charged per unit. |
+| `unspsc_code` | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `updated_at` | Timestamp indicating when this component was updated |
+| `upgrade_charge` |  |
+| `use_site_exchange_rate` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -379,31 +424,55 @@ API path: `/components/{component_id}/features/{id}.json`
 
 | Field | Description |
 | --- | --- |
-| `archived_at` |  |
-| `component` |  |
+| `accounting_code` | E.g. |
+| `allow_fractional_quantities` |  |
+| `archived` | Boolean flag describing whether a component is archived or not. |
+| `archived_at` | Timestamp indicating when this component was archived |
 | `component_id` |  |
-| `created_at` |  |
+| `created_at` | Timestamp indicating when this component was created |
 | `currency_prices` | An array of currency pricing data is available when multiple currencies are defined for the site. |
 | `default` | Note: Refer to type attribute instead. |
+| `default_price_point_id` |  |
+| `default_price_point_name` |  |
+| `description` | The description of the component. |
+| `downgrade_credit` |  |
+| `event_based_billing_metric_id` | (Only for Event Based Components) This is an ID of a metric attached to the component. |
 | `expiration_interval` | Applicable only to prepaid usage components where rollover_prepaid_remainder is true. |
 | `expiration_interval_unit` |  |
-| `handle` |  |
-| `id` |  |
+| `features` | The active feature catalog items attached to this component. |
+| `handle` | The component API handle |
+| `hide_date_range_on_invoice` | (Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices. |
+| `id` | The unique ID assigned to the component by Chargify. |
 | `interval` | The numerical interval. |
 | `interval_unit` |  |
-| `name` |  |
+| `item_category` |  |
+| `kind` |  |
+| `name` | The name of the Component, suitable for display on statements. |
 | `overage_prices` | Applicable only to prepaid usage components. |
 | `overage_pricing_scheme` |  |
+| `price_per_unit_in_cents` | deprecated - use unit_price instead. |
 | `price_point` |  |
+| `price_point_count` | Count for the number of price points associated with the component |
 | `price_points` |  |
-| `prices` |  |
+| `price_points_url` | URL that points to the location to read the existing price points via GET request |
+| `prices` | An array of price brackets. |
 | `pricing_scheme` |  |
+| `product_family_handle` | The handle of the Product Family to which the Component belongs |
+| `product_family_id` | The id of the Product Family to which the Component belongs |
+| `product_family_name` | The name of the Product Family to which the Component belongs |
+| `recurring` |  |
 | `renew_prepaid_allocation` | Applicable only to prepaid usage components. |
 | `rollover_prepaid_remainder` | Applicable only to prepaid usage components. |
 | `subscription_id` | (only used for Custom Pricing - ie. |
+| `tax_code` | A string representing the tax code related to the component type. |
 | `tax_included` |  |
+| `taxable` | Boolean flag describing whether a component is taxable or not. |
 | `type` |  |
-| `updated_at` |  |
+| `unit_name` | The name of the unit that the component’s usage is measured in. |
+| `unit_price` | The amount the customer will be charged per unit. |
+| `unspsc_code` | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `updated_at` | Timestamp indicating when this component was updated |
+| `upgrade_charge` |  |
 | `use_site_exchange_rate` | Whether to use the site level exchange rate or define your own prices for each currency if you have multiple currencies defined on the site. |
 
 Operations: Create, List, Remove, Update.
@@ -527,8 +596,7 @@ API path: `/product_families/{product_family_id}/coupons/{coupon_id}/usage.json`
 
 | Field | Description |
 | --- | --- |
-| `current_page` |  |
-| `data_count` |  |
+| `data_count` | The amount of subscriptions this metafield has been applied to in Advanced Billing. |
 | `deleted_at` |  |
 | `enum` |  |
 | `id` |  |
@@ -537,11 +605,8 @@ API path: `/product_families/{product_family_id}/coupons/{coupon_id}/usage.json`
 | `metafield_id` |  |
 | `metafields` |  |
 | `name` |  |
-| `per_page` |  |
 | `resource_id` |  |
 | `scope` |  |
-| `total_count` |  |
-| `total_pages` |  |
 | `value` |  |
 
 Operations: Create, List, Remove, Update.
@@ -656,23 +721,31 @@ API path: `/components/{component_id}/price_points/{price_point_id}/segments/{id
 
 | Field | Description |
 | --- | --- |
-| `archived_at` |  |
-| `archived_count` | Number of archived feature templates matching the filters. |
+| `archived_at` | The date and time the feature template was archived, or `null` if it is active. |
 | `created_at` |  |
+| `default_periodicity_interval` | For `usage_limit` features, the default periodicity interval used to pre-populate new feature catalog items. |
+| `default_periodicity_unit` |  |
+| `default_value` | A default value used to pre-populate new feature catalog items created from this template. |
+| `description` |  |
 | `feature` |  |
 | `feature_key` | The `key` of the parent feature template. |
 | `feature_kind` |  |
 | `feature_name` | The `name` of the parent feature template. |
 | `feature_template_id` | The id of the feature template this item was created from. |
-| `id` |  |
-| `items` |  |
+| `id` | The Advanced Billing id of the feature template. |
+| `key` | A unique, lowercase, underscore-separated identifier for the feature. |
+| `kind` |  |
+| `name` | The display name of the feature. |
 | `periodicity_interval` | Set when `feature_kind` is `usage_limit`; `null` otherwise. |
 | `periodicity_unit` |  |
+| `plans_count` | The number of **products** this feature template is currently attached to via an active feature catalog item. |
 | `price_point_id` | Set together with `price_point_type` for price-point-specific overrides. |
 | `price_point_type` |  |
-| `total_count` | Total number of feature templates matching the filters, across all pages. |
+| `products_count` | The number of **components** this feature template is currently attached to via an active feature catalog item. |
+| `unit` | The unit the feature is measured in (for example, `requests` or `GB`). |
 | `updated_at` |  |
 | `value` | The value granted by this feature catalog item. |
+| `value_type` |  |
 
 Operations: Create, List.
 
@@ -730,12 +803,22 @@ API path: `/features/{id}/restore.json`
 
 | Field | Description |
 | --- | --- |
-| `mrr` |  |
+| `amount_formatted` |  |
+| `amount_in_cents` |  |
+| `at_time` | ISO8601 timestamp |
+| `breakouts` |  |
+| `currency` |  |
+| `currency_symbol` |  |
+| `movements` |  |
+| `page` |  |
+| `per_page` |  |
 | `seller_name` |  |
 | `site_currency` |  |
 | `site_id` |  |
 | `site_name` |  |
 | `stats` |  |
+| `total_entries` |  |
+| `total_pages` |  |
 
 Operations: Load.
 
@@ -755,7 +838,6 @@ API path: `/mrr_movements.json`
 | `consolidation_level` |  |
 | `created_at` |  |
 | `credit_amount` | The amount of credit (from credit notes) applied to this invoice. |
-| `credit_notes` |  |
 | `credits` |  |
 | `currency` | The ISO 4217 currency code (3 character string) representing the currency of invoice transaction. |
 | `custom_fields` |  |
@@ -770,8 +852,6 @@ API path: `/mrr_movements.json`
 | `due_date` | Date the invoice is due. |
 | `group_primary_subscription_id` | For invoices with `consolidation_level` of `parent`, this specifies the ID of the subscription which was the primary subscription of the subscription group that generated the invoice. |
 | `id` |  |
-| `invoice` |  |
-| `invoices` |  |
 | `issue_date` | Date the invoice was issued to the customer. |
 | `line_items` | Line items on the invoice. |
 | `memo` | The memo printed on invoices of any collection type. |
@@ -817,52 +897,6 @@ API path: `/mrr_movements.json`
 Operations: Create, List, Remove, Update.
 
 API path: `/invoices/{uid}/customer_information/preview.json`
-
-#### ListProformaInvoice
-
-| Field | Description |
-| --- | --- |
-| `available_actions` |  |
-| `billing_address` |  |
-| `collection_method` |  |
-| `consolidation_level` |  |
-| `created_at` |  |
-| `credit_amount` |  |
-| `credits` |  |
-| `currency` |  |
-| `custom_fields` |  |
-| `customer` |  |
-| `customer_id` |  |
-| `delivery_date` |  |
-| `discount_amount` |  |
-| `discounts` |  |
-| `due_amount` |  |
-| `line_items` |  |
-| `memo` |  |
-| `number` |  |
-| `paid_amount` |  |
-| `payment_instructions` |  |
-| `payments` |  |
-| `product_family_name` |  |
-| `product_name` |  |
-| `public_url` |  |
-| `refund_amount` |  |
-| `role` |  |
-| `seller` |  |
-| `sequence_number` |  |
-| `shipping_address` |  |
-| `site_id` |  |
-| `status` |  |
-| `subscription_id` |  |
-| `subtotal_amount` |  |
-| `tax_amount` |  |
-| `taxes` |  |
-| `total_amount` |  |
-| `uid` |  |
-
-Operations: List.
-
-API path: `/subscriptions/{subscription_id}/proforma_invoices.json`
 
 #### ListSaleRepItem
 
@@ -914,7 +948,6 @@ API path: `/components/{component_id}/price_points/{price_point_id}/segments/bul
 | `offer_discounts` |  |
 | `offer_items` |  |
 | `offer_signup_pages` |  |
-| `offers` |  |
 | `product_family_id` |  |
 | `product_family_name` |  |
 | `product_id` |  |
@@ -943,8 +976,36 @@ API path: `/one_time_tokens/{chargify_token}.json`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
+| `bank_account_holder_type` |  |
+| `bank_account_type` |  |
+| `bank_name` | The bank where the account resides |
+| `billing_address` | The current billing street address for the bank account |
+| `billing_address_2` | The current billing street address, second line, for the bank account |
+| `billing_city` | The current billing address city for the bank account |
+| `billing_country` | The current billing address country for the bank account |
+| `billing_state` | The current billing address state for the bank account |
+| `billing_zip` | The current billing address zip code for the bank account |
+| `card_type` |  |
+| `created_at` | A timestamp indicating when this payment profile was created |
+| `current_vault` |  |
+| `customer_id` | The Chargify-assigned ID for the customer record to which the bank account belongs |
+| `customer_vault_token` | (only for Authorize.Net CIM storage): the customerProfileId for the owner of the customerPaymentProfileId provided as the vault_token. |
+| `disabled` |  |
+| `expiration_month` |  |
+| `expiration_year` |  |
+| `first_name` | The first name of the bank account holder |
+| `gateway_handle` |  |
+| `id` | The Chargify-assigned ID of the stored bank account. |
+| `last_name` | The last name of the bank account holder |
+| `masked_bank_account_number` | A string representation of the stored bank account number with all but the last 4 digits marked with X's (i.e. |
+| `masked_bank_routing_number` | A string representation of the stored bank routing number with all but the last 4 digits marked with X's (i.e. |
+| `masked_card_number` |  |
 | `payment_profile` |  |
+| `payment_type` |  |
+| `site_gateway_setting_id` |  |
+| `updated_at` | A timestamp indicating when this payment profile was last updated |
+| `vault_token` | The "token" provided by your vault storage for an already stored payment profile |
+| `verified` | Denotes whether a bank account has been verified by providing the amounts of two small deposits made into the account. |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -964,7 +1025,46 @@ API path: `/subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.
 
 | Field | Description |
 | --- | --- |
+| `accounting_code` | E.g., Internal ID or SKU Number |
+| `archived_at` | Timestamp indicating when this product was archived |
+| `created_at` | Timestamp indicating when this product was created |
+| `default_product_price_point_id` |  |
+| `description` | The product description |
+| `expiration_interval` | A numerical interval for the length a subscription to this product will run before it expires. |
+| `expiration_interval_unit` |  |
+| `features` | The active feature catalog items attached to this product. |
+| `handle` | The product API handle |
+| `id` |  |
+| `initial_charge_after_trial` |  |
+| `initial_charge_in_cents` | The up front charge you have specified. |
+| `interval` | The numerical interval. |
+| `interval_unit` |  |
+| `item_category` | One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other |
+| `name` | The product name |
+| `price_in_cents` | The product price, in integer cents |
 | `product` |  |
+| `product_family` |  |
+| `product_price_point_handle` |  |
+| `product_price_point_id` |  |
+| `product_price_point_name` |  |
+| `public_signup_pages` |  |
+| `request_billing_address` | A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product. |
+| `request_credit_card` | Deprecated value that can be ignored unless you have legacy hosted pages. |
+| `require_billing_address` | A boolean indicating whether a billing address is required to add a payment profile, especially at signup. |
+| `require_credit_card` | Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product. |
+| `require_shipping_address` | A boolean indicating whether a shipping address is required for the customer, especially at signup. |
+| `return_params` |  |
+| `tax_code` | A string representing the tax code related to the product type. |
+| `taxable` |  |
+| `trial_interval` | A numerical interval for the length of the trial period of a subscription to this product. |
+| `trial_interval_unit` |  |
+| `trial_price_in_cents` | The price of the trial period for a subscription to this product, in integer cents. |
+| `unspsc_code` | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `update_return_params` | The parameters will append to the url after a successful account update. |
+| `update_return_url` | The url to which a customer will be returned after a successful account update |
+| `updated_at` | Timestamp indicating when this product was last updated |
+| `use_site_exchange_rate` |  |
+| `version_number` | The version of the product |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -974,8 +1074,16 @@ API path: `/product_families/{product_family_id}/products.json`
 
 | Field | Description |
 | --- | --- |
+| `accounting_code` |  |
+| `archived_at` | Timestamp indicating when this product family was archived. |
+| `created_at` |  |
+| `description` |  |
+| `handle` |  |
 | `id` |  |
+| `name` |  |
 | `product_family` |  |
+| `surcharging` | Whether surcharging applies to this product family. |
+| `updated_at` |  |
 
 Operations: Create, List, Load.
 
@@ -995,10 +1103,54 @@ API path: `/products/{product_id}/features/{id}.json`
 
 | Field | Description |
 | --- | --- |
+| `accounting_code` | E.g., Internal ID or SKU Number |
+| `archived_at` | Timestamp indicating when this price point was archived |
+| `created_at` | Timestamp indicating when this price point was created |
+| `currency_prices` | An array of currency pricing data is available when multiple currencies are defined for the site. |
+| `default_product_price_point_id` |  |
+| `description` | The product description |
+| `expiration_interval` | The numerical expiration interval. |
+| `expiration_interval_unit` |  |
+| `features` | The active feature catalog items attached to this product. |
+| `handle` | The product price point API handle |
 | `id` |  |
+| `initial_charge_after_trial` |  |
+| `initial_charge_in_cents` | The product price point initial charge, in integer cents |
+| `interval` | The numerical interval. |
+| `interval_unit` |  |
+| `introductory_offer` | reserved for future use |
+| `item_category` | One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other |
+| `name` | The product price point name |
+| `price_in_cents` | The product price point price, in integer cents |
 | `price_point` |  |
 | `price_points` |  |
-| `product` |  |
+| `product_family` |  |
+| `product_id` | The product id this price point belongs to |
+| `product_price_point_handle` |  |
+| `product_price_point_id` |  |
+| `product_price_point_name` |  |
+| `public_signup_pages` |  |
+| `request_billing_address` | A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product. |
+| `request_credit_card` | Deprecated value that can be ignored unless you have legacy hosted pages. |
+| `require_billing_address` | A boolean indicating whether a billing address is required to add a payment profile, especially at signup. |
+| `require_credit_card` | Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product. |
+| `require_shipping_address` | A boolean indicating whether a shipping address is required for the customer, especially at signup. |
+| `return_params` |  |
+| `subscription_id` | The subscription id this price point belongs to |
+| `tax_code` | A string representing the tax code related to the product type. |
+| `tax_included` | Whether or not the price point includes tax |
+| `taxable` |  |
+| `trial_interval` | The numerical trial interval. |
+| `trial_interval_unit` |  |
+| `trial_price_in_cents` | The product price point trial price, in integer cents |
+| `trial_type` |  |
+| `type` |  |
+| `unspsc_code` | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `update_return_params` | The parameters will append to the url after a successful account update. |
+| `update_return_url` | The url to which a customer will be returned after a successful account update |
+| `updated_at` | Timestamp indicating when this price point was last updated |
+| `use_site_exchange_rate` | Whether or not to use the site's exchange rate or define your own pricing when your site has multiple currencies defined. |
+| `version_number` | The version of the product |
 
 Operations: Create, List, Load, Patch, Remove, Update.
 
@@ -1072,6 +1224,10 @@ API path: `/reason_codes.json`
 
 | Field | Description |
 | --- | --- |
+| `code` |  |
+| `id` |  |
+| `site_id` |  |
+| `subscription_id` |  |
 
 Operations: Load.
 
@@ -1141,9 +1297,29 @@ API path: `/subscriptions/proforma_invoices/preview.json`
 
 | Field | Description |
 | --- | --- |
-| `chargify_js_keys` |  |
-| `meta` |  |
-| `site` |  |
+| `allocation_settings` |  |
+| `auto_renewals_enabled` | Whether the auto-renewals feature is enabled for this site. |
+| `created_at` |  |
+| `currency` |  |
+| `customer_hierarchy_enabled` |  |
+| `default_payment_collection_method` |  |
+| `id` |  |
+| `multi_frequency_enabled` | Whether the site has the multi-frequency billing feature enabled. |
+| `name` |  |
+| `net_terms` |  |
+| `non_primary_currencies` |  |
+| `organization_address` |  |
+| `portal_enabled` | Whether the Billing Portal is enabled for this site. |
+| `public_key` |  |
+| `relationship_invoicing_enabled` |  |
+| `requires_security_token` |  |
+| `schedule_subscription_cancellation_enabled` |  |
+| `seller_id` |  |
+| `subdomain` |  |
+| `tax_configuration` |  |
+| `test` |  |
+| `whopays_default_payer` |  |
+| `whopays_enabled` |  |
 
 Operations: Create, List, Load.
 
@@ -1225,26 +1401,40 @@ API path: `/subscriptions/{subscription_id}/purge.json`
 
 | Field | Description |
 | --- | --- |
+| `accrue_charge` | If the change in cost is an upgrade, this determines if the charge should accrue to the next renewal or if capture should be attempted immediately. |
 | `allocated_quantity` | For Quantity-based components: The current allocation for the component on the given subscription. |
-| `allocation` |  |
-| `allocation_preview` |  |
+| `allocation_id` | The allocation unique ID |
+| `allocations` |  |
 | `allow_fractional_quantities` |  |
 | `archived_at` |  |
+| `charge_id` |  |
 | `component` |  |
-| `component_handle` |  |
-| `component_id` |  |
-| `created_at` |  |
+| `component_handle` | The handle of the component. |
+| `component_id` | The integer component ID for the allocation. |
+| `created_at` | Timestamp indicating when this allocation was created |
 | `currency` |  |
 | `description` |  |
+| `direction` |  |
 | `display_on_hosted_page` |  |
 | `downgrade_credit` |  |
 | `enabled` | (for on/off components) indicates if the component is enabled for the subscription. |
+| `end_date` |  |
+| `existing_balance_in_cents` | An integer representing the amount of the subscription's current balance |
+| `expires_at` |  |
 | `historic_usages` |  |
 | `id` |  |
+| `initiate_dunning` | If true, if the immediate component payment fails, initiate dunning for the subscription. |
 | `interval` | The numerical interval. |
 | `interval_unit` |  |
 | `kind` |  |
+| `line_items` |  |
+| `memo` | The memo passed when the allocation was created |
 | `name` |  |
+| `overage_quantity` |  |
+| `payment` |  |
+| `period_type` |  |
+| `previous_price_point_id` |  |
+| `previous_quantity` | The allocated quantity that was in effect before this allocation was created. |
 | `price_point_handle` |  |
 | `price_point_id` |  |
 | `price_point_name` |  |
@@ -1252,15 +1442,25 @@ API path: `/subscriptions/{subscription_id}/purge.json`
 | `pricing_scheme` |  |
 | `product_family_handle` |  |
 | `product_family_id` |  |
+| `proration_downgrade_scheme` | The scheme used if the proration was a downgrade. |
+| `proration_scheme` |  |
+| `proration_upgrade_scheme` | The scheme used if the proration was an upgrade. |
+| `quantity` | The allocated quantity set into effect by the allocation. |
 | `recurring` |  |
+| `start_date` |  |
 | `subscription` |  |
-| `subscription_id` |  |
+| `subscription_id` | The integer subscription ID for the allocation. |
+| `subtotal_in_cents` |  |
+| `timestamp` | The time that the allocation was recorded, in ISO 8601 format and UTC timezone, e.g., 2012-11-20T22:00:37Z |
+| `total_discount_in_cents` |  |
+| `total_in_cents` |  |
+| `total_tax_in_cents` |  |
 | `unit_balance` |  |
 | `unit_name` |  |
 | `updated_at` |  |
 | `upgrade_charge` |  |
-| `usage` |  |
 | `use_site_exchange_rate` |  |
+| `used_quantity` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1270,10 +1470,21 @@ API path: `/events/{api_handle}.json`
 
 | Field | Description |
 | --- | --- |
+| `account_balances` |  |
+| `cancel_at_end_of_period` |  |
+| `created_at` |  |
+| `customer_id` |  |
+| `group_type` |  |
 | `id` |  |
-| `meta` |  |
-| `subscription_group` |  |
-| `subscription_groups` |  |
+| `next_assessment_at` |  |
+| `payment_collection_method` |  |
+| `payment_profile` |  |
+| `payment_profile_id` |  |
+| `primary_subscription_id` |  |
+| `scheme` |  |
+| `state` |  |
+| `subscription_ids` |  |
+| `uid` |  |
 
 Operations: Create, List, Remove, Update.
 
@@ -1312,8 +1523,14 @@ API path: `/subscription_groups/{uid}/cancel.json`
 
 | Field | Description |
 | --- | --- |
+| `amount_in_cents` | The amount in cents of the entry |
+| `created_at` | The date and time the entry was created |
+| `ending_balance_in_cents` | The new balance for the credit account |
+| `entry_type` |  |
 | `id` |  |
-| `service_credits` |  |
+| `invoice_uid` | The invoice uid associated with the entry. |
+| `memo` | The memo attached to the entry |
+| `remaining_balance_in_cents` | The remaining balance for the entry |
 
 Operations: Create, List.
 
@@ -1351,8 +1568,12 @@ API path: `/subscriptions/{subscription_id}/notes.json`
 
 | Field | Description |
 | --- | --- |
+| `charge_in_cents` | The amount of the charge that would be created for the new product. |
+| `credit_applied_in_cents` | Represents a credit in cents that is applied to your subscription as part of a migration process for a specific product, which reduces the amount owed for the subscription. |
 | `id` |  |
 | `migration` |  |
+| `payment_due_in_cents` | The amount of the payment due in the case of an upgrade. |
+| `prorated_adjustment_in_cents` | The amount of the prorated adjustment that would be issued for the current subscription. |
 
 Operations: Create.
 
@@ -1362,9 +1583,25 @@ API path: `/subscriptions/{subscription_id}/migrations.json`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `scheduled_renewal_configuration` |  |
+| `contract` |  |
+| `created_at` |  |
+| `decimal_quantity` |  |
+| `ends_at` |  |
+| `id` | ID of the renewal. |
+| `item_id` |  |
+| `item_subclass` |  |
+| `item_type` |  |
+| `lock_in_at` |  |
+| `price_point_id` |  |
+| `price_point_type` |  |
+| `quantity` |  |
 | `scheduled_renewal_configuration_item` |  |
+| `scheduled_renewal_configuration_items` |  |
+| `site_id` | ID of the site to which the renewal belongs. |
+| `starts_at` |  |
+| `status` |  |
+| `subscription_id` | The id of the subscription. |
+| `subscription_renewal_configuration_id` |  |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -1374,8 +1611,16 @@ API path: `/subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewa
 
 | Field | Description |
 | --- | --- |
+| `existing_balance_in_cents` | An integer representing the amount of the subscription’s current balance |
 | `id` |  |
-| `renewal_preview` |  |
+| `line_items` | An array of objects representing the individual transactions that will be created at the next renewal |
+| `next_assessment_at` | The timestamp for the subscription’s next renewal |
+| `subtotal_in_cents` | An integer representing the amount of the total pre-tax, pre-discount charges that will be assessed at the next renewal |
+| `total_amount_due_in_cents` | An integer representing the existing_balance_in_cents plus the total_in_cents |
+| `total_discount_in_cents` | An integer representing the amount of the coupon discounts that will be applied to the next renewal |
+| `total_in_cents` | An integer representing the total amount owed, less any discounts, that will be assessed at the next renewal |
+| `total_tax_in_cents` | An integer representing the total tax charges that will be assessed at the next renewal |
+| `uncalculated_taxes` | A boolean indicating whether or not additional taxes will be calculated at the time of renewal. |
 
 Operations: Create, Remove, Update.
 
@@ -1395,8 +1640,12 @@ API path: `/subscriptions/{subscription_id_or_reference}/components/{component_i
 
 | Field | Description |
 | --- | --- |
-| `endpoint` |  |
+| `id` |  |
+| `site_id` |  |
+| `status` |  |
+| `url` |  |
 | `webhook` |  |
+| `webhook_subscriptions` |  |
 
 Operations: Create, List, Update.
 
@@ -1566,7 +1815,44 @@ Create an instance: `component = client.Component`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `accounting_code` | `String` | E.g. |
+| `allow_fractional_quantities` | `Boolean` |  |
+| `archived` | `Boolean` | Boolean flag describing whether a component is archived or not. |
+| `archived_at` | `String` | Timestamp indicating when this component was archived |
 | `component` | `Hash` |  |
+| `created_at` | `String` | Timestamp indicating when this component was created |
+| `default_price_point_id` | `Integer` |  |
+| `default_price_point_name` | `String` |  |
+| `description` | `String` | The description of the component. |
+| `downgrade_credit` | `Object` |  |
+| `event_based_billing_metric_id` | `Integer` | (Only for Event Based Components) This is an ID of a metric attached to the component. |
+| `features` | `Array` | The active feature catalog items attached to this component. |
+| `handle` | `String` | The component API handle |
+| `hide_date_range_on_invoice` | `Boolean` | (Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices. |
+| `id` | `Integer` | The unique ID assigned to the component by Chargify. |
+| `interval` | `Integer` | The numerical interval. |
+| `interval_unit` | `Object` |  |
+| `item_category` | `Object` |  |
+| `kind` | `Object` |  |
+| `name` | `String` | The name of the Component, suitable for display on statements. |
+| `overage_prices` | `Array` | Applicable only to prepaid usage components. |
+| `price_per_unit_in_cents` | `Integer` | deprecated - use unit_price instead. |
+| `price_point_count` | `Integer` | Count for the number of price points associated with the component |
+| `price_points_url` | `String` | URL that points to the location to read the existing price points via GET request |
+| `prices` | `Array` | An array of price brackets. |
+| `pricing_scheme` | `Object` |  |
+| `product_family_handle` | `String` | The handle of the Product Family to which the Component belongs |
+| `product_family_id` | `Integer` | The id of the Product Family to which the Component belongs |
+| `product_family_name` | `String` | The name of the Product Family to which the Component belongs |
+| `recurring` | `Boolean` |  |
+| `tax_code` | `String` | A string representing the tax code related to the component type. |
+| `taxable` | `Boolean` | Boolean flag describing whether a component is taxable or not. |
+| `unit_name` | `String` | The name of the unit that the component’s usage is measured in. |
+| `unit_price` | `String` | The amount the customer will be charged per unit. |
+| `unspsc_code` | `String` | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `updated_at` | `String` | Timestamp indicating when this component was updated |
+| `upgrade_charge` | `Object` |  |
+| `use_site_exchange_rate` | `Boolean` |  |
 
 #### Example: Load
 
@@ -1625,31 +1911,55 @@ Create an instance: `component_price_point = client.ComponentPricePoint`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `archived_at` | `String` |  |
-| `component` | `Hash` |  |
+| `accounting_code` | `String` | E.g. |
+| `allow_fractional_quantities` | `Boolean` |  |
+| `archived` | `Boolean` | Boolean flag describing whether a component is archived or not. |
+| `archived_at` | `String` | Timestamp indicating when this component was archived |
 | `component_id` | `Integer` |  |
-| `created_at` | `String` |  |
+| `created_at` | `String` | Timestamp indicating when this component was created |
 | `currency_prices` | `Array` | An array of currency pricing data is available when multiple currencies are defined for the site. |
 | `default` | `Boolean` | Note: Refer to type attribute instead. |
+| `default_price_point_id` | `Integer` |  |
+| `default_price_point_name` | `String` |  |
+| `description` | `String` | The description of the component. |
+| `downgrade_credit` | `Object` |  |
+| `event_based_billing_metric_id` | `Integer` | (Only for Event Based Components) This is an ID of a metric attached to the component. |
 | `expiration_interval` | `Integer` | Applicable only to prepaid usage components where rollover_prepaid_remainder is true. |
 | `expiration_interval_unit` | `Object` |  |
-| `handle` | `String` |  |
-| `id` | `Integer` |  |
+| `features` | `Array` | The active feature catalog items attached to this component. |
+| `handle` | `String` | The component API handle |
+| `hide_date_range_on_invoice` | `Boolean` | (Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices. |
+| `id` | `Integer` | The unique ID assigned to the component by Chargify. |
 | `interval` | `Integer` | The numerical interval. |
 | `interval_unit` | `Object` |  |
-| `name` | `String` |  |
+| `item_category` | `Object` |  |
+| `kind` | `Object` |  |
+| `name` | `String` | The name of the Component, suitable for display on statements. |
 | `overage_prices` | `Array` | Applicable only to prepaid usage components. |
 | `overage_pricing_scheme` | `Object` |  |
+| `price_per_unit_in_cents` | `Integer` | deprecated - use unit_price instead. |
 | `price_point` | `Hash` |  |
+| `price_point_count` | `Integer` | Count for the number of price points associated with the component |
 | `price_points` | `Array` |  |
-| `prices` | `Array` |  |
+| `price_points_url` | `String` | URL that points to the location to read the existing price points via GET request |
+| `prices` | `Array` | An array of price brackets. |
 | `pricing_scheme` | `Object` |  |
+| `product_family_handle` | `String` | The handle of the Product Family to which the Component belongs |
+| `product_family_id` | `Integer` | The id of the Product Family to which the Component belongs |
+| `product_family_name` | `String` | The name of the Product Family to which the Component belongs |
+| `recurring` | `Boolean` |  |
 | `renew_prepaid_allocation` | `Boolean` | Applicable only to prepaid usage components. |
 | `rollover_prepaid_remainder` | `Boolean` | Applicable only to prepaid usage components. |
 | `subscription_id` | `Integer` | (only used for Custom Pricing - ie. |
+| `tax_code` | `String` | A string representing the tax code related to the component type. |
 | `tax_included` | `Boolean` |  |
+| `taxable` | `Boolean` | Boolean flag describing whether a component is taxable or not. |
 | `type` | `Object` |  |
-| `updated_at` | `String` |  |
+| `unit_name` | `String` | The name of the unit that the component’s usage is measured in. |
+| `unit_price` | `String` | The amount the customer will be charged per unit. |
+| `unspsc_code` | `String` | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `updated_at` | `String` | Timestamp indicating when this component was updated |
+| `upgrade_charge` | `Object` |  |
 | `use_site_exchange_rate` | `Boolean` | Whether to use the site level exchange rate or define your own prices for each currency if you have multiple currencies defined on the site. |
 
 #### Example: List
@@ -1664,7 +1974,6 @@ component_price_points = client.ComponentPricePoint.list
 ```ruby
 component_price_point = client.ComponentPricePoint.create({
   "id" => 1, # Integer
-  "component" => {}, # Hash
 })
 ```
 
@@ -1874,8 +2183,7 @@ Create an instance: `custom_field = client.CustomField`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `current_page` | `Integer` |  |
-| `data_count` | `Integer` |  |
+| `data_count` | `Integer` | The amount of subscriptions this metafield has been applied to in Advanced Billing. |
 | `deleted_at` | `String` |  |
 | `enum` | `String` |  |
 | `id` | `Integer` |  |
@@ -1884,11 +2192,8 @@ Create an instance: `custom_field = client.CustomField`
 | `metafield_id` | `Integer` |  |
 | `metafields` | `Object` |  |
 | `name` | `String` |  |
-| `per_page` | `Integer` |  |
 | `resource_id` | `Integer` |  |
 | `scope` | `Hash` |  |
-| `total_count` | `Integer` |  |
-| `total_pages` | `Integer` |  |
 | `value` | `String` |  |
 
 #### Example: List
@@ -1981,6 +2286,7 @@ customers = client.Customer.list
 
 ```ruby
 customer = client.Customer.create({
+  "customer" => {}, # Hash
 })
 ```
 
@@ -2132,23 +2438,31 @@ Create an instance: `feature = client.Feature`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `archived_at` | `String` |  |
-| `archived_count` | `Integer` | Number of archived feature templates matching the filters. |
+| `archived_at` | `String` | The date and time the feature template was archived, or `null` if it is active. |
 | `created_at` | `String` |  |
+| `default_periodicity_interval` | `Integer` | For `usage_limit` features, the default periodicity interval used to pre-populate new feature catalog items. |
+| `default_periodicity_unit` | `Object` |  |
+| `default_value` | `String` | A default value used to pre-populate new feature catalog items created from this template. |
+| `description` | `String` |  |
 | `feature` | `Hash` |  |
 | `feature_key` | `String` | The `key` of the parent feature template. |
 | `feature_kind` | `Object` |  |
 | `feature_name` | `String` | The `name` of the parent feature template. |
 | `feature_template_id` | `Integer` | The id of the feature template this item was created from. |
-| `id` | `Integer` |  |
-| `items` | `Array` |  |
+| `id` | `Integer` | The Advanced Billing id of the feature template. |
+| `key` | `String` | A unique, lowercase, underscore-separated identifier for the feature. |
+| `kind` | `Object` |  |
+| `name` | `String` | The display name of the feature. |
 | `periodicity_interval` | `Integer` | Set when `feature_kind` is `usage_limit`; `null` otherwise. |
 | `periodicity_unit` | `Object` |  |
+| `plans_count` | `Integer` | The number of **products** this feature template is currently attached to via an active feature catalog item. |
 | `price_point_id` | `Integer` | Set together with `price_point_type` for price-point-specific overrides. |
 | `price_point_type` | `Object` |  |
-| `total_count` | `Integer` | Total number of feature templates matching the filters, across all pages. |
+| `products_count` | `Integer` | The number of **components** this feature template is currently attached to via an active feature catalog item. |
+| `unit` | `String` | The unit the feature is measured in (for example, `requests` or `GB`). |
 | `updated_at` | `String` |  |
 | `value` | `String` | The value granted by this feature catalog item. |
+| `value_type` | `Object` |  |
 
 #### Example: List
 
@@ -2161,10 +2475,7 @@ features = client.Feature.list
 
 ```ruby
 feature = client.Feature.create({
-  "archived_count" => 1, # Integer
   "feature" => {}, # Hash
-  "items" => [], # Array
-  "total_count" => 1, # Integer
 })
 ```
 
@@ -2282,12 +2593,22 @@ Create an instance: `insight = client.Insight`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `mrr` | `Hash` |  |
+| `amount_formatted` | `String` |  |
+| `amount_in_cents` | `Integer` |  |
+| `at_time` | `String` | ISO8601 timestamp |
+| `breakouts` | `Hash` |  |
+| `currency` | `String` |  |
+| `currency_symbol` | `String` |  |
+| `movements` | `Array` |  |
+| `page` | `Integer` |  |
+| `per_page` | `Integer` |  |
 | `seller_name` | `String` |  |
 | `site_currency` | `String` |  |
 | `site_id` | `Integer` |  |
 | `site_name` | `String` |  |
 | `stats` | `Hash` |  |
+| `total_entries` | `Integer` |  |
+| `total_pages` | `Integer` |  |
 
 #### Example: Load
 
@@ -2324,7 +2645,6 @@ Create an instance: `invoice = client.Invoice`
 | `consolidation_level` | `Object` |  |
 | `created_at` | `String` |  |
 | `credit_amount` | `String` | The amount of credit (from credit notes) applied to this invoice. |
-| `credit_notes` | `Array` |  |
 | `credits` | `Array` |  |
 | `currency` | `String` | The ISO 4217 currency code (3 character string) representing the currency of invoice transaction. |
 | `custom_fields` | `Array` |  |
@@ -2339,8 +2659,6 @@ Create an instance: `invoice = client.Invoice`
 | `due_date` | `String` | Date the invoice is due. |
 | `group_primary_subscription_id` | `Integer` | For invoices with `consolidation_level` of `parent`, this specifies the ID of the subscription which was the primary subscription of the subscription group that generated the invoice. |
 | `id` | `Integer` |  |
-| `invoice` | `Hash` |  |
-| `invoices` | `Array` |  |
 | `issue_date` | `String` | Date the invoice was issued to the customer. |
 | `line_items` | `Array` | Line items on the invoice. |
 | `memo` | `String` | The memo printed on invoices of any collection type. |
@@ -2395,70 +2713,8 @@ invoices = client.Invoice.list
 ```ruby
 invoice = client.Invoice.create({
   "subscription_id" => 1, # Integer
-  "credit_notes" => [], # Array
-  "invoices" => [], # Array
   "void" => {}, # Hash
 })
-```
-
-
-### ListProformaInvoice
-
-Create an instance: `list_proforma_invoice = client.ListProformaInvoice`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `available_actions` | `Hash` |  |
-| `billing_address` | `Hash` |  |
-| `collection_method` | `Object` |  |
-| `consolidation_level` | `Object` |  |
-| `created_at` | `String` |  |
-| `credit_amount` | `String` |  |
-| `credits` | `Array` |  |
-| `currency` | `String` |  |
-| `custom_fields` | `Array` |  |
-| `customer` | `Object` |  |
-| `customer_id` | `Integer` |  |
-| `delivery_date` | `String` |  |
-| `discount_amount` | `String` |  |
-| `discounts` | `Array` |  |
-| `due_amount` | `String` |  |
-| `line_items` | `Array` |  |
-| `memo` | `String` |  |
-| `number` | `Integer` |  |
-| `paid_amount` | `String` |  |
-| `payment_instructions` | `String` |  |
-| `payments` | `Array` |  |
-| `product_family_name` | `String` |  |
-| `product_name` | `String` |  |
-| `public_url` | `String` |  |
-| `refund_amount` | `String` |  |
-| `role` | `Object` |  |
-| `seller` | `Object` |  |
-| `sequence_number` | `Integer` |  |
-| `shipping_address` | `Hash` |  |
-| `site_id` | `Integer` |  |
-| `status` | `String` |  |
-| `subscription_id` | `Integer` |  |
-| `subtotal_amount` | `String` |  |
-| `tax_amount` | `String` |  |
-| `taxes` | `Array` |  |
-| `total_amount` | `String` |  |
-| `uid` | `String` |  |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListProformaInvoice records (raises on error).
-list_proforma_invoices = client.ListProformaInvoice.list
 ```
 
 
@@ -2564,7 +2820,6 @@ Create an instance: `offer = client.Offer`
 | `offer_discounts` | `Array` |  |
 | `offer_items` | `Array` |  |
 | `offer_signup_pages` | `Array` |  |
-| `offers` | `Array` |  |
 | `product_family_id` | `Integer` |  |
 | `product_family_name` | `String` |  |
 | `product_id` | `Integer` |  |
@@ -2634,8 +2889,36 @@ Create an instance: `payment_profile = client.PaymentProfile`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `String` |  |
-| `payment_profile` | `Hash` |  |
+| `bank_account_holder_type` | `Object` |  |
+| `bank_account_type` | `Object` |  |
+| `bank_name` | `String` | The bank where the account resides |
+| `billing_address` | `String` | The current billing street address for the bank account |
+| `billing_address_2` | `String` | The current billing street address, second line, for the bank account |
+| `billing_city` | `String` | The current billing address city for the bank account |
+| `billing_country` | `String` | The current billing address country for the bank account |
+| `billing_state` | `String` | The current billing address state for the bank account |
+| `billing_zip` | `String` | The current billing address zip code for the bank account |
+| `card_type` | `String` |  |
+| `created_at` | `String` | A timestamp indicating when this payment profile was created |
+| `current_vault` | `String` |  |
+| `customer_id` | `Integer` | The Chargify-assigned ID for the customer record to which the bank account belongs |
+| `customer_vault_token` | `String` | (only for Authorize.Net CIM storage): the customerProfileId for the owner of the customerPaymentProfileId provided as the vault_token. |
+| `disabled` | `Boolean` |  |
+| `expiration_month` | `Integer` |  |
+| `expiration_year` | `Integer` |  |
+| `first_name` | `String` | The first name of the bank account holder |
+| `gateway_handle` | `String` |  |
+| `id` | `Integer` | The Chargify-assigned ID of the stored bank account. |
+| `last_name` | `String` | The last name of the bank account holder |
+| `masked_bank_account_number` | `String` | A string representation of the stored bank account number with all but the last 4 digits marked with X's (i.e. |
+| `masked_bank_routing_number` | `String` | A string representation of the stored bank routing number with all but the last 4 digits marked with X's (i.e. |
+| `masked_card_number` | `String` |  |
+| `payment_profile` | `Object` |  |
+| `payment_type` | `String` |  |
+| `site_gateway_setting_id` | `Integer` |  |
+| `updated_at` | `String` | A timestamp indicating when this payment profile was last updated |
+| `vault_token` | `String` | The "token" provided by your vault storage for an already stored payment profile |
+| `verified` | `Boolean` | Denotes whether a bank account has been verified by providing the amounts of two small deposits made into the account. |
 
 #### Example: Load
 
@@ -2655,6 +2938,7 @@ payment_profiles = client.PaymentProfile.list
 
 ```ruby
 payment_profile = client.PaymentProfile.create({
+  "payment_profile" => "example_payment_profile", # Object
 })
 ```
 
@@ -2703,7 +2987,46 @@ Create an instance: `product = client.Product`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `accounting_code` | `String` | E.g., Internal ID or SKU Number |
+| `archived_at` | `String` | Timestamp indicating when this product was archived |
+| `created_at` | `String` | Timestamp indicating when this product was created |
+| `default_product_price_point_id` | `Integer` |  |
+| `description` | `String` | The product description |
+| `expiration_interval` | `Integer` | A numerical interval for the length a subscription to this product will run before it expires. |
+| `expiration_interval_unit` | `Object` |  |
+| `features` | `Array` | The active feature catalog items attached to this product. |
+| `handle` | `String` | The product API handle |
+| `id` | `Integer` |  |
+| `initial_charge_after_trial` | `Boolean` |  |
+| `initial_charge_in_cents` | `Integer` | The up front charge you have specified. |
+| `interval` | `Integer` | The numerical interval. |
+| `interval_unit` | `Object` |  |
+| `item_category` | `String` | One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other |
+| `name` | `String` | The product name |
+| `price_in_cents` | `Integer` | The product price, in integer cents |
 | `product` | `Hash` |  |
+| `product_family` | `Hash` |  |
+| `product_price_point_handle` | `String` |  |
+| `product_price_point_id` | `Integer` |  |
+| `product_price_point_name` | `String` |  |
+| `public_signup_pages` | `Array` |  |
+| `request_billing_address` | `Boolean` | A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product. |
+| `request_credit_card` | `Boolean` | Deprecated value that can be ignored unless you have legacy hosted pages. |
+| `require_billing_address` | `Boolean` | A boolean indicating whether a billing address is required to add a payment profile, especially at signup. |
+| `require_credit_card` | `Boolean` | Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product. |
+| `require_shipping_address` | `Boolean` | A boolean indicating whether a shipping address is required for the customer, especially at signup. |
+| `return_params` | `String` |  |
+| `tax_code` | `String` | A string representing the tax code related to the product type. |
+| `taxable` | `Boolean` |  |
+| `trial_interval` | `Integer` | A numerical interval for the length of the trial period of a subscription to this product. |
+| `trial_interval_unit` | `Object` |  |
+| `trial_price_in_cents` | `Integer` | The price of the trial period for a subscription to this product, in integer cents. |
+| `unspsc_code` | `String` | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `update_return_params` | `String` | The parameters will append to the url after a successful account update. |
+| `update_return_url` | `String` | The url to which a customer will be returned after a successful account update |
+| `updated_at` | `String` | Timestamp indicating when this product was last updated |
+| `use_site_exchange_rate` | `Boolean` |  |
+| `version_number` | `Integer` | The version of the product |
 
 #### Example: Load
 
@@ -2724,7 +3047,6 @@ products = client.Product.list
 ```ruby
 product = client.Product.create({
   "product_family_id" => "example_product_family_id", # String
-  "product" => {}, # Hash
 })
 ```
 
@@ -2745,8 +3067,16 @@ Create an instance: `product_family = client.ProductFamily`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `String` |  |
+| `accounting_code` | `String` |  |
+| `archived_at` | `String` | Timestamp indicating when this product family was archived. |
+| `created_at` | `String` |  |
+| `description` | `String` |  |
+| `handle` | `String` |  |
+| `id` | `Integer` |  |
+| `name` | `String` |  |
 | `product_family` | `Hash` |  |
+| `surcharging` | `Boolean` | Whether surcharging applies to this product family. |
+| `updated_at` | `String` |  |
 
 #### Example: Load
 
@@ -2805,10 +3135,54 @@ Create an instance: `product_price_point = client.ProductPricePoint`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `String` |  |
+| `accounting_code` | `String` | E.g., Internal ID or SKU Number |
+| `archived_at` | `String` | Timestamp indicating when this price point was archived |
+| `created_at` | `String` | Timestamp indicating when this price point was created |
+| `currency_prices` | `Array` | An array of currency pricing data is available when multiple currencies are defined for the site. |
+| `default_product_price_point_id` | `Integer` |  |
+| `description` | `String` | The product description |
+| `expiration_interval` | `Integer` | The numerical expiration interval. |
+| `expiration_interval_unit` | `Object` |  |
+| `features` | `Array` | The active feature catalog items attached to this product. |
+| `handle` | `String` | The product price point API handle |
+| `id` | `Integer` |  |
+| `initial_charge_after_trial` | `Boolean` |  |
+| `initial_charge_in_cents` | `Integer` | The product price point initial charge, in integer cents |
+| `interval` | `Integer` | The numerical interval. |
+| `interval_unit` | `Object` |  |
+| `introductory_offer` | `Boolean` | reserved for future use |
+| `item_category` | `String` | One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other |
+| `name` | `String` | The product price point name |
+| `price_in_cents` | `Integer` | The product price point price, in integer cents |
 | `price_point` | `Hash` |  |
 | `price_points` | `Array` |  |
-| `product` | `Hash` |  |
+| `product_family` | `Hash` |  |
+| `product_id` | `Integer` | The product id this price point belongs to |
+| `product_price_point_handle` | `String` |  |
+| `product_price_point_id` | `Integer` |  |
+| `product_price_point_name` | `String` |  |
+| `public_signup_pages` | `Array` |  |
+| `request_billing_address` | `Boolean` | A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product. |
+| `request_credit_card` | `Boolean` | Deprecated value that can be ignored unless you have legacy hosted pages. |
+| `require_billing_address` | `Boolean` | A boolean indicating whether a billing address is required to add a payment profile, especially at signup. |
+| `require_credit_card` | `Boolean` | Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product. |
+| `require_shipping_address` | `Boolean` | A boolean indicating whether a shipping address is required for the customer, especially at signup. |
+| `return_params` | `String` |  |
+| `subscription_id` | `Integer` | The subscription id this price point belongs to |
+| `tax_code` | `String` | A string representing the tax code related to the product type. |
+| `tax_included` | `Boolean` | Whether or not the price point includes tax |
+| `taxable` | `Boolean` |  |
+| `trial_interval` | `Integer` | The numerical trial interval. |
+| `trial_interval_unit` | `Object` |  |
+| `trial_price_in_cents` | `Integer` | The product price point trial price, in integer cents |
+| `trial_type` | `Object` |  |
+| `type` | `Object` |  |
+| `unspsc_code` | `String` | (Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data. |
+| `update_return_params` | `String` | The parameters will append to the url after a successful account update. |
+| `update_return_url` | `String` | The url to which a customer will be returned after a successful account update |
+| `updated_at` | `String` | Timestamp indicating when this price point was last updated |
+| `use_site_exchange_rate` | `Boolean` | Whether or not to use the site's exchange rate or define your own pricing when your site has multiple currencies defined. |
+| `version_number` | `Integer` | The version of the product |
 
 #### Example: Load
 
@@ -2829,8 +3203,6 @@ product_price_points = client.ProductPricePoint.list
 ```ruby
 product_price_point = client.ProductPricePoint.create({
   "id" => "example_id", # String
-  "price_point" => {}, # Hash
-  "product" => {}, # Hash
 })
 ```
 
@@ -2963,6 +3335,15 @@ Create an instance: `referral_code = client.ReferralCode`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `code` | `String` |  |
+| `id` | `Integer` |  |
+| `site_id` | `Integer` |  |
+| `subscription_id` | `Integer` |  |
 
 #### Example: Load
 
@@ -3102,15 +3483,35 @@ Create an instance: `site = client.Site`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `chargify_js_keys` | `Array` |  |
-| `meta` | `Hash` |  |
-| `site` | `Hash` |  |
+| `allocation_settings` | `Hash` |  |
+| `auto_renewals_enabled` | `Boolean` | Whether the auto-renewals feature is enabled for this site. |
+| `created_at` | `String` |  |
+| `currency` | `String` |  |
+| `customer_hierarchy_enabled` | `Boolean` |  |
+| `default_payment_collection_method` | `String` |  |
+| `id` | `Integer` |  |
+| `multi_frequency_enabled` | `Boolean` | Whether the site has the multi-frequency billing feature enabled. |
+| `name` | `String` |  |
+| `net_terms` | `Hash` |  |
+| `non_primary_currencies` | `Array` |  |
+| `organization_address` | `Hash` |  |
+| `portal_enabled` | `Boolean` | Whether the Billing Portal is enabled for this site. |
+| `public_key` | `String` |  |
+| `relationship_invoicing_enabled` | `Boolean` |  |
+| `requires_security_token` | `Boolean` |  |
+| `schedule_subscription_cancellation_enabled` | `Boolean` |  |
+| `seller_id` | `Integer` |  |
+| `subdomain` | `String` |  |
+| `tax_configuration` | `Hash` |  |
+| `test` | `Boolean` |  |
+| `whopays_default_payer` | `String` |  |
+| `whopays_enabled` | `Boolean` |  |
 
 #### Example: Load
 
 ```ruby
 # load returns the ENTITY — call data_get for the Site record (raises on error).
-site = client.Site.load()
+site = client.Site.load({ "id" => 1 })
 ```
 
 #### Example: List
@@ -3124,7 +3525,6 @@ sites = client.Site.list
 
 ```ruby
 site = client.Site.create({
-  "site" => {}, # Hash
 })
 ```
 
@@ -3252,26 +3652,40 @@ Create an instance: `subscription_component = client.SubscriptionComponent`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `accrue_charge` | `Boolean` | If the change in cost is an upgrade, this determines if the charge should accrue to the next renewal or if capture should be attempted immediately. |
 | `allocated_quantity` | `Object` | For Quantity-based components: The current allocation for the component on the given subscription. |
-| `allocation` | `Hash` |  |
-| `allocation_preview` | `Hash` |  |
+| `allocation_id` | `Integer` | The allocation unique ID |
+| `allocations` | `Array` |  |
 | `allow_fractional_quantities` | `Boolean` |  |
 | `archived_at` | `String` |  |
+| `charge_id` | `Integer` |  |
 | `component` | `Hash` |  |
-| `component_handle` | `String` |  |
-| `component_id` | `Integer` |  |
-| `created_at` | `String` |  |
+| `component_handle` | `String` | The handle of the component. |
+| `component_id` | `Integer` | The integer component ID for the allocation. |
+| `created_at` | `String` | Timestamp indicating when this allocation was created |
 | `currency` | `String` |  |
 | `description` | `String` |  |
+| `direction` | `String` |  |
 | `display_on_hosted_page` | `Boolean` |  |
 | `downgrade_credit` | `Object` |  |
 | `enabled` | `Boolean` | (for on/off components) indicates if the component is enabled for the subscription. |
+| `end_date` | `String` |  |
+| `existing_balance_in_cents` | `Integer` | An integer representing the amount of the subscription's current balance |
+| `expires_at` | `String` |  |
 | `historic_usages` | `Array` |  |
 | `id` | `Integer` |  |
+| `initiate_dunning` | `Boolean` | If true, if the immediate component payment fails, initiate dunning for the subscription. |
 | `interval` | `Integer` | The numerical interval. |
 | `interval_unit` | `Object` |  |
 | `kind` | `Object` |  |
+| `line_items` | `Array` |  |
+| `memo` | `String` | The memo passed when the allocation was created |
 | `name` | `String` |  |
+| `overage_quantity` | `Integer` |  |
+| `payment` | `Object` |  |
+| `period_type` | `String` |  |
+| `previous_price_point_id` | `Integer` |  |
+| `previous_quantity` | `Object` | The allocated quantity that was in effect before this allocation was created. |
 | `price_point_handle` | `String` |  |
 | `price_point_id` | `Integer` |  |
 | `price_point_name` | `String` |  |
@@ -3279,15 +3693,25 @@ Create an instance: `subscription_component = client.SubscriptionComponent`
 | `pricing_scheme` | `Object` |  |
 | `product_family_handle` | `String` |  |
 | `product_family_id` | `Integer` |  |
+| `proration_downgrade_scheme` | `String` | The scheme used if the proration was a downgrade. |
+| `proration_scheme` | `String` |  |
+| `proration_upgrade_scheme` | `String` | The scheme used if the proration was an upgrade. |
+| `quantity` | `Object` | The allocated quantity set into effect by the allocation. |
 | `recurring` | `Boolean` |  |
-| `subscription` | `Hash` |  |
-| `subscription_id` | `Integer` |  |
+| `start_date` | `String` |  |
+| `subscription` | `Object` |  |
+| `subscription_id` | `Integer` | The integer subscription ID for the allocation. |
+| `subtotal_in_cents` | `Integer` |  |
+| `timestamp` | `String` | The time that the allocation was recorded, in ISO 8601 format and UTC timezone, e.g., 2012-11-20T22:00:37Z |
+| `total_discount_in_cents` | `Integer` |  |
+| `total_in_cents` | `Integer` |  |
+| `total_tax_in_cents` | `Integer` |  |
 | `unit_balance` | `Object` |  |
 | `unit_name` | `String` |  |
 | `updated_at` | `String` |  |
 | `upgrade_charge` | `Object` |  |
-| `usage` | `Hash` |  |
 | `use_site_exchange_rate` | `Boolean` |  |
+| `used_quantity` | `Integer` |  |
 
 #### Example: Load
 
@@ -3329,10 +3753,21 @@ Create an instance: `subscription_group = client.SubscriptionGroup`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `account_balances` | `Hash` |  |
+| `cancel_at_end_of_period` | `Boolean` |  |
+| `created_at` | `String` |  |
+| `customer_id` | `Integer` |  |
+| `group_type` | `String` |  |
 | `id` | `String` |  |
-| `meta` | `Hash` |  |
-| `subscription_group` | `Hash` |  |
-| `subscription_groups` | `Array` |  |
+| `next_assessment_at` | `String` |  |
+| `payment_collection_method` | `Object` |  |
+| `payment_profile` | `Hash` |  |
+| `payment_profile_id` | `Integer` |  |
+| `primary_subscription_id` | `Integer` |  |
+| `scheme` | `Integer` |  |
+| `state` | `String` |  |
+| `subscription_ids` | `Array` |  |
+| `uid` | `String` |  |
 
 #### Example: List
 
@@ -3441,8 +3876,14 @@ Create an instance: `subscription_invoice_account = client.SubscriptionInvoiceAc
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `String` |  |
-| `service_credits` | `Array` |  |
+| `amount_in_cents` | `Integer` | The amount in cents of the entry |
+| `created_at` | `String` | The date and time the entry was created |
+| `ending_balance_in_cents` | `Integer` | The new balance for the credit account |
+| `entry_type` | `Object` |  |
+| `id` | `Integer` |  |
+| `invoice_uid` | `String` | The invoice uid associated with the entry. |
+| `memo` | `String` | The memo attached to the entry |
+| `remaining_balance_in_cents` | `Integer` | The remaining balance for the entry |
 
 #### Example: List
 
@@ -3550,8 +3991,12 @@ Create an instance: `subscription_product = client.SubscriptionProduct`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `charge_in_cents` | `Integer` | The amount of the charge that would be created for the new product. |
+| `credit_applied_in_cents` | `Integer` | Represents a credit in cents that is applied to your subscription as part of a migration process for a specific product, which reduces the amount owed for the subscription. |
 | `id` | `String` |  |
 | `migration` | `Hash` |  |
+| `payment_due_in_cents` | `Integer` | The amount of the payment due in the case of an upgrade. |
+| `prorated_adjustment_in_cents` | `Integer` | The amount of the prorated adjustment that would be issued for the current subscription. |
 
 #### Example: Create
 
@@ -3581,9 +4026,25 @@ Create an instance: `subscription_renewal = client.SubscriptionRenewal`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `String` |  |
-| `scheduled_renewal_configuration` | `Hash` |  |
+| `contract` | `Object` |  |
+| `created_at` | `String` |  |
+| `decimal_quantity` | `String` |  |
+| `ends_at` | `String` |  |
+| `id` | `Integer` | ID of the renewal. |
+| `item_id` | `Integer` |  |
+| `item_subclass` | `String` |  |
+| `item_type` | `String` |  |
+| `lock_in_at` | `String` |  |
+| `price_point_id` | `Integer` |  |
+| `price_point_type` | `String` |  |
+| `quantity` | `Integer` |  |
 | `scheduled_renewal_configuration_item` | `Hash` |  |
+| `scheduled_renewal_configuration_items` | `Array` |  |
+| `site_id` | `Integer` | ID of the site to which the renewal belongs. |
+| `starts_at` | `String` |  |
+| `status` | `String` |  |
+| `subscription_id` | `Integer` | The id of the subscription. |
+| `subscription_renewal_configuration_id` | `Integer` |  |
 
 #### Example: Load
 
@@ -3625,8 +4086,16 @@ Create an instance: `subscription_status = client.SubscriptionStatus`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `existing_balance_in_cents` | `Integer` | An integer representing the amount of the subscription’s current balance |
 | `id` | `String` |  |
-| `renewal_preview` | `Hash` |  |
+| `line_items` | `Array` | An array of objects representing the individual transactions that will be created at the next renewal |
+| `next_assessment_at` | `String` | The timestamp for the subscription’s next renewal |
+| `subtotal_in_cents` | `Integer` | An integer representing the amount of the total pre-tax, pre-discount charges that will be assessed at the next renewal |
+| `total_amount_due_in_cents` | `Integer` | An integer representing the existing_balance_in_cents plus the total_in_cents |
+| `total_discount_in_cents` | `Integer` | An integer representing the amount of the coupon discounts that will be applied to the next renewal |
+| `total_in_cents` | `Integer` | An integer representing the total amount owed, less any discounts, that will be assessed at the next renewal |
+| `total_tax_in_cents` | `Integer` | An integer representing the total tax charges that will be assessed at the next renewal |
+| `uncalculated_taxes` | `Boolean` | A boolean indicating whether or not additional taxes will be calculated at the time of renewal. |
 
 #### Example: Create
 
@@ -3677,8 +4146,12 @@ Create an instance: `webhook = client.Webhook`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `endpoint` | `Hash` |  |
+| `id` | `Integer` |  |
+| `site_id` | `Integer` |  |
+| `status` | `String` |  |
+| `url` | `String` |  |
 | `webhook` | `Hash` |  |
+| `webhook_subscriptions` | `Array` |  |
 
 #### Example: List
 
@@ -3939,15 +4412,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-accountbalance = client.AccountBalance
-accountbalance.load({ "subscription_id" => 1 })
+customfield = client.CustomField
+customfield.list()
 
-# accountbalance.data_get now returns the accountbalance data from the last load
-# accountbalance.match_get returns the last match criteria
+# customfield.data_get now returns the customfield data from the last list
+# customfield.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

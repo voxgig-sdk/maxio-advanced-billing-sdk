@@ -5,29 +5,160 @@ main: kit: entity: site: {
   alias: field: {}
 
   fields: {
-    chargify_js_keys: {
-      h: "Chargify Js Keys"
-      n: "chargify_js_keys"
+    allocation_settings: {
+      h: "Allocation Settings"
+      n: "allocation_settings"
       r: false
-      t: "`$ARRAY`"
-    }
-    meta: {
-      h: "Meta"
-      n: "meta"
-      r: false
-      t: "`$OBJECT`"
-    }
-    site: {
-      h: "Site"
-      n: "site"
-      r: true
       t: "`$OBJECT`"
       union: {
         branches: 2
         count: 2
-        depth: 6
+        depth: 4
       }
     }
+    auto_renewals_enabled: {
+      h: "Auto Renewals Enabled"
+      n: "auto_renewals_enabled"
+      r: false
+      sh: "Whether the auto-renewals feature is enabled for this site."
+      t: "`$BOOLEAN`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    currency: {
+      h: "Currency"
+      n: "currency"
+      r: false
+      t: "`$STRING`"
+    }
+    customer_hierarchy_enabled: {
+      h: "Customer Hierarchy Enabled"
+      n: "customer_hierarchy_enabled"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    default_payment_collection_method: {
+      h: "Default Payment Collection Method"
+      n: "default_payment_collection_method"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    multi_frequency_enabled: {
+      h: "Multi Frequency Enabled"
+      n: "multi_frequency_enabled"
+      r: false
+      sh: "Whether the site has the multi-frequency billing feature enabled."
+      t: "`$BOOLEAN`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      t: "`$STRING`"
+    }
+    net_terms: {
+      h: "Net Terms"
+      n: "net_terms"
+      r: false
+      t: "`$OBJECT`"
+    }
+    non_primary_currencies: {
+      h: "Non Primary Currencies"
+      n: "non_primary_currencies"
+      r: false
+      t: "`$ARRAY`"
+    }
+    organization_address: {
+      h: "Organization Address"
+      n: "organization_address"
+      r: false
+      t: "`$OBJECT`"
+    }
+    portal_enabled: {
+      h: "Portal Enabled"
+      n: "portal_enabled"
+      r: false
+      sh: "Whether the Billing Portal is enabled for this site."
+      t: "`$BOOLEAN`"
+    }
+    public_key: {
+      h: "Public Key"
+      n: "public_key"
+      r: false
+      t: "`$STRING`"
+    }
+    relationship_invoicing_enabled: {
+      h: "Relationship Invoicing Enabled"
+      n: "relationship_invoicing_enabled"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    requires_security_token: {
+      h: "Requires Security Token"
+      n: "requires_security_token"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    schedule_subscription_cancellation_enabled: {
+      h: "Schedule Subscription Cancellation Enabled"
+      n: "schedule_subscription_cancellation_enabled"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    seller_id: {
+      fo: "int32"
+      h: "Seller Id"
+      n: "seller_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    subdomain: {
+      h: "Subdomain"
+      n: "subdomain"
+      r: false
+      t: "`$STRING`"
+    }
+    tax_configuration: {
+      h: "Tax Configuration"
+      n: "tax_configuration"
+      r: false
+      t: "`$OBJECT`"
+    }
+    test: {
+      h: "Test"
+      n: "test"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    whopays_default_payer: {
+      h: "Whopays Default Payer"
+      n: "whopays_default_payer"
+      r: false
+      t: "`$STRING`"
+    }
+    whopays_enabled: {
+      h: "Whopays Enabled"
+      n: "whopays_enabled"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
   }
 
   name: "site"
@@ -119,7 +250,7 @@ main: kit: entity: site: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.chargify_js_keys`"
           }
         }
       ]
@@ -142,7 +273,7 @@ main: kit: entity: site: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.site`"
           }
         }
       ]

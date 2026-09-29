@@ -139,7 +139,7 @@ func TestComponentPricePointEntity(t *testing.T) {
 			"id": componentPricePointRef01Data["id"],
 		}
 
-		componentPricePointRef01MarkdefUp0Name := "archived_at"
+		componentPricePointRef01MarkdefUp0Name := "accounting_code"
 		componentPricePointRef01MarkdefUp0Value := fmt.Sprintf("Mark01-component_price_point_ref01_%d", setup.now)
 		componentPricePointRef01DataUp0Up[componentPricePointRef01MarkdefUp0Name] = componentPricePointRef01MarkdefUp0Value
 

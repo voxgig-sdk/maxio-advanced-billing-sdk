@@ -24,7 +24,6 @@
 @"./BasicFeatureTemplateFlow.aontu"
 @"./BasicInsightFlow.aontu"
 @"./BasicInvoiceFlow.aontu"
-@"./BasicListProformaInvoiceFlow.aontu"
 @"./BasicListSaleRepItemFlow.aontu"
 @"./BasicListSegmentFlow.aontu"
 @"./BasicOfferFlow.aontu"

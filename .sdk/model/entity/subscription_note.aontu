@@ -231,7 +231,7 @@ main: kit: entity: subscription_note: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.note`"
           }
         }
       ]

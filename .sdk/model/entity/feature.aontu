@@ -10,20 +10,45 @@ main: kit: entity: feature: {
       h: "Archived At"
       n: "archived_at"
       r: false
+      sh: "The date and time the feature template was archived, or `null` if it is active."
       t: "`$STRING`"
-    }
-    archived_count: {
-      fo: "int32"
-      h: "Archived Count"
-      n: "archived_count"
-      r: true
-      sh: "Number of archived feature templates matching the filters."
-      t: "`$INTEGER`"
     }
     created_at: {
       fo: "date-time"
       h: "Created At"
       n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    default_periodicity_interval: {
+      fo: "int32"
+      h: "Default Periodicity Interval"
+      n: "default_periodicity_interval"
+      r: false
+      sh: "For `usage_limit` features, the default periodicity interval used to pre-populate new feature catalog items."
+      t: "`$INTEGER`"
+    }
+    default_periodicity_unit: {
+      h: "Default Periodicity Unit"
+      n: "default_periodicity_unit"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    default_value: {
+      h: "Default Value"
+      n: "default_value"
+      r: false
+      sh: "A default value used to pre-populate new feature catalog items created from this template."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
       r: false
       t: "`$STRING`"
     }
@@ -77,18 +102,28 @@ main: kit: entity: feature: {
       h: "Id"
       n: "id"
       r: false
+      sh: "The Advanced Billing id of the feature template."
       t: "`$INTEGER`"
     }
-    items: {
-      h: "Items"
-      n: "items"
-      r: true
-      t: "`$ARRAY`"
-      union: {
-        branches: 2
-        count: 1
-        depth: 5
-      }
+    key: {
+      h: "Key"
+      n: "key"
+      r: false
+      sh: "A unique, lowercase, underscore-separated identifier for the feature."
+      t: "`$STRING`"
+    }
+    kind: {
+      h: "Kind"
+      n: "kind"
+      r: false
+      t: "`$ANY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The display name of the feature."
+      t: "`$STRING`"
     }
     periodicity_interval: {
       fo: "int32"
@@ -109,6 +144,14 @@ main: kit: entity: feature: {
         depth: 2
       }
     }
+    plans_count: {
+      fo: "int32"
+      h: "Plans Count"
+      n: "plans_count"
+      r: false
+      sh: "The number of **products** this feature template is currently attached to via an active feature catalog item."
+      t: "`$INTEGER`"
+    }
     price_point_id: {
       fo: "int32"
       h: "Price Point Id"
@@ -128,13 +171,20 @@ main: kit: entity: feature: {
         depth: 2
       }
     }
-    total_count: {
+    products_count: {
       fo: "int32"
-      h: "Total Count"
-      n: "total_count"
-      r: true
-      sh: "Total number of feature templates matching the filters, across all pages."
+      h: "Products Count"
+      n: "products_count"
+      r: false
+      sh: "The number of **components** this feature template is currently attached to via an active feature catalog item."
       t: "`$INTEGER`"
+    }
+    unit: {
+      h: "Unit"
+      n: "unit"
+      r: false
+      sh: "The unit the feature is measured in (for example, `requests` or `GB`)."
+      t: "`$STRING`"
     }
     updated_at: {
       fo: "date-time"
@@ -149,6 +199,12 @@ main: kit: entity: feature: {
       r: false
       sh: "The value granted by this feature catalog item."
       t: "`$STRING`"
+    }
+    value_type: {
+      h: "Value Type"
+      n: "value_type"
+      r: false
+      t: "`$ANY`"
     }
   }
 
@@ -261,7 +317,7 @@ main: kit: entity: feature: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.feature`"
           }
         }
       ]
@@ -366,7 +422,7 @@ main: kit: entity: feature: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.items`"
           }
         }
         {

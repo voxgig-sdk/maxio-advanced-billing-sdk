@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -110,6 +111,9 @@ func TestWebhookEntity(t *testing.T) {
 		if webhookRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
+		if webhookRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// LIST
 		webhookRef01Match := map[string]any{}
@@ -118,14 +122,24 @@ func TestWebhookEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("list failed: %v", err)
 		}
-		_, webhookRef01ListOk := webhookRef01ListResult.([]any)
+		webhookRef01List, webhookRef01ListOk := webhookRef01ListResult.([]any)
 		if !webhookRef01ListOk {
 			t.Fatalf("expected list result to be an array, got %T", webhookRef01ListResult)
 		}
 
+		foundItem := vs.Select(entityListToData(webhookRef01List), map[string]any{"id": webhookRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
+		}
+
 		// UPDATE
 		webhookRef01DataUp0Up := map[string]any{
+			"id": webhookRef01Data["id"],
 		}
+
+		webhookRef01MarkdefUp0Name := "status"
+		webhookRef01MarkdefUp0Value := fmt.Sprintf("Mark01-webhook_ref01_%d", setup.now)
+		webhookRef01DataUp0Up[webhookRef01MarkdefUp0Name] = webhookRef01MarkdefUp0Value
 
 		webhookRef01ResdataUp0Result, err := webhookRef01Ent.Update(webhookRef01DataUp0Up, nil)
 		if err != nil {
@@ -134,6 +148,12 @@ func TestWebhookEntity(t *testing.T) {
 		webhookRef01ResdataUp0 := core.ToMapAny(entityData(webhookRef01ResdataUp0Result))
 		if webhookRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
+		}
+		if webhookRef01ResdataUp0["id"] != webhookRef01DataUp0Up["id"] {
+			t.Fatal("expected update result id to match")
+		}
+		if webhookRef01ResdataUp0[webhookRef01MarkdefUp0Name] != webhookRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", webhookRef01MarkdefUp0Name, webhookRef01ResdataUp0[webhookRef01MarkdefUp0Name])
 		}
 
 	})

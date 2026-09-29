@@ -2,18 +2,42 @@
   "existing": {
     "subscription_status": {
       "SUBSCRIPTION_STATUS00": {
+        "existing_balance_in_cents": 100,
         "id": "SUBSCRIPTION_STATUS00",
-        "renewal_preview": {},
+        "line_items": [],
+        "next_assessment_at": "s67",
+        "subtotal_in_cents": 104,
+        "total_amount_due_in_cents": 105,
+        "total_discount_in_cents": 106,
+        "total_in_cents": 107,
+        "total_tax_in_cents": 108,
+        "uncalculated_taxes": false,
         "subscription_id": "SUBSCRIPTION01"
       },
       "SUBSCRIPTION_STATUS01": {
+        "existing_balance_in_cents": 200,
         "id": "SUBSCRIPTION_STATUS01",
-        "renewal_preview": {},
+        "line_items": [],
+        "next_assessment_at": "scb",
+        "subtotal_in_cents": 204,
+        "total_amount_due_in_cents": 205,
+        "total_discount_in_cents": 206,
+        "total_in_cents": 207,
+        "total_tax_in_cents": 208,
+        "uncalculated_taxes": false,
         "subscription_id": "SUBSCRIPTION01"
       },
       "SUBSCRIPTION_STATUS02": {
+        "existing_balance_in_cents": 300,
         "id": "SUBSCRIPTION_STATUS02",
-        "renewal_preview": {},
+        "line_items": [],
+        "next_assessment_at": "s12f",
+        "subtotal_in_cents": 304,
+        "total_amount_due_in_cents": 305,
+        "total_discount_in_cents": 306,
+        "total_in_cents": 307,
+        "total_tax_in_cents": 308,
+        "uncalculated_taxes": false,
         "subscription_id": "SUBSCRIPTION01"
       }
     }
@@ -21,7 +45,15 @@
   "new": {
     "subscription_status": {
       "subscription_status_ref01": {
-        "renewal_preview": {}
+        "existing_balance_in_cents": 400,
+        "line_items": [],
+        "next_assessment_at": "s193",
+        "subtotal_in_cents": 404,
+        "total_amount_due_in_cents": 405,
+        "total_discount_in_cents": 406,
+        "total_in_cents": 407,
+        "total_tax_in_cents": 408,
+        "uncalculated_taxes": false
       }
     }
   },

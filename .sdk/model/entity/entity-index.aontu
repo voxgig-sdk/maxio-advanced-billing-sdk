@@ -24,7 +24,6 @@
 @"./feature_template.aontu"
 @"./insight.aontu"
 @"./invoice.aontu"
-@"./list_proforma_invoice.aontu"
 @"./list_sale_rep_item.aontu"
 @"./list_segment.aontu"
 @"./offer.aontu"

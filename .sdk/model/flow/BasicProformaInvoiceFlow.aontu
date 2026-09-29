@@ -12,7 +12,9 @@ main: kit: flow: BasicProformaInvoiceFlow:
       }
 
       m: {
-        proforma_invoice_uid: "proforma_invoice_uid01"
+        proforma_invoice_uid: "proforma_invoice_uid01",
+        subscription_group_id: "subscription_group01",
+        subscription_id: "subscription01"
       }
 
       o: "create"

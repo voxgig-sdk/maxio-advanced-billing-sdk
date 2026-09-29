@@ -262,10 +262,158 @@ BillingPortalRemoveMatch = Struct.new(
 
 # Component entity data model.
 #
+# @!attribute [rw] accounting_code
+#   @return [String, nil]
+#
+# @!attribute [rw] allow_fractional_quantities
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
 # @!attribute [rw] component
 #   @return [Hash, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] default_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] downgrade_credit
+#   @return [Object, nil]
+#
+# @!attribute [rw] event_based_billing_metric_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
+# @!attribute [rw] hide_date_range_on_invoice
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] item_category
+#   @return [Object, nil]
+#
+# @!attribute [rw] kind
+#   @return [Object, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] overage_prices
+#   @return [Array, nil]
+#
+# @!attribute [rw] price_per_unit_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] price_point_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] price_points_url
+#   @return [String, nil]
+#
+# @!attribute [rw] prices
+#   @return [Array, nil]
+#
+# @!attribute [rw] pricing_scheme
+#   @return [Object, nil]
+#
+# @!attribute [rw] product_family_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_family_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_family_name
+#   @return [String, nil]
+#
+# @!attribute [rw] recurring
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
+# @!attribute [rw] taxable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] unit_name
+#   @return [String, nil]
+#
+# @!attribute [rw] unit_price
+#   @return [String, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upgrade_charge
+#   @return [Object, nil]
+#
+# @!attribute [rw] use_site_exchange_rate
+#   @return [Boolean, nil]
 Component = Struct.new(
+  :accounting_code,
+  :allow_fractional_quantities,
+  :archived,
+  :archived_at,
   :component,
+  :created_at,
+  :default_price_point_id,
+  :default_price_point_name,
+  :description,
+  :downgrade_credit,
+  :event_based_billing_metric_id,
+  :features,
+  :handle,
+  :hide_date_range_on_invoice,
+  :id,
+  :interval,
+  :interval_unit,
+  :item_category,
+  :kind,
+  :name,
+  :overage_prices,
+  :price_per_unit_in_cents,
+  :price_point_count,
+  :price_points_url,
+  :prices,
+  :pricing_scheme,
+  :product_family_handle,
+  :product_family_id,
+  :product_family_name,
+  :recurring,
+  :tax_code,
+  :taxable,
+  :unit_name,
+  :unit_price,
+  :unspsc_code,
+  :updated_at,
+  :upgrade_charge,
+  :use_site_exchange_rate,
   keyword_init: true
 )
 
@@ -332,11 +480,155 @@ ComponentListMatch = Struct.new(
 # @!attribute [rw] product_family_id
 #   @return [String]
 #
+# @!attribute [rw] accounting_code
+#   @return [String, nil]
+#
+# @!attribute [rw] allow_fractional_quantities
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
 # @!attribute [rw] component
 #   @return [Hash, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] default_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] downgrade_credit
+#   @return [Object, nil]
+#
+# @!attribute [rw] event_based_billing_metric_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
+# @!attribute [rw] hide_date_range_on_invoice
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] item_category
+#   @return [Object, nil]
+#
+# @!attribute [rw] kind
+#   @return [Object, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] overage_prices
+#   @return [Array, nil]
+#
+# @!attribute [rw] price_per_unit_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] price_point_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] price_points_url
+#   @return [String, nil]
+#
+# @!attribute [rw] prices
+#   @return [Array, nil]
+#
+# @!attribute [rw] pricing_scheme
+#   @return [Object, nil]
+#
+# @!attribute [rw] product_family_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_family_name
+#   @return [String, nil]
+#
+# @!attribute [rw] recurring
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
+# @!attribute [rw] taxable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] unit_name
+#   @return [String, nil]
+#
+# @!attribute [rw] unit_price
+#   @return [String, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upgrade_charge
+#   @return [Object, nil]
+#
+# @!attribute [rw] use_site_exchange_rate
+#   @return [Boolean, nil]
 ComponentCreateData = Struct.new(
   :product_family_id,
+  :accounting_code,
+  :allow_fractional_quantities,
+  :archived,
+  :archived_at,
   :component,
+  :created_at,
+  :default_price_point_id,
+  :default_price_point_name,
+  :description,
+  :downgrade_credit,
+  :event_based_billing_metric_id,
+  :features,
+  :handle,
+  :hide_date_range_on_invoice,
+  :id,
+  :interval,
+  :interval_unit,
+  :item_category,
+  :kind,
+  :name,
+  :overage_prices,
+  :price_per_unit_in_cents,
+  :price_point_count,
+  :price_points_url,
+  :prices,
+  :pricing_scheme,
+  :product_family_handle,
+  :product_family_name,
+  :recurring,
+  :tax_code,
+  :taxable,
+  :unit_name,
+  :unit_price,
+  :unspsc_code,
+  :updated_at,
+  :upgrade_charge,
+  :use_site_exchange_rate,
   keyword_init: true
 )
 
@@ -348,12 +640,156 @@ ComponentCreateData = Struct.new(
 # @!attribute [rw] product_family_id
 #   @return [Integer, nil]
 #
+# @!attribute [rw] accounting_code
+#   @return [String, nil]
+#
+# @!attribute [rw] allow_fractional_quantities
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
 # @!attribute [rw] component
 #   @return [Hash, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] default_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] downgrade_credit
+#   @return [Object, nil]
+#
+# @!attribute [rw] event_based_billing_metric_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
+# @!attribute [rw] hide_date_range_on_invoice
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] item_category
+#   @return [Object, nil]
+#
+# @!attribute [rw] kind
+#   @return [Object, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] overage_prices
+#   @return [Array, nil]
+#
+# @!attribute [rw] price_per_unit_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] price_point_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] price_points_url
+#   @return [String, nil]
+#
+# @!attribute [rw] prices
+#   @return [Array, nil]
+#
+# @!attribute [rw] pricing_scheme
+#   @return [Object, nil]
+#
+# @!attribute [rw] product_family_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_family_name
+#   @return [String, nil]
+#
+# @!attribute [rw] recurring
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
+# @!attribute [rw] taxable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] unit_name
+#   @return [String, nil]
+#
+# @!attribute [rw] unit_price
+#   @return [String, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] upgrade_charge
+#   @return [Object, nil]
+#
+# @!attribute [rw] use_site_exchange_rate
+#   @return [Boolean, nil]
 ComponentUpdateData = Struct.new(
   :component_id,
   :product_family_id,
+  :accounting_code,
+  :allow_fractional_quantities,
+  :archived,
+  :archived_at,
   :component,
+  :created_at,
+  :default_price_point_id,
+  :default_price_point_name,
+  :description,
+  :downgrade_credit,
+  :event_based_billing_metric_id,
+  :features,
+  :handle,
+  :hide_date_range_on_invoice,
+  :id,
+  :interval,
+  :interval_unit,
+  :item_category,
+  :kind,
+  :name,
+  :overage_prices,
+  :price_per_unit_in_cents,
+  :price_point_count,
+  :price_points_url,
+  :prices,
+  :pricing_scheme,
+  :product_family_handle,
+  :product_family_name,
+  :recurring,
+  :tax_code,
+  :taxable,
+  :unit_name,
+  :unit_price,
+  :unspsc_code,
+  :updated_at,
+  :upgrade_charge,
+  :use_site_exchange_rate,
   keyword_init: true
 )
 
@@ -398,11 +834,17 @@ ComponentFeatureRemoveMatch = Struct.new(
 
 # ComponentPricePoint entity data model.
 #
-# @!attribute [rw] archived_at
+# @!attribute [rw] accounting_code
 #   @return [String, nil]
 #
-# @!attribute [rw] component
-#   @return [Hash]
+# @!attribute [rw] allow_fractional_quantities
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
 #
 # @!attribute [rw] component_id
 #   @return [Integer, nil]
@@ -416,14 +858,35 @@ ComponentFeatureRemoveMatch = Struct.new(
 # @!attribute [rw] default
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] default_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] default_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] downgrade_credit
+#   @return [Object, nil]
+#
+# @!attribute [rw] event_based_billing_metric_id
+#   @return [Integer, nil]
+#
 # @!attribute [rw] expiration_interval
 #   @return [Integer, nil]
 #
 # @!attribute [rw] expiration_interval_unit
 #   @return [Object, nil]
 #
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
 # @!attribute [rw] handle
 #   @return [String, nil]
+#
+# @!attribute [rw] hide_date_range_on_invoice
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
@@ -432,6 +895,12 @@ ComponentFeatureRemoveMatch = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] item_category
+#   @return [Object, nil]
+#
+# @!attribute [rw] kind
 #   @return [Object, nil]
 #
 # @!attribute [rw] name
@@ -443,17 +912,38 @@ ComponentFeatureRemoveMatch = Struct.new(
 # @!attribute [rw] overage_pricing_scheme
 #   @return [Object, nil]
 #
+# @!attribute [rw] price_per_unit_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] price_point
 #   @return [Hash, nil]
 #
+# @!attribute [rw] price_point_count
+#   @return [Integer, nil]
+#
 # @!attribute [rw] price_points
 #   @return [Array, nil]
+#
+# @!attribute [rw] price_points_url
+#   @return [String, nil]
 #
 # @!attribute [rw] prices
 #   @return [Array, nil]
 #
 # @!attribute [rw] pricing_scheme
 #   @return [Object, nil]
+#
+# @!attribute [rw] product_family_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_family_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_family_name
+#   @return [String, nil]
+#
+# @!attribute [rw] recurring
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] renew_prepaid_allocation
 #   @return [Boolean, nil]
@@ -464,43 +954,85 @@ ComponentFeatureRemoveMatch = Struct.new(
 # @!attribute [rw] subscription_id
 #   @return [Integer, nil]
 #
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
 # @!attribute [rw] tax_included
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] taxable
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] type
 #   @return [Object, nil]
 #
+# @!attribute [rw] unit_name
+#   @return [String, nil]
+#
+# @!attribute [rw] unit_price
+#   @return [String, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
 # @!attribute [rw] updated_at
 #   @return [String, nil]
+#
+# @!attribute [rw] upgrade_charge
+#   @return [Object, nil]
 #
 # @!attribute [rw] use_site_exchange_rate
 #   @return [Boolean, nil]
 ComponentPricePoint = Struct.new(
+  :accounting_code,
+  :allow_fractional_quantities,
+  :archived,
   :archived_at,
-  :component,
   :component_id,
   :created_at,
   :currency_prices,
   :default,
+  :default_price_point_id,
+  :default_price_point_name,
+  :description,
+  :downgrade_credit,
+  :event_based_billing_metric_id,
   :expiration_interval,
   :expiration_interval_unit,
+  :features,
   :handle,
+  :hide_date_range_on_invoice,
   :id,
   :interval,
   :interval_unit,
+  :item_category,
+  :kind,
   :name,
   :overage_prices,
   :overage_pricing_scheme,
+  :price_per_unit_in_cents,
   :price_point,
+  :price_point_count,
   :price_points,
+  :price_points_url,
   :prices,
   :pricing_scheme,
+  :product_family_handle,
+  :product_family_id,
+  :product_family_name,
+  :recurring,
   :renew_prepaid_allocation,
   :rollover_prepaid_remainder,
   :subscription_id,
+  :tax_code,
   :tax_included,
+  :taxable,
   :type,
+  :unit_name,
+  :unit_price,
+  :unspsc_code,
   :updated_at,
+  :upgrade_charge,
   :use_site_exchange_rate,
   keyword_init: true
 )
@@ -535,11 +1067,17 @@ ComponentPricePointListMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [Integer]
 #
-# @!attribute [rw] archived_at
+# @!attribute [rw] accounting_code
 #   @return [String, nil]
 #
-# @!attribute [rw] component
-#   @return [Hash]
+# @!attribute [rw] allow_fractional_quantities
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
 #
 # @!attribute [rw] component_id
 #   @return [Integer, nil]
@@ -553,19 +1091,46 @@ ComponentPricePointListMatch = Struct.new(
 # @!attribute [rw] default
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] default_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] default_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] downgrade_credit
+#   @return [Object, nil]
+#
+# @!attribute [rw] event_based_billing_metric_id
+#   @return [Integer, nil]
+#
 # @!attribute [rw] expiration_interval
 #   @return [Integer, nil]
 #
 # @!attribute [rw] expiration_interval_unit
 #   @return [Object, nil]
 #
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
 # @!attribute [rw] handle
 #   @return [String, nil]
+#
+# @!attribute [rw] hide_date_range_on_invoice
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] interval
 #   @return [Integer, nil]
 #
 # @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] item_category
+#   @return [Object, nil]
+#
+# @!attribute [rw] kind
 #   @return [Object, nil]
 #
 # @!attribute [rw] name
@@ -577,17 +1142,38 @@ ComponentPricePointListMatch = Struct.new(
 # @!attribute [rw] overage_pricing_scheme
 #   @return [Object, nil]
 #
+# @!attribute [rw] price_per_unit_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] price_point
 #   @return [Hash, nil]
 #
+# @!attribute [rw] price_point_count
+#   @return [Integer, nil]
+#
 # @!attribute [rw] price_points
 #   @return [Array, nil]
+#
+# @!attribute [rw] price_points_url
+#   @return [String, nil]
 #
 # @!attribute [rw] prices
 #   @return [Array, nil]
 #
 # @!attribute [rw] pricing_scheme
 #   @return [Object, nil]
+#
+# @!attribute [rw] product_family_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_family_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_family_name
+#   @return [String, nil]
+#
+# @!attribute [rw] recurring
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] renew_prepaid_allocation
 #   @return [Boolean, nil]
@@ -598,43 +1184,85 @@ ComponentPricePointListMatch = Struct.new(
 # @!attribute [rw] subscription_id
 #   @return [Integer, nil]
 #
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
 # @!attribute [rw] tax_included
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] taxable
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] type
 #   @return [Object, nil]
 #
+# @!attribute [rw] unit_name
+#   @return [String, nil]
+#
+# @!attribute [rw] unit_price
+#   @return [String, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
 # @!attribute [rw] updated_at
 #   @return [String, nil]
+#
+# @!attribute [rw] upgrade_charge
+#   @return [Object, nil]
 #
 # @!attribute [rw] use_site_exchange_rate
 #   @return [Boolean, nil]
 ComponentPricePointCreateData = Struct.new(
   :id,
+  :accounting_code,
+  :allow_fractional_quantities,
+  :archived,
   :archived_at,
-  :component,
   :component_id,
   :created_at,
   :currency_prices,
   :default,
+  :default_price_point_id,
+  :default_price_point_name,
+  :description,
+  :downgrade_credit,
+  :event_based_billing_metric_id,
   :expiration_interval,
   :expiration_interval_unit,
+  :features,
   :handle,
+  :hide_date_range_on_invoice,
   :interval,
   :interval_unit,
+  :item_category,
+  :kind,
   :name,
   :overage_prices,
   :overage_pricing_scheme,
+  :price_per_unit_in_cents,
   :price_point,
+  :price_point_count,
   :price_points,
+  :price_points_url,
   :prices,
   :pricing_scheme,
+  :product_family_handle,
+  :product_family_id,
+  :product_family_name,
+  :recurring,
   :renew_prepaid_allocation,
   :rollover_prepaid_remainder,
   :subscription_id,
+  :tax_code,
   :tax_included,
+  :taxable,
   :type,
+  :unit_name,
+  :unit_price,
+  :unspsc_code,
   :updated_at,
+  :upgrade_charge,
   :use_site_exchange_rate,
   keyword_init: true
 )
@@ -647,11 +1275,17 @@ ComponentPricePointCreateData = Struct.new(
 # @!attribute [rw] price_point_id
 #   @return [String]
 #
-# @!attribute [rw] archived_at
+# @!attribute [rw] accounting_code
 #   @return [String, nil]
 #
-# @!attribute [rw] component
-#   @return [Hash, nil]
+# @!attribute [rw] allow_fractional_quantities
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
 #
 # @!attribute [rw] created_at
 #   @return [String, nil]
@@ -662,14 +1296,35 @@ ComponentPricePointCreateData = Struct.new(
 # @!attribute [rw] default
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] default_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] default_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] downgrade_credit
+#   @return [Object, nil]
+#
+# @!attribute [rw] event_based_billing_metric_id
+#   @return [Integer, nil]
+#
 # @!attribute [rw] expiration_interval
 #   @return [Integer, nil]
 #
 # @!attribute [rw] expiration_interval_unit
 #   @return [Object, nil]
 #
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
 # @!attribute [rw] handle
 #   @return [String, nil]
+#
+# @!attribute [rw] hide_date_range_on_invoice
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
@@ -678,6 +1333,12 @@ ComponentPricePointCreateData = Struct.new(
 #   @return [Integer, nil]
 #
 # @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] item_category
+#   @return [Object, nil]
+#
+# @!attribute [rw] kind
 #   @return [Object, nil]
 #
 # @!attribute [rw] name
@@ -689,17 +1350,38 @@ ComponentPricePointCreateData = Struct.new(
 # @!attribute [rw] overage_pricing_scheme
 #   @return [Object, nil]
 #
+# @!attribute [rw] price_per_unit_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] price_point
 #   @return [Hash, nil]
 #
+# @!attribute [rw] price_point_count
+#   @return [Integer, nil]
+#
 # @!attribute [rw] price_points
 #   @return [Array, nil]
+#
+# @!attribute [rw] price_points_url
+#   @return [String, nil]
 #
 # @!attribute [rw] prices
 #   @return [Array, nil]
 #
 # @!attribute [rw] pricing_scheme
 #   @return [Object, nil]
+#
+# @!attribute [rw] product_family_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_family_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_family_name
+#   @return [String, nil]
+#
+# @!attribute [rw] recurring
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] renew_prepaid_allocation
 #   @return [Boolean, nil]
@@ -710,44 +1392,86 @@ ComponentPricePointCreateData = Struct.new(
 # @!attribute [rw] subscription_id
 #   @return [Integer, nil]
 #
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
 # @!attribute [rw] tax_included
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] taxable
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] type
 #   @return [Object, nil]
 #
+# @!attribute [rw] unit_name
+#   @return [String, nil]
+#
+# @!attribute [rw] unit_price
+#   @return [String, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
 # @!attribute [rw] updated_at
 #   @return [String, nil]
+#
+# @!attribute [rw] upgrade_charge
+#   @return [Object, nil]
 #
 # @!attribute [rw] use_site_exchange_rate
 #   @return [Boolean, nil]
 ComponentPricePointUpdateData = Struct.new(
   :component_id,
   :price_point_id,
+  :accounting_code,
+  :allow_fractional_quantities,
+  :archived,
   :archived_at,
-  :component,
   :created_at,
   :currency_prices,
   :default,
+  :default_price_point_id,
+  :default_price_point_name,
+  :description,
+  :downgrade_credit,
+  :event_based_billing_metric_id,
   :expiration_interval,
   :expiration_interval_unit,
+  :features,
   :handle,
+  :hide_date_range_on_invoice,
   :id,
   :interval,
   :interval_unit,
+  :item_category,
+  :kind,
   :name,
   :overage_prices,
   :overage_pricing_scheme,
+  :price_per_unit_in_cents,
   :price_point,
+  :price_point_count,
   :price_points,
+  :price_points_url,
   :prices,
   :pricing_scheme,
+  :product_family_handle,
+  :product_family_id,
+  :product_family_name,
+  :recurring,
   :renew_prepaid_allocation,
   :rollover_prepaid_remainder,
   :subscription_id,
+  :tax_code,
   :tax_included,
+  :taxable,
   :type,
+  :unit_name,
+  :unit_price,
+  :unspsc_code,
   :updated_at,
+  :upgrade_charge,
   :use_site_exchange_rate,
   keyword_init: true
 )
@@ -1445,9 +2169,6 @@ CouponUsageListMatch = Struct.new(
 
 # CustomField entity data model.
 #
-# @!attribute [rw] current_page
-#   @return [Integer, nil]
-#
 # @!attribute [rw] data_count
 #   @return [Integer, nil]
 #
@@ -1475,25 +2196,15 @@ CouponUsageListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] per_page
-#   @return [Integer, nil]
-#
 # @!attribute [rw] resource_id
 #   @return [Integer, nil]
 #
 # @!attribute [rw] scope
 #   @return [Hash, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] total_pages
-#   @return [Integer, nil]
-#
 # @!attribute [rw] value
 #   @return [String, nil]
 CustomField = Struct.new(
-  :current_page,
   :data_count,
   :deleted_at,
   :enum,
@@ -1503,11 +2214,8 @@ CustomField = Struct.new(
   :metafield_id,
   :metafields,
   :name,
-  :per_page,
   :resource_id,
   :scope,
-  :total_count,
-  :total_pages,
   :value,
   keyword_init: true
 )
@@ -1573,9 +2281,6 @@ CustomFieldListMatch = Struct.new(
 # @!attribute [rw] resource_type
 #   @return [Object]
 #
-# @!attribute [rw] current_page
-#   @return [Integer, nil]
-#
 # @!attribute [rw] data_count
 #   @return [Integer, nil]
 #
@@ -1603,24 +2308,14 @@ CustomFieldListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] per_page
-#   @return [Integer, nil]
-#
 # @!attribute [rw] scope
 #   @return [Hash, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] total_pages
-#   @return [Integer, nil]
 #
 # @!attribute [rw] value
 #   @return [String, nil]
 CustomFieldCreateData = Struct.new(
   :resource_id,
   :resource_type,
-  :current_page,
   :data_count,
   :deleted_at,
   :enum,
@@ -1630,10 +2325,7 @@ CustomFieldCreateData = Struct.new(
   :metafield_id,
   :metafields,
   :name,
-  :per_page,
   :scope,
-  :total_count,
-  :total_pages,
   :value,
   keyword_init: true
 )
@@ -1646,9 +2338,6 @@ CustomFieldCreateData = Struct.new(
 # @!attribute [rw] resource_type
 #   @return [Object]
 #
-# @!attribute [rw] current_page
-#   @return [Integer, nil]
-#
 # @!attribute [rw] data_count
 #   @return [Integer, nil]
 #
@@ -1676,24 +2365,14 @@ CustomFieldCreateData = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] per_page
-#   @return [Integer, nil]
-#
 # @!attribute [rw] scope
 #   @return [Hash, nil]
-#
-# @!attribute [rw] total_count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] total_pages
-#   @return [Integer, nil]
 #
 # @!attribute [rw] value
 #   @return [String, nil]
 CustomFieldUpdateData = Struct.new(
   :resource_id,
   :resource_type,
-  :current_page,
   :data_count,
   :deleted_at,
   :enum,
@@ -1703,10 +2382,7 @@ CustomFieldUpdateData = Struct.new(
   :metafield_id,
   :metafields,
   :name,
-  :per_page,
   :scope,
-  :total_count,
-  :total_pages,
   :value,
   keyword_init: true
 )
@@ -1755,7 +2431,7 @@ CustomFieldRemoveMatch = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] customer
-#   @return [Hash, nil]
+#   @return [Hash]
 #
 # @!attribute [rw] default_auto_renewal_profile_id
 #   @return [Integer, nil]
@@ -1958,7 +2634,7 @@ CustomerListMatch = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] customer
-#   @return [Hash, nil]
+#   @return [Hash]
 #
 # @!attribute [rw] default_auto_renewal_profile_id
 #   @return [Integer, nil]
@@ -2503,10 +3179,19 @@ EventsBasedBillingSegmentRemoveMatch = Struct.new(
 # @!attribute [rw] archived_at
 #   @return [String, nil]
 #
-# @!attribute [rw] archived_count
-#   @return [Integer]
-#
 # @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_periodicity_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] default_periodicity_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] default_value
+#   @return [String, nil]
+#
+# @!attribute [rw] description
 #   @return [String, nil]
 #
 # @!attribute [rw] feature
@@ -2527,8 +3212,14 @@ EventsBasedBillingSegmentRemoveMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] items
-#   @return [Array]
+# @!attribute [rw] key
+#   @return [String, nil]
+#
+# @!attribute [rw] kind
+#   @return [Object, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
 #
 # @!attribute [rw] periodicity_interval
 #   @return [Integer, nil]
@@ -2536,38 +3227,55 @@ EventsBasedBillingSegmentRemoveMatch = Struct.new(
 # @!attribute [rw] periodicity_unit
 #   @return [Object, nil]
 #
+# @!attribute [rw] plans_count
+#   @return [Integer, nil]
+#
 # @!attribute [rw] price_point_id
 #   @return [Integer, nil]
 #
 # @!attribute [rw] price_point_type
 #   @return [Object, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer]
+# @!attribute [rw] products_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] unit
+#   @return [String, nil]
 #
 # @!attribute [rw] updated_at
 #   @return [String, nil]
 #
 # @!attribute [rw] value
 #   @return [String, nil]
+#
+# @!attribute [rw] value_type
+#   @return [Object, nil]
 Feature = Struct.new(
   :archived_at,
-  :archived_count,
   :created_at,
+  :default_periodicity_interval,
+  :default_periodicity_unit,
+  :default_value,
+  :description,
   :feature,
   :feature_key,
   :feature_kind,
   :feature_name,
   :feature_template_id,
   :id,
-  :items,
+  :key,
+  :kind,
+  :name,
   :periodicity_interval,
   :periodicity_unit,
+  :plans_count,
   :price_point_id,
   :price_point_type,
-  :total_count,
+  :products_count,
+  :unit,
   :updated_at,
   :value,
+  :value_type,
   keyword_init: true
 )
 
@@ -2617,10 +3325,19 @@ FeatureListMatch = Struct.new(
 # @!attribute [rw] archived_at
 #   @return [String, nil]
 #
-# @!attribute [rw] archived_count
-#   @return [Integer]
-#
 # @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_periodicity_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] default_periodicity_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] default_value
+#   @return [String, nil]
+#
+# @!attribute [rw] description
 #   @return [String, nil]
 #
 # @!attribute [rw] feature
@@ -2641,8 +3358,14 @@ FeatureListMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] items
-#   @return [Array]
+# @!attribute [rw] key
+#   @return [String, nil]
+#
+# @!attribute [rw] kind
+#   @return [Object, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
 #
 # @!attribute [rw] periodicity_interval
 #   @return [Integer, nil]
@@ -2650,38 +3373,55 @@ FeatureListMatch = Struct.new(
 # @!attribute [rw] periodicity_unit
 #   @return [Object, nil]
 #
+# @!attribute [rw] plans_count
+#   @return [Integer, nil]
+#
 # @!attribute [rw] price_point_id
 #   @return [Integer, nil]
 #
 # @!attribute [rw] price_point_type
 #   @return [Object, nil]
 #
-# @!attribute [rw] total_count
-#   @return [Integer]
+# @!attribute [rw] products_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] unit
+#   @return [String, nil]
 #
 # @!attribute [rw] updated_at
 #   @return [String, nil]
 #
 # @!attribute [rw] value
 #   @return [String, nil]
+#
+# @!attribute [rw] value_type
+#   @return [Object, nil]
 FeatureCreateData = Struct.new(
   :archived_at,
-  :archived_count,
   :created_at,
+  :default_periodicity_interval,
+  :default_periodicity_unit,
+  :default_value,
+  :description,
   :feature,
   :feature_key,
   :feature_kind,
   :feature_name,
   :feature_template_id,
   :id,
-  :items,
+  :key,
+  :kind,
+  :name,
   :periodicity_interval,
   :periodicity_unit,
+  :plans_count,
   :price_point_id,
   :price_point_type,
-  :total_count,
+  :products_count,
+  :unit,
   :updated_at,
   :value,
+  :value_type,
   keyword_init: true
 )
 
@@ -3132,8 +3872,32 @@ FeatureTemplateRemoveMatch = Struct.new(
 
 # Insight entity data model.
 #
-# @!attribute [rw] mrr
-#   @return [Hash]
+# @!attribute [rw] amount_formatted
+#   @return [String, nil]
+#
+# @!attribute [rw] amount_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] at_time
+#   @return [String, nil]
+#
+# @!attribute [rw] breakouts
+#   @return [Hash, nil]
+#
+# @!attribute [rw] currency
+#   @return [String, nil]
+#
+# @!attribute [rw] currency_symbol
+#   @return [String, nil]
+#
+# @!attribute [rw] movements
+#   @return [Array, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] per_page
+#   @return [Integer, nil]
 #
 # @!attribute [rw] seller_name
 #   @return [String, nil]
@@ -3149,13 +3913,29 @@ FeatureTemplateRemoveMatch = Struct.new(
 #
 # @!attribute [rw] stats
 #   @return [Hash, nil]
+#
+# @!attribute [rw] total_entries
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_pages
+#   @return [Integer, nil]
 Insight = Struct.new(
-  :mrr,
+  :amount_formatted,
+  :amount_in_cents,
+  :at_time,
+  :breakouts,
+  :currency,
+  :currency_symbol,
+  :movements,
+  :page,
+  :per_page,
   :seller_name,
   :site_currency,
   :site_id,
   :site_name,
   :stats,
+  :total_entries,
+  :total_pages,
   keyword_init: true
 )
 
@@ -3212,9 +3992,6 @@ InsightLoadMatch = Struct.new(
 # @!attribute [rw] credit_amount
 #   @return [String, nil]
 #
-# @!attribute [rw] credit_notes
-#   @return [Array]
-#
 # @!attribute [rw] credits
 #   @return [Array, nil]
 #
@@ -3256,12 +4033,6 @@ InsightLoadMatch = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
-#
-# @!attribute [rw] invoice
-#   @return [Hash, nil]
-#
-# @!attribute [rw] invoices
-#   @return [Array]
 #
 # @!attribute [rw] issue_date
 #   @return [String, nil]
@@ -3396,7 +4167,6 @@ Invoice = Struct.new(
   :consolidation_level,
   :created_at,
   :credit_amount,
-  :credit_notes,
   :credits,
   :currency,
   :custom_fields,
@@ -3411,8 +4181,6 @@ Invoice = Struct.new(
   :due_date,
   :group_primary_subscription_id,
   :id,
-  :invoice,
-  :invoices,
   :issue_date,
   :line_items,
   :memo,
@@ -3501,9 +4269,6 @@ InvoiceListMatch = Struct.new(
 # @!attribute [rw] credit_amount
 #   @return [String, nil]
 #
-# @!attribute [rw] credit_notes
-#   @return [Array]
-#
 # @!attribute [rw] credits
 #   @return [Array, nil]
 #
@@ -3545,12 +4310,6 @@ InvoiceListMatch = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
-#
-# @!attribute [rw] invoice
-#   @return [Hash, nil]
-#
-# @!attribute [rw] invoices
-#   @return [Array]
 #
 # @!attribute [rw] issue_date
 #   @return [String, nil]
@@ -3683,7 +4442,6 @@ InvoiceCreateData = Struct.new(
   :consolidation_level,
   :created_at,
   :credit_amount,
-  :credit_notes,
   :credits,
   :currency,
   :custom_fields,
@@ -3698,8 +4456,6 @@ InvoiceCreateData = Struct.new(
   :due_date,
   :group_primary_subscription_id,
   :id,
-  :invoice,
-  :invoices,
   :issue_date,
   :line_items,
   :memo,
@@ -3781,9 +4537,6 @@ InvoiceCreateData = Struct.new(
 # @!attribute [rw] credit_amount
 #   @return [String, nil]
 #
-# @!attribute [rw] credit_notes
-#   @return [Array, nil]
-#
 # @!attribute [rw] credits
 #   @return [Array, nil]
 #
@@ -3825,12 +4578,6 @@ InvoiceCreateData = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
-#
-# @!attribute [rw] invoice
-#   @return [Hash, nil]
-#
-# @!attribute [rw] invoices
-#   @return [Array, nil]
 #
 # @!attribute [rw] issue_date
 #   @return [String, nil]
@@ -3961,7 +4708,6 @@ InvoiceUpdateData = Struct.new(
   :consolidation_level,
   :created_at,
   :credit_amount,
-  :credit_notes,
   :credits,
   :currency,
   :custom_fields,
@@ -3976,8 +4722,6 @@ InvoiceUpdateData = Struct.new(
   :due_date,
   :group_primary_subscription_id,
   :id,
-  :invoice,
-  :invoices,
   :issue_date,
   :line_items,
   :memo,
@@ -4030,216 +4774,6 @@ InvoiceUpdateData = Struct.new(
 InvoiceRemoveMatch = Struct.new(
   :subscription_id,
   :uid,
-  keyword_init: true
-)
-
-# ListProformaInvoice entity data model.
-#
-# @!attribute [rw] available_actions
-#   @return [Hash, nil]
-#
-# @!attribute [rw] billing_address
-#   @return [Hash, nil]
-#
-# @!attribute [rw] collection_method
-#   @return [Object, nil]
-#
-# @!attribute [rw] consolidation_level
-#   @return [Object, nil]
-#
-# @!attribute [rw] created_at
-#   @return [String, nil]
-#
-# @!attribute [rw] credit_amount
-#   @return [String, nil]
-#
-# @!attribute [rw] credits
-#   @return [Array, nil]
-#
-# @!attribute [rw] currency
-#   @return [String, nil]
-#
-# @!attribute [rw] custom_fields
-#   @return [Array, nil]
-#
-# @!attribute [rw] customer
-#   @return [Object, nil]
-#
-# @!attribute [rw] customer_id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] delivery_date
-#   @return [String, nil]
-#
-# @!attribute [rw] discount_amount
-#   @return [String, nil]
-#
-# @!attribute [rw] discounts
-#   @return [Array, nil]
-#
-# @!attribute [rw] due_amount
-#   @return [String, nil]
-#
-# @!attribute [rw] line_items
-#   @return [Array, nil]
-#
-# @!attribute [rw] memo
-#   @return [String, nil]
-#
-# @!attribute [rw] number
-#   @return [Integer, nil]
-#
-# @!attribute [rw] paid_amount
-#   @return [String, nil]
-#
-# @!attribute [rw] payment_instructions
-#   @return [String, nil]
-#
-# @!attribute [rw] payments
-#   @return [Array, nil]
-#
-# @!attribute [rw] product_family_name
-#   @return [String, nil]
-#
-# @!attribute [rw] product_name
-#   @return [String, nil]
-#
-# @!attribute [rw] public_url
-#   @return [String, nil]
-#
-# @!attribute [rw] refund_amount
-#   @return [String, nil]
-#
-# @!attribute [rw] role
-#   @return [Object, nil]
-#
-# @!attribute [rw] seller
-#   @return [Object, nil]
-#
-# @!attribute [rw] sequence_number
-#   @return [Integer, nil]
-#
-# @!attribute [rw] shipping_address
-#   @return [Hash, nil]
-#
-# @!attribute [rw] site_id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] status
-#   @return [String, nil]
-#
-# @!attribute [rw] subscription_id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] subtotal_amount
-#   @return [String, nil]
-#
-# @!attribute [rw] tax_amount
-#   @return [String, nil]
-#
-# @!attribute [rw] taxes
-#   @return [Array, nil]
-#
-# @!attribute [rw] total_amount
-#   @return [String, nil]
-#
-# @!attribute [rw] uid
-#   @return [String, nil]
-ListProformaInvoice = Struct.new(
-  :available_actions,
-  :billing_address,
-  :collection_method,
-  :consolidation_level,
-  :created_at,
-  :credit_amount,
-  :credits,
-  :currency,
-  :custom_fields,
-  :customer,
-  :customer_id,
-  :delivery_date,
-  :discount_amount,
-  :discounts,
-  :due_amount,
-  :line_items,
-  :memo,
-  :number,
-  :paid_amount,
-  :payment_instructions,
-  :payments,
-  :product_family_name,
-  :product_name,
-  :public_url,
-  :refund_amount,
-  :role,
-  :seller,
-  :sequence_number,
-  :shipping_address,
-  :site_id,
-  :status,
-  :subscription_id,
-  :subtotal_amount,
-  :tax_amount,
-  :taxes,
-  :total_amount,
-  :uid,
-  keyword_init: true
-)
-
-# Request payload for ListProformaInvoice#list.
-#
-# @!attribute [rw] subscription_id
-#   @return [Integer]
-#
-# @!attribute [rw] credit
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] custom_field
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] direction
-#   @return [Object, nil]
-#
-# @!attribute [rw] discount
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] end_date
-#   @return [String, nil]
-#
-# @!attribute [rw] line_item
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] payment
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] per_page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] start_date
-#   @return [String, nil]
-#
-# @!attribute [rw] status
-#   @return [Object, nil]
-#
-# @!attribute [rw] taxis
-#   @return [Boolean, nil]
-ListProformaInvoiceListMatch = Struct.new(
-  :subscription_id,
-  :credit,
-  :custom_field,
-  :direction,
-  :discount,
-  :end_date,
-  :line_item,
-  :page,
-  :payment,
-  :per_page,
-  :start_date,
-  :status,
-  :taxis,
   keyword_init: true
 )
 
@@ -4517,9 +5051,6 @@ ListSegmentUpdateData = Struct.new(
 # @!attribute [rw] offer_signup_pages
 #   @return [Array, nil]
 #
-# @!attribute [rw] offers
-#   @return [Array, nil]
-#
 # @!attribute [rw] product_family_id
 #   @return [Integer, nil]
 #
@@ -4560,7 +5091,6 @@ Offer = Struct.new(
   :offer_discounts,
   :offer_items,
   :offer_signup_pages,
-  :offers,
   :product_family_id,
   :product_family_name,
   :product_id,
@@ -4632,9 +5162,6 @@ OfferListMatch = Struct.new(
 # @!attribute [rw] offer_signup_pages
 #   @return [Array, nil]
 #
-# @!attribute [rw] offers
-#   @return [Array, nil]
-#
 # @!attribute [rw] product_family_id
 #   @return [Integer, nil]
 #
@@ -4675,7 +5202,6 @@ OfferCreateData = Struct.new(
   :offer_discounts,
   :offer_items,
   :offer_signup_pages,
-  :offers,
   :product_family_id,
   :product_family_name,
   :product_id,
@@ -4721,9 +5247,6 @@ OfferCreateData = Struct.new(
 # @!attribute [rw] offer_signup_pages
 #   @return [Array, nil]
 #
-# @!attribute [rw] offers
-#   @return [Array, nil]
-#
 # @!attribute [rw] product_family_id
 #   @return [Integer, nil]
 #
@@ -4764,7 +5287,6 @@ OfferUpdateData = Struct.new(
   :offer_discounts,
   :offer_items,
   :offer_signup_pages,
-  :offers,
   :product_family_id,
   :product_family_name,
   :product_id,
@@ -4793,14 +5315,126 @@ OneTimeTokenLoadMatch = Struct.new(
 
 # PaymentProfile entity data model.
 #
+# @!attribute [rw] bank_account_holder_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] bank_account_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] bank_name
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_address
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_address_2
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_city
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_country
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_state
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_zip
+#   @return [String, nil]
+#
+# @!attribute [rw] card_type
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] current_vault
+#   @return [String, nil]
+#
+# @!attribute [rw] customer_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] customer_vault_token
+#   @return [String, nil]
+#
+# @!attribute [rw] disabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] expiration_month
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expiration_year
+#   @return [Integer, nil]
+#
+# @!attribute [rw] first_name
+#   @return [String, nil]
+#
+# @!attribute [rw] gateway_handle
+#   @return [String, nil]
+#
 # @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] last_name
+#   @return [String, nil]
+#
+# @!attribute [rw] masked_bank_account_number
+#   @return [String, nil]
+#
+# @!attribute [rw] masked_bank_routing_number
+#   @return [String, nil]
+#
+# @!attribute [rw] masked_card_number
 #   @return [String, nil]
 #
 # @!attribute [rw] payment_profile
-#   @return [Hash, nil]
+#   @return [Object]
+#
+# @!attribute [rw] payment_type
+#   @return [String, nil]
+#
+# @!attribute [rw] site_gateway_setting_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] vault_token
+#   @return [String, nil]
+#
+# @!attribute [rw] verified
+#   @return [Boolean, nil]
 PaymentProfile = Struct.new(
+  :bank_account_holder_type,
+  :bank_account_type,
+  :bank_name,
+  :billing_address,
+  :billing_address_2,
+  :billing_city,
+  :billing_country,
+  :billing_state,
+  :billing_zip,
+  :card_type,
+  :created_at,
+  :current_vault,
+  :customer_id,
+  :customer_vault_token,
+  :disabled,
+  :expiration_month,
+  :expiration_year,
+  :first_name,
+  :gateway_handle,
   :id,
+  :last_name,
+  :masked_bank_account_number,
+  :masked_bank_routing_number,
+  :masked_card_number,
   :payment_profile,
+  :payment_type,
+  :site_gateway_setting_id,
+  :updated_at,
+  :vault_token,
+  :verified,
   keyword_init: true
 )
 
@@ -4832,14 +5466,126 @@ PaymentProfileListMatch = Struct.new(
 
 # Request payload for PaymentProfile#create.
 #
+# @!attribute [rw] bank_account_holder_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] bank_account_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] bank_name
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_address
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_address_2
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_city
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_country
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_state
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_zip
+#   @return [String, nil]
+#
+# @!attribute [rw] card_type
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] current_vault
+#   @return [String, nil]
+#
+# @!attribute [rw] customer_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] customer_vault_token
+#   @return [String, nil]
+#
+# @!attribute [rw] disabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] expiration_month
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expiration_year
+#   @return [Integer, nil]
+#
+# @!attribute [rw] first_name
+#   @return [String, nil]
+#
+# @!attribute [rw] gateway_handle
+#   @return [String, nil]
+#
 # @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] last_name
+#   @return [String, nil]
+#
+# @!attribute [rw] masked_bank_account_number
+#   @return [String, nil]
+#
+# @!attribute [rw] masked_bank_routing_number
+#   @return [String, nil]
+#
+# @!attribute [rw] masked_card_number
 #   @return [String, nil]
 #
 # @!attribute [rw] payment_profile
-#   @return [Hash, nil]
+#   @return [Object]
+#
+# @!attribute [rw] payment_type
+#   @return [String, nil]
+#
+# @!attribute [rw] site_gateway_setting_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] vault_token
+#   @return [String, nil]
+#
+# @!attribute [rw] verified
+#   @return [Boolean, nil]
 PaymentProfileCreateData = Struct.new(
+  :bank_account_holder_type,
+  :bank_account_type,
+  :bank_name,
+  :billing_address,
+  :billing_address_2,
+  :billing_city,
+  :billing_country,
+  :billing_state,
+  :billing_zip,
+  :card_type,
+  :created_at,
+  :current_vault,
+  :customer_id,
+  :customer_vault_token,
+  :disabled,
+  :expiration_month,
+  :expiration_year,
+  :first_name,
+  :gateway_handle,
   :id,
+  :last_name,
+  :masked_bank_account_number,
+  :masked_bank_routing_number,
+  :masked_card_number,
   :payment_profile,
+  :payment_type,
+  :site_gateway_setting_id,
+  :updated_at,
+  :vault_token,
+  :verified,
   keyword_init: true
 )
 
@@ -4848,15 +5594,127 @@ PaymentProfileCreateData = Struct.new(
 # @!attribute [rw] bank_account_id
 #   @return [Integer]
 #
+# @!attribute [rw] bank_account_holder_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] bank_account_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] bank_name
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_address
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_address_2
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_city
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_country
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_state
+#   @return [String, nil]
+#
+# @!attribute [rw] billing_zip
+#   @return [String, nil]
+#
+# @!attribute [rw] card_type
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] current_vault
+#   @return [String, nil]
+#
+# @!attribute [rw] customer_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] customer_vault_token
+#   @return [String, nil]
+#
+# @!attribute [rw] disabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] expiration_month
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expiration_year
+#   @return [Integer, nil]
+#
+# @!attribute [rw] first_name
+#   @return [String, nil]
+#
+# @!attribute [rw] gateway_handle
+#   @return [String, nil]
+#
 # @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] last_name
+#   @return [String, nil]
+#
+# @!attribute [rw] masked_bank_account_number
+#   @return [String, nil]
+#
+# @!attribute [rw] masked_bank_routing_number
+#   @return [String, nil]
+#
+# @!attribute [rw] masked_card_number
 #   @return [String, nil]
 #
 # @!attribute [rw] payment_profile
-#   @return [Hash, nil]
+#   @return [Object, nil]
+#
+# @!attribute [rw] payment_type
+#   @return [String, nil]
+#
+# @!attribute [rw] site_gateway_setting_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] vault_token
+#   @return [String, nil]
+#
+# @!attribute [rw] verified
+#   @return [Boolean, nil]
 PaymentProfileUpdateData = Struct.new(
   :bank_account_id,
+  :bank_account_holder_type,
+  :bank_account_type,
+  :bank_name,
+  :billing_address,
+  :billing_address_2,
+  :billing_city,
+  :billing_country,
+  :billing_state,
+  :billing_zip,
+  :card_type,
+  :created_at,
+  :current_vault,
+  :customer_id,
+  :customer_vault_token,
+  :disabled,
+  :expiration_month,
+  :expiration_year,
+  :first_name,
+  :gateway_handle,
   :id,
+  :last_name,
+  :masked_bank_account_number,
+  :masked_bank_routing_number,
+  :masked_card_number,
   :payment_profile,
+  :payment_type,
+  :site_gateway_setting_id,
+  :updated_at,
+  :vault_token,
+  :verified,
   keyword_init: true
 )
 
@@ -4901,10 +5759,166 @@ PrepaymentCreateData = Struct.new(
 
 # Product entity data model.
 #
+# @!attribute [rw] accounting_code
+#   @return [String, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] expiration_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expiration_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] initial_charge_after_trial
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] initial_charge_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] item_category
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] price_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] product
-#   @return [Hash]
+#   @return [Hash, nil]
+#
+# @!attribute [rw] product_family
+#   @return [Hash, nil]
+#
+# @!attribute [rw] product_price_point_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] public_signup_pages
+#   @return [Array, nil]
+#
+# @!attribute [rw] request_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] request_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_shipping_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
+# @!attribute [rw] taxable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] trial_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] trial_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] trial_price_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_url
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] use_site_exchange_rate
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] version_number
+#   @return [Integer, nil]
 Product = Struct.new(
+  :accounting_code,
+  :archived_at,
+  :created_at,
+  :default_product_price_point_id,
+  :description,
+  :expiration_interval,
+  :expiration_interval_unit,
+  :features,
+  :handle,
+  :id,
+  :initial_charge_after_trial,
+  :initial_charge_in_cents,
+  :interval,
+  :interval_unit,
+  :item_category,
+  :name,
+  :price_in_cents,
   :product,
+  :product_family,
+  :product_price_point_handle,
+  :product_price_point_id,
+  :product_price_point_name,
+  :public_signup_pages,
+  :request_billing_address,
+  :request_credit_card,
+  :require_billing_address,
+  :require_credit_card,
+  :require_shipping_address,
+  :return_params,
+  :tax_code,
+  :taxable,
+  :trial_interval,
+  :trial_interval_unit,
+  :trial_price_in_cents,
+  :unspsc_code,
+  :update_return_params,
+  :update_return_url,
+  :updated_at,
+  :use_site_exchange_rate,
+  :version_number,
   keyword_init: true
 )
 
@@ -4971,11 +5985,167 @@ ProductListMatch = Struct.new(
 # @!attribute [rw] product_family_id
 #   @return [String]
 #
+# @!attribute [rw] accounting_code
+#   @return [String, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] expiration_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expiration_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] initial_charge_after_trial
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] initial_charge_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] item_category
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] price_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] product
-#   @return [Hash]
+#   @return [Hash, nil]
+#
+# @!attribute [rw] product_family
+#   @return [Hash, nil]
+#
+# @!attribute [rw] product_price_point_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] public_signup_pages
+#   @return [Array, nil]
+#
+# @!attribute [rw] request_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] request_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_shipping_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
+# @!attribute [rw] taxable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] trial_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] trial_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] trial_price_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_url
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] use_site_exchange_rate
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] version_number
+#   @return [Integer, nil]
 ProductCreateData = Struct.new(
   :product_family_id,
+  :accounting_code,
+  :archived_at,
+  :created_at,
+  :default_product_price_point_id,
+  :description,
+  :expiration_interval,
+  :expiration_interval_unit,
+  :features,
+  :handle,
+  :id,
+  :initial_charge_after_trial,
+  :initial_charge_in_cents,
+  :interval,
+  :interval_unit,
+  :item_category,
+  :name,
+  :price_in_cents,
   :product,
+  :product_family,
+  :product_price_point_handle,
+  :product_price_point_id,
+  :product_price_point_name,
+  :public_signup_pages,
+  :request_billing_address,
+  :request_credit_card,
+  :require_billing_address,
+  :require_credit_card,
+  :require_shipping_address,
+  :return_params,
+  :tax_code,
+  :taxable,
+  :trial_interval,
+  :trial_interval_unit,
+  :trial_price_in_cents,
+  :unspsc_code,
+  :update_return_params,
+  :update_return_url,
+  :updated_at,
+  :use_site_exchange_rate,
+  :version_number,
   keyword_init: true
 )
 
@@ -4984,11 +6154,167 @@ ProductCreateData = Struct.new(
 # @!attribute [rw] product_id
 #   @return [Integer]
 #
+# @!attribute [rw] accounting_code
+#   @return [String, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] default_product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] expiration_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expiration_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] initial_charge_after_trial
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] initial_charge_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] item_category
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] price_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] product
 #   @return [Hash, nil]
+#
+# @!attribute [rw] product_family
+#   @return [Hash, nil]
+#
+# @!attribute [rw] product_price_point_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] public_signup_pages
+#   @return [Array, nil]
+#
+# @!attribute [rw] request_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] request_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_shipping_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
+# @!attribute [rw] taxable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] trial_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] trial_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] trial_price_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_url
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] use_site_exchange_rate
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] version_number
+#   @return [Integer, nil]
 ProductUpdateData = Struct.new(
   :product_id,
+  :accounting_code,
+  :archived_at,
+  :created_at,
+  :default_product_price_point_id,
+  :description,
+  :expiration_interval,
+  :expiration_interval_unit,
+  :features,
+  :handle,
+  :id,
+  :initial_charge_after_trial,
+  :initial_charge_in_cents,
+  :interval,
+  :interval_unit,
+  :item_category,
+  :name,
+  :price_in_cents,
   :product,
+  :product_family,
+  :product_price_point_handle,
+  :product_price_point_id,
+  :product_price_point_name,
+  :public_signup_pages,
+  :request_billing_address,
+  :request_credit_card,
+  :require_billing_address,
+  :require_credit_card,
+  :require_shipping_address,
+  :return_params,
+  :tax_code,
+  :taxable,
+  :trial_interval,
+  :trial_interval_unit,
+  :trial_price_in_cents,
+  :unspsc_code,
+  :update_return_params,
+  :update_return_url,
+  :updated_at,
+  :use_site_exchange_rate,
+  :version_number,
   keyword_init: true
 )
 
@@ -5003,14 +6329,46 @@ ProductRemoveMatch = Struct.new(
 
 # ProductFamily entity data model.
 #
+# @!attribute [rw] accounting_code
+#   @return [String, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
 # @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] name
 #   @return [String, nil]
 #
 # @!attribute [rw] product_family
 #   @return [Hash, nil]
+#
+# @!attribute [rw] surcharging
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 ProductFamily = Struct.new(
+  :accounting_code,
+  :archived_at,
+  :created_at,
+  :description,
+  :handle,
   :id,
+  :name,
   :product_family,
+  :surcharging,
+  :updated_at,
   keyword_init: true
 )
 
@@ -5050,14 +6408,46 @@ ProductFamilyListMatch = Struct.new(
 
 # Request payload for ProductFamily#create.
 #
+# @!attribute [rw] accounting_code
+#   @return [String, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
 # @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] name
 #   @return [String, nil]
 #
 # @!attribute [rw] product_family
 #   @return [Hash, nil]
+#
+# @!attribute [rw] surcharging
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
 ProductFamilyCreateData = Struct.new(
+  :accounting_code,
+  :archived_at,
+  :created_at,
+  :description,
+  :handle,
   :id,
+  :name,
   :product_family,
+  :surcharging,
+  :updated_at,
   keyword_init: true
 )
 
@@ -5089,22 +6479,198 @@ ProductFeatureRemoveMatch = Struct.new(
 
 # ProductPricePoint entity data model.
 #
-# @!attribute [rw] id
+# @!attribute [rw] accounting_code
 #   @return [String, nil]
 #
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] currency_prices
+#   @return [Array, nil]
+#
+# @!attribute [rw] default_product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] expiration_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expiration_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] initial_charge_after_trial
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] initial_charge_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] introductory_offer
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] item_category
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] price_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] price_point
-#   @return [Hash]
+#   @return [Hash, nil]
 #
 # @!attribute [rw] price_points
 #   @return [Array, nil]
 #
-# @!attribute [rw] product
-#   @return [Hash]
+# @!attribute [rw] product_family
+#   @return [Hash, nil]
+#
+# @!attribute [rw] product_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_price_point_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] public_signup_pages
+#   @return [Array, nil]
+#
+# @!attribute [rw] request_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] request_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_shipping_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] subscription_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
+# @!attribute [rw] tax_included
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] taxable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] trial_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] trial_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] trial_price_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] trial_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] type
+#   @return [Object, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_url
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] use_site_exchange_rate
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] version_number
+#   @return [Integer, nil]
 ProductPricePoint = Struct.new(
+  :accounting_code,
+  :archived_at,
+  :created_at,
+  :currency_prices,
+  :default_product_price_point_id,
+  :description,
+  :expiration_interval,
+  :expiration_interval_unit,
+  :features,
+  :handle,
   :id,
+  :initial_charge_after_trial,
+  :initial_charge_in_cents,
+  :interval,
+  :interval_unit,
+  :introductory_offer,
+  :item_category,
+  :name,
+  :price_in_cents,
   :price_point,
   :price_points,
-  :product,
+  :product_family,
+  :product_id,
+  :product_price_point_handle,
+  :product_price_point_id,
+  :product_price_point_name,
+  :public_signup_pages,
+  :request_billing_address,
+  :request_credit_card,
+  :require_billing_address,
+  :require_credit_card,
+  :require_shipping_address,
+  :return_params,
+  :subscription_id,
+  :tax_code,
+  :tax_included,
+  :taxable,
+  :trial_interval,
+  :trial_interval_unit,
+  :trial_price_in_cents,
+  :trial_type,
+  :type,
+  :unspsc_code,
+  :update_return_params,
+  :update_return_url,
+  :updated_at,
+  :use_site_exchange_rate,
+  :version_number,
   keyword_init: true
 )
 
@@ -5155,19 +6721,195 @@ ProductPricePointListMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String]
 #
+# @!attribute [rw] accounting_code
+#   @return [String, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] currency_prices
+#   @return [Array, nil]
+#
+# @!attribute [rw] default_product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] expiration_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expiration_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
+# @!attribute [rw] initial_charge_after_trial
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] initial_charge_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] introductory_offer
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] item_category
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] price_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] price_point
-#   @return [Hash]
+#   @return [Hash, nil]
 #
 # @!attribute [rw] price_points
 #   @return [Array, nil]
 #
-# @!attribute [rw] product
-#   @return [Hash]
+# @!attribute [rw] product_family
+#   @return [Hash, nil]
+#
+# @!attribute [rw] product_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_price_point_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] public_signup_pages
+#   @return [Array, nil]
+#
+# @!attribute [rw] request_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] request_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_shipping_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] subscription_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
+# @!attribute [rw] tax_included
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] taxable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] trial_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] trial_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] trial_price_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] trial_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] type
+#   @return [Object, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_url
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] use_site_exchange_rate
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] version_number
+#   @return [Integer, nil]
 ProductPricePointCreateData = Struct.new(
   :id,
+  :accounting_code,
+  :archived_at,
+  :created_at,
+  :currency_prices,
+  :default_product_price_point_id,
+  :description,
+  :expiration_interval,
+  :expiration_interval_unit,
+  :features,
+  :handle,
+  :initial_charge_after_trial,
+  :initial_charge_in_cents,
+  :interval,
+  :interval_unit,
+  :introductory_offer,
+  :item_category,
+  :name,
+  :price_in_cents,
   :price_point,
   :price_points,
-  :product,
+  :product_family,
+  :product_id,
+  :product_price_point_handle,
+  :product_price_point_id,
+  :product_price_point_name,
+  :public_signup_pages,
+  :request_billing_address,
+  :request_credit_card,
+  :require_billing_address,
+  :require_credit_card,
+  :require_shipping_address,
+  :return_params,
+  :subscription_id,
+  :tax_code,
+  :tax_included,
+  :taxable,
+  :trial_interval,
+  :trial_interval_unit,
+  :trial_price_in_cents,
+  :trial_type,
+  :type,
+  :unspsc_code,
+  :update_return_params,
+  :update_return_url,
+  :updated_at,
+  :use_site_exchange_rate,
+  :version_number,
   keyword_init: true
 )
 
@@ -5179,8 +6921,62 @@ ProductPricePointCreateData = Struct.new(
 # @!attribute [rw] product_id
 #   @return [String]
 #
-# @!attribute [rw] id
+# @!attribute [rw] accounting_code
 #   @return [String, nil]
+#
+# @!attribute [rw] archived_at
+#   @return [String, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] currency_prices
+#   @return [Array, nil]
+#
+# @!attribute [rw] default_product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] description
+#   @return [String, nil]
+#
+# @!attribute [rw] expiration_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expiration_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] features
+#   @return [Array, nil]
+#
+# @!attribute [rw] handle
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] initial_charge_after_trial
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] initial_charge_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] introductory_offer
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] item_category
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] price_in_cents
+#   @return [Integer, nil]
 #
 # @!attribute [rw] price_point
 #   @return [Hash, nil]
@@ -5188,15 +6984,133 @@ ProductPricePointCreateData = Struct.new(
 # @!attribute [rw] price_points
 #   @return [Array, nil]
 #
-# @!attribute [rw] product
+# @!attribute [rw] product_family
 #   @return [Hash, nil]
+#
+# @!attribute [rw] product_price_point_handle
+#   @return [String, nil]
+#
+# @!attribute [rw] product_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] product_price_point_name
+#   @return [String, nil]
+#
+# @!attribute [rw] public_signup_pages
+#   @return [Array, nil]
+#
+# @!attribute [rw] request_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] request_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_billing_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_credit_card
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] require_shipping_address
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] subscription_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] tax_code
+#   @return [String, nil]
+#
+# @!attribute [rw] tax_included
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] taxable
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] trial_interval
+#   @return [Integer, nil]
+#
+# @!attribute [rw] trial_interval_unit
+#   @return [Object, nil]
+#
+# @!attribute [rw] trial_price_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] trial_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] type
+#   @return [Object, nil]
+#
+# @!attribute [rw] unspsc_code
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_params
+#   @return [String, nil]
+#
+# @!attribute [rw] update_return_url
+#   @return [String, nil]
+#
+# @!attribute [rw] updated_at
+#   @return [String, nil]
+#
+# @!attribute [rw] use_site_exchange_rate
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] version_number
+#   @return [Integer, nil]
 ProductPricePointUpdateData = Struct.new(
   :price_point_id,
   :product_id,
+  :accounting_code,
+  :archived_at,
+  :created_at,
+  :currency_prices,
+  :default_product_price_point_id,
+  :description,
+  :expiration_interval,
+  :expiration_interval_unit,
+  :features,
+  :handle,
   :id,
+  :initial_charge_after_trial,
+  :initial_charge_in_cents,
+  :interval,
+  :interval_unit,
+  :introductory_offer,
+  :item_category,
+  :name,
+  :price_in_cents,
   :price_point,
   :price_points,
-  :product,
+  :product_family,
+  :product_price_point_handle,
+  :product_price_point_id,
+  :product_price_point_name,
+  :public_signup_pages,
+  :request_billing_address,
+  :request_credit_card,
+  :require_billing_address,
+  :require_credit_card,
+  :require_shipping_address,
+  :return_params,
+  :subscription_id,
+  :tax_code,
+  :tax_included,
+  :taxable,
+  :trial_interval,
+  :trial_interval_unit,
+  :trial_price_in_cents,
+  :trial_type,
+  :type,
+  :unspsc_code,
+  :update_return_params,
+  :update_return_url,
+  :updated_at,
+  :use_site_exchange_rate,
+  :version_number,
   keyword_init: true
 )
 
@@ -5372,10 +7286,58 @@ ProformaInvoice = Struct.new(
 
 # Request payload for ProformaInvoice#list.
 #
-# @!attribute [rw] proforma_invoice_uid
-#   @return [String]
+# @!attribute [rw] subscription_id
+#   @return [Integer]
+#
+# @!attribute [rw] credit
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] custom_field
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] direction
+#   @return [Object, nil]
+#
+# @!attribute [rw] discount
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] end_date
+#   @return [String, nil]
+#
+# @!attribute [rw] line_item
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] payment
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] per_page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] start_date
+#   @return [String, nil]
+#
+# @!attribute [rw] status
+#   @return [Object, nil]
+#
+# @!attribute [rw] taxis
+#   @return [Boolean, nil]
 ProformaInvoiceListMatch = Struct.new(
-  :proforma_invoice_uid,
+  :subscription_id,
+  :credit,
+  :custom_field,
+  :direction,
+  :discount,
+  :end_date,
+  :line_item,
+  :page,
+  :payment,
+  :per_page,
+  :start_date,
+  :status,
+  :taxis,
   keyword_init: true
 )
 
@@ -5683,8 +7645,25 @@ ReasonCodeRemoveMatch = Struct.new(
 )
 
 # ReferralCode entity data model.
-class ReferralCode
-end
+#
+# @!attribute [rw] code
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] site_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] subscription_id
+#   @return [Integer, nil]
+ReferralCode = Struct.new(
+  :code,
+  :id,
+  :site_id,
+  :subscription_id,
+  keyword_init: true
+)
 
 # Request payload for ReferralCode#load.
 #
@@ -5973,35 +7952,195 @@ SignupProformaPreviewCreateData = Struct.new(
 
 # Site entity data model.
 #
-# @!attribute [rw] chargify_js_keys
-#   @return [Array, nil]
-#
-# @!attribute [rw] meta
+# @!attribute [rw] allocation_settings
 #   @return [Hash, nil]
 #
-# @!attribute [rw] site
-#   @return [Hash]
+# @!attribute [rw] auto_renewals_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] currency
+#   @return [String, nil]
+#
+# @!attribute [rw] customer_hierarchy_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] default_payment_collection_method
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] multi_frequency_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] net_terms
+#   @return [Hash, nil]
+#
+# @!attribute [rw] non_primary_currencies
+#   @return [Array, nil]
+#
+# @!attribute [rw] organization_address
+#   @return [Hash, nil]
+#
+# @!attribute [rw] portal_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] public_key
+#   @return [String, nil]
+#
+# @!attribute [rw] relationship_invoicing_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] requires_security_token
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] schedule_subscription_cancellation_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] seller_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] subdomain
+#   @return [String, nil]
+#
+# @!attribute [rw] tax_configuration
+#   @return [Hash, nil]
+#
+# @!attribute [rw] test
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] whopays_default_payer
+#   @return [String, nil]
+#
+# @!attribute [rw] whopays_enabled
+#   @return [Boolean, nil]
 Site = Struct.new(
-  :chargify_js_keys,
-  :meta,
-  :site,
+  :allocation_settings,
+  :auto_renewals_enabled,
+  :created_at,
+  :currency,
+  :customer_hierarchy_enabled,
+  :default_payment_collection_method,
+  :id,
+  :multi_frequency_enabled,
+  :name,
+  :net_terms,
+  :non_primary_currencies,
+  :organization_address,
+  :portal_enabled,
+  :public_key,
+  :relationship_invoicing_enabled,
+  :requires_security_token,
+  :schedule_subscription_cancellation_enabled,
+  :seller_id,
+  :subdomain,
+  :tax_configuration,
+  :test,
+  :whopays_default_payer,
+  :whopays_enabled,
   keyword_init: true
 )
 
 # Request payload for Site#load.
 #
-# @!attribute [rw] chargify_js_keys
+# @!attribute [rw] allocation_settings
+#   @return [Hash, nil]
+#
+# @!attribute [rw] auto_renewals_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] currency
+#   @return [String, nil]
+#
+# @!attribute [rw] customer_hierarchy_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] default_payment_collection_method
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer]
+#
+# @!attribute [rw] multi_frequency_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] net_terms
+#   @return [Hash, nil]
+#
+# @!attribute [rw] non_primary_currencies
 #   @return [Array, nil]
 #
-# @!attribute [rw] meta
+# @!attribute [rw] organization_address
 #   @return [Hash, nil]
 #
-# @!attribute [rw] site
+# @!attribute [rw] portal_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] public_key
+#   @return [String, nil]
+#
+# @!attribute [rw] relationship_invoicing_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] requires_security_token
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] schedule_subscription_cancellation_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] seller_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] subdomain
+#   @return [String, nil]
+#
+# @!attribute [rw] tax_configuration
 #   @return [Hash, nil]
+#
+# @!attribute [rw] test
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] whopays_default_payer
+#   @return [String, nil]
+#
+# @!attribute [rw] whopays_enabled
+#   @return [Boolean, nil]
 SiteLoadMatch = Struct.new(
-  :chargify_js_keys,
-  :meta,
-  :site,
+  :allocation_settings,
+  :auto_renewals_enabled,
+  :created_at,
+  :currency,
+  :customer_hierarchy_enabled,
+  :default_payment_collection_method,
+  :id,
+  :multi_frequency_enabled,
+  :name,
+  :net_terms,
+  :non_primary_currencies,
+  :organization_address,
+  :portal_enabled,
+  :public_key,
+  :relationship_invoicing_enabled,
+  :requires_security_token,
+  :schedule_subscription_cancellation_enabled,
+  :seller_id,
+  :subdomain,
+  :tax_configuration,
+  :test,
+  :whopays_default_payer,
+  :whopays_enabled,
   keyword_init: true
 )
 
@@ -6023,19 +8162,99 @@ SiteListMatch = Struct.new(
 # @!attribute [rw] cleanup_scope
 #   @return [Object, nil]
 #
-# @!attribute [rw] chargify_js_keys
-#   @return [Array, nil]
-#
-# @!attribute [rw] meta
+# @!attribute [rw] allocation_settings
 #   @return [Hash, nil]
 #
-# @!attribute [rw] site
-#   @return [Hash]
+# @!attribute [rw] auto_renewals_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] currency
+#   @return [String, nil]
+#
+# @!attribute [rw] customer_hierarchy_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] default_payment_collection_method
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] multi_frequency_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] net_terms
+#   @return [Hash, nil]
+#
+# @!attribute [rw] non_primary_currencies
+#   @return [Array, nil]
+#
+# @!attribute [rw] organization_address
+#   @return [Hash, nil]
+#
+# @!attribute [rw] portal_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] public_key
+#   @return [String, nil]
+#
+# @!attribute [rw] relationship_invoicing_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] requires_security_token
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] schedule_subscription_cancellation_enabled
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] seller_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] subdomain
+#   @return [String, nil]
+#
+# @!attribute [rw] tax_configuration
+#   @return [Hash, nil]
+#
+# @!attribute [rw] test
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] whopays_default_payer
+#   @return [String, nil]
+#
+# @!attribute [rw] whopays_enabled
+#   @return [Boolean, nil]
 SiteCreateData = Struct.new(
   :cleanup_scope,
-  :chargify_js_keys,
-  :meta,
-  :site,
+  :allocation_settings,
+  :auto_renewals_enabled,
+  :created_at,
+  :currency,
+  :customer_hierarchy_enabled,
+  :default_payment_collection_method,
+  :id,
+  :multi_frequency_enabled,
+  :name,
+  :net_terms,
+  :non_primary_currencies,
+  :organization_address,
+  :portal_enabled,
+  :public_key,
+  :relationship_invoicing_enabled,
+  :requires_security_token,
+  :schedule_subscription_cancellation_enabled,
+  :seller_id,
+  :subdomain,
+  :tax_configuration,
+  :test,
+  :whopays_default_payer,
+  :whopays_enabled,
   keyword_init: true
 )
 
@@ -6947,20 +9166,26 @@ SubscriptionRemoveMatch = Struct.new(
 
 # SubscriptionComponent entity data model.
 #
+# @!attribute [rw] accrue_charge
+#   @return [Boolean, nil]
+#
 # @!attribute [rw] allocated_quantity
 #   @return [Object, nil]
 #
-# @!attribute [rw] allocation
-#   @return [Hash, nil]
+# @!attribute [rw] allocation_id
+#   @return [Integer, nil]
 #
-# @!attribute [rw] allocation_preview
-#   @return [Hash, nil]
+# @!attribute [rw] allocations
+#   @return [Array, nil]
 #
 # @!attribute [rw] allow_fractional_quantities
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] archived_at
 #   @return [String, nil]
+#
+# @!attribute [rw] charge_id
+#   @return [Integer, nil]
 #
 # @!attribute [rw] component
 #   @return [Hash, nil]
@@ -6980,6 +9205,9 @@ SubscriptionRemoveMatch = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] direction
+#   @return [String, nil]
+#
 # @!attribute [rw] display_on_hosted_page
 #   @return [Boolean, nil]
 #
@@ -6989,11 +9217,23 @@ SubscriptionRemoveMatch = Struct.new(
 # @!attribute [rw] enabled
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] end_date
+#   @return [String, nil]
+#
+# @!attribute [rw] existing_balance_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expires_at
+#   @return [String, nil]
+#
 # @!attribute [rw] historic_usages
 #   @return [Array, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
+#
+# @!attribute [rw] initiate_dunning
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] interval
 #   @return [Integer, nil]
@@ -7004,8 +9244,29 @@ SubscriptionRemoveMatch = Struct.new(
 # @!attribute [rw] kind
 #   @return [Object, nil]
 #
+# @!attribute [rw] line_items
+#   @return [Array, nil]
+#
+# @!attribute [rw] memo
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
+#
+# @!attribute [rw] overage_quantity
+#   @return [Integer, nil]
+#
+# @!attribute [rw] payment
+#   @return [Object, nil]
+#
+# @!attribute [rw] period_type
+#   @return [String, nil]
+#
+# @!attribute [rw] previous_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] previous_quantity
+#   @return [Object, nil]
 #
 # @!attribute [rw] price_point_handle
 #   @return [String, nil]
@@ -7028,13 +9289,43 @@ SubscriptionRemoveMatch = Struct.new(
 # @!attribute [rw] product_family_id
 #   @return [Integer, nil]
 #
+# @!attribute [rw] proration_downgrade_scheme
+#   @return [String, nil]
+#
+# @!attribute [rw] proration_scheme
+#   @return [String, nil]
+#
+# @!attribute [rw] proration_upgrade_scheme
+#   @return [String, nil]
+#
+# @!attribute [rw] quantity
+#   @return [Object, nil]
+#
 # @!attribute [rw] recurring
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] start_date
+#   @return [String, nil]
+#
 # @!attribute [rw] subscription
-#   @return [Hash, nil]
+#   @return [Object, nil]
 #
 # @!attribute [rw] subscription_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] subtotal_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] timestamp
+#   @return [String, nil]
+#
+# @!attribute [rw] total_discount_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_tax_in_cents
 #   @return [Integer, nil]
 #
 # @!attribute [rw] unit_balance
@@ -7049,32 +9340,46 @@ SubscriptionRemoveMatch = Struct.new(
 # @!attribute [rw] upgrade_charge
 #   @return [Object, nil]
 #
-# @!attribute [rw] usage
-#   @return [Hash, nil]
-#
 # @!attribute [rw] use_site_exchange_rate
 #   @return [Boolean, nil]
+#
+# @!attribute [rw] used_quantity
+#   @return [Integer, nil]
 SubscriptionComponent = Struct.new(
+  :accrue_charge,
   :allocated_quantity,
-  :allocation,
-  :allocation_preview,
+  :allocation_id,
+  :allocations,
   :allow_fractional_quantities,
   :archived_at,
+  :charge_id,
   :component,
   :component_handle,
   :component_id,
   :created_at,
   :currency,
   :description,
+  :direction,
   :display_on_hosted_page,
   :downgrade_credit,
   :enabled,
+  :end_date,
+  :existing_balance_in_cents,
+  :expires_at,
   :historic_usages,
   :id,
+  :initiate_dunning,
   :interval,
   :interval_unit,
   :kind,
+  :line_items,
+  :memo,
   :name,
+  :overage_quantity,
+  :payment,
+  :period_type,
+  :previous_price_point_id,
+  :previous_quantity,
   :price_point_handle,
   :price_point_id,
   :price_point_name,
@@ -7082,15 +9387,25 @@ SubscriptionComponent = Struct.new(
   :pricing_scheme,
   :product_family_handle,
   :product_family_id,
+  :proration_downgrade_scheme,
+  :proration_scheme,
+  :proration_upgrade_scheme,
+  :quantity,
   :recurring,
+  :start_date,
   :subscription,
   :subscription_id,
+  :subtotal_in_cents,
+  :timestamp,
+  :total_discount_in_cents,
+  :total_in_cents,
+  :total_tax_in_cents,
   :unit_balance,
   :unit_name,
   :updated_at,
   :upgrade_charge,
-  :usage,
   :use_site_exchange_rate,
+  :used_quantity,
   keyword_init: true
 )
 
@@ -7176,20 +9491,26 @@ SubscriptionComponentListMatch = Struct.new(
 # @!attribute [rw] store_uid
 #   @return [String, nil]
 #
+# @!attribute [rw] accrue_charge
+#   @return [Boolean, nil]
+#
 # @!attribute [rw] allocated_quantity
 #   @return [Object, nil]
 #
-# @!attribute [rw] allocation
-#   @return [Hash, nil]
+# @!attribute [rw] allocation_id
+#   @return [Integer, nil]
 #
-# @!attribute [rw] allocation_preview
-#   @return [Hash, nil]
+# @!attribute [rw] allocations
+#   @return [Array, nil]
 #
 # @!attribute [rw] allow_fractional_quantities
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] archived_at
 #   @return [String, nil]
+#
+# @!attribute [rw] charge_id
+#   @return [Integer, nil]
 #
 # @!attribute [rw] component
 #   @return [Hash, nil]
@@ -7209,6 +9530,9 @@ SubscriptionComponentListMatch = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] direction
+#   @return [String, nil]
+#
 # @!attribute [rw] display_on_hosted_page
 #   @return [Boolean, nil]
 #
@@ -7218,11 +9542,23 @@ SubscriptionComponentListMatch = Struct.new(
 # @!attribute [rw] enabled
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] end_date
+#   @return [String, nil]
+#
+# @!attribute [rw] existing_balance_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expires_at
+#   @return [String, nil]
+#
 # @!attribute [rw] historic_usages
 #   @return [Array, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
+#
+# @!attribute [rw] initiate_dunning
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] interval
 #   @return [Integer, nil]
@@ -7233,8 +9569,29 @@ SubscriptionComponentListMatch = Struct.new(
 # @!attribute [rw] kind
 #   @return [Object, nil]
 #
+# @!attribute [rw] line_items
+#   @return [Array, nil]
+#
+# @!attribute [rw] memo
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
+#
+# @!attribute [rw] overage_quantity
+#   @return [Integer, nil]
+#
+# @!attribute [rw] payment
+#   @return [Object, nil]
+#
+# @!attribute [rw] period_type
+#   @return [String, nil]
+#
+# @!attribute [rw] previous_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] previous_quantity
+#   @return [Object, nil]
 #
 # @!attribute [rw] price_point_handle
 #   @return [String, nil]
@@ -7257,13 +9614,43 @@ SubscriptionComponentListMatch = Struct.new(
 # @!attribute [rw] product_family_id
 #   @return [Integer, nil]
 #
+# @!attribute [rw] proration_downgrade_scheme
+#   @return [String, nil]
+#
+# @!attribute [rw] proration_scheme
+#   @return [String, nil]
+#
+# @!attribute [rw] proration_upgrade_scheme
+#   @return [String, nil]
+#
+# @!attribute [rw] quantity
+#   @return [Object, nil]
+#
 # @!attribute [rw] recurring
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] start_date
+#   @return [String, nil]
+#
 # @!attribute [rw] subscription
-#   @return [Hash, nil]
+#   @return [Object, nil]
 #
 # @!attribute [rw] subscription_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] subtotal_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] timestamp
+#   @return [String, nil]
+#
+# @!attribute [rw] total_discount_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_tax_in_cents
 #   @return [Integer, nil]
 #
 # @!attribute [rw] unit_balance
@@ -7278,34 +9665,48 @@ SubscriptionComponentListMatch = Struct.new(
 # @!attribute [rw] upgrade_charge
 #   @return [Object, nil]
 #
-# @!attribute [rw] usage
-#   @return [Hash, nil]
-#
 # @!attribute [rw] use_site_exchange_rate
 #   @return [Boolean, nil]
+#
+# @!attribute [rw] used_quantity
+#   @return [Integer, nil]
 SubscriptionComponentCreateData = Struct.new(
   :api_handle,
   :store_uid,
+  :accrue_charge,
   :allocated_quantity,
-  :allocation,
-  :allocation_preview,
+  :allocation_id,
+  :allocations,
   :allow_fractional_quantities,
   :archived_at,
+  :charge_id,
   :component,
   :component_handle,
   :component_id,
   :created_at,
   :currency,
   :description,
+  :direction,
   :display_on_hosted_page,
   :downgrade_credit,
   :enabled,
+  :end_date,
+  :existing_balance_in_cents,
+  :expires_at,
   :historic_usages,
   :id,
+  :initiate_dunning,
   :interval,
   :interval_unit,
   :kind,
+  :line_items,
+  :memo,
   :name,
+  :overage_quantity,
+  :payment,
+  :period_type,
+  :previous_price_point_id,
+  :previous_quantity,
   :price_point_handle,
   :price_point_id,
   :price_point_name,
@@ -7313,15 +9714,25 @@ SubscriptionComponentCreateData = Struct.new(
   :pricing_scheme,
   :product_family_handle,
   :product_family_id,
+  :proration_downgrade_scheme,
+  :proration_scheme,
+  :proration_upgrade_scheme,
+  :quantity,
   :recurring,
+  :start_date,
   :subscription,
   :subscription_id,
+  :subtotal_in_cents,
+  :timestamp,
+  :total_discount_in_cents,
+  :total_in_cents,
+  :total_tax_in_cents,
   :unit_balance,
   :unit_name,
   :updated_at,
   :upgrade_charge,
-  :usage,
   :use_site_exchange_rate,
+  :used_quantity,
   keyword_init: true
 )
 
@@ -7336,20 +9747,23 @@ SubscriptionComponentCreateData = Struct.new(
 # @!attribute [rw] subscription_id
 #   @return [Integer]
 #
+# @!attribute [rw] accrue_charge
+#   @return [Boolean, nil]
+#
 # @!attribute [rw] allocated_quantity
 #   @return [Object, nil]
 #
-# @!attribute [rw] allocation
-#   @return [Hash, nil]
-#
-# @!attribute [rw] allocation_preview
-#   @return [Hash, nil]
+# @!attribute [rw] allocations
+#   @return [Array, nil]
 #
 # @!attribute [rw] allow_fractional_quantities
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] archived_at
 #   @return [String, nil]
+#
+# @!attribute [rw] charge_id
+#   @return [Integer, nil]
 #
 # @!attribute [rw] component
 #   @return [Hash, nil]
@@ -7366,6 +9780,9 @@ SubscriptionComponentCreateData = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
+# @!attribute [rw] direction
+#   @return [String, nil]
+#
 # @!attribute [rw] display_on_hosted_page
 #   @return [Boolean, nil]
 #
@@ -7375,11 +9792,23 @@ SubscriptionComponentCreateData = Struct.new(
 # @!attribute [rw] enabled
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] end_date
+#   @return [String, nil]
+#
+# @!attribute [rw] existing_balance_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] expires_at
+#   @return [String, nil]
+#
 # @!attribute [rw] historic_usages
 #   @return [Array, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
+#
+# @!attribute [rw] initiate_dunning
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] interval
 #   @return [Integer, nil]
@@ -7390,8 +9819,29 @@ SubscriptionComponentCreateData = Struct.new(
 # @!attribute [rw] kind
 #   @return [Object, nil]
 #
+# @!attribute [rw] line_items
+#   @return [Array, nil]
+#
+# @!attribute [rw] memo
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
+#
+# @!attribute [rw] overage_quantity
+#   @return [Integer, nil]
+#
+# @!attribute [rw] payment
+#   @return [Object, nil]
+#
+# @!attribute [rw] period_type
+#   @return [String, nil]
+#
+# @!attribute [rw] previous_price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] previous_quantity
+#   @return [Object, nil]
 #
 # @!attribute [rw] price_point_handle
 #   @return [String, nil]
@@ -7414,11 +9864,41 @@ SubscriptionComponentCreateData = Struct.new(
 # @!attribute [rw] product_family_id
 #   @return [Integer, nil]
 #
+# @!attribute [rw] proration_downgrade_scheme
+#   @return [String, nil]
+#
+# @!attribute [rw] proration_scheme
+#   @return [String, nil]
+#
+# @!attribute [rw] proration_upgrade_scheme
+#   @return [String, nil]
+#
+# @!attribute [rw] quantity
+#   @return [Object, nil]
+#
 # @!attribute [rw] recurring
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] start_date
+#   @return [String, nil]
+#
 # @!attribute [rw] subscription
-#   @return [Hash, nil]
+#   @return [Object, nil]
+#
+# @!attribute [rw] subtotal_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] timestamp
+#   @return [String, nil]
+#
+# @!attribute [rw] total_discount_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_tax_in_cents
+#   @return [Integer, nil]
 #
 # @!attribute [rw] unit_balance
 #   @return [Object, nil]
@@ -7432,34 +9912,47 @@ SubscriptionComponentCreateData = Struct.new(
 # @!attribute [rw] upgrade_charge
 #   @return [Object, nil]
 #
-# @!attribute [rw] usage
-#   @return [Hash, nil]
-#
 # @!attribute [rw] use_site_exchange_rate
 #   @return [Boolean, nil]
+#
+# @!attribute [rw] used_quantity
+#   @return [Integer, nil]
 SubscriptionComponentUpdateData = Struct.new(
   :allocation_id,
   :component_id,
   :subscription_id,
+  :accrue_charge,
   :allocated_quantity,
-  :allocation,
-  :allocation_preview,
+  :allocations,
   :allow_fractional_quantities,
   :archived_at,
+  :charge_id,
   :component,
   :component_handle,
   :created_at,
   :currency,
   :description,
+  :direction,
   :display_on_hosted_page,
   :downgrade_credit,
   :enabled,
+  :end_date,
+  :existing_balance_in_cents,
+  :expires_at,
   :historic_usages,
   :id,
+  :initiate_dunning,
   :interval,
   :interval_unit,
   :kind,
+  :line_items,
+  :memo,
   :name,
+  :overage_quantity,
+  :payment,
+  :period_type,
+  :previous_price_point_id,
+  :previous_quantity,
   :price_point_handle,
   :price_point_id,
   :price_point_name,
@@ -7467,14 +9960,24 @@ SubscriptionComponentUpdateData = Struct.new(
   :pricing_scheme,
   :product_family_handle,
   :product_family_id,
+  :proration_downgrade_scheme,
+  :proration_scheme,
+  :proration_upgrade_scheme,
+  :quantity,
   :recurring,
+  :start_date,
   :subscription,
+  :subtotal_in_cents,
+  :timestamp,
+  :total_discount_in_cents,
+  :total_in_cents,
+  :total_tax_in_cents,
   :unit_balance,
   :unit_name,
   :updated_at,
   :upgrade_charge,
-  :usage,
   :use_site_exchange_rate,
+  :used_quantity,
   keyword_init: true
 )
 
@@ -7497,22 +10000,66 @@ SubscriptionComponentRemoveMatch = Struct.new(
 
 # SubscriptionGroup entity data model.
 #
+# @!attribute [rw] account_balances
+#   @return [Hash, nil]
+#
+# @!attribute [rw] cancel_at_end_of_period
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] customer_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] group_type
+#   @return [String, nil]
+#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] meta
+# @!attribute [rw] next_assessment_at
+#   @return [String, nil]
+#
+# @!attribute [rw] payment_collection_method
+#   @return [Object, nil]
+#
+# @!attribute [rw] payment_profile
 #   @return [Hash, nil]
 #
-# @!attribute [rw] subscription_group
-#   @return [Hash, nil]
+# @!attribute [rw] payment_profile_id
+#   @return [Integer, nil]
 #
-# @!attribute [rw] subscription_groups
+# @!attribute [rw] primary_subscription_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] scheme
+#   @return [Integer, nil]
+#
+# @!attribute [rw] state
+#   @return [String, nil]
+#
+# @!attribute [rw] subscription_ids
 #   @return [Array, nil]
+#
+# @!attribute [rw] uid
+#   @return [String, nil]
 SubscriptionGroup = Struct.new(
+  :account_balances,
+  :cancel_at_end_of_period,
+  :created_at,
+  :customer_id,
+  :group_type,
   :id,
-  :meta,
-  :subscription_group,
-  :subscription_groups,
+  :next_assessment_at,
+  :payment_collection_method,
+  :payment_profile,
+  :payment_profile_id,
+  :primary_subscription_id,
+  :scheme,
+  :state,
+  :subscription_ids,
+  :uid,
   keyword_init: true
 )
 
@@ -7535,22 +10082,66 @@ SubscriptionGroupListMatch = Struct.new(
 
 # Request payload for SubscriptionGroup#create.
 #
+# @!attribute [rw] account_balances
+#   @return [Hash, nil]
+#
+# @!attribute [rw] cancel_at_end_of_period
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] customer_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] group_type
+#   @return [String, nil]
+#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] meta
+# @!attribute [rw] next_assessment_at
+#   @return [String, nil]
+#
+# @!attribute [rw] payment_collection_method
+#   @return [Object, nil]
+#
+# @!attribute [rw] payment_profile
 #   @return [Hash, nil]
 #
-# @!attribute [rw] subscription_group
-#   @return [Hash, nil]
+# @!attribute [rw] payment_profile_id
+#   @return [Integer, nil]
 #
-# @!attribute [rw] subscription_groups
+# @!attribute [rw] primary_subscription_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] scheme
+#   @return [Integer, nil]
+#
+# @!attribute [rw] state
+#   @return [String, nil]
+#
+# @!attribute [rw] subscription_ids
 #   @return [Array, nil]
+#
+# @!attribute [rw] uid
+#   @return [String, nil]
 SubscriptionGroupCreateData = Struct.new(
+  :account_balances,
+  :cancel_at_end_of_period,
+  :created_at,
+  :customer_id,
+  :group_type,
   :id,
-  :meta,
-  :subscription_group,
-  :subscription_groups,
+  :next_assessment_at,
+  :payment_collection_method,
+  :payment_profile,
+  :payment_profile_id,
+  :primary_subscription_id,
+  :scheme,
+  :state,
+  :subscription_ids,
+  :uid,
   keyword_init: true
 )
 
@@ -7559,23 +10150,63 @@ SubscriptionGroupCreateData = Struct.new(
 # @!attribute [rw] uid
 #   @return [String]
 #
+# @!attribute [rw] account_balances
+#   @return [Hash, nil]
+#
+# @!attribute [rw] cancel_at_end_of_period
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] customer_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] group_type
+#   @return [String, nil]
+#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] meta
+# @!attribute [rw] next_assessment_at
+#   @return [String, nil]
+#
+# @!attribute [rw] payment_collection_method
+#   @return [Object, nil]
+#
+# @!attribute [rw] payment_profile
 #   @return [Hash, nil]
 #
-# @!attribute [rw] subscription_group
-#   @return [Hash, nil]
+# @!attribute [rw] payment_profile_id
+#   @return [Integer, nil]
 #
-# @!attribute [rw] subscription_groups
+# @!attribute [rw] primary_subscription_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] scheme
+#   @return [Integer, nil]
+#
+# @!attribute [rw] state
+#   @return [String, nil]
+#
+# @!attribute [rw] subscription_ids
 #   @return [Array, nil]
 SubscriptionGroupUpdateData = Struct.new(
   :uid,
+  :account_balances,
+  :cancel_at_end_of_period,
+  :created_at,
+  :customer_id,
+  :group_type,
   :id,
-  :meta,
-  :subscription_group,
-  :subscription_groups,
+  :next_assessment_at,
+  :payment_collection_method,
+  :payment_profile,
+  :payment_profile_id,
+  :primary_subscription_id,
+  :scheme,
+  :state,
+  :subscription_ids,
   keyword_init: true
 )
 
@@ -7664,14 +10295,38 @@ SubscriptionGroupStatusRemoveMatch = Struct.new(
 
 # SubscriptionInvoiceAccount entity data model.
 #
-# @!attribute [rw] id
+# @!attribute [rw] amount_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] created_at
 #   @return [String, nil]
 #
-# @!attribute [rw] service_credits
-#   @return [Array, nil]
+# @!attribute [rw] ending_balance_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] entry_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] invoice_uid
+#   @return [String, nil]
+#
+# @!attribute [rw] memo
+#   @return [String, nil]
+#
+# @!attribute [rw] remaining_balance_in_cents
+#   @return [Integer, nil]
 SubscriptionInvoiceAccount = Struct.new(
+  :amount_in_cents,
+  :created_at,
+  :ending_balance_in_cents,
+  :entry_type,
   :id,
-  :service_credits,
+  :invoice_uid,
+  :memo,
+  :remaining_balance_in_cents,
   keyword_init: true
 )
 
@@ -7701,11 +10356,35 @@ SubscriptionInvoiceAccountListMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [Integer]
 #
-# @!attribute [rw] service_credits
-#   @return [Array, nil]
+# @!attribute [rw] amount_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] ending_balance_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] entry_type
+#   @return [Object, nil]
+#
+# @!attribute [rw] invoice_uid
+#   @return [String, nil]
+#
+# @!attribute [rw] memo
+#   @return [String, nil]
+#
+# @!attribute [rw] remaining_balance_in_cents
+#   @return [Integer, nil]
 SubscriptionInvoiceAccountCreateData = Struct.new(
   :id,
-  :service_credits,
+  :amount_in_cents,
+  :created_at,
+  :ending_balance_in_cents,
+  :entry_type,
+  :invoice_uid,
+  :memo,
+  :remaining_balance_in_cents,
   keyword_init: true
 )
 
@@ -7899,14 +10578,30 @@ SubscriptionNoteRemoveMatch = Struct.new(
 
 # SubscriptionProduct entity data model.
 #
+# @!attribute [rw] charge_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] credit_applied_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
 # @!attribute [rw] migration
 #   @return [Hash]
+#
+# @!attribute [rw] payment_due_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] prorated_adjustment_in_cents
+#   @return [Integer, nil]
 SubscriptionProduct = Struct.new(
+  :charge_in_cents,
+  :credit_applied_in_cents,
   :id,
   :migration,
+  :payment_due_in_cents,
+  :prorated_adjustment_in_cents,
   keyword_init: true
 )
 
@@ -7915,32 +10610,112 @@ SubscriptionProduct = Struct.new(
 # @!attribute [rw] subscription_id
 #   @return [Integer]
 #
+# @!attribute [rw] charge_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] credit_applied_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
 # @!attribute [rw] migration
 #   @return [Hash]
+#
+# @!attribute [rw] payment_due_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] prorated_adjustment_in_cents
+#   @return [Integer, nil]
 SubscriptionProductCreateData = Struct.new(
   :subscription_id,
+  :charge_in_cents,
+  :credit_applied_in_cents,
   :id,
   :migration,
+  :payment_due_in_cents,
+  :prorated_adjustment_in_cents,
   keyword_init: true
 )
 
 # SubscriptionRenewal entity data model.
 #
-# @!attribute [rw] id
+# @!attribute [rw] contract
+#   @return [Object, nil]
+#
+# @!attribute [rw] created_at
 #   @return [String, nil]
 #
-# @!attribute [rw] scheduled_renewal_configuration
-#   @return [Hash, nil]
+# @!attribute [rw] decimal_quantity
+#   @return [String, nil]
+#
+# @!attribute [rw] ends_at
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] item_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] item_subclass
+#   @return [String, nil]
+#
+# @!attribute [rw] item_type
+#   @return [String, nil]
+#
+# @!attribute [rw] lock_in_at
+#   @return [String, nil]
+#
+# @!attribute [rw] price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] price_point_type
+#   @return [String, nil]
+#
+# @!attribute [rw] quantity
+#   @return [Integer, nil]
 #
 # @!attribute [rw] scheduled_renewal_configuration_item
 #   @return [Hash, nil]
+#
+# @!attribute [rw] scheduled_renewal_configuration_items
+#   @return [Array, nil]
+#
+# @!attribute [rw] site_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] starts_at
+#   @return [String, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] subscription_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] subscription_renewal_configuration_id
+#   @return [Integer, nil]
 SubscriptionRenewal = Struct.new(
+  :contract,
+  :created_at,
+  :decimal_quantity,
+  :ends_at,
   :id,
-  :scheduled_renewal_configuration,
+  :item_id,
+  :item_subclass,
+  :item_type,
+  :lock_in_at,
+  :price_point_id,
+  :price_point_type,
+  :quantity,
   :scheduled_renewal_configuration_item,
+  :scheduled_renewal_configuration_items,
+  :site_id,
+  :starts_at,
+  :status,
+  :subscription_id,
+  :subscription_renewal_configuration_id,
   keyword_init: true
 )
 
@@ -7978,20 +10753,80 @@ SubscriptionRenewalListMatch = Struct.new(
 # @!attribute [rw] subscription_id
 #   @return [Integer]
 #
-# @!attribute [rw] id
+# @!attribute [rw] contract
+#   @return [Object, nil]
+#
+# @!attribute [rw] created_at
 #   @return [String, nil]
 #
-# @!attribute [rw] scheduled_renewal_configuration
-#   @return [Hash, nil]
+# @!attribute [rw] decimal_quantity
+#   @return [String, nil]
+#
+# @!attribute [rw] ends_at
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] item_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] item_subclass
+#   @return [String, nil]
+#
+# @!attribute [rw] item_type
+#   @return [String, nil]
+#
+# @!attribute [rw] lock_in_at
+#   @return [String, nil]
+#
+# @!attribute [rw] price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] price_point_type
+#   @return [String, nil]
+#
+# @!attribute [rw] quantity
+#   @return [Integer, nil]
 #
 # @!attribute [rw] scheduled_renewal_configuration_item
 #   @return [Hash, nil]
+#
+# @!attribute [rw] scheduled_renewal_configuration_items
+#   @return [Array, nil]
+#
+# @!attribute [rw] site_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] starts_at
+#   @return [String, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] subscription_renewal_configuration_id
+#   @return [Integer, nil]
 SubscriptionRenewalCreateData = Struct.new(
   :scheduled_renewal_id,
   :subscription_id,
+  :contract,
+  :created_at,
+  :decimal_quantity,
+  :ends_at,
   :id,
-  :scheduled_renewal_configuration,
+  :item_id,
+  :item_subclass,
+  :item_type,
+  :lock_in_at,
+  :price_point_id,
+  :price_point_type,
+  :quantity,
   :scheduled_renewal_configuration_item,
+  :scheduled_renewal_configuration_items,
+  :site_id,
+  :starts_at,
+  :status,
+  :subscription_renewal_configuration_id,
   keyword_init: true
 )
 
@@ -8006,17 +10841,77 @@ SubscriptionRenewalCreateData = Struct.new(
 # @!attribute [rw] subscription_id
 #   @return [Integer]
 #
-# @!attribute [rw] scheduled_renewal_configuration
-#   @return [Hash, nil]
+# @!attribute [rw] contract
+#   @return [Object, nil]
+#
+# @!attribute [rw] created_at
+#   @return [String, nil]
+#
+# @!attribute [rw] decimal_quantity
+#   @return [String, nil]
+#
+# @!attribute [rw] ends_at
+#   @return [String, nil]
+#
+# @!attribute [rw] item_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] item_subclass
+#   @return [String, nil]
+#
+# @!attribute [rw] item_type
+#   @return [String, nil]
+#
+# @!attribute [rw] lock_in_at
+#   @return [String, nil]
+#
+# @!attribute [rw] price_point_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] price_point_type
+#   @return [String, nil]
+#
+# @!attribute [rw] quantity
+#   @return [Integer, nil]
 #
 # @!attribute [rw] scheduled_renewal_configuration_item
 #   @return [Hash, nil]
+#
+# @!attribute [rw] scheduled_renewal_configuration_items
+#   @return [Array, nil]
+#
+# @!attribute [rw] site_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] starts_at
+#   @return [String, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] subscription_renewal_configuration_id
+#   @return [Integer, nil]
 SubscriptionRenewalUpdateData = Struct.new(
   :id,
   :scheduled_renewal_id,
   :subscription_id,
-  :scheduled_renewal_configuration,
+  :contract,
+  :created_at,
+  :decimal_quantity,
+  :ends_at,
+  :item_id,
+  :item_subclass,
+  :item_type,
+  :lock_in_at,
+  :price_point_id,
+  :price_point_type,
+  :quantity,
   :scheduled_renewal_configuration_item,
+  :scheduled_renewal_configuration_items,
+  :site_id,
+  :starts_at,
+  :status,
+  :subscription_renewal_configuration_id,
   keyword_init: true
 )
 
@@ -8039,14 +10934,46 @@ SubscriptionRenewalRemoveMatch = Struct.new(
 
 # SubscriptionStatus entity data model.
 #
+# @!attribute [rw] existing_balance_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] renewal_preview
-#   @return [Hash, nil]
+# @!attribute [rw] line_items
+#   @return [Array, nil]
+#
+# @!attribute [rw] next_assessment_at
+#   @return [String, nil]
+#
+# @!attribute [rw] subtotal_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_amount_due_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_discount_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_tax_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] uncalculated_taxes
+#   @return [Boolean, nil]
 SubscriptionStatus = Struct.new(
+  :existing_balance_in_cents,
   :id,
-  :renewal_preview,
+  :line_items,
+  :next_assessment_at,
+  :subtotal_in_cents,
+  :total_amount_due_in_cents,
+  :total_discount_in_cents,
+  :total_in_cents,
+  :total_tax_in_cents,
+  :uncalculated_taxes,
   keyword_init: true
 )
 
@@ -8055,15 +10982,47 @@ SubscriptionStatus = Struct.new(
 # @!attribute [rw] subscription_id
 #   @return [Integer]
 #
+# @!attribute [rw] existing_balance_in_cents
+#   @return [Integer, nil]
+#
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] renewal_preview
-#   @return [Hash, nil]
+# @!attribute [rw] line_items
+#   @return [Array, nil]
+#
+# @!attribute [rw] next_assessment_at
+#   @return [String, nil]
+#
+# @!attribute [rw] subtotal_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_amount_due_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_discount_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_tax_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] uncalculated_taxes
+#   @return [Boolean, nil]
 SubscriptionStatusCreateData = Struct.new(
   :subscription_id,
+  :existing_balance_in_cents,
   :id,
-  :renewal_preview,
+  :line_items,
+  :next_assessment_at,
+  :subtotal_in_cents,
+  :total_amount_due_in_cents,
+  :total_discount_in_cents,
+  :total_in_cents,
+  :total_tax_in_cents,
+  :uncalculated_taxes,
   keyword_init: true
 )
 
@@ -8072,11 +11031,43 @@ SubscriptionStatusCreateData = Struct.new(
 # @!attribute [rw] id
 #   @return [Integer]
 #
-# @!attribute [rw] renewal_preview
-#   @return [Hash, nil]
+# @!attribute [rw] existing_balance_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] line_items
+#   @return [Array, nil]
+#
+# @!attribute [rw] next_assessment_at
+#   @return [String, nil]
+#
+# @!attribute [rw] subtotal_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_amount_due_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_discount_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_tax_in_cents
+#   @return [Integer, nil]
+#
+# @!attribute [rw] uncalculated_taxes
+#   @return [Boolean, nil]
 SubscriptionStatusUpdateData = Struct.new(
   :id,
-  :renewal_preview,
+  :existing_balance_in_cents,
+  :line_items,
+  :next_assessment_at,
+  :subtotal_in_cents,
+  :total_amount_due_in_cents,
+  :total_discount_in_cents,
+  :total_in_cents,
+  :total_tax_in_cents,
+  :uncalculated_taxes,
   keyword_init: true
 )
 
@@ -8137,14 +11128,30 @@ UsageListMatch = Struct.new(
 
 # Webhook entity data model.
 #
-# @!attribute [rw] endpoint
-#   @return [Hash, nil]
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] site_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] url
+#   @return [String, nil]
 #
 # @!attribute [rw] webhook
 #   @return [Hash, nil]
+#
+# @!attribute [rw] webhook_subscriptions
+#   @return [Array, nil]
 Webhook = Struct.new(
-  :endpoint,
+  :id,
+  :site_id,
+  :status,
+  :url,
   :webhook,
+  :webhook_subscriptions,
   keyword_init: true
 )
 
@@ -8183,27 +11190,59 @@ WebhookListMatch = Struct.new(
 
 # Request payload for Webhook#create.
 #
-# @!attribute [rw] endpoint
-#   @return [Hash, nil]
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] site_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] url
+#   @return [String, nil]
 #
 # @!attribute [rw] webhook
 #   @return [Hash, nil]
+#
+# @!attribute [rw] webhook_subscriptions
+#   @return [Array, nil]
 WebhookCreateData = Struct.new(
-  :endpoint,
+  :id,
+  :site_id,
+  :status,
+  :url,
   :webhook,
+  :webhook_subscriptions,
   keyword_init: true
 )
 
 # Request payload for Webhook#update.
 #
-# @!attribute [rw] endpoint
-#   @return [Hash, nil]
+# @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] site_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] url
+#   @return [String, nil]
 #
 # @!attribute [rw] webhook
 #   @return [Hash, nil]
+#
+# @!attribute [rw] webhook_subscriptions
+#   @return [Array, nil]
 WebhookUpdateData = Struct.new(
-  :endpoint,
+  :id,
+  :site_id,
+  :status,
+  :url,
   :webhook,
+  :webhook_subscriptions,
   keyword_init: true
 )
 

@@ -78,6 +78,8 @@ class TestProformaInvoiceEntity:
         proforma_invoice_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.proforma_invoice"), "proforma_invoice_ref01"))
         proforma_invoice_ref01_data["proforma_invoice_uid"] = setup["idmap"]["proforma_invoice_uid01"]
+        proforma_invoice_ref01_data["subscription_group_id"] = setup["idmap"]["subscription_group01"]
+        proforma_invoice_ref01_data["subscription_id"] = setup["idmap"]["subscription01"]
 
         proforma_invoice_ref01_data = helpers.to_map(runner.entity_data(proforma_invoice_ref01_ent.create(proforma_invoice_ref01_data, None)))
         assert proforma_invoice_ref01_data is not None

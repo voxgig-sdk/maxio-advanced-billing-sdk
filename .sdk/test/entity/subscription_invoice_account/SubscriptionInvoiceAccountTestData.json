@@ -2,18 +2,36 @@
   "existing": {
     "subscription_invoice_account": {
       "SUBSCRIPTION_INVOICE_ACCOUNT00": {
+        "amount_in_cents": 80,
+        "created_at": "s51",
+        "ending_balance_in_cents": 82,
+        "entry_type": "s53",
         "id": "SUBSCRIPTION_INVOICE_ACCOUNT00",
-        "service_credits": [],
+        "invoice_uid": "s55",
+        "memo": "s56",
+        "remaining_balance_in_cents": 87,
         "subscription_id": "SUBSCRIPTION01"
       },
       "SUBSCRIPTION_INVOICE_ACCOUNT01": {
+        "amount_in_cents": 160,
+        "created_at": "sa1",
+        "ending_balance_in_cents": 162,
+        "entry_type": "sa3",
         "id": "SUBSCRIPTION_INVOICE_ACCOUNT01",
-        "service_credits": [],
+        "invoice_uid": "sa5",
+        "memo": "sa6",
+        "remaining_balance_in_cents": 167,
         "subscription_id": "SUBSCRIPTION01"
       },
       "SUBSCRIPTION_INVOICE_ACCOUNT02": {
+        "amount_in_cents": 240,
+        "created_at": "sf1",
+        "ending_balance_in_cents": 242,
+        "entry_type": "sf3",
         "id": "SUBSCRIPTION_INVOICE_ACCOUNT02",
-        "service_credits": [],
+        "invoice_uid": "sf5",
+        "memo": "sf6",
+        "remaining_balance_in_cents": 247,
         "subscription_id": "SUBSCRIPTION01"
       }
     }
@@ -21,7 +39,13 @@
   "new": {
     "subscription_invoice_account": {
       "subscription_invoice_account_ref01": {
-        "service_credits": []
+        "amount_in_cents": 320,
+        "created_at": "s141",
+        "ending_balance_in_cents": 322,
+        "entry_type": "s143",
+        "invoice_uid": "s145",
+        "memo": "s146",
+        "remaining_balance_in_cents": 327
       }
     }
   },

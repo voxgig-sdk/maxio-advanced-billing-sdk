@@ -54,10 +54,15 @@ class SubscriptionStatusEntityTest extends TestCase
             "id" => $subscription_status_ref01_data["id"],
         ];
 
+        $subscription_status_ref01_markdef_up0_name = "next_assessment_at";
+        $subscription_status_ref01_markdef_up0_value = "Mark01-subscription_status_ref01_" . $setup["now"];
+        $subscription_status_ref01_data_up0_up[$subscription_status_ref01_markdef_up0_name] = $subscription_status_ref01_markdef_up0_value;
+
         $subscription_status_ref01_resdata_up0_result = $subscription_status_ref01_ent->update($subscription_status_ref01_data_up0_up, null);
         $subscription_status_ref01_resdata_up0 = Helpers::to_map(is_object($subscription_status_ref01_resdata_up0_result) && method_exists($subscription_status_ref01_resdata_up0_result, 'data_get') ? $subscription_status_ref01_resdata_up0_result->data_get() : $subscription_status_ref01_resdata_up0_result);
         $this->assertNotNull($subscription_status_ref01_resdata_up0);
         $this->assertEquals($subscription_status_ref01_resdata_up0["id"], $subscription_status_ref01_data_up0_up["id"]);
+        $this->assertEquals($subscription_status_ref01_resdata_up0[$subscription_status_ref01_markdef_up0_name], $subscription_status_ref01_markdef_up0_value);
 
         // REMOVE
         $subscription_status_ref01_match_rm0 = [

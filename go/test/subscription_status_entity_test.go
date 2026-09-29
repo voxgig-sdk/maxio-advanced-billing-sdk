@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -72,6 +73,10 @@ func TestSubscriptionStatusEntity(t *testing.T) {
 			"id": subscriptionStatusRef01Data["id"],
 		}
 
+		subscriptionStatusRef01MarkdefUp0Name := "next_assessment_at"
+		subscriptionStatusRef01MarkdefUp0Value := fmt.Sprintf("Mark01-subscription_status_ref01_%d", setup.now)
+		subscriptionStatusRef01DataUp0Up[subscriptionStatusRef01MarkdefUp0Name] = subscriptionStatusRef01MarkdefUp0Value
+
 		subscriptionStatusRef01ResdataUp0Result, err := subscriptionStatusRef01Ent.Update(subscriptionStatusRef01DataUp0Up, nil)
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
@@ -82,6 +87,9 @@ func TestSubscriptionStatusEntity(t *testing.T) {
 		}
 		if subscriptionStatusRef01ResdataUp0["id"] != subscriptionStatusRef01DataUp0Up["id"] {
 			t.Fatal("expected update result id to match")
+		}
+		if subscriptionStatusRef01ResdataUp0[subscriptionStatusRef01MarkdefUp0Name] != subscriptionStatusRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", subscriptionStatusRef01MarkdefUp0Name, subscriptionStatusRef01ResdataUp0[subscriptionStatusRef01MarkdefUp0Name])
 		}
 
 		// REMOVE

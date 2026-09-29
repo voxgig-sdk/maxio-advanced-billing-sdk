@@ -626,7 +626,7 @@ main: kit: entity: subscription: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
         {
@@ -718,7 +718,7 @@ main: kit: entity: subscription: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.prepaid_configuration`"
           }
         }
         {
@@ -736,7 +736,7 @@ main: kit: entity: subscription: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
         {
@@ -760,7 +760,7 @@ main: kit: entity: subscription: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription_preview`"
           }
         }
       ]
@@ -807,7 +807,7 @@ main: kit: entity: subscription: {
               {
                 k: "query"
                 n: "currency"
-                or: "currency"
+                or: "currencies"
                 r: false
                 t: "`$STRING`"
               }
@@ -888,7 +888,7 @@ main: kit: entity: subscription: {
               {
                 k: "query"
                 n: "payment_gateway"
-                or: "payment_gateway"
+                or: "payment_gateways"
                 r: false
                 t: "`$STRING`"
               }
@@ -1162,7 +1162,7 @@ main: kit: entity: subscription: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
         {
@@ -1396,7 +1396,7 @@ main: kit: entity: subscription: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
       ]

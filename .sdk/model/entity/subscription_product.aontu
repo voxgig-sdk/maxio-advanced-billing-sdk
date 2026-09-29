@@ -5,6 +5,22 @@ main: kit: entity: subscription_product: {
   alias: field: {}
 
   fields: {
+    charge_in_cents: {
+      fo: "int64"
+      h: "Charge In Cents"
+      n: "charge_in_cents"
+      r: false
+      sh: "The amount of the charge that would be created for the new product."
+      t: "`$INTEGER`"
+    }
+    credit_applied_in_cents: {
+      fo: "int64"
+      h: "Credit Applied In Cents"
+      n: "credit_applied_in_cents"
+      r: false
+      sh: "Represents a credit in cents that is applied to your subscription as part of a migration process for a specific product, which reduces the amount owed for the subscription."
+      t: "`$INTEGER`"
+    }
     id: {
       h: "Id"
       n: "id"
@@ -16,6 +32,22 @@ main: kit: entity: subscription_product: {
       n: "migration"
       r: true
       t: "`$OBJECT`"
+    }
+    payment_due_in_cents: {
+      fo: "int64"
+      h: "Payment Due In Cents"
+      n: "payment_due_in_cents"
+      r: false
+      sh: "The amount of the payment due in the case of an upgrade."
+      t: "`$INTEGER`"
+    }
+    prorated_adjustment_in_cents: {
+      fo: "int64"
+      h: "Prorated Adjustment In Cents"
+      n: "prorated_adjustment_in_cents"
+      r: false
+      sh: "The amount of the prorated adjustment that would be issued for the current subscription."
+      t: "`$INTEGER`"
     }
   }
 
@@ -72,7 +104,7 @@ main: kit: entity: subscription_product: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription`"
           }
         }
         {
@@ -115,7 +147,7 @@ main: kit: entity: subscription_product: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.migration`"
           }
         }
       ]

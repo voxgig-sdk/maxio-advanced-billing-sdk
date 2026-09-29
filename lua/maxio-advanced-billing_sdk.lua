@@ -689,20 +689,6 @@ function MaxioAdvancedBillingSDK:Invoice(data)
 end
 
 
--- Idiomatic facade: client:ListProformaInvoice():list() / client:ListProformaInvoice():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MaxioAdvancedBillingSDK:ListProformaInvoice(data)
-  local EntityMod = require("entity.list_proforma_invoice_entity")
-  if data == nil then
-    if self._list_proforma_invoice == nil then
-      self._list_proforma_invoice = EntityMod.new(self, nil)
-    end
-    return self._list_proforma_invoice
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:ListSaleRepItem():list() / client:ListSaleRepItem():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function MaxioAdvancedBillingSDK:ListSaleRepItem(data)

@@ -61,7 +61,7 @@ main: kit: entity: sales_commission: {
                 ex: "Bearer <<apiKey>>"
                 k: "header"
                 n: "authorization"
-                or: "authorization"
+                or: "Authorization"
                 r: false
                 t: "`$STRING`"
               }

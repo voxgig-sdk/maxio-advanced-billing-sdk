@@ -38,7 +38,8 @@ main: kit: flow: BasicPaymentProfileFlow:
       i: {
         ref: "payment_profile_ref01",
         srcdatavar: "payment_profile_ref01_data",
-        suffix: "_up0"
+        suffix: "_up0",
+        textfield: "bank_name"
       }
 
       o: "update",

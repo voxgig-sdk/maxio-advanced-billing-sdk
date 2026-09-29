@@ -2,34 +2,75 @@
   "existing": {
     "subscription_group": {
       "SUBSCRIPTION_GROUP00": {
+        "account_balances": {},
+        "cancel_at_end_of_period": false,
+        "created_at": "s98",
+        "customer_id": "CUSTOMER01",
+        "group_type": "s9a",
         "id": "SUBSCRIPTION_GROUP00",
-        "meta": {},
-        "subscription_group": {},
-        "subscription_groups": [],
-        "uid": "UID01"
+        "next_assessment_at": "s9c",
+        "payment_collection_method": "s9d",
+        "payment_profile": {},
+        "payment_profile_id": "PAYMENT_PROFILE01",
+        "primary_subscription_id": "PRIMARY_SUBSCRIPTION01",
+        "scheme": 161,
+        "state": "sa2",
+        "subscription_ids": [],
+        "uid": "sa4"
       },
       "SUBSCRIPTION_GROUP01": {
+        "account_balances": {},
+        "cancel_at_end_of_period": false,
+        "created_at": "s12e",
+        "customer_id": "CUSTOMER01",
+        "group_type": "s130",
         "id": "SUBSCRIPTION_GROUP01",
-        "meta": {},
-        "subscription_group": {},
-        "subscription_groups": [],
-        "uid": "UID01"
+        "next_assessment_at": "s132",
+        "payment_collection_method": "s133",
+        "payment_profile": {},
+        "payment_profile_id": "PAYMENT_PROFILE01",
+        "primary_subscription_id": "PRIMARY_SUBSCRIPTION01",
+        "scheme": 311,
+        "state": "s138",
+        "subscription_ids": [],
+        "uid": "s13a"
       },
       "SUBSCRIPTION_GROUP02": {
+        "account_balances": {},
+        "cancel_at_end_of_period": false,
+        "created_at": "s1c4",
+        "customer_id": "CUSTOMER01",
+        "group_type": "s1c6",
         "id": "SUBSCRIPTION_GROUP02",
-        "meta": {},
-        "subscription_group": {},
-        "subscription_groups": [],
-        "uid": "UID01"
+        "next_assessment_at": "s1c8",
+        "payment_collection_method": "s1c9",
+        "payment_profile": {},
+        "payment_profile_id": "PAYMENT_PROFILE01",
+        "primary_subscription_id": "PRIMARY_SUBSCRIPTION01",
+        "scheme": 461,
+        "state": "s1ce",
+        "subscription_ids": [],
+        "uid": "s1d0"
       }
     }
   },
   "new": {
     "subscription_group": {
       "subscription_group_ref01": {
-        "meta": {},
-        "subscription_group": {},
-        "subscription_groups": []
+        "account_balances": {},
+        "cancel_at_end_of_period": false,
+        "created_at": "s25a",
+        "customer_id": "CUSTOMER01",
+        "group_type": "s25c",
+        "next_assessment_at": "s25e",
+        "payment_collection_method": "s25f",
+        "payment_profile": {},
+        "payment_profile_id": "PAYMENT_PROFILE01",
+        "primary_subscription_id": "PRIMARY_SUBSCRIPTION01",
+        "scheme": 611,
+        "state": "s264",
+        "subscription_ids": [],
+        "uid": "s266"
       }
     }
   },

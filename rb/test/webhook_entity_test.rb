@@ -75,6 +75,7 @@ class WebhookEntityTest < Minitest::Test
     webhook_ref01_data_result = webhook_ref01_ent.create(webhook_ref01_data, nil)
     webhook_ref01_data = Helpers.to_map(webhook_ref01_data_result.respond_to?(:data_get) ? webhook_ref01_data_result.data_get : webhook_ref01_data_result)
     assert !webhook_ref01_data.nil?
+    assert !webhook_ref01_data["id"].nil?
 
     # LIST
     webhook_ref01_match = {}
@@ -82,13 +83,25 @@ class WebhookEntityTest < Minitest::Test
     webhook_ref01_list_result = webhook_ref01_ent.list(webhook_ref01_match, nil)
     assert webhook_ref01_list_result.is_a?(Array)
 
+    found_item = Vs.select(
+      Runner.entity_list_to_data(webhook_ref01_list_result),
+      { "id" => webhook_ref01_data["id"] })
+    assert !Vs.isempty(found_item)
+
     # UPDATE
     webhook_ref01_data_up0_up = {
+      "id" => webhook_ref01_data["id"],
     }
+
+    webhook_ref01_markdef_up0_name = "status"
+    webhook_ref01_markdef_up0_value = "Mark01-webhook_ref01_#{setup[:now]}"
+    webhook_ref01_data_up0_up[webhook_ref01_markdef_up0_name] = webhook_ref01_markdef_up0_value
 
     webhook_ref01_resdata_up0_result = webhook_ref01_ent.update(webhook_ref01_data_up0_up, nil)
     webhook_ref01_resdata_up0 = Helpers.to_map(webhook_ref01_resdata_up0_result.respond_to?(:data_get) ? webhook_ref01_resdata_up0_result.data_get : webhook_ref01_resdata_up0_result)
     assert !webhook_ref01_resdata_up0.nil?
+    assert_equal webhook_ref01_resdata_up0["id"], webhook_ref01_data_up0_up["id"]
+    assert_equal webhook_ref01_resdata_up0[webhook_ref01_markdef_up0_name], webhook_ref01_markdef_up0_value
 
   end
 end

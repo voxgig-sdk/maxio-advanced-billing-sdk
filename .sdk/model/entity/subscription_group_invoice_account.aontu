@@ -158,7 +158,7 @@ main: kit: entity: subscription_group_invoice_account: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.service_credit`"
           }
         }
       ]
@@ -237,7 +237,7 @@ main: kit: entity: subscription_group_invoice_account: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.prepayments`"
           }
         }
       ]

@@ -38,7 +38,8 @@ main: kit: flow: BasicSubscriptionGroupFlow:
       i: {
         ref: "subscription_group_ref01",
         srcdatavar: "subscription_group_ref01_data",
-        suffix: "_up0"
+        suffix: "_up0",
+        textfield: "created_at"
       }
 
       o: "update",

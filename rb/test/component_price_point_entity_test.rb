@@ -95,7 +95,7 @@ class ComponentPricePointEntityTest < Minitest::Test
       "id" => component_price_point_ref01_data["id"],
     }
 
-    component_price_point_ref01_markdef_up0_name = "archived_at"
+    component_price_point_ref01_markdef_up0_name = "accounting_code"
     component_price_point_ref01_markdef_up0_value = "Mark01-component_price_point_ref01_#{setup[:now]}"
     component_price_point_ref01_data_up0_up[component_price_point_ref01_markdef_up0_name] = component_price_point_ref01_markdef_up0_value
 

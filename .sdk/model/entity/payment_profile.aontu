@@ -5,23 +5,219 @@ main: kit: entity: payment_profile: {
   alias: field: {}
 
   fields: {
+    bank_account_holder_type: {
+      h: "Bank Account Holder Type"
+      n: "bank_account_holder_type"
+      r: false
+      t: "`$ANY`"
+    }
+    bank_account_type: {
+      h: "Bank Account Type"
+      n: "bank_account_type"
+      r: false
+      t: "`$ANY`"
+    }
+    bank_name: {
+      h: "Bank Name"
+      n: "bank_name"
+      r: false
+      sh: "The bank where the account resides"
+      t: "`$STRING`"
+    }
+    billing_address: {
+      h: "Billing Address"
+      n: "billing_address"
+      r: false
+      sh: "The current billing street address for the bank account"
+      t: "`$STRING`"
+    }
+    billing_address_2: {
+      h: "Billing Address 2"
+      n: "billing_address_2"
+      r: false
+      sh: "The current billing street address, second line, for the bank account"
+      t: "`$STRING`"
+    }
+    billing_city: {
+      h: "Billing City"
+      n: "billing_city"
+      r: false
+      sh: "The current billing address city for the bank account"
+      t: "`$STRING`"
+    }
+    billing_country: {
+      h: "Billing Country"
+      n: "billing_country"
+      r: false
+      sh: "The current billing address country for the bank account"
+      t: "`$STRING`"
+    }
+    billing_state: {
+      h: "Billing State"
+      n: "billing_state"
+      r: false
+      sh: "The current billing address state for the bank account"
+      t: "`$STRING`"
+    }
+    billing_zip: {
+      h: "Billing Zip"
+      n: "billing_zip"
+      r: false
+      sh: "The current billing address zip code for the bank account"
+      t: "`$STRING`"
+    }
+    card_type: {
+      h: "Card Type"
+      n: "card_type"
+      r: false
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      sh: "A timestamp indicating when this payment profile was created"
+      t: "`$STRING`"
+    }
+    current_vault: {
+      h: "Current Vault"
+      n: "current_vault"
+      r: false
+      t: "`$STRING`"
+    }
+    customer_id: {
+      fo: "int32"
+      h: "Customer Id"
+      n: "customer_id"
+      r: false
+      sh: "The Chargify-assigned ID for the customer record to which the bank account belongs"
+      t: "`$INTEGER`"
+    }
+    customer_vault_token: {
+      h: "Customer Vault Token"
+      n: "customer_vault_token"
+      r: false
+      sh: "(only for Authorize.Net CIM storage): the customerProfileId for the owner of the customerPaymentProfileId provided as the vault_token."
+      t: "`$STRING`"
+    }
+    disabled: {
+      h: "Disabled"
+      n: "disabled"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    expiration_month: {
+      h: "Expiration Month"
+      n: "expiration_month"
+      r: false
+      t: "`$INTEGER`"
+    }
+    expiration_year: {
+      h: "Expiration Year"
+      n: "expiration_year"
+      r: false
+      t: "`$INTEGER`"
+    }
+    first_name: {
+      h: "First Name"
+      n: "first_name"
+      r: false
+      sh: "The first name of the bank account holder"
+      t: "`$STRING`"
+    }
+    gateway_handle: {
+      h: "Gateway Handle"
+      n: "gateway_handle"
+      r: false
+      t: "`$STRING`"
+    }
     id: {
+      fo: "int32"
       h: "Id"
       n: "id"
+      r: false
+      sh: "The Chargify-assigned ID of the stored bank account."
+      t: "`$INTEGER`"
+    }
+    last_name: {
+      h: "Last Name"
+      n: "last_name"
+      r: false
+      sh: "The last name of the bank account holder"
+      t: "`$STRING`"
+    }
+    masked_bank_account_number: {
+      h: "Masked Bank Account Number"
+      n: "masked_bank_account_number"
+      r: false
+      sh: "A string representation of the stored bank account number with all but the last 4 digits marked with X's (i.e."
+      t: "`$STRING`"
+    }
+    masked_bank_routing_number: {
+      h: "Masked Bank Routing Number"
+      n: "masked_bank_routing_number"
+      r: false
+      sh: "A string representation of the stored bank routing number with all but the last 4 digits marked with X's (i.e."
+      t: "`$STRING`"
+    }
+    masked_card_number: {
+      h: "Masked Card Number"
+      n: "masked_card_number"
       r: false
       t: "`$STRING`"
     }
     payment_profile: {
       h: "Payment Profile"
       n: "payment_profile"
+      r: true
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 10
+      }
+    }
+    payment_type: {
+      h: "Payment Type"
+      n: "payment_type"
       op: {
-        list: {
+        update: {
           req: true
           type: "`$ANY`"
         }
       }
       r: false
-      t: "`$OBJECT`"
+      t: "`$STRING`"
+    }
+    site_gateway_setting_id: {
+      fo: "int32"
+      h: "Site Gateway Setting Id"
+      n: "site_gateway_setting_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      sh: "A timestamp indicating when this payment profile was last updated"
+      t: "`$STRING`"
+    }
+    vault_token: {
+      h: "Vault Token"
+      n: "vault_token"
+      r: false
+      sh: "The \"token\" provided by your vault storage for an already stored payment profile"
+      t: "`$STRING`"
+    }
+    verified: {
+      h: "Verified"
+      n: "verified"
+      r: false
+      sh: "Denotes whether a bank account has been verified by providing the amounts of two small deposits made into the account."
+      t: "`$BOOLEAN`"
     }
   }
 
@@ -93,7 +289,7 @@ main: kit: entity: payment_profile: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.payment_profile`"
           }
         }
         {
@@ -153,7 +349,7 @@ main: kit: entity: payment_profile: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.payment_profile`"
           }
         }
         {
@@ -211,7 +407,7 @@ main: kit: entity: payment_profile: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.payment_profile`"
           }
         }
       ]
@@ -311,7 +507,7 @@ main: kit: entity: payment_profile: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.payment_profile`"
           }
         }
       ]
@@ -508,7 +704,7 @@ main: kit: entity: payment_profile: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.payment_profile`"
           }
         }
         {
@@ -546,7 +742,7 @@ main: kit: entity: payment_profile: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.payment_profile`"
           }
         }
       ]

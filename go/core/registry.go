@@ -68,8 +68,6 @@ var NewInsightEntityFunc func(client *MaxioAdvancedBillingSDK, entopts map[strin
 
 var NewInvoiceEntityFunc func(client *MaxioAdvancedBillingSDK, entopts map[string]any) MaxioAdvancedBillingEntity
 
-var NewListProformaInvoiceEntityFunc func(client *MaxioAdvancedBillingSDK, entopts map[string]any) MaxioAdvancedBillingEntity
-
 var NewListSaleRepItemEntityFunc func(client *MaxioAdvancedBillingSDK, entopts map[string]any) MaxioAdvancedBillingEntity
 
 var NewListSegmentEntityFunc func(client *MaxioAdvancedBillingSDK, entopts map[string]any) MaxioAdvancedBillingEntity

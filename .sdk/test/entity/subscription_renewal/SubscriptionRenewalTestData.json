@@ -2,33 +2,94 @@
   "existing": {
     "subscription_renewal": {
       "SUBSCRIPTION_RENEWAL00": {
+        "contract": "sbe",
+        "created_at": "sbf",
+        "decimal_quantity": "sc0",
+        "ends_at": "sc1",
         "id": "SUBSCRIPTION_RENEWAL00",
-        "scheduled_renewal_configuration": {},
+        "item_id": "ITEM01",
+        "item_subclass": "sc4",
+        "item_type": "sc5",
+        "lock_in_at": "sc6",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "sc8",
+        "quantity": 201,
         "scheduled_renewal_configuration_item": {},
-        "scheduled_renewal_id": "SCHEDULED_RENEWAL01",
-        "subscription_id": "SUBSCRIPTION01"
+        "scheduled_renewal_configuration_items": [],
+        "site_id": "SITE01",
+        "starts_at": "scd",
+        "status": "sce",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_renewal_configuration_id": "SUBSCRIPTION_RENEWAL_CONFIGURATION01",
+        "scheduled_renewal_id": "SCHEDULED_RENEWAL01"
       },
       "SUBSCRIPTION_RENEWAL01": {
+        "contract": "s17c",
+        "created_at": "s17d",
+        "decimal_quantity": "s17e",
+        "ends_at": "s17f",
         "id": "SUBSCRIPTION_RENEWAL01",
-        "scheduled_renewal_configuration": {},
+        "item_id": "ITEM01",
+        "item_subclass": "s182",
+        "item_type": "s183",
+        "lock_in_at": "s184",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "s186",
+        "quantity": 391,
         "scheduled_renewal_configuration_item": {},
-        "scheduled_renewal_id": "SCHEDULED_RENEWAL01",
-        "subscription_id": "SUBSCRIPTION01"
+        "scheduled_renewal_configuration_items": [],
+        "site_id": "SITE01",
+        "starts_at": "s18b",
+        "status": "s18c",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_renewal_configuration_id": "SUBSCRIPTION_RENEWAL_CONFIGURATION01",
+        "scheduled_renewal_id": "SCHEDULED_RENEWAL01"
       },
       "SUBSCRIPTION_RENEWAL02": {
+        "contract": "s23a",
+        "created_at": "s23b",
+        "decimal_quantity": "s23c",
+        "ends_at": "s23d",
         "id": "SUBSCRIPTION_RENEWAL02",
-        "scheduled_renewal_configuration": {},
+        "item_id": "ITEM01",
+        "item_subclass": "s240",
+        "item_type": "s241",
+        "lock_in_at": "s242",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "s244",
+        "quantity": 581,
         "scheduled_renewal_configuration_item": {},
-        "scheduled_renewal_id": "SCHEDULED_RENEWAL01",
-        "subscription_id": "SUBSCRIPTION01"
+        "scheduled_renewal_configuration_items": [],
+        "site_id": "SITE01",
+        "starts_at": "s249",
+        "status": "s24a",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_renewal_configuration_id": "SUBSCRIPTION_RENEWAL_CONFIGURATION01",
+        "scheduled_renewal_id": "SCHEDULED_RENEWAL01"
       }
     }
   },
   "new": {
     "subscription_renewal": {
       "subscription_renewal_ref01": {
-        "scheduled_renewal_configuration": {},
-        "scheduled_renewal_configuration_item": {}
+        "contract": "s2f8",
+        "created_at": "s2f9",
+        "decimal_quantity": "s2fa",
+        "ends_at": "s2fb",
+        "item_id": "ITEM01",
+        "item_subclass": "s2fe",
+        "item_type": "s2ff",
+        "lock_in_at": "s300",
+        "price_point_id": "PRICE_POINT01",
+        "price_point_type": "s302",
+        "quantity": 771,
+        "scheduled_renewal_configuration_item": {},
+        "scheduled_renewal_configuration_items": [],
+        "site_id": "SITE01",
+        "starts_at": "s307",
+        "status": "s308",
+        "subscription_id": "SUBSCRIPTION01",
+        "subscription_renewal_configuration_id": "SUBSCRIPTION_RENEWAL_CONFIGURATION01"
       }
     }
   },

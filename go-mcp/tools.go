@@ -15,7 +15,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"account_balance | allocation | batch_job | billing_portal | component | component_feature | component_price_point | component_price_point_currency_overage | coupon | coupon_currency | coupon_subcode | coupon_usage | custom_field | customer | delayed_cancel | endpoint | entitlement | event | events_based_billing_segment | feature | feature_catalog_item | feature_template | insight | invoice | list_proforma_invoice | list_sale_rep_item | list_segment | offer | one_time_token | payment_profile | prepayment | product | product_family | product_feature | product_price_point | proforma_invoice | reason_code | referral_code | sale_rep_setting | sales_commission | segment | signup_proforma_preview | site | subscription | subscription_component | subscription_group | subscription_group_invoice_account | subscription_group_signup | subscription_group_status | subscription_invoice_account | subscription_mrr | subscription_note | subscription_product | subscription_renewal | subscription_status | usage | webhook"`
+	Entity string         `json:"entity" jsonschema:"account_balance | allocation | batch_job | billing_portal | component | component_feature | component_price_point | component_price_point_currency_overage | coupon | coupon_currency | coupon_subcode | coupon_usage | custom_field | customer | delayed_cancel | endpoint | entitlement | event | events_based_billing_segment | feature | feature_catalog_item | feature_template | insight | invoice | list_sale_rep_item | list_segment | offer | one_time_token | payment_profile | prepayment | product | product_family | product_feature | product_price_point | proforma_invoice | reason_code | referral_code | sale_rep_setting | sales_commission | segment | signup_proforma_preview | site | subscription | subscription_component | subscription_group | subscription_group_invoice_account | subscription_group_signup | subscription_group_status | subscription_invoice_account | subscription_mrr | subscription_note | subscription_product | subscription_renewal | subscription_status | usage | webhook"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -124,8 +124,6 @@ func entityFor(client *sdk.MaxioAdvancedBillingSDK, name string) (sdk.MaxioAdvan
 		return client.Insight(nil), nil
 	case "invoice":
 		return client.Invoice(nil), nil
-	case "list_proforma_invoice":
-		return client.ListProformaInvoice(nil), nil
 	case "list_sale_rep_item":
 		return client.ListSaleRepItem(nil), nil
 	case "list_segment":

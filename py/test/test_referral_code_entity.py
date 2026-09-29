@@ -48,9 +48,13 @@ class TestReferralCodeEntity:
 
         # LOAD
         referral_code_ref01_ent = client.ReferralCode(None)
-        referral_code_ref01_match_dt0 = {}
+        referral_code_ref01_match_dt0 = {
+            "id": referral_code_ref01_data["id"],
+        }
         referral_code_ref01_data_dt0_loaded = referral_code_ref01_ent.load(referral_code_ref01_match_dt0, None)
-        assert referral_code_ref01_data_dt0_loaded is not None
+        referral_code_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(referral_code_ref01_data_dt0_loaded))
+        assert referral_code_ref01_data_dt0_load_result is not None
+        assert referral_code_ref01_data_dt0_load_result["id"] == referral_code_ref01_data["id"]
 
 
 

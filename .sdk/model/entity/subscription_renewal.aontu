@@ -5,23 +5,133 @@ main: kit: entity: subscription_renewal: {
   alias: field: {}
 
   fields: {
-    id: {
-      h: "Id"
-      n: "id"
+    contract: {
+      h: "Contract"
+      n: "contract"
+      r: false
+      t: "`$ANY`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
       r: false
       t: "`$STRING`"
     }
-    scheduled_renewal_configuration: {
-      h: "Scheduled Renewal Configuration"
-      n: "scheduled_renewal_configuration"
+    decimal_quantity: {
+      h: "Decimal Quantity"
+      n: "decimal_quantity"
       r: false
-      t: "`$OBJECT`"
+      t: "`$STRING`"
+    }
+    ends_at: {
+      fo: "date-time"
+      h: "Ends At"
+      n: "ends_at"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int32"
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "ID of the renewal."
+      t: "`$INTEGER`"
+    }
+    item_id: {
+      fo: "int32"
+      h: "Item Id"
+      n: "item_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    item_subclass: {
+      h: "Item Subclass"
+      n: "item_subclass"
+      r: false
+      t: "`$STRING`"
+    }
+    item_type: {
+      h: "Item Type"
+      n: "item_type"
+      r: false
+      t: "`$STRING`"
+    }
+    lock_in_at: {
+      fo: "date-time"
+      h: "Lock In At"
+      n: "lock_in_at"
+      r: false
+      t: "`$STRING`"
+    }
+    price_point_id: {
+      fo: "int32"
+      h: "Price Point Id"
+      n: "price_point_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    price_point_type: {
+      h: "Price Point Type"
+      n: "price_point_type"
+      r: false
+      t: "`$STRING`"
+    }
+    quantity: {
+      fo: "int32"
+      h: "Quantity"
+      n: "quantity"
+      r: false
+      t: "`$INTEGER`"
     }
     scheduled_renewal_configuration_item: {
       h: "Scheduled Renewal Configuration Item"
       n: "scheduled_renewal_configuration_item"
       r: false
       t: "`$OBJECT`"
+    }
+    scheduled_renewal_configuration_items: {
+      h: "Scheduled Renewal Configuration Items"
+      n: "scheduled_renewal_configuration_items"
+      r: false
+      t: "`$ARRAY`"
+    }
+    site_id: {
+      fo: "int32"
+      h: "Site Id"
+      n: "site_id"
+      r: false
+      sh: "ID of the site to which the renewal belongs."
+      t: "`$INTEGER`"
+    }
+    starts_at: {
+      fo: "date-time"
+      h: "Starts At"
+      n: "starts_at"
+      r: false
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      t: "`$STRING`"
+    }
+    subscription_id: {
+      fo: "int32"
+      h: "Subscription Id"
+      n: "subscription_id"
+      r: false
+      sh: "The id of the subscription."
+      t: "`$INTEGER`"
+    }
+    subscription_renewal_configuration_id: {
+      fo: "int32"
+      h: "Subscription Renewal Configuration Id"
+      n: "subscription_renewal_configuration_id"
+      r: false
+      t: "`$INTEGER`"
     }
   }
 
@@ -91,7 +201,7 @@ main: kit: entity: subscription_renewal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.scheduled_renewal_configuration_item`"
           }
         }
         {
@@ -137,7 +247,7 @@ main: kit: entity: subscription_renewal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.scheduled_renewal_configuration`"
           }
         }
       ]
@@ -198,7 +308,7 @@ main: kit: entity: subscription_renewal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.scheduled_renewal_configurations`"
           }
         }
       ]
@@ -254,7 +364,7 @@ main: kit: entity: subscription_renewal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.scheduled_renewal_configuration`"
           }
         }
       ]
@@ -404,7 +514,7 @@ main: kit: entity: subscription_renewal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.scheduled_renewal_configuration_item`"
           }
         }
         {
@@ -455,7 +565,7 @@ main: kit: entity: subscription_renewal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.scheduled_renewal_configuration`"
           }
         }
         {
@@ -514,7 +624,7 @@ main: kit: entity: subscription_renewal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.scheduled_renewal_configuration`"
           }
         }
         {
@@ -573,7 +683,7 @@ main: kit: entity: subscription_renewal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.scheduled_renewal_configuration`"
           }
         }
         {
@@ -632,7 +742,7 @@ main: kit: entity: subscription_renewal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.scheduled_renewal_configuration`"
           }
         }
         {
@@ -691,7 +801,7 @@ main: kit: entity: subscription_renewal: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.scheduled_renewal_configuration`"
           }
         }
       ]

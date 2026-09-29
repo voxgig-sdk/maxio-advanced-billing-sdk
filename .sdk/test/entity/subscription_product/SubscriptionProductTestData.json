@@ -2,18 +2,30 @@
   "existing": {
     "subscription_product": {
       "SUBSCRIPTION_PRODUCT00": {
+        "charge_in_cents": 60,
+        "credit_applied_in_cents": 61,
         "id": "SUBSCRIPTION_PRODUCT00",
         "migration": {},
+        "payment_due_in_cents": 64,
+        "prorated_adjustment_in_cents": 65,
         "subscription_id": "SUBSCRIPTION01"
       },
       "SUBSCRIPTION_PRODUCT01": {
+        "charge_in_cents": 120,
+        "credit_applied_in_cents": 121,
         "id": "SUBSCRIPTION_PRODUCT01",
         "migration": {},
+        "payment_due_in_cents": 124,
+        "prorated_adjustment_in_cents": 125,
         "subscription_id": "SUBSCRIPTION01"
       },
       "SUBSCRIPTION_PRODUCT02": {
+        "charge_in_cents": 180,
+        "credit_applied_in_cents": 181,
         "id": "SUBSCRIPTION_PRODUCT02",
         "migration": {},
+        "payment_due_in_cents": 184,
+        "prorated_adjustment_in_cents": 185,
         "subscription_id": "SUBSCRIPTION01"
       }
     }
@@ -21,7 +33,11 @@
   "new": {
     "subscription_product": {
       "subscription_product_ref01": {
-        "migration": {}
+        "charge_in_cents": 240,
+        "credit_applied_in_cents": 241,
+        "migration": {},
+        "payment_due_in_cents": 244,
+        "prorated_adjustment_in_cents": 245
       }
     }
   },

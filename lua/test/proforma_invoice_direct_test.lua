@@ -18,7 +18,7 @@ describe("ProformaInvoiceDirect", function()
       return
     end
     if setup.live then
-      for _, _live_key in ipairs({"proforma_invoice01"}) do
+      for _, _live_key in ipairs({"subscription01"}) do
         if setup.idmap[_live_key] == nil then
           pending("live test needs " .. _live_key .. " via *_ENTID env var (synthetic IDs only)")
           return
@@ -29,13 +29,13 @@ describe("ProformaInvoiceDirect", function()
 
     local params = {}
     if setup.live then
-      params["id"] = setup.idmap["proforma_invoice01"]
+      params["subscription_id"] = setup.idmap["subscription01"]
     else
-      params["id"] = "direct01"
+      params["subscription_id"] = "direct01"
     end
 
     local result, err = client:direct({
-      path = "api_exports/proforma_invoices/{id}/rows.json",
+      path = "subscriptions/{subscription_id}/proforma_invoices.json",
       method = "GET",
       params = params,
     })

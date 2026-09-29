@@ -17,7 +17,7 @@ class ProformaInvoiceDirectTest < Minitest::Test
       return
     end
     if setup[:live]
-      ["proforma_invoice01"].each do |_live_key|
+      ["subscription01"].each do |_live_key|
         if setup[:idmap][_live_key].nil?
           skip "live test needs #{_live_key} via *_ENTID env var (synthetic IDs only)"
           return
@@ -28,13 +28,13 @@ class ProformaInvoiceDirectTest < Minitest::Test
 
     params = {}
     if setup[:live]
-      params["id"] = setup[:idmap]["proforma_invoice01"]
+      params["subscription_id"] = setup[:idmap]["subscription01"]
     else
-      params["id"] = "direct01"
+      params["subscription_id"] = "direct01"
     end
 
     result = client.direct({
-      "path" => "api_exports/proforma_invoices/{id}/rows.json",
+      "path" => "subscriptions/{subscription_id}/proforma_invoices.json",
       "method" => "GET",
       "params" => params,
     })

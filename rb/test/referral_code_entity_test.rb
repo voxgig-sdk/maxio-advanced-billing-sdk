@@ -41,9 +41,13 @@ class ReferralCodeEntityTest < Minitest::Test
 
     # LOAD
     referral_code_ref01_ent = client.ReferralCode(nil)
-    referral_code_ref01_match_dt0 = {}
+    referral_code_ref01_match_dt0 = {
+      "id" => referral_code_ref01_data["id"],
+    }
     referral_code_ref01_data_dt0_loaded = referral_code_ref01_ent.load(referral_code_ref01_match_dt0, nil)
-    assert !referral_code_ref01_data_dt0_loaded.nil?
+    referral_code_ref01_data_dt0_load_result = Helpers.to_map(referral_code_ref01_data_dt0_loaded.respond_to?(:data_get) ? referral_code_ref01_data_dt0_loaded.data_get : referral_code_ref01_data_dt0_loaded)
+    assert !referral_code_ref01_data_dt0_load_result.nil?
+    assert_equal referral_code_ref01_data_dt0_load_result["id"], referral_code_ref01_data["id"]
 
   end
 end

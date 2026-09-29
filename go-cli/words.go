@@ -125,8 +125,6 @@ func entityFor(client *sdk.MaxioAdvancedBillingSDK, name string) (sdk.MaxioAdvan
 		return client.Insight(nil), nil
 	case "invoice":
 		return client.Invoice(nil), nil
-	case "list_proforma_invoice":
-		return client.ListProformaInvoice(nil), nil
 	case "list_sale_rep_item":
 		return client.ListSaleRepItem(nil), nil
 	case "list_segment":

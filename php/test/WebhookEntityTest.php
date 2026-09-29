@@ -85,6 +85,7 @@ class WebhookEntityTest extends TestCase
         $webhook_ref01_data_result = $webhook_ref01_ent->create($webhook_ref01_data, null);
         $webhook_ref01_data = Helpers::to_map(is_object($webhook_ref01_data_result) && method_exists($webhook_ref01_data_result, 'data_get') ? $webhook_ref01_data_result->data_get() : $webhook_ref01_data_result);
         $this->assertNotNull($webhook_ref01_data);
+        $this->assertNotNull($webhook_ref01_data["id"]);
 
         // LIST
         $webhook_ref01_match = [];
@@ -92,13 +93,25 @@ class WebhookEntityTest extends TestCase
         $webhook_ref01_list_result = $webhook_ref01_ent->list($webhook_ref01_match, null);
         $this->assertIsArray($webhook_ref01_list_result);
 
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($webhook_ref01_list_result),
+            ["id" => $webhook_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // UPDATE
         $webhook_ref01_data_up0_up = [
+            "id" => $webhook_ref01_data["id"],
         ];
+
+        $webhook_ref01_markdef_up0_name = "status";
+        $webhook_ref01_markdef_up0_value = "Mark01-webhook_ref01_" . $setup["now"];
+        $webhook_ref01_data_up0_up[$webhook_ref01_markdef_up0_name] = $webhook_ref01_markdef_up0_value;
 
         $webhook_ref01_resdata_up0_result = $webhook_ref01_ent->update($webhook_ref01_data_up0_up, null);
         $webhook_ref01_resdata_up0 = Helpers::to_map(is_object($webhook_ref01_resdata_up0_result) && method_exists($webhook_ref01_resdata_up0_result, 'data_get') ? $webhook_ref01_resdata_up0_result->data_get() : $webhook_ref01_resdata_up0_result);
         $this->assertNotNull($webhook_ref01_resdata_up0);
+        $this->assertEquals($webhook_ref01_resdata_up0["id"], $webhook_ref01_data_up0_up["id"]);
+        $this->assertEquals($webhook_ref01_resdata_up0[$webhook_ref01_markdef_up0_name], $webhook_ref01_markdef_up0_value);
 
     }
 }

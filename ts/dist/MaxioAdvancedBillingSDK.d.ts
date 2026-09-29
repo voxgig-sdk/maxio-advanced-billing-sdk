@@ -22,7 +22,6 @@ import { FeatureCatalogItemEntity } from './entity/FeatureCatalogItemEntity';
 import { FeatureTemplateEntity } from './entity/FeatureTemplateEntity';
 import { InsightEntity } from './entity/InsightEntity';
 import { InvoiceEntity } from './entity/InvoiceEntity';
-import { ListProformaInvoiceEntity } from './entity/ListProformaInvoiceEntity';
 import { ListSaleRepItemEntity } from './entity/ListSaleRepItemEntity';
 import { ListSegmentEntity } from './entity/ListSegmentEntity';
 import { OfferEntity } from './entity/OfferEntity';
@@ -124,7 +123,6 @@ declare class MaxioAdvancedBillingSDK {
     FeatureTemplate(entopts?: Record<string, any>): FeatureTemplateEntity;
     Insight(entopts?: Record<string, any>): InsightEntity;
     Invoice(entopts?: Record<string, any>): InvoiceEntity;
-    ListProformaInvoice(entopts?: Record<string, any>): ListProformaInvoiceEntity;
     ListSaleRepItem(entopts?: Record<string, any>): ListSaleRepItemEntity;
     ListSegment(entopts?: Record<string, any>): ListSegmentEntity;
     Offer(entopts?: Record<string, any>): OfferEntity;

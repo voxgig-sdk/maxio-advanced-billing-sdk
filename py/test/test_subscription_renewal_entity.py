@@ -102,9 +102,14 @@ class TestSubscriptionRenewalEntity:
             "subscription_id": setup["idmap"]["subscription_id"],
         }
 
+        subscription_renewal_ref01_markdef_up0_name = "created_at"
+        subscription_renewal_ref01_markdef_up0_value = "Mark01-subscription_renewal_ref01_" + str(setup["now"])
+        subscription_renewal_ref01_data_up0_up[subscription_renewal_ref01_markdef_up0_name] = subscription_renewal_ref01_markdef_up0_value
+
         subscription_renewal_ref01_resdata_up0 = helpers.to_map(runner.entity_data(subscription_renewal_ref01_ent.update(subscription_renewal_ref01_data_up0_up, None)))
         assert subscription_renewal_ref01_resdata_up0 is not None
         assert subscription_renewal_ref01_resdata_up0["id"] == subscription_renewal_ref01_data_up0_up["id"]
+        assert subscription_renewal_ref01_resdata_up0[subscription_renewal_ref01_markdef_up0_name] == subscription_renewal_ref01_markdef_up0_value
 
         # LOAD
         subscription_renewal_ref01_match_dt0 = {

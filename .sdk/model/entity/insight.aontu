@@ -5,11 +5,64 @@ main: kit: entity: insight: {
   alias: field: {}
 
   fields: {
-    mrr: {
-      h: "Mrr"
-      n: "mrr"
-      r: true
+    amount_formatted: {
+      h: "Amount Formatted"
+      n: "amount_formatted"
+      r: false
+      t: "`$STRING`"
+    }
+    amount_in_cents: {
+      fo: "int64"
+      h: "Amount In Cents"
+      n: "amount_in_cents"
+      r: false
+      t: "`$INTEGER`"
+    }
+    at_time: {
+      fo: "date-time"
+      h: "At Time"
+      n: "at_time"
+      r: false
+      sh: "ISO8601 timestamp"
+      t: "`$STRING`"
+    }
+    breakouts: {
+      h: "Breakouts"
+      n: "breakouts"
+      r: false
       t: "`$OBJECT`"
+    }
+    currency: {
+      h: "Currency"
+      n: "currency"
+      r: false
+      t: "`$STRING`"
+    }
+    currency_symbol: {
+      h: "Currency Symbol"
+      n: "currency_symbol"
+      r: false
+      t: "`$STRING`"
+    }
+    movements: {
+      h: "Movements"
+      n: "movements"
+      r: false
+      t: "`$ARRAY`"
+    }
+    page: {
+      fo: "int32"
+      h: "Page"
+      n: "page"
+      r: false
+      t: "`$INTEGER`"
+    }
+    per_page: {
+      fo: "int32"
+      h: "Per Page"
+      n: "per_page"
+      r: false
+      t: "`$INTEGER`"
     }
     seller_name: {
       h: "Seller Name"
@@ -41,6 +94,20 @@ main: kit: entity: insight: {
       n: "stats"
       r: false
       t: "`$OBJECT`"
+    }
+    total_entries: {
+      fo: "int32"
+      h: "Total Entries"
+      n: "total_entries"
+      r: false
+      t: "`$INTEGER`"
+    }
+    total_pages: {
+      fo: "int32"
+      h: "Total Pages"
+      n: "total_pages"
+      r: false
+      t: "`$INTEGER`"
     }
   }
 
@@ -106,7 +173,7 @@ main: kit: entity: insight: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.mrr`"
           }
         }
         {
@@ -148,7 +215,7 @@ main: kit: entity: insight: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.mrr`"
           }
         }
         {

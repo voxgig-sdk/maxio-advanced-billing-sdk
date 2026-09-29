@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -138,6 +139,10 @@ func TestProductPricePointEntity(t *testing.T) {
 			"id": productPricePointRef01Data["id"],
 		}
 
+		productPricePointRef01MarkdefUp0Name := "accounting_code"
+		productPricePointRef01MarkdefUp0Value := fmt.Sprintf("Mark01-product_price_point_ref01_%d", setup.now)
+		productPricePointRef01DataUp0Up[productPricePointRef01MarkdefUp0Name] = productPricePointRef01MarkdefUp0Value
+
 		productPricePointRef01ResdataUp0Result, err := productPricePointRef01Ent.Update(productPricePointRef01DataUp0Up, nil)
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
@@ -148,6 +153,9 @@ func TestProductPricePointEntity(t *testing.T) {
 		}
 		if productPricePointRef01ResdataUp0["id"] != productPricePointRef01DataUp0Up["id"] {
 			t.Fatal("expected update result id to match")
+		}
+		if productPricePointRef01ResdataUp0[productPricePointRef01MarkdefUp0Name] != productPricePointRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", productPricePointRef01MarkdefUp0Name, productPricePointRef01ResdataUp0[productPricePointRef01MarkdefUp0Name])
 		}
 
 		// LOAD

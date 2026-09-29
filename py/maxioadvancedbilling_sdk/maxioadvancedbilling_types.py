@@ -110,7 +110,44 @@ class BillingPortalRemoveMatch(TypedDict):
 
 
 class Component(TypedDict, total=False):
+    accounting_code: str
+    allow_fractional_quantities: bool
+    archived: bool
+    archived_at: str
     component: dict
+    created_at: str
+    default_price_point_id: int
+    default_price_point_name: str
+    description: str
+    downgrade_credit: Any
+    event_based_billing_metric_id: int
+    features: list
+    handle: str
+    hide_date_range_on_invoice: bool
+    id: int
+    interval: int
+    interval_unit: Any
+    item_category: Any
+    kind: Any
+    name: str
+    overage_prices: list
+    price_per_unit_in_cents: int
+    price_point_count: int
+    price_points_url: str
+    prices: list
+    pricing_scheme: Any
+    product_family_handle: str
+    product_family_id: int
+    product_family_name: str
+    recurring: bool
+    tax_code: str
+    taxable: bool
+    unit_name: str
+    unit_price: str
+    unspsc_code: str
+    updated_at: str
+    upgrade_charge: Any
+    use_site_exchange_rate: bool
 
 
 class ComponentLoadMatchRequired(TypedDict):
@@ -139,7 +176,43 @@ class ComponentCreateDataRequired(TypedDict):
 
 
 class ComponentCreateData(ComponentCreateDataRequired, total=False):
+    accounting_code: str
+    allow_fractional_quantities: bool
+    archived: bool
+    archived_at: str
     component: dict
+    created_at: str
+    default_price_point_id: int
+    default_price_point_name: str
+    description: str
+    downgrade_credit: Any
+    event_based_billing_metric_id: int
+    features: list
+    handle: str
+    hide_date_range_on_invoice: bool
+    id: int
+    interval: int
+    interval_unit: Any
+    item_category: Any
+    kind: Any
+    name: str
+    overage_prices: list
+    price_per_unit_in_cents: int
+    price_point_count: int
+    price_points_url: str
+    prices: list
+    pricing_scheme: Any
+    product_family_handle: str
+    product_family_name: str
+    recurring: bool
+    tax_code: str
+    taxable: bool
+    unit_name: str
+    unit_price: str
+    unspsc_code: str
+    updated_at: str
+    upgrade_charge: Any
+    use_site_exchange_rate: bool
 
 
 class ComponentUpdateDataRequired(TypedDict):
@@ -148,7 +221,43 @@ class ComponentUpdateDataRequired(TypedDict):
 
 class ComponentUpdateData(ComponentUpdateDataRequired, total=False):
     product_family_id: int
+    accounting_code: str
+    allow_fractional_quantities: bool
+    archived: bool
+    archived_at: str
     component: dict
+    created_at: str
+    default_price_point_id: int
+    default_price_point_name: str
+    description: str
+    downgrade_credit: Any
+    event_based_billing_metric_id: int
+    features: list
+    handle: str
+    hide_date_range_on_invoice: bool
+    id: int
+    interval: int
+    interval_unit: Any
+    item_category: Any
+    kind: Any
+    name: str
+    overage_prices: list
+    price_per_unit_in_cents: int
+    price_point_count: int
+    price_points_url: str
+    prices: list
+    pricing_scheme: Any
+    product_family_handle: str
+    product_family_name: str
+    recurring: bool
+    tax_code: str
+    taxable: bool
+    unit_name: str
+    unit_price: str
+    unspsc_code: str
+    updated_at: str
+    upgrade_charge: Any
+    use_site_exchange_rate: bool
 
 
 class ComponentRemoveMatch(TypedDict):
@@ -169,35 +278,56 @@ class ComponentFeatureRemoveMatch(ComponentFeatureRemoveMatchRequired, total=Fal
     destroy_entitlement: bool
 
 
-class ComponentPricePointRequired(TypedDict):
-    component: dict
-
-
-class ComponentPricePoint(ComponentPricePointRequired, total=False):
+class ComponentPricePoint(TypedDict, total=False):
+    accounting_code: str
+    allow_fractional_quantities: bool
+    archived: bool
     archived_at: str
     component_id: int
     created_at: str
     currency_prices: list
     default: bool
+    default_price_point_id: int
+    default_price_point_name: str
+    description: str
+    downgrade_credit: Any
+    event_based_billing_metric_id: int
     expiration_interval: int
     expiration_interval_unit: Any
+    features: list
     handle: str
+    hide_date_range_on_invoice: bool
     id: int
     interval: int
     interval_unit: Any
+    item_category: Any
+    kind: Any
     name: str
     overage_prices: list
     overage_pricing_scheme: Any
+    price_per_unit_in_cents: int
     price_point: dict
+    price_point_count: int
     price_points: list
+    price_points_url: str
     prices: list
     pricing_scheme: Any
+    product_family_handle: str
+    product_family_id: int
+    product_family_name: str
+    recurring: bool
     renew_prepaid_allocation: bool
     rollover_prepaid_remainder: bool
     subscription_id: int
+    tax_code: str
     tax_included: bool
+    taxable: bool
     type: Any
+    unit_name: str
+    unit_price: str
+    unspsc_code: str
     updated_at: str
+    upgrade_charge: Any
     use_site_exchange_rate: bool
 
 
@@ -211,33 +341,57 @@ class ComponentPricePointListMatch(TypedDict, total=False):
 
 class ComponentPricePointCreateDataRequired(TypedDict):
     id: int
-    component: dict
 
 
 class ComponentPricePointCreateData(ComponentPricePointCreateDataRequired, total=False):
+    accounting_code: str
+    allow_fractional_quantities: bool
+    archived: bool
     archived_at: str
     component_id: int
     created_at: str
     currency_prices: list
     default: bool
+    default_price_point_id: int
+    default_price_point_name: str
+    description: str
+    downgrade_credit: Any
+    event_based_billing_metric_id: int
     expiration_interval: int
     expiration_interval_unit: Any
+    features: list
     handle: str
+    hide_date_range_on_invoice: bool
     interval: int
     interval_unit: Any
+    item_category: Any
+    kind: Any
     name: str
     overage_prices: list
     overage_pricing_scheme: Any
+    price_per_unit_in_cents: int
     price_point: dict
+    price_point_count: int
     price_points: list
+    price_points_url: str
     prices: list
     pricing_scheme: Any
+    product_family_handle: str
+    product_family_id: int
+    product_family_name: str
+    recurring: bool
     renew_prepaid_allocation: bool
     rollover_prepaid_remainder: bool
     subscription_id: int
+    tax_code: str
     tax_included: bool
+    taxable: bool
     type: Any
+    unit_name: str
+    unit_price: str
+    unspsc_code: str
     updated_at: str
+    upgrade_charge: Any
     use_site_exchange_rate: bool
 
 
@@ -247,30 +401,54 @@ class ComponentPricePointUpdateDataRequired(TypedDict):
 
 class ComponentPricePointUpdateData(ComponentPricePointUpdateDataRequired, total=False):
     component_id: str
+    accounting_code: str
+    allow_fractional_quantities: bool
+    archived: bool
     archived_at: str
-    component: dict
     created_at: str
     currency_prices: list
     default: bool
+    default_price_point_id: int
+    default_price_point_name: str
+    description: str
+    downgrade_credit: Any
+    event_based_billing_metric_id: int
     expiration_interval: int
     expiration_interval_unit: Any
+    features: list
     handle: str
+    hide_date_range_on_invoice: bool
     id: int
     interval: int
     interval_unit: Any
+    item_category: Any
+    kind: Any
     name: str
     overage_prices: list
     overage_pricing_scheme: Any
+    price_per_unit_in_cents: int
     price_point: dict
+    price_point_count: int
     price_points: list
+    price_points_url: str
     prices: list
     pricing_scheme: Any
+    product_family_handle: str
+    product_family_id: int
+    product_family_name: str
+    recurring: bool
     renew_prepaid_allocation: bool
     rollover_prepaid_remainder: bool
     subscription_id: int
+    tax_code: str
     tax_included: bool
+    taxable: bool
     type: Any
+    unit_name: str
+    unit_price: str
+    unspsc_code: str
     updated_at: str
+    upgrade_charge: Any
     use_site_exchange_rate: bool
 
 
@@ -489,7 +667,6 @@ class CouponUsageListMatch(TypedDict):
 
 
 class CustomField(TypedDict, total=False):
-    current_page: int
     data_count: int
     deleted_at: str
     enum: str
@@ -499,11 +676,8 @@ class CustomField(TypedDict, total=False):
     metafield_id: int
     metafields: Any
     name: str
-    per_page: int
     resource_id: int
     scope: dict
-    total_count: int
-    total_pages: int
     value: str
 
 
@@ -531,7 +705,6 @@ class CustomFieldCreateDataRequired(TypedDict):
 
 class CustomFieldCreateData(CustomFieldCreateDataRequired, total=False):
     resource_id: int
-    current_page: int
     data_count: int
     deleted_at: str
     enum: str
@@ -541,10 +714,7 @@ class CustomFieldCreateData(CustomFieldCreateDataRequired, total=False):
     metafield_id: int
     metafields: Any
     name: str
-    per_page: int
     scope: dict
-    total_count: int
-    total_pages: int
     value: str
 
 
@@ -554,7 +724,6 @@ class CustomFieldUpdateDataRequired(TypedDict):
 
 class CustomFieldUpdateData(CustomFieldUpdateDataRequired, total=False):
     resource_id: int
-    current_page: int
     data_count: int
     deleted_at: str
     enum: str
@@ -564,10 +733,7 @@ class CustomFieldUpdateData(CustomFieldUpdateDataRequired, total=False):
     metafield_id: int
     metafields: Any
     name: str
-    per_page: int
     scope: dict
-    total_count: int
-    total_pages: int
     value: str
 
 
@@ -580,7 +746,11 @@ class CustomFieldRemoveMatch(CustomFieldRemoveMatchRequired, total=False):
     name: str
 
 
-class Customer(TypedDict, total=False):
+class CustomerRequired(TypedDict):
+    customer: dict
+
+
+class Customer(CustomerRequired, total=False):
     address: str
     address_2: str
     branding_theme_id: int
@@ -589,7 +759,6 @@ class Customer(TypedDict, total=False):
     country: str
     country_name: str
     created_at: str
-    customer: dict
     default_auto_renewal_profile_id: int
     default_subscription_group_uid: str
     email: str
@@ -636,7 +805,11 @@ class CustomerListMatch(TypedDict, total=False):
     start_datetime: str
 
 
-class CustomerCreateData(TypedDict, total=False):
+class CustomerCreateDataRequired(TypedDict):
+    customer: dict
+
+
+class CustomerCreateData(CustomerCreateDataRequired, total=False):
     address: str
     address_2: str
     branding_theme_id: int
@@ -645,7 +818,6 @@ class CustomerCreateData(TypedDict, total=False):
     country: str
     country_name: str
     created_at: str
-    customer: dict
     default_auto_renewal_profile_id: int
     default_subscription_group_uid: str
     email: str
@@ -817,26 +989,34 @@ class EventsBasedBillingSegmentRemoveMatch(TypedDict):
 
 
 class FeatureRequired(TypedDict):
-    archived_count: int
     feature: dict
-    items: list
-    total_count: int
 
 
 class Feature(FeatureRequired, total=False):
     archived_at: str
     created_at: str
+    default_periodicity_interval: int
+    default_periodicity_unit: Any
+    default_value: str
+    description: str
     feature_key: str
     feature_kind: Any
     feature_name: str
     feature_template_id: int
     id: int
+    key: str
+    kind: Any
+    name: str
     periodicity_interval: int
     periodicity_unit: Any
+    plans_count: int
     price_point_id: int
     price_point_type: Any
+    products_count: int
+    unit: str
     updated_at: str
     value: str
+    value_type: Any
 
 
 class FeatureListMatch(TypedDict, total=False):
@@ -852,26 +1032,34 @@ class FeatureListMatch(TypedDict, total=False):
 
 
 class FeatureCreateDataRequired(TypedDict):
-    archived_count: int
     feature: dict
-    items: list
-    total_count: int
 
 
 class FeatureCreateData(FeatureCreateDataRequired, total=False):
     archived_at: str
     created_at: str
+    default_periodicity_interval: int
+    default_periodicity_unit: Any
+    default_value: str
+    description: str
     feature_key: str
     feature_kind: Any
     feature_name: str
     feature_template_id: int
     id: int
+    key: str
+    kind: Any
+    name: str
     periodicity_interval: int
     periodicity_unit: Any
+    plans_count: int
     price_point_id: int
     price_point_type: Any
+    products_count: int
+    unit: str
     updated_at: str
     value: str
+    value_type: Any
 
 
 class FeatureCatalogItemRequired(TypedDict):
@@ -1025,16 +1213,23 @@ class FeatureTemplateRemoveMatch(FeatureTemplateRemoveMatchRequired, total=False
     remove_from_catalog: bool
 
 
-class InsightRequired(TypedDict):
-    mrr: dict
-
-
-class Insight(InsightRequired, total=False):
+class Insight(TypedDict, total=False):
+    amount_formatted: str
+    amount_in_cents: int
+    at_time: str
+    breakouts: dict
+    currency: str
+    currency_symbol: str
+    movements: list
+    page: int
+    per_page: int
     seller_name: str
     site_currency: str
     site_id: int
     site_name: str
     stats: dict
+    total_entries: int
+    total_pages: int
 
 
 class InsightLoadMatch(TypedDict, total=False):
@@ -1045,8 +1240,6 @@ class InsightLoadMatch(TypedDict, total=False):
 
 
 class InvoiceRequired(TypedDict):
-    credit_notes: list
-    invoices: list
     void: dict
 
 
@@ -1075,7 +1268,6 @@ class Invoice(InvoiceRequired, total=False):
     due_date: str
     group_primary_subscription_id: int
     id: int
-    invoice: dict
     issue_date: str
     line_items: list
     memo: str
@@ -1124,8 +1316,6 @@ class InvoiceListMatch(TypedDict):
 
 class InvoiceCreateDataRequired(TypedDict):
     subscription_id: int
-    credit_notes: list
-    invoices: list
     void: dict
 
 
@@ -1154,7 +1344,6 @@ class InvoiceCreateData(InvoiceCreateDataRequired, total=False):
     due_date: str
     group_primary_subscription_id: int
     id: int
-    invoice: dict
     issue_date: str
     line_items: list
     memo: str
@@ -1212,7 +1401,6 @@ class InvoiceUpdateData(InvoiceUpdateDataRequired, total=False):
     consolidation_level: Any
     created_at: str
     credit_amount: str
-    credit_notes: list
     credits: list
     currency: str
     custom_fields: list
@@ -1227,8 +1415,6 @@ class InvoiceUpdateData(InvoiceUpdateDataRequired, total=False):
     due_date: str
     group_primary_subscription_id: int
     id: int
-    invoice: dict
-    invoices: list
     issue_date: str
     line_items: list
     memo: str
@@ -1273,65 +1459,6 @@ class InvoiceUpdateData(InvoiceUpdateDataRequired, total=False):
 class InvoiceRemoveMatch(TypedDict):
     subscription_id: int
     uid: str
-
-
-class ListProformaInvoice(TypedDict, total=False):
-    available_actions: dict
-    billing_address: dict
-    collection_method: Any
-    consolidation_level: Any
-    created_at: str
-    credit_amount: str
-    credits: list
-    currency: str
-    custom_fields: list
-    customer: Any
-    customer_id: int
-    delivery_date: str
-    discount_amount: str
-    discounts: list
-    due_amount: str
-    line_items: list
-    memo: str
-    number: int
-    paid_amount: str
-    payment_instructions: str
-    payments: list
-    product_family_name: str
-    product_name: str
-    public_url: str
-    refund_amount: str
-    role: Any
-    seller: Any
-    sequence_number: int
-    shipping_address: dict
-    site_id: int
-    status: str
-    subscription_id: int
-    subtotal_amount: str
-    tax_amount: str
-    taxes: list
-    total_amount: str
-    uid: str
-
-
-class ListProformaInvoiceListMatchRequired(TypedDict):
-    subscription_id: int
-
-
-class ListProformaInvoiceListMatch(ListProformaInvoiceListMatchRequired, total=False):
-    credit: bool
-    custom_field: bool
-    direction: Any
-    discount: bool
-    end_date: str
-    line_item: bool
-    page: int
-    payment: bool
-    per_page: int
-    start_date: str
-    status: Any
-    taxis: bool
 
 
 class ListSaleRepItem(TypedDict, total=False):
@@ -1428,7 +1555,6 @@ class Offer(TypedDict, total=False):
     offer_discounts: list
     offer_items: list
     offer_signup_pages: list
-    offers: list
     product_family_id: int
     product_family_name: str
     product_id: int
@@ -1462,7 +1588,6 @@ class OfferCreateData(TypedDict, total=False):
     offer_discounts: list
     offer_items: list
     offer_signup_pages: list
-    offers: list
     product_family_id: int
     product_family_name: str
     product_id: int
@@ -1489,7 +1614,6 @@ class OfferUpdateData(OfferUpdateDataRequired, total=False):
     offer_discounts: list
     offer_items: list
     offer_signup_pages: list
-    offers: list
     product_family_id: int
     product_family_name: str
     product_id: int
@@ -1510,9 +1634,40 @@ class OneTimeTokenLoadMatch(TypedDict):
     chargify_token: str
 
 
-class PaymentProfile(TypedDict, total=False):
-    id: str
-    payment_profile: dict
+class PaymentProfileRequired(TypedDict):
+    payment_profile: Any
+
+
+class PaymentProfile(PaymentProfileRequired, total=False):
+    bank_account_holder_type: Any
+    bank_account_type: Any
+    bank_name: str
+    billing_address: str
+    billing_address_2: str
+    billing_city: str
+    billing_country: str
+    billing_state: str
+    billing_zip: str
+    card_type: str
+    created_at: str
+    current_vault: str
+    customer_id: int
+    customer_vault_token: str
+    disabled: bool
+    expiration_month: int
+    expiration_year: int
+    first_name: str
+    gateway_handle: str
+    id: int
+    last_name: str
+    masked_bank_account_number: str
+    masked_bank_routing_number: str
+    masked_card_number: str
+    payment_type: str
+    site_gateway_setting_id: int
+    updated_at: str
+    vault_token: str
+    verified: bool
 
 
 class PaymentProfileLoadMatch(TypedDict):
@@ -1525,9 +1680,40 @@ class PaymentProfileListMatch(TypedDict, total=False):
     per_page: int
 
 
-class PaymentProfileCreateData(TypedDict, total=False):
-    id: str
-    payment_profile: dict
+class PaymentProfileCreateDataRequired(TypedDict):
+    payment_profile: Any
+
+
+class PaymentProfileCreateData(PaymentProfileCreateDataRequired, total=False):
+    bank_account_holder_type: Any
+    bank_account_type: Any
+    bank_name: str
+    billing_address: str
+    billing_address_2: str
+    billing_city: str
+    billing_country: str
+    billing_state: str
+    billing_zip: str
+    card_type: str
+    created_at: str
+    current_vault: str
+    customer_id: int
+    customer_vault_token: str
+    disabled: bool
+    expiration_month: int
+    expiration_year: int
+    first_name: str
+    gateway_handle: str
+    id: int
+    last_name: str
+    masked_bank_account_number: str
+    masked_bank_routing_number: str
+    masked_card_number: str
+    payment_type: str
+    site_gateway_setting_id: int
+    updated_at: str
+    vault_token: str
+    verified: bool
 
 
 class PaymentProfileUpdateDataRequired(TypedDict):
@@ -1535,8 +1721,36 @@ class PaymentProfileUpdateDataRequired(TypedDict):
 
 
 class PaymentProfileUpdateData(PaymentProfileUpdateDataRequired, total=False):
-    id: str
-    payment_profile: dict
+    bank_account_holder_type: Any
+    bank_account_type: Any
+    bank_name: str
+    billing_address: str
+    billing_address_2: str
+    billing_city: str
+    billing_country: str
+    billing_state: str
+    billing_zip: str
+    card_type: str
+    created_at: str
+    current_vault: str
+    customer_id: int
+    customer_vault_token: str
+    disabled: bool
+    expiration_month: int
+    expiration_year: int
+    first_name: str
+    gateway_handle: str
+    id: int
+    last_name: str
+    masked_bank_account_number: str
+    masked_bank_routing_number: str
+    masked_card_number: str
+    payment_profile: Any
+    payment_type: str
+    site_gateway_setting_id: int
+    updated_at: str
+    vault_token: str
+    verified: bool
 
 
 class PaymentProfileRemoveMatchRequired(TypedDict):
@@ -1557,8 +1771,47 @@ class PrepaymentCreateData(TypedDict):
     subscription_id: int
 
 
-class Product(TypedDict):
+class Product(TypedDict, total=False):
+    accounting_code: str
+    archived_at: str
+    created_at: str
+    default_product_price_point_id: int
+    description: str
+    expiration_interval: int
+    expiration_interval_unit: Any
+    features: list
+    handle: str
+    id: int
+    initial_charge_after_trial: bool
+    initial_charge_in_cents: int
+    interval: int
+    interval_unit: Any
+    item_category: str
+    name: str
+    price_in_cents: int
     product: dict
+    product_family: dict
+    product_price_point_handle: str
+    product_price_point_id: int
+    product_price_point_name: str
+    public_signup_pages: list
+    request_billing_address: bool
+    request_credit_card: bool
+    require_billing_address: bool
+    require_credit_card: bool
+    require_shipping_address: bool
+    return_params: str
+    tax_code: str
+    taxable: bool
+    trial_interval: int
+    trial_interval_unit: Any
+    trial_price_in_cents: int
+    unspsc_code: str
+    update_return_params: str
+    update_return_url: str
+    updated_at: str
+    use_site_exchange_rate: bool
+    version_number: int
 
 
 class ProductLoadMatch(TypedDict):
@@ -1579,9 +1832,51 @@ class ProductListMatch(TypedDict, total=False):
     start_datetime: str
 
 
-class ProductCreateData(TypedDict):
+class ProductCreateDataRequired(TypedDict):
     product_family_id: str
+
+
+class ProductCreateData(ProductCreateDataRequired, total=False):
+    accounting_code: str
+    archived_at: str
+    created_at: str
+    default_product_price_point_id: int
+    description: str
+    expiration_interval: int
+    expiration_interval_unit: Any
+    features: list
+    handle: str
+    id: int
+    initial_charge_after_trial: bool
+    initial_charge_in_cents: int
+    interval: int
+    interval_unit: Any
+    item_category: str
+    name: str
+    price_in_cents: int
     product: dict
+    product_family: dict
+    product_price_point_handle: str
+    product_price_point_id: int
+    product_price_point_name: str
+    public_signup_pages: list
+    request_billing_address: bool
+    request_credit_card: bool
+    require_billing_address: bool
+    require_credit_card: bool
+    require_shipping_address: bool
+    return_params: str
+    tax_code: str
+    taxable: bool
+    trial_interval: int
+    trial_interval_unit: Any
+    trial_price_in_cents: int
+    unspsc_code: str
+    update_return_params: str
+    update_return_url: str
+    updated_at: str
+    use_site_exchange_rate: bool
+    version_number: int
 
 
 class ProductUpdateDataRequired(TypedDict):
@@ -1589,7 +1884,46 @@ class ProductUpdateDataRequired(TypedDict):
 
 
 class ProductUpdateData(ProductUpdateDataRequired, total=False):
+    accounting_code: str
+    archived_at: str
+    created_at: str
+    default_product_price_point_id: int
+    description: str
+    expiration_interval: int
+    expiration_interval_unit: Any
+    features: list
+    handle: str
+    id: int
+    initial_charge_after_trial: bool
+    initial_charge_in_cents: int
+    interval: int
+    interval_unit: Any
+    item_category: str
+    name: str
+    price_in_cents: int
     product: dict
+    product_family: dict
+    product_price_point_handle: str
+    product_price_point_id: int
+    product_price_point_name: str
+    public_signup_pages: list
+    request_billing_address: bool
+    request_credit_card: bool
+    require_billing_address: bool
+    require_credit_card: bool
+    require_shipping_address: bool
+    return_params: str
+    tax_code: str
+    taxable: bool
+    trial_interval: int
+    trial_interval_unit: Any
+    trial_price_in_cents: int
+    unspsc_code: str
+    update_return_params: str
+    update_return_url: str
+    updated_at: str
+    use_site_exchange_rate: bool
+    version_number: int
 
 
 class ProductRemoveMatch(TypedDict):
@@ -1597,8 +1931,16 @@ class ProductRemoveMatch(TypedDict):
 
 
 class ProductFamily(TypedDict, total=False):
-    id: str
+    accounting_code: str
+    archived_at: str
+    created_at: str
+    description: str
+    handle: str
+    id: int
+    name: str
     product_family: dict
+    surcharging: bool
+    updated_at: str
 
 
 class ProductFamilyLoadMatch(TypedDict):
@@ -1614,8 +1956,16 @@ class ProductFamilyListMatch(TypedDict, total=False):
 
 
 class ProductFamilyCreateData(TypedDict, total=False):
-    id: str
+    accounting_code: str
+    archived_at: str
+    created_at: str
+    description: str
+    handle: str
+    id: int
+    name: str
     product_family: dict
+    surcharging: bool
+    updated_at: str
 
 
 class ProductFeature(TypedDict, total=False):
@@ -1631,14 +1981,55 @@ class ProductFeatureRemoveMatch(ProductFeatureRemoveMatchRequired, total=False):
     destroy_entitlement: bool
 
 
-class ProductPricePointRequired(TypedDict):
+class ProductPricePoint(TypedDict, total=False):
+    accounting_code: str
+    archived_at: str
+    created_at: str
+    currency_prices: list
+    default_product_price_point_id: int
+    description: str
+    expiration_interval: int
+    expiration_interval_unit: Any
+    features: list
+    handle: str
+    id: int
+    initial_charge_after_trial: bool
+    initial_charge_in_cents: int
+    interval: int
+    interval_unit: Any
+    introductory_offer: bool
+    item_category: str
+    name: str
+    price_in_cents: int
     price_point: dict
-    product: dict
-
-
-class ProductPricePoint(ProductPricePointRequired, total=False):
-    id: str
     price_points: list
+    product_family: dict
+    product_id: int
+    product_price_point_handle: str
+    product_price_point_id: int
+    product_price_point_name: str
+    public_signup_pages: list
+    request_billing_address: bool
+    request_credit_card: bool
+    require_billing_address: bool
+    require_credit_card: bool
+    require_shipping_address: bool
+    return_params: str
+    subscription_id: int
+    tax_code: str
+    tax_included: bool
+    taxable: bool
+    trial_interval: int
+    trial_interval_unit: Any
+    trial_price_in_cents: int
+    trial_type: Any
+    type: Any
+    unspsc_code: str
+    update_return_params: str
+    update_return_url: str
+    updated_at: str
+    use_site_exchange_rate: bool
+    version_number: int
 
 
 class ProductPricePointLoadMatchRequired(TypedDict):
@@ -1660,12 +2051,56 @@ class ProductPricePointListMatch(TypedDict, total=False):
 
 class ProductPricePointCreateDataRequired(TypedDict):
     id: str
-    price_point: dict
-    product: dict
 
 
 class ProductPricePointCreateData(ProductPricePointCreateDataRequired, total=False):
+    accounting_code: str
+    archived_at: str
+    created_at: str
+    currency_prices: list
+    default_product_price_point_id: int
+    description: str
+    expiration_interval: int
+    expiration_interval_unit: Any
+    features: list
+    handle: str
+    initial_charge_after_trial: bool
+    initial_charge_in_cents: int
+    interval: int
+    interval_unit: Any
+    introductory_offer: bool
+    item_category: str
+    name: str
+    price_in_cents: int
+    price_point: dict
     price_points: list
+    product_family: dict
+    product_id: int
+    product_price_point_handle: str
+    product_price_point_id: int
+    product_price_point_name: str
+    public_signup_pages: list
+    request_billing_address: bool
+    request_credit_card: bool
+    require_billing_address: bool
+    require_credit_card: bool
+    require_shipping_address: bool
+    return_params: str
+    subscription_id: int
+    tax_code: str
+    tax_included: bool
+    taxable: bool
+    trial_interval: int
+    trial_interval_unit: Any
+    trial_price_in_cents: int
+    trial_type: Any
+    type: Any
+    unspsc_code: str
+    update_return_params: str
+    update_return_url: str
+    updated_at: str
+    use_site_exchange_rate: bool
+    version_number: int
 
 
 class ProductPricePointUpdateDataRequired(TypedDict):
@@ -1674,10 +2109,53 @@ class ProductPricePointUpdateDataRequired(TypedDict):
 
 
 class ProductPricePointUpdateData(ProductPricePointUpdateDataRequired, total=False):
-    id: str
+    accounting_code: str
+    archived_at: str
+    created_at: str
+    currency_prices: list
+    default_product_price_point_id: int
+    description: str
+    expiration_interval: int
+    expiration_interval_unit: Any
+    features: list
+    handle: str
+    id: int
+    initial_charge_after_trial: bool
+    initial_charge_in_cents: int
+    interval: int
+    interval_unit: Any
+    introductory_offer: bool
+    item_category: str
+    name: str
+    price_in_cents: int
     price_point: dict
     price_points: list
-    product: dict
+    product_family: dict
+    product_price_point_handle: str
+    product_price_point_id: int
+    product_price_point_name: str
+    public_signup_pages: list
+    request_billing_address: bool
+    request_credit_card: bool
+    require_billing_address: bool
+    require_credit_card: bool
+    require_shipping_address: bool
+    return_params: str
+    subscription_id: int
+    tax_code: str
+    tax_included: bool
+    taxable: bool
+    trial_interval: int
+    trial_interval_unit: Any
+    trial_price_in_cents: int
+    trial_type: Any
+    type: Any
+    unspsc_code: str
+    update_return_params: str
+    update_return_url: str
+    updated_at: str
+    use_site_exchange_rate: bool
+    version_number: int
 
 
 class ProductPricePointRemoveMatch(TypedDict):
@@ -1726,8 +2204,23 @@ class ProformaInvoice(TypedDict, total=False):
     uid: str
 
 
-class ProformaInvoiceListMatch(TypedDict):
-    proforma_invoice_uid: str
+class ProformaInvoiceListMatchRequired(TypedDict):
+    subscription_id: int
+
+
+class ProformaInvoiceListMatch(ProformaInvoiceListMatchRequired, total=False):
+    credit: bool
+    custom_field: bool
+    direction: Any
+    discount: bool
+    end_date: str
+    line_item: bool
+    page: int
+    payment: bool
+    per_page: int
+    start_date: str
+    status: Any
+    taxis: bool
 
 
 class ProformaInvoiceCreateData(TypedDict, total=False):
@@ -1827,8 +2320,11 @@ class ReasonCodeRemoveMatch(TypedDict):
     reason_code_id: int
 
 
-class ReferralCode(TypedDict):
-    pass
+class ReferralCode(TypedDict, total=False):
+    code: str
+    id: int
+    site_id: int
+    subscription_id: int
 
 
 class ReferralCodeLoadMatch(TypedDict):
@@ -1933,19 +2429,59 @@ class SignupProformaPreviewCreateData(TypedDict, total=False):
     include: Any
 
 
-class SiteRequired(TypedDict):
-    site: dict
+class Site(TypedDict, total=False):
+    allocation_settings: dict
+    auto_renewals_enabled: bool
+    created_at: str
+    currency: str
+    customer_hierarchy_enabled: bool
+    default_payment_collection_method: str
+    id: int
+    multi_frequency_enabled: bool
+    name: str
+    net_terms: dict
+    non_primary_currencies: list
+    organization_address: dict
+    portal_enabled: bool
+    public_key: str
+    relationship_invoicing_enabled: bool
+    requires_security_token: bool
+    schedule_subscription_cancellation_enabled: bool
+    seller_id: int
+    subdomain: str
+    tax_configuration: dict
+    test: bool
+    whopays_default_payer: str
+    whopays_enabled: bool
 
 
-class Site(SiteRequired, total=False):
-    chargify_js_keys: list
-    meta: dict
+class SiteLoadMatchRequired(TypedDict):
+    id: int
 
 
-class SiteLoadMatch(TypedDict, total=False):
-    chargify_js_keys: list
-    meta: dict
-    site: dict
+class SiteLoadMatch(SiteLoadMatchRequired, total=False):
+    allocation_settings: dict
+    auto_renewals_enabled: bool
+    created_at: str
+    currency: str
+    customer_hierarchy_enabled: bool
+    default_payment_collection_method: str
+    multi_frequency_enabled: bool
+    name: str
+    net_terms: dict
+    non_primary_currencies: list
+    organization_address: dict
+    portal_enabled: bool
+    public_key: str
+    relationship_invoicing_enabled: bool
+    requires_security_token: bool
+    schedule_subscription_cancellation_enabled: bool
+    seller_id: int
+    subdomain: str
+    tax_configuration: dict
+    test: bool
+    whopays_default_payer: str
+    whopays_enabled: bool
 
 
 class SiteListMatch(TypedDict, total=False):
@@ -1953,14 +2489,31 @@ class SiteListMatch(TypedDict, total=False):
     per_page: int
 
 
-class SiteCreateDataRequired(TypedDict):
-    site: dict
-
-
-class SiteCreateData(SiteCreateDataRequired, total=False):
+class SiteCreateData(TypedDict, total=False):
     cleanup_scope: Any
-    chargify_js_keys: list
-    meta: dict
+    allocation_settings: dict
+    auto_renewals_enabled: bool
+    created_at: str
+    currency: str
+    customer_hierarchy_enabled: bool
+    default_payment_collection_method: str
+    id: int
+    multi_frequency_enabled: bool
+    name: str
+    net_terms: dict
+    non_primary_currencies: list
+    organization_address: dict
+    portal_enabled: bool
+    public_key: str
+    relationship_invoicing_enabled: bool
+    requires_security_token: bool
+    schedule_subscription_cancellation_enabled: bool
+    seller_id: int
+    subdomain: str
+    tax_configuration: dict
+    test: bool
+    whopays_default_payer: str
+    whopays_enabled: bool
 
 
 class SubscriptionRequired(TypedDict):
@@ -2216,26 +2769,40 @@ class SubscriptionRemoveMatch(SubscriptionRemoveMatchRequired, total=False):
 
 
 class SubscriptionComponent(TypedDict, total=False):
+    accrue_charge: bool
     allocated_quantity: Any
-    allocation: dict
-    allocation_preview: dict
+    allocation_id: int
+    allocations: list
     allow_fractional_quantities: bool
     archived_at: str
+    charge_id: int
     component: dict
     component_handle: str
     component_id: int
     created_at: str
     currency: str
     description: str
+    direction: str
     display_on_hosted_page: bool
     downgrade_credit: Any
     enabled: bool
+    end_date: str
+    existing_balance_in_cents: int
+    expires_at: str
     historic_usages: list
     id: int
+    initiate_dunning: bool
     interval: int
     interval_unit: Any
     kind: Any
+    line_items: list
+    memo: str
     name: str
+    overage_quantity: int
+    payment: Any
+    period_type: str
+    previous_price_point_id: int
+    previous_quantity: Any
     price_point_handle: str
     price_point_id: int
     price_point_name: str
@@ -2243,15 +2810,25 @@ class SubscriptionComponent(TypedDict, total=False):
     pricing_scheme: Any
     product_family_handle: str
     product_family_id: int
+    proration_downgrade_scheme: str
+    proration_scheme: str
+    proration_upgrade_scheme: str
+    quantity: Any
     recurring: bool
-    subscription: dict
+    start_date: str
+    subscription: Any
     subscription_id: int
+    subtotal_in_cents: int
+    timestamp: str
+    total_discount_in_cents: int
+    total_in_cents: int
+    total_tax_in_cents: int
     unit_balance: Any
     unit_name: str
     updated_at: str
     upgrade_charge: Any
-    usage: dict
     use_site_exchange_rate: bool
+    used_quantity: int
 
 
 class SubscriptionComponentLoadMatch(TypedDict):
@@ -2282,26 +2859,40 @@ class SubscriptionComponentCreateDataRequired(TypedDict):
 
 class SubscriptionComponentCreateData(SubscriptionComponentCreateDataRequired, total=False):
     store_uid: str
+    accrue_charge: bool
     allocated_quantity: Any
-    allocation: dict
-    allocation_preview: dict
+    allocation_id: int
+    allocations: list
     allow_fractional_quantities: bool
     archived_at: str
+    charge_id: int
     component: dict
     component_handle: str
     component_id: int
     created_at: str
     currency: str
     description: str
+    direction: str
     display_on_hosted_page: bool
     downgrade_credit: Any
     enabled: bool
+    end_date: str
+    existing_balance_in_cents: int
+    expires_at: str
     historic_usages: list
     id: int
+    initiate_dunning: bool
     interval: int
     interval_unit: Any
     kind: Any
+    line_items: list
+    memo: str
     name: str
+    overage_quantity: int
+    payment: Any
+    period_type: str
+    previous_price_point_id: int
+    previous_quantity: Any
     price_point_handle: str
     price_point_id: int
     price_point_name: str
@@ -2309,15 +2900,25 @@ class SubscriptionComponentCreateData(SubscriptionComponentCreateDataRequired, t
     pricing_scheme: Any
     product_family_handle: str
     product_family_id: int
+    proration_downgrade_scheme: str
+    proration_scheme: str
+    proration_upgrade_scheme: str
+    quantity: Any
     recurring: bool
-    subscription: dict
+    start_date: str
+    subscription: Any
     subscription_id: int
+    subtotal_in_cents: int
+    timestamp: str
+    total_discount_in_cents: int
+    total_in_cents: int
+    total_tax_in_cents: int
     unit_balance: Any
     unit_name: str
     updated_at: str
     upgrade_charge: Any
-    usage: dict
     use_site_exchange_rate: bool
+    used_quantity: int
 
 
 class SubscriptionComponentUpdateDataRequired(TypedDict):
@@ -2327,25 +2928,38 @@ class SubscriptionComponentUpdateDataRequired(TypedDict):
 
 
 class SubscriptionComponentUpdateData(SubscriptionComponentUpdateDataRequired, total=False):
+    accrue_charge: bool
     allocated_quantity: Any
-    allocation: dict
-    allocation_preview: dict
+    allocations: list
     allow_fractional_quantities: bool
     archived_at: str
+    charge_id: int
     component: dict
     component_handle: str
     created_at: str
     currency: str
     description: str
+    direction: str
     display_on_hosted_page: bool
     downgrade_credit: Any
     enabled: bool
+    end_date: str
+    existing_balance_in_cents: int
+    expires_at: str
     historic_usages: list
     id: int
+    initiate_dunning: bool
     interval: int
     interval_unit: Any
     kind: Any
+    line_items: list
+    memo: str
     name: str
+    overage_quantity: int
+    payment: Any
+    period_type: str
+    previous_price_point_id: int
+    previous_quantity: Any
     price_point_handle: str
     price_point_id: int
     price_point_name: str
@@ -2353,14 +2967,24 @@ class SubscriptionComponentUpdateData(SubscriptionComponentUpdateDataRequired, t
     pricing_scheme: Any
     product_family_handle: str
     product_family_id: int
+    proration_downgrade_scheme: str
+    proration_scheme: str
+    proration_upgrade_scheme: str
+    quantity: Any
     recurring: bool
-    subscription: dict
+    start_date: str
+    subscription: Any
+    subtotal_in_cents: int
+    timestamp: str
+    total_discount_in_cents: int
+    total_in_cents: int
+    total_tax_in_cents: int
     unit_balance: Any
     unit_name: str
     updated_at: str
     upgrade_charge: Any
-    usage: dict
     use_site_exchange_rate: bool
+    used_quantity: int
 
 
 class SubscriptionComponentRemoveMatch(TypedDict):
@@ -2370,10 +2994,21 @@ class SubscriptionComponentRemoveMatch(TypedDict):
 
 
 class SubscriptionGroup(TypedDict, total=False):
+    account_balances: dict
+    cancel_at_end_of_period: bool
+    created_at: str
+    customer_id: int
+    group_type: str
     id: str
-    meta: dict
-    subscription_group: dict
-    subscription_groups: list
+    next_assessment_at: str
+    payment_collection_method: Any
+    payment_profile: dict
+    payment_profile_id: int
+    primary_subscription_id: int
+    scheme: int
+    state: str
+    subscription_ids: list
+    uid: str
 
 
 class SubscriptionGroupListMatch(TypedDict, total=False):
@@ -2383,10 +3018,21 @@ class SubscriptionGroupListMatch(TypedDict, total=False):
 
 
 class SubscriptionGroupCreateData(TypedDict, total=False):
+    account_balances: dict
+    cancel_at_end_of_period: bool
+    created_at: str
+    customer_id: int
+    group_type: str
     id: str
-    meta: dict
-    subscription_group: dict
-    subscription_groups: list
+    next_assessment_at: str
+    payment_collection_method: Any
+    payment_profile: dict
+    payment_profile_id: int
+    primary_subscription_id: int
+    scheme: int
+    state: str
+    subscription_ids: list
+    uid: str
 
 
 class SubscriptionGroupUpdateDataRequired(TypedDict):
@@ -2394,10 +3040,20 @@ class SubscriptionGroupUpdateDataRequired(TypedDict):
 
 
 class SubscriptionGroupUpdateData(SubscriptionGroupUpdateDataRequired, total=False):
+    account_balances: dict
+    cancel_at_end_of_period: bool
+    created_at: str
+    customer_id: int
+    group_type: str
     id: str
-    meta: dict
-    subscription_group: dict
-    subscription_groups: list
+    next_assessment_at: str
+    payment_collection_method: Any
+    payment_profile: dict
+    payment_profile_id: int
+    primary_subscription_id: int
+    scheme: int
+    state: str
+    subscription_ids: list
 
 
 class SubscriptionGroupRemoveMatch(TypedDict):
@@ -2443,8 +3099,14 @@ class SubscriptionGroupStatusRemoveMatch(TypedDict):
 
 
 class SubscriptionInvoiceAccount(TypedDict, total=False):
-    id: str
-    service_credits: list
+    amount_in_cents: int
+    created_at: str
+    ending_balance_in_cents: int
+    entry_type: Any
+    id: int
+    invoice_uid: str
+    memo: str
+    remaining_balance_in_cents: int
 
 
 class SubscriptionInvoiceAccountListMatchRequired(TypedDict):
@@ -2462,7 +3124,13 @@ class SubscriptionInvoiceAccountCreateDataRequired(TypedDict):
 
 
 class SubscriptionInvoiceAccountCreateData(SubscriptionInvoiceAccountCreateDataRequired, total=False):
-    service_credits: list
+    amount_in_cents: int
+    created_at: str
+    ending_balance_in_cents: int
+    entry_type: Any
+    invoice_uid: str
+    memo: str
+    remaining_balance_in_cents: int
 
 
 class SubscriptionMrr(TypedDict):
@@ -2543,7 +3211,11 @@ class SubscriptionProductRequired(TypedDict):
 
 
 class SubscriptionProduct(SubscriptionProductRequired, total=False):
+    charge_in_cents: int
+    credit_applied_in_cents: int
     id: str
+    payment_due_in_cents: int
+    prorated_adjustment_in_cents: int
 
 
 class SubscriptionProductCreateDataRequired(TypedDict):
@@ -2552,13 +3224,33 @@ class SubscriptionProductCreateDataRequired(TypedDict):
 
 
 class SubscriptionProductCreateData(SubscriptionProductCreateDataRequired, total=False):
+    charge_in_cents: int
+    credit_applied_in_cents: int
     id: str
+    payment_due_in_cents: int
+    prorated_adjustment_in_cents: int
 
 
 class SubscriptionRenewal(TypedDict, total=False):
-    id: str
-    scheduled_renewal_configuration: dict
+    contract: Any
+    created_at: str
+    decimal_quantity: str
+    ends_at: str
+    id: int
+    item_id: int
+    item_subclass: str
+    item_type: str
+    lock_in_at: str
+    price_point_id: int
+    price_point_type: str
+    quantity: int
     scheduled_renewal_configuration_item: dict
+    scheduled_renewal_configuration_items: list
+    site_id: int
+    starts_at: str
+    status: str
+    subscription_id: int
+    subscription_renewal_configuration_id: int
 
 
 class SubscriptionRenewalLoadMatch(TypedDict):
@@ -2580,9 +3272,24 @@ class SubscriptionRenewalCreateDataRequired(TypedDict):
 
 
 class SubscriptionRenewalCreateData(SubscriptionRenewalCreateDataRequired, total=False):
-    id: str
-    scheduled_renewal_configuration: dict
+    contract: Any
+    created_at: str
+    decimal_quantity: str
+    ends_at: str
+    id: int
+    item_id: int
+    item_subclass: str
+    item_type: str
+    lock_in_at: str
+    price_point_id: int
+    price_point_type: str
+    quantity: int
     scheduled_renewal_configuration_item: dict
+    scheduled_renewal_configuration_items: list
+    site_id: int
+    starts_at: str
+    status: str
+    subscription_renewal_configuration_id: int
 
 
 class SubscriptionRenewalUpdateDataRequired(TypedDict):
@@ -2592,8 +3299,23 @@ class SubscriptionRenewalUpdateDataRequired(TypedDict):
 class SubscriptionRenewalUpdateData(SubscriptionRenewalUpdateDataRequired, total=False):
     id: int
     scheduled_renewal_id: int
-    scheduled_renewal_configuration: dict
+    contract: Any
+    created_at: str
+    decimal_quantity: str
+    ends_at: str
+    item_id: int
+    item_subclass: str
+    item_type: str
+    lock_in_at: str
+    price_point_id: int
+    price_point_type: str
+    quantity: int
     scheduled_renewal_configuration_item: dict
+    scheduled_renewal_configuration_items: list
+    site_id: int
+    starts_at: str
+    status: str
+    subscription_renewal_configuration_id: int
 
 
 class SubscriptionRenewalRemoveMatch(TypedDict):
@@ -2603,8 +3325,16 @@ class SubscriptionRenewalRemoveMatch(TypedDict):
 
 
 class SubscriptionStatus(TypedDict, total=False):
+    existing_balance_in_cents: int
     id: str
-    renewal_preview: dict
+    line_items: list
+    next_assessment_at: str
+    subtotal_in_cents: int
+    total_amount_due_in_cents: int
+    total_discount_in_cents: int
+    total_in_cents: int
+    total_tax_in_cents: int
+    uncalculated_taxes: bool
 
 
 class SubscriptionStatusCreateDataRequired(TypedDict):
@@ -2612,8 +3342,16 @@ class SubscriptionStatusCreateDataRequired(TypedDict):
 
 
 class SubscriptionStatusCreateData(SubscriptionStatusCreateDataRequired, total=False):
+    existing_balance_in_cents: int
     id: str
-    renewal_preview: dict
+    line_items: list
+    next_assessment_at: str
+    subtotal_in_cents: int
+    total_amount_due_in_cents: int
+    total_discount_in_cents: int
+    total_in_cents: int
+    total_tax_in_cents: int
+    uncalculated_taxes: bool
 
 
 class SubscriptionStatusUpdateDataRequired(TypedDict):
@@ -2621,7 +3359,15 @@ class SubscriptionStatusUpdateDataRequired(TypedDict):
 
 
 class SubscriptionStatusUpdateData(SubscriptionStatusUpdateDataRequired, total=False):
-    renewal_preview: dict
+    existing_balance_in_cents: int
+    line_items: list
+    next_assessment_at: str
+    subtotal_in_cents: int
+    total_amount_due_in_cents: int
+    total_discount_in_cents: int
+    total_in_cents: int
+    total_tax_in_cents: int
+    uncalculated_taxes: bool
 
 
 class SubscriptionStatusRemoveMatch(TypedDict):
@@ -2647,8 +3393,12 @@ class UsageListMatch(UsageListMatchRequired, total=False):
 
 
 class Webhook(TypedDict, total=False):
-    endpoint: dict
+    id: int
+    site_id: int
+    status: str
+    url: str
     webhook: dict
+    webhook_subscriptions: list
 
 
 class WebhookListMatch(TypedDict, total=False):
@@ -2662,10 +3412,18 @@ class WebhookListMatch(TypedDict, total=False):
 
 
 class WebhookCreateData(TypedDict, total=False):
-    endpoint: dict
+    id: int
+    site_id: int
+    status: str
+    url: str
     webhook: dict
+    webhook_subscriptions: list
 
 
 class WebhookUpdateData(TypedDict, total=False):
-    endpoint: dict
+    id: int
+    site_id: int
+    status: str
+    url: str
     webhook: dict
+    webhook_subscriptions: list

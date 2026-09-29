@@ -68,7 +68,7 @@ main: kit: entity: sale_rep_setting: {
                 ex: "Bearer <<apiKey>>"
                 k: "header"
                 n: "authorization"
-                or: "authorization"
+                or: "Authorization"
                 r: false
                 t: "`$STRING`"
               }

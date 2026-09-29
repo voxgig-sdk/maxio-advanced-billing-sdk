@@ -5,29 +5,101 @@ main: kit: entity: subscription_group: {
   alias: field: {}
 
   fields: {
+    account_balances: {
+      h: "Account Balances"
+      n: "account_balances"
+      r: false
+      t: "`$OBJECT`"
+    }
+    cancel_at_end_of_period: {
+      h: "Cancel At End Of Period"
+      n: "cancel_at_end_of_period"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    customer_id: {
+      fo: "int32"
+      h: "Customer Id"
+      n: "customer_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    group_type: {
+      h: "Group Type"
+      n: "group_type"
+      r: false
+      t: "`$STRING`"
+    }
     id: {
       h: "Id"
       n: "id"
       r: false
       t: "`$STRING`"
     }
-    meta: {
-      h: "Meta"
-      n: "meta"
+    next_assessment_at: {
+      fo: "date-time"
+      h: "Next Assessment At"
+      n: "next_assessment_at"
+      r: false
+      t: "`$STRING`"
+    }
+    payment_collection_method: {
+      h: "Payment Collection Method"
+      n: "payment_collection_method"
+      r: false
+      t: "`$ANY`"
+    }
+    payment_profile: {
+      h: "Payment Profile"
+      n: "payment_profile"
       r: false
       t: "`$OBJECT`"
     }
-    subscription_group: {
-      h: "Subscription Group"
-      n: "subscription_group"
+    payment_profile_id: {
+      fo: "int32"
+      h: "Payment Profile Id"
+      n: "payment_profile_id"
       r: false
-      t: "`$OBJECT`"
+      t: "`$INTEGER`"
     }
-    subscription_groups: {
-      h: "Subscription Groups"
-      n: "subscription_groups"
+    primary_subscription_id: {
+      fo: "int32"
+      h: "Primary Subscription Id"
+      n: "primary_subscription_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    scheme: {
+      fo: "int32"
+      h: "Scheme"
+      n: "scheme"
+      r: false
+      t: "`$INTEGER`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      t: "`$STRING`"
+    }
+    subscription_ids: {
+      h: "Subscription Ids"
+      n: "subscription_ids"
       r: false
       t: "`$ARRAY`"
+    }
+    uid: {
+      h: "Uid"
+      n: "uid"
+      r: false
+      t: "`$STRING`"
     }
   }
 
@@ -83,7 +155,7 @@ main: kit: entity: subscription_group: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription_group`"
           }
         }
         {
@@ -101,7 +173,7 @@ main: kit: entity: subscription_group: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription_group`"
           }
         }
       ]
@@ -161,7 +233,7 @@ main: kit: entity: subscription_group: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription_groups`"
           }
         }
         {
@@ -381,7 +453,7 @@ main: kit: entity: subscription_group: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.subscription_group`"
           }
         }
       ]

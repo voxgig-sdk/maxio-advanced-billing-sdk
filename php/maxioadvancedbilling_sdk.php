@@ -773,24 +773,6 @@ class MaxioAdvancedBillingSDK
     }
 
 
-    private $_list_proforma_invoice = null;
-
-    // Canonical facade: $client->ListProformaInvoice()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_proforma_invoice()
-    // resolves here too.
-    public function ListProformaInvoice($data = null)
-    {
-        require_once __DIR__ . '/entity/list_proforma_invoice_entity.php';
-        if ($data === null) {
-            if ($this->_list_proforma_invoice === null) {
-                $this->_list_proforma_invoice = new ListProformaInvoiceEntity($this, null);
-            }
-            return $this->_list_proforma_invoice;
-        }
-        return new ListProformaInvoiceEntity($this, $data);
-    }
-
-
     private $_list_sale_rep_item = null;
 
     // Canonical facade: $client->ListSaleRepItem()->list() / ->load(["id" => ...]).

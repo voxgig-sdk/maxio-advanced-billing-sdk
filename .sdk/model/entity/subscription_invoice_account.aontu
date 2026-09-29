@@ -5,17 +5,64 @@ main: kit: entity: subscription_invoice_account: {
   alias: field: {}
 
   fields: {
+    amount_in_cents: {
+      fo: "int64"
+      h: "Amount In Cents"
+      n: "amount_in_cents"
+      r: false
+      sh: "The amount in cents of the entry"
+      t: "`$INTEGER`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      sh: "The date and time the entry was created"
+      t: "`$STRING`"
+    }
+    ending_balance_in_cents: {
+      fo: "int64"
+      h: "Ending Balance In Cents"
+      n: "ending_balance_in_cents"
+      r: false
+      sh: "The new balance for the credit account"
+      t: "`$INTEGER`"
+    }
+    entry_type: {
+      h: "Entry Type"
+      n: "entry_type"
+      r: false
+      t: "`$ANY`"
+    }
     id: {
+      fo: "int32"
       h: "Id"
       n: "id"
       r: false
+      t: "`$INTEGER`"
+    }
+    invoice_uid: {
+      h: "Invoice Uid"
+      n: "invoice_uid"
+      r: false
+      sh: "The invoice uid associated with the entry."
       t: "`$STRING`"
     }
-    service_credits: {
-      h: "Service Credits"
-      n: "service_credits"
+    memo: {
+      h: "Memo"
+      n: "memo"
       r: false
-      t: "`$ARRAY`"
+      sh: "The memo attached to the entry"
+      t: "`$STRING`"
+    }
+    remaining_balance_in_cents: {
+      fo: "int64"
+      h: "Remaining Balance In Cents"
+      n: "remaining_balance_in_cents"
+      r: false
+      sh: "The remaining balance for the entry"
+      t: "`$INTEGER`"
     }
   }
 
@@ -72,7 +119,7 @@ main: kit: entity: subscription_invoice_account: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.prepayment`"
           }
         }
         {
@@ -240,7 +287,7 @@ main: kit: entity: subscription_invoice_account: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.service_credits`"
           }
         }
         {
@@ -314,7 +361,7 @@ main: kit: entity: subscription_invoice_account: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.prepayments`"
           }
         }
       ]

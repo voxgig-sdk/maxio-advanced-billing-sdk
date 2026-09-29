@@ -4,7 +4,7 @@
 #   guide.aontu
 
 guide: {
-  metrics: count: entity: 57
+  metrics: count: entity: 56
   metrics: count: path: 196
   metrics: count: method: 268
 
@@ -69,10 +69,12 @@ guide: {
     path: "/components/lookup.json": {
       action: "lookup": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.component`")|top
     }
     path: "/components/{component_id}.json": {
       action: "component_id": {}
       op: update: method: *PUT
+      op: update: transform: res: *("`body.component`")|top
       op: update: transform: req: "component": *("`reqdata`")|top
     }
     path: "/product_families/{product_family_id}/components.json": {
@@ -81,24 +83,31 @@ guide: {
     path: "/product_families/{product_family_id}/components/{component_id}.json": {
       action: "component_id": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.component`")|top
       op: remove: method: *DELETE
       op: update: method: *PUT
+      op: update: transform: res: *("`body.component`")|top
       op: update: transform: req: "component": *("`reqdata`")|top
     }
     path: "/product_families/{product_family_id}/event_based_components.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.component`")|top
     }
     path: "/product_families/{product_family_id}/metered_components.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.component`")|top
     }
     path: "/product_families/{product_family_id}/on_off_components.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.component`")|top
     }
     path: "/product_families/{product_family_id}/prepaid_usage_components.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.component`")|top
     }
     path: "/product_families/{product_family_id}/quantity_based_components.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.component`")|top
     }
   }
 
@@ -114,26 +123,32 @@ guide: {
       op: create: method: *POST
       op: create: transform: res: *("`body.price_point`")|top
       op: list: method: *GET
+      op: list: transform: res: *("`body.price_points`")|top
     }
     path: "/components/{component_id}/price_points/bulk.json": {
       op: create: method: *POST
     }
     path: "/components/{component_id}/price_points/{price_point_id}.json": {
       op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.price_point`")|top
       op: update: method: *PUT
       op: update: transform: res: *("`body.price_point`")|top
     }
     path: "/components/{component_id}/price_points/{price_point_id}/clone.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.price_point`")|top
     }
     path: "/components/{component_id}/price_points/{price_point_id}/default.json": {
       op: update: method: *PUT
+      op: update: transform: res: *("`body.component`")|top
     }
     path: "/components/{component_id}/price_points/{price_point_id}/unarchive.json": {
       op: update: method: *PUT
+      op: update: transform: res: *("`body.price_point`")|top
     }
     path: "/components_price_points.json": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.price_points`")|top
     }
     path: "/price_points/{price_point_id}/currency_prices.json": {
       op: create: method: *POST
@@ -160,12 +175,14 @@ guide: {
     path: "/coupons/validate.json": {
       action: "validate": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.coupon`")|top
     }
     path: "/coupons/{coupon_id}/codes.json": {
       action: "code": {}
       rename: param: "coupon_id": *"id"
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.codes`")|top
     }
     path: "/coupons/{coupon_id}/codes/{subcode}.json": {
       action: "code_subcode": {}
@@ -180,8 +197,11 @@ guide: {
     path: "/product_families/{product_family_id}/coupons/{coupon_id}.json": {
       action: "coupon_id": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.coupon`")|top
       op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.coupon`")|top
       op: update: method: *PUT
+      op: update: transform: res: *("`body.coupon`")|top
     }
   }
 
@@ -215,12 +235,14 @@ guide: {
     path: "/{resource_type}/metafields.json": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.metafields`")|top
       op: remove: method: *DELETE
       op: update: method: *PUT
     }
     path: "/{resource_type}/{resource_id}/metadata.json": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.metadata`")|top
       op: remove: method: *DELETE
       op: update: method: *PUT
     }
@@ -229,6 +251,7 @@ guide: {
   entity: customer: {
     path: "/customers.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.customer`")|top
       op: list: method: *GET
     }
     path: "/customers/lookup.json": {
@@ -239,8 +262,10 @@ guide: {
     path: "/customers/{id}.json": {
       action: "id": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.customer`")|top
       op: remove: method: *DELETE
       op: update: method: *PUT
+      op: update: transform: res: *("`body.customer`")|top
     }
     path: "/portal/customers/{customer_id}/enable.json": {
       action: "enable": {}
@@ -302,7 +327,9 @@ guide: {
     }
     path: "/features.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.feature`")|top
       op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
     }
     path: "/products/{product_id}/features.json": {
       op: create: method: *POST
@@ -356,9 +383,11 @@ guide: {
   entity: insight: {
     path: "/mrr.json": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.mrr`")|top
     }
     path: "/mrr_movements.json": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.mrr`")|top
     }
     path: "/stats.json": {
       op: load: method: *GET
@@ -373,25 +402,30 @@ guide: {
     }
     path: "/credit_notes.json": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.credit_notes`")|top
     }
     path: "/credit_notes/{uid}.json": {
       op: list: method: *GET
     }
     path: "/invoices.json": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.invoices`")|top
     }
     path: "/invoices/events.json": {
       action: "event": {}
       op: list: method: *GET
+      op: list: transform: res: *("`body.events`")|top
     }
     path: "/invoices/payments.json": {
       action: "payment": {}
       op: create: method: *POST
+      op: create: transform: res: *("`body.payment`")|top
     }
     path: "/invoices/{invoice_uid}/segments.json": {
       action: "segment": {}
       rename: param: "invoice_uid": *"id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.invoices`")|top
     }
     path: "/invoices/{uid}.json": {
       action: "uid": {}
@@ -406,6 +440,7 @@ guide: {
       action: "customer_information_preview": {}
       rename: param: "uid": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.changes`")|top
     }
     path: "/invoices/{uid}/deliveries.json": {
       action: "delivery": {}
@@ -448,6 +483,7 @@ guide: {
     }
     path: "/subscriptions/{subscription_id}/invoices.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.invoice`")|top
     }
     path: "/subscriptions/{subscription_id}/invoices/{uid}.json": {
       action: "uid": {}
@@ -457,16 +493,6 @@ guide: {
     }
     path: "/subscriptions/{subscription_id}/payments.json": {
       op: create: method: *POST
-    }
-  }
-
-  entity: list_proforma_invoice: {
-    path: "/subscription_groups/{uid}/proforma_invoices.json": {
-      rename: param: "uid": *"subscription_group_id"
-      op: list: method: *GET
-    }
-    path: "/subscriptions/{subscription_id}/proforma_invoices.json": {
-      op: list: method: *GET
     }
   }
 
@@ -490,7 +516,9 @@ guide: {
   entity: offer: {
     path: "/offers.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.offer`")|top
       op: list: method: *GET
+      op: list: transform: res: *("`body.offers`")|top
     }
     path: "/offers/{offer_id}.json": {
       action: "offer_id": {}
@@ -520,16 +548,20 @@ guide: {
   entity: payment_profile: {
     path: "/bank_accounts/{bank_account_id}/verification.json": {
       op: update: method: *PUT
+      op: update: transform: res: *("`body.payment_profile`")|top
     }
     path: "/payment_profiles.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.payment_profile`")|top
       op: list: method: *GET
     }
     path: "/payment_profiles/{payment_profile_id}.json": {
       action: "payment_profile_id": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.payment_profile`")|top
       op: remove: method: *DELETE
       op: update: method: *PUT
+      op: update: transform: res: *("`body.payment_profile`")|top
     }
     path: "/subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json": {
       action: "payment_profile_id": {}
@@ -541,6 +573,7 @@ guide: {
       rename: param: "payment_profile_id": *"id"
       rename: param: "uid": *"subscription_group_id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.payment_profile`")|top
     }
     path: "/subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json": {
       action: "payment_profile_id": {}
@@ -550,6 +583,7 @@ guide: {
       action: "change_payment_profile": {}
       rename: param: "payment_profile_id": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.payment_profile`")|top
     }
     path: "/subscriptions/{subscription_id}/request_payment_profiles_update.json": {
       op: create: method: *POST
@@ -568,6 +602,7 @@ guide: {
   entity: product: {
     path: "/product_families/{product_family_id}/products.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.product`")|top
       op: list: method: *GET
     }
     path: "/products.json": {
@@ -575,12 +610,16 @@ guide: {
     }
     path: "/products/handle/{api_handle}.json": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.product`")|top
     }
     path: "/products/{product_id}.json": {
       action: "product_id": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.product`")|top
       op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.product`")|top
       op: update: method: *PUT
+      op: update: transform: res: *("`body.product`")|top
       op: update: transform: req: "product": *("`reqdata`")|top
     }
   }
@@ -588,11 +627,13 @@ guide: {
   entity: product_family: {
     path: "/product_families.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.product_family`")|top
       op: list: method: *GET
     }
     path: "/product_families/{id}.json": {
       action: "id": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.product_family`")|top
     }
   }
 
@@ -612,24 +653,32 @@ guide: {
     path: "/products/{product_id}/price_points.json": {
       rename: param: "product_id": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.price_point`")|top
       op: list: method: *GET
+      op: list: transform: res: *("`body.price_points`")|top
     }
     path: "/products/{product_id}/price_points/bulk.json": {
       op: create: method: *POST
     }
     path: "/products/{product_id}/price_points/{price_point_id}.json": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.price_point`")|top
       op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.price_point`")|top
       op: update: method: *PUT
+      op: update: transform: res: *("`body.price_point`")|top
     }
     path: "/products/{product_id}/price_points/{price_point_id}/default.json": {
       op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.product`")|top
     }
     path: "/products/{product_id}/price_points/{price_point_id}/unarchive.json": {
       op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.price_point`")|top
     }
     path: "/products_price_points.json": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.price_points`")|top
     }
   }
 
@@ -656,12 +705,16 @@ guide: {
     path: "/subscription_groups/{uid}/proforma_invoices.json": {
       rename: param: "uid": *"subscription_group_id"
       op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.proforma_invoices`")|top
     }
     path: "/subscriptions/proforma_invoices.json": {
       op: create: method: *POST
     }
     path: "/subscriptions/{subscription_id}/proforma_invoices.json": {
       op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.proforma_invoices`")|top
     }
     path: "/subscriptions/{subscription_id}/proforma_invoices/preview.json": {
       action: "preview": {}
@@ -690,6 +743,7 @@ guide: {
     path: "/referral_codes/validate.json": {
       action: "validate": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.referral_code`")|top
     }
   }
 
@@ -728,9 +782,11 @@ guide: {
   entity: site: {
     path: "/chargify_js_keys.json": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.chargify_js_keys`")|top
     }
     path: "/site.json": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.site`")|top
     }
     path: "/sites/clear_data.json": {
       action: "clear_data": {}
@@ -749,6 +805,7 @@ guide: {
     }
     path: "/subscriptions.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.subscription`")|top
       op: list: method: *GET
     }
     path: "/subscriptions/lookup.json": {
@@ -759,11 +816,14 @@ guide: {
     path: "/subscriptions/preview.json": {
       action: "preview": {}
       op: create: method: *POST
+      op: create: transform: res: *("`body.subscription_preview`")|top
     }
     path: "/subscriptions/{subscription_id}.json": {
       action: "subscription_id": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.subscription`")|top
       op: update: method: *PUT
+      op: update: transform: res: *("`body.subscription`")|top
     }
     path: "/subscriptions/{subscription_id}/activate.json": {
       action: "activate": {}
@@ -775,6 +835,7 @@ guide: {
       action: "add_coupon": {}
       rename: param: "subscription_id": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.subscription`")|top
     }
     path: "/subscriptions/{subscription_id}/cancel_dunning.json": {
       action: "cancel_dunning": {}
@@ -791,6 +852,7 @@ guide: {
       action: "prepaid_configuration": {}
       rename: param: "subscription_id": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.prepaid_configuration`")|top
     }
     path: "/subscriptions/{subscription_id}/purge.json": {
       action: "purge": {}
@@ -820,9 +882,11 @@ guide: {
     }
     path: "/subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.usage`")|top
     }
     path: "/subscriptions/{subscription_id}/allocations/preview.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.allocation_preview`")|top
     }
     path: "/subscriptions/{subscription_id}/components.json": {
       rename: param: "subscription_id": *"id"
@@ -830,9 +894,11 @@ guide: {
     }
     path: "/subscriptions/{subscription_id}/components/{component_id}.json": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.component`")|top
     }
     path: "/subscriptions/{subscription_id}/components/{component_id}/allocations.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.allocation`")|top
     }
     path: "/subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json": {
       op: remove: method: *DELETE
@@ -845,6 +911,7 @@ guide: {
     }
     path: "/subscriptions/{subscription_id}/price_points/reset.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.subscription`")|top
     }
     path: "/subscriptions_components.json": {
       op: list: method: *GET
@@ -855,7 +922,9 @@ guide: {
   entity: subscription_group: {
     path: "/subscription_groups.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.subscription_group`")|top
       op: list: method: *GET
+      op: list: transform: res: *("`body.subscription_groups`")|top
     }
     path: "/subscription_groups/lookup.json": {
       action: "lookup": {}
@@ -866,10 +935,12 @@ guide: {
       op: list: method: *GET
       op: remove: method: *DELETE
       op: update: method: *PUT
+      op: update: transform: res: *("`body.subscription_group`")|top
     }
     path: "/subscriptions/{subscription_id}/group.json": {
       rename: param: "subscription_id": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.subscription_group`")|top
       op: remove: method: *DELETE
     }
   }
@@ -880,6 +951,7 @@ guide: {
       rename: param: "uid": *"id"
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.prepayments`")|top
     }
     path: "/subscription_groups/{uid}/service_credit_deductions.json": {
       action: "service_credit_deductions.json": {}
@@ -890,6 +962,7 @@ guide: {
       action: "service_credits.json": {}
       rename: param: "uid": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.service_credit`")|top
     }
   }
 
@@ -923,7 +996,9 @@ guide: {
       action: "prepayments.json": {}
       rename: param: "subscription_id": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.prepayment`")|top
       op: list: method: *GET
+      op: list: transform: res: *("`body.prepayments`")|top
     }
     path: "/subscriptions/{subscription_id}/service_credit_deductions.json": {
       action: "service_credit_deductions.json": {}
@@ -937,6 +1012,7 @@ guide: {
     }
     path: "/subscriptions/{subscription_id}/service_credits/list.json": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.service_credits`")|top
     }
   }
 
@@ -956,6 +1032,7 @@ guide: {
     }
     path: "/subscriptions/{subscription_id}/notes/{note_id}.json": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.note`")|top
       op: remove: method: *DELETE
       op: update: method: *PUT
       op: update: transform: res: *("`body.note`")|top
@@ -967,9 +1044,11 @@ guide: {
       action: "migrations.json": {}
       rename: param: "subscription_id": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.subscription`")|top
     }
     path: "/subscriptions/{subscription_id}/migrations/preview.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.migration`")|top
     }
   }
 
@@ -978,42 +1057,53 @@ guide: {
       action: "scheduled_renewals.json": {}
       rename: param: "subscription_id": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.scheduled_renewal_configuration`")|top
       op: list: method: *GET
+      op: list: transform: res: *("`body.scheduled_renewal_configurations`")|top
     }
     path: "/subscriptions/{subscription_id}/scheduled_renewals/{id}.json": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.scheduled_renewal_configuration`")|top
       op: update: method: *PUT
+      op: update: transform: res: *("`body.scheduled_renewal_configuration`")|top
     }
     path: "/subscriptions/{subscription_id}/scheduled_renewals/{id}/cancel.json": {
       rename: param: "id": *"scheduled_renewal_id"
       op: update: method: *PUT
+      op: update: transform: res: *("`body.scheduled_renewal_configuration`")|top
     }
     path: "/subscriptions/{subscription_id}/scheduled_renewals/{id}/immediate_lock_in.json": {
       rename: param: "id": *"scheduled_renewal_id"
       op: update: method: *PUT
+      op: update: transform: res: *("`body.scheduled_renewal_configuration`")|top
     }
     path: "/subscriptions/{subscription_id}/scheduled_renewals/{id}/schedule_lock_in.json": {
       rename: param: "id": *"scheduled_renewal_id"
       op: update: method: *PUT
+      op: update: transform: res: *("`body.scheduled_renewal_configuration`")|top
     }
     path: "/subscriptions/{subscription_id}/scheduled_renewals/{id}/unpublish.json": {
       rename: param: "id": *"scheduled_renewal_id"
       op: update: method: *PUT
+      op: update: transform: res: *("`body.scheduled_renewal_configuration`")|top
     }
     path: "/subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items.json": {
       rename: param: "scheduled_renewals_configuration_id": *"scheduled_renewal_id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.scheduled_renewal_configuration_item`")|top
     }
     path: "/subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items/{id}.json": {
       rename: param: "scheduled_renewals_configuration_id": *"scheduled_renewal_id"
       op: remove: method: *DELETE
       op: update: method: *PUT
+      op: update: transform: res: *("`body.scheduled_renewal_configuration_item`")|top
     }
   }
 
   entity: subscription_status: {
     path: "/subscriptions/{subscription_id}.json": {
       op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.subscription`")|top
     }
     path: "/subscriptions/{subscription_id}/delayed_cancel.json": {
       action: "delayed_cancel.json": {}
@@ -1024,25 +1114,31 @@ guide: {
       action: "hold.json": {}
       rename: param: "subscription_id": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.subscription`")|top
       op: update: method: *PUT
+      op: update: transform: res: *("`body.subscription`")|top
     }
     path: "/subscriptions/{subscription_id}/reactivate.json": {
       action: "reactivate.json": {}
       rename: param: "subscription_id": *"id"
       op: update: method: *PUT
+      op: update: transform: res: *("`body.subscription`")|top
     }
     path: "/subscriptions/{subscription_id}/renewals/preview.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.renewal_preview`")|top
     }
     path: "/subscriptions/{subscription_id}/resume.json": {
       action: "resume.json": {}
       rename: param: "subscription_id": *"id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.subscription`")|top
     }
     path: "/subscriptions/{subscription_id}/retry.json": {
       action: "retry.json": {}
       rename: param: "subscription_id": *"id"
       op: update: method: *PUT
+      op: update: transform: res: *("`body.subscription`")|top
     }
   }
 
@@ -1055,6 +1151,7 @@ guide: {
   entity: webhook: {
     path: "/endpoints.json": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.endpoint`")|top
     }
     path: "/webhooks.json": {
       op: list: method: *GET

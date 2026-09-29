@@ -105,7 +105,7 @@ describe("ComponentPricePointEntity", function()
       id = component_price_point_ref01_data["id"],
     }
 
-    local component_price_point_ref01_markdef_up0_name = "archived_at"
+    local component_price_point_ref01_markdef_up0_name = "accounting_code"
     local component_price_point_ref01_markdef_up0_value = "Mark01-component_price_point_ref01_" .. tostring(setup.now)
     component_price_point_ref01_data_up0_up[component_price_point_ref01_markdef_up0_name] = component_price_point_ref01_markdef_up0_value
 

@@ -48,9 +48,13 @@ class ReferralCodeEntityTest extends TestCase
 
         // LOAD
         $referral_code_ref01_ent = $client->ReferralCode(null);
-        $referral_code_ref01_match_dt0 = [];
+        $referral_code_ref01_match_dt0 = [
+            "id" => $referral_code_ref01_data["id"],
+        ];
         $referral_code_ref01_data_dt0_loaded = $referral_code_ref01_ent->load($referral_code_ref01_match_dt0, null);
-        $this->assertNotNull($referral_code_ref01_data_dt0_loaded);
+        $referral_code_ref01_data_dt0_load_result = Helpers::to_map(is_object($referral_code_ref01_data_dt0_loaded) && method_exists($referral_code_ref01_data_dt0_loaded, 'data_get') ? $referral_code_ref01_data_dt0_loaded->data_get() : $referral_code_ref01_data_dt0_loaded);
+        $this->assertNotNull($referral_code_ref01_data_dt0_load_result);
+        $this->assertEquals($referral_code_ref01_data_dt0_load_result["id"], $referral_code_ref01_data["id"]);
 
     }
 }

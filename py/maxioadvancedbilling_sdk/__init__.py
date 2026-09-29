@@ -451,12 +451,6 @@ class MaxioAdvancedBillingSDK:
         return InvoiceEntity(self, data)
 
 
-    def ListProformaInvoice(self, data=None) -> "ListProformaInvoiceEntity":
-        """Entity factory: client.ListProformaInvoice().list() / client.ListProformaInvoice().load({"id": ...})."""
-        from maxioadvancedbilling_sdk.entity.list_proforma_invoice_entity import ListProformaInvoiceEntity
-        return ListProformaInvoiceEntity(self, data)
-
-
     def ListSaleRepItem(self, data=None) -> "ListSaleRepItemEntity":
         """Entity factory: client.ListSaleRepItem().list() / client.ListSaleRepItem().load({"id": ...})."""
         from maxioadvancedbilling_sdk.entity.list_sale_rep_item_entity import ListSaleRepItemEntity
@@ -700,7 +694,6 @@ if TYPE_CHECKING:
     from maxioadvancedbilling_sdk.entity.feature_template_entity import FeatureTemplateEntity
     from maxioadvancedbilling_sdk.entity.insight_entity import InsightEntity
     from maxioadvancedbilling_sdk.entity.invoice_entity import InvoiceEntity
-    from maxioadvancedbilling_sdk.entity.list_proforma_invoice_entity import ListProformaInvoiceEntity
     from maxioadvancedbilling_sdk.entity.list_sale_rep_item_entity import ListSaleRepItemEntity
     from maxioadvancedbilling_sdk.entity.list_segment_entity import ListSegmentEntity
     from maxioadvancedbilling_sdk.entity.offer_entity import OfferEntity

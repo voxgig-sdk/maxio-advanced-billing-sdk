@@ -936,6 +936,38 @@
             "field": {}
           },
           "fields": {
+            "accounting_code": {
+              "a": true,
+              "h": "Accounting Code",
+              "n": "accounting_code",
+              "r": false,
+              "sh": "E.g.",
+              "t": "`$STRING`"
+            },
+            "allow_fractional_quantities": {
+              "a": true,
+              "h": "Allow Fractional Quantities",
+              "n": "allow_fractional_quantities",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "archived": {
+              "a": true,
+              "h": "Archived",
+              "n": "archived",
+              "r": false,
+              "sh": "Boolean flag describing whether a component is archived or not.",
+              "t": "`$BOOLEAN`"
+            },
+            "archived_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Archived At",
+              "n": "archived_at",
+              "r": false,
+              "sh": "Timestamp indicating when this component was archived",
+              "t": "`$STRING`"
+            },
             "component": {
               "a": true,
               "h": "Component",
@@ -948,7 +980,304 @@
               },
               "r": false,
               "t": "`$OBJECT`"
+            },
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "sh": "Timestamp indicating when this component was created",
+              "t": "`$STRING`"
+            },
+            "default_price_point_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Default Price Point Id",
+              "n": "default_price_point_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "default_price_point_name": {
+              "a": true,
+              "h": "Default Price Point Name",
+              "n": "default_price_point_name",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "sh": "The description of the component.",
+              "t": "`$STRING`"
+            },
+            "downgrade_credit": {
+              "a": true,
+              "h": "Downgrade Credit",
+              "n": "downgrade_credit",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "event_based_billing_metric_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Event Based Billing Metric Id",
+              "n": "event_based_billing_metric_id",
+              "r": false,
+              "sh": "(Only for Event Based Components) This is an ID of a metric attached to the component.",
+              "t": "`$INTEGER`"
+            },
+            "features": {
+              "a": true,
+              "h": "Features",
+              "n": "features",
+              "r": false,
+              "sh": "The active feature catalog items attached to this component.",
+              "t": "`$ARRAY`",
+              "union": {
+                "branches": 2,
+                "count": 2,
+                "depth": 5
+              }
+            },
+            "handle": {
+              "a": true,
+              "h": "Handle",
+              "n": "handle",
+              "r": false,
+              "sh": "The component API handle",
+              "t": "`$STRING`"
+            },
+            "hide_date_range_on_invoice": {
+              "a": true,
+              "h": "Hide Date Range On Invoice",
+              "n": "hide_date_range_on_invoice",
+              "r": false,
+              "sh": "(Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices.",
+              "t": "`$BOOLEAN`"
+            },
+            "id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "The unique ID assigned to the component by Chargify.",
+              "t": "`$INTEGER`"
+            },
+            "interval": {
+              "a": true,
+              "fo": "int32",
+              "h": "Interval",
+              "n": "interval",
+              "r": false,
+              "sh": "The numerical interval.",
+              "t": "`$INTEGER`"
+            },
+            "interval_unit": {
+              "a": true,
+              "h": "Interval Unit",
+              "n": "interval_unit",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "item_category": {
+              "a": true,
+              "h": "Item Category",
+              "n": "item_category",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "kind": {
+              "a": true,
+              "h": "Kind",
+              "n": "kind",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "The name of the Component, suitable for display on statements.",
+              "t": "`$STRING`"
+            },
+            "overage_prices": {
+              "a": true,
+              "h": "Overage Prices",
+              "n": "overage_prices",
+              "r": false,
+              "sh": "Applicable only to prepaid usage components.",
+              "t": "`$ARRAY`"
+            },
+            "price_per_unit_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Price Per Unit In Cents",
+              "n": "price_per_unit_in_cents",
+              "r": false,
+              "sh": "deprecated - use unit_price instead.",
+              "t": "`$INTEGER`"
+            },
+            "price_point_count": {
+              "a": true,
+              "fo": "int32",
+              "h": "Price Point Count",
+              "n": "price_point_count",
+              "r": false,
+              "sh": "Count for the number of price points associated with the component",
+              "t": "`$INTEGER`"
+            },
+            "price_points_url": {
+              "a": true,
+              "h": "Price Points Url",
+              "n": "price_points_url",
+              "r": false,
+              "sh": "URL that points to the location to read the existing price points via GET request",
+              "t": "`$STRING`"
+            },
+            "prices": {
+              "a": true,
+              "h": "Prices",
+              "n": "prices",
+              "r": false,
+              "sh": "An array of price brackets.",
+              "t": "`$ARRAY`"
+            },
+            "pricing_scheme": {
+              "a": true,
+              "h": "Pricing Scheme",
+              "n": "pricing_scheme",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "product_family_handle": {
+              "a": true,
+              "h": "Product Family Handle",
+              "n": "product_family_handle",
+              "r": false,
+              "sh": "The handle of the Product Family to which the Component belongs",
+              "t": "`$STRING`"
+            },
+            "product_family_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Product Family Id",
+              "n": "product_family_id",
+              "r": false,
+              "sh": "The id of the Product Family to which the Component belongs",
+              "t": "`$INTEGER`"
+            },
+            "product_family_name": {
+              "a": true,
+              "h": "Product Family Name",
+              "n": "product_family_name",
+              "r": false,
+              "sh": "The name of the Product Family to which the Component belongs",
+              "t": "`$STRING`"
+            },
+            "recurring": {
+              "a": true,
+              "h": "Recurring",
+              "n": "recurring",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "tax_code": {
+              "a": true,
+              "h": "Tax Code",
+              "n": "tax_code",
+              "r": false,
+              "sh": "A string representing the tax code related to the component type.",
+              "t": "`$STRING`"
+            },
+            "taxable": {
+              "a": true,
+              "h": "Taxable",
+              "n": "taxable",
+              "r": false,
+              "sh": "Boolean flag describing whether a component is taxable or not.",
+              "t": "`$BOOLEAN`"
+            },
+            "unit_name": {
+              "a": true,
+              "h": "Unit Name",
+              "n": "unit_name",
+              "r": false,
+              "sh": "The name of the unit that the component’s usage is measured in.",
+              "t": "`$STRING`"
+            },
+            "unit_price": {
+              "a": true,
+              "h": "Unit Price",
+              "n": "unit_price",
+              "r": false,
+              "sh": "The amount the customer will be charged per unit.",
+              "t": "`$STRING`"
+            },
+            "unspsc_code": {
+              "a": true,
+              "h": "Unspsc Code",
+              "n": "unspsc_code",
+              "r": false,
+              "sh": "(Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data.",
+              "t": "`$STRING`"
+            },
+            "updated_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Updated At",
+              "n": "updated_at",
+              "r": false,
+              "sh": "Timestamp indicating when this component was updated",
+              "t": "`$STRING`"
+            },
+            "upgrade_charge": {
+              "a": true,
+              "h": "Upgrade Charge",
+              "n": "upgrade_charge",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "use_site_exchange_rate": {
+              "a": true,
+              "h": "Use Site Exchange Rate",
+              "n": "use_site_exchange_rate",
+              "r": false,
+              "t": "`$BOOLEAN`"
             }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
           },
           "name": "component",
           "op": {
@@ -997,7 +1326,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 },
                 {
@@ -1041,7 +1370,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 },
                 {
@@ -1085,7 +1414,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 },
                 {
@@ -1129,7 +1458,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 },
                 {
@@ -1173,7 +1502,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 }
               ]
@@ -1461,7 +1790,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "include_feature",
-                        "or": "include_feature",
+                        "or": "include_features",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       }
@@ -1495,7 +1824,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 },
                 {
@@ -1537,7 +1866,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 }
               ]
@@ -1665,7 +1994,7 @@
                     "req": {
                       "component": "`reqdata`"
                     },
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 },
                 {
@@ -1709,7 +2038,7 @@
                     "req": {
                       "component": "`reqdata`"
                     },
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 }
               ]
@@ -1779,7 +2108,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "destroy_entitlement",
-                        "or": "destroy_entitlement",
+                        "or": "destroy_entitlements",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       }
@@ -1832,25 +2161,37 @@
             "field": {}
           },
           "fields": {
+            "accounting_code": {
+              "a": true,
+              "h": "Accounting Code",
+              "n": "accounting_code",
+              "r": false,
+              "sh": "E.g.",
+              "t": "`$STRING`"
+            },
+            "allow_fractional_quantities": {
+              "a": true,
+              "h": "Allow Fractional Quantities",
+              "n": "allow_fractional_quantities",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "archived": {
+              "a": true,
+              "h": "Archived",
+              "n": "archived",
+              "r": false,
+              "sh": "Boolean flag describing whether a component is archived or not.",
+              "t": "`$BOOLEAN`"
+            },
             "archived_at": {
               "a": true,
               "fo": "date-time",
               "h": "Archived At",
               "n": "archived_at",
               "r": false,
+              "sh": "Timestamp indicating when this component was archived",
               "t": "`$STRING`"
-            },
-            "component": {
-              "a": true,
-              "h": "Component",
-              "n": "component",
-              "r": true,
-              "t": "`$OBJECT`",
-              "union": {
-                "branches": 2,
-                "count": 7,
-                "depth": 7
-              }
             },
             "component_id": {
               "a": true,
@@ -1866,6 +2207,7 @@
               "h": "Created At",
               "n": "created_at",
               "r": false,
+              "sh": "Timestamp indicating when this component was created",
               "t": "`$STRING`"
             },
             "currency_prices": {
@@ -1884,6 +2226,50 @@
               "r": false,
               "sh": "Note: Refer to type attribute instead.",
               "t": "`$BOOLEAN`"
+            },
+            "default_price_point_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Default Price Point Id",
+              "n": "default_price_point_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "default_price_point_name": {
+              "a": true,
+              "h": "Default Price Point Name",
+              "n": "default_price_point_name",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "sh": "The description of the component.",
+              "t": "`$STRING`"
+            },
+            "downgrade_credit": {
+              "a": true,
+              "h": "Downgrade Credit",
+              "n": "downgrade_credit",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "event_based_billing_metric_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Event Based Billing Metric Id",
+              "n": "event_based_billing_metric_id",
+              "r": false,
+              "sh": "(Only for Event Based Components) This is an ID of a metric attached to the component.",
+              "t": "`$INTEGER`"
             },
             "expiration_interval": {
               "a": true,
@@ -1906,12 +2292,34 @@
                 "depth": 2
               }
             },
+            "features": {
+              "a": true,
+              "h": "Features",
+              "n": "features",
+              "r": false,
+              "sh": "The active feature catalog items attached to this component.",
+              "t": "`$ARRAY`",
+              "union": {
+                "branches": 2,
+                "count": 2,
+                "depth": 5
+              }
+            },
             "handle": {
               "a": true,
               "h": "Handle",
               "n": "handle",
               "r": false,
+              "sh": "The component API handle",
               "t": "`$STRING`"
+            },
+            "hide_date_range_on_invoice": {
+              "a": true,
+              "h": "Hide Date Range On Invoice",
+              "n": "hide_date_range_on_invoice",
+              "r": false,
+              "sh": "(Only available on Relationship Invoicing sites) Boolean flag describing if the service date range should show for the component on generated invoices.",
+              "t": "`$BOOLEAN`"
             },
             "id": {
               "a": true,
@@ -1919,6 +2327,7 @@
               "h": "Id",
               "n": "id",
               "r": false,
+              "sh": "The unique ID assigned to the component by Chargify.",
               "t": "`$INTEGER`"
             },
             "interval": {
@@ -1942,11 +2351,31 @@
                 "depth": 2
               }
             },
+            "item_category": {
+              "a": true,
+              "h": "Item Category",
+              "n": "item_category",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "kind": {
+              "a": true,
+              "h": "Kind",
+              "n": "kind",
+              "r": false,
+              "t": "`$ANY`"
+            },
             "name": {
               "a": true,
               "h": "Name",
               "n": "name",
               "r": false,
+              "sh": "The name of the Component, suitable for display on statements.",
               "t": "`$STRING`"
             },
             "overage_prices": {
@@ -1964,37 +2393,52 @@
               "r": false,
               "t": "`$ANY`"
             },
+            "price_per_unit_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Price Per Unit In Cents",
+              "n": "price_per_unit_in_cents",
+              "r": false,
+              "sh": "deprecated - use unit_price instead.",
+              "t": "`$INTEGER`"
+            },
             "price_point": {
               "a": true,
               "h": "Price Point",
               "n": "price_point",
-              "op": {
-                "update": {
-                  "req": true,
-                  "type": "`$OBJECT`"
-                }
-              },
               "r": false,
               "t": "`$OBJECT`"
+            },
+            "price_point_count": {
+              "a": true,
+              "fo": "int32",
+              "h": "Price Point Count",
+              "n": "price_point_count",
+              "r": false,
+              "sh": "Count for the number of price points associated with the component",
+              "t": "`$INTEGER`"
             },
             "price_points": {
               "a": true,
               "h": "Price Points",
               "n": "price_points",
-              "op": {
-                "list": {
-                  "req": true,
-                  "type": "`$ARRAY`"
-                }
-              },
               "r": false,
               "t": "`$ARRAY`"
+            },
+            "price_points_url": {
+              "a": true,
+              "h": "Price Points Url",
+              "n": "price_points_url",
+              "r": false,
+              "sh": "URL that points to the location to read the existing price points via GET request",
+              "t": "`$STRING`"
             },
             "prices": {
               "a": true,
               "h": "Prices",
               "n": "prices",
               "r": false,
+              "sh": "An array of price brackets.",
               "t": "`$ARRAY`"
             },
             "pricing_scheme": {
@@ -2003,6 +2447,38 @@
               "n": "pricing_scheme",
               "r": false,
               "t": "`$ANY`"
+            },
+            "product_family_handle": {
+              "a": true,
+              "h": "Product Family Handle",
+              "n": "product_family_handle",
+              "r": false,
+              "sh": "The handle of the Product Family to which the Component belongs",
+              "t": "`$STRING`"
+            },
+            "product_family_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Product Family Id",
+              "n": "product_family_id",
+              "r": false,
+              "sh": "The id of the Product Family to which the Component belongs",
+              "t": "`$INTEGER`"
+            },
+            "product_family_name": {
+              "a": true,
+              "h": "Product Family Name",
+              "n": "product_family_name",
+              "r": false,
+              "sh": "The name of the Product Family to which the Component belongs",
+              "t": "`$STRING`"
+            },
+            "recurring": {
+              "a": true,
+              "h": "Recurring",
+              "n": "recurring",
+              "r": false,
+              "t": "`$BOOLEAN`"
             },
             "renew_prepaid_allocation": {
               "a": true,
@@ -2029,11 +2505,27 @@
               "sh": "(only used for Custom Pricing - ie.",
               "t": "`$INTEGER`"
             },
+            "tax_code": {
+              "a": true,
+              "h": "Tax Code",
+              "n": "tax_code",
+              "r": false,
+              "sh": "A string representing the tax code related to the component type.",
+              "t": "`$STRING`"
+            },
             "tax_included": {
               "a": true,
               "h": "Tax Included",
               "n": "tax_included",
               "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "taxable": {
+              "a": true,
+              "h": "Taxable",
+              "n": "taxable",
+              "r": false,
+              "sh": "Boolean flag describing whether a component is taxable or not.",
               "t": "`$BOOLEAN`"
             },
             "type": {
@@ -2043,13 +2535,50 @@
               "r": false,
               "t": "`$ANY`"
             },
+            "unit_name": {
+              "a": true,
+              "h": "Unit Name",
+              "n": "unit_name",
+              "r": false,
+              "sh": "The name of the unit that the component’s usage is measured in.",
+              "t": "`$STRING`"
+            },
+            "unit_price": {
+              "a": true,
+              "h": "Unit Price",
+              "n": "unit_price",
+              "r": false,
+              "sh": "The amount the customer will be charged per unit.",
+              "t": "`$STRING`"
+            },
+            "unspsc_code": {
+              "a": true,
+              "h": "Unspsc Code",
+              "n": "unspsc_code",
+              "r": false,
+              "sh": "(Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data.",
+              "t": "`$STRING`"
+            },
             "updated_at": {
               "a": true,
               "fo": "date-time",
               "h": "Updated At",
               "n": "updated_at",
               "r": false,
+              "sh": "Timestamp indicating when this component was updated",
               "t": "`$STRING`"
+            },
+            "upgrade_charge": {
+              "a": true,
+              "h": "Upgrade Charge",
+              "n": "upgrade_charge",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
             },
             "use_site_exchange_rate": {
               "a": true,
@@ -2126,7 +2655,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_point`"
                   }
                 },
                 {
@@ -2297,7 +2826,7 @@
                         "a": true,
                         "k": "query",
                         "n": "currency_price",
-                        "or": "currency_price",
+                        "or": "currency_prices",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -2309,7 +2838,7 @@
                         ],
                         "k": "query",
                         "n": "filter_type",
-                        "or": "filter_type",
+                        "or": "filter[type]",
                         "r": false,
                         "t": "`$ARRAY`"
                       },
@@ -2363,7 +2892,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_points`"
                   }
                 },
                 {
@@ -2439,7 +2968,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_points`"
                   }
                 }
               ]
@@ -2501,7 +3030,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_point`"
                   }
                 }
               ]
@@ -2622,7 +3151,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 },
                 {
@@ -2681,7 +3210,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_point`"
                   }
                 },
                 {
@@ -2987,7 +3516,7 @@
                         "a": true,
                         "k": "query",
                         "n": "currency_price",
-                        "or": "currency_price",
+                        "or": "currency_prices",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       }
@@ -3422,7 +3951,7 @@
                         "ex": true,
                         "k": "query",
                         "n": "currency_price",
-                        "or": "currency_price",
+                        "or": "currency_prices",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -3497,7 +4026,7 @@
                         "ex": true,
                         "k": "query",
                         "n": "currency_price",
-                        "or": "currency_price",
+                        "or": "currency_prices",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -3619,7 +4148,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.codes`"
                   }
                 }
               ]
@@ -3660,7 +4189,7 @@
                         "ex": true,
                         "k": "query",
                         "n": "currency_price",
-                        "or": "currency_price",
+                        "or": "currency_prices",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       }
@@ -3694,7 +4223,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.coupon`"
                   }
                 },
                 {
@@ -3719,7 +4248,7 @@
                         "ex": true,
                         "k": "query",
                         "n": "currency_price",
-                        "or": "currency_price",
+                        "or": "currency_prices",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -3806,7 +4335,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.coupon`"
                   }
                 }
               ]
@@ -3930,7 +4459,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.coupon`"
                   }
                 }
               ]
@@ -3993,7 +4522,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.coupon`"
                   }
                 }
               ]
@@ -4346,19 +4875,13 @@
             "field": {}
           },
           "fields": {
-            "current_page": {
-              "a": true,
-              "fo": "int32",
-              "h": "Current Page",
-              "n": "current_page",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
             "data_count": {
               "a": true,
+              "fo": "int32",
               "h": "Data Count",
               "n": "data_count",
               "r": false,
+              "sh": "The amount of subscriptions this metafield has been applied to in Advanced Billing.",
               "t": "`$INTEGER`"
             },
             "deleted_at": {
@@ -4425,14 +4948,6 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "per_page": {
-              "a": true,
-              "fo": "int32",
-              "h": "Per Page",
-              "n": "per_page",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
             "resource_id": {
               "a": true,
               "fo": "int32",
@@ -4447,22 +4962,6 @@
               "n": "scope",
               "r": false,
               "t": "`$OBJECT`"
-            },
-            "total_count": {
-              "a": true,
-              "fo": "int32",
-              "h": "Total Count",
-              "n": "total_count",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "total_pages": {
-              "a": true,
-              "fo": "int32",
-              "h": "Total Pages",
-              "n": "total_pages",
-              "r": false,
-              "t": "`$INTEGER`"
             },
             "value": {
               "a": true,
@@ -4655,7 +5154,7 @@
                         "a": true,
                         "k": "query",
                         "n": "resource_id",
-                        "or": "resource_id",
+                        "or": "resource_ids",
                         "r": false,
                         "t": "`$ARRAY`"
                       },
@@ -4795,7 +5294,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.metafields`"
                   }
                 },
                 {
@@ -4870,7 +5369,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.metadata`"
                   }
                 }
               ]
@@ -4918,7 +5417,7 @@
                         "a": true,
                         "k": "query",
                         "n": "name",
-                        "or": "name",
+                        "or": "names",
                         "r": false,
                         "t": "`$ARRAY`"
                       }
@@ -5186,14 +5685,13 @@
               "a": true,
               "h": "Customer",
               "n": "customer",
-              "op": {
-                "list": {
-                  "req": true,
-                  "type": "`$OBJECT`"
-                }
-              },
-              "r": false,
-              "t": "`$OBJECT`"
+              "r": true,
+              "t": "`$OBJECT`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 4
+              }
             },
             "default_auto_renewal_profile_id": {
               "a": true,
@@ -5523,7 +6021,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.customer`"
                   }
                 }
               ]
@@ -5689,7 +6187,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.customer`"
                   }
                 },
                 {
@@ -5827,7 +6325,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.customer`"
                   }
                 }
               ]
@@ -6648,22 +7146,50 @@
               "h": "Archived At",
               "n": "archived_at",
               "r": false,
+              "sh": "The date and time the feature template was archived, or `null` if it is active.",
               "t": "`$STRING`"
-            },
-            "archived_count": {
-              "a": true,
-              "fo": "int32",
-              "h": "Archived Count",
-              "n": "archived_count",
-              "r": true,
-              "sh": "Number of archived feature templates matching the filters.",
-              "t": "`$INTEGER`"
             },
             "created_at": {
               "a": true,
               "fo": "date-time",
               "h": "Created At",
               "n": "created_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "default_periodicity_interval": {
+              "a": true,
+              "fo": "int32",
+              "h": "Default Periodicity Interval",
+              "n": "default_periodicity_interval",
+              "r": false,
+              "sh": "For `usage_limit` features, the default periodicity interval used to pre-populate new feature catalog items.",
+              "t": "`$INTEGER`"
+            },
+            "default_periodicity_unit": {
+              "a": true,
+              "h": "Default Periodicity Unit",
+              "n": "default_periodicity_unit",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "default_value": {
+              "a": true,
+              "h": "Default Value",
+              "n": "default_value",
+              "r": false,
+              "sh": "A default value used to pre-populate new feature catalog items created from this template.",
+              "t": "`$STRING`"
+            },
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
               "r": false,
               "t": "`$STRING`"
             },
@@ -6723,19 +7249,31 @@
               "h": "Id",
               "n": "id",
               "r": false,
+              "sh": "The Advanced Billing id of the feature template.",
               "t": "`$INTEGER`"
             },
-            "items": {
+            "key": {
               "a": true,
-              "h": "Items",
-              "n": "items",
-              "r": true,
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 2,
-                "count": 1,
-                "depth": 5
-              }
+              "h": "Key",
+              "n": "key",
+              "r": false,
+              "sh": "A unique, lowercase, underscore-separated identifier for the feature.",
+              "t": "`$STRING`"
+            },
+            "kind": {
+              "a": true,
+              "h": "Kind",
+              "n": "kind",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "The display name of the feature.",
+              "t": "`$STRING`"
             },
             "periodicity_interval": {
               "a": true,
@@ -6758,6 +7296,15 @@
                 "depth": 2
               }
             },
+            "plans_count": {
+              "a": true,
+              "fo": "int32",
+              "h": "Plans Count",
+              "n": "plans_count",
+              "r": false,
+              "sh": "The number of **products** this feature template is currently attached to via an active feature catalog item.",
+              "t": "`$INTEGER`"
+            },
             "price_point_id": {
               "a": true,
               "fo": "int32",
@@ -6779,14 +7326,22 @@
                 "depth": 2
               }
             },
-            "total_count": {
+            "products_count": {
               "a": true,
               "fo": "int32",
-              "h": "Total Count",
-              "n": "total_count",
-              "r": true,
-              "sh": "Total number of feature templates matching the filters, across all pages.",
+              "h": "Products Count",
+              "n": "products_count",
+              "r": false,
+              "sh": "The number of **components** this feature template is currently attached to via an active feature catalog item.",
               "t": "`$INTEGER`"
+            },
+            "unit": {
+              "a": true,
+              "h": "Unit",
+              "n": "unit",
+              "r": false,
+              "sh": "The unit the feature is measured in (for example, `requests` or `GB`).",
+              "t": "`$STRING`"
             },
             "updated_at": {
               "a": true,
@@ -6803,6 +7358,13 @@
               "r": false,
               "sh": "The value granted by this feature catalog item.",
               "t": "`$STRING`"
+            },
+            "value_type": {
+              "a": true,
+              "h": "Value Type",
+              "n": "value_type",
+              "r": false,
+              "t": "`$ANY`"
             }
           },
           "id": {
@@ -6927,7 +7489,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.feature`"
                   }
                 }
               ]
@@ -7045,7 +7607,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.items`"
                   }
                 },
                 {
@@ -8029,12 +8591,73 @@
             "field": {}
           },
           "fields": {
-            "mrr": {
+            "amount_formatted": {
               "a": true,
-              "h": "Mrr",
-              "n": "mrr",
-              "r": true,
+              "h": "Amount Formatted",
+              "n": "amount_formatted",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "amount_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Amount In Cents",
+              "n": "amount_in_cents",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "at_time": {
+              "a": true,
+              "fo": "date-time",
+              "h": "At Time",
+              "n": "at_time",
+              "r": false,
+              "sh": "ISO8601 timestamp",
+              "t": "`$STRING`"
+            },
+            "breakouts": {
+              "a": true,
+              "h": "Breakouts",
+              "n": "breakouts",
+              "r": false,
               "t": "`$OBJECT`"
+            },
+            "currency": {
+              "a": true,
+              "h": "Currency",
+              "n": "currency",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "currency_symbol": {
+              "a": true,
+              "h": "Currency Symbol",
+              "n": "currency_symbol",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "movements": {
+              "a": true,
+              "h": "Movements",
+              "n": "movements",
+              "r": false,
+              "t": "`$ARRAY`"
+            },
+            "page": {
+              "a": true,
+              "fo": "int32",
+              "h": "Page",
+              "n": "page",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "per_page": {
+              "a": true,
+              "fo": "int32",
+              "h": "Per Page",
+              "n": "per_page",
+              "r": false,
+              "t": "`$INTEGER`"
             },
             "seller_name": {
               "a": true,
@@ -8071,6 +8694,22 @@
               "n": "stats",
               "r": false,
               "t": "`$OBJECT`"
+            },
+            "total_entries": {
+              "a": true,
+              "fo": "int32",
+              "h": "Total Entries",
+              "n": "total_entries",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "total_pages": {
+              "a": true,
+              "fo": "int32",
+              "h": "Total Pages",
+              "n": "total_pages",
+              "r": false,
+              "t": "`$INTEGER`"
             }
           },
           "name": "insight",
@@ -8143,7 +8782,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.mrr`"
                   }
                 },
                 {
@@ -8190,7 +8829,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.mrr`"
                   }
                 },
                 {
@@ -8306,13 +8945,6 @@
               "sh": "The amount of credit (from credit notes) applied to this invoice.",
               "t": "`$STRING`"
             },
-            "credit_notes": {
-              "a": true,
-              "h": "Credit Notes",
-              "n": "credit_notes",
-              "r": true,
-              "t": "`$ARRAY`"
-            },
             "credits": {
               "a": true,
               "h": "Credits",
@@ -8420,25 +9052,6 @@
               "n": "id",
               "r": false,
               "t": "`$INTEGER`"
-            },
-            "invoice": {
-              "a": true,
-              "h": "Invoice",
-              "n": "invoice",
-              "r": false,
-              "t": "`$OBJECT`"
-            },
-            "invoices": {
-              "a": true,
-              "h": "Invoices",
-              "n": "invoices",
-              "r": true,
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 2,
-                "count": 1,
-                "depth": 8
-              }
             },
             "issue_date": {
               "a": true,
@@ -8826,7 +9439,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.changes`"
                   }
                 },
                 {
@@ -9258,7 +9871,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.invoice`"
                   }
                 },
                 {
@@ -9330,7 +9943,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.payment`"
                   }
                 }
               ]
@@ -9361,7 +9974,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "credit",
-                        "or": "credit",
+                        "or": "credits",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -9370,7 +9983,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "custom_field",
-                        "or": "custom_field",
+                        "or": "custom_fields",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -9383,7 +9996,7 @@
                         ],
                         "k": "query",
                         "n": "customer_id",
-                        "or": "customer_id",
+                        "or": "customer_ids",
                         "r": false,
                         "t": "`$ARRAY`"
                       },
@@ -9408,7 +10021,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "discount",
-                        "or": "discount",
+                        "or": "discounts",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -9433,7 +10046,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "line_item",
-                        "or": "line_item",
+                        "or": "line_items",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -9463,7 +10076,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "payment",
-                        "or": "payment",
+                        "or": "payments",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -9484,7 +10097,7 @@
                         ],
                         "k": "query",
                         "n": "product_id",
-                        "or": "product_id",
+                        "or": "product_ids",
                         "r": false,
                         "t": "`$ARRAY`"
                       },
@@ -9493,7 +10106,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "refund",
-                        "or": "refund",
+                        "or": "refunds",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -9550,7 +10163,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "taxis",
-                        "or": "taxis",
+                        "or": "taxes",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       }
@@ -9594,7 +10207,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.invoices`"
                   }
                 },
                 {
@@ -9611,7 +10224,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "application",
-                        "or": "application",
+                        "or": "applications",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -9636,7 +10249,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "discount",
-                        "or": "discount",
+                        "or": "discounts",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -9661,7 +10274,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "line_item",
-                        "or": "line_item",
+                        "or": "line_items",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -9688,7 +10301,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "refund",
-                        "or": "refund",
+                        "or": "refunds",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -9721,7 +10334,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "taxis",
-                        "or": "taxis",
+                        "or": "taxes",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       }
@@ -9756,7 +10369,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.credit_notes`"
                   }
                 },
                 {
@@ -9772,7 +10385,7 @@
                         "a": true,
                         "k": "query",
                         "n": "event_type",
-                        "or": "event_type",
+                        "or": "event_types",
                         "r": false,
                         "t": "`$ARRAY`"
                       },
@@ -9854,7 +10467,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.events`"
                   }
                 },
                 {
@@ -9934,7 +10547,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.invoices`"
                   }
                 },
                 {
@@ -10324,576 +10937,6 @@
             ]
           }
         },
-        "list_proforma_invoice": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": {
-            "available_actions": {
-              "a": true,
-              "h": "Available Actions",
-              "n": "available_actions",
-              "r": false,
-              "t": "`$OBJECT`"
-            },
-            "billing_address": {
-              "a": true,
-              "h": "Billing Address",
-              "n": "billing_address",
-              "r": false,
-              "t": "`$OBJECT`"
-            },
-            "collection_method": {
-              "a": true,
-              "h": "Collection Method",
-              "n": "collection_method",
-              "r": false,
-              "t": "`$ANY`"
-            },
-            "consolidation_level": {
-              "a": true,
-              "h": "Consolidation Level",
-              "n": "consolidation_level",
-              "r": false,
-              "t": "`$ANY`"
-            },
-            "created_at": {
-              "a": true,
-              "fo": "date-time",
-              "h": "Created At",
-              "n": "created_at",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "credit_amount": {
-              "a": true,
-              "h": "Credit Amount",
-              "n": "credit_amount",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "credits": {
-              "a": true,
-              "h": "Credits",
-              "n": "credits",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
-            "currency": {
-              "a": true,
-              "h": "Currency",
-              "n": "currency",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "custom_fields": {
-              "a": true,
-              "h": "Custom Fields",
-              "n": "custom_fields",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
-            "customer": {
-              "a": true,
-              "h": "Customer",
-              "n": "customer",
-              "r": false,
-              "t": "`$ANY`"
-            },
-            "customer_id": {
-              "a": true,
-              "fo": "int32",
-              "h": "Customer Id",
-              "n": "customer_id",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "delivery_date": {
-              "a": true,
-              "fo": "date",
-              "h": "Delivery Date",
-              "n": "delivery_date",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "discount_amount": {
-              "a": true,
-              "h": "Discount Amount",
-              "n": "discount_amount",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "discounts": {
-              "a": true,
-              "h": "Discounts",
-              "n": "discounts",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
-            "due_amount": {
-              "a": true,
-              "h": "Due Amount",
-              "n": "due_amount",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "line_items": {
-              "a": true,
-              "h": "Line Items",
-              "n": "line_items",
-              "r": false,
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 2,
-                "count": 1,
-                "depth": 5
-              }
-            },
-            "memo": {
-              "a": true,
-              "h": "Memo",
-              "n": "memo",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "number": {
-              "a": true,
-              "fo": "int32",
-              "h": "Number",
-              "n": "number",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "paid_amount": {
-              "a": true,
-              "h": "Paid Amount",
-              "n": "paid_amount",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "payment_instructions": {
-              "a": true,
-              "h": "Payment Instructions",
-              "n": "payment_instructions",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "payments": {
-              "a": true,
-              "h": "Payments",
-              "n": "payments",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
-            "product_family_name": {
-              "a": true,
-              "h": "Product Family Name",
-              "n": "product_family_name",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "product_name": {
-              "a": true,
-              "h": "Product Name",
-              "n": "product_name",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "public_url": {
-              "a": true,
-              "h": "Public Url",
-              "n": "public_url",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "refund_amount": {
-              "a": true,
-              "h": "Refund Amount",
-              "n": "refund_amount",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "role": {
-              "a": true,
-              "h": "Role",
-              "n": "role",
-              "r": false,
-              "t": "`$ANY`"
-            },
-            "seller": {
-              "a": true,
-              "h": "Seller",
-              "n": "seller",
-              "r": false,
-              "t": "`$ANY`"
-            },
-            "sequence_number": {
-              "a": true,
-              "fo": "int32",
-              "h": "Sequence Number",
-              "n": "sequence_number",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "shipping_address": {
-              "a": true,
-              "h": "Shipping Address",
-              "n": "shipping_address",
-              "r": false,
-              "t": "`$OBJECT`"
-            },
-            "site_id": {
-              "a": true,
-              "fo": "int32",
-              "h": "Site Id",
-              "n": "site_id",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "status": {
-              "a": true,
-              "h": "Status",
-              "n": "status",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "subscription_id": {
-              "a": true,
-              "fo": "int32",
-              "h": "Subscription Id",
-              "n": "subscription_id",
-              "r": false,
-              "t": "`$INTEGER`"
-            },
-            "subtotal_amount": {
-              "a": true,
-              "h": "Subtotal Amount",
-              "n": "subtotal_amount",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "tax_amount": {
-              "a": true,
-              "h": "Tax Amount",
-              "n": "tax_amount",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "taxes": {
-              "a": true,
-              "h": "Taxes",
-              "n": "taxes",
-              "r": false,
-              "t": "`$ARRAY`"
-            },
-            "total_amount": {
-              "a": true,
-              "h": "Total Amount",
-              "n": "total_amount",
-              "r": false,
-              "t": "`$STRING`"
-            },
-            "uid": {
-              "a": true,
-              "h": "Uid",
-              "n": "uid",
-              "r": false,
-              "t": "`$STRING`"
-            }
-          },
-          "name": "list_proforma_invoice",
-          "op": {
-            "list": {
-              "input": "data",
-              "name": "list",
-              "points": [
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /subscriptions/{subscription_id}/proforma_invoices.json",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "k": "param",
-                        "n": "subscription_id",
-                        "or": "subscription_id",
-                        "r": true,
-                        "t": "`$INTEGER`"
-                      }
-                    ],
-                    "query": [
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "credit",
-                        "or": "credit",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      },
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "custom_field",
-                        "or": "custom_field",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      },
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "direction",
-                        "or": "direction",
-                        "r": false,
-                        "t": "`$ANY`"
-                      },
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "discount",
-                        "or": "discount",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      },
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "end_date",
-                        "or": "end_date",
-                        "r": false,
-                        "t": "`$STRING`"
-                      },
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "line_item",
-                        "or": "line_item",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      },
-                      {
-                        "a": true,
-                        "ex": 1,
-                        "k": "query",
-                        "n": "page",
-                        "or": "page",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      },
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "payment",
-                        "or": "payment",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      },
-                      {
-                        "a": true,
-                        "ex": 50,
-                        "k": "query",
-                        "n": "per_page",
-                        "or": "per_page",
-                        "r": false,
-                        "t": "`$INTEGER`"
-                      },
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "start_date",
-                        "or": "start_date",
-                        "r": false,
-                        "t": "`$STRING`"
-                      },
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "status",
-                        "or": "status",
-                        "r": false,
-                        "t": "`$ANY`"
-                      },
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "taxis",
-                        "or": "taxis",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/subscriptions/{subscription_id}/proforma_invoices.json",
-                  "q": {
-                    "exist": [
-                      "credit",
-                      "custom_field",
-                      "direction",
-                      "discount",
-                      "end_date",
-                      "line_item",
-                      "page",
-                      "payment",
-                      "per_page",
-                      "start_date",
-                      "status",
-                      "subscription_id",
-                      "taxis"
-                    ]
-                  },
-                  "r": {},
-                  "s": [
-                    {
-                      "lit": "subscriptions"
-                    },
-                    {
-                      "var": "subscription_id"
-                    },
-                    {
-                      "lit": "proforma_invoices.json"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /subscription_groups/{uid}/proforma_invoices.json",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "k": "param",
-                        "n": "subscription_group_id",
-                        "or": "uid",
-                        "r": true,
-                        "t": "`$STRING`"
-                      }
-                    ],
-                    "query": [
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "credit",
-                        "or": "credit",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      },
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "custom_field",
-                        "or": "custom_field",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      },
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "discount",
-                        "or": "discount",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      },
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "line_item",
-                        "or": "line_item",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      },
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "payment",
-                        "or": "payment",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      },
-                      {
-                        "a": true,
-                        "ex": false,
-                        "k": "query",
-                        "n": "taxis",
-                        "or": "taxis",
-                        "r": false,
-                        "t": "`$BOOLEAN`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/subscription_groups/{uid}/proforma_invoices.json",
-                  "q": {
-                    "exist": [
-                      "credit",
-                      "custom_field",
-                      "discount",
-                      "line_item",
-                      "payment",
-                      "subscription_group_id",
-                      "taxis"
-                    ]
-                  },
-                  "r": {
-                    "param": {
-                      "uid": "subscription_group_id"
-                    }
-                  },
-                  "s": [
-                    {
-                      "lit": "subscription_groups"
-                    },
-                    {
-                      "var": "subscription_group_id"
-                    },
-                    {
-                      "lit": "proforma_invoices.json"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                }
-              ]
-            }
-          },
-          "relations": {
-            "ancestors": [
-              [
-                "$.main.kit.entity.subscription_group"
-              ],
-              [
-                "$.main.kit.entity.subscription"
-              ]
-            ]
-          }
-        },
         "list_sale_rep_item": {
           "active": true,
           "alias": {
@@ -10962,7 +11005,7 @@
                         "ex": "Bearer <<apiKey>>",
                         "k": "header",
                         "n": "authorization",
-                        "or": "authorization",
+                        "or": "Authorization",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -11502,18 +11545,6 @@
               "r": false,
               "t": "`$ARRAY`"
             },
-            "offers": {
-              "a": true,
-              "h": "Offers",
-              "n": "offers",
-              "r": false,
-              "t": "`$ARRAY`",
-              "union": {
-                "branches": 2,
-                "count": 1,
-                "depth": 8
-              }
-            },
             "product_family_id": {
               "a": true,
               "fo": "int32",
@@ -11622,7 +11653,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.offer`"
                   }
                 }
               ]
@@ -11687,7 +11718,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.offers`"
                   }
                 }
               ]
@@ -11916,10 +11947,189 @@
             "field": {}
           },
           "fields": {
+            "bank_account_holder_type": {
+              "a": true,
+              "h": "Bank Account Holder Type",
+              "n": "bank_account_holder_type",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "bank_account_type": {
+              "a": true,
+              "h": "Bank Account Type",
+              "n": "bank_account_type",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "bank_name": {
+              "a": true,
+              "h": "Bank Name",
+              "n": "bank_name",
+              "r": false,
+              "sh": "The bank where the account resides",
+              "t": "`$STRING`"
+            },
+            "billing_address": {
+              "a": true,
+              "h": "Billing Address",
+              "n": "billing_address",
+              "r": false,
+              "sh": "The current billing street address for the bank account",
+              "t": "`$STRING`"
+            },
+            "billing_address_2": {
+              "a": true,
+              "h": "Billing Address 2",
+              "n": "billing_address_2",
+              "r": false,
+              "sh": "The current billing street address, second line, for the bank account",
+              "t": "`$STRING`"
+            },
+            "billing_city": {
+              "a": true,
+              "h": "Billing City",
+              "n": "billing_city",
+              "r": false,
+              "sh": "The current billing address city for the bank account",
+              "t": "`$STRING`"
+            },
+            "billing_country": {
+              "a": true,
+              "h": "Billing Country",
+              "n": "billing_country",
+              "r": false,
+              "sh": "The current billing address country for the bank account",
+              "t": "`$STRING`"
+            },
+            "billing_state": {
+              "a": true,
+              "h": "Billing State",
+              "n": "billing_state",
+              "r": false,
+              "sh": "The current billing address state for the bank account",
+              "t": "`$STRING`"
+            },
+            "billing_zip": {
+              "a": true,
+              "h": "Billing Zip",
+              "n": "billing_zip",
+              "r": false,
+              "sh": "The current billing address zip code for the bank account",
+              "t": "`$STRING`"
+            },
+            "card_type": {
+              "a": true,
+              "h": "Card Type",
+              "n": "card_type",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "sh": "A timestamp indicating when this payment profile was created",
+              "t": "`$STRING`"
+            },
+            "current_vault": {
+              "a": true,
+              "h": "Current Vault",
+              "n": "current_vault",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "customer_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Customer Id",
+              "n": "customer_id",
+              "r": false,
+              "sh": "The Chargify-assigned ID for the customer record to which the bank account belongs",
+              "t": "`$INTEGER`"
+            },
+            "customer_vault_token": {
+              "a": true,
+              "h": "Customer Vault Token",
+              "n": "customer_vault_token",
+              "r": false,
+              "sh": "(only for Authorize.Net CIM storage): the customerProfileId for the owner of the customerPaymentProfileId provided as the vault_token.",
+              "t": "`$STRING`"
+            },
+            "disabled": {
+              "a": true,
+              "h": "Disabled",
+              "n": "disabled",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "expiration_month": {
+              "a": true,
+              "h": "Expiration Month",
+              "n": "expiration_month",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "expiration_year": {
+              "a": true,
+              "h": "Expiration Year",
+              "n": "expiration_year",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "first_name": {
+              "a": true,
+              "h": "First Name",
+              "n": "first_name",
+              "r": false,
+              "sh": "The first name of the bank account holder",
+              "t": "`$STRING`"
+            },
+            "gateway_handle": {
+              "a": true,
+              "h": "Gateway Handle",
+              "n": "gateway_handle",
+              "r": false,
+              "t": "`$STRING`"
+            },
             "id": {
               "a": true,
+              "fo": "int32",
               "h": "Id",
               "n": "id",
+              "r": false,
+              "sh": "The Chargify-assigned ID of the stored bank account.",
+              "t": "`$INTEGER`"
+            },
+            "last_name": {
+              "a": true,
+              "h": "Last Name",
+              "n": "last_name",
+              "r": false,
+              "sh": "The last name of the bank account holder",
+              "t": "`$STRING`"
+            },
+            "masked_bank_account_number": {
+              "a": true,
+              "h": "Masked Bank Account Number",
+              "n": "masked_bank_account_number",
+              "r": false,
+              "sh": "A string representation of the stored bank account number with all but the last 4 digits marked with X's (i.e.",
+              "t": "`$STRING`"
+            },
+            "masked_bank_routing_number": {
+              "a": true,
+              "h": "Masked Bank Routing Number",
+              "n": "masked_bank_routing_number",
+              "r": false,
+              "sh": "A string representation of the stored bank routing number with all but the last 4 digits marked with X's (i.e.",
+              "t": "`$STRING`"
+            },
+            "masked_card_number": {
+              "a": true,
+              "h": "Masked Card Number",
+              "n": "masked_card_number",
               "r": false,
               "t": "`$STRING`"
             },
@@ -11927,14 +12137,59 @@
               "a": true,
               "h": "Payment Profile",
               "n": "payment_profile",
+              "r": true,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 10
+              }
+            },
+            "payment_type": {
+              "a": true,
+              "h": "Payment Type",
+              "n": "payment_type",
               "op": {
-                "list": {
+                "update": {
                   "req": true,
                   "type": "`$ANY`"
                 }
               },
               "r": false,
-              "t": "`$OBJECT`"
+              "t": "`$STRING`"
+            },
+            "site_gateway_setting_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Site Gateway Setting Id",
+              "n": "site_gateway_setting_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "updated_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Updated At",
+              "n": "updated_at",
+              "r": false,
+              "sh": "A timestamp indicating when this payment profile was last updated",
+              "t": "`$STRING`"
+            },
+            "vault_token": {
+              "a": true,
+              "h": "Vault Token",
+              "n": "vault_token",
+              "r": false,
+              "sh": "The \"token\" provided by your vault storage for an already stored payment profile",
+              "t": "`$STRING`"
+            },
+            "verified": {
+              "a": true,
+              "h": "Verified",
+              "n": "verified",
+              "r": false,
+              "sh": "Denotes whether a bank account has been verified by providing the amounts of two small deposits made into the account.",
+              "t": "`$BOOLEAN`"
             }
           },
           "id": {
@@ -12009,7 +12264,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.payment_profile`"
                   }
                 },
                 {
@@ -12073,7 +12328,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.payment_profile`"
                   }
                 },
                 {
@@ -12140,7 +12395,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.payment_profile`"
                   }
                 }
               ]
@@ -12252,7 +12507,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.payment_profile`"
                   }
                 }
               ]
@@ -12468,7 +12723,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.payment_profile`"
                   }
                 },
                 {
@@ -12510,7 +12765,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.payment_profile`"
                   }
                 }
               ]
@@ -12632,24 +12887,349 @@
             "field": {}
           },
           "fields": {
+            "accounting_code": {
+              "a": true,
+              "h": "Accounting Code",
+              "n": "accounting_code",
+              "r": false,
+              "sh": "E.g., Internal ID or SKU Number",
+              "t": "`$STRING`"
+            },
+            "archived_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Archived At",
+              "n": "archived_at",
+              "r": false,
+              "sh": "Timestamp indicating when this product was archived",
+              "t": "`$STRING`"
+            },
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "sh": "Timestamp indicating when this product was created",
+              "t": "`$STRING`"
+            },
+            "default_product_price_point_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Default Product Price Point Id",
+              "n": "default_product_price_point_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "sh": "The product description",
+              "t": "`$STRING`"
+            },
+            "expiration_interval": {
+              "a": true,
+              "fo": "int32",
+              "h": "Expiration Interval",
+              "n": "expiration_interval",
+              "r": false,
+              "sh": "A numerical interval for the length a subscription to this product will run before it expires.",
+              "t": "`$INTEGER`"
+            },
+            "expiration_interval_unit": {
+              "a": true,
+              "h": "Expiration Interval Unit",
+              "n": "expiration_interval_unit",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "features": {
+              "a": true,
+              "h": "Features",
+              "n": "features",
+              "r": false,
+              "sh": "The active feature catalog items attached to this product.",
+              "t": "`$ARRAY`",
+              "union": {
+                "branches": 2,
+                "count": 2,
+                "depth": 5
+              }
+            },
+            "handle": {
+              "a": true,
+              "h": "Handle",
+              "n": "handle",
+              "r": false,
+              "sh": "The product API handle",
+              "t": "`$STRING`"
+            },
+            "id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "initial_charge_after_trial": {
+              "a": true,
+              "h": "Initial Charge After Trial",
+              "n": "initial_charge_after_trial",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "initial_charge_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Initial Charge In Cents",
+              "n": "initial_charge_in_cents",
+              "r": false,
+              "sh": "The up front charge you have specified.",
+              "t": "`$INTEGER`"
+            },
+            "interval": {
+              "a": true,
+              "fo": "int32",
+              "h": "Interval",
+              "n": "interval",
+              "r": false,
+              "sh": "The numerical interval.",
+              "t": "`$INTEGER`"
+            },
+            "interval_unit": {
+              "a": true,
+              "h": "Interval Unit",
+              "n": "interval_unit",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "item_category": {
+              "a": true,
+              "h": "Item Category",
+              "n": "item_category",
+              "r": false,
+              "sh": "One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other",
+              "t": "`$STRING`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "The product name",
+              "t": "`$STRING`"
+            },
+            "price_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Price In Cents",
+              "n": "price_in_cents",
+              "r": false,
+              "sh": "The product price, in integer cents",
+              "t": "`$INTEGER`"
+            },
             "product": {
               "a": true,
               "h": "Product",
               "n": "product",
               "op": {
-                "create": {
-                  "req": false,
+                "list": {
+                  "req": true,
                   "type": "`$OBJECT`"
                 }
               },
-              "r": true,
-              "t": "`$OBJECT`",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "product_family": {
+              "a": true,
+              "h": "Product Family",
+              "n": "product_family",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "product_price_point_handle": {
+              "a": true,
+              "h": "Product Price Point Handle",
+              "n": "product_price_point_handle",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "product_price_point_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Product Price Point Id",
+              "n": "product_price_point_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "product_price_point_name": {
+              "a": true,
+              "h": "Product Price Point Name",
+              "n": "product_price_point_name",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "public_signup_pages": {
+              "a": true,
+              "h": "Public Signup Pages",
+              "n": "public_signup_pages",
+              "r": false,
+              "t": "`$ARRAY`"
+            },
+            "request_billing_address": {
+              "a": true,
+              "h": "Request Billing Address",
+              "n": "request_billing_address",
+              "r": false,
+              "sh": "A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product.",
+              "t": "`$BOOLEAN`"
+            },
+            "request_credit_card": {
+              "a": true,
+              "h": "Request Credit Card",
+              "n": "request_credit_card",
+              "r": false,
+              "sh": "Deprecated value that can be ignored unless you have legacy hosted pages.",
+              "t": "`$BOOLEAN`"
+            },
+            "require_billing_address": {
+              "a": true,
+              "h": "Require Billing Address",
+              "n": "require_billing_address",
+              "r": false,
+              "sh": "A boolean indicating whether a billing address is required to add a payment profile, especially at signup.",
+              "t": "`$BOOLEAN`"
+            },
+            "require_credit_card": {
+              "a": true,
+              "h": "Require Credit Card",
+              "n": "require_credit_card",
+              "r": false,
+              "sh": "Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product.",
+              "t": "`$BOOLEAN`"
+            },
+            "require_shipping_address": {
+              "a": true,
+              "h": "Require Shipping Address",
+              "n": "require_shipping_address",
+              "r": false,
+              "sh": "A boolean indicating whether a shipping address is required for the customer, especially at signup.",
+              "t": "`$BOOLEAN`"
+            },
+            "return_params": {
+              "a": true,
+              "h": "Return Params",
+              "n": "return_params",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "tax_code": {
+              "a": true,
+              "h": "Tax Code",
+              "n": "tax_code",
+              "r": false,
+              "sh": "A string representing the tax code related to the product type.",
+              "t": "`$STRING`"
+            },
+            "taxable": {
+              "a": true,
+              "h": "Taxable",
+              "n": "taxable",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "trial_interval": {
+              "a": true,
+              "fo": "int32",
+              "h": "Trial Interval",
+              "n": "trial_interval",
+              "r": false,
+              "sh": "A numerical interval for the length of the trial period of a subscription to this product.",
+              "t": "`$INTEGER`"
+            },
+            "trial_interval_unit": {
+              "a": true,
+              "h": "Trial Interval Unit",
+              "n": "trial_interval_unit",
+              "r": false,
+              "t": "`$ANY`",
               "union": {
                 "branches": 2,
-                "count": 4,
-                "depth": 7
+                "count": 1,
+                "depth": 2
               }
+            },
+            "trial_price_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Trial Price In Cents",
+              "n": "trial_price_in_cents",
+              "r": false,
+              "sh": "The price of the trial period for a subscription to this product, in integer cents.",
+              "t": "`$INTEGER`"
+            },
+            "unspsc_code": {
+              "a": true,
+              "h": "Unspsc Code",
+              "n": "unspsc_code",
+              "r": false,
+              "sh": "(Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data.",
+              "t": "`$STRING`"
+            },
+            "update_return_params": {
+              "a": true,
+              "h": "Update Return Params",
+              "n": "update_return_params",
+              "r": false,
+              "sh": "The parameters will append to the url after a successful account update.",
+              "t": "`$STRING`"
+            },
+            "update_return_url": {
+              "a": true,
+              "h": "Update Return Url",
+              "n": "update_return_url",
+              "r": false,
+              "sh": "The url to which a customer will be returned after a successful account update",
+              "t": "`$STRING`"
+            },
+            "updated_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Updated At",
+              "n": "updated_at",
+              "r": false,
+              "sh": "Timestamp indicating when this product was last updated",
+              "t": "`$STRING`"
+            },
+            "use_site_exchange_rate": {
+              "a": true,
+              "h": "Use Site Exchange Rate",
+              "n": "use_site_exchange_rate",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "version_number": {
+              "a": true,
+              "fo": "int32",
+              "h": "Version Number",
+              "n": "version_number",
+              "r": false,
+              "sh": "The version of the product",
+              "t": "`$INTEGER`"
             }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
           },
           "name": "product",
           "op": {
@@ -12698,7 +13278,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.product`"
                   }
                 }
               ]
@@ -12770,7 +13350,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "include_feature",
-                        "or": "include_feature",
+                        "or": "include_features",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -13007,7 +13587,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "include_feature",
-                        "or": "include_feature",
+                        "or": "include_features",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       }
@@ -13034,7 +13614,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.product`"
                   }
                 },
                 {
@@ -13078,7 +13658,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.product`"
                   }
                 }
               ]
@@ -13126,7 +13706,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.product`"
                   }
                 }
               ]
@@ -13176,7 +13756,7 @@
                     "req": {
                       "product": "`reqdata`"
                     },
-                    "res": "`body`"
+                    "res": "`body.product`"
                   }
                 }
               ]
@@ -13196,10 +13776,56 @@
             "field": {}
           },
           "fields": {
+            "accounting_code": {
+              "a": true,
+              "h": "Accounting Code",
+              "n": "accounting_code",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "archived_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Archived At",
+              "n": "archived_at",
+              "r": false,
+              "sh": "Timestamp indicating when this product family was archived.",
+              "t": "`$STRING`"
+            },
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "handle": {
+              "a": true,
+              "h": "Handle",
+              "n": "handle",
+              "r": false,
+              "t": "`$STRING`"
+            },
             "id": {
               "a": true,
+              "fo": "int32",
               "h": "Id",
               "n": "id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
               "r": false,
               "t": "`$STRING`"
             },
@@ -13209,6 +13835,22 @@
               "n": "product_family",
               "r": false,
               "t": "`$OBJECT`"
+            },
+            "surcharging": {
+              "a": true,
+              "h": "Surcharging",
+              "n": "surcharging",
+              "r": false,
+              "sh": "Whether surcharging applies to this product family.",
+              "t": "`$BOOLEAN`"
+            },
+            "updated_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Updated At",
+              "n": "updated_at",
+              "r": false,
+              "t": "`$STRING`"
             }
           },
           "id": {
@@ -13241,7 +13883,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.product_family`"
                   }
                 }
               ]
@@ -13369,7 +14011,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.product_family`"
                   }
                 }
               ]
@@ -13435,7 +14077,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "destroy_entitlement",
-                        "or": "destroy_entitlement",
+                        "or": "destroy_entitlements",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       }
@@ -13488,59 +14130,407 @@
             "field": {}
           },
           "fields": {
+            "accounting_code": {
+              "a": true,
+              "h": "Accounting Code",
+              "n": "accounting_code",
+              "r": false,
+              "sh": "E.g., Internal ID or SKU Number",
+              "t": "`$STRING`"
+            },
+            "archived_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Archived At",
+              "n": "archived_at",
+              "r": false,
+              "sh": "Timestamp indicating when this price point was archived",
+              "t": "`$STRING`"
+            },
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "sh": "Timestamp indicating when this price point was created",
+              "t": "`$STRING`"
+            },
+            "currency_prices": {
+              "a": true,
+              "h": "Currency Prices",
+              "n": "currency_prices",
+              "r": false,
+              "sh": "An array of currency pricing data is available when multiple currencies are defined for the site.",
+              "t": "`$ARRAY`"
+            },
+            "default_product_price_point_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Default Product Price Point Id",
+              "n": "default_product_price_point_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "sh": "The product description",
+              "t": "`$STRING`"
+            },
+            "expiration_interval": {
+              "a": true,
+              "fo": "int32",
+              "h": "Expiration Interval",
+              "n": "expiration_interval",
+              "r": false,
+              "sh": "The numerical expiration interval.",
+              "t": "`$INTEGER`"
+            },
+            "expiration_interval_unit": {
+              "a": true,
+              "h": "Expiration Interval Unit",
+              "n": "expiration_interval_unit",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "features": {
+              "a": true,
+              "h": "Features",
+              "n": "features",
+              "r": false,
+              "sh": "The active feature catalog items attached to this product.",
+              "t": "`$ARRAY`",
+              "union": {
+                "branches": 2,
+                "count": 2,
+                "depth": 5
+              }
+            },
+            "handle": {
+              "a": true,
+              "h": "Handle",
+              "n": "handle",
+              "r": false,
+              "sh": "The product price point API handle",
+              "t": "`$STRING`"
+            },
             "id": {
               "a": true,
+              "fo": "int32",
               "h": "Id",
               "n": "id",
               "r": false,
+              "t": "`$INTEGER`"
+            },
+            "initial_charge_after_trial": {
+              "a": true,
+              "h": "Initial Charge After Trial",
+              "n": "initial_charge_after_trial",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "initial_charge_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Initial Charge In Cents",
+              "n": "initial_charge_in_cents",
+              "r": false,
+              "sh": "The product price point initial charge, in integer cents",
+              "t": "`$INTEGER`"
+            },
+            "interval": {
+              "a": true,
+              "fo": "int32",
+              "h": "Interval",
+              "n": "interval",
+              "r": false,
+              "sh": "The numerical interval.",
+              "t": "`$INTEGER`"
+            },
+            "interval_unit": {
+              "a": true,
+              "h": "Interval Unit",
+              "n": "interval_unit",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "introductory_offer": {
+              "a": true,
+              "h": "Introductory Offer",
+              "n": "introductory_offer",
+              "r": false,
+              "sh": "reserved for future use",
+              "t": "`$BOOLEAN`"
+            },
+            "item_category": {
+              "a": true,
+              "h": "Item Category",
+              "n": "item_category",
+              "r": false,
+              "sh": "One of the following: Business Software, Consumer Software, Digital Services, Physical Goods, Other",
               "t": "`$STRING`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "The product price point name",
+              "t": "`$STRING`"
+            },
+            "price_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Price In Cents",
+              "n": "price_in_cents",
+              "r": false,
+              "sh": "The product price point price, in integer cents",
+              "t": "`$INTEGER`"
             },
             "price_point": {
               "a": true,
               "h": "Price Point",
               "n": "price_point",
-              "op": {
-                "create": {
-                  "req": false,
-                  "type": "`$OBJECT`"
-                },
-                "update": {
-                  "req": false,
-                  "type": "`$OBJECT`"
-                }
-              },
-              "r": true,
-              "t": "`$OBJECT`",
-              "union": {
-                "branches": 2,
-                "count": 3,
-                "depth": 4
-              }
+              "r": false,
+              "t": "`$OBJECT`"
             },
             "price_points": {
               "a": true,
               "h": "Price Points",
               "n": "price_points",
-              "op": {
-                "list": {
-                  "req": true,
-                  "type": "`$ARRAY`"
-                }
-              },
               "r": false,
               "t": "`$ARRAY`"
             },
-            "product": {
+            "product_family": {
               "a": true,
-              "h": "Product",
-              "n": "product",
-              "r": true,
-              "t": "`$OBJECT`",
+              "h": "Product Family",
+              "n": "product_family",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "product_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Product Id",
+              "n": "product_id",
+              "r": false,
+              "sh": "The product id this price point belongs to",
+              "t": "`$INTEGER`"
+            },
+            "product_price_point_handle": {
+              "a": true,
+              "h": "Product Price Point Handle",
+              "n": "product_price_point_handle",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "product_price_point_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Product Price Point Id",
+              "n": "product_price_point_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "product_price_point_name": {
+              "a": true,
+              "h": "Product Price Point Name",
+              "n": "product_price_point_name",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "public_signup_pages": {
+              "a": true,
+              "h": "Public Signup Pages",
+              "n": "public_signup_pages",
+              "r": false,
+              "t": "`$ARRAY`"
+            },
+            "request_billing_address": {
+              "a": true,
+              "h": "Request Billing Address",
+              "n": "request_billing_address",
+              "r": false,
+              "sh": "A boolean indicating whether to request a billing address on any Self-Service Pages that are used by subscribers of this product.",
+              "t": "`$BOOLEAN`"
+            },
+            "request_credit_card": {
+              "a": true,
+              "h": "Request Credit Card",
+              "n": "request_credit_card",
+              "r": false,
+              "sh": "Deprecated value that can be ignored unless you have legacy hosted pages.",
+              "t": "`$BOOLEAN`"
+            },
+            "require_billing_address": {
+              "a": true,
+              "h": "Require Billing Address",
+              "n": "require_billing_address",
+              "r": false,
+              "sh": "A boolean indicating whether a billing address is required to add a payment profile, especially at signup.",
+              "t": "`$BOOLEAN`"
+            },
+            "require_credit_card": {
+              "a": true,
+              "h": "Require Credit Card",
+              "n": "require_credit_card",
+              "r": false,
+              "sh": "Boolean that controls whether a payment profile is required to be entered for customers wishing to sign up on this product.",
+              "t": "`$BOOLEAN`"
+            },
+            "require_shipping_address": {
+              "a": true,
+              "h": "Require Shipping Address",
+              "n": "require_shipping_address",
+              "r": false,
+              "sh": "A boolean indicating whether a shipping address is required for the customer, especially at signup.",
+              "t": "`$BOOLEAN`"
+            },
+            "return_params": {
+              "a": true,
+              "h": "Return Params",
+              "n": "return_params",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "subscription_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Subscription Id",
+              "n": "subscription_id",
+              "r": false,
+              "sh": "The subscription id this price point belongs to",
+              "t": "`$INTEGER`"
+            },
+            "tax_code": {
+              "a": true,
+              "h": "Tax Code",
+              "n": "tax_code",
+              "r": false,
+              "sh": "A string representing the tax code related to the product type.",
+              "t": "`$STRING`"
+            },
+            "tax_included": {
+              "a": true,
+              "h": "Tax Included",
+              "n": "tax_included",
+              "r": false,
+              "sh": "Whether or not the price point includes tax",
+              "t": "`$BOOLEAN`"
+            },
+            "taxable": {
+              "a": true,
+              "h": "Taxable",
+              "n": "taxable",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "trial_interval": {
+              "a": true,
+              "fo": "int32",
+              "h": "Trial Interval",
+              "n": "trial_interval",
+              "r": false,
+              "sh": "The numerical trial interval.",
+              "t": "`$INTEGER`"
+            },
+            "trial_interval_unit": {
+              "a": true,
+              "h": "Trial Interval Unit",
+              "n": "trial_interval_unit",
+              "r": false,
+              "t": "`$ANY`",
               "union": {
                 "branches": 2,
-                "count": 4,
-                "depth": 7
+                "count": 1,
+                "depth": 2
               }
+            },
+            "trial_price_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Trial Price In Cents",
+              "n": "trial_price_in_cents",
+              "r": false,
+              "sh": "The product price point trial price, in integer cents",
+              "t": "`$INTEGER`"
+            },
+            "trial_type": {
+              "a": true,
+              "h": "Trial Type",
+              "n": "trial_type",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "unspsc_code": {
+              "a": true,
+              "h": "Unspsc Code",
+              "n": "unspsc_code",
+              "r": false,
+              "sh": "(Optional) Custom UNSPSC commodity code for Level 3/CEDP payment data.",
+              "t": "`$STRING`"
+            },
+            "update_return_params": {
+              "a": true,
+              "h": "Update Return Params",
+              "n": "update_return_params",
+              "r": false,
+              "sh": "The parameters will append to the url after a successful account update.",
+              "t": "`$STRING`"
+            },
+            "update_return_url": {
+              "a": true,
+              "h": "Update Return Url",
+              "n": "update_return_url",
+              "r": false,
+              "sh": "The url to which a customer will be returned after a successful account update",
+              "t": "`$STRING`"
+            },
+            "updated_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Updated At",
+              "n": "updated_at",
+              "r": false,
+              "sh": "Timestamp indicating when this price point was last updated",
+              "t": "`$STRING`"
+            },
+            "use_site_exchange_rate": {
+              "a": true,
+              "h": "Use Site Exchange Rate",
+              "n": "use_site_exchange_rate",
+              "r": false,
+              "sh": "Whether or not to use the site's exchange rate or define your own pricing when your site has multiple currencies defined.",
+              "t": "`$BOOLEAN`"
+            },
+            "version_number": {
+              "a": true,
+              "fo": "int32",
+              "h": "Version Number",
+              "n": "version_number",
+              "r": false,
+              "sh": "The version of the product",
+              "t": "`$INTEGER`"
             }
           },
           "id": {
@@ -13647,7 +14637,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_point`"
                   }
                 },
                 {
@@ -13734,7 +14724,7 @@
                         "a": true,
                         "k": "query",
                         "n": "currency_price",
-                        "or": "currency_price",
+                        "or": "currency_prices",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -13746,7 +14736,7 @@
                         ],
                         "k": "query",
                         "n": "filter_type",
-                        "or": "filter_type",
+                        "or": "filter[type]",
                         "r": false,
                         "t": "`$ARRAY`"
                       },
@@ -13801,7 +14791,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_points`"
                   }
                 },
                 {
@@ -13877,7 +14867,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_points`"
                   }
                 }
               ]
@@ -13917,7 +14907,7 @@
                         "a": true,
                         "k": "query",
                         "n": "currency_price",
-                        "or": "currency_price",
+                        "or": "currency_prices",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       }
@@ -13950,7 +14940,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_point`"
                   }
                 }
               ]
@@ -14015,7 +15005,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.product`"
                   }
                 },
                 {
@@ -14074,7 +15064,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_point`"
                   }
                 }
               ]
@@ -14136,7 +15126,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_point`"
                   }
                 }
               ]
@@ -14198,7 +15188,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.price_point`"
                   }
                 },
                 {
@@ -14832,6 +15822,278 @@
                 {
                   "a": true,
                   "co": {
+                    "id": "GET /subscriptions/{subscription_id}/proforma_invoices.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "subscription_id",
+                        "or": "subscription_id",
+                        "r": true,
+                        "t": "`$INTEGER`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "credit",
+                        "or": "credits",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "custom_field",
+                        "or": "custom_fields",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "direction",
+                        "or": "direction",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "discount",
+                        "or": "discounts",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "end_date",
+                        "or": "end_date",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "line_item",
+                        "or": "line_items",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "payment",
+                        "or": "payments",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "per_page",
+                        "or": "per_page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "start_date",
+                        "or": "start_date",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "status",
+                        "or": "status",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "taxis",
+                        "or": "taxes",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/subscriptions/{subscription_id}/proforma_invoices.json",
+                  "q": {
+                    "exist": [
+                      "credit",
+                      "custom_field",
+                      "direction",
+                      "discount",
+                      "end_date",
+                      "line_item",
+                      "page",
+                      "payment",
+                      "per_page",
+                      "start_date",
+                      "status",
+                      "subscription_id",
+                      "taxis"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "subscriptions"
+                    },
+                    {
+                      "var": "subscription_id"
+                    },
+                    {
+                      "lit": "proforma_invoices.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.proforma_invoices`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /subscription_groups/{uid}/proforma_invoices.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "subscription_group_id",
+                        "or": "uid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "credit",
+                        "or": "credits",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "custom_field",
+                        "or": "custom_fields",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "discount",
+                        "or": "discounts",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "line_item",
+                        "or": "line_items",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "payment",
+                        "or": "payments",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "taxis",
+                        "or": "taxes",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/subscription_groups/{uid}/proforma_invoices.json",
+                  "q": {
+                    "exist": [
+                      "credit",
+                      "custom_field",
+                      "discount",
+                      "line_item",
+                      "payment",
+                      "subscription_group_id",
+                      "taxis"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "uid": "subscription_group_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "subscription_groups"
+                    },
+                    {
+                      "var": "subscription_group_id"
+                    },
+                    {
+                      "lit": "proforma_invoices.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.proforma_invoices`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
                     "id": "GET /api_exports/proforma_invoices/{batch_id}/rows.json",
                     "source": "openapi3",
                     "version": 2
@@ -15273,7 +16535,43 @@
           "alias": {
             "field": {}
           },
-          "fields": {},
+          "fields": {
+            "code": {
+              "a": true,
+              "h": "Code",
+              "n": "code",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "site_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Site Id",
+              "n": "site_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "subscription_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Subscription Id",
+              "n": "subscription_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
           "name": "referral_code",
           "op": {
             "load": {
@@ -15319,7 +16617,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.referral_code`"
                   }
                 }
               ]
@@ -15407,7 +16705,7 @@
                         "ex": "Bearer <<apiKey>>",
                         "k": "header",
                         "n": "authorization",
-                        "or": "authorization",
+                        "or": "Authorization",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -15555,7 +16853,7 @@
                         "ex": "Bearer <<apiKey>>",
                         "k": "header",
                         "n": "authorization",
-                        "or": "authorization",
+                        "or": "Authorization",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -15993,32 +17291,182 @@
             "field": {}
           },
           "fields": {
-            "chargify_js_keys": {
+            "allocation_settings": {
               "a": true,
-              "h": "Chargify Js Keys",
-              "n": "chargify_js_keys",
+              "h": "Allocation Settings",
+              "n": "allocation_settings",
               "r": false,
-              "t": "`$ARRAY`"
-            },
-            "meta": {
-              "a": true,
-              "h": "Meta",
-              "n": "meta",
-              "r": false,
-              "t": "`$OBJECT`"
-            },
-            "site": {
-              "a": true,
-              "h": "Site",
-              "n": "site",
-              "r": true,
               "t": "`$OBJECT`",
               "union": {
                 "branches": 2,
                 "count": 2,
-                "depth": 6
+                "depth": 4
               }
+            },
+            "auto_renewals_enabled": {
+              "a": true,
+              "h": "Auto Renewals Enabled",
+              "n": "auto_renewals_enabled",
+              "r": false,
+              "sh": "Whether the auto-renewals feature is enabled for this site.",
+              "t": "`$BOOLEAN`"
+            },
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "currency": {
+              "a": true,
+              "h": "Currency",
+              "n": "currency",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "customer_hierarchy_enabled": {
+              "a": true,
+              "h": "Customer Hierarchy Enabled",
+              "n": "customer_hierarchy_enabled",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "default_payment_collection_method": {
+              "a": true,
+              "h": "Default Payment Collection Method",
+              "n": "default_payment_collection_method",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "multi_frequency_enabled": {
+              "a": true,
+              "h": "Multi Frequency Enabled",
+              "n": "multi_frequency_enabled",
+              "r": false,
+              "sh": "Whether the site has the multi-frequency billing feature enabled.",
+              "t": "`$BOOLEAN`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "net_terms": {
+              "a": true,
+              "h": "Net Terms",
+              "n": "net_terms",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "non_primary_currencies": {
+              "a": true,
+              "h": "Non Primary Currencies",
+              "n": "non_primary_currencies",
+              "r": false,
+              "t": "`$ARRAY`"
+            },
+            "organization_address": {
+              "a": true,
+              "h": "Organization Address",
+              "n": "organization_address",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "portal_enabled": {
+              "a": true,
+              "h": "Portal Enabled",
+              "n": "portal_enabled",
+              "r": false,
+              "sh": "Whether the Billing Portal is enabled for this site.",
+              "t": "`$BOOLEAN`"
+            },
+            "public_key": {
+              "a": true,
+              "h": "Public Key",
+              "n": "public_key",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "relationship_invoicing_enabled": {
+              "a": true,
+              "h": "Relationship Invoicing Enabled",
+              "n": "relationship_invoicing_enabled",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "requires_security_token": {
+              "a": true,
+              "h": "Requires Security Token",
+              "n": "requires_security_token",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "schedule_subscription_cancellation_enabled": {
+              "a": true,
+              "h": "Schedule Subscription Cancellation Enabled",
+              "n": "schedule_subscription_cancellation_enabled",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "seller_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Seller Id",
+              "n": "seller_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "subdomain": {
+              "a": true,
+              "h": "Subdomain",
+              "n": "subdomain",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "tax_configuration": {
+              "a": true,
+              "h": "Tax Configuration",
+              "n": "tax_configuration",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "test": {
+              "a": true,
+              "h": "Test",
+              "n": "test",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "whopays_default_payer": {
+              "a": true,
+              "h": "Whopays Default Payer",
+              "n": "whopays_default_payer",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "whopays_enabled": {
+              "a": true,
+              "h": "Whopays Enabled",
+              "n": "whopays_enabled",
+              "r": false,
+              "t": "`$BOOLEAN`"
             }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
           },
           "name": "site",
           "op": {
@@ -16120,7 +17568,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.chargify_js_keys`"
                   }
                 }
               ]
@@ -16149,7 +17597,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.site`"
                   }
                 }
               ]
@@ -16857,7 +18305,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 },
                 {
@@ -16955,7 +18403,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.prepaid_configuration`"
                   }
                 },
                 {
@@ -16978,7 +18426,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 },
                 {
@@ -17006,7 +18454,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription_preview`"
                   }
                 }
               ]
@@ -17060,7 +18508,7 @@
                         "a": true,
                         "k": "query",
                         "n": "currency",
-                        "or": "currency",
+                        "or": "currencies",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -17152,7 +18600,7 @@
                         "a": true,
                         "k": "query",
                         "n": "payment_gateway",
-                        "or": "payment_gateway",
+                        "or": "payment_gateways",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -17452,7 +18900,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 },
                 {
@@ -17706,7 +19154,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 }
               ]
@@ -17726,6 +19174,14 @@
             "field": {}
           },
           "fields": {
+            "accrue_charge": {
+              "a": true,
+              "h": "Accrue Charge",
+              "n": "accrue_charge",
+              "r": false,
+              "sh": "If the change in cost is an upgrade, this determines if the charge should accrue to the next renewal or if capture should be attempted immediately.",
+              "t": "`$BOOLEAN`"
+            },
             "allocated_quantity": {
               "a": true,
               "h": "Allocated Quantity",
@@ -17739,19 +19195,26 @@
                 "depth": 0
               }
             },
-            "allocation": {
+            "allocation_id": {
               "a": true,
-              "h": "Allocation",
-              "n": "allocation",
+              "fo": "int32",
+              "h": "Allocation Id",
+              "n": "allocation_id",
               "r": false,
-              "t": "`$OBJECT`"
+              "sh": "The allocation unique ID",
+              "t": "`$INTEGER`"
             },
-            "allocation_preview": {
+            "allocations": {
               "a": true,
-              "h": "Allocation Preview",
-              "n": "allocation_preview",
+              "h": "Allocations",
+              "n": "allocations",
               "r": false,
-              "t": "`$OBJECT`"
+              "t": "`$ARRAY`",
+              "union": {
+                "branches": 2,
+                "count": 5,
+                "depth": 5
+              }
             },
             "allow_fractional_quantities": {
               "a": true,
@@ -17767,6 +19230,14 @@
               "n": "archived_at",
               "r": false,
               "t": "`$STRING`"
+            },
+            "charge_id": {
+              "a": true,
+              "fo": "int64",
+              "h": "Charge Id",
+              "n": "charge_id",
+              "r": false,
+              "t": "`$INTEGER`"
             },
             "component": {
               "a": true,
@@ -17785,6 +19256,7 @@
               "h": "Component Handle",
               "n": "component_handle",
               "r": false,
+              "sh": "The handle of the component.",
               "t": "`$STRING`"
             },
             "component_id": {
@@ -17793,6 +19265,7 @@
               "h": "Component Id",
               "n": "component_id",
               "r": false,
+              "sh": "The integer component ID for the allocation.",
               "t": "`$INTEGER`"
             },
             "created_at": {
@@ -17801,6 +19274,7 @@
               "h": "Created At",
               "n": "created_at",
               "r": false,
+              "sh": "Timestamp indicating when this allocation was created",
               "t": "`$STRING`"
             },
             "currency": {
@@ -17814,6 +19288,13 @@
               "a": true,
               "h": "Description",
               "n": "description",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "direction": {
+              "a": true,
+              "h": "Direction",
+              "n": "direction",
               "r": false,
               "t": "`$STRING`"
             },
@@ -17844,6 +19325,31 @@
               "sh": "(for on/off components) indicates if the component is enabled for the subscription.",
               "t": "`$BOOLEAN`"
             },
+            "end_date": {
+              "a": true,
+              "fo": "date-time",
+              "h": "End Date",
+              "n": "end_date",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "existing_balance_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Existing Balance In Cents",
+              "n": "existing_balance_in_cents",
+              "r": false,
+              "sh": "An integer representing the amount of the subscription's current balance",
+              "t": "`$INTEGER`"
+            },
+            "expires_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Expires At",
+              "n": "expires_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
             "historic_usages": {
               "a": true,
               "h": "Historic Usages",
@@ -17858,6 +19364,14 @@
               "n": "id",
               "r": false,
               "t": "`$INTEGER`"
+            },
+            "initiate_dunning": {
+              "a": true,
+              "h": "Initiate Dunning",
+              "n": "initiate_dunning",
+              "r": false,
+              "sh": "If true, if the immediate component payment fails, initiate dunning for the subscription.",
+              "t": "`$BOOLEAN`"
             },
             "interval": {
               "a": true,
@@ -17887,12 +19401,75 @@
               "r": false,
               "t": "`$ANY`"
             },
+            "line_items": {
+              "a": true,
+              "h": "Line Items",
+              "n": "line_items",
+              "r": false,
+              "t": "`$ARRAY`"
+            },
+            "memo": {
+              "a": true,
+              "h": "Memo",
+              "n": "memo",
+              "r": false,
+              "sh": "The memo passed when the allocation was created",
+              "t": "`$STRING`"
+            },
             "name": {
               "a": true,
               "h": "Name",
               "n": "name",
               "r": false,
               "t": "`$STRING`"
+            },
+            "overage_quantity": {
+              "a": true,
+              "fo": "int32",
+              "h": "Overage Quantity",
+              "n": "overage_quantity",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "payment": {
+              "a": true,
+              "h": "Payment",
+              "n": "payment",
+              "r": false,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 2
+              }
+            },
+            "period_type": {
+              "a": true,
+              "h": "Period Type",
+              "n": "period_type",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "previous_price_point_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Previous Price Point Id",
+              "n": "previous_price_point_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "previous_quantity": {
+              "a": true,
+              "h": "Previous Quantity",
+              "n": "previous_quantity",
+              "r": false,
+              "sh": "The allocated quantity that was in effect before this allocation was created.",
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 0
+              }
             },
             "price_point_handle": {
               "a": true,
@@ -17955,6 +19532,44 @@
               "r": false,
               "t": "`$INTEGER`"
             },
+            "proration_downgrade_scheme": {
+              "a": true,
+              "de": true,
+              "h": "Proration Downgrade Scheme",
+              "n": "proration_downgrade_scheme",
+              "r": false,
+              "sh": "The scheme used if the proration was a downgrade.",
+              "t": "`$STRING`"
+            },
+            "proration_scheme": {
+              "a": true,
+              "h": "Proration Scheme",
+              "n": "proration_scheme",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "proration_upgrade_scheme": {
+              "a": true,
+              "de": true,
+              "h": "Proration Upgrade Scheme",
+              "n": "proration_upgrade_scheme",
+              "r": false,
+              "sh": "The scheme used if the proration was an upgrade.",
+              "t": "`$STRING`"
+            },
+            "quantity": {
+              "a": true,
+              "h": "Quantity",
+              "n": "quantity",
+              "r": false,
+              "sh": "The allocated quantity set into effect by the allocation.",
+              "t": "`$ANY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 0
+              }
+            },
             "recurring": {
               "a": true,
               "h": "Recurring",
@@ -17962,18 +19577,68 @@
               "r": false,
               "t": "`$BOOLEAN`"
             },
+            "start_date": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Start Date",
+              "n": "start_date",
+              "r": false,
+              "t": "`$STRING`"
+            },
             "subscription": {
               "a": true,
               "h": "Subscription",
               "n": "subscription",
               "r": false,
-              "t": "`$OBJECT`"
+              "t": "`$ANY`"
             },
             "subscription_id": {
               "a": true,
               "fo": "int32",
               "h": "Subscription Id",
               "n": "subscription_id",
+              "r": false,
+              "sh": "The integer subscription ID for the allocation.",
+              "t": "`$INTEGER`"
+            },
+            "subtotal_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Subtotal In Cents",
+              "n": "subtotal_in_cents",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "timestamp": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Timestamp",
+              "n": "timestamp",
+              "r": false,
+              "sh": "The time that the allocation was recorded, in ISO 8601 format and UTC timezone, e.g., 2012-11-20T22:00:37Z",
+              "t": "`$STRING`"
+            },
+            "total_discount_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Total Discount In Cents",
+              "n": "total_discount_in_cents",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "total_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Total In Cents",
+              "n": "total_in_cents",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "total_tax_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Total Tax In Cents",
+              "n": "total_tax_in_cents",
               "r": false,
               "t": "`$INTEGER`"
             },
@@ -18016,19 +19681,20 @@
                 "depth": 2
               }
             },
-            "usage": {
-              "a": true,
-              "h": "Usage",
-              "n": "usage",
-              "r": false,
-              "t": "`$OBJECT`"
-            },
             "use_site_exchange_rate": {
               "a": true,
               "h": "Use Site Exchange Rate",
               "n": "use_site_exchange_rate",
               "r": false,
               "t": "`$BOOLEAN`"
+            },
+            "used_quantity": {
+              "a": true,
+              "fo": "int64",
+              "h": "Used Quantity",
+              "n": "used_quantity",
+              "r": false,
+              "t": "`$INTEGER`"
             }
           },
           "id": {
@@ -18328,7 +19994,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.allocation`"
                   }
                 },
                 {
@@ -18387,7 +20053,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.usage`"
                   }
                 },
                 {
@@ -18483,7 +20149,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.allocation_preview`"
                   }
                 },
                 {
@@ -18530,7 +20196,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 }
               ]
@@ -18618,7 +20284,7 @@
                         "a": true,
                         "k": "query",
                         "n": "price_point_id",
-                        "or": "price_point_id",
+                        "or": "price_point_ids",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -18631,7 +20297,7 @@
                         ],
                         "k": "query",
                         "n": "product_family_id",
-                        "or": "product_family_id",
+                        "or": "product_family_ids",
                         "r": false,
                         "t": "`$ARRAY`"
                       },
@@ -18668,7 +20334,7 @@
                         ],
                         "k": "query",
                         "n": "subscription_id",
-                        "or": "subscription_id",
+                        "or": "subscription_ids",
                         "r": false,
                         "t": "`$ARRAY`"
                       }
@@ -18790,7 +20456,7 @@
                         "a": true,
                         "k": "query",
                         "n": "price_point_id",
-                        "or": "price_point_id",
+                        "or": "price_point_ids",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -18803,7 +20469,7 @@
                         ],
                         "k": "query",
                         "n": "product_family_id",
-                        "or": "product_family_id",
+                        "or": "product_family_ids",
                         "r": false,
                         "t": "`$ARRAY`"
                       },
@@ -18933,7 +20599,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.component`"
                   }
                 }
               ]
@@ -18955,7 +20621,7 @@
                         "a": true,
                         "k": "header",
                         "n": "content_type",
-                        "or": "content_type",
+                        "or": "Content-Type",
                         "r": true,
                         "t": "`$STRING`"
                       }
@@ -19125,6 +20791,43 @@
             "field": {}
           },
           "fields": {
+            "account_balances": {
+              "a": true,
+              "h": "Account Balances",
+              "n": "account_balances",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "cancel_at_end_of_period": {
+              "a": true,
+              "h": "Cancel At End Of Period",
+              "n": "cancel_at_end_of_period",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "customer_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Customer Id",
+              "n": "customer_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "group_type": {
+              "a": true,
+              "h": "Group Type",
+              "n": "group_type",
+              "r": false,
+              "t": "`$STRING`"
+            },
             "id": {
               "a": true,
               "h": "Id",
@@ -19132,26 +20835,72 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "meta": {
+            "next_assessment_at": {
               "a": true,
-              "h": "Meta",
-              "n": "meta",
+              "fo": "date-time",
+              "h": "Next Assessment At",
+              "n": "next_assessment_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "payment_collection_method": {
+              "a": true,
+              "h": "Payment Collection Method",
+              "n": "payment_collection_method",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "payment_profile": {
+              "a": true,
+              "h": "Payment Profile",
+              "n": "payment_profile",
               "r": false,
               "t": "`$OBJECT`"
             },
-            "subscription_group": {
+            "payment_profile_id": {
               "a": true,
-              "h": "Subscription Group",
-              "n": "subscription_group",
+              "fo": "int32",
+              "h": "Payment Profile Id",
+              "n": "payment_profile_id",
               "r": false,
-              "t": "`$OBJECT`"
+              "t": "`$INTEGER`"
             },
-            "subscription_groups": {
+            "primary_subscription_id": {
               "a": true,
-              "h": "Subscription Groups",
-              "n": "subscription_groups",
+              "fo": "int32",
+              "h": "Primary Subscription Id",
+              "n": "primary_subscription_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "scheme": {
+              "a": true,
+              "fo": "int32",
+              "h": "Scheme",
+              "n": "scheme",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "state": {
+              "a": true,
+              "h": "State",
+              "n": "state",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "subscription_ids": {
+              "a": true,
+              "h": "Subscription Ids",
+              "n": "subscription_ids",
               "r": false,
               "t": "`$ARRAY`"
+            },
+            "uid": {
+              "a": true,
+              "h": "Uid",
+              "n": "uid",
+              "r": false,
+              "t": "`$STRING`"
             }
           },
           "id": {
@@ -19209,7 +20958,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription_group`"
                   }
                 },
                 {
@@ -19232,7 +20981,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription_group`"
                   }
                 }
               ]
@@ -19299,7 +21048,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription_groups`"
                   }
                 },
                 {
@@ -19541,7 +21290,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription_group`"
                   }
                 }
               ]
@@ -19719,7 +21468,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.service_credit`"
                   }
                 }
               ]
@@ -19805,7 +21554,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.prepayments`"
                   }
                 }
               ]
@@ -20099,19 +21848,72 @@
             "field": {}
           },
           "fields": {
+            "amount_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Amount In Cents",
+              "n": "amount_in_cents",
+              "r": false,
+              "sh": "The amount in cents of the entry",
+              "t": "`$INTEGER`"
+            },
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "sh": "The date and time the entry was created",
+              "t": "`$STRING`"
+            },
+            "ending_balance_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Ending Balance In Cents",
+              "n": "ending_balance_in_cents",
+              "r": false,
+              "sh": "The new balance for the credit account",
+              "t": "`$INTEGER`"
+            },
+            "entry_type": {
+              "a": true,
+              "h": "Entry Type",
+              "n": "entry_type",
+              "r": false,
+              "t": "`$ANY`"
+            },
             "id": {
               "a": true,
+              "fo": "int32",
               "h": "Id",
               "n": "id",
               "r": false,
+              "t": "`$INTEGER`"
+            },
+            "invoice_uid": {
+              "a": true,
+              "h": "Invoice Uid",
+              "n": "invoice_uid",
+              "r": false,
+              "sh": "The invoice uid associated with the entry.",
               "t": "`$STRING`"
             },
-            "service_credits": {
+            "memo": {
               "a": true,
-              "h": "Service Credits",
-              "n": "service_credits",
+              "h": "Memo",
+              "n": "memo",
               "r": false,
-              "t": "`$ARRAY`"
+              "sh": "The memo attached to the entry",
+              "t": "`$STRING`"
+            },
+            "remaining_balance_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Remaining Balance In Cents",
+              "n": "remaining_balance_in_cents",
+              "r": false,
+              "sh": "The remaining balance for the entry",
+              "t": "`$INTEGER`"
             }
           },
           "id": {
@@ -20170,7 +21972,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.prepayment`"
                   }
                 },
                 {
@@ -20352,7 +22154,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.service_credits`"
                   }
                 },
                 {
@@ -20432,7 +22234,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.prepayments`"
                   }
                 }
               ]
@@ -20819,7 +22621,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.note`"
                   }
                 }
               ]
@@ -20963,6 +22765,24 @@
             "field": {}
           },
           "fields": {
+            "charge_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Charge In Cents",
+              "n": "charge_in_cents",
+              "r": false,
+              "sh": "The amount of the charge that would be created for the new product.",
+              "t": "`$INTEGER`"
+            },
+            "credit_applied_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Credit Applied In Cents",
+              "n": "credit_applied_in_cents",
+              "r": false,
+              "sh": "Represents a credit in cents that is applied to your subscription as part of a migration process for a specific product, which reduces the amount owed for the subscription.",
+              "t": "`$INTEGER`"
+            },
             "id": {
               "a": true,
               "h": "Id",
@@ -20976,6 +22796,24 @@
               "n": "migration",
               "r": true,
               "t": "`$OBJECT`"
+            },
+            "payment_due_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Payment Due In Cents",
+              "n": "payment_due_in_cents",
+              "r": false,
+              "sh": "The amount of the payment due in the case of an upgrade.",
+              "t": "`$INTEGER`"
+            },
+            "prorated_adjustment_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Prorated Adjustment In Cents",
+              "n": "prorated_adjustment_in_cents",
+              "r": false,
+              "sh": "The amount of the prorated adjustment that would be issued for the current subscription.",
+              "t": "`$INTEGER`"
             }
           },
           "id": {
@@ -21034,7 +22872,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 },
                 {
@@ -21081,7 +22919,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.migration`"
                   }
                 }
               ]
@@ -21101,19 +22939,97 @@
             "field": {}
           },
           "fields": {
-            "id": {
+            "contract": {
               "a": true,
-              "h": "Id",
-              "n": "id",
+              "h": "Contract",
+              "n": "contract",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
               "r": false,
               "t": "`$STRING`"
             },
-            "scheduled_renewal_configuration": {
+            "decimal_quantity": {
               "a": true,
-              "h": "Scheduled Renewal Configuration",
-              "n": "scheduled_renewal_configuration",
+              "h": "Decimal Quantity",
+              "n": "decimal_quantity",
               "r": false,
-              "t": "`$OBJECT`"
+              "t": "`$STRING`"
+            },
+            "ends_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Ends At",
+              "n": "ends_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "ID of the renewal.",
+              "t": "`$INTEGER`"
+            },
+            "item_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Item Id",
+              "n": "item_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "item_subclass": {
+              "a": true,
+              "h": "Item Subclass",
+              "n": "item_subclass",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "item_type": {
+              "a": true,
+              "h": "Item Type",
+              "n": "item_type",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "lock_in_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Lock In At",
+              "n": "lock_in_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "price_point_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Price Point Id",
+              "n": "price_point_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "price_point_type": {
+              "a": true,
+              "h": "Price Point Type",
+              "n": "price_point_type",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "quantity": {
+              "a": true,
+              "fo": "int32",
+              "h": "Quantity",
+              "n": "quantity",
+              "r": false,
+              "t": "`$INTEGER`"
             },
             "scheduled_renewal_configuration_item": {
               "a": true,
@@ -21121,6 +23037,54 @@
               "n": "scheduled_renewal_configuration_item",
               "r": false,
               "t": "`$OBJECT`"
+            },
+            "scheduled_renewal_configuration_items": {
+              "a": true,
+              "h": "Scheduled Renewal Configuration Items",
+              "n": "scheduled_renewal_configuration_items",
+              "r": false,
+              "t": "`$ARRAY`"
+            },
+            "site_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Site Id",
+              "n": "site_id",
+              "r": false,
+              "sh": "ID of the site to which the renewal belongs.",
+              "t": "`$INTEGER`"
+            },
+            "starts_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Starts At",
+              "n": "starts_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "subscription_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Subscription Id",
+              "n": "subscription_id",
+              "r": false,
+              "sh": "The id of the subscription.",
+              "t": "`$INTEGER`"
+            },
+            "subscription_renewal_configuration_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Subscription Renewal Configuration Id",
+              "n": "subscription_renewal_configuration_id",
+              "r": false,
+              "t": "`$INTEGER`"
             }
           },
           "id": {
@@ -21193,7 +23157,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.scheduled_renewal_configuration_item`"
                   }
                 },
                 {
@@ -21242,7 +23206,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.scheduled_renewal_configuration`"
                   }
                 }
               ]
@@ -21308,7 +23272,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.scheduled_renewal_configurations`"
                   }
                 }
               ]
@@ -21370,7 +23334,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.scheduled_renewal_configuration`"
                   }
                 }
               ]
@@ -21532,7 +23496,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.scheduled_renewal_configuration_item`"
                   }
                 },
                 {
@@ -21588,7 +23552,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.scheduled_renewal_configuration`"
                   }
                 },
                 {
@@ -21651,7 +23615,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.scheduled_renewal_configuration`"
                   }
                 },
                 {
@@ -21714,7 +23678,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.scheduled_renewal_configuration`"
                   }
                 },
                 {
@@ -21777,7 +23741,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.scheduled_renewal_configuration`"
                   }
                 },
                 {
@@ -21840,7 +23804,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.scheduled_renewal_configuration`"
                   }
                 }
               ]
@@ -21863,6 +23827,15 @@
             "field": {}
           },
           "fields": {
+            "existing_balance_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Existing Balance In Cents",
+              "n": "existing_balance_in_cents",
+              "r": false,
+              "sh": "An integer representing the amount of the subscription’s current balance",
+              "t": "`$INTEGER`"
+            },
             "id": {
               "a": true,
               "h": "Id",
@@ -21870,12 +23843,75 @@
               "r": false,
               "t": "`$STRING`"
             },
-            "renewal_preview": {
+            "line_items": {
               "a": true,
-              "h": "Renewal Preview",
-              "n": "renewal_preview",
+              "h": "Line Items",
+              "n": "line_items",
               "r": false,
-              "t": "`$OBJECT`"
+              "sh": "An array of objects representing the individual transactions that will be created at the next renewal",
+              "t": "`$ARRAY`"
+            },
+            "next_assessment_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Next Assessment At",
+              "n": "next_assessment_at",
+              "r": false,
+              "sh": "The timestamp for the subscription’s next renewal",
+              "t": "`$STRING`"
+            },
+            "subtotal_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Subtotal In Cents",
+              "n": "subtotal_in_cents",
+              "r": false,
+              "sh": "An integer representing the amount of the total pre-tax, pre-discount charges that will be assessed at the next renewal",
+              "t": "`$INTEGER`"
+            },
+            "total_amount_due_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Total Amount Due In Cents",
+              "n": "total_amount_due_in_cents",
+              "r": false,
+              "sh": "An integer representing the existing_balance_in_cents plus the total_in_cents",
+              "t": "`$INTEGER`"
+            },
+            "total_discount_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Total Discount In Cents",
+              "n": "total_discount_in_cents",
+              "r": false,
+              "sh": "An integer representing the amount of the coupon discounts that will be applied to the next renewal",
+              "t": "`$INTEGER`"
+            },
+            "total_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Total In Cents",
+              "n": "total_in_cents",
+              "r": false,
+              "sh": "An integer representing the total amount owed, less any discounts, that will be assessed at the next renewal",
+              "t": "`$INTEGER`"
+            },
+            "total_tax_in_cents": {
+              "a": true,
+              "fo": "int64",
+              "h": "Total Tax In Cents",
+              "n": "total_tax_in_cents",
+              "r": false,
+              "sh": "An integer representing the total tax charges that will be assessed at the next renewal",
+              "t": "`$INTEGER`"
+            },
+            "uncalculated_taxes": {
+              "a": true,
+              "h": "Uncalculated Taxes",
+              "n": "uncalculated_taxes",
+              "r": false,
+              "sh": "A boolean indicating whether or not additional taxes will be calculated at the time of renewal.",
+              "t": "`$BOOLEAN`"
             }
           },
           "id": {
@@ -21911,7 +23947,7 @@
                         "a": true,
                         "k": "query",
                         "n": "calendar_billing_'resumption_charge'",
-                        "or": "calendar_billing_'resumption_charge'",
+                        "or": "calendar_billing['resumption_charge']",
                         "r": false,
                         "t": "`$ANY`"
                       }
@@ -21945,7 +23981,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 },
                 {
@@ -21994,7 +24030,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 },
                 {
@@ -22041,7 +24077,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.renewal_preview`"
                   }
                 }
               ]
@@ -22063,7 +24099,7 @@
                         "a": true,
                         "k": "header",
                         "n": "content_type",
-                        "or": "content_type",
+                        "or": "Content-Type",
                         "r": true,
                         "t": "`$STRING`"
                       }
@@ -22099,7 +24135,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 },
                 {
@@ -22203,7 +24239,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 },
                 {
@@ -22252,7 +24288,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 },
                 {
@@ -22301,7 +24337,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.subscription`"
                   }
                 }
               ]
@@ -22475,12 +24511,35 @@
             "field": {}
           },
           "fields": {
-            "endpoint": {
+            "id": {
               "a": true,
-              "h": "Endpoint",
-              "n": "endpoint",
+              "fo": "int32",
+              "h": "Id",
+              "n": "id",
               "r": false,
-              "t": "`$OBJECT`"
+              "t": "`$INTEGER`"
+            },
+            "site_id": {
+              "a": true,
+              "fo": "int32",
+              "h": "Site Id",
+              "n": "site_id",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "url": {
+              "a": true,
+              "h": "Url",
+              "n": "url",
+              "r": false,
+              "t": "`$STRING`"
             },
             "webhook": {
               "a": true,
@@ -22488,7 +24547,18 @@
               "n": "webhook",
               "r": false,
               "t": "`$OBJECT`"
+            },
+            "webhook_subscriptions": {
+              "a": true,
+              "h": "Webhook Subscriptions",
+              "n": "webhook_subscriptions",
+              "r": false,
+              "t": "`$ARRAY`"
             }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
           },
           "name": "webhook",
           "op": {
@@ -22516,7 +24586,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.endpoint`"
                   }
                 },
                 {
@@ -23764,7 +25834,8 @@
               "i": {
                 "ref": "component_ref01",
                 "srcdatavar": "component_ref01_data",
-                "suffix": "_up0"
+                "suffix": "_up0",
+                "textfield": "accounting_code"
               },
               "m": {},
               "o": "update",
@@ -23911,7 +25982,7 @@
                 "ref": "component_price_point_ref01",
                 "srcdatavar": "component_price_point_ref01_data",
                 "suffix": "_up0",
-                "textfield": "archived_at"
+                "textfield": "accounting_code"
               },
               "m": {},
               "o": "update",
@@ -24850,34 +26921,6 @@
             }
           ]
         },
-        "BasicListProformaInvoiceFlow": {
-          "active": true,
-          "entity": "list_proforma_invoice",
-          "key$": "BasicListProformaInvoiceFlow",
-          "kind": "basic",
-          "name": "BasicListProformaInvoiceFlow",
-          "param": {},
-          "step": [
-            {
-              "a": true,
-              "d": {},
-              "i": {},
-              "m": {
-                "subscription_group_id": "subscription_group01"
-              },
-              "o": "list",
-              "s": [],
-              "v": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "list_proforma_invoice_ref01"
-                  }
-                }
-              ]
-            }
-          ]
-        },
         "BasicListSaleRepItemFlow": {
           "active": true,
           "entity": "list_sale_rep_item",
@@ -25131,7 +27174,8 @@
               "i": {
                 "ref": "payment_profile_ref01",
                 "srcdatavar": "payment_profile_ref01_data",
-                "suffix": "_up0"
+                "suffix": "_up0",
+                "textfield": "bank_name"
               },
               "m": {},
               "o": "update",
@@ -25342,7 +27386,8 @@
               "i": {
                 "ref": "product_ref01",
                 "srcdatavar": "product_ref01_data",
-                "suffix": "_up0"
+                "suffix": "_up0",
+                "textfield": "accounting_code"
               },
               "m": {},
               "o": "update",
@@ -25458,7 +27503,8 @@
               "i": {
                 "ref": "product_price_point_ref01",
                 "srcdatavar": "product_price_point_ref01_data",
-                "suffix": "_up0"
+                "suffix": "_up0",
+                "textfield": "accounting_code"
               },
               "m": {},
               "o": "update",
@@ -25545,7 +27591,9 @@
                 "ref": "proforma_invoice_ref01"
               },
               "m": {
-                "proforma_invoice_uid": "proforma_invoice_uid01"
+                "proforma_invoice_uid": "proforma_invoice_uid01",
+                "subscription_group_id": "subscription_group01",
+                "subscription_id": "subscription01"
               },
               "o": "create",
               "s": [],
@@ -26189,7 +28237,8 @@
               "i": {
                 "ref": "subscription_group_ref01",
                 "srcdatavar": "subscription_group_ref01_data",
-                "suffix": "_up0"
+                "suffix": "_up0",
+                "textfield": "created_at"
               },
               "m": {},
               "o": "update",
@@ -26596,7 +28645,8 @@
               "i": {
                 "ref": "subscription_renewal_ref01",
                 "srcdatavar": "subscription_renewal_ref01_data",
-                "suffix": "_up0"
+                "suffix": "_up0",
+                "textfield": "created_at"
               },
               "m": {},
               "o": "update",
@@ -26696,7 +28746,8 @@
               "i": {
                 "ref": "subscription_status_ref01",
                 "srcdatavar": "subscription_status_ref01_data",
-                "suffix": "_up0"
+                "suffix": "_up0",
+                "textfield": "next_assessment_at"
               },
               "m": {},
               "o": "update",
@@ -26796,7 +28847,8 @@
               "i": {
                 "ref": "webhook_ref01",
                 "srcdatavar": "webhook_ref01_data",
-                "suffix": "_up0"
+                "suffix": "_up0",
+                "textfield": "status"
               },
               "m": {},
               "o": "update",

@@ -80,6 +80,7 @@ class TestSiteEntity:
 
         site_ref01_data = helpers.to_map(runner.entity_data(site_ref01_ent.create(site_ref01_data, None)))
         assert site_ref01_data is not None
+        assert site_ref01_data["id"] is not None
 
         # LIST
         site_ref01_match = {}
@@ -87,10 +88,19 @@ class TestSiteEntity:
         site_ref01_list_result = site_ref01_ent.list(site_ref01_match, None)
         assert isinstance(site_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(site_ref01_list_result),
+            {"id": site_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # LOAD
-        site_ref01_match_dt0 = {}
+        site_ref01_match_dt0 = {
+            "id": site_ref01_data["id"],
+        }
         site_ref01_data_dt0_loaded = site_ref01_ent.load(site_ref01_match_dt0, None)
-        assert site_ref01_data_dt0_loaded is not None
+        site_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(site_ref01_data_dt0_loaded))
+        assert site_ref01_data_dt0_load_result is not None
+        assert site_ref01_data_dt0_load_result["id"] == site_ref01_data["id"]
 
 
 

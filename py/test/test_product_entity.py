@@ -83,6 +83,7 @@ class TestProductEntity:
 
         product_ref01_data = helpers.to_map(runner.entity_data(product_ref01_ent.create(product_ref01_data, None)))
         assert product_ref01_data is not None
+        assert product_ref01_data["id"] is not None
 
         # LIST
         product_ref01_match = {
@@ -92,19 +93,40 @@ class TestProductEntity:
         product_ref01_list_result = product_ref01_ent.list(product_ref01_match, None)
         assert isinstance(product_ref01_list_result, list)
 
+        found_item = vs.select(
+            runner.entity_list_to_data(product_ref01_list_result),
+            {"id": product_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # UPDATE
         product_ref01_data_up0_up = {
+            "id": product_ref01_data["id"],
             "product_id": setup["idmap"]["product_id"],
         }
 
+        product_ref01_markdef_up0_name = "accounting_code"
+        product_ref01_markdef_up0_value = "Mark01-product_ref01_" + str(setup["now"])
+        product_ref01_data_up0_up[product_ref01_markdef_up0_name] = product_ref01_markdef_up0_value
+
         product_ref01_resdata_up0 = helpers.to_map(runner.entity_data(product_ref01_ent.update(product_ref01_data_up0_up, None)))
         assert product_ref01_resdata_up0 is not None
+        assert product_ref01_resdata_up0["id"] == product_ref01_data_up0_up["id"]
+        assert product_ref01_resdata_up0[product_ref01_markdef_up0_name] == product_ref01_markdef_up0_value
 
         # LOAD
-        product_ref01_match_dt0 = {}
+        product_ref01_match_dt0 = {
+            "id": product_ref01_data["id"],
+        }
         product_ref01_data_dt0_loaded = product_ref01_ent.load(product_ref01_match_dt0, None)
-        assert product_ref01_data_dt0_loaded is not None
+        product_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(product_ref01_data_dt0_loaded))
+        assert product_ref01_data_dt0_load_result is not None
+        assert product_ref01_data_dt0_load_result["id"] == product_ref01_data["id"]
 
+        # REMOVE
+        product_ref01_match_rm0 = {
+            "id": product_ref01_data["id"],
+        }
+        product_ref01_ent.remove(product_ref01_match_rm0, None)
 
         # LIST
         product_ref01_match_rt0 = {
@@ -113,6 +135,11 @@ class TestProductEntity:
 
         product_ref01_list_rt0_result = product_ref01_ent.list(product_ref01_match_rt0, None)
         assert isinstance(product_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(product_ref01_list_rt0_result),
+            {"id": product_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 

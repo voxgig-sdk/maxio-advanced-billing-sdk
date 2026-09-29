@@ -10,13 +10,13 @@ Learn more about Voxgig SDKs at [voxgig.com/sdk](https://voxgig.com/sdk/).
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI with an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
-> **Features:** `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined` — opt-in,
+> **Features:** `debug`, `idempotency`, `metrics`, `paging`, `ratelimit`, `retry`, `test`, `timeout` — opt-in,
 > inactive until switched on, and configured per client. See the Features
 > section of any SDK README below for what each one does.
 
 ## Entities, not endpoints
 
-This SDK exposes the API as **57 semantic entities** that you
+This SDK exposes the API as **56 semantic entities** that you
 call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`, `create`, `update`, `remove`, `patch`):
@@ -42,23 +42,23 @@ network, and no credentials:
 // Shape: { entity: { <entity-name>: { <id>: <record> } } }
 const client = MaxioAdvancedBillingSDK.test({
   entity: {
-    account_balance: {
-      test01: { id: 'test01' },
+    custom_field: {
+      test01: { id: 'test01', resource_type: 'example_resource_type' },
     },
   },
 })
-const accountbalance = await client.AccountBalance().load({ subscription_id: 1 })
-// accountbalance is the AccountBalance entity, populated with mock data
-// — call accountbalance.data() for the record itself
-console.log(accountbalance)
+const customfields = await client.CustomField().list()
+// customfields is an array of CustomField entities, populated with mock data
+// — call customfields[0].data() for the record itself
+console.log(customfields)
 ```
 
 ### Python
 
 ```python
 client = MaxioAdvancedBillingSDK.test()
-accountbalance = client.AccountBalance().load({"subscription_id": 1})
-print(accountbalance)
+customfields = client.CustomField().list()
+print(customfields)
 ```
 
 ### PHP
@@ -66,16 +66,16 @@ print(accountbalance)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = MaxioAdvancedBillingSDK::test([
-    "entity" => ["accountbalance" => ["test01" => []]],
+    "entity" => ["customfield" => ["test01" => []]],
 ]);
-$accountbalance = $client->AccountBalance()->load(["subscription_id" => 1]);
+$customfields = $client->CustomField()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.AccountBalance(nil).Load(
+result, err := client.CustomField(nil).List(
     nil, nil,
 )
 ```
@@ -85,28 +85,28 @@ result, err := client.AccountBalance(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = MaxioAdvancedBillingSDK.test({
-  "entity" => { "accountbalance" => { "test01" => {} } },
+  "entity" => { "customfield" => { "test01" => {} } },
 })
-accountbalance = client.AccountBalance.load({ "subscription_id" => 1 })
+customfields = client.CustomField.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:AccountBalance():load({ subscription_id = 1 })
+local results, err = client:CustomField():list()
 ```
 
 ## Packages
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/maxio-advanced-billing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/maxio-advanced-billing-sdk/tags) |
-| Python | `voxgig-sdk-maxio-advanced-billing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/maxio-advanced-billing-sdk/tags) |
-| PHP | `voxgig-sdk/maxio-advanced-billing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/maxio-advanced-billing-sdk/tags) |
+| TypeScript | `@voxgig-sdk/maxio-advanced-billing-sdk` | publish pending — [install from source](ts/README.md#install) |
+| Python | `voxgig-sdk-maxio-advanced-billing-sdk` | publish pending — [install from source](py/README.md#install) |
+| PHP | `voxgig-sdk/maxio-advanced-billing-sdk` | publish pending — [install from source](php/README.md#install) |
 | Golang | `github.com/voxgig-sdk/maxio-advanced-billing-sdk/go` | `go get github.com/voxgig-sdk/maxio-advanced-billing-sdk/go@latest` |
-| Ruby | `voxgig-sdk-maxio-advanced-billing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/maxio-advanced-billing-sdk/tags) |
-| Lua | `voxgig-sdk-maxio-advanced-billing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/maxio-advanced-billing-sdk/tags) |
+| Ruby | `voxgig-sdk-maxio-advanced-billing-sdk` | publish pending — [install from source](rb/README.md#install) |
+| Lua | `voxgig-sdk-maxio-advanced-billing-sdk` | publish pending — [install from source](lua/README.md#install) |
 | Go CLI | `github.com/voxgig-sdk/maxio-advanced-billing-sdk/go-cli` | `go install github.com/voxgig-sdk/maxio-advanced-billing-sdk/go-cli/cmd/maxio-advanced-billing@latest` |
 | Go MCP server | `github.com/voxgig-sdk/maxio-advanced-billing-sdk/go-mcp` | `go get github.com/voxgig-sdk/maxio-advanced-billing-sdk/go-mcp@latest` |
 
@@ -168,7 +168,7 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes 57 entities:
+The API exposes 56 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
@@ -196,7 +196,6 @@ The API exposes 57 entities:
 | **FeatureTemplate** | The FeatureTemplate entity (create, load, remove, update). | `/features/{id}.json` |
 | **Insight** | The Insight entity (load). | `/mrr_movements.json` |
 | **Invoice** | The Invoice entity (create, list, remove, update). | `/invoices.json` |
-| **ListProformaInvoice** | The ListProformaInvoice entity (list). | `/subscriptions/{subscription_id}/proforma_invoices.json` |
 | **ListSaleRepItem** | The ListSaleRepItem entity (list). | `/sellers/{seller_id}/sales_reps.json` |
 | **ListSegment** | The ListSegment entity (create, list, update). | `/components/{component_id}/price_points/{price_point_id}/segments.json` |
 | **Offer** | The Offer entity (create, list, load, update). | `/offers.json` |
@@ -207,7 +206,7 @@ The API exposes 57 entities:
 | **ProductFamily** | The ProductFamily entity (create, list, load). | `/product_families.json` |
 | **ProductFeature** | The ProductFeature entity (remove). | `/products/{product_id}/features/{id}.json` |
 | **ProductPricePoint** | The ProductPricePoint entity (create, list, load, patch, remove, update). | `/products/{product_id}/price_points.json` |
-| **ProformaInvoice** | The ProformaInvoice entity (create, list). | `/api_exports/proforma_invoices/{batch_id}/rows.json` |
+| **ProformaInvoice** | The ProformaInvoice entity (create, list). | `/subscriptions/{subscription_id}/proforma_invoices.json` |
 | **ReasonCode** | The ReasonCode entity (create, list, load, remove, update). | `/reason_codes.json` |
 | **ReferralCode** | The ReferralCode entity (load). | `/referral_codes/validate.json` |
 | **SaleRepSetting** | The SaleRepSetting entity (list). | `/sellers/{seller_id}/sales_commission_settings.json` |

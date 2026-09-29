@@ -29,19 +29,19 @@ const utility_1 = require("../../utility");
         const setup = directSetup([{ id: 'direct01' }, { id: 'direct02' }]);
         if ((0, utility_1.maybeSkipControl)(t, 'direct', 'direct-list-proforma_invoice', setup.live))
             return;
-        if ((0, utility_1.skipIfMissingIds)(t, setup, ["proforma_invoice01"]))
+        if ((0, utility_1.skipIfMissingIds)(t, setup, ["subscription01"]))
             return;
         const { client, calls } = setup;
         const params = {};
         const query = {};
         if (setup.live) {
-            params.id = setup.idmap['proforma_invoice01'];
+            params.subscription_id = setup.idmap['subscription01'];
         }
         else {
-            params.id = 'direct01';
+            params.subscription_id = 'direct01';
         }
         const result = await client.direct({
-            path: 'api_exports/proforma_invoices/{id}/rows.json',
+            path: 'subscriptions/{subscription_id}/proforma_invoices.json',
             method: 'GET',
             params,
             query,
