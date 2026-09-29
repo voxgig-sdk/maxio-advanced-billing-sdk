@@ -12,43 +12,43 @@ An entity groups related API operations. An operation can have several routes wi
 
 ## What the API provides
 
-### [AccountBalance](docs/api/account_balance.html)
+### AccountBalance
 
 Results: OK.
 
 SDK operations: `load`.
 
-### [Allocation](docs/api/allocation.html)
+### Allocation
 
 Results: OK.
 
 SDK operations: `create`, `list`.
 
-### [BatchJob](docs/api/batch_job.html)
+### BatchJob
 
 Results: Created; OK.
 
 SDK operations: `create`, `load`.
 
-### [BillingPortal](docs/api/billing_portal.html)
+### BillingPortal
 
 Results: OK.
 
 SDK operations: `create`, `load`, `remove`.
 
-### [Component](docs/api/component.html)
+### Component
 
 Results: Created; OK.
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
-### [ComponentFeature](docs/api/component_feature.html)
+### ComponentFeature
 
 Results: No Content.
 
 SDK operations: `remove`.
 
-### [ComponentPricePoint](docs/api/component_price_point.html)
+### ComponentPricePoint
 
 Results: Created; OK.
 
@@ -62,7 +62,7 @@ Key fields to recognise:
 - `default`: Note: Refer to type attribute instead.
 - `expiration_interval`: Applicable only to prepaid usage components where rollover_prepaid_remainder is true. The number of `expiration_interval_unit`s after which rollover amounts should expire.
 
-### [ComponentPricePointCurrencyOverage](docs/api/component_price_point_currency_overage.html)
+### ComponentPricePointCurrencyOverage
 
 Results: OK.
 
@@ -76,7 +76,7 @@ Key fields to recognise:
 - `expiration_interval`: Applicable only to prepaid usage components where rollover_prepaid_remainder is true. The number of `expiration_interval_unit`s after which rollover amounts should expire.
 - `interval`: The numerical interval. for example, an interval of ‘30’ coupled with an interval_unit of day would mean this component price point would renew every 30 days. This property is only available for sites with Multifrequency enabled.
 
-### [Coupon](docs/api/coupon.html)
+### Coupon
 
 Results: OK; Created.
 
@@ -89,19 +89,19 @@ Key fields to recognise:
 - `end_date`: After the given time, this coupon code will be invalid for new signups. Recurring discounts started before this date will continue to recur even after this date.
 - `stackable`: A stackable coupon can be combined with other coupons on a Subscription.
 
-### [CouponCurrency](docs/api/coupon_currency.html)
+### CouponCurrency
 
 Results: OK.
 
 SDK operations: `update`.
 
-### [CouponSubcode](docs/api/coupon_subcode.html)
+### CouponSubcode
 
 Results: OK.
 
 SDK operations: `update`.
 
-### [CouponUsage](docs/api/coupon_usage.html)
+### CouponUsage
 
 Results: OK.
 
@@ -115,7 +115,7 @@ Key fields to recognise:
 - `revenue_in_cents`: Total revenue of all subscriptions that have received a discount from this coupon.
 - `savings`: Dollar amount of customer savings as a result of the coupon.
 
-### [CustomField](docs/api/custom_field.html)
+### CustomField
 
 Results: OK.
 
@@ -125,7 +125,7 @@ Key fields to recognise:
 
 - `data_count`: The amount of subscriptions this metafield has been applied to in Advanced Billing.
 
-### [Customer](docs/api/customer.html)
+### Customer
 
 Results: OK; No Content.
 
@@ -139,19 +139,19 @@ Key fields to recognise:
 - `cc_emails`: “A comma-separated list of emails that should be cc’d on all customer communications (for example, “joe@example.com, sue@example.com”)”
 - `city`: The customer’s shipping address city (for example, “Boston”)
 
-### [DelayedCancel](docs/api/delayed_cancel.html)
+### DelayedCancel
 
 Results: OK.
 
 SDK operations: `create`.
 
-### [Endpoint](docs/api/endpoint.html)
+### Endpoint
 
 Results: OK.
 
 SDK operations: `list`, `update`.
 
-### [Entitlement](docs/api/entitlement.html)
+### Entitlement
 
 Results: OK.
 
@@ -161,19 +161,19 @@ Key fields to recognise:
 
 - `status`: The subscription&#39;s current state, for example `active`, `trialing`, `canceled`.
 
-### [Event](docs/api/event.html)
+### Event
 
 Results: OK.
 
 SDK operations: `list`, `load`.
 
-### [EventsBasedBillingSegment](docs/api/events_based_billing_segment.html)
+### EventsBasedBillingSegment
 
 Results: No Content.
 
 SDK operations: `remove`.
 
-### [Feature](docs/api/feature.html)
+### Feature
 
 Results: Created; OK.
 
@@ -187,7 +187,7 @@ Key fields to recognise:
 - `feature_name`: The `name` of the parent feature template.
 - `feature_template_id`: The id of the feature template this item was created from.
 
-### [FeatureCatalogItem](docs/api/feature_catalog_item.html)
+### FeatureCatalogItem
 
 Results: OK.
 
@@ -201,7 +201,7 @@ Key fields to recognise:
 - `periodicity_interval`: Set when `feature_kind` is `usage_limit`; `null` otherwise.
 - `price_point_id`: Set together with `price_point_type` for price-point-specific overrides.
 
-### [FeatureTemplate](docs/api/feature_template.html)
+### FeatureTemplate
 
 Results: OK; No Content.
 
@@ -215,13 +215,13 @@ Key fields to recognise:
 - `id`: The Advanced Billing id of the feature template.
 - `key`: A unique, lowercase, underscore-separated identifier for the feature. Immutable once set.
 
-### [Insight](docs/api/insight.html)
+### Insight
 
 Results: OK.
 
 SDK operations: `load`.
 
-### [Invoice](docs/api/invoice.html)
+### Invoice
 
 Results: OK; No Content; Created.
 
@@ -235,7 +235,7 @@ Key fields to recognise:
 - `consolidation_level`: Consolidation level of the invoice, which is applicable to invoice consolidation. It will hold one of the following values: * &quot;none&quot;: A normal invoice with no consolidation. * &quot;child&quot;: An invoice segment which has been combined into a consolidated invoice. * &quot;parent&quot;: A consolidated invoice, whose contents are composed of invoice segments. &quot;Parent&quot; invoices do not have lines of their own, but they have subtotals and totals which aggregate the member invoice segments. See also the [invoice consolidation documentation](https://maxio.zendesk.com/hc/en-us/articles/24252269909389-Invoice-Consolidation).
 - `credit_amount`: The amount of credit (from credit notes) applied to this invoice. Credits offset the amount due from the customer.
 
-### [ListProformaInvoice](docs/api/list_proforma_invoice.html)
+### ListProformaInvoice
 
 Results: OK.
 
@@ -249,13 +249,13 @@ Key fields to recognise:
 - `total_amount`: The non-canonical total amount for the line. `subtotal_amount` is the canonical amount for a line. The invoice `total_amount` is derived from the sum of the line `subtotal_amount`s and discounts or taxes applied thereafter. Therefore, due to rounding or precision errors, the sum of line `total_amount`s may not equal the invoice `total_amount`.
 - `uid`: Unique identifier for the line item. Useful when cross-referencing the line against individual discounts in the `discounts` or `taxes` lists.
 
-### [ListSaleRepItem](docs/api/list_sale_rep_item.html)
+### ListSaleRepItem
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListSegment](docs/api/list_segment.html)
+### ListSegment
 
 Results: Created; OK.
 
@@ -265,19 +265,19 @@ Key fields to recognise:
 
 - `segments`: The key of the object would be a number (an index in the request array) where the error occurred. In the value object, the key represents the field and the value is an array with error messages. In most cases, this object would contain just one key.
 
-### [Offer](docs/api/offer.html)
+### Offer
 
 Results: Created; OK.
 
 SDK operations: `create`, `list`, `load`, `update`.
 
-### [OneTimeToken](docs/api/one_time_token.html)
+### OneTimeToken
 
 Results: OK.
 
 SDK operations: `load`.
 
-### [PaymentProfile](docs/api/payment_profile.html)
+### PaymentProfile
 
 Results: Created; OK; No Content.
 
@@ -287,31 +287,31 @@ Key fields to recognise:
 
 - `id`: The Chargify-assigned ID of the Apple Pay payment profile.
 
-### [Prepayment](docs/api/prepayment.html)
+### Prepayment
 
 Results: Created.
 
 SDK operations: `create`.
 
-### [Product](docs/api/product.html)
+### Product
 
 Results: Created; OK.
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
-### [ProductFamily](docs/api/product_family.html)
+### ProductFamily
 
 Results: Created; OK.
 
 SDK operations: `create`, `list`, `load`.
 
-### [ProductFeature](docs/api/product_feature.html)
+### ProductFeature
 
 Results: No Content.
 
 SDK operations: `remove`.
 
-### [ProductPricePoint](docs/api/product_price_point.html)
+### ProductPricePoint
 
 Results: OK; Created.
 
@@ -321,7 +321,7 @@ Key fields to recognise:
 
 - `id`: The id of the signup page (public_signup_pages only)
 
-### [ProformaInvoice](docs/api/proforma_invoice.html)
+### ProformaInvoice
 
 Results: Created; OK.
 
@@ -335,49 +335,49 @@ Key fields to recognise:
 - `total_amount`: The non-canonical total amount for the line. `subtotal_amount` is the canonical amount for a line. The invoice `total_amount` is derived from the sum of the line `subtotal_amount`s and discounts or taxes applied thereafter. Therefore, due to rounding or precision errors, the sum of line `total_amount`s may not equal the invoice `total_amount`.
 - `uid`: Unique identifier for the line item. Useful when cross-referencing the line against individual discounts in the `discounts` or `taxes` lists.
 
-### [ReasonCode](docs/api/reason_code.html)
+### ReasonCode
 
 Results: OK.
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
-### [ReferralCode](docs/api/referral_code.html)
+### ReferralCode
 
 Results: OK.
 
 SDK operations: `load`.
 
-### [SaleRepSetting](docs/api/sale_rep_setting.html)
+### SaleRepSetting
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [SalesCommission](docs/api/sales_commission.html)
+### SalesCommission
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [Segment](docs/api/segment.html)
+### Segment
 
 Results: Created; OK.
 
 SDK operations: `create`, `update`.
 
-### [SignupProformaPreview](docs/api/signup_proforma_preview.html)
+### SignupProformaPreview
 
 Results: Created.
 
 SDK operations: `create`.
 
-### [Site](docs/api/site.html)
+### Site
 
 Results: OK.
 
 SDK operations: `create`, `list`, `load`.
 
-### [Subscription](docs/api/subscription.html)
+### Subscription
 
 Results: OK; Created; No Content.
 
@@ -391,7 +391,7 @@ Key fields to recognise:
 - `cancel_at_end_of_period`: Whether or not the subscription will (or has) canceled at the end of the period.
 - `canceled_at`: The timestamp of the most recent cancellation
 
-### [SubscriptionComponent](docs/api/subscription_component.html)
+### SubscriptionComponent
 
 Results: Created; OK.
 
@@ -405,49 +405,49 @@ Key fields to recognise:
 - `component_id`: The integer component ID for the allocation. This references a component that you have created in your Product setup.
 - `created_at`: Timestamp indicating when this allocation was created
 
-### [SubscriptionGroup](docs/api/subscription_group.html)
+### SubscriptionGroup
 
 Results: OK; No Content.
 
 SDK operations: `create`, `list`, `remove`, `update`.
 
-### [SubscriptionGroupInvoiceAccount](docs/api/subscription_group_invoice_account.html)
+### SubscriptionGroupInvoiceAccount
 
 Results: OK; Created.
 
 SDK operations: `create`, `list`.
 
-### [SubscriptionGroupSignup](docs/api/subscription_group_signup.html)
+### SubscriptionGroupSignup
 
 Results: Created.
 
 SDK operations: `create`.
 
-### [SubscriptionGroupStatus](docs/api/subscription_group_status.html)
+### SubscriptionGroupStatus
 
 Results: OK.
 
 SDK operations: `create`, `remove`.
 
-### [SubscriptionInvoiceAccount](docs/api/subscription_invoice_account.html)
+### SubscriptionInvoiceAccount
 
 Results: Created; OK.
 
 SDK operations: `create`, `list`.
 
-### [SubscriptionMrr](docs/api/subscription_mrr.html)
+### SubscriptionMrr
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [SubscriptionNote](docs/api/subscription_note.html)
+### SubscriptionNote
 
 Results: OK.
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
-### [SubscriptionProduct](docs/api/subscription_product.html)
+### SubscriptionProduct
 
 Results: OK.
 
@@ -457,7 +457,7 @@ Key fields to recognise:
 
 - `id`: The subscription unique id within Chargify.
 
-### [SubscriptionRenewal](docs/api/subscription_renewal.html)
+### SubscriptionRenewal
 
 Results: Created; OK; No Content.
 
@@ -467,7 +467,7 @@ Key fields to recognise:
 
 - `id`: ID of the renewal.
 
-### [SubscriptionStatus](docs/api/subscription_status.html)
+### SubscriptionStatus
 
 Results: OK.
 
@@ -477,13 +477,13 @@ Key fields to recognise:
 
 - `id`: The subscription unique id within Chargify.
 
-### [Usage](docs/api/usage.html)
+### Usage
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [Webhook](docs/api/webhook.html)
+### Webhook
 
 Results: OK.
 
@@ -495,274 +495,274 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 | Entity | SDK operation | HTTP route | Authentication |
 | --- | --- | --- | --- |
-| [AccountBalance](docs/api/account_balance.html) | `load` | `GET /subscriptions/{subscription_id}/account_balances.json` | Required |
-| [Allocation](docs/api/allocation.html) | `create` | `POST /subscriptions/{subscription_id}/allocations.json` | Required |
-| [Allocation](docs/api/allocation.html) | `list` | `GET /subscriptions/{subscription_id}/components/{component_id}/allocations.json` | Required |
-| [BatchJob](docs/api/batch_job.html) | `create` | `POST /api_exports/invoices.json` | Required |
-| [BatchJob](docs/api/batch_job.html) | `create` | `POST /api_exports/proforma_invoices.json` | Required |
-| [BatchJob](docs/api/batch_job.html) | `create` | `POST /api_exports/subscriptions.json` | Required |
-| [BatchJob](docs/api/batch_job.html) | `load` | `GET /api_exports/invoices/{batch_id}.json` | Required |
-| [BatchJob](docs/api/batch_job.html) | `load` | `GET /api_exports/proforma_invoices/{batch_id}.json` | Required |
-| [BatchJob](docs/api/batch_job.html) | `load` | `GET /api_exports/subscriptions/{batch_id}.json` | Required |
-| [BillingPortal](docs/api/billing_portal.html) | `create` | `POST /portal/customers/{customer_id}/invitations/invite.json` | Required |
-| [BillingPortal](docs/api/billing_portal.html) | `load` | `GET /portal/customers/{customer_id}/management_link.json` | Required |
-| [BillingPortal](docs/api/billing_portal.html) | `remove` | `DELETE /portal/customers/{customer_id}/invitations/revoke.json` | Required |
-| [Component](docs/api/component.html) | `create` | `POST /product_families/{product_family_id}/event_based_components.json` | Required |
-| [Component](docs/api/component.html) | `create` | `POST /product_families/{product_family_id}/metered_components.json` | Required |
-| [Component](docs/api/component.html) | `create` | `POST /product_families/{product_family_id}/on_off_components.json` | Required |
-| [Component](docs/api/component.html) | `create` | `POST /product_families/{product_family_id}/prepaid_usage_components.json` | Required |
-| [Component](docs/api/component.html) | `create` | `POST /product_families/{product_family_id}/quantity_based_components.json` | Required |
-| [Component](docs/api/component.html) | `list` | `GET /product_families/{product_family_id}/components.json` | Required |
-| [Component](docs/api/component.html) | `list` | `GET /components.json` | Required |
-| [Component](docs/api/component.html) | `load` | `GET /product_families/{product_family_id}/components/{component_id}.json` | Required |
-| [Component](docs/api/component.html) | `load` | `GET /components/lookup.json` | Required |
-| [Component](docs/api/component.html) | `remove` | `DELETE /product_families/{product_family_id}/components/{component_id}.json` | Required |
-| [Component](docs/api/component.html) | `update` | `PUT /product_families/{product_family_id}/components/{component_id}.json` | Required |
-| [Component](docs/api/component.html) | `update` | `PUT /components/{component_id}.json` | Required |
-| [ComponentFeature](docs/api/component_feature.html) | `remove` | `DELETE /components/{component_id}/features/{id}.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `create` | `POST /components/{component_id}/price_points/{price_point_id}/clone.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `create` | `POST /components/{component_id}/price_points/bulk.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `create` | `POST /components/{component_id}/price_points.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `create` | `POST /price_points/{price_point_id}/currency_prices.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `list` | `GET /components/{component_id}/price_points.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `list` | `GET /components_price_points.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `remove` | `DELETE /components/{component_id}/price_points/{price_point_id}.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `update` | `PUT /components/{component_id}/price_points/{price_point_id}.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `update` | `PUT /components/{component_id}/price_points/{price_point_id}/default.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `update` | `PUT /components/{component_id}/price_points/{price_point_id}/unarchive.json` | Required |
-| [ComponentPricePoint](docs/api/component_price_point.html) | `update` | `PUT /price_points/{price_point_id}/currency_prices.json` | Required |
-| [ComponentPricePointCurrencyOverage](docs/api/component_price_point_currency_overage.html) | `load` | `GET /components/{component_id}/price_points/{price_point_id}.json` | Required |
-| [Coupon](docs/api/coupon.html) | `create` | `POST /coupons/{coupon_id}/codes.json` | Required |
-| [Coupon](docs/api/coupon.html) | `create` | `POST /product_families/{product_family_id}/coupons.json` | Required |
-| [Coupon](docs/api/coupon.html) | `list` | `GET /product_families/{product_family_id}/coupons.json` | Required |
-| [Coupon](docs/api/coupon.html) | `list` | `GET /coupons.json` | Required |
-| [Coupon](docs/api/coupon.html) | `list` | `GET /coupons/{coupon_id}/codes.json` | Required |
-| [Coupon](docs/api/coupon.html) | `load` | `GET /product_families/{product_family_id}/coupons/{coupon_id}.json` | Required |
-| [Coupon](docs/api/coupon.html) | `load` | `GET /coupons/find.json` | Required |
-| [Coupon](docs/api/coupon.html) | `load` | `GET /coupons/validate.json` | Required |
-| [Coupon](docs/api/coupon.html) | `remove` | `DELETE /coupons/{coupon_id}/codes/{subcode}.json` | Required |
-| [Coupon](docs/api/coupon.html) | `remove` | `DELETE /product_families/{product_family_id}/coupons/{coupon_id}.json` | Required |
-| [Coupon](docs/api/coupon.html) | `update` | `PUT /product_families/{product_family_id}/coupons/{coupon_id}.json` | Required |
-| [CouponCurrency](docs/api/coupon_currency.html) | `update` | `PUT /coupons/{coupon_id}/currency_prices.json` | Required |
-| [CouponSubcode](docs/api/coupon_subcode.html) | `update` | `PUT /coupons/{coupon_id}/codes.json` | Required |
-| [CouponUsage](docs/api/coupon_usage.html) | `list` | `GET /product_families/{product_family_id}/coupons/{coupon_id}/usage.json` | Required |
-| [CustomField](docs/api/custom_field.html) | `create` | `POST /{resource_type}/{resource_id}/metadata.json` | Required |
-| [CustomField](docs/api/custom_field.html) | `create` | `POST /{resource_type}/metafields.json` | Required |
-| [CustomField](docs/api/custom_field.html) | `list` | `GET /{resource_type}/metadata.json` | Required |
-| [CustomField](docs/api/custom_field.html) | `list` | `GET /{resource_type}/metafields.json` | Required |
-| [CustomField](docs/api/custom_field.html) | `list` | `GET /{resource_type}/{resource_id}/metadata.json` | Required |
-| [CustomField](docs/api/custom_field.html) | `remove` | `DELETE /{resource_type}/{resource_id}/metadata.json` | Required |
-| [CustomField](docs/api/custom_field.html) | `remove` | `DELETE /{resource_type}/metafields.json` | Required |
-| [CustomField](docs/api/custom_field.html) | `update` | `PUT /{resource_type}/{resource_id}/metadata.json` | Required |
-| [CustomField](docs/api/custom_field.html) | `update` | `PUT /{resource_type}/metafields.json` | Required |
-| [Customer](docs/api/customer.html) | `create` | `POST /portal/customers/{customer_id}/enable.json` | Required |
-| [Customer](docs/api/customer.html) | `create` | `POST /customers.json` | Required |
-| [Customer](docs/api/customer.html) | `list` | `GET /customers.json` | Required |
-| [Customer](docs/api/customer.html) | `load` | `GET /customers/{id}.json` | Required |
-| [Customer](docs/api/customer.html) | `load` | `GET /customers/lookup.json` | Required |
-| [Customer](docs/api/customer.html) | `remove` | `DELETE /customers/{id}.json` | Required |
-| [Customer](docs/api/customer.html) | `update` | `PUT /customers/{id}.json` | Required |
-| [DelayedCancel](docs/api/delayed_cancel.html) | `create` | `POST /subscriptions/{subscription_id}/delayed_cancel.json` | Required |
-| [Endpoint](docs/api/endpoint.html) | `list` | `GET /endpoints.json` | Required |
-| [Endpoint](docs/api/endpoint.html) | `update` | `PUT /endpoints/{endpoint_id}.json` | Required |
-| [Entitlement](docs/api/entitlement.html) | `list` | `GET /subscriptions/{subscription_id}/entitlements.json` | Required |
-| [Event](docs/api/event.html) | `list` | `GET /events.json` | Required |
-| [Event](docs/api/event.html) | `list` | `GET /subscriptions/{subscription_id}/events.json` | Required |
-| [Event](docs/api/event.html) | `load` | `GET /events/count.json` | Required |
-| [EventsBasedBillingSegment](docs/api/events_based_billing_segment.html) | `remove` | `DELETE /components/{component_id}/price_points/{price_point_id}/segments/{id}.json` | Required |
-| [Feature](docs/api/feature.html) | `create` | `POST /components/{component_id}/features.json` | Required |
-| [Feature](docs/api/feature.html) | `create` | `POST /products/{product_id}/features.json` | Required |
-| [Feature](docs/api/feature.html) | `create` | `POST /features.json` | Required |
-| [Feature](docs/api/feature.html) | `list` | `GET /features.json` | Required |
-| [Feature](docs/api/feature.html) | `list` | `GET /components/{component_id}/features.json` | Required |
-| [Feature](docs/api/feature.html) | `list` | `GET /products/{product_id}/features.json` | Required |
-| [FeatureCatalogItem](docs/api/feature_catalog_item.html) | `create` | `POST /components/{component_id}/features/{id}/restore.json` | Required |
-| [FeatureCatalogItem](docs/api/feature_catalog_item.html) | `create` | `POST /products/{product_id}/features/{id}/restore.json` | Required |
-| [FeatureCatalogItem](docs/api/feature_catalog_item.html) | `load` | `GET /components/{component_id}/features/{id}.json` | Required |
-| [FeatureCatalogItem](docs/api/feature_catalog_item.html) | `load` | `GET /products/{product_id}/features/{id}.json` | Required |
-| [FeatureCatalogItem](docs/api/feature_catalog_item.html) | `update` | `PUT /components/{component_id}/features/{id}.json` | Required |
-| [FeatureCatalogItem](docs/api/feature_catalog_item.html) | `update` | `PUT /products/{product_id}/features/{id}.json` | Required |
-| [FeatureTemplate](docs/api/feature_template.html) | `create` | `POST /features/{id}/restore.json` | Required |
-| [FeatureTemplate](docs/api/feature_template.html) | `load` | `GET /features/{id}.json` | Required |
-| [FeatureTemplate](docs/api/feature_template.html) | `remove` | `DELETE /features/{id}.json` | Required |
-| [FeatureTemplate](docs/api/feature_template.html) | `update` | `PUT /features/{id}.json` | Required |
-| [Insight](docs/api/insight.html) | `load` | `GET /mrr_movements.json` | Required |
-| [Insight](docs/api/insight.html) | `load` | `GET /mrr.json` | Required |
-| [Insight](docs/api/insight.html) | `load` | `GET /stats.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /invoices/{uid}/customer_information/preview.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /invoices/{uid}/deliveries.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /invoices/{uid}/issue.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /invoices/{uid}/payments.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /invoices/{uid}/refunds.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /invoices/{uid}/reopen.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /invoices/{uid}/void.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /subscriptions/{subscription_id}/advance_invoice/issue.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /subscriptions/{subscription_id}/advance_invoice/void.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /subscriptions/{subscription_id}/invoices.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /subscriptions/{subscription_id}/payments.json` | Required |
-| [Invoice](docs/api/invoice.html) | `create` | `POST /invoices/payments.json` | Required |
-| [Invoice](docs/api/invoice.html) | `list` | `GET /invoices.json` | Required |
-| [Invoice](docs/api/invoice.html) | `list` | `GET /credit_notes.json` | Required |
-| [Invoice](docs/api/invoice.html) | `list` | `GET /invoices/events.json` | Required |
-| [Invoice](docs/api/invoice.html) | `list` | `GET /invoices/{invoice_uid}/segments.json` | Required |
-| [Invoice](docs/api/invoice.html) | `list` | `GET /api_exports/invoices/{batch_id}/rows.json` | Required |
-| [Invoice](docs/api/invoice.html) | `list` | `GET /subscriptions/{subscription_id}/advance_invoice.json` | Required |
-| [Invoice](docs/api/invoice.html) | `list` | `GET /credit_notes/{uid}.json` | Required |
-| [Invoice](docs/api/invoice.html) | `list` | `GET /invoices/{uid}.json` | Required |
-| [Invoice](docs/api/invoice.html) | `remove` | `DELETE /subscriptions/{subscription_id}/invoices/{uid}.json` | Required |
-| [Invoice](docs/api/invoice.html) | `update` | `PUT /subscriptions/{subscription_id}/invoices/{uid}.json` | Required |
-| [Invoice](docs/api/invoice.html) | `update` | `PUT /invoices/{uid}/customer_information.json` | Required |
-| [ListProformaInvoice](docs/api/list_proforma_invoice.html) | `list` | `GET /subscriptions/{subscription_id}/proforma_invoices.json` | Required |
-| [ListProformaInvoice](docs/api/list_proforma_invoice.html) | `list` | `GET /subscription_groups/{uid}/proforma_invoices.json` | Required |
-| [ListSaleRepItem](docs/api/list_sale_rep_item.html) | `list` | `GET /sellers/{seller_id}/sales_reps.json` | Required |
-| [ListSegment](docs/api/list_segment.html) | `create` | `POST /components/{component_id}/price_points/{price_point_id}/segments/bulk.json` | Required |
-| [ListSegment](docs/api/list_segment.html) | `list` | `GET /components/{component_id}/price_points/{price_point_id}/segments.json` | Required |
-| [ListSegment](docs/api/list_segment.html) | `update` | `PUT /components/{component_id}/price_points/{price_point_id}/segments/bulk.json` | Required |
-| [Offer](docs/api/offer.html) | `create` | `POST /offers.json` | Required |
-| [Offer](docs/api/offer.html) | `list` | `GET /offers.json` | Required |
-| [Offer](docs/api/offer.html) | `load` | `GET /offers/{offer_id}.json` | Required |
-| [Offer](docs/api/offer.html) | `update` | `PUT /offers/{offer_id}/archive.json` | Required |
-| [Offer](docs/api/offer.html) | `update` | `PUT /offers/{offer_id}/unarchive.json` | Required |
-| [OneTimeToken](docs/api/one_time_token.html) | `load` | `GET /one_time_tokens/{chargify_token}.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `create` | `POST /subscription_groups/{uid}/payment_profiles/{payment_profile_id}/change_payment_profile.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `create` | `POST /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}/change_payment_profile.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `create` | `POST /subscriptions/{subscription_id}/request_payment_profiles_update.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `create` | `POST /payment_profiles.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `list` | `GET /payment_profiles.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `load` | `GET /payment_profiles/{payment_profile_id}.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `remove` | `DELETE /subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `remove` | `DELETE /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `remove` | `DELETE /payment_profiles/{payment_profile_id}.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `update` | `PUT /bank_accounts/{bank_account_id}/verification.json` | Required |
-| [PaymentProfile](docs/api/payment_profile.html) | `update` | `PUT /payment_profiles/{payment_profile_id}.json` | Required |
-| [Prepayment](docs/api/prepayment.html) | `create` | `POST /subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.json` | Required |
-| [Product](docs/api/product.html) | `create` | `POST /product_families/{product_family_id}/products.json` | Required |
-| [Product](docs/api/product.html) | `list` | `GET /products.json` | Required |
-| [Product](docs/api/product.html) | `list` | `GET /product_families/{product_family_id}/products.json` | Required |
-| [Product](docs/api/product.html) | `load` | `GET /products/{product_id}.json` | Required |
-| [Product](docs/api/product.html) | `load` | `GET /products/handle/{api_handle}.json` | Required |
-| [Product](docs/api/product.html) | `remove` | `DELETE /products/{product_id}.json` | Required |
-| [Product](docs/api/product.html) | `update` | `PUT /products/{product_id}.json` | Required |
-| [ProductFamily](docs/api/product_family.html) | `create` | `POST /product_families.json` | Required |
-| [ProductFamily](docs/api/product_family.html) | `list` | `GET /product_families.json` | Required |
-| [ProductFamily](docs/api/product_family.html) | `load` | `GET /product_families/{id}.json` | Required |
-| [ProductFeature](docs/api/product_feature.html) | `remove` | `DELETE /products/{product_id}/features/{id}.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `create` | `POST /product_price_points/{product_price_point_id}/currency_prices.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `create` | `POST /products/{product_id}/price_points.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `create` | `POST /products/{product_id}/price_points/bulk.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `list` | `GET /products/{product_id}/price_points.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `list` | `GET /products_price_points.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `load` | `GET /products/{product_id}/price_points/{price_point_id}.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `patch` | `PATCH /products/{product_id}/price_points/{price_point_id}/default.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `patch` | `PATCH /products/{product_id}/price_points/{price_point_id}/unarchive.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `remove` | `DELETE /products/{product_id}/price_points/{price_point_id}.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `update` | `PUT /products/{product_id}/price_points/{price_point_id}.json` | Required |
-| [ProductPricePoint](docs/api/product_price_point.html) | `update` | `PUT /product_price_points/{product_price_point_id}/currency_prices.json` | Required |
-| [ProformaInvoice](docs/api/proforma_invoice.html) | `create` | `POST /proforma_invoices/{proforma_invoice_uid}/deliveries.json` | Required |
-| [ProformaInvoice](docs/api/proforma_invoice.html) | `create` | `POST /proforma_invoices/{proforma_invoice_uid}/void.json` | Required |
-| [ProformaInvoice](docs/api/proforma_invoice.html) | `create` | `POST /subscription_groups/{uid}/proforma_invoices.json` | Required |
-| [ProformaInvoice](docs/api/proforma_invoice.html) | `create` | `POST /subscriptions/{subscription_id}/proforma_invoices.json` | Required |
-| [ProformaInvoice](docs/api/proforma_invoice.html) | `create` | `POST /subscriptions/{subscription_id}/proforma_invoices/preview.json` | Required |
-| [ProformaInvoice](docs/api/proforma_invoice.html) | `create` | `POST /subscriptions/proforma_invoices.json` | Required |
-| [ProformaInvoice](docs/api/proforma_invoice.html) | `list` | `GET /api_exports/proforma_invoices/{batch_id}/rows.json` | Required |
-| [ProformaInvoice](docs/api/proforma_invoice.html) | `list` | `GET /proforma_invoices/{proforma_invoice_uid}.json` | Required |
-| [ReasonCode](docs/api/reason_code.html) | `create` | `POST /reason_codes.json` | Required |
-| [ReasonCode](docs/api/reason_code.html) | `list` | `GET /reason_codes.json` | Required |
-| [ReasonCode](docs/api/reason_code.html) | `load` | `GET /reason_codes/{reason_code_id}.json` | Required |
-| [ReasonCode](docs/api/reason_code.html) | `remove` | `DELETE /reason_codes/{reason_code_id}.json` | Required |
-| [ReasonCode](docs/api/reason_code.html) | `update` | `PUT /reason_codes/{reason_code_id}.json` | Required |
-| [ReferralCode](docs/api/referral_code.html) | `load` | `GET /referral_codes/validate.json` | Required |
-| [SaleRepSetting](docs/api/sale_rep_setting.html) | `list` | `GET /sellers/{seller_id}/sales_commission_settings.json` | Required |
-| [SalesCommission](docs/api/sales_commission.html) | `list` | `GET /sellers/{seller_id}/sales_reps/{sales_rep_id}.json` | Required |
-| [Segment](docs/api/segment.html) | `create` | `POST /components/{component_id}/price_points/{price_point_id}/segments.json` | Required |
-| [Segment](docs/api/segment.html) | `update` | `PUT /components/{component_id}/price_points/{price_point_id}/segments/{id}.json` | Required |
-| [SignupProformaPreview](docs/api/signup_proforma_preview.html) | `create` | `POST /subscriptions/proforma_invoices/preview.json` | Required |
-| [Site](docs/api/site.html) | `create` | `POST /sites/clear_data.json` | Required |
-| [Site](docs/api/site.html) | `list` | `GET /chargify_js_keys.json` | Required |
-| [Site](docs/api/site.html) | `load` | `GET /site.json` | Required |
-| [Subscription](docs/api/subscription.html) | `create` | `POST /subscriptions/{subscription_id}/purge.json` | Required |
-| [Subscription](docs/api/subscription.html) | `create` | `POST /subscriptions/{subscription_id}/add_coupon.json` | Required |
-| [Subscription](docs/api/subscription.html) | `create` | `POST /subscriptions/{subscription_id}/cancel_dunning.json` | Required |
-| [Subscription](docs/api/subscription.html) | `create` | `POST /subscriptions/{subscription_id}/prepaid_configurations.json` | Required |
-| [Subscription](docs/api/subscription.html) | `create` | `POST /subscriptions.json` | Required |
-| [Subscription](docs/api/subscription.html) | `create` | `POST /subscriptions/preview.json` | Required |
-| [Subscription](docs/api/subscription.html) | `list` | `GET /subscriptions.json` | Required |
-| [Subscription](docs/api/subscription.html) | `list` | `GET /api_exports/subscriptions/{batch_id}/rows.json` | Required |
-| [Subscription](docs/api/subscription.html) | `list` | `GET /customers/{customer_id}/subscriptions.json` | Required |
-| [Subscription](docs/api/subscription.html) | `load` | `GET /subscriptions/{subscription_id}.json` | Required |
-| [Subscription](docs/api/subscription.html) | `load` | `GET /subscriptions/lookup.json` | Required |
-| [Subscription](docs/api/subscription.html) | `remove` | `DELETE /subscriptions/{subscription_id}/remove_coupon.json` | Required |
-| [Subscription](docs/api/subscription.html) | `update` | `PUT /subscriptions/{subscription_id}/activate.json` | Required |
-| [Subscription](docs/api/subscription.html) | `update` | `PUT /subscriptions/{subscription_id}/override.json` | Required |
-| [Subscription](docs/api/subscription.html) | `update` | `PUT /subscriptions/{subscription_id}.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `create` | `POST /events/{api_handle}.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `create` | `POST /events/{api_handle}/bulk.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `create` | `POST /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/activate.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `create` | `POST /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/deactivate.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `create` | `POST /subscriptions/{subscription_id}/components/{component_id}/allocations.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `create` | `POST /subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `create` | `POST /subscriptions/{subscription_id}/price_points.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `create` | `POST /subscriptions/{subscription_id}/allocations/preview.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `create` | `POST /subscriptions/{subscription_id}/price_points/reset.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `list` | `GET /subscriptions_components.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `list` | `GET /subscriptions/{subscription_id}/components.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `load` | `GET /subscriptions/{subscription_id}/components/{component_id}.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `remove` | `DELETE /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json` | Required |
-| [SubscriptionComponent](docs/api/subscription_component.html) | `update` | `PUT /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json` | Required |
-| [SubscriptionGroup](docs/api/subscription_group.html) | `create` | `POST /subscriptions/{subscription_id}/group.json` | Required |
-| [SubscriptionGroup](docs/api/subscription_group.html) | `create` | `POST /subscription_groups.json` | Required |
-| [SubscriptionGroup](docs/api/subscription_group.html) | `list` | `GET /subscription_groups.json` | Required |
-| [SubscriptionGroup](docs/api/subscription_group.html) | `list` | `GET /subscription_groups/{uid}.json` | Required |
-| [SubscriptionGroup](docs/api/subscription_group.html) | `list` | `GET /subscription_groups/lookup.json` | Required |
-| [SubscriptionGroup](docs/api/subscription_group.html) | `remove` | `DELETE /subscriptions/{subscription_id}/group.json` | Required |
-| [SubscriptionGroup](docs/api/subscription_group.html) | `remove` | `DELETE /subscription_groups/{uid}.json` | Required |
-| [SubscriptionGroup](docs/api/subscription_group.html) | `update` | `PUT /subscription_groups/{uid}.json` | Required |
-| [SubscriptionGroupInvoiceAccount](docs/api/subscription_group_invoice_account.html) | `create` | `POST /subscription_groups/{uid}/prepayments.json` | Required |
-| [SubscriptionGroupInvoiceAccount](docs/api/subscription_group_invoice_account.html) | `create` | `POST /subscription_groups/{uid}/service_credit_deductions.json` | Required |
-| [SubscriptionGroupInvoiceAccount](docs/api/subscription_group_invoice_account.html) | `create` | `POST /subscription_groups/{uid}/service_credits.json` | Required |
-| [SubscriptionGroupInvoiceAccount](docs/api/subscription_group_invoice_account.html) | `list` | `GET /subscription_groups/{uid}/prepayments.json` | Required |
-| [SubscriptionGroupSignup](docs/api/subscription_group_signup.html) | `create` | `POST /subscription_groups/signup.json` | Required |
-| [SubscriptionGroupStatus](docs/api/subscription_group_status.html) | `create` | `POST /subscription_groups/{uid}/cancel.json` | Required |
-| [SubscriptionGroupStatus](docs/api/subscription_group_status.html) | `create` | `POST /subscription_groups/{uid}/delayed_cancel.json` | Required |
-| [SubscriptionGroupStatus](docs/api/subscription_group_status.html) | `create` | `POST /subscription_groups/{uid}/reactivate.json` | Required |
-| [SubscriptionGroupStatus](docs/api/subscription_group_status.html) | `remove` | `DELETE /subscription_groups/{uid}/delayed_cancel.json` | Required |
-| [SubscriptionInvoiceAccount](docs/api/subscription_invoice_account.html) | `create` | `POST /subscriptions/{subscription_id}/prepayments.json` | Required |
-| [SubscriptionInvoiceAccount](docs/api/subscription_invoice_account.html) | `create` | `POST /subscriptions/{subscription_id}/service_credit_deductions.json` | Required |
-| [SubscriptionInvoiceAccount](docs/api/subscription_invoice_account.html) | `create` | `POST /subscriptions/{subscription_id}/service_credits.json` | Required |
-| [SubscriptionInvoiceAccount](docs/api/subscription_invoice_account.html) | `list` | `GET /subscriptions/{subscription_id}/service_credits/list.json` | Required |
-| [SubscriptionInvoiceAccount](docs/api/subscription_invoice_account.html) | `list` | `GET /subscriptions/{subscription_id}/prepayments.json` | Required |
-| [SubscriptionMrr](docs/api/subscription_mrr.html) | `list` | `GET /subscriptions_mrr.json` | Required |
-| [SubscriptionNote](docs/api/subscription_note.html) | `create` | `POST /subscriptions/{subscription_id}/notes.json` | Required |
-| [SubscriptionNote](docs/api/subscription_note.html) | `list` | `GET /subscriptions/{subscription_id}/notes.json` | Required |
-| [SubscriptionNote](docs/api/subscription_note.html) | `load` | `GET /subscriptions/{subscription_id}/notes/{note_id}.json` | Required |
-| [SubscriptionNote](docs/api/subscription_note.html) | `remove` | `DELETE /subscriptions/{subscription_id}/notes/{note_id}.json` | Required |
-| [SubscriptionNote](docs/api/subscription_note.html) | `update` | `PUT /subscriptions/{subscription_id}/notes/{note_id}.json` | Required |
-| [SubscriptionProduct](docs/api/subscription_product.html) | `create` | `POST /subscriptions/{subscription_id}/migrations.json` | Required |
-| [SubscriptionProduct](docs/api/subscription_product.html) | `create` | `POST /subscriptions/{subscription_id}/migrations/preview.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `create` | `POST /subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `create` | `POST /subscriptions/{subscription_id}/scheduled_renewals.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `list` | `GET /subscriptions/{subscription_id}/scheduled_renewals.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `load` | `GET /subscriptions/{subscription_id}/scheduled_renewals/{id}.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `remove` | `DELETE /subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items/{id}.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items/{id}.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/cancel.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/immediate_lock_in.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/schedule_lock_in.json` | Required |
-| [SubscriptionRenewal](docs/api/subscription_renewal.html) | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/unpublish.json` | Required |
-| [SubscriptionStatus](docs/api/subscription_status.html) | `create` | `POST /subscriptions/{subscription_id}/resume.json` | Required |
-| [SubscriptionStatus](docs/api/subscription_status.html) | `create` | `POST /subscriptions/{subscription_id}/hold.json` | Required |
-| [SubscriptionStatus](docs/api/subscription_status.html) | `create` | `POST /subscriptions/{subscription_id}/renewals/preview.json` | Required |
-| [SubscriptionStatus](docs/api/subscription_status.html) | `remove` | `DELETE /subscriptions/{subscription_id}.json` | Required |
-| [SubscriptionStatus](docs/api/subscription_status.html) | `remove` | `DELETE /subscriptions/{subscription_id}/delayed_cancel.json` | Required |
-| [SubscriptionStatus](docs/api/subscription_status.html) | `update` | `PUT /subscriptions/{subscription_id}/hold.json` | Required |
-| [SubscriptionStatus](docs/api/subscription_status.html) | `update` | `PUT /subscriptions/{subscription_id}/reactivate.json` | Required |
-| [SubscriptionStatus](docs/api/subscription_status.html) | `update` | `PUT /subscriptions/{subscription_id}/retry.json` | Required |
-| [Usage](docs/api/usage.html) | `list` | `GET /subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json` | Required |
-| [Webhook](docs/api/webhook.html) | `create` | `POST /endpoints.json` | Required |
-| [Webhook](docs/api/webhook.html) | `create` | `POST /webhooks/replay.json` | Required |
-| [Webhook](docs/api/webhook.html) | `list` | `GET /webhooks.json` | Required |
-| [Webhook](docs/api/webhook.html) | `update` | `PUT /webhooks/settings.json` | Required |
+| AccountBalance | `load` | `GET /subscriptions/{subscription_id}/account_balances.json` | Required |
+| Allocation | `create` | `POST /subscriptions/{subscription_id}/allocations.json` | Required |
+| Allocation | `list` | `GET /subscriptions/{subscription_id}/components/{component_id}/allocations.json` | Required |
+| BatchJob | `create` | `POST /api_exports/invoices.json` | Required |
+| BatchJob | `create` | `POST /api_exports/proforma_invoices.json` | Required |
+| BatchJob | `create` | `POST /api_exports/subscriptions.json` | Required |
+| BatchJob | `load` | `GET /api_exports/invoices/{batch_id}.json` | Required |
+| BatchJob | `load` | `GET /api_exports/proforma_invoices/{batch_id}.json` | Required |
+| BatchJob | `load` | `GET /api_exports/subscriptions/{batch_id}.json` | Required |
+| BillingPortal | `create` | `POST /portal/customers/{customer_id}/invitations/invite.json` | Required |
+| BillingPortal | `load` | `GET /portal/customers/{customer_id}/management_link.json` | Required |
+| BillingPortal | `remove` | `DELETE /portal/customers/{customer_id}/invitations/revoke.json` | Required |
+| Component | `create` | `POST /product_families/{product_family_id}/event_based_components.json` | Required |
+| Component | `create` | `POST /product_families/{product_family_id}/metered_components.json` | Required |
+| Component | `create` | `POST /product_families/{product_family_id}/on_off_components.json` | Required |
+| Component | `create` | `POST /product_families/{product_family_id}/prepaid_usage_components.json` | Required |
+| Component | `create` | `POST /product_families/{product_family_id}/quantity_based_components.json` | Required |
+| Component | `list` | `GET /product_families/{product_family_id}/components.json` | Required |
+| Component | `list` | `GET /components.json` | Required |
+| Component | `load` | `GET /product_families/{product_family_id}/components/{component_id}.json` | Required |
+| Component | `load` | `GET /components/lookup.json` | Required |
+| Component | `remove` | `DELETE /product_families/{product_family_id}/components/{component_id}.json` | Required |
+| Component | `update` | `PUT /product_families/{product_family_id}/components/{component_id}.json` | Required |
+| Component | `update` | `PUT /components/{component_id}.json` | Required |
+| ComponentFeature | `remove` | `DELETE /components/{component_id}/features/{id}.json` | Required |
+| ComponentPricePoint | `create` | `POST /components/{component_id}/price_points/{price_point_id}/clone.json` | Required |
+| ComponentPricePoint | `create` | `POST /components/{component_id}/price_points/bulk.json` | Required |
+| ComponentPricePoint | `create` | `POST /components/{component_id}/price_points.json` | Required |
+| ComponentPricePoint | `create` | `POST /price_points/{price_point_id}/currency_prices.json` | Required |
+| ComponentPricePoint | `list` | `GET /components/{component_id}/price_points.json` | Required |
+| ComponentPricePoint | `list` | `GET /components_price_points.json` | Required |
+| ComponentPricePoint | `remove` | `DELETE /components/{component_id}/price_points/{price_point_id}.json` | Required |
+| ComponentPricePoint | `update` | `PUT /components/{component_id}/price_points/{price_point_id}.json` | Required |
+| ComponentPricePoint | `update` | `PUT /components/{component_id}/price_points/{price_point_id}/default.json` | Required |
+| ComponentPricePoint | `update` | `PUT /components/{component_id}/price_points/{price_point_id}/unarchive.json` | Required |
+| ComponentPricePoint | `update` | `PUT /price_points/{price_point_id}/currency_prices.json` | Required |
+| ComponentPricePointCurrencyOverage | `load` | `GET /components/{component_id}/price_points/{price_point_id}.json` | Required |
+| Coupon | `create` | `POST /coupons/{coupon_id}/codes.json` | Required |
+| Coupon | `create` | `POST /product_families/{product_family_id}/coupons.json` | Required |
+| Coupon | `list` | `GET /product_families/{product_family_id}/coupons.json` | Required |
+| Coupon | `list` | `GET /coupons.json` | Required |
+| Coupon | `list` | `GET /coupons/{coupon_id}/codes.json` | Required |
+| Coupon | `load` | `GET /product_families/{product_family_id}/coupons/{coupon_id}.json` | Required |
+| Coupon | `load` | `GET /coupons/find.json` | Required |
+| Coupon | `load` | `GET /coupons/validate.json` | Required |
+| Coupon | `remove` | `DELETE /coupons/{coupon_id}/codes/{subcode}.json` | Required |
+| Coupon | `remove` | `DELETE /product_families/{product_family_id}/coupons/{coupon_id}.json` | Required |
+| Coupon | `update` | `PUT /product_families/{product_family_id}/coupons/{coupon_id}.json` | Required |
+| CouponCurrency | `update` | `PUT /coupons/{coupon_id}/currency_prices.json` | Required |
+| CouponSubcode | `update` | `PUT /coupons/{coupon_id}/codes.json` | Required |
+| CouponUsage | `list` | `GET /product_families/{product_family_id}/coupons/{coupon_id}/usage.json` | Required |
+| CustomField | `create` | `POST /{resource_type}/{resource_id}/metadata.json` | Required |
+| CustomField | `create` | `POST /{resource_type}/metafields.json` | Required |
+| CustomField | `list` | `GET /{resource_type}/metadata.json` | Required |
+| CustomField | `list` | `GET /{resource_type}/metafields.json` | Required |
+| CustomField | `list` | `GET /{resource_type}/{resource_id}/metadata.json` | Required |
+| CustomField | `remove` | `DELETE /{resource_type}/{resource_id}/metadata.json` | Required |
+| CustomField | `remove` | `DELETE /{resource_type}/metafields.json` | Required |
+| CustomField | `update` | `PUT /{resource_type}/{resource_id}/metadata.json` | Required |
+| CustomField | `update` | `PUT /{resource_type}/metafields.json` | Required |
+| Customer | `create` | `POST /portal/customers/{customer_id}/enable.json` | Required |
+| Customer | `create` | `POST /customers.json` | Required |
+| Customer | `list` | `GET /customers.json` | Required |
+| Customer | `load` | `GET /customers/{id}.json` | Required |
+| Customer | `load` | `GET /customers/lookup.json` | Required |
+| Customer | `remove` | `DELETE /customers/{id}.json` | Required |
+| Customer | `update` | `PUT /customers/{id}.json` | Required |
+| DelayedCancel | `create` | `POST /subscriptions/{subscription_id}/delayed_cancel.json` | Required |
+| Endpoint | `list` | `GET /endpoints.json` | Required |
+| Endpoint | `update` | `PUT /endpoints/{endpoint_id}.json` | Required |
+| Entitlement | `list` | `GET /subscriptions/{subscription_id}/entitlements.json` | Required |
+| Event | `list` | `GET /events.json` | Required |
+| Event | `list` | `GET /subscriptions/{subscription_id}/events.json` | Required |
+| Event | `load` | `GET /events/count.json` | Required |
+| EventsBasedBillingSegment | `remove` | `DELETE /components/{component_id}/price_points/{price_point_id}/segments/{id}.json` | Required |
+| Feature | `create` | `POST /components/{component_id}/features.json` | Required |
+| Feature | `create` | `POST /products/{product_id}/features.json` | Required |
+| Feature | `create` | `POST /features.json` | Required |
+| Feature | `list` | `GET /features.json` | Required |
+| Feature | `list` | `GET /components/{component_id}/features.json` | Required |
+| Feature | `list` | `GET /products/{product_id}/features.json` | Required |
+| FeatureCatalogItem | `create` | `POST /components/{component_id}/features/{id}/restore.json` | Required |
+| FeatureCatalogItem | `create` | `POST /products/{product_id}/features/{id}/restore.json` | Required |
+| FeatureCatalogItem | `load` | `GET /components/{component_id}/features/{id}.json` | Required |
+| FeatureCatalogItem | `load` | `GET /products/{product_id}/features/{id}.json` | Required |
+| FeatureCatalogItem | `update` | `PUT /components/{component_id}/features/{id}.json` | Required |
+| FeatureCatalogItem | `update` | `PUT /products/{product_id}/features/{id}.json` | Required |
+| FeatureTemplate | `create` | `POST /features/{id}/restore.json` | Required |
+| FeatureTemplate | `load` | `GET /features/{id}.json` | Required |
+| FeatureTemplate | `remove` | `DELETE /features/{id}.json` | Required |
+| FeatureTemplate | `update` | `PUT /features/{id}.json` | Required |
+| Insight | `load` | `GET /mrr_movements.json` | Required |
+| Insight | `load` | `GET /mrr.json` | Required |
+| Insight | `load` | `GET /stats.json` | Required |
+| Invoice | `create` | `POST /invoices/{uid}/customer_information/preview.json` | Required |
+| Invoice | `create` | `POST /invoices/{uid}/deliveries.json` | Required |
+| Invoice | `create` | `POST /invoices/{uid}/issue.json` | Required |
+| Invoice | `create` | `POST /invoices/{uid}/payments.json` | Required |
+| Invoice | `create` | `POST /invoices/{uid}/refunds.json` | Required |
+| Invoice | `create` | `POST /invoices/{uid}/reopen.json` | Required |
+| Invoice | `create` | `POST /invoices/{uid}/void.json` | Required |
+| Invoice | `create` | `POST /subscriptions/{subscription_id}/advance_invoice/issue.json` | Required |
+| Invoice | `create` | `POST /subscriptions/{subscription_id}/advance_invoice/void.json` | Required |
+| Invoice | `create` | `POST /subscriptions/{subscription_id}/invoices.json` | Required |
+| Invoice | `create` | `POST /subscriptions/{subscription_id}/payments.json` | Required |
+| Invoice | `create` | `POST /invoices/payments.json` | Required |
+| Invoice | `list` | `GET /invoices.json` | Required |
+| Invoice | `list` | `GET /credit_notes.json` | Required |
+| Invoice | `list` | `GET /invoices/events.json` | Required |
+| Invoice | `list` | `GET /invoices/{invoice_uid}/segments.json` | Required |
+| Invoice | `list` | `GET /api_exports/invoices/{batch_id}/rows.json` | Required |
+| Invoice | `list` | `GET /subscriptions/{subscription_id}/advance_invoice.json` | Required |
+| Invoice | `list` | `GET /credit_notes/{uid}.json` | Required |
+| Invoice | `list` | `GET /invoices/{uid}.json` | Required |
+| Invoice | `remove` | `DELETE /subscriptions/{subscription_id}/invoices/{uid}.json` | Required |
+| Invoice | `update` | `PUT /subscriptions/{subscription_id}/invoices/{uid}.json` | Required |
+| Invoice | `update` | `PUT /invoices/{uid}/customer_information.json` | Required |
+| ListProformaInvoice | `list` | `GET /subscriptions/{subscription_id}/proforma_invoices.json` | Required |
+| ListProformaInvoice | `list` | `GET /subscription_groups/{uid}/proforma_invoices.json` | Required |
+| ListSaleRepItem | `list` | `GET /sellers/{seller_id}/sales_reps.json` | Required |
+| ListSegment | `create` | `POST /components/{component_id}/price_points/{price_point_id}/segments/bulk.json` | Required |
+| ListSegment | `list` | `GET /components/{component_id}/price_points/{price_point_id}/segments.json` | Required |
+| ListSegment | `update` | `PUT /components/{component_id}/price_points/{price_point_id}/segments/bulk.json` | Required |
+| Offer | `create` | `POST /offers.json` | Required |
+| Offer | `list` | `GET /offers.json` | Required |
+| Offer | `load` | `GET /offers/{offer_id}.json` | Required |
+| Offer | `update` | `PUT /offers/{offer_id}/archive.json` | Required |
+| Offer | `update` | `PUT /offers/{offer_id}/unarchive.json` | Required |
+| OneTimeToken | `load` | `GET /one_time_tokens/{chargify_token}.json` | Required |
+| PaymentProfile | `create` | `POST /subscription_groups/{uid}/payment_profiles/{payment_profile_id}/change_payment_profile.json` | Required |
+| PaymentProfile | `create` | `POST /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}/change_payment_profile.json` | Required |
+| PaymentProfile | `create` | `POST /subscriptions/{subscription_id}/request_payment_profiles_update.json` | Required |
+| PaymentProfile | `create` | `POST /payment_profiles.json` | Required |
+| PaymentProfile | `list` | `GET /payment_profiles.json` | Required |
+| PaymentProfile | `load` | `GET /payment_profiles/{payment_profile_id}.json` | Required |
+| PaymentProfile | `remove` | `DELETE /subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json` | Required |
+| PaymentProfile | `remove` | `DELETE /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json` | Required |
+| PaymentProfile | `remove` | `DELETE /payment_profiles/{payment_profile_id}.json` | Required |
+| PaymentProfile | `update` | `PUT /bank_accounts/{bank_account_id}/verification.json` | Required |
+| PaymentProfile | `update` | `PUT /payment_profiles/{payment_profile_id}.json` | Required |
+| Prepayment | `create` | `POST /subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.json` | Required |
+| Product | `create` | `POST /product_families/{product_family_id}/products.json` | Required |
+| Product | `list` | `GET /products.json` | Required |
+| Product | `list` | `GET /product_families/{product_family_id}/products.json` | Required |
+| Product | `load` | `GET /products/{product_id}.json` | Required |
+| Product | `load` | `GET /products/handle/{api_handle}.json` | Required |
+| Product | `remove` | `DELETE /products/{product_id}.json` | Required |
+| Product | `update` | `PUT /products/{product_id}.json` | Required |
+| ProductFamily | `create` | `POST /product_families.json` | Required |
+| ProductFamily | `list` | `GET /product_families.json` | Required |
+| ProductFamily | `load` | `GET /product_families/{id}.json` | Required |
+| ProductFeature | `remove` | `DELETE /products/{product_id}/features/{id}.json` | Required |
+| ProductPricePoint | `create` | `POST /product_price_points/{product_price_point_id}/currency_prices.json` | Required |
+| ProductPricePoint | `create` | `POST /products/{product_id}/price_points.json` | Required |
+| ProductPricePoint | `create` | `POST /products/{product_id}/price_points/bulk.json` | Required |
+| ProductPricePoint | `list` | `GET /products/{product_id}/price_points.json` | Required |
+| ProductPricePoint | `list` | `GET /products_price_points.json` | Required |
+| ProductPricePoint | `load` | `GET /products/{product_id}/price_points/{price_point_id}.json` | Required |
+| ProductPricePoint | `patch` | `PATCH /products/{product_id}/price_points/{price_point_id}/default.json` | Required |
+| ProductPricePoint | `patch` | `PATCH /products/{product_id}/price_points/{price_point_id}/unarchive.json` | Required |
+| ProductPricePoint | `remove` | `DELETE /products/{product_id}/price_points/{price_point_id}.json` | Required |
+| ProductPricePoint | `update` | `PUT /products/{product_id}/price_points/{price_point_id}.json` | Required |
+| ProductPricePoint | `update` | `PUT /product_price_points/{product_price_point_id}/currency_prices.json` | Required |
+| ProformaInvoice | `create` | `POST /proforma_invoices/{proforma_invoice_uid}/deliveries.json` | Required |
+| ProformaInvoice | `create` | `POST /proforma_invoices/{proforma_invoice_uid}/void.json` | Required |
+| ProformaInvoice | `create` | `POST /subscription_groups/{uid}/proforma_invoices.json` | Required |
+| ProformaInvoice | `create` | `POST /subscriptions/{subscription_id}/proforma_invoices.json` | Required |
+| ProformaInvoice | `create` | `POST /subscriptions/{subscription_id}/proforma_invoices/preview.json` | Required |
+| ProformaInvoice | `create` | `POST /subscriptions/proforma_invoices.json` | Required |
+| ProformaInvoice | `list` | `GET /api_exports/proforma_invoices/{batch_id}/rows.json` | Required |
+| ProformaInvoice | `list` | `GET /proforma_invoices/{proforma_invoice_uid}.json` | Required |
+| ReasonCode | `create` | `POST /reason_codes.json` | Required |
+| ReasonCode | `list` | `GET /reason_codes.json` | Required |
+| ReasonCode | `load` | `GET /reason_codes/{reason_code_id}.json` | Required |
+| ReasonCode | `remove` | `DELETE /reason_codes/{reason_code_id}.json` | Required |
+| ReasonCode | `update` | `PUT /reason_codes/{reason_code_id}.json` | Required |
+| ReferralCode | `load` | `GET /referral_codes/validate.json` | Required |
+| SaleRepSetting | `list` | `GET /sellers/{seller_id}/sales_commission_settings.json` | Required |
+| SalesCommission | `list` | `GET /sellers/{seller_id}/sales_reps/{sales_rep_id}.json` | Required |
+| Segment | `create` | `POST /components/{component_id}/price_points/{price_point_id}/segments.json` | Required |
+| Segment | `update` | `PUT /components/{component_id}/price_points/{price_point_id}/segments/{id}.json` | Required |
+| SignupProformaPreview | `create` | `POST /subscriptions/proforma_invoices/preview.json` | Required |
+| Site | `create` | `POST /sites/clear_data.json` | Required |
+| Site | `list` | `GET /chargify_js_keys.json` | Required |
+| Site | `load` | `GET /site.json` | Required |
+| Subscription | `create` | `POST /subscriptions/{subscription_id}/purge.json` | Required |
+| Subscription | `create` | `POST /subscriptions/{subscription_id}/add_coupon.json` | Required |
+| Subscription | `create` | `POST /subscriptions/{subscription_id}/cancel_dunning.json` | Required |
+| Subscription | `create` | `POST /subscriptions/{subscription_id}/prepaid_configurations.json` | Required |
+| Subscription | `create` | `POST /subscriptions.json` | Required |
+| Subscription | `create` | `POST /subscriptions/preview.json` | Required |
+| Subscription | `list` | `GET /subscriptions.json` | Required |
+| Subscription | `list` | `GET /api_exports/subscriptions/{batch_id}/rows.json` | Required |
+| Subscription | `list` | `GET /customers/{customer_id}/subscriptions.json` | Required |
+| Subscription | `load` | `GET /subscriptions/{subscription_id}.json` | Required |
+| Subscription | `load` | `GET /subscriptions/lookup.json` | Required |
+| Subscription | `remove` | `DELETE /subscriptions/{subscription_id}/remove_coupon.json` | Required |
+| Subscription | `update` | `PUT /subscriptions/{subscription_id}/activate.json` | Required |
+| Subscription | `update` | `PUT /subscriptions/{subscription_id}/override.json` | Required |
+| Subscription | `update` | `PUT /subscriptions/{subscription_id}.json` | Required |
+| SubscriptionComponent | `create` | `POST /events/{api_handle}.json` | Required |
+| SubscriptionComponent | `create` | `POST /events/{api_handle}/bulk.json` | Required |
+| SubscriptionComponent | `create` | `POST /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/activate.json` | Required |
+| SubscriptionComponent | `create` | `POST /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/deactivate.json` | Required |
+| SubscriptionComponent | `create` | `POST /subscriptions/{subscription_id}/components/{component_id}/allocations.json` | Required |
+| SubscriptionComponent | `create` | `POST /subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json` | Required |
+| SubscriptionComponent | `create` | `POST /subscriptions/{subscription_id}/price_points.json` | Required |
+| SubscriptionComponent | `create` | `POST /subscriptions/{subscription_id}/allocations/preview.json` | Required |
+| SubscriptionComponent | `create` | `POST /subscriptions/{subscription_id}/price_points/reset.json` | Required |
+| SubscriptionComponent | `list` | `GET /subscriptions_components.json` | Required |
+| SubscriptionComponent | `list` | `GET /subscriptions/{subscription_id}/components.json` | Required |
+| SubscriptionComponent | `load` | `GET /subscriptions/{subscription_id}/components/{component_id}.json` | Required |
+| SubscriptionComponent | `remove` | `DELETE /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json` | Required |
+| SubscriptionComponent | `update` | `PUT /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json` | Required |
+| SubscriptionGroup | `create` | `POST /subscriptions/{subscription_id}/group.json` | Required |
+| SubscriptionGroup | `create` | `POST /subscription_groups.json` | Required |
+| SubscriptionGroup | `list` | `GET /subscription_groups.json` | Required |
+| SubscriptionGroup | `list` | `GET /subscription_groups/{uid}.json` | Required |
+| SubscriptionGroup | `list` | `GET /subscription_groups/lookup.json` | Required |
+| SubscriptionGroup | `remove` | `DELETE /subscriptions/{subscription_id}/group.json` | Required |
+| SubscriptionGroup | `remove` | `DELETE /subscription_groups/{uid}.json` | Required |
+| SubscriptionGroup | `update` | `PUT /subscription_groups/{uid}.json` | Required |
+| SubscriptionGroupInvoiceAccount | `create` | `POST /subscription_groups/{uid}/prepayments.json` | Required |
+| SubscriptionGroupInvoiceAccount | `create` | `POST /subscription_groups/{uid}/service_credit_deductions.json` | Required |
+| SubscriptionGroupInvoiceAccount | `create` | `POST /subscription_groups/{uid}/service_credits.json` | Required |
+| SubscriptionGroupInvoiceAccount | `list` | `GET /subscription_groups/{uid}/prepayments.json` | Required |
+| SubscriptionGroupSignup | `create` | `POST /subscription_groups/signup.json` | Required |
+| SubscriptionGroupStatus | `create` | `POST /subscription_groups/{uid}/cancel.json` | Required |
+| SubscriptionGroupStatus | `create` | `POST /subscription_groups/{uid}/delayed_cancel.json` | Required |
+| SubscriptionGroupStatus | `create` | `POST /subscription_groups/{uid}/reactivate.json` | Required |
+| SubscriptionGroupStatus | `remove` | `DELETE /subscription_groups/{uid}/delayed_cancel.json` | Required |
+| SubscriptionInvoiceAccount | `create` | `POST /subscriptions/{subscription_id}/prepayments.json` | Required |
+| SubscriptionInvoiceAccount | `create` | `POST /subscriptions/{subscription_id}/service_credit_deductions.json` | Required |
+| SubscriptionInvoiceAccount | `create` | `POST /subscriptions/{subscription_id}/service_credits.json` | Required |
+| SubscriptionInvoiceAccount | `list` | `GET /subscriptions/{subscription_id}/service_credits/list.json` | Required |
+| SubscriptionInvoiceAccount | `list` | `GET /subscriptions/{subscription_id}/prepayments.json` | Required |
+| SubscriptionMrr | `list` | `GET /subscriptions_mrr.json` | Required |
+| SubscriptionNote | `create` | `POST /subscriptions/{subscription_id}/notes.json` | Required |
+| SubscriptionNote | `list` | `GET /subscriptions/{subscription_id}/notes.json` | Required |
+| SubscriptionNote | `load` | `GET /subscriptions/{subscription_id}/notes/{note_id}.json` | Required |
+| SubscriptionNote | `remove` | `DELETE /subscriptions/{subscription_id}/notes/{note_id}.json` | Required |
+| SubscriptionNote | `update` | `PUT /subscriptions/{subscription_id}/notes/{note_id}.json` | Required |
+| SubscriptionProduct | `create` | `POST /subscriptions/{subscription_id}/migrations.json` | Required |
+| SubscriptionProduct | `create` | `POST /subscriptions/{subscription_id}/migrations/preview.json` | Required |
+| SubscriptionRenewal | `create` | `POST /subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items.json` | Required |
+| SubscriptionRenewal | `create` | `POST /subscriptions/{subscription_id}/scheduled_renewals.json` | Required |
+| SubscriptionRenewal | `list` | `GET /subscriptions/{subscription_id}/scheduled_renewals.json` | Required |
+| SubscriptionRenewal | `load` | `GET /subscriptions/{subscription_id}/scheduled_renewals/{id}.json` | Required |
+| SubscriptionRenewal | `remove` | `DELETE /subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items/{id}.json` | Required |
+| SubscriptionRenewal | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{scheduled_renewals_configuration_id}/configuration_items/{id}.json` | Required |
+| SubscriptionRenewal | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}.json` | Required |
+| SubscriptionRenewal | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/cancel.json` | Required |
+| SubscriptionRenewal | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/immediate_lock_in.json` | Required |
+| SubscriptionRenewal | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/schedule_lock_in.json` | Required |
+| SubscriptionRenewal | `update` | `PUT /subscriptions/{subscription_id}/scheduled_renewals/{id}/unpublish.json` | Required |
+| SubscriptionStatus | `create` | `POST /subscriptions/{subscription_id}/resume.json` | Required |
+| SubscriptionStatus | `create` | `POST /subscriptions/{subscription_id}/hold.json` | Required |
+| SubscriptionStatus | `create` | `POST /subscriptions/{subscription_id}/renewals/preview.json` | Required |
+| SubscriptionStatus | `remove` | `DELETE /subscriptions/{subscription_id}.json` | Required |
+| SubscriptionStatus | `remove` | `DELETE /subscriptions/{subscription_id}/delayed_cancel.json` | Required |
+| SubscriptionStatus | `update` | `PUT /subscriptions/{subscription_id}/hold.json` | Required |
+| SubscriptionStatus | `update` | `PUT /subscriptions/{subscription_id}/reactivate.json` | Required |
+| SubscriptionStatus | `update` | `PUT /subscriptions/{subscription_id}/retry.json` | Required |
+| Usage | `list` | `GET /subscriptions/{subscription_id_or_reference}/components/{component_id}/usages.json` | Required |
+| Webhook | `create` | `POST /endpoints.json` | Required |
+| Webhook | `create` | `POST /webhooks/replay.json` | Required |
+| Webhook | `list` | `GET /webhooks.json` | Required |
+| Webhook | `update` | `PUT /webhooks/settings.json` | Required |
 
 ## Connect to the API
 
@@ -791,12 +791,12 @@ Choose the language already used by your application or service. The clients rep
 
 | Client | Repository directory | Distribution |
 | --- | --- | --- |
-| [Golang](docs/sdks/go.html) | `go/` | Build from source |
-| [Lua](docs/sdks/lua.html) | `lua/` | Build from source |
-| [PHP](docs/sdks/php.html) | `php/` | Build from source |
-| [Python](docs/sdks/py.html) | `py/` | Build from source |
-| [Ruby](docs/sdks/rb.html) | `rb/` | Build from source |
-| [TypeScript](docs/sdks/ts.html) | `ts/` | Build from source |
+| Golang | `go/` | Build from source |
+| Lua | `lua/` | Build from source |
+| PHP | `php/` | Build from source |
+| Python | `py/` | Build from source |
+| Ruby | `rb/` | Build from source |
+| TypeScript | `ts/` | Build from source |
 
 Build-from-source entries are not marked as published in the project model. Follow the build instructions in that target’s README, then consume the resulting package using your language’s local dependency mechanism. Published entries give the installation command recorded for that client.
 
@@ -804,14 +804,14 @@ Build-from-source entries are not marked as published in the project model. Foll
 
 These targets provide another way to use the API. Their available commands or tools can cover a smaller set of operations than the client libraries.
 
-### [Go CLI](docs/tools/go-cli.html)
+### Go CLI
 
 Use the command-line interface for shell-based tasks and scripts.
 
 Repository directory: `go-cli/`. Not published. Build from the go-cli directory.
 
 
-### [Go MCP server](docs/tools/go-mcp.html)
+### Go MCP server
 
 Use the MCP server to expose supported API operations to an MCP client.
 
@@ -824,21 +824,21 @@ Repository directory: `go-mcp/`. Not published. Build from the go-mcp directory.
 
 Features supply behaviour around API calls, such as request handling, diagnostics, or local testing. Inclusion in this project does not mean a feature is enabled at runtime. Check the selected SDK’s supported features and configuration defaults, then enable the behaviour your application needs.
 
-- [`debug`](docs/features/debug.html): Request/response capture ring buffer for debugging
-- [`idempotency`](docs/features/idempotency.html): Idempotency keys for safe retries of mutating operations
-- [`metrics`](docs/features/metrics.html): Statistics capture: per-operation counters and latency
-- [`paging`](docs/features/paging.html): Pagination signals for list operations
-- [`ratelimit`](docs/features/ratelimit.html): Client-side rate limiting via a token bucket
-- [`retry`](docs/features/retry.html): Automatic retry of transient failures with exponential backoff
-- [`test`](docs/features/test.html): In-memory mock transport for testing without a live server
-- [`timeout`](docs/features/timeout.html): Per-request timeout with transport abort
+- `debug`: Request/response capture ring buffer for debugging
+- `idempotency`: Idempotency keys for safe retries of mutating operations
+- `metrics`: Statistics capture: per-operation counters and latency
+- `paging`: Pagination signals for list operations
+- `ratelimit`: Client-side rate limiting via a token bucket
+- `retry`: Automatic retry of transient failures with exponential backoff
+- `test`: In-memory mock transport for testing without a live server
+- `timeout`: Per-request timeout with transport abort
 
 Start with the default client configuration. Add request limits and diagnostics as needed, test error paths, and review retry behaviour before using operations that change data. A retry can repeat an operation unless the API provides a suitable guarantee.
 
 ## Continue with the documentation
 
-- Follow the [first-call guide](docs/guides/first-call.html) for the setup sequence.
-- Read the [authentication guide](docs/guides/authentication.html) before using protected routes.
-- Use the [API reference](docs/api/index.html) for request schemas, response formats, and status codes.
+- Follow the first-call guide for the setup sequence.
+- Read the authentication guide before using protected routes.
+- Use the API reference for request schemas, response formats, and status codes.
 - Check the chosen SDK or companion tool reference for its configuration and supported operations.
 
